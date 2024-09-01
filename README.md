@@ -10,3 +10,6 @@
 
 ## Known Issues
 0
+
+## Discord Server
+[discord.gg/xiaops](https://discord.gg/xiaops)
