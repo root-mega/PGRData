@@ -8,5 +8,5 @@
 - Scripts
 - Sha1
 
-## Known Issue 
+## Known Issues
 0
