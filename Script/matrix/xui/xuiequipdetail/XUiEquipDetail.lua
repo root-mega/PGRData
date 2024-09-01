@@ -25,6 +25,33 @@ function XUiEquipDetail:OnAwake()
         XDataCenter.ItemManager.ItemId.ActionPoint,
         XDataCenter.ItemManager.ItemId.Coin
     )
+
+    self.TabGroup = {
+        self.BtnDetail,
+        self.BtnStrengthen,
+        self.BtnResonance,
+        self.BtnOverclocking,
+        self.BtnOverrun,
+    }
+end
+
+local CheckCanAwake = function (equipId)
+    if not XTool.IsNumberValid(equipId) then
+        return
+    end 
+    for pos = 1, 2 do
+        if XDataCenter.EquipManager.CheckEquipCanAwake(equipId, pos) then
+            return true
+        end
+    end
+
+    return false
+end
+
+-- 在该类内自己打开ui
+local OpenChildUiByName = function(selfUi, uiname, ...)
+    selfUi.CurChildName = uiname
+    selfUi:OpenOneChildUi(selfUi.CurChildName, ...)
 end
 
 --参数isPreview为true时是装备详情预览，传templateId进来
@@ -42,6 +69,7 @@ function XUiEquipDetail:OnStart(equipId, isPreview, characterId, forceShowBindCh
     self.PanelWeapon = root:FindTransform("PanelWeapon")
     self.PanelWeaponPlane = sceneRoot:FindTransform("Plane")
     self.PanelWeaponPlane.gameObject:SetActiveEx(false)
+    self.ImgEffectOverrun = root:FindTransform("ImgEffectOverrun")
 
     if
         not isPreview and
@@ -52,14 +80,7 @@ function XUiEquipDetail:OnStart(equipId, isPreview, characterId, forceShowBindCh
         self.BtnGridGroup:SelectIndex(self.StartAwarenessIndex)
     end
 
-    self:InitTabBtnState()
-
     local btnIndex = self.TabIndex or childUiIndex or XUiEquipDetail.BtnTabIndex.Detail
-    self.TabGroup = {
-        self.BtnDetail,
-        self.BtnStrengthen,
-        self.BtnResonance
-    }
     self.PanelTabGroup:Init(
         self.TabGroup,
         function(tabIndex)
@@ -68,6 +89,8 @@ function XUiEquipDetail:OnStart(equipId, isPreview, characterId, forceShowBindCh
         btnIndex
     )
     self.PanelTabGroup:SelectIndex(btnIndex)
+
+    -- self:InitTabBtnState()
 
     self.BtnStrengthenMax.CallBack = function()
         XUiManager.TipMsg(CSTextManager.GetText("EquipStrengthenMaxLevel"))
@@ -89,22 +112,21 @@ function XUiEquipDetail:OnStart(equipId, isPreview, characterId, forceShowBindCh
 end
 
 function XUiEquipDetail:OnEnable()
-    if
-        not self.IsPreview and XDataCenter.EquipManager.IsMaxLevelAndBreakthrough(self.EquipId) and
-            self.TabIndex == XUiEquipDetail.BtnTabIndex.Strengthen
-     then
+    if not self.IsPreview and XDataCenter.EquipManager.IsMaxLevelAndBreakthrough(self.EquipId) and
+        self.TabIndex == XUiEquipDetail.BtnTabIndex.Strengthen
+    then
         self.PanelTabGroup:SelectIndex(XUiEquipDetail.BtnTabIndex.Detail)
     end
 
-    self:UpdateStrengthenBtn()
     self:InitClassifyPanel()
 
     -- 刷新强化/突破界面
     if self.TabIndex == XUiEquipDetail.BtnTabIndex.Strengthen then
         if XDataCenter.EquipManager.CanBreakThrough(self.EquipId) then
-            XDataCenter.EquipManager.TipEquipOperation(self.EquipId, nil, nil, true)
+            XMVCA:GetAgency(ModuleId.XEquip):TipEquipOperation(self.EquipId, nil, nil, true)
         end
     end
+    self:UpdateOverrunSceneEffect()
 end
 
 function XUiEquipDetail:OnDestroy()
@@ -128,7 +150,8 @@ function XUiEquipDetail:OnGetEvents()
         XEventId.EVENT_EQUIP_STRENGTHEN_NOTYFY,
         XEventId.EVENT_EQUIP_BREAKTHROUGH_NOTYFY,
         XEventId.EVENT_EQUIP_CAN_BREAKTHROUGH_TIP_CLOSE,
-        XEventId.EVENT_EQUIP_RECYCLE_NOTIFY
+        XEventId.EVENT_EQUIP_RECYCLE_NOTIFY,
+        XEventId.EVENT_EQUIP_OVERRUN_CHANGE_NOTYFY,
     }
 end
 
@@ -167,9 +190,11 @@ function XUiEquipDetail:OnNotify(evt, ...)
             return
         end
         self:UpdateStrengthenBtn()
-        self:OpenOneChildUi("UiEquipBreakThrough", self.EquipId, self)
+        OpenChildUiByName(self, "UiEquipBreakThrough", self.EquipId, self)
     elseif evt == XEventId.EVENT_EQUIP_RECYCLE_NOTIFY then
         self:Close()
+    elseif evt == XEventId.EVENT_EQUIP_OVERRUN_CHANGE_NOTYFY then
+        self:UpdateBtnOverrunRed()
     end
 end
 
@@ -188,7 +213,7 @@ function XUiEquipDetail:InitClassifyPanel()
                 modelConfig.TransformConfig,
                 self.Name,
                 nil,
-                {gameObject = self.GameObject, usage = XEquipConfig.WeaponUsage.Show, IsDragRotation = true},
+                {gameObject = self.GameObject, usage = XEquipConfig.WeaponUsage.Show, IsDragRotation = true, AntiClockwise = true},
                 self.PanelDrag
             )
         end
@@ -223,19 +248,29 @@ function XUiEquipDetail:InitTabBtnState()
         return
     end
 
-    self.BtnStrengthen.gameObject:SetActiveEx(
-        not XFunctionManager.CheckFunctionFitter(XFunctionManager.FunctionName.EquipStrengthen)
-    )
-    self.BtnResonance.gameObject:SetActiveEx(
-        not XFunctionManager.CheckFunctionFitter(XFunctionManager.FunctionName.EquipResonance) and
-            XDataCenter.EquipManager.CanResonanceByTemplateId(self.TemplateId)
-    )
+    self.BtnStrengthen.gameObject:SetActiveEx(not XFunctionManager.CheckFunctionFitter(XFunctionManager.FunctionName.EquipStrengthen))
+    self.BtnResonance.gameObject:SetActiveEx(not XFunctionManager.CheckFunctionFitter(XFunctionManager.FunctionName.EquipResonance) and
+        XDataCenter.EquipManager.CanResonanceByTemplateId(self.TemplateId))
+
+    self.BtnOverclocking.gameObject:SetActiveEx(not XDataCenter.EquipManager.IsWeapon(self.EquipId) and XDataCenter.EquipManager.CheckEquipStarCanAwake(self.EquipId))
+    self.BtnOverclocking:SetDisable(not CheckCanAwake(self.EquipId))
 
     self.BtnStrengthen:SetDisable(not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.EquipStrengthen))
     self.BtnResonance:SetDisable(not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.EquipResonance))
-    if self.TabIndex == XUiEquipDetail.BtnTabIndex.Resonance then
-        self.BtnResonance:SetButtonState(CS.UiButtonState.Select)
+
+    local canOverrun = XEquipConfig.CanOverrunByTemplateId(self.TemplateId)
+    self.BtnOverrun.gameObject:SetActiveEx(canOverrun)
+    if canOverrun then
+        self.BtnOverrun:SetDisable(not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.EquipOverrun))
+        self:UpdateBtnOverrunRed()
+        XDataCenter.EquipManager.CheckOverrunGuide(self.EquipId)
     end
+
+    local btn = self.TabGroup[self.TabIndex]
+    if btn then
+        btn:SetButtonState(CS.UiButtonState.Select)
+    end
+    self:UpdateStrengthenBtn()
 end
 
 function XUiEquipDetail:UpdateStrengthenBtn()
@@ -266,9 +301,9 @@ function XUiEquipDetail:UpdateStrengthenPanel()
     end
 
     if XDataCenter.EquipManager.CanBreakThrough(self.EquipId) then
-        self:OpenOneChildUi("UiEquipBreakThrough", self.EquipId, self)
+        OpenChildUiByName(self, "UiEquipBreakThrough", self.EquipId, self)
     else
-        self:OpenOneChildUi("UiEquipStrengthen", self.EquipId, self)
+        OpenChildUiByName(self, "UiEquipStrengthen", self.EquipId, self)
     end
     self:ShowPanelRole(false)
     self.ImgLihuiMask.gameObject:SetActiveEx(true)
@@ -288,7 +323,9 @@ end
 -- auto
 function XUiEquipDetail:OnBtnBackClick()
     if XLuaUiManager.IsUiShow("UiEquipResonanceSelect") or XLuaUiManager.IsUiShow("UiEquipResonanceAwake") then
-        self:OpenOneChildUi("UiEquipResonanceSkill", self.EquipId, self)
+        OpenChildUiByName(self, self.CurChildName, self.EquipId, self)
+        self:InitTabBtnState()
+        -- self:UpdateStrengthenBtn()
     else
         self:Close()
     end
@@ -301,7 +338,7 @@ end
 function XUiEquipDetail:OnClickTabCallBack(tabIndex)
     self:ShowSwitchPanel(false)
     if tabIndex == XUiEquipDetail.BtnTabIndex.Detail then
-        self:OpenOneChildUi("UiEquipDetailChild", self.EquipId, self.IsPreview, self.OpenUiType)
+        OpenChildUiByName(self, "UiEquipDetailChild", self.EquipId, self.IsPreview, self.OpenUiType)
         self.ChildUiEquipDetailChild.RefreshData(self.ChildUiEquipDetailChild, self.EquipId, self.IsPreview)
         self.ImgLihuiMask.gameObject:SetActiveEx(false)
         self:ShowPanelRole(true)
@@ -314,18 +351,34 @@ function XUiEquipDetail:OnClickTabCallBack(tabIndex)
         if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.EquipResonance) then
             return
         end
-
-        self:OpenOneChildUi("UiEquipResonanceSkill", self.EquipId, self)
+        OpenChildUiByName(self, "UiEquipResonanceSkill", self.EquipId, self)
         self.ImgLihuiMask.gameObject:SetActiveEx(false)
         self:ShowPanelRole(false)
         --v1.28-如果装备设置意识位置按钮组显示
         if XDataCenter.EquipManager.IsClassifyEqualByTemplateId(self.TemplateId, XEquipConfig.Classify.Awareness) then
             self:ShowSwitchPanel(true)
         end
+    elseif tabIndex == XUiEquipDetail.BtnTabIndex.Overclocking then
+        self:ShowSwitchPanel(true)
+        if not CheckCanAwake(self.EquipId) then
+            XUiManager.TipError(CS.XTextManager.GetText("SuperAwareness"))
+            return
+        end
+        OpenChildUiByName(self, "UiExhibitionOverclocking", self.EquipId, self)
+    elseif tabIndex == XUiEquipDetail.BtnTabIndex.Overrun then
+        if not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.EquipOverrun) then 
+            local tips = XFunctionManager.GetFunctionOpenCondition(XFunctionManager.FunctionName.EquipOverrun)
+            XUiManager.TipError(tips)
+            return
+        end
+        OpenChildUiByName(self, "UiEquipOverrun", self.EquipId, self)
+        self:SaveEnterOverrunRedData()
+        self:UpdateBtnOverrunRed()
     end
 
     self.TabIndex = tabIndex
     self:RefreshNumberBtn()
+    self:InitTabBtnState()
 end
 
 function XUiEquipDetail:RegisterHelpBtn()
@@ -336,7 +389,8 @@ function XUiEquipDetail:RegisterHelpBtn()
 end
 
 function XUiEquipDetail:SetPanelRole()
-    if XArrangeConfigs.GetType(self.TemplateId) == XArrangeConfigs.Types.Weapon then
+    -- 预览才显示
+    if XArrangeConfigs.GetType(self.TemplateId) == XArrangeConfigs.Types.Weapon and self.IsPreview then
         local weaponUsers = XDataCenter.EquipManager.GetWeaponUserTemplateIds(self.TemplateId)
         for _, v in pairs(weaponUsers) do
             local go = CS.UnityEngine.Object.Instantiate(self.PanelText, self.PaneContent)
@@ -400,10 +454,20 @@ function XUiEquipDetail:RegisterAwarenessSwitch()
             if self.SelectAwarenessIndex == index then
                 return
             end
-            -- 装备可否共鸣过滤
-            if not self:CheckIsInAndCanResonance(index) then
-                return
+            
+            if self.TabIndex == XUiEquipDetail.BtnTabIndex.Overclocking then
+                -- 装备可否超频
+                local eqpuiId = XDataCenter.EquipManager.GetWearingEquipIdBySite(self.CharacterId, index)
+                if not CheckCanAwake(eqpuiId) then
+                    return
+                end
+            else
+                -- 装备可否共鸣过滤
+                if not self:CheckIsInAndCanResonance(index) then
+                    return
+                end
             end
+
             self:RefreshAwarenessSelect(index)
             self:UpdateStrengthenBtn()
         end
@@ -439,7 +503,7 @@ function XUiEquipDetail:RefreshAwarenessSelect(equipSite)
     self.SelectAwarenessIndex = equipSite
     self.TemplateId = self.isPreview and self.EquipId or XDataCenter.EquipManager.GetEquipTemplateId(self.EquipId)
     self:InitTabBtnState()
-    self:UpdateStrengthenBtn()
+    -- self:UpdateStrengthenBtn()
     self:RefreshNumberBtn()
     self:RefreshSwitchBtnShow()
     self:InitClassifyPanel()
@@ -451,16 +515,22 @@ function XUiEquipDetail:RefreshAwarenessSelect(equipSite)
         self.ChildUiEquipResonanceSkill.RefreshData(self.ChildUiEquipResonanceSkill, self.EquipId)
     end
     --v1.28-如果处于共鸣内Ui切换意识则切换共鸣界面
-    if XLuaUiManager.IsUiShow("UiEquipResonanceSelect") or XLuaUiManager.IsUiShow("UiEquipResonanceAwake") then
-        self:OpenOneChildUi("UiEquipResonanceSkill", self.EquipId, self)
+    if XLuaUiManager.IsUiShow("UiEquipResonanceSelect") then
+        OpenChildUiByName(self, "UiEquipResonanceSkill", self.EquipId, self)
+    end
+
+    if XLuaUiManager.IsUiShow("UiExhibitionOverclocking") then
+        self.ChildUiExhibitionOverclocking:RefreshData(self.EquipId)
+    end
+
+    if XLuaUiManager.IsUiShow("UiEquipResonanceAwake") then
+        OpenChildUiByName(self, "UiExhibitionOverclocking", self.EquipId, self)
     end
 end
 
 function XUiEquipDetail:ShowSwitchPanel(value)
-    self.PanelTab.gameObject:SetActiveEx(
-        value and self.CharacterId and
-            (XDataCenter.EquipManager.GetCharacterWearingAwarenessIdCount(self.CharacterId) > 1) and
-            XDataCenter.EquipManager.IsEquipWearingByCharacterId(self.EquipId, self.CharacterId)
+    self.PanelTab.gameObject:SetActiveEx(value and self.CharacterId and (XDataCenter.EquipManager.GetCharacterWearingAwarenessIdCount(self.CharacterId) > 1) 
+        and XDataCenter.EquipManager.IsEquipWearingByCharacterId(self.EquipId, self.CharacterId)
     )
 end
 
@@ -484,12 +554,24 @@ function XUiEquipDetail:RefreshSwitchBtnShow() --切换按钮的表现
 end
 
 function XUiEquipDetail:RefreshNumberBtn() --为了兼容switch的按钮需要
-    for i = 1, XEquipConfig.EquipSite.Awareness.Six do
-        if self:CheckIsInAndCanResonance(i) then
-            local state = i == self.SelectAwarenessIndex and CS.UiButtonState.Select or CS.UiButtonState.Normal
-            self["BtnNumber" .. i]:SetButtonState(state)
-        else
-            self["BtnNumber" .. i]:SetButtonState(CS.UiButtonState.Disable)
+    if self.TabIndex == XUiEquipDetail.BtnTabIndex.Overclocking then
+        for i = 1, XEquipConfig.EquipSite.Awareness.Six do
+            local eqpuiId = XDataCenter.EquipManager.GetWearingEquipIdBySite(self.CharacterId, i)
+            if CheckCanAwake(eqpuiId) then
+                local state = i == self.SelectAwarenessIndex and CS.UiButtonState.Select or CS.UiButtonState.Normal
+                self["BtnNumber" .. i]:SetButtonState(state)
+            else
+                self["BtnNumber" .. i]:SetButtonState(CS.UiButtonState.Disable)
+            end
+        end
+    else
+        for i = 1, XEquipConfig.EquipSite.Awareness.Six do
+            if self:CheckIsInAndCanResonance(i) then
+                local state = i == self.SelectAwarenessIndex and CS.UiButtonState.Select or CS.UiButtonState.Normal
+                self["BtnNumber" .. i]:SetButtonState(state)
+            else
+                self["BtnNumber" .. i]:SetButtonState(CS.UiButtonState.Disable)
+            end
         end
     end
 end
@@ -499,4 +581,85 @@ function XUiEquipDetail:CheckIsInAndCanResonance(equipSite)
     local equipId = XDataCenter.EquipManager.GetWearingEquipIdBySite(self.CharacterId, equipSite)
     return equipId and (self.TabIndex ~= XUiEquipDetail.BtnTabIndex.Resonance or 
            self.TabIndex == XUiEquipDetail.BtnTabIndex.Resonance and XDataCenter.EquipManager.CanResonance(equipId))
+end
+
+-- 刷新超限按钮红点
+function XUiEquipDetail:UpdateBtnOverrunRed()
+    if self.IsPreview then
+        return
+    end
+
+    -- 未解锁，不显示蓝点
+    local isUnlock = XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.EquipOverrun)
+    if not isUnlock then
+        self.BtnOverrun:ShowReddot(false)
+        return
+    end
+
+    -- 解锁后，未点开过，显示蓝点
+    local saveKey = self:GetEnterOverrunSaveKey()
+    local isEnter = XSaveTool.GetData(saveKey) == true
+    if not isEnter then
+        self.BtnOverrun:ShowReddot(true)
+        return
+    end
+
+    -- 超限可绑定意识套装，但未绑定意识套装，显示蓝点
+    local equip = XDataCenter.EquipManager.GetEquip(self.EquipId)
+    if equip:IsShowOverrunRed() then 
+        self.BtnOverrun:ShowReddot(true)
+        return
+    end
+
+    self.BtnOverrun:ShowReddot(false)
+end
+
+function XUiEquipDetail:GetEnterOverrunSaveKey()
+    return "XUiEquipDetail:GetEnterOverrunSaveKey()  XPlayer.Id" .. tostring(XPlayer.Id) 
+end
+
+-- 保存进入过超限界面的红点数据
+function XUiEquipDetail:SaveEnterOverrunRedData()
+    local saveKey = self:GetEnterOverrunSaveKey()
+    XSaveTool.SaveData(saveKey, true)
+end
+
+-- 刷新超限场景特效
+function XUiEquipDetail:UpdateOverrunSceneEffect()
+    self.ImgEffectOverrun.gameObject:SetActiveEx(false)
+    if self.IsPreview then
+        return
+    end
+
+    local equip = XDataCenter.EquipManager.GetEquip(self.EquipId)
+    local level = equip:GetOverrunLevel()
+    if level < 1 then
+        return
+    end
+
+    self.ImgEffectOverrun.gameObject:SetActiveEx(true)
+    local deregulateUICfg = XEquipConfig.GetWeaponDeregulateUICfg(level)
+    if deregulateUICfg.SceneLoopEffectPath then
+        self.ImgEffectOverrun:LoadPrefab(deregulateUICfg.SceneLoopEffectPath)
+    end
+end
+
+-- 播放超限升级特效
+function XUiEquipDetail:PlayOverrunLevelUpEffect()
+    self.ImgEffectOverrun.gameObject:SetActiveEx(false)
+    if self.IsPreview then
+        return
+    end
+
+    local equip = XDataCenter.EquipManager.GetEquip(self.EquipId)
+    local level = equip:GetOverrunLevel()
+    if level < 1 then
+        return
+    end
+
+    self.ImgEffectOverrun.gameObject:SetActiveEx(true)
+    local deregulateUICfg = XEquipConfig.GetWeaponDeregulateUICfg(level)
+    if deregulateUICfg.SceneStartEffectPath then
+        self.ImgEffectOverrun:LoadPrefab(deregulateUICfg.SceneStartEffectPath)
+    end
 end

@@ -1,6 +1,7 @@
 local type = type
 
 --道具栏变更状态同步
+---@class XGoldenMinerItemChangeInfo
 local XGoldenMinerItemChangeInfo = XClass(nil, "XGoldenMinerItemChangeInfo")
 
 local Default = {

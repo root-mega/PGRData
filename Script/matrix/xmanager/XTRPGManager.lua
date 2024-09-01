@@ -782,7 +782,7 @@ XTRPGManagerCreator = function()
 
         role:UpdateData(data)
 
-        if newRoleId then
+        if newRoleId and XTRPGConfigs.GetRoleIsShowTip(newRoleId) then
             XLuaUiManager.Open("UiTRPGNewCharacter", newRoleId)
         end
     end
@@ -2073,18 +2073,16 @@ XTRPGManagerCreator = function()
     --------------------首次播放剧情 end--------------------------
     --------------------跳转 start--------------------------
     function XTRPGManager.SkipTRPGMain()
-        local uiName = XTRPGManager.GetMainName()
-
         if XDataCenter.FubenMainLineManager.IsMainLineActivityOpen() then
             local chapterId = XDataCenter.FubenMainLineManager.TRPGChapterId
             local ret, desc = XDataCenter.FubenMainLineManager.CheckActivityCondition(chapterId)
             if ret then
-                XLuaUiManager.OpenWithCallback(uiName, XTRPGManager.UpdateCurrAreaOpenNum)
+                XTRPGManager.PlayStartStory(XTRPGManager.UpdateCurrAreaOpenNum)
             else
                 XUiManager.TipError(desc)
             end
         elseif XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.MainLineTRPG) then
-            XLuaUiManager.OpenWithCallback(uiName, XTRPGManager.UpdateCurrAreaOpenNum)
+            XTRPGManager.PlayStartStory(XTRPGManager.UpdateCurrAreaOpenNum)
         end
     end
 
@@ -2214,6 +2212,44 @@ XTRPGManagerCreator = function()
             end
         end
         return false
+    end
+    
+    -- 首次进入播放剧情
+    function XTRPGManager.PlayStartStory(callback)
+        local OpenMainUi = function(uiName)
+            if uiName == nil then
+                uiName = XTRPGManager.GetMainName()
+            end
+            XLuaUiManager.OpenWithCallback(uiName, callback)
+        end
+        
+        local TRPGFirstOpenFunctionGroupId = CS.XGame.ClientConfig:GetInt("TRPGFirstOpenFunctionGroupId")
+        if not XTRPGManager.IsFunctionGroupConditionFinish(TRPGFirstOpenFunctionGroupId) then
+            OpenMainUi()
+            return
+        end
+
+        local functionIds = XTRPGConfigs.GetFunctionGroupFunctionIds(TRPGFirstOpenFunctionGroupId)
+        for _, functionId in ipairs(functionIds) do
+            if not XTRPGManager.IsThirdAreaFunctionFinish(nil, functionId) then
+                if XTRPGConfigs.CheckFunctionType(functionId, XTRPGConfigs.TRPGFunctionType.Story) then
+                    local params = XTRPGConfigs.GetFunctionParams(functionId)
+                    local movieId = params[1]
+                    local cb = function()
+                        XTRPGManager.RequestFunctionFinishSend(nil, functionId)
+                        -- 第一次打开常规模式
+                        if not XTRPGManager.IsNormalPage() then
+                            XTRPGManager.RequestTRPGChangePageStatus(true)
+                        end
+                        OpenMainUi("UiTRPGSecondMain")
+                    end
+                    XDataCenter.MovieManager.PlayMovie(movieId, cb, nil, nil, false)
+                    return
+                end
+            end
+        end
+
+        OpenMainUi()
     end
     --------------------常规主线 start---------------------
     XTRPGManager.Init()

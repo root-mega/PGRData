@@ -1,3 +1,4 @@
+---@class XUiPanelSignBoard
 local XUiPanelSignBoard = XClass(nil, "XUiPanelSignBoard")
 local XUiPanelRoleModel = require("XUi/XUiCharacter/XUiPanelRoleModel")
 
@@ -5,10 +6,14 @@ XUiPanelSignBoard.SignBoardOpenType = {
     MAIN = 1,
     FAVOR = 2
 }
+local UiMainMenuType = {
+    Main = 1,
+    Second = 2,
+}
 
 local DEFAULT_CV_TYPE = CS.XGame.Config:GetInt("DefaultCvType")
 
-function XUiPanelSignBoard:Ctor(ui, parent, openType)
+function XUiPanelSignBoard:Ctor(ui, parent, openType, playCb, StopCb)
     self.GameObject = ui.gameObject
     self.Transform = ui.transform
     XTool.InitUiObject(self)
@@ -22,6 +27,9 @@ function XUiPanelSignBoard:Ctor(ui, parent, openType)
     self.DialogTrigger = true
     self.CvTrigger = true
 
+    self.PlayCb = playCb
+    self.StopCb = StopCb
+
     self:InitAutoScript()
     self:Init()
 end
@@ -29,6 +37,7 @@ end
 function XUiPanelSignBoard:Init()
     --模型
     local clearUiChildren = self.OpenType == XUiPanelSignBoard.SignBoardOpenType.MAIN
+    ---@type XUiPanelRoleModel
     self.RoleModel = XUiPanelRoleModel.New(self.Parent.UiModel.UiModelParent, self.Parent.Name, true, false, false, nil, nil, function()
         if self.Parent.PlayChangeActionEffect then
             self.Parent:PlayChangeActionEffect()
@@ -65,8 +74,11 @@ function XUiPanelSignBoard:Init()
 
     --用于驱动播放器和连点检测
     --事件
-    CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_FIGHT_RESULT, handler(self, self.OnNotify))
-    CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_FAVORABILITY_GIFT, handler(self, self.OnNotify))
+    self.OnAnimationEnterCb = handler(self, self.OnAnimationEnter)
+    self.OnNotifyCb = handler(self, self.OnNotify)
+    CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_FIGHT_RESULT, self.OnNotifyCb)
+    CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_FAVORABILITY_GIFT, self.OnNotifyCb)
+    CsXGameEventManager.Instance:RegisterEvent(CS.XEventId.EVENT_HOMECHAR_ACTION_ENTER, self.OnAnimationEnterCb)
 end
 
 function XUiPanelSignBoard:SetDisplayCharacterId(displayCharacterId)
@@ -92,6 +104,7 @@ end
 
 function XUiPanelSignBoard:RefreshCharacterModelById(templateId)
     XDataCenter.DisplayManager.UpdateRoleModel(self.RoleModel, templateId)
+    self.RoleModel:SetXPostFaicalControllerActive(true)
 end
 
 function XUiPanelSignBoard:OnNotify(event, ...)
@@ -107,7 +120,7 @@ function XUiPanelSignBoard:OnRoll(time)
     self.CanBreakTrigger = false
 
     local config = XDataCenter.SignBoardManager.GetRandomPlayElementsByRoll(time, self.DisplayCharacterId)
-    self.SignBoardPlayer:ForcePlay(config, nil, true)
+    if config ~= nil then self:ForcePlay(config.Id, nil, self.FromBegin, true) end
 end
 
 function XUiPanelSignBoard:ResetPlayList()
@@ -120,7 +133,15 @@ function XUiPanelSignBoard:ResetPlayList()
     self.SignBoardPlayer:SetPlayList(playList)
 end
 
+function XUiPanelSignBoard:RefreshUiShow()
+    self.BtnReplace:SetDisable(not XPlayer.DisplayCharIdList or #XPlayer.DisplayCharIdList <= 1)
+    if self.OpenType == XUiPanelSignBoard.SignBoardOpenType.MAIN then
+        self.PanelOpration.gameObject:SetActiveEx(false)
+    end
+end
+
 function XUiPanelSignBoard:OnEnable()
+    self:RefreshUiShow()
 
     if self.Timer then
         XScheduleManager.UnSchedule(self.Timer)
@@ -149,9 +170,15 @@ function XUiPanelSignBoard:OnEnable()
     self.SignBoardPlayer:SetPlayList(playList)
 
     self.Enable = true
+
+    self.RoleModel:SetXPostFaicalControllerActive(true)
 end
 
 function XUiPanelSignBoard:OnDisable()
+    self:StopTimerShow()
+    if self.OpenType == XUiPanelSignBoard.SignBoardOpenType.MAIN then
+        self.PanelOpration.gameObject:SetActiveEx(false)
+    end
 
     if self.Timer ~= nil then
         XScheduleManager.UnSchedule(self.Timer)
@@ -191,6 +218,21 @@ function XUiPanelSignBoard:OnDestroy()
     end
 
     self.Enable = false
+    self.Parent = nil
+
+    CsXGameEventManager.Instance:RemoveEvent(XEventId.EVENT_FIGHT_RESULT, self.OnNotifyCb)
+    CsXGameEventManager.Instance:RemoveEvent(XEventId.EVENT_FAVORABILITY_GIFT, self.OnNotifyCb)
+    CsXGameEventManager.Instance:RemoveEvent(CS.XEventId.EVENT_HOMECHAR_ACTION_ENTER, self.OnAnimationEnterCb)
+    
+    self.OnNotifyCb = nil
+    self.OnAnimationEnterCb = nil
+end
+
+function XUiPanelSignBoard:StopTimerShow()
+    if self.TimerShow then
+        XScheduleManager.UnSchedule(self.TimerShow)
+    end
+    self.TimerShow = nil
 end
 
 function XUiPanelSignBoard:Update()
@@ -209,7 +251,7 @@ function XUiPanelSignBoard:Update()
         local standType = XDataCenter.SignBoardManager.GetStandType()
 
         if self.SignBoardPlayer.Status == 0 and self.SignBoardPlayer.LastPlayTime > 0 and standType == 0 and bBeyondignBoardWaitInterval and self.AutoPlay then
-            self.SignBoardPlayer:ForcePlay(idle, nil, true)
+            self:ForcePlay(idle.Id, nil, self.FromBegin, true)
 
             if idle.ShowType ~= XDataCenter.SignBoardManager.ShowType.Normal then
                 -- 该idle动作限制每次登录或者每天只播放一次
@@ -241,10 +283,16 @@ function XUiPanelSignBoard:AutoInitUi()
     self.PanelOpration = self.Transform:Find("PanelLayout/PanelOpration")
     self.BtnReplace = self.Transform:Find("PanelLayout/PanelOpration/BtnReplace"):GetComponent("Button")
     self.BtnCoating = self.Transform:Find("PanelLayout/PanelOpration/BtnCoating"):GetComponent("Button")
+    local btnSceneObj=self.Transform:Find('PanelLayout/PanelOpration/BtnScene')
+    if btnSceneObj then
+        self.BtnScene=btnSceneObj:GetComponent('Button')
+    end
     self.BtnCommunication = self.Transform:Find("PanelLayout/PanelOpration/BtnCommunication"):GetComponent("Button")
     
     self.LayoutContent = self.PanelLayout:Find("PanelChat/TxtList/Viewport/Content"):GetComponent("RectTransform")
     self.LayoutContentOriginPos = XTool.Clone(self.LayoutContent.localPosition)
+
+    self.BtnCoating.gameObject:SetActiveEx(not XUiManager.IsHideFunc)
 end
 
 function XUiPanelSignBoard:RegisterClickEvent(uiNode, func)
@@ -268,6 +316,9 @@ function XUiPanelSignBoard:AutoAddListener()
     self:RegisterClickEvent(self.BtnRole, self.OnBtnRoleClick)
     self:RegisterClickEvent(self.BtnReplace, self.OnBtnReplaceClick)
     self:RegisterClickEvent(self.BtnCoating, self.OnBtnCoatingClick)
+    if self.BtnScene then
+        self:RegisterClickEvent(self.BtnScene,self.OnBtnSceneClick)
+    end
     self:RegisterClickEvent(self.BtnCommunication, self.OnBtnCommunicationClick)
 end
 
@@ -322,21 +373,39 @@ function XUiPanelSignBoard:OnBtnFaceClick(CvId)--ZStest
     end
 end
 
--- auto
+-- auto 随机替换
 function XUiPanelSignBoard:OnBtnReplaceClick()
+    if not XPlayer.DisplayCharIdList or #XPlayer.DisplayCharIdList <= 1 then
+        XUiManager.TipMsg(XUiHelper.GetText("AssistOnlyOne"))
+        return
+    end
+    
+    local displayCharacterId = XDataCenter.DisplayManager.GetRandomDisplayCharByList().Id
+    XDataCenter.DisplayManager.SetNextDisplayChar(nil)
+    self:SetDisplayCharacterId(displayCharacterId)
+    self:RefreshCharModel()
+    if self.Parent.PlayChangeModelEffect then
+        self.Parent:PlayChangeModelEffect()
+    end
+
+    self.SignBoardPlayer:Stop()
+end
+
+function XUiPanelSignBoard:OnBtnCoatingClick()
+    -- if XFunctionManager.CheckFunctionFitter(XFunctionManager.FunctionName.FavorabilityMain) then
+    --     XUiManager.TipMsg(CS.XTextManager.GetText("FunctionalMaintain"))
+    --     return
+    -- end
+    -- XLuaUiManager.OpenWithCallback("UiFashion", function()
+    --     self.SignBoardPlayer:Stop()
+    -- end, self.DisplayCharacterId)
     XLuaUiManager.OpenWithCallback("UiFavorabilityLineRoomCharacter", function()
         self.SignBoardPlayer:Stop()
     end)
 end
 
-function XUiPanelSignBoard:OnBtnCoatingClick()
-    if XFunctionManager.CheckFunctionFitter(XFunctionManager.FunctionName.FavorabilityMain) then
-        XUiManager.TipMsg(CS.XTextManager.GetText("FunctionalMaintain"))
-        return
-    end
-    XLuaUiManager.OpenWithCallback("UiFashion", function()
-        self.SignBoardPlayer:Stop()
-    end, self.DisplayCharacterId)
+function XUiPanelSignBoard:OnBtnSceneClick()
+    XLuaUiManager.Open("UiSceneSettingMain",UiMainMenuType.Main)
 end
 
 function XUiPanelSignBoard:OnBtnCommunicationClick()
@@ -353,7 +422,11 @@ function XUiPanelSignBoard:Play(element)
     if not element then
         return
     end
-    
+
+    if self.PlayCb then
+        self.PlayCb()
+    end
+
     --用CvId与CvType来索引Cv.tab,从而获得Content
     local content
     local cvId = element.SignBoardConfig.CvId
@@ -407,23 +480,102 @@ function XUiPanelSignBoard:Play(element)
 
     if self.OpenType == XUiPanelSignBoard.SignBoardOpenType.MAIN then
         self.Parent:PlayAnimation("AnimOprationBegan")
+        self:StopTimerShow()
+        self.TimerShow = XScheduleManager.ScheduleOnce(function()
+            self.Parent:PlayAnimation("AnimOprationEnd")
+            self.PanelOpration.gameObject:SetActiveEx(false)
+        end, CS.XGame.ClientConfig:GetInt("Interactionbuttonshowtime"))
+    end
+end
+
+-- v1.32 播放角色特殊动作场景动画
+function XUiPanelSignBoard:PlaySceneAnim(element)
+    if not element or not self.Parent.UiModelGo then
+        return
+    end
+    local animRoot = self.Parent.UiModelGo.transform
+    local cameraFar = self.Parent:FindVirtualCamera("CamFarMain")
+    local cameraNear = self.Parent:FindVirtualCamera("CamNearMain")
+    if not cameraFar or not cameraNear then
+        return
+    end
+    XDataCenter.SignBoardManager.LoadSceneAnim(animRoot, cameraFar, cameraNear, XDataCenter.PhotographManager.GetCurSceneId(), element.SignBoardConfig.Id, self.Parent)
+    XDataCenter.SignBoardManager.SceneAnimPlay()
+end
+
+-- v1.32 播放角色特殊动作播放动画
+function XUiPanelSignBoard:PlayUiAnim()
+    if not self.Parent.UiModelGo then
+        return
+    end
+    -- 隐藏助理面板
+    self.PanelOpration.gameObject:SetActiveEx(false)
+end
+
+function XUiPanelSignBoard:PlayCross(element)
+    if not element then
+        return
+    end
+
+    if self.PlayCb then
+        self.PlayCb()
+    end
+
+    --用CvId与CvType来索引Cv.tab,从而获得Content
+    local content
+    local cvId = element.SignBoardConfig.CvId
+    local cvType
+    if element.CvType then
+        cvType = element.CvType
+        --播放动作页签下的动作，使用页签选择的语言类型
+        content = XFavorabilityConfigs.GetCvContentByIdAndType(cvId, element.CvType)
+    else
+        --播放看板交互的动作，使用设置项的语言
+        cvType = CS.UnityEngine.PlayerPrefs.GetInt("CV_TYPE", DEFAULT_CV_TYPE)
+        content = XFavorabilityConfigs.GetCvContentByIdAndType(cvId, cvType)
+    end
+    self.TxtSplitCvContent:ShowContent(cvId, cvType, content)
+
+    self:ShowNormalContent(element.SignBoardConfig.Content ~= nil and self.DialogTrigger)
+    self.PanelOpration.gameObject:SetActiveEx(element.SignBoardConfig.ShowButton ~= nil and self.OperateTrigger)
+
+    if element.SignBoardConfig.CvId and element.SignBoardConfig.CvId > 0 and self.CvTrigger then
+        if element.CvType then
+            self:PlayCvWithCvType(element.SignBoardConfig.CvId, element.CvType)
+        else
+            self:PlayCv(element.SignBoardConfig.CvId)
+        end
+    end
+
+    local actionId = element.SignBoardConfig.ActionId
+    if actionId then
+        self:PlayAnimaCross(actionId)
+        self.RoleModel:LoadCharacterUiEffect(tonumber(element.SignBoardConfig.RoleId), actionId)
+    end
+
+    if self.OpenType == XUiPanelSignBoard.SignBoardOpenType.MAIN then
+        self.Parent:PlayAnimation("AnimOprationBegan")
+        self:StopTimerShow()
+        self.TimerShow = XScheduleManager.ScheduleOnce(function()
+            self.Parent:PlayAnimation("AnimOprationEnd")
+            self.PanelOpration.gameObject:SetActiveEx(false)
+        end, CS.XGame.ClientConfig:GetInt("Interactionbuttonshowtime"))
     end
 end
 
 --显示对白
 function XUiPanelSignBoard:ShowNormalContent(show)
     self:SetPanelLayoutActive(show)
-    if show then -- 海外修改(打开操作看板操作按钮时，重置按钮转态，规避长按按钮消失BUG)
-        self.BtnReplace:SetButtonState(0)
-        self.BtnCoating:SetButtonState(0)
-        self.BtnCommunication:SetButtonState(0)
-    end
+    self.BtnReplace:SetButtonState(CS.UiButtonState.Normal)
+    self.BtnReplace:SetDisable(not XPlayer.DisplayCharIdList or #XPlayer.DisplayCharIdList <= 1)
+    self.BtnCoating:SetButtonState(CS.UiButtonState.Normal)
+    self.BtnCommunication:SetButtonState(CS.UiButtonState.Normal)
 end
 
 
 --显示操作按钮
 function XUiPanelSignBoard:ShowOprationBtn()
-    self.PanelOpration.gameObject:SetActiveEx(self.OperateTrigger)
+    -- self.PanelOpration.gameObject:SetActiveEx(self.OperateTrigger)
 end
 
 --显示对白
@@ -463,6 +615,11 @@ function XUiPanelSignBoard:PlayAnima(actionId)
     self.FromBegin = nil
 end
 
+function XUiPanelSignBoard:PlayAnimaCross(actionId)
+    self.RoleModel:PlayAnimaCross(actionId, self.FromBegin)
+    self.FromBegin = nil
+end
+
 --暂停
 function XUiPanelSignBoard:Pause()
     if self.SignBoardPlayer then
@@ -485,9 +642,9 @@ function XUiPanelSignBoard:Resume()
 end
 
 --停止
-function XUiPanelSignBoard:Stop()
+function XUiPanelSignBoard:Stop(force)
     if self.SignBoardPlayer then
-        self.SignBoardPlayer:Stop()
+        self.SignBoardPlayer:Stop(force)
     end
 end
 
@@ -507,12 +664,11 @@ function XUiPanelSignBoard:CvStop()
 end
 
 --停止
-function XUiPanelSignBoard:OnStop(playingElement)
+function XUiPanelSignBoard:OnStop(playingElement, force)
     if self.OpenType == XUiPanelSignBoard.SignBoardOpenType.MAIN then
         if not self.Parent.GameObject.activeSelf then
             return
         end
-        self.Parent:PlayAnimation("AnimOprationEnd")
     end
 
     if self.PlayingCv then
@@ -527,7 +683,7 @@ function XUiPanelSignBoard:OnStop(playingElement)
         if isChanged then
             self:ResetPlayList()
         end
-        self.RoleModel:StopAnima(playingElement.SignBoardConfig.ActionId)
+        self.RoleModel:StopAnima(playingElement.SignBoardConfig.ActionId, force)
         self.RoleModel:LoadCurrentCharacterDefaultUiEffect()
     end
 end
@@ -539,15 +695,54 @@ function XUiPanelSignBoard:OnBtnRoleClick()
     end
 end
 
+--根据好感度决定动作的播放
+function XUiPanelSignBoard:TrasformPlayConfigByFavorability(config)
+    if config == nil then return end
+    --确定当前动作是否满足好感度条件
+    local isUnlock , conditionDescript = XDataCenter.FavorabilityManager.CheckCharacterActionUnlockBySignBoardActionId(config.Id)
+    if isUnlock then
+        return config
+    end
+    --如果没满足则从同样播放条件的动作里随机抽取
+    local SignBoardActionDatas = XSignBoardConfigs.GetSignBoardConfigByRoldIdAndCondition(tonumber(config.RoleId), config.ConditionId)
+    local randomDatas = {}
+    for _, signBoardActionData in ipairs(SignBoardActionDatas) do
+        if signBoardActionData.ConditionParam == config.ConditionParam and XDataCenter.FavorabilityManager.CheckCharacterActionUnlockBySignBoardActionId(signBoardActionData.Id) then
+            table.insert(randomDatas,signBoardActionData)
+        end
+    end
+    if #randomDatas > 0 then
+        local index = math.random(1, #randomDatas)
+        return randomDatas[index]
+    end
+    --如果没动作可以播放 则什么都不发生
+    return nil
+end
+
 -- 强制播放
 -- 当动作页签调用时，会传入当前选择的CvType
 -- isRecord决定是否记录当前播放的动作
 function XUiPanelSignBoard:ForcePlay(playId, cvType, fromBegin, isRecord)
     local config = XSignBoardConfigs.GetSignBoardConfigById(playId)
-
+    --好感度系统检查动作播放
+    config = self:TrasformPlayConfigByFavorability(config)
+    if config == nil then return end
     -- 从头开始播放动画，避免重复播放同一动画时继承上一个动画的进度
     self.FromBegin = fromBegin
     self.SignBoardPlayer:ForcePlay(config, cvType, isRecord)
+end
+
+-- 强制播放
+-- 当动作页签调用时，会传入当前选择的CvType
+-- isRecord决定是否记录当前播放的动作
+function XUiPanelSignBoard:ForcePlayCross(playId, cvType, fromBegin, isRecord)
+    local config = XSignBoardConfigs.GetSignBoardConfigById(playId)
+    --好感度系统检查动作播放
+    config = self:TrasformPlayConfigByFavorability(config)
+    if config == nil then return end
+    -- 从头开始播放动画，避免重复播放同一动画时继承上一个动画的进度
+    self.FromBegin = fromBegin
+    self.SignBoardPlayer:ForcePlayCross(config, cvType, isRecord)
 end
 
 function XUiPanelSignBoard:IsPlaying()
@@ -563,18 +758,26 @@ function XUiPanelSignBoard:OnMultClick(clickTimes)
     dict["ui_second_button"] = param
     CS.XRecord.Record(dict, "200004", "UiOpen")
 
+    XDataCenter.SignBoardManager.RequestTouchBoard(self.DisplayCharacterId)
+    
     local config
     if self.SignBoardPlayer:IsPlaying() and not self.CanBreakTrigger then
         return
     end
-
     self.CanBreakTrigger = false
-
-    config = XDataCenter.SignBoardManager.GetRandomPlayElementsByClick(clickTimes, self.DisplayCharacterId)
-
     -- 从头开始播放动画，避免重复播放同一动画时继承上一个动画的进度
-    self.FromBegin = true
-    self.SignBoardPlayer:ForcePlay(config, nil, true)
+    config = XDataCenter.SignBoardManager.GetRandomPlayElementsByClick(clickTimes, self.DisplayCharacterId)
+    -- 特殊动作屏蔽处理（本我回廊功能）
+    if config ~= nil and self.SpecialFilterAnimId and self.SpecialFilterAnimId[config.Id] then
+        return
+    end
+    if config ~= nil then
+        if self.Parent.FavorabilityMain then
+            self:ForcePlayCross(config.Id, self.Parent.FavorabilityMain.CvType, true, true)
+        else
+            self:ForcePlayCross(config.Id, nil, true, true)
+        end
+    end
 end
 
 --设置自动播放
@@ -593,7 +796,7 @@ end
 function XUiPanelSignBoard:SetOperateTrigger(bTriggeer)
     self.OperateTrigger = bTriggeer
     if not bTriggeer then
-        self.PanelOpration.gameObject:SetActiveEx(false)
+        -- self.PanelOpration.gameObject:SetActiveEx(false)
     end
 end
 
@@ -621,10 +824,52 @@ function XUiPanelSignBoard:SetRoll(value)
 end
 
 function XUiPanelSignBoard:SetPanelLayoutActive(isActive)
-    self.PanelLayout.gameObject:SetActiveEx(isActive)
+    self.PanelChat.gameObject:SetActiveEx(isActive)
+    if self.OpenType == XUiPanelSignBoard.SignBoardOpenType.MAIN then
+        self.PanelChat.gameObject:SetActiveEx(isActive)
+    else
+        self.PanelLayout.gameObject:SetActiveEx(isActive)
+    end
     if not isActive then
         self.TxtSplitCvContent:HideContent()
     end
+    self.RoleModel:SetXPostFaicalControllerActive(not isActive)
+end
+
+-- 特殊动作屏蔽处理（本我回廊功能）
+function XUiPanelSignBoard:SetSpecialFilterAnimId(animId)
+    self.SpecialFilterAnimId = animId
+end
+
+-- 开关角色看板动作功能
+function XUiPanelSignBoard:SetEnable(enable)
+    self.Enable = enable
+    if enable and self.SignBoardPlayer and self.SignBoardPlayer.LastPlayTime > 0 then
+        -- 处理长待机计时
+        self.SignBoardPlayer.LastPlayTime = XTime.GetServerNowTimestamp()
+    end
+end
+
+--- 动画开始播放
+---@param args System.Object[]
+--------------------------
+function XUiPanelSignBoard:OnAnimationEnter(evt, args)
+    --参数数组 0：UnityEngine.Animator
+    --参数数组 1：UnityEngine.AnimatorStateInfo
+    if not args or args.Length < 2 then
+        return
+    end
+    local stateInfo = args[1]
+    if not self.RoleModel or not self.DisplayCharacterId or self.DisplayCharacterId <= 0 
+            or not stateInfo then
+        return
+    end
+    --获取身体层正在播放的动画名
+    local actionId = self.RoleModel:GetPlayingStateName(0)
+    if not stateInfo:IsName(actionId) then
+        return
+    end
+    self.RoleModel:LoadCharacterUiEffect(self.DisplayCharacterId, actionId)
 end
 
 return XUiPanelSignBoard

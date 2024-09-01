@@ -1,9 +1,10 @@
+local XExFubenMainLineManager = require("XEntity/XFuben/XExFubenMainLineManager")
 local tableInsert = table.insert
 local tableSort = table.sort
 
 XFubenMainLineManagerCreator = function()
-
-    local XFubenMainLineManager = {}
+    ---@class XFubenMainLineManager
+    local XFubenMainLineManager = XExFubenMainLineManager.New(XFubenConfigs.ChapterType.MainLine)
 
     local METHOD_NAME = {
         ReceiveTreasureReward = "ReceiveTreasureRewardRequest",
@@ -25,10 +26,12 @@ XFubenMainLineManagerCreator = function()
     local ActivityChapters = {} --活动抢先体验ChapterId列表
     local ActivityEndTime = 0 --活动抢先体验结束时间
     local ActivityChallengeBeginTime = 0 --活动抢先体验结束时间(隐藏模式)
+    local ActivityVariationsBeginTime = 0 --活动抢先体验结束时间(异变模式)
     local ActivityTimer
     local ExploreEventStateList = {}
     local MainlineStageRecord
     local LastPassStage = {}    --key:chapterId value:stageId
+    local TeleportFightStageId = 0 -- 关卡内跳转的关卡Id
 
     local ExItemRedPointState = {
         Off = 0,
@@ -45,6 +48,7 @@ XFubenMainLineManagerCreator = function()
 
         XFubenMainLineManager.DifficultNormal = CS.XGame.Config:GetInt("FubenDifficultNormal")
         XFubenMainLineManager.DifficultHard = CS.XGame.Config:GetInt("FubenDifficultHard")
+        XFubenMainLineManager.DifficultVariations = CS.XGame.Config:GetInt("FubenDifficultVariations")
         XFubenMainLineManager.DifficultNightmare = CS.XGame.Config:GetInt("FubenDifficultNightmare")
 
         XFubenMainLineManager.UiGridChapterMoveMinX = CS.XGame.ClientConfig:GetInt("UiGridChapterMoveMinX")
@@ -117,20 +121,27 @@ XFubenMainLineManagerCreator = function()
 
             for _, v in ipairs(chapter.StageId) do
                 local stageInfo = XDataCenter.FubenManager.GetStageInfo(v)
-                if stageInfo.Unlock then
+                if stageInfo.Unlock and not table.contains(XFubenMainLineConfigs.GetMainlineIgnoreStageListByOrder(), v) then
                     info.ActiveStage = v
                 end
-                if not stageInfo.Passed then
-                    allPassed = false
-                else
-                    passStageNum = passStageNum + 1
+                -- 跳过黑名单表 MainlineIgnoreStageList
+                if stageInfo.Passed and not table.contains(XFubenMainLineConfigs.GetMainlineIgnoreStageListByOrder(), v) then
+    
+                    if not stageInfo.Passed then
+                        allPassed = false
+                    else
+                        passStageNum = passStageNum + 1
+                    end
+    
+                    stars = stars + stageInfo.Stars
                 end
-                stars = stars + stageInfo.Stars
             end
 
-            local treasureCfg = XDataCenter.FubenMainLineManager.GetTreasureCfg(chapter.TreasureId[#chapter.TreasureId])
-            info.TotalStars = treasureCfg.RequireStar
-            info.Stars = stars > info.TotalStars and info.TotalStars or stars
+            if not XTool.IsTableEmpty(chapter.TreasureId) then
+                local treasureCfg = XDataCenter.FubenMainLineManager.GetTreasureCfg(chapter.TreasureId[#chapter.TreasureId])
+                info.TotalStars = treasureCfg.RequireStar
+                info.Stars = stars > info.TotalStars and info.TotalStars or stars
+            end
             info.Passed = allPassed
             info.PassStageNum = passStageNum
         elseif chapterMain.Id == XFubenMainLineManager.TRPGChapterId then
@@ -285,7 +296,9 @@ XFubenMainLineManagerCreator = function()
             for _, v in pairs(ChapterMainTemplates) do
                 if v.OrderId == orderId then
                     local chapterId = v.ChapterId[difficult]
-                    return XFubenMainLineManager.GetChapterInfo(chapterId)
+                    if XTool.IsNumberValid(chapterId) then
+                        return XFubenMainLineManager.GetChapterInfo(chapterId)
+                    end
                 end
             end
         end
@@ -301,7 +314,10 @@ XFubenMainLineManagerCreator = function()
         if difficult ~= XFubenMainLineManager.DifficultNightmare then
             local list = {}
             for _, v in pairs(ChapterMainTemplates) do
-                list[v.OrderId] = v.ChapterId[difficult]
+                local chapterId = v.ChapterId[difficult]
+                if XTool.IsNumberValid(chapterId) then
+                    list[v.OrderId] = chapterId
+                end
             end
             return list
         end
@@ -313,7 +329,6 @@ XFubenMainLineManagerCreator = function()
 
     function XFubenMainLineManager.GetChapterMainTemplates(difficult)
         local list = {}
-        local activityList = {}
 
         for _, v in pairs(ChapterMainTemplates) do
             local chapterId
@@ -332,57 +347,14 @@ XFubenMainLineManagerCreator = function()
             end
 
             if chapterInfo then
-                if chapterInfo.IsActivity then
-                    tableInsert(activityList, v)
-                else
-                    tableInsert(list, v)
-                end
+                tableInsert(list, v)
             end
         end
 
         if next(list) then
             tableSort(list, orderIdSortFunc)
         end
-
-        if next(activityList) then
-            tableSort(activityList, orderIdSortFunc)
-
-            local allUnlock = true
-            for order, template in pairs(list) do
-                local chapterId
-                local chapterInfo
-
-                if difficult == XDataCenter.FubenManager.DifficultNightmare then
-                    chapterId = template.BfrtId
-                    if chapterId and chapterId > 0 then
-                        chapterInfo = XDataCenter.BfrtManager.GetChapterInfo(chapterId)
-                    end
-                else
-                    chapterId = template.ChapterId[difficult]
-                    if chapterId and chapterId > 0 then
-                        chapterInfo = XFubenMainLineManager.GetChapterInfo(chapterId)
-                    end
-                end
-
-                if (chapterInfo) and (not chapterInfo.Unlock) then
-                    local index = order
-                    for _, v in pairs(activityList) do
-                        tableInsert(list, index, v)
-                        index = index + 1
-                    end
-
-                    allUnlock = false
-                    break
-                end
-            end
-
-            if allUnlock then
-                for _, v in pairs(activityList) do
-                    tableInsert(list, v)
-                end
-            end
-        end
-
+        
         return list
     end
 
@@ -395,39 +367,33 @@ XFubenMainLineManagerCreator = function()
     end
 
     function XFubenMainLineManager.GetChapterIdByChapterMain(chapterMainId, difficult)
-        if difficult == XFubenMainLineManager.DifficultNormal then
-            return ChapterMainTemplates[chapterMainId].ChapterId[1]
-        elseif difficult == XFubenMainLineManager.DifficultHard then
-            return ChapterMainTemplates[chapterMainId].ChapterId[2]
-        elseif difficult == XFubenMainLineManager.DifficultNightmare then
+        if difficult == XFubenMainLineManager.DifficultNightmare then
             return ChapterMainTemplates[chapterMainId].BfrtId
+        else
+            return ChapterMainTemplates[chapterMainId].ChapterId[difficult]
         end
         local tempStr = "XFubenMainLineManager.GetChapterIdByChapterMain函数参数difficult应该是，"
-        XLog.Error(tempStr .. "config表：Share/Config/Config.tab, 中字段FubenDifficultNormal、FubenDifficultHard、FubenDifficultNightmare对应的值中的一个")
+        XLog.Error(tempStr .. "config表：Share/Config/Config.tab, 中字段FubenDifficultNormal、FubenDifficultHard、FubenDifficultNightmare、DifficultVariations对应的值中的一个")
     end
 
     function XFubenMainLineManager.GetChapterCfgByChapterMain(chapterMainId, difficult)
-        if difficult == XFubenMainLineManager.DifficultNormal then
-            return ChapterCfg[ChapterMainTemplates[chapterMainId].ChapterId[1]]
-        elseif difficult == XFubenMainLineManager.DifficultHard then
-            return ChapterCfg[ChapterMainTemplates[chapterMainId].ChapterId[2]]
-        elseif difficult == XFubenMainLineManager.DifficultNightmare then
+        if difficult == XFubenMainLineManager.DifficultNightmare then
             return XDataCenter.BfrtManager.GetChapterCfg(ChapterMainTemplates[chapterMainId].BfrtId)
+        else
+            return ChapterCfg[ChapterMainTemplates[chapterMainId].ChapterId[difficult]]
         end
-        local tempStr = "XFubenMainLineManager.GetChapterIdByChapterMain函数参数difficult应该是，"
-        XLog.Error(tempStr .. "config表：Share/Config/Config.tab, 中字段FubenDifficultNormal、FubenDifficultHard、FubenDifficultNightmare对应的值中的一个")
+        local tempStr = "XFubenMainLineManager.GetChapterCfgByChapterMain函数参数difficult应该是，"
+        XLog.Error(tempStr .. "config表：Share/Config/Config.tab, 中字段FubenDifficultNormal、FubenDifficultHard、FubenDifficultNightmare、DifficultVariations对应的值中的一个")
     end
 
     function XFubenMainLineManager.GetChapterInfoByChapterMain(chapterMainId, difficult)
-        if difficult == XFubenMainLineManager.DifficultNormal then
-            return ChapterInfos[ChapterMainTemplates[chapterMainId].ChapterId[1]]
-        elseif difficult == XFubenMainLineManager.DifficultHard then
-            return ChapterInfos[ChapterMainTemplates[chapterMainId].ChapterId[2]]
-        elseif difficult == XFubenMainLineManager.DifficultNightmare then
+        if difficult == XFubenMainLineManager.DifficultNightmare then
             return XDataCenter.BfrtManager.GetChapterInfo(ChapterMainTemplates[chapterMainId].BfrtId)
+        else
+            return ChapterInfos[ChapterMainTemplates[chapterMainId].ChapterId[difficult]]
         end
-        local tempStr = "XFubenMainLineManager.GetChapterIdByChapterMain函数参数difficult应该是，"
-        XLog.Error(tempStr .. "config表：Share/Config/Config.tab, 中字段FubenDifficultNormal、FubenDifficultHard、FubenDifficultNightmare对应的值中的一个")
+        local tempStr = "XFubenMainLineManager.GetChapterInfoByChapterMain函数参数difficult应该是，"
+        XLog.Error(tempStr .. "config表：Share/Config/Config.tab, 中字段FubenDifficultNormal、FubenDifficultHard、FubenDifficultNightmare、DifficultVariations对应的值中的一个")
     end
 
     function XFubenMainLineManager.GetStageDifficult(stageId)
@@ -468,6 +434,22 @@ XFubenMainLineManagerCreator = function()
             return 0
         end
         return math.ceil(100 * passStageNum / totalStageNum)
+    end
+
+    function XFubenMainLineManager.GetCurrentAndMaxProgress(chapterId)
+        local chapterCfg = XFubenMainLineManager.GetChapterCfg(chapterId)
+        local totalStageNum = 0
+        local passStageNum = 0
+        if chapterCfg and chapterCfg.StageId then
+            totalStageNum = totalStageNum + #chapterCfg.StageId
+            for _, stageId in pairs(chapterCfg.StageId) do
+                local isPass = XDataCenter.FubenManager.CheckStageIsPass(stageId)
+                if isPass then
+                    passStageNum = passStageNum + 1
+                end
+            end
+        end
+        return passStageNum, totalStageNum
     end
 
     function XFubenMainLineManager.GetChapterOrderIdByStageId(stageId)
@@ -532,8 +514,10 @@ XFubenMainLineManagerCreator = function()
     function XFubenMainLineManager.CheckAllChapterReward()
         for _, v in pairs(ChapterMainTemplates) do
             for _, chapterId in pairs(v.ChapterId) do
-                if XFubenMainLineManager.CheckTreasureReward(chapterId) then
-                    return true
+                if XTool.IsNumberValid(chapterId) then
+                    if XFubenMainLineManager.CheckTreasureReward(chapterId) then
+                        return true
+                    end
                 end
             end
         end
@@ -549,7 +533,7 @@ XFubenMainLineManagerCreator = function()
 
         local hasReward = false
         local chapter = XFubenMainLineManager.GetChapterCfg(chapterId)
-        local targetList = chapter.TreasureId
+        local targetList = chapter.TreasureId or {}
 
         for _, var in ipairs(targetList) do
             local treasureCfg = XFubenMainLineManager.GetTreasureCfg(var)
@@ -666,7 +650,52 @@ XFubenMainLineManagerCreator = function()
 
     -- 胜利 & 奖励界面
     function XFubenMainLineManager.ShowReward(winData)
-        XLuaUiManager.Open("UiSettleWinMainLine", winData)
+        local teleportFight = XFubenMainLineManager.GetTeleportFight(winData.StageId)
+        TeleportFightStageId = teleportFight and teleportFight.StageCfg.StageId or 0
+        if teleportFight then
+            XFubenMainLineManager.TeleportRewardCacheInfo(winData)
+            XFubenMainLineManager.EnterTeleportFight(teleportFight)
+        else
+            XLuaUiManager.Open("UiSettleWinMainLine", winData)
+        end
+    end
+    
+    function XFubenMainLineManager.OpenFightLoading(stageId)
+        if TeleportFightStageId == stageId then
+            TeleportFightStageId = 0
+            local loadingType = XFubenMainLineConfigs.GetSkipLoadingTypeByStageId(stageId)
+            XLuaUiManager.Open("UiLoading", loadingType)
+        else
+            XDataCenter.FubenManager.OpenFightLoading(stageId)
+        end
+    end
+
+    function XFubenMainLineManager.PreFight(stage, teamId, isAssist, challengeCount, challengeId)
+        local preFight = {}
+        preFight.CardIds = {}
+        preFight.RobotIds = {}
+        preFight.StageId = stage.StageId
+        preFight.IsHasAssist = isAssist and true or false
+        preFight.ChallengeCount = challengeCount or 1
+        local isHideAction = XDataCenter.FubenManager.GetIsHideAction()
+        if not stage.RobotId or #stage.RobotId <= 0 or isHideAction then
+            local teamData = XDataCenter.TeamManager.GetTeamData(teamId)
+            for i, v in pairs(teamData) do
+                local isRobot = XEntityHelper.GetIsRobot(v)
+                preFight.RobotIds[i] = isRobot and v or 0
+                preFight.CardIds[i] = isRobot and 0 or v
+            end
+            preFight.CaptainPos = XDataCenter.TeamManager.GetTeamCaptainPos(teamId)
+            preFight.FirstFightPos = XDataCenter.TeamManager.GetTeamFirstFightPos(teamId)
+        else
+            for i, v in pairs(stage.RobotId) do
+                preFight.RobotIds[i] = v
+            end
+            -- 设置默认值
+            preFight.CaptainPos = 1
+            preFight.FirstFightPos = 1
+        end
+        return preFight
     end
 
     function XFubenMainLineManager.GetNewChapterId()
@@ -683,9 +712,26 @@ XFubenMainLineManagerCreator = function()
 
     ------------------------------------------------------------------ 活动主线副本抢先体验 begin -------------------------------------------------------
     function XFubenMainLineManager.NotifyMainLineActivity(data)
+        local activityId = data.ActivityId or 0
+        if not XTool.IsNumberValid(activityId) then
+            ActivityEndTime = 0
+            ActivityChallengeBeginTime = 0
+            ActivityVariationsBeginTime = 0
+            XFubenMainLineManager.MainLineActivityEnd()
+            return
+        end
+        
+        local mainLineActivityCfg = XFubenMainLineConfigs.GetMainLineActivityCfg(activityId)
+        local chapterIds = mainLineActivityCfg.ChapterId
+        local bfrtId = mainLineActivityCfg.BfrtChapter
+        local chapterTimeId = mainLineActivityCfg.ChapterTimeId
+        local hideChapterTimeId = mainLineActivityCfg.HideChapterTimeId
+        local variationsChapterTimeId = mainLineActivityCfg.VariationsChapterTimeId
+        
         local now = XTime.GetServerNowTimestamp()
-        ActivityEndTime = data.EndTime or 0
-        ActivityChallengeBeginTime = data.HideChapterBeginTime or 0
+        ActivityEndTime = XFunctionManager.GetEndTimeByTimeId(chapterTimeId) or 0
+        ActivityChallengeBeginTime = XFunctionManager.GetStartTimeByTimeId(hideChapterTimeId) or 0
+        ActivityVariationsBeginTime = XFunctionManager.GetStartTimeByTimeId(variationsChapterTimeId) or 0
         if now < ActivityEndTime then
             --清理上次活动状态
             if next(ActivityChapters) then
@@ -693,8 +739,8 @@ XFubenMainLineManagerCreator = function()
             end
 
             ActivityChapters = {
-                MainLineIds = data.Chapters,
-                BfrtId = data.BfrtChapter,
+                MainLineIds = chapterIds,
+                BfrtId = bfrtId,
             }
 
             XFubenMainLineManager.MainLineActivityStart()
@@ -711,6 +757,10 @@ XFubenMainLineManagerCreator = function()
     function XFubenMainLineManager.IsMainLineActivityChallengeBegin()
         return ActivityChallengeBeginTime and XTime.GetServerNowTimestamp() >= ActivityChallengeBeginTime
     end
+    
+    function XFubenMainLineManager.IsMainLineActivityVariationsBegin()
+        return ActivityVariationsBeginTime and XTime.GetServerNowTimestamp() >= ActivityVariationsBeginTime
+    end
 
     function XFubenMainLineManager.MainLineActivityStart()
         if not XFubenMainLineManager.IsMainLineActivityOpen() then return end
@@ -723,12 +773,20 @@ XFubenMainLineManagerCreator = function()
 
         local time = XTime.GetServerNowTimestamp()
         local challengeWaitUnlock = true
+        local variationsWaitUnlock = true
         ActivityTimer = XScheduleManager.ScheduleForever(function()
             time = time + 1
             if time >= ActivityChallengeBeginTime then
                 if challengeWaitUnlock then
                     XFubenMainLineManager.UnlockActivityChapters()
                     challengeWaitUnlock = nil
+                end
+            end
+
+            if time >= ActivityVariationsBeginTime then
+                if variationsWaitUnlock then
+                    XFubenMainLineManager.UnlockActivityChapters()
+                    variationsWaitUnlock = nil
                 end
             end
 
@@ -772,6 +830,7 @@ XFubenMainLineManagerCreator = function()
                 if chapterId ~= 0 then
                     local chapterInfo = XFubenMainLineManager.GetChapterInfo(chapterId)
                     chapterInfo.IsActivity = false
+                    XFubenMainLineManager.CheckStageStatus(chapterId, false)
                 end
             end
         end
@@ -831,21 +890,27 @@ XFubenMainLineManagerCreator = function()
         chapterInfo.Unlock = true
         chapterInfo.IsOpen = true
 
+        XFubenMainLineManager.CheckStageStatus(chapterId, true)
+    end
+
+    function XFubenMainLineManager.CheckStageStatus(chapterId, isFirstSpecial)
         local chapterCfg = XFubenMainLineManager.GetChapterCfg(chapterId)
+
         for index, stageId in ipairs(chapterCfg.StageId) do
             local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
             stageInfo.Unlock = true
             stageInfo.IsOpen = true
 
-            --章节第一关无视前置条件
-            if index ~= 1 then
+            local isSpecial = true
+            if isFirstSpecial then
+                isSpecial = index ~= 1 -- 章节第一关无视前置条件
+            end
+
+            if isSpecial then
                 local stageCfg = XDataCenter.FubenManager.GetStageCfg(stageId)
-
-                --其余关卡只检测前置条件组
-                for _, prestageId in pairs(stageCfg.PreStageId or {}) do
-                    if prestageId > 0 then
-                        local stageData = XDataCenter.FubenManager.GetStageData(prestageId)
-
+                for _, preStageId in pairs(stageCfg.PreStageId or {}) do
+                    if preStageId > 0 then
+                        local stageData = XDataCenter.FubenManager.GetStageData(preStageId)
                         if not stageData or not stageData.Passed then
                             stageInfo.Unlock = false
                             stageInfo.IsOpen = false
@@ -860,15 +925,22 @@ XFubenMainLineManagerCreator = function()
     function XFubenMainLineManager.CheckActivityCondition(chapterId)
         local chapterCfg = XFubenMainLineManager.GetChapterCfg(chapterId)
 
-        if chapterCfg.Difficult == XFubenMainLineManager.DifficultHard and
-        not XFubenMainLineManager.IsMainLineActivityChallengeBegin() then
-            local time = XTime.GetServerNowTimestamp()
-            local timeStr = XUiHelper.GetTime(ActivityChallengeBeginTime - time, XUiHelper.TimeFormatType.ACTIVITY)
-            local msg = CS.XTextManager.GetText("FuBenMainlineActivityNotReachChallengeTime", timeStr)
-            return false, msg
-        elseif chapterCfg.Difficult == XFubenMainLineManager.DifficultHard and
-        not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.FubenDifficulty) then
-            return false, XFunctionManager.GetFunctionOpenCondition(XFunctionManager.FunctionName.FubenDifficulty)
+        if chapterCfg.Difficult == XFubenMainLineManager.DifficultHard then
+            if not XFubenMainLineManager.IsMainLineActivityChallengeBegin() then
+                local time = XTime.GetServerNowTimestamp()
+                local timeStr = XUiHelper.GetTime(ActivityChallengeBeginTime - time, XUiHelper.TimeFormatType.ACTIVITY)
+                local msg = CS.XTextManager.GetText("FuBenMainlineActivityNotReachChallengeTime", timeStr)
+                return false, msg
+            elseif not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.FubenDifficulty) then
+                return false, XFunctionManager.GetFunctionOpenCondition(XFunctionManager.FunctionName.FubenDifficulty)
+            end
+        elseif chapterCfg.Difficult == XFubenMainLineManager.DifficultVariations then
+            if not XFubenMainLineManager.IsMainLineActivityVariationsBegin() then
+                local time = XTime.GetServerNowTimestamp()
+                local timeStr = XUiHelper.GetTime(ActivityVariationsBeginTime - time, XUiHelper.TimeFormatType.ACTIVITY)
+                local msg = CS.XTextManager.GetText("FuBenMainlineActivityNotReachVariationsTime", timeStr)
+                return false, msg
+            end
         end
 
         local conditionId = chapterCfg.ActivityCondition
@@ -1054,7 +1126,237 @@ XFubenMainLineManagerCreator = function()
         end
     end
 
+    -- 根据stageId获取外部主章节的id
+    function XFubenMainLineManager.GetMainChapterIdByStageId(stageId)
+        local subChapterId = 0
+        for _, config in pairs(ChapterCfg) do
+            for _, id in ipairs(config.StageId) do
+                if id == stageId then
+                    subChapterId = config.ChapterId
+                    break
+                end
+            end
+        end
+        if subChapterId <= 0 then return 0 end
+        for _, config in pairs(ChapterMainTemplates) do
+            for _, id in ipairs(config.ChapterId) do
+                if id > 0 and id == subChapterId then
+                    return config.Id
+                end
+            end
+        end
+        return 0
+    end
+
     ------------------------------------------------------------------ 活动主线副本探索玩法 end -------------------------------------------------------
+    ------------------------------------------------------------------ 超里剧情章节 Start -----------------------------------------------------------
+    function XFubenMainLineManager.GetTeleportFight(curStageId)
+        local eventSet = XDataCenter.FubenManager.CurFightResult.EventSet or {}
+        local skipStageIds = XFubenMainLineConfigs.GetSkipStageIdsByStageId(curStageId)
+        if XTool.IsTableEmpty(skipStageIds) then
+            return nil
+        end
+        local teleportStageId
+        for _, eventId in pairs(eventSet) do
+            local isContain = table.contains(skipStageIds, eventId)
+            if ExploreEventStateList[eventId] and isContain then
+                teleportStageId = eventId
+            end
+        end
+        if not XTool.IsNumberValid(teleportStageId) then
+            return nil
+        end
+        local stageCfg = XDataCenter.FubenManager.GetStageCfg(teleportStageId)
+        local team = XDataCenter.TeamManager.GetMainLineTeam()
+        local isAssist = CS.UnityEngine.PlayerPrefs.GetInt(XPrefs.AssistSwitch .. XPlayer.Id) == 1
+        local challengeCount = 1
+        return { StageCfg = stageCfg, TeamId = team:GetId(), IsAssist = isAssist, ChallengeCount = challengeCount }
+    end
+    
+    function XFubenMainLineManager.EnterTeleportFight(teleportFight)
+        -- 检查体力是否满足
+        local actionPoint = XDataCenter.FubenManager.GetRequireActionPoint(teleportFight.StageCfg.StageId)
+        if actionPoint > 0 then
+            local useItemCount = teleportFight.ChallengeCount * actionPoint
+            local ownItemCount = XDataCenter.ItemManager.GetCount(XDataCenter.ItemManager.ItemId.ActionPoint)
+            if useItemCount - ownItemCount > 0 then
+                local title = XUiHelper.GetText("FubenMainLineActionPointLackTitle")
+                local content = XUiHelper.ReadTextWithNewLine("FubenMainLineActionPointLackContent")
+                XUiManager.DialogDragTip(title, content, XUiManager.DialogType.Normal)
+                return
+            end
+        end
+        -- 打开黑幕避免进入战斗前打开关卡界面
+        XLuaUiManager.Open("UiBiancaTheatreBlack")
+        XDataCenter.FubenManager.EnterFight(teleportFight.StageCfg, teleportFight.TeamId, teleportFight.IsAssist, teleportFight.ChallengeCount, nil, function(res)
+            if res.Code ~= XCode.Success then
+                XLuaUiManager.Close("UiBiancaTheatreBlack")
+                return
+            end
+            XLuaUiManager.Remove("UiBiancaTheatreBlack")
+        end)
+    end
+    
+    -- 通过stageId判断当前关卡是否是假关卡
+    function XFubenMainLineManager.CheckFalseStageByStageId(stageId)
+        local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
+        local chapterId = stageInfo.ChapterId
+        local stageTransformCfg = XFubenMainLineConfigs.GetStageTransformsByChapterId(chapterId)
+        for _, config in pairs(stageTransformCfg) do
+            if config.BeforeStageId == stageId then
+                return true
+            end
+        end
+        return false
+    end
+
+    -- 通过stageId判断当前关卡是否是真关卡
+    function XFubenMainLineManager.CheckTrueStageByStageId(stageId)
+        local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
+        local chapterId = stageInfo.ChapterId
+        local stageTransformCfg = XFubenMainLineConfigs.GetStageTransformsByChapterId(chapterId)
+        for _, config in pairs(stageTransformCfg) do
+            if config.AfterStageId == stageId then
+                return true
+            end
+        end
+        return false
+    end
+    
+    function XFubenMainLineManager.CheckActivePanelTopDifficult(orderId)
+        local hardChapterInfo = XFubenMainLineManager.GetChapterInfoForOrderId(XFubenMainLineManager.DifficultHard, orderId)
+        local vtChapterInfo = XFubenMainLineManager.GetChapterInfoForOrderId(XFubenMainLineManager.DifficultVariations, orderId)
+        local isShowVtBtn = vtChapterInfo and vtChapterInfo.Unlock or false -- 异变章节没有解锁时也隐藏
+        return hardChapterInfo or isShowVtBtn
+    end
+    
+    local OpenChapterOrStageUi = function(closeLastStage, chapter, stageId)
+        if closeLastStage then
+            XLuaUiManager.PopThenOpen("UiFubenMainLineChapter", chapter, stageId)
+        else
+            XLuaUiManager.Open("UiFubenMainLineChapter", chapter, stageId)
+        end
+    end
+    
+    function XFubenMainLineManager.OpenMainLineChapterOrStage(stageId, openStageDetail, closeLastStage)
+        local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
+        if not stageInfo then
+            XLog.ErrorTableDataNotFound("OpenMainLineChapterOrStage", "stageInfo", "Share/Fuben/Stage.tab", "stageId", tostring(stageId))
+            return
+        end
+        if not stageInfo.Unlock then
+            XUiManager.TipMsg(XDataCenter.FubenManager.GetFubenOpenTips(stageId))
+            return
+        end
+        if stageInfo.Difficult == XFubenMainLineManager.DifficultHard and (not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.FubenDifficulty)) then
+            local openTips = XFunctionManager.GetFunctionOpenCondition(XFunctionManager.FunctionName.FubenDifficulty)
+            XUiManager.TipMsg(openTips)
+            return
+        end
+        local chapter = XFubenMainLineManager.GetChapterCfg(stageInfo.ChapterId)
+        if not XFubenMainLineManager.CheckChapterCanGoTo(chapter.ChapterId) then
+            XUiManager.TipMsg(CSXTextManagerGetText("FubenMainLineNoneOpen"))
+            return
+        end
+        if openStageDetail then
+            OpenChapterOrStageUi(closeLastStage, chapter, stageId)
+        else
+            OpenChapterOrStageUi(closeLastStage, chapter)
+        end    
+    end
+
+    function XFubenMainLineManager.GetTrueAndFalseStageAnimationKey(beforeStageId, afterStageId)
+        if XPlayer.Id and beforeStageId and afterStageId then
+            return string.format("PlayTrueAndFalseStageAnimationKey_%s_%s_%s", tostring(XPlayer.Id), tostring(beforeStageId), tostring(afterStageId))
+        end
+    end
+    
+    function XFubenMainLineManager.CheckPlayTrueAndFalseStageAnim(beforeStageId, afterStageId)
+        local key = XFubenMainLineManager.GetTrueAndFalseStageAnimationKey(beforeStageId, afterStageId)
+        local isPlay = XSaveTool.GetData(key) or false
+        return isPlay
+    end
+    
+    function XFubenMainLineManager.SavePlayTrueAndFalseStageAnim(beforeStageId, afterStageId)
+        local isPlay = XFubenMainLineManager.CheckPlayTrueAndFalseStageAnim(beforeStageId, afterStageId)
+        if isPlay then
+            return
+        end
+        local key = XFubenMainLineManager.GetTrueAndFalseStageAnimationKey(beforeStageId, afterStageId)
+        XSaveTool.SaveData(key, true)
+    end
+    ------------------------------------------------------------------ 超里剧情章节 End -----------------------------------------------------------
+
+    -- 获取关卡配置的ClearEventId 完成的个数
+    function XFubenMainLineManager.GetStageClearEventIdsFinishNum(stageId)
+        local stageCfg = XDataCenter.FubenManager.GetStageCfg(stageId)
+        local clearEvents = stageCfg.ClearEventId or {}
+        local clearNumber = 0
+        for _, eventId in pairs(clearEvents) do
+            if XDataCenter.FubenManager.GetUnlockHideStageById(eventId) then
+                clearNumber = clearNumber + 1
+            end
+        end
+        return clearNumber, #clearEvents
+    end
+    
+    -- 检查关卡是否通关 (ClearEventId全部存在)
+    function XFubenMainLineManager.CheckStageClearEventIdPassed(stageId)
+        local curNumber, totalNumber = XFubenMainLineManager.GetStageClearEventIdsFinishNum(stageId)
+        if curNumber >= totalNumber then
+            return true
+        end
+        return false
+    end
+
+    ------------------------------------------------------------------ 连续关卡内跳转奖励结算显示 Start ---------------------------------------------------------
+
+    function XFubenMainLineManager.GetTeleportRewardCacheKey(type, chapterId)
+        if XPlayer.Id and type and chapterId then
+            return string.format("TeleportRewardCache_%s_%s_%s", tostring(XPlayer.Id), tostring(type), tostring(chapterId))
+        end
+    end
+
+    function XFubenMainLineManager.GetTeleportRewardCache(chapterId)
+        local key = XFubenMainLineManager.GetTeleportRewardCacheKey(XFubenConfigs.ChapterType.MainLine, chapterId)
+        local info = XSaveTool.GetData(key)
+        return (info and type(info) == "table") and info or {}
+    end
+
+    function XFubenMainLineManager.SaveTeleportRewardCache(chapterId, value)
+        local key = XFubenMainLineManager.GetTeleportRewardCacheKey(XFubenConfigs.ChapterType.MainLine, chapterId)
+        XSaveTool.SaveData(key, value)
+    end
+    
+    function XFubenMainLineManager.RemoveTeleportRewardCache(chapterId)
+        local key = XFubenMainLineManager.GetTeleportRewardCacheKey(XFubenConfigs.ChapterType.MainLine, chapterId)
+        XSaveTool.RemoveData(key)
+    end
+
+    -- 跳转奖励缓存处理
+    function XFubenMainLineManager.TeleportRewardCacheInfo(winData)
+        -- 黑名单
+        local ignoreStageList  = XFubenMainLineConfigs.GetMainlineIgnoreStageListByOrder()
+        local stageId = winData.StageId
+        if table.contains(ignoreStageList, stageId) then
+            -- 黑名单内的关卡不缓存
+            return
+        end
+        
+        local chapterId = XDataCenter.FubenManager.GetStageInfo(stageId).ChapterId
+        local info = XFubenMainLineManager.GetTeleportRewardCache(chapterId)
+
+        local charExp = winData.CharExp or {}
+        local addCardExp = XDataCenter.FubenManager.GetCardExp(stageId)
+        local addTeamExp = XDataCenter.FubenManager.GetTeamExp(stageId)
+        local rewardGoodsList = winData.RewardGoodsList or {}
+        
+        info[stageId] = { StageId = stageId, CharExp = charExp, AddCardExp = addCardExp, AddTeamExp = addTeamExp, RewardGoodsList = rewardGoodsList }
+        XFubenMainLineManager.SaveTeleportRewardCache(chapterId, info)
+    end
+
+    ------------------------------------------------------------------ 连续关卡内跳转奖励结算显示 End -----------------------------------------------------------
+
     XFubenMainLineManager.Init()
     return XFubenMainLineManager
 end
@@ -1065,6 +1367,5 @@ end
 
 XRpc.NotifyMainChapterEventData = function(data)
     XDataCenter.FubenMainLineManager.AddChapterEventState(data.ChapterEventData)
-    XDataCenter.FubenMainLineManager.SaveNewExploreItemRedPoint(data.ChapterEventData)
     XEventManager.DispatchEvent(XEventId.EVENT_MAINLINE_EXPLORE_ITEM_GET)
 end

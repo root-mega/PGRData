@@ -15,14 +15,14 @@ local FuncType = {
 local CvType = {
     JPN = 1,
     CN = 2,
-    -- HK = 3,
-    EN = 4
+    --HK = 3,
+    EN = 4,
 }
 
 local JPNText = XUiHelper.GetText("FavorabilityDropDownJPNCV")
 local CNText = XUiHelper.GetText("FavorabilityDropDownCNCV")
 local ENText = XUiHelper.GetText("FavorabilityDropDownENCV")
--- local HKText = XUiHelper.GetText("FavorabilityDropDownHKCV")
+local HKText = XUiHelper.GetText("FavorabilityDropDownHKCV")
 
 local ExpSchedule = nil
 local Delay_Second = CS.XGame.ClientConfig:GetInt("FavorabilityDelaySecond") / 1000
@@ -37,7 +37,8 @@ function XUiPanelFavorabilityMain:Ctor(ui, uiRoot)
     self.IsExpTweening = false
     self.TxtNormalPos = self.TxtFavorabilityLv.rectTransform.anchoredPosition
     self.TxtMaxPos = CS.UnityEngine.Vector2(self.TxtNormalPos.x, self.TxtNormalPos.y - 18)
-    self.CvType = CS.UnityEngine.PlayerPrefs.GetInt("CV_TYPE", CvType.JPN)--CvType.JPN--
+    --跟设置同步
+    self.CvType = CS.XAudioManager.CvType
     self.DropMaskList = {}
     --- 设置文本后Unity会在下一帧进行宽度的自动调整，防止立即滚动遮罩宽度计算错误
     self.DropMaskTimer = nil
@@ -105,7 +106,6 @@ function XUiPanelFavorabilityMain:InitUiAfterAuto()
     self:OnBtnTabListClick(selected)
     self.CurrentSelectTab = selected
     self.MenuBtnGroup:SelectIndex(self.CurrentSelectTab)
-
 end
 
 function XUiPanelFavorabilityMain:UpdateResume(data)
@@ -116,8 +116,8 @@ end
 function XUiPanelFavorabilityMain:GetReleaseData()
     local anchoredPosition = self.FavorabilityPlot:GetAnchoredPosition()
     local currentCharacterId = self.UiRoot:GetCurrFavorabilityCharacter()
-    return { 
-        SelectTab = self.CurrentSelectTab, 
+    return {
+        SelectTab = self.CurrentSelectTab,
         AnchoredPosition = anchoredPosition,
         CurrentCharacterId = currentCharacterId
     }
@@ -131,8 +131,8 @@ function XUiPanelFavorabilityMain:OnBtnCvListClick(index)
     
     if option.text == JPNText then
         self.CvType = CvType.JPN
-    -- elseif option.text == HKText then
-    --     self.CvType = CvType.HK
+    --elseif option.text == HKText then
+        --self.CvType = CvType.HK
     elseif option.text == ENText then
         self.CvType = CvType.EN
     elseif option.text == CNText then
@@ -147,6 +147,7 @@ function XUiPanelFavorabilityMain:OnDestroyDropList()
     for _, item in pairs(self.DropMaskList) do
         item:Stop()
     end
+    
     self:ClearDropListMask()
 end
 
@@ -155,6 +156,7 @@ function XUiPanelFavorabilityMain:ClearDropListMask()
         XScheduleManager.UnSchedule(self.DropMaskTimer)
         self.DropMaskTimer = nil
     end
+    
     self.DropMaskList = {}
 end
 
@@ -178,9 +180,9 @@ function XUiPanelFavorabilityMain:UpdateCvName()
         if cvText.text == JPNText then
             cvTextList[CvType.JPN] = nameText
             cvNameMaskList[CvType.JPN] = nameMask
-        -- elseif cvText.text == HKText then
-        --     cvTextList[CvType.HK] = nameText
-        --     cvNameMaskList[CvType.HK] = nameMask
+        elseif cvText.text == HKText then
+            cvTextList[CvType.HK] = nameText
+            cvNameMaskList[CvType.HK] = nameMask
         elseif cvText.text == ENText then
             cvTextList[CvType.EN] = nameText
             cvNameMaskList[CvType.EN] = nameMask
@@ -224,7 +226,7 @@ end
 
 function XUiPanelFavorabilityMain:UpdateCvLabel()
     self.CvLabelTextScrolling:Stop()
-
+    
     local currentCharacterId = self.UiRoot:GetCurrFavorabilityCharacter()
     local castName = XFavorabilityConfigs.GetCharacterCvByIdAndType(currentCharacterId, self.CvType)
     local cast = CS.XTextManager.GetText("FavorabilityCast")
@@ -305,15 +307,7 @@ function XUiPanelFavorabilityMain:UpdateMainInfo(doAnim)
         else
             self.TxtTips.gameObject:SetActiveEx(false)
         end
-
-        --是否可以使用当前设置的语言
-        for _,v in pairs(cvType) do
-            if v == self.CvType then
-                hasSettingCvType = true
-            end
-        end
-
-       
+        
         local optionsTextList = {}
 
         self.DrdSort:ClearOptions()
@@ -325,8 +319,8 @@ function XUiPanelFavorabilityMain:UpdateMainInfo(doAnim)
                 optionsTextList[#optionsTextList + 1] = JPNText
             elseif v == CvType.CN then
                 optionsTextList[#optionsTextList + 1] = CNText
-            -- elseif v == CvType.HK then
-            --     optionsTextList[#optionsTextList + 1] = HKText
+            --elseif v == CvType.HK then
+                --optionsTextList[#optionsTextList + 1] = HKText
             elseif v == CvType.EN then
                 optionsTextList[#optionsTextList + 1] = ENText
             end
@@ -347,8 +341,8 @@ function XUiPanelFavorabilityMain:UpdateMainInfo(doAnim)
                 optionsTextList[#optionsTextList + 1] = JPNText
             elseif v == CvType.CN then
                 optionsTextList[#optionsTextList + 1] = CNText
-            -- elseif v == CvType.HK then
-            --     optionsTextList[#optionsTextList + 1] = HKText
+            --elseif v == CvType.HK then
+                --optionsTextList[#optionsTextList + 1] = HKText
             elseif v == CvType.EN then
                 optionsTextList[#optionsTextList + 1] = ENText
             end
@@ -378,11 +372,11 @@ function XUiPanelFavorabilityMain:UpdateDropListSelect(cvType)
             self.DrdSort:RefreshShownValue()
             break
         end
-        -- if options[i].text == HKText and cvType == CvType.HK then
-        --     self.DrdSort.value = i
-        --     self.DrdSort:RefreshShownValue()
-        --     break
-        -- end
+        if options[i].text == HKText and cvType == CvType.HK then
+            self.DrdSort.value = i
+            self.DrdSort:RefreshShownValue()
+            break
+        end
         if options[i].text == ENText and cvType == CvType.EN then
             self.DrdSort.value = i
             self.DrdSort:RefreshShownValue()
@@ -599,6 +593,7 @@ function XUiPanelFavorabilityMain:PanelCvTypeShow()
         self.CVObject.gameObject:SetActiveEx(false)
         self.ImageCVBG.gameObject:SetActiveEx(false)
         self.CvNameTextScrolling:Play()
+        self.BtnCantonese.gameObject:SetActiveEx(false)
     else
         self.CvNameTextScrolling:Stop()
         self.CvLabelTextScrolling:Play()

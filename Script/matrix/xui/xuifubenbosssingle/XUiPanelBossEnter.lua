@@ -72,21 +72,25 @@ function XUiPanelBossEnter:Init()
 end
 
 function XUiPanelBossEnter:OnSyncBossRank()
-    local rank = XDataCenter.FubenBossSingleManager.GetSelfRank()
-    local totalRank = XDataCenter.FubenBossSingleManager.GetSelfTotalRank()
-    local maxCount = XDataCenter.FubenBossSingleManager.MAX_RANK_COUNT
-    if rank <= maxCount and rank > 0 then
-        self.TxtRank.text = math.floor(rank)
+    if not XDataCenter.FubenBossSingleManager.GetRankIsOpenByType(self.BossSingleData.LevelType) then
+        self.TxtRank.gameObject:SetActiveEx(false)
     else
-        if not totalRank or totalRank <= 0 or rank <= 0 then
-            self.TxtRank.text = CS.XTextManager.GetText("None")
+        local rank = XDataCenter.FubenBossSingleManager.GetSelfRank()
+        local totalRank = XDataCenter.FubenBossSingleManager.GetSelfTotalRank()
+        local maxCount = XDataCenter.FubenBossSingleManager.MAX_RANK_COUNT
+        if rank <= maxCount and rank > 0 then
+            self.TxtRank.text = math.floor(rank)
         else
-            local num = math.floor(rank / totalRank * 100)
-            if num < 1 then
-                num = 1
-            end
+            if not totalRank or totalRank <= 0 or rank <= 0 then
+                self.TxtRank.text = CS.XTextManager.GetText("None")
+            else
+                local num = math.floor(rank / totalRank * 100)
+                if num < 1 then
+                    num = 1
+                end
 
-            self.TxtRank.text = CS.XTextManager.GetText("BossSinglePrecentDesc", num)
+                self.TxtRank.text = CS.XTextManager.GetText("BossSinglePrecentDesc", num)
+            end
         end
     end
 end
@@ -103,7 +107,7 @@ function XUiPanelBossEnter:ShowPanel(refresh, bossSingleData, isAutoFight, isSyn
 
         self.TxtLeftCount.text = numText
         self.TxtScore.text = self.BossSingleData.TotalScore
-
+        
         self:OnSyncBossRank()
         self:SetRewardInfo()
 

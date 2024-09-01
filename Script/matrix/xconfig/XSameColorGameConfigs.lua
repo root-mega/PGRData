@@ -15,6 +15,8 @@ local TABLE_SKILL = SHARE_TABLE_PATH .. "SameColorGameSkill.tab"
 local TABLE_SKILL_GROUP = SHARE_TABLE_PATH .. "SameColorGameSkillGroup.tab"
 local TABLE_BOSS_SKILL = SHARE_TABLE_PATH .. "SameColorGameBossSkill.tab"
 local TABLE_BUFF = SHARE_TABLE_PATH .. "SameColorGameBuff.tab"
+local TABLE_PASSIVE_SKILL = SHARE_TABLE_PATH .. "SameColorGamePassiveSkill.tab"
+
 -- client
 local TABLE_CLIENT_CONFIG = CLIENT_TABLE_PATH .. "SameColorGameCfg.tab"
 local TABLE_CLIENT_BATTLESHOW_ROLE = CLIENT_TABLE_PATH .. "BattleShowRole.tab"
@@ -30,6 +32,7 @@ local SkillConfigDic
 local SkillGroupConfigDic
 local BossSkillConfigDic
 local BuffConfigDic
+local PassiveSkillConfigDic
 local BattleShowRoleDic
 
 XSameColorGameConfigs.UiBossChildPanelType = {
@@ -74,9 +77,13 @@ XSameColorGameConfigs.ActionType = {
     ActionBossSkipSkill = 15,--boss跳过技能
     ActionEnergyChange = 16,--能量改变
     ActionCdChange = 17,--技能cd改变
+    ActionLeftTimeChange = 18,--关卡剩余时间改变
+    ActionBuffLeftTimeChange = 19,--buff剩余时间改变
+    ActionMapReset = 20,--棋盘重置
 }
 
 XSameColorGameConfigs.ScreenMaskType = {--技能准备时的黑幕类型
+    None = 0, -- 直接释放
     Condition = 1, --指向条件栏（回合数，伤害，评分）
     Board = 2,--指向棋盘
     Buff = 3,--指向Buff栏
@@ -121,6 +128,40 @@ XSameColorGameConfigs.EnergyChangeFrom = {
     Round = 5,--每回合环境造成
 }
 
+-- v1.31 三期爆炸技能，消球Action中球类型
+XSameColorGameConfigs.BallRemoveType = {
+    None = 0, -- 默认
+    BoomCenter = 1, -- 技能爆炸中心
+}
+
+-- 需要先开启再使用的技能，则第一次点击球是开启技能，后续的点击为使用技能
+XSameColorGameConfigs.NeedOpenSkill = {
+    [405] = true,
+}
+
+-- 动画不阻塞的技能
+XSameColorGameConfigs.AnimNotMaskSkill = {
+    [405] = true,
+}
+
+-- 常驻显示选中特效的球
+XSameColorGameConfigs.ShowSelectEffectBall = {
+    [1000] = true,
+}
+
+XSameColorGameConfigs.SkillComboType =
+{
+    Default = 0, 
+    Once = 1, -- 触发即释放一次技能，根据本次combo数确定动画
+}
+
+XSameColorGameConfigs.Sound = 
+{
+    BattleBg = 223,
+    SwapBall = 2989,
+    RemoveBall = 2990,
+}
+
 -- 角色最大装备技能数量
 XSameColorGameConfigs.RoleMaxSkillCount = 3
 -- 排行榜百分比显示限制阈值
@@ -129,6 +170,10 @@ XSameColorGameConfigs.PercRankLimit = 100
 XSameColorGameConfigs.MaxTopRankCount = 100
 -- 特殊排名阈值
 XSameColorGameConfigs.MaxSpecialRankIndex = 3
+-- 消球表现的时间
+XSameColorGameConfigs.BallRemoveTime = 0.3
+-- 重置棋盘、使用技能扣除能量 的阻塞时间
+XSameColorGameConfigs.UseSkillMaskTime = 0.5
 
 function XSameColorGameConfigs.Init()
     local xTableManager = XTableManager
@@ -163,6 +208,8 @@ function XSameColorGameConfigs.Init()
     BossSkillConfigDic = xTableManager.ReadByIntKey(TABLE_BOSS_SKILL, xTable.XTableSameColorGameBossSkill, "Id")
     --buff
     BuffConfigDic = xTableManager.ReadByIntKey(TABLE_BUFF, xTable.XTableSameColorGameBuff, "Id")
+    -- 被动技能
+    PassiveSkillConfigDic = xTableManager.ReadByIntKey(TABLE_PASSIVE_SKILL, xTable.XTableSameColorGamePassiveSkill, "Id") 
 
     BattleShowRoleDic = xTableManager.ReadByStringKey(TABLE_CLIENT_BATTLESHOW_ROLE, xTable.XTableUiBattleShowRole, "ModelId")
 end
@@ -432,4 +479,16 @@ function XSameColorGameConfigs.CheckPosIsAdjoin(posA, posB)
         sameY = true
     end
     return (adjoinX and sameY) or (adjoinY and sameX)
+end
+
+function XSameColorGameConfigs.GetPassiveSkillConfig(id)
+    if not PassiveSkillConfigDic[id] then
+        XLog.ErrorTableDataNotFound(
+            "SameColorGameConfigs.GetPassiveSkillConfig",
+            "PassiveSkill配置字段_Id",
+            TABLE_PASSIVE_SKILL,
+            "Id",
+            tostring(id))
+    end
+    return PassiveSkillConfigDic[id]
 end

@@ -7,6 +7,14 @@ function XUiArenaBuffTips:OnStart(buffId)
     end
 end
 
+function XUiArenaBuffTips:OnEnable()
+
+end
+
+function XUiArenaBuffTips:OnDisable()
+
+end
+
 function XUiArenaBuffTips:Refresh(buffId)
     self.BuffId = buffId or self.BuffId
     if not self.BuffId then

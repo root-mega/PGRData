@@ -11,6 +11,8 @@ XReformActivityManagerCreator = function()
     -- 当前打开的关卡id
     -- 默认拿第一关，如果服务器有返回拿最后到达的关卡
     local CurrentStageId = XReformConfigs.GetStageConfigIds()[1]
+    local CurrentHardStageId = XReformConfigs.GetHardStageConfigFirstId()
+    local CurrentStageType = XReformConfigs.StageType.Normal
     -- 是否已经发起进入请求，用来避免重复请求
     local IsEnterRequest = false
     -- 记录所有改造关卡最大分数字典数据，主要用来检测小红点
@@ -118,16 +120,18 @@ XReformActivityManagerCreator = function()
     end
     
     -- 获取任务奖励最大分数
-    function XReformActivityManager.GetTaskMaxScore()
+    function XReformActivityManager.GetTaskMaxScore(stageType)
         local maxScore = 0
         -- local taskDatas = XReformActivityManager.GetTaskDatas()
         -- local maxTaskScore = XReformActivityManager.GetTaskFinishScore(taskDatas[#taskDatas].Id)
         for _, baseStage in pairs(BaseStageDic) do
-            for _, evolvableStage in pairs(baseStage:GetEvolvableStageDic()) do
-                maxScore = maxScore + evolvableStage:GetMaxScore()
-                -- if maxScore >= maxTaskScore then
-                --     return maxTaskScore
-                -- end
+            if stageType == nil or baseStage:GetStageType() == stageType then
+                for _, evolvableStage in pairs(baseStage:GetEvolvableStageDic()) do
+                    maxScore = maxScore + evolvableStage:GetMaxScore()
+                    -- if maxScore >= maxTaskScore then
+                    --     return maxTaskScore
+                    -- end
+                end
             end
         end
         return maxScore
@@ -147,15 +151,21 @@ XReformActivityManagerCreator = function()
         return XDataCenter.TeamManager.GetPlayerTeam(CS.XGame.Config:GetInt("TypeIdReform"))
     end
 
-    function XReformActivityManager.GetBaseStages()
+    -- stageType : XReformConfigs.StageType
+    function XReformActivityManager.GetBaseStages(stageType)
         local configIds = XReformConfigs.GetStageConfigIds()
+        local config = nil
         local result = {}
         local baseStage = nil
         for _, id in pairs(configIds) do
-            baseStage = XReformActivityManager.GetBaseStage(id)
-            table.insert(result, baseStage)
+            config = XReformConfigs.GetStageConfigById(id)
+            if stageType == nil or stageType == config.StageType then
+                baseStage = XReformActivityManager.GetBaseStage(config.Id)
+                table.insert(result, baseStage)
+            end
         end
         return result
+
     end
 
     function XReformActivityManager.CheckBaseStageIsShowRedDot(baseStageId)
@@ -174,11 +184,16 @@ XReformActivityManagerCreator = function()
 
     function XReformActivityManager.CheckBaseStageIsShowRedDotInner(baseStageId)
         if Config == nil then return false end
+        -- 判断难度是否开启
+        local config = XReformConfigs.GetStageConfigById(baseStageId)
+        if config.StageType == XReformConfigs.StageType.Challenge 
+            and not XReformActivityManager.CheckIsUnlockChallenge() then
+            return false
+        end
         -- 如果有历史记录的话根据是否有改造难度开启
         if XReformActivityManager.GetBaseStageRedDotHistory(baseStageId) then
             return XReformActivityManager.CheckEvolvableDiffIsShowRedDot(baseStageId)
         end
-        local config = XReformConfigs.GetStageConfigById(baseStageId)
         return XFunctionManager.CheckInTimeByTimeId(config.OpenTimeId)
     end
 
@@ -262,34 +277,68 @@ XReformActivityManagerCreator = function()
             >= nextEvolvableStageConfig.UnlockScore
     end
 
-    function XReformActivityManager.GetCurrentBaseStage()
-        return XReformActivityManager.GetBaseStage(CurrentStageId)
+    function XReformActivityManager.GetCurrentStageType()
+        return CurrentStageType
     end
 
-    function XReformActivityManager.GetCurrentBaseStageId()
-        return CurrentStageId
+    function XReformActivityManager.GetCurrentBaseStage(stageType)
+        if stageType == XReformConfigs.StageType.Challenge then
+            return XReformActivityManager.GetBaseStage(CurrentHardStageId)
+        else
+            return XReformActivityManager.GetBaseStage(CurrentStageId)
+        end
     end
 
-    function XReformActivityManager.SetCurrentBaseStageId(value)
-        CurrentStageId = value
+    function XReformActivityManager.GetCurrentBaseStageId(stageType)
+        if stageType == XReformConfigs.StageType.Challenge then
+            return CurrentHardStageId
+        else
+            return CurrentStageId
+        end
+    end
+
+    function XReformActivityManager.SetCurrentBaseStageId(value, stageType)
+        if stageType == XReformConfigs.StageType.Challenge then
+            CurrentHardStageId = value
+        else
+            CurrentStageId = value
+        end
+        CurrentStageType = stageType
     end
 
     function XReformActivityManager.GetBaseStage(id)
         local baseStage = BaseStageDic[id]
         if baseStage == nil then
             local config = XReformConfigs.GetStageConfigById(id)
+            if config == nil then 
+                XLog.Error("改造玩法服务器返回本地不存在的关卡配置id", id)
+                return
+            end
             baseStage = XReformBaseStage.New(config)
             BaseStageDic[id] = baseStage
         end
         return baseStage
     end
 
-    function XReformActivityManager.GetTaskDatas()
+    -- stageType : XReformConfigs.StageType.Normal
+    function XReformActivityManager.GetTaskDatas(stageType)
         local result = XDataCenter.TaskManager.GetTaskList(TaskType.Reform)
-        table.sort(result, function(taskA, taskB)
+        local taskResult = nil
+        if stageType then
+            taskResult = {}
+            local taskIdDic = XReformConfigs.GetTaskIdDicByStageType(stageType)
+            for _, v in ipairs(result) do
+                if taskIdDic[v.Id] then
+                    table.insert(taskResult, v)
+                end
+            end
+        else
+            taskResult = result
+        end
+        table.sort(taskResult, function(taskA, taskB)
             return taskA.Id < taskB.Id
         end)
-        return result
+        return taskResult
     end
 
     -- 请求完成所有任务
@@ -336,6 +385,7 @@ XReformActivityManagerCreator = function()
         local team = evolvableStage:GetTeam()
         local memberGroup = evolvableStage:GetEvolvableGroupByType(XReformConfigs.EvolvableGroupType.Member)
         local robotIds = {0, 0, 0}
+        local cardIds = {0, 0, 0}
         local source = nil
         for i, sourceId in ipairs(team:GetEntityIds()) do
             if sourceId > 0 then 
@@ -345,7 +395,7 @@ XReformActivityManagerCreator = function()
                     robotIds[i] = source:GetRobotId()
                 -- 属于本地角色
                 else
-                    robotIds[i] = sourceId
+                    cardIds[i] = sourceId
                 end
             end
         end
@@ -354,6 +404,7 @@ XReformActivityManagerCreator = function()
             IsHasAssist = false,
             ChallengeCount = 1,
             RobotIds = robotIds,
+            CardIds = cardIds,
             CaptainPos = team:GetCaptainPos(),
             FirstFightPos = team:GetFirstFightPos()
         }
@@ -374,6 +425,7 @@ XReformActivityManagerCreator = function()
             evolvableStage:UpdateMaxScore(math.max(reformFightResult.Score, evolvableStage:GetMaxScore()))
             -- 更新最大难度
             baseStage:UpdateUnlockDiffIndex(math.max(reformFightResult.UnlockDiff + 1, baseStage:GetUnlockDiffIndex()))
+            baseStage:UpdateIsPassed(true)
             XReformActivityManager.AddEvolvableMaxScore(winData.StageId, evolvableStage:GetDifficulty(), evolvableStage:GetMaxScore())
         end
         XLuaUiManager.Open("UiReformCombatSettleWin", winData)
@@ -403,17 +455,63 @@ XReformActivityManagerCreator = function()
     end
 
     -- 敌人替换请求
-    function XReformActivityManager.EnemyReplaceRequest(stageId, diffIndex, replaceIdDbs, callback)
+    function XReformActivityManager.EnemyReplaceRequest(stageId, diffIndex, replaceIdDbs, callback, enemyGroupId, enemyGroupType)
         if replaceIdDbs == nil then replaceIdDbs = {} end
         if Debug then
             local baseStage = XReformActivityManager.GetBaseStage(stageId)
             local evolvableStage = baseStage:GetEvolvableStageByDiffIndex(diffIndex)
-            evolvableStage:UpdateEnemyReplaceIds(replaceIdDbs)
+            evolvableStage:UpdateEnemyReplaceIds(replaceIdDbs, nil, enemyGroupId, enemyGroupType)
             XEventManager.DispatchEvent(XEventId.EVENT_REFORM_EVOLVABLE_GROUP_UPDATE, XReformConfigs.EvolvableGroupType.Enemy)
             if callback then callback() end
             return
         end
-        XNetwork.Call(NetApiDic.EnemyReplaceRequest, { StageId = stageId, DiffIndex = diffIndex - 1, ReplaceIds = replaceIdDbs }, function(res)
+        XNetwork.Call(NetApiDic.EnemyReplaceRequest, { StageId = stageId, DiffIndex = diffIndex - 1, 
+            ReplaceIds = replaceIdDbs, EnemyGroupId = enemyGroupId, EnemyType = enemyGroupType }, function(res)
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+                return
+            end
+            -- ReformStageReplaceIdDb
+            local baseStage = XReformActivityManager.GetBaseStage(res.StageId)
+            local evolvableStage = baseStage:GetEvolvableStageByDiffIndex(res.DiffIndex + 1) 
+            evolvableStage:UpdateEnemyReplaceIds(res.ReplaceIds or {}, nil, enemyGroupId, enemyGroupType)
+            XEventManager.DispatchEvent(XEventId.EVENT_REFORM_EVOLVABLE_GROUP_UPDATE, XReformConfigs.EvolvableGroupType.Enemy)
+            if callback then callback() end
+        end)
+    end
+
+    -- 敌人词缀替换
+    function XReformActivityManager.EnemyBuffReplaceRequest(stageId, diffIndex, enemyGroupId, enemyGroupType, updateSourceId, buffIds, callback, operateData)
+        local baseStage = XReformActivityManager.GetBaseStage(stageId)
+        local evolvableStage = baseStage:GetEvolvableStageByDiffIndex(diffIndex)
+        local enemyGroups = evolvableStage:GetEvolvableGroupByType(XReformConfigs.EvolvableGroupType.Enemy)
+        local updateEnemyGroup = nil
+        for _, group in ipairs(enemyGroups) do
+            if group:GetId() == enemyGroupId and group:GetEnemyGroupType() == enemyGroupType then
+                updateEnemyGroup = group
+                break 
+            end
+        end
+        if updateEnemyGroup == nil then return end
+        local replaceIdDic = updateEnemyGroup:GetReplaceIdDic()
+        local replaceIdData = {}
+        local tempBuffIds = nil
+        for sourceId, targetId in pairs(replaceIdDic) do
+            if sourceId == updateSourceId then
+                tempBuffIds = buffIds
+            else
+                tempBuffIds = updateEnemyGroup:GetEnemyReformBuffIds(sourceId)
+            end
+            table.insert(replaceIdData, {
+                SourceId = sourceId,
+                TargetId = targetId,
+                EnemyGroupId = enemyGroupId,
+                EnemyType = enemyGroupType,
+                AffixSourceId = tempBuffIds
+            })
+        end
+        XNetwork.Call(NetApiDic.EnemyReplaceRequest, { StageId = stageId, DiffIndex = diffIndex - 1, 
+            ReplaceIds = replaceIdData, EnemyGroupId = enemyGroupId, EnemyType = enemyGroupType }, function(res)
             if res.Code ~= XCode.Success then
                 XUiManager.TipCode(res.Code)
                 return
@@ -421,8 +519,8 @@ XReformActivityManagerCreator = function()
             -- ReformStageReplaceIdDb
             local baseStage = XReformActivityManager.GetBaseStage(res.StageId)
             local evolvableStage = baseStage:GetEvolvableStageByDiffIndex(res.DiffIndex + 1)
-            evolvableStage:UpdateEnemyReplaceIds(res.ReplaceIds or {})
-            XEventManager.DispatchEvent(XEventId.EVENT_REFORM_EVOLVABLE_GROUP_UPDATE, XReformConfigs.EvolvableGroupType.Enemy)
+            evolvableStage:UpdateEnemyReplaceIds(res.ReplaceIds or {}, nil, enemyGroupId, enemyGroupType)
+            XEventManager.DispatchEvent(XEventId.EVENT_REFORM_EVOLVABLE_GROUP_UPDATE, XReformConfigs.EvolvableGroupType.EnemyBuff, operateData)
             if callback then callback() end
         end)
     end
@@ -495,6 +593,19 @@ XReformActivityManagerCreator = function()
         end)
     end
 
+    function XReformActivityManager.StageTimeUpdateRequest(stageId, diffIndex, stageTimeId, operateData)
+        XNetwork.Call("ReformTimeEnvRequest", { StageId = stageId, DiffIndex = diffIndex - 1, TimeEnvId = stageTimeId }, function(res)
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+                return
+            end
+            local baseStage = XReformActivityManager.GetBaseStage(res.StageId)
+            local evolvableStage = baseStage:GetEvolvableStageByDiffIndex(res.DiffIndex + 1)
+            evolvableStage:UpdateStageTimeId(res.TimeEnvId or 0)
+            XEventManager.DispatchEvent(XEventId.EVENT_REFORM_EVOLVABLE_GROUP_UPDATE, XReformConfigs.EvolvableGroupType.StageTime, operateData)
+        end)
+    end
+
     function XReformActivityManager.ChageStageDiffRequest(stageId, diffIndex, callback)
         if Debug then
             if callback then callback() end
@@ -537,21 +648,33 @@ XReformActivityManagerCreator = function()
         XReformActivityManager.Init()
         local baseStage = nil
         local firstNotPassId = nil
-        local maxStageId = 0
+        local hardFirstNotPassId = nil
+        local maxStageId = CurrentStageId
+        local maxHardStageId = CurrentHardStageId
         for _, stageDb in ipairs(reformFubenDb.StageDbs) do
             baseStage = XReformActivityManager.GetBaseStage(stageDb.Id)
             if baseStage == nil then
                 XLog.Warning(string.format("服务器基础关卡Id%s在本地配置找不到", stageDb.Id))
             else
                 baseStage:InitWithServerData(stageDb)
-                maxStageId = math.max(stageDb.Id, maxStageId)
+                if baseStage:GetStageType() == XReformConfigs.StageType.Normal then
+                    maxStageId = math.max(stageDb.Id, maxStageId)
+                else
+                    maxHardStageId = math.max(stageDb.Id, maxHardStageId)
+                end
             end
         end
         local stageConfigIds = XReformConfigs.GetStageConfigIds()
         for _, id in ipairs(stageConfigIds) do
             baseStage = XReformActivityManager.GetBaseStage(id)
-            if firstNotPassId == nil and baseStage:GetIsUnlock() and not baseStage:GetIsPassed() then
-                firstNotPassId = baseStage:GetId()
+            if baseStage:GetStageType() == XReformConfigs.StageType.Normal then
+                if firstNotPassId == nil and baseStage:GetIsUnlock() and not baseStage:GetIsPassed() then
+                    firstNotPassId = baseStage:GetId()
+                end
+            else
+                if hardFirstNotPassId == nil and baseStage:GetIsUnlock() and not baseStage:GetIsPassed() then
+                    hardFirstNotPassId = baseStage:GetId()
+                end
             end
         end
         if firstNotPassId ~= nil then
@@ -559,10 +682,39 @@ XReformActivityManagerCreator = function()
         else
             CurrentStageId = maxStageId
         end
+        if hardFirstNotPassId ~= nil then
+            CurrentHardStageId = hardFirstNotPassId
+        else
+            CurrentHardStageId = maxHardStageId
+        end
     end
 
     function XReformActivityManager.GetPreviewCloseTime()
         return Config.PreviewCloseTime
+    end
+    
+    function XReformActivityManager.CheckIsUnlockChallenge()
+        local baseStages = XReformActivityManager.GetBaseStages(XReformConfigs.StageType.Normal)
+        local score = 0
+        for _, baseStage in ipairs(baseStages) do
+            score = score + baseStage:GetAccumulativeScore()
+        end
+        return score >= Config.UnlockChallengeScores
+    end
+
+    function XReformActivityManager.GetUnlockChallengeScores()
+        return Config.UnlockChallengeScores
+    end
+
+    -- stageType : XReformConfigs.StageType
+    function XReformActivityManager.GetSceneUrlAndModelUrl(stageType)
+        local sceneConfigs = XReformConfigs.GetCfgByIdKey(XReformConfigs.TableKey.ReformClientConfig, "SceneUrl").Values
+        local modelConfigs = XReformConfigs.GetCfgByIdKey(XReformConfigs.TableKey.ReformClientConfig, "ModelUrl").Values
+        if stageType == XReformConfigs.StageType.Normal then
+            return sceneConfigs[1], modelConfigs[2]
+        elseif stageType == XReformConfigs.StageType.Challenge then
+            return sceneConfigs[2], modelConfigs[2]
+        end
     end
 
     XReformActivityManager.InitConfig()
@@ -570,6 +722,6 @@ XReformActivityManagerCreator = function()
     return XReformActivityManager
 end
 
-XRpc.NotifyReformFubenActivity = function(data)
-    XDataCenter.ReformActivityManager.InitWithServerData(data)
-end
+--XRpc.NotifyReformFubenActivity = function(data)
+--    XDataCenter.ReformActivityManager.InitWithServerData(data)
+--end

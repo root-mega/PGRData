@@ -21,8 +21,9 @@ function XUiStrongholdFightMain:OnAwake()
     self.RImgBg = self:FindComponent("BgCommonBai", "RawImage")
 end
 
-function XUiStrongholdFightMain:OnStart(chapterId)
+function XUiStrongholdFightMain:OnStart(chapterId, jumpToGroupId)
     self.ChapterId = chapterId
+    self.JumpToGroupId = jumpToGroupId --跳转至关卡组Id
 
     self:InitView()
 end
@@ -106,6 +107,11 @@ function XUiStrongholdFightMain:UpdateChapter()
     end
 
     self.ChapterPanel:Refresh(chapterId)
+
+    if self.JumpToGroupId then
+        self:OnSkipStage(self.JumpToGroupId)
+        self.JumpToGroupId = nil
+    end
 end
 
 function XUiStrongholdFightMain:AutoAddListener()

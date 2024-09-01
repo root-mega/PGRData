@@ -1,0 +1,1271 @@
+[
+    {
+        "CharacterId": 1011002,
+        "Feature": [
+            null,
+            14,
+            2.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "High Frequency Attack",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Palefire can deal damage efficiently.\\n1. The Red Orb Ping after a Yellow Orb Ping will also deal Fire DMG.\\n2. Red Orbs and Yellow Orbs can deal high frequency attacks.",
+            "Palefire can deal high frequency attacks.\\n1. The Red Orb Ping after a Yellow Orb Ping will also deal Fire DMG.\\n2. Red Orbs and Yellow Orbs can deal high frequency attacks.",
+            "Palefire can launch Fire Attacks.\\n1. After a Yellow Orb Ping, the next Red Orb Ping will deal Fire DMG.\\n2. Pinging Red Orbs and Yellow Orbs can launch high frequency attacks."
+        ]
+    },
+    {
+        "CharacterId": 1021001,
+        "Feature": [
+            null,
+            14,
+            2.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "High Frequency Attack",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Lotus can deal damage efficiently.\\n1. Ping Red Orb(s) after any 3-Ping to enter Burst form and deal multiple-hit Physical DMG.",
+            "Lotus can deal high frequency attacks.\\n1. Ping Red Orb(s) after any 3-Ping to enter Burst form and deal multiple-hit Physical DMG.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1031001,
+        "Feature": [
+            null,
+            16,
+            7.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Support",
+            "Pull",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Eclipse can restore teammates' HP and boost the recovery speed of Reinforcement Energy.\\n1. Ping Yellow Orbs to pull enemies.\\n2. Ping Blue Orbs to restore teammates' HP.\\n3. Ping Red Orb(s) after any 3-Ping to deal multiple-hit Physical DMG.",
+            "Eclipse can pull enemies.\\n1. Ping Yellow Orbs to pull enemies.\\n2. Ping Blue Orbs to restore teammates' HP.\\n3. Ping Red Orbs after any 3-Ping to deal multiple-hit Physical DMG.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1041002,
+        "Feature": [
+            null,
+            14,
+            17.0,
+            2.0
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "Ranged Damage",
+            "High Frequency Attack"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon12251.png",
+            "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png"
+        ],
+        "Description": [
+            null,
+            "Zero can deal ranged high frequency attacks.\\n1. Red, Yellow, and Blue Orbs can all deal multiple-hit Physical DMG.\\n2. Each 3-Ping will increase the Physical DMG dealt by the next Signature Move.",
+            "Zero can deal ranged attacks against enemies.\\n1. Red, Yellow, and Blue Orbs can all deal multiple-hit Physical DMG.\\n2. Each 3-Ping will increase the Physical DMG dealt by the next Signature Move.",
+            "Zero can deal high frequency attacks.\\n1. Red, Yellow, and Blue Orbs can all deal multiple-hit Physical DMG.\\n2. Each 3-Ping will increase the Physical DMG dealt by the next Signature Move."
+        ]
+    },
+    {
+        "CharacterId": 1051001,
+        "Feature": [
+            null,
+            15,
+            8.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Damage Reduction",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Storm can draw aggression, gain Super Armor, and have 30% DMG Reduction.\\n1. Ping Blue Orbs to reduce the target's DEF and gain Physical Resistance.\\n2. Ping Yellow Orb(s) after any 3-Ping to deal lasting Physical DMG to nearby enemies.",
+            "Storm can reduce the damage taken by team members.\\n1. Storm's Signature Moves can protect team members for 5s and resist Physical DMG by enemies.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1061002,
+        "Feature": [
+            null,
+            15,
+            9.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Control",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon018.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Bastion can draw aggression, gain Super Armor, and have 30% DMG Reduction.\\n1. Ping Yellow Orb(s) to enter Block form and enhance DEF, and then counterattack and deal Physical DMG.\\n2. Ping Blue Orbs to stun enemies.",
+            "Bastion can control enemies.\\n1. Ping Yellow Orb(s) to enter Block form and enhance DEF, and then counterattack and deal Physical DMG.\\n2. Ping Blue Orbs to stun enemies.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1071002,
+        "Feature": [
+            null,
+            14,
+            7.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "Pull",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Blast can deal damage efficiently.\\n1. Ping Blue Orbs to pull enemies.\\n2. Perform 3 3-Pings or cast a Signature Move to enter Burst mode and launch ranged cannon attacks.",
+            "Blast can pull enemies.\\n1. Ping Blue Orbs to pull enemies.\\n2. Perform 3 3-Pings or cast a Signature Move to enter Burst mode and launch ranged cannon attacks.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1081002,
+        "Feature": [
+            null,
+            14,
+            6.0,
+            2.0
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "Critical Hit",
+            "High Frequency Attack"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon1.png",
+            "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png"
+        ],
+        "Description": [
+            null,
+            "Nightblade can deal damage efficiently.\\n1. Ping Blue Orb(s) and if they deal damage to the enemy from behind, the damage will be guaranteed to be critical.\\n2. After 2 successful 3-Pings, summon a shade to deal lasting high frequency Physical DMG.",
+            "Nightblade is more likely to deal CRIT DMG.\\n1. Ping Blue Orb(s) and if they deal damage to the enemy from behind, the damage will be guaranteed to be critical.\\n2. After 2 successful 3-Pings, summon a shade to deal lasting high frequency Physical DMG.",
+            "Nightblade can deal high frequency attacks.\\n1. Ping Blue Orb(s) and if they deal damage to the enemy from behind, the damage will be guaranteed to be critical.\\n2. After 2 successful 3-Pings, summon a shade to deal lasting high frequency Physical DMG."
+        ]
+    },
+    {
+        "CharacterId": 1021002,
+        "Feature": [
+            null,
+            14,
+            2.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "High Frequency Attack",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Dawn can deal damage efficiently.\\n1. Ping Yellow Orbs and Blue Orbs to stack up marks on enemies and deal multiple-hit damage.\\n2. Attacking enemies with marks will deal additional damage to them.\\n3. Activate a Signature Move to enter Burst form for basic attacks to deal 25% Extra DMG.",
+            "Dawn can deal high frequency attacks.\\n1. Ping Yellow Orbs and Blue Orbs to stack up marks on enemies and deal multiple-hit damage.\\n2. Attacking enemies with marks will deal additional damage to them.\\n3. Activate a Signature Move to enter Burst form for basic attacks to deal 25% Extra DMG.",
+            "Dawn can deal Lightning DMG.\\n1. Ping Yellow Orbs and Blue Orbs to stack up marks on enemies and deal multiple-hit damage.\\n2. Attacking enemies with marks will deal additional Lightning DMG."
+        ]
+    },
+    {
+        "CharacterId": 1031002,
+        "Feature": [
+            null,
+            16,
+            9.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Support",
+            "Control",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon018.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Lux can restore team members' HP and control enemies.\\n1. Ping Blue Orb(s) to create an Ion Wall that can slow down enemies.\\n2. Ping Yellow Orb(s) to mildly pull enemies.\\n3. QTE can heal team members.\\n4. Trigger Lightening 4 times via Signature Moves to heal allies.",
+            "Lux can control enemies.\\n1. Ping Blue Orb(s) to create an Ion Wall that can slow down enemies.\\n2. Ping Yellow Orb(s) to mildly pull enemies.",
+            "Lux can deal Lightning DMG.\\n1. Pinging Yellow or Red Orbs has a chance to deal Lightning DMG and heal allies."
+        ]
+    },
+    {
+        "CharacterId": 1011003,
+        "Feature": [
+            null,
+            14,
+            2.0,
+            7.0
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "High Frequency Attack",
+            "Pull"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png"
+        ],
+        "Description": [
+            null,
+            "Entropy can deal damage efficiently.\\n1. Ping Blue Orbs to pull enemies.\\n2. Cast Red Orb(s) after any 3-Ping to deal additional Physical DMG.",
+            "Entropy can deal high frequency attacks.\\n1. Ping Blue Orbs to pull enemies.\\n2. Cast Red Orb(s) after any 3-Ping to deal additional Physical DMG.",
+            "Entropy can pull enemies.\\n1. Ping Blue Orbs to pull enemies.\\n2. Cast Red Orb(s) after any 3-Ping to deal additional Physical DMG."
+        ]
+    },
+    {
+        "CharacterId": 1031003,
+        "Feature": [
+            null,
+            16,
+            7.0,
+            8.0
+        ],
+        "Name": [
+            null,
+            "Support",
+            "Pull",
+            "Damage Reduction"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png"
+        ],
+        "Description": [
+            null,
+            "Luminance can restore teammates' HP and boost the recovery speed of Reinforcement Energy.\\n1. Ping Blue Orbs to pull and mark enemies within range.\\n2. Attacks against marked enemies have a chance to deal additional Physical DMG.\\n3. Perform a 3-Ping or trigger the marks 5 times to restore team members' HP.\\n4. Luminance's Signature Moves can boost other team members' DMG Reduction.",
+            "Luminance can pull enemies.\\n1. Ping Blue Orbs to pull and mark enemies within range.\\n2. Attacks against marked enemies have a chance to deal additional Physical DMG.\\n3. Perform a 3-Ping or trigger the marks 5 times to restore team members' HP.\\n4. Luminance's Signature Moves can boost other team members' DMG Reduction.",
+            "Luminance can reduce the damage taken by team members.\\n1. Ping Blue Orbs to pull and mark enemies within range.\\n2. Attacks against marked enemies have a chance to deal additional Physical DMG.\\n3. Perform a 3-Ping or trigger the marks 5 times to restore team members' HP.\\n4. Luminance's Signature Moves can boost other team members' DMG Reduction."
+        ]
+    },
+    {
+        "CharacterId": 1061003,
+        "Feature": [
+            null,
+            15,
+            7.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Pull",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Tenebrion can draw aggression, gain Super Armor, and have 30% DMG Reduction.\\n1. Ping Blue Orb(s) to pull monsters.\\n2. Each 3-Ping grants 10 more Energy. When Energy is above 60, activate a Signature Move to enter Dark form.\\n3. When in Dark form, Tenebrion gains 30% Physical Resistance and Dark Resistance.",
+            "Eclipse can pull enemies.\\n1. Ping Blue Orb(s) to pull monsters.\\n2. Each 3-Ping grants 10 more Energy. When Energy is above 60, activate a Signature Move to enter Dark form.\\n3. When in Dark form, Tenebrion gains 30% Physical Resistance and Dark Resistance.",
+            "Tenebrion can deal Dark DMG.\\n1. Ping Blue Orbs to pull monsters.\\n2. Each 3-Ping grants 10 more Energy. When Energy is above 60, activate a Signature Move to enter Dark form.\\n3. When in Dark form, Tenebrion can ping orbs to deal Dark DMG."
+        ]
+    },
+    {
+        "CharacterId": 1071003,
+        "Feature": [
+            null,
+            14,
+            1.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "Elemental DMG",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Ember can deal damage efficiently.\\n1. Any 3-Ping and Signature Move will grant Heat.\\n2. Ember will deal more damage upon 50% Heat.",
+            "Ember can deal Fire DMG.\\n1. Any 3-Ping and Signature Move will grant Heat.\\n2. Upon 50% Heat, Ember will gain increased DMG and deal Fire DMG.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1051003,
+        "Feature": [
+            null,
+            15,
+            2.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "High Frequency Attack",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Pulse can draw aggression, gain Super Armor, and have 30% DMG Reduction.\\n1. Ping any Orb to perform a multiple-hit attack.\\n2. Pulse can cast a Signature Move to gain temporary enhancement, dealing more damage and reducing the enemy's Fire Resistance by 15%.",
+            "Pulse can deal high frequency attacks.\\n1. Ping any Orb to perform a multiple-hit attack.\\n2. Pulse can cast a Signature Move to gain temporary enhancement, dealing more damage and reducing the enemy's Fire Resistance by 15%.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1021003,
+        "Feature": [
+            null,
+            14,
+            3.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "Burst",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon014.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Crimson Abyss can deal damage efficiently.\\n1. Perform any 3-Ping after a Blue Orb 3-Ping to enter Blade Will form.\\n2. Upon entering Blade Will form, Crimson Abyss will gain multiple Sword Orbs. Ping these orbs to deal Physical DMG.",
+            "Crimson Abyss can deal massive damage in short-time.\\n1. Perform any 3-Ping after a Blue Orb 3-Ping to enter Blade Will form.\\n2. Upon entering Blade Will form, Crimson Abyss will gain multiple Sword Orbs. Ping these orbs to deal Physical DMG.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1081003,
+        "Feature": [
+            null,
+            14,
+            1.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "Elemental DMG",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Astral can deal damage efficiently.\\n1. Ping Yellow Orbs to pull enemies.\\n2. Ping Red Orb(s) after any 3-Ping to deal damage once and temporarily make Astral deal more damage.",
+            "Astral can deal Dark DMG.\\n1. Ping Yellow Orbs to pull enemies.\\n2. Ping Red Orbs after any 3-Ping to deal Dark DMG once and temporarily gain increased DMG.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1091002,
+        "Feature": [
+            null,
+            15,
+            7.0,
+            10.0
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Pull",
+            "Shield"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png"
+        ],
+        "Description": [
+            null,
+            "Brilliance can draw aggression, gain Super Armor, and have 30% DMG Reduction.\\n1. Ping Blue Orb(s) after any 3-Ping to charge and pull enemies right on the spot and gain a shield.",
+            "Brilliance can pull enemies.\\n1. Ping Blue Orb(s) after any 3-Ping to charge and pull enemies right on the spot and gain a shield.",
+            "Brilliance can shield herself.\\n1. Ping Blue Orbs after any 3-Ping to charge right on the spot, pull enemies in and gain a shield."
+        ]
+    },
+    {
+        "CharacterId": 1041003,
+        "Feature": [
+            null,
+            14,
+            17.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "Ranged Damage",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon12251.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Veritas can deal damage efficiently.\\n1. Ping Blue Orb(s) after a Red Orb 3-Ping to enter Sniper form.\\n2. When in Sniper form, Veritas deals more basic attack damage and deals damage at a significantly longer range.",
+            "Veritas can deal ranged attacks against enemies.\\n1. Ping Blue Orb(s) after a Red Orb 3-Ping to enter Sniper form.\\n2. When in Sniper form, Veritas deals more basic attack damage and deals damage at a significantly longer range.",
+            "Veritas can deal Lightning DMG.\\n1. Ping Blue Orbs after a Red Orb 3-Ping to enter Sniping Form.\\n2. When in Sniping Form, Veritas' Basic Attacks deal Lightning DMG instead and have a significantly longer range."
+        ]
+    },
+    {
+        "CharacterId": 1111002,
+        "Feature": [
+            null,
+            16,
+            7.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Support",
+            "Pull",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Silverfang can restore teammates' HP and boost the recovery speed of Reinforcement Energy.\\n1. Silverfang will drop Energy Balls when attacking. Pick up the Energy Balls to restore HP and deal more Fire DMG.\\n2. Silverfang will gain Energy and Heat by picking up Energy Balls.\\n3. Silverfang's Signature Moves will deal Fire DMG and continuously pull enemies.",
+            "Silverfang can pull enemies.\\n1. Silverfang's Signature Moves will deal Fire DMG and continuously pull enemies.",
+            "Silverfang can deal Fire DMG.\\n1. Silverfang's Signature Move can deal Fire DMG and continuously pull enemies in."
+        ]
+    },
+    {
+        "CharacterId": 1121002,
+        "Feature": [
+            null,
+            15,
+            7.0,
+            10.0
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Pull",
+            "Shield"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png"
+        ],
+        "Description": [
+            null,
+            "Arclight can draw aggression, gain Super Armor, and have 30% DMG Reduction.\\n1. Arclight can attract nearby targets after casting a Signature Move.",
+            "Arclight can pull enemies.\\n1. Arclight can attract nearby targets after casting a Signature Move.",
+            "Arclight can shield himself.\\n1. He can deal Lightning DMG after casting Signature Move.\\n2. Ping Blue Orbs after any 3-Ping to gain a shield."
+        ]
+    },
+    {
+        "CharacterId": 1021004,
+        "Feature": [
+            null,
+            14,
+            3.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "Burst",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon014.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Plume can deal damage efficiently.\\n1. When in Arctic form and there is Energy remaining, Plume can deal 50% more Ice DMG. Plume's Signature Moves and 3-Pings also have this bonus effect.",
+            "Plume can deal massive damage in short-time.\\n1. When in Arctic Form and there is Energy remaining, Plume can deal 50% more Ice DMG. Plume's Signature Moves and 3-Pings also have this bonus effect.",
+            "Plume can deal Ice DMG.\\n1. When Plume is in Arctic Form and has Energy remaining, she can deal 50% more Ice DMG. Plume's Signature Move and 3-Pings also benefit from this damage bonus."
+        ]
+    },
+    {
+        "CharacterId": 1131002,
+        "Feature": [
+            null,
+            16,
+            1.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Support",
+            "Elemental DMG",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Rozen can restore teammates' HP and boost the recovery speed of Reinforcement Energy.\\n1. Press and hold the Basic Attack button to deal damage and restore Rozen's Signature Energy at the cost of the Passive Value.",
+            "Rozen can deal Dark DMG.\\n1. Press and hold the Basic Attack button to consume Overclock Points, dealing Dark DMG while recovering Signature Energy.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1511003,
+        "Feature": [
+            null,
+            18,
+            10.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Vanguard",
+            "Shield",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Crocotta can deal damage efficiently.\\n1. With a powerful shield and efficient damage-dealing capability, Crocotta will gain Super Armor during a Signature Move and deal damage at ease.",
+            "Crocotta can gain a shield.\\n1. Ping Blue Orbs to gain a shield.",
+            "Crocotta can deal Dark DMG.\\n1. Crocotta can deal Dark DMG while Signature Move is active."
+        ]
+    },
+    {
+        "CharacterId": 1141003,
+        "Feature": [
+            null,
+            15,
+            7.0,
+            10.0
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Pull",
+            "Shield"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png"
+        ],
+        "Description": [
+            null,
+            "Rigor can draw aggression, gain Super Armor, and have 30% DMG Reduction.\\n1. Rigor can use Passive Energy to deal more 3-Ping and Signature Move damage.\\n2. When Energy is used up, Rigor will enter Full Burst form. Press and hold the Basic Attack button to fire the Wide-area electromagnetic Cannon.",
+            "Rigor can pull enemies.\\n1. Rigor's Signature Moves can pull nearby enemies and deal Physical DMG.\\n2. Ping Blue Orbs to pull enemies.",
+            "Rigor can gain a shield.\\n1. Ping Yellow Orbs to gain a shield."
+        ]
+    },
+    {
+        "CharacterId": 1521003,
+        "Feature": [
+            null,
+            18,
+            null,
+            null
+        ],
+        "Name": [
+            null,
+            "Vanguard",
+            null,
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Pavo can deal damage efficiently.\\n1. Ping Signal Orbs to gain Sync Rate.\\n2. Pavo will enter Concentrated Will form upon full Sync Rate.\\n3. When in Concentrated Will form, Pavo can only perform 1-Pings, which will grant enhancement effect(s).",
+            null,
+            null
+        ]
+    },
+    {
+        "CharacterId": 1161002,
+        "Feature": [
+            null,
+            15,
+            1.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Elemental DMG",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Qilin can draw aggression, gain Super Armor, and have 30% DMG Reduction.\\n1. Upon a 3-Ping, the Follow-Up Orb will light up for you to perform different Follow-Up effects.\\n2. Upon use of a Signature Move, use the Follow-Up Orb to perform a combo.",
+            "Qilin can deal Ice DMG.\\n1. Upon a 3-Ping, the Follow-Up Orb will light up, allowing Qilin to launch different Follow-Up combos and deal Ice DMG.\\n2. After casting Signature Move, use the Follow-Up Orb to perform a combo.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1171003,
+        "Feature": [
+            null,
+            14,
+            2.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "High Frequency Attack",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Laurel can deal damage efficiently.\\n1. After gaining Annihilation Points via a 3-Ping, press and hold the Basic Attack button to enter Annihilation form, and then ping Annihilation Orb(s) to deal Dark DMG and gain Energy.",
+            "Laurel can deal high frequency attacks.\\n1. Signal Orbs and basic attacks can all deal multiple-hit attacks.",
+            "Laurel can deal Dark DMG.\\n1. After gaining Annihilation Points via a 3-Ping, press and hold the Basic Attack button to enter Annihilation State, and then ping Annihilation Orbs to deal Dark DMG and gain Energy."
+        ]
+    },
+    {
+        "CharacterId": 1181003,
+        "Feature": [
+            null,
+            14,
+            null,
+            null
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            null,
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "2B is an efficient damage dealer.\\n1. 2B's Battle Stance allows her to unleash a large amount of damage.",
+            null,
+            null
+        ]
+    },
+    {
+        "CharacterId": 1191003,
+        "Feature": [
+            null,
+            16,
+            9.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Support",
+            "Control",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon018.png",
+            null
+        ],
+        "Description": [
+            null,
+            "9S can restore teammates' HP and boost the recovery speed of Reinforcement Energy.\\n1. Upon a 3-Ping, if the Overclock Energy is above 50, gain the Overclock Indicator of the corresponding color at the cost of Overclock Energy.\\n2. Tap the Overclock Indicator to clear the Signal Orbs of the same color.",
+            "9S can control enemies.\\n1. Ping Yellow Orb(s) to create a slow area in front and immobilize the enemies in the area.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1201003,
+        "Feature": [
+            null,
+            15,
+            7.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Pull",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            null
+        ],
+        "Description": [
+            null,
+            "A2 can draw aggression, gain Super Armor, and have 30% DMG Reduction.\\n1. Upon a Signature Move, A2 enters Berserker, during which time A2 has Super Armor and gains Extra DMG Reduction and Extra DMG Bonus.\\n2. POD: shield will be consumed during the Signature Move. Replenish it via 3-Pings and basic attacks.",
+            "A2 can pull enemies.\\n1. Ping Blue Orb(s) to create a gravity area in front and keep pulling enemies in the area.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1211002,
+        "Feature": [
+            null,
+            16,
+            1.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Support",
+            "Elemental DMG",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Hypnos can restore teammates' HP and boost the recovery speed of Reinforcement Energy.\\n1. Press the Basic Attack button within 1s after any 3-Ping to enter Tactical Firing posture. Hold the Basic Attack button to keep the posture.\\n2. When in the Tactical Firing posture, release the Basic Attack button and successfully dodge attacks to deal more damage.",
+            "Hypnos can deal Ice DMG.\\n1. After any 3-Ping, press Basic Attack within 1s to enter Tactical Stance, then release Basic Attack to fire forward, dealing Ice DMG.\\n2. If Hypnos manages to dodge an enemy attack while releasing the Basic Attack button in Tactical Stance, he can deal even higher Ice DMG.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1531003,
+        "Feature": [
+            null,
+            18,
+            1.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Vanguard",
+            "Elemental DMG",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Tempest can deal damage efficiently.\\n1. Upon a 3-Ping, Tempest gains a Triad of the same color. And the next ping will trigger a Chord and cause different damage effects depending on the Chord color.\\n2. Tempest gains 50% DMG Reduction during Signature and deal damage via basic attacks and pings.",
+            "Tempest can deal Lightning DMG.\\n1. Upon a 3-Ping, a Triad of the same color is generated. The next ping will trigger a Chord and cause different damage effects depending on whether the Chord color is the same or different from the Triad color.\\n2. Tempest gains 50% DMG Reduction during Signature Move and deal damage via basic attacks and pings.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1121003,
+        "Feature": [
+            null,
+            15,
+            9.0,
+            10.0
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Control",
+            "Shield"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon018.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png"
+        ],
+        "Description": [
+            null,
+            "Glory can draw aggression, gain Super Armor, and have 30% DMG Reduction.\\n1. Press and hold the Basic Attack button to clear Glorious Shield and enter Frost Spirit form.\\n2. When performing a 3-Ping and attacked in Frost Spirit form, become immune to the attack and slow down the enemy.",
+            "Glory can control enemies.\\n1. Press and hold the Basic Attack button to clear Glorious Shield and enter Frost Spirit form.\\n2. When performing a 3-Ping and attacked in Frost Spirit form, become immune to the attack and slow down the enemy.",
+            "Glory can gain a shield.\\n1. Upon deployment, Glory converts 60% HP to a shield."
+        ]
+    },
+    {
+        "CharacterId": 1221002,
+        "Feature": [
+            null,
+            15,
+            10.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Shield",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "XXI can draw aggression, gain Super Armor, and have 30% DMG Reduction.\\n1. Dodge to get up from the ground or remove other statuses and gain a shield.\\n2. XXI mainly deals damage via the explosion of Twilight Matrix.",
+            "XXI can gain a shield.\\n1.When attacked, fallen to the ground, or in other abnormal statuses, tap the Dodge button to perform an instant dodge, which will cast a Twilight Matrix at the target and grant Super Armor and a shield equal to 15% Max HP.",
+            "XXI can deal Dark DMG.\\n1. Detonate Twilight Matrices to unleash high DMG."
+        ]
+    },
+    {
+        "CharacterId": 1131003,
+        "Feature": [
+            null,
+            15,
+            7.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Pull",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Garnet can draw aggression, gain Super Armor, and have 30% DMG Reduction.\\n1. Upon a 3-Ping, use a basic attack or Signature Move to gain Electric Charge.\\n2. Press and hold the Basic Attack button to cast Lightning Fall at the cost of Electric Charge.\\n3. The more stacks of Electric Charge consumed, the more damage the Lightning Fall will deal.",
+            "Garnet can pull enemies.\\n1. Clear Yellow Orbs to pull nearby enemies.",
+            "Garnet can deal Lightning DMG.\\n1. After a 3-Ping, use Signature Move to gain Electric Charge.\\n2. Press and hold Basic Attack to consume Electric Charge to cast Lightning Fall, dealing Lightning DMG.\\n3. The more stacks of Electric Charge consumed, the more damage the Lightning Fall will deal."
+        ]
+    },
+    {
+        "CharacterId": 1541003,
+        "Feature": [
+            null,
+            18,
+            null,
+            null
+        ],
+        "Name": [
+            null,
+            "Vanguard",
+            null,
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Flambeau can deal damage efficiently.\\n1. Ping White Signal Orb(s) right after a basic attack to gain Deception Pts.\\n2. Use Deception Pts. to cast the Signal Orb's Phase 1 and Phase 2 skills.\\n3. Signature grants Trickery Pts. and Incinerating Orb(s). Basic attacks and pings consume Trickery Pts.",
+            null,
+            null
+        ]
+    },
+    {
+        "CharacterId": 1031004,
+        "Feature": [
+            null,
+            19,
+            7.0,
+            17.0
+        ],
+        "Name": [
+            null,
+            "Amplifier",
+            "Pull",
+            "Ranged Damage"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter5.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon12251.png"
+        ],
+        "Description": [
+            null,
+            "Empyrea is a character that can pull enemies, inflict control effects, and deal damage.\\n1. Upon full Passive Value, double tap the Dodge button to enter Prayer and enter Signal Orb(s) twice.\\n2. Cause different damage effects based on the Signal Orb(s) entered.\\n3. During a Signature Move, double tap the Dodge button to enter Prayer and enter Signal Orb(s) three times to deal massive damage.",
+            "Empyrea can pull enemies.\\n1. Upon full Passive Value, double tap the Dodge button to enter Prayer, enter two groups of Signal Orbs of different colors, and cast Chaos Oath to pull enemies within a big range.",
+            "All Empyrea's damage is ranged damage."
+        ]
+    },
+    {
+        "CharacterId": 1531004,
+        "Feature": [
+            null,
+            19,
+            null,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Amplifier",
+            null,
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter5.png",
+            null,
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Selena: Capriccio is an attacker and a healer.\\n1. After Selena casts a 3-Ping or Shooting Stars, move the joystick to summon a phantom to cast the original skill and for Selena to cast Ensemble: Echo.\\n2. After explosion, the Signature Move field will leave a phantom to restore HP to allies in it.",
+            null,
+            "Capriccio can deal Dark DMG.\\n1. After casting a 3-Ping or Shooting Stars, move the joystick to summon a phantom to cast the original skill while Capriccio herself will cast Reprise: Echo.\\n2. After the Realm of Capriccio is detonated, it will leave a phantom to restore HP to allies within the range."
+        ]
+    },
+    {
+        "CharacterId": 1551003,
+        "Feature": [
+            null,
+            18,
+            7.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Vanguard",
+            "Pull",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Dragontoll can deal damage efficiently.\\n1. Spend 20 Energy to cast Spirit Blade: Dragon Throw, throwing a Dragon Axe.\\n2. When Dragontoll's Red/Yellow/Blue Pings collides with the Dragon Axe, she will cast Dragon Force Combo at the cost of Dragon Force.",
+            "Dragontoll can pull the enemy.\\n1. When Dragontoll's Yellow Pings collides with the Dragon Axe, she will cast Dragon Force Combo and pull nearby enemies at the cost of Dragon Force.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1051004,
+        "Feature": [
+            null,
+            15,
+            7.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Pull",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Starfarer can attract firepower, gain Super Armor, and become immune to 30% incoming damage.\\n1. Starfarer casts the Signature Move and then actives the \"Thunderer\" Mode. Tap Basic Attack to cast Ironsoul Slice.\\n2. When the Ironsoul Slice hits the enemy, press and hold Basic Attack to active the \"Bzzz\" Mode and trigger Oops! Missed It! or \"Perfect!\" by releasing at different time points.",
+            "Starfarer can pull the enemy.\\n1. Ironsoul Slice I can pull the enemy.",
+            "Starfarer can deal Fire DMG.\\n1. After casting Signature Move, Starfarer enters \"Rumbling\" Form. Press Basic Attack in this form to cast Ironsoul Slice.\\n2. When Ironsoul Slice hits an enemy, press and hold Basic Attack to enter \"Bzzz\" Form, then trigger \"Oops! Missed it!\" or \"Perfect!\" based on the timing when the Basic Attack button is released."
+        ]
+    },
+    {
+        "CharacterId": 1561003,
+        "Feature": [
+            null,
+            18,
+            1.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Vanguard",
+            "Elemental DMG",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Starveil can deal damage efficiently.\\n1. Press and hold Dodge to start charging. Release to cast Frost Moon.",
+            "Starveil can deal Ice DMG.\\n1. Press and hold Dodge to start charging, then release it to cast Bitter Frost.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1071004,
+        "Feature": [
+            null,
+            15,
+            1.0,
+            9.0
+        ],
+        "Name": [
+            null,
+            "Tank",
+            "Elemental DMG",
+            "Control"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon018.png"
+        ],
+        "Description": [
+            null,
+            "Scire can taunt the enemy, gain Super Armor and 30% DMG Reduction.\\n1. Press and hold Basic Attack to start charging and consuming 3-Ping Orbs over time, then cast Leap Attack.",
+            "Scire can deal Dark DMG.\\n1. Press and hold Basic Attack to start charging and consuming 3-Ping Orbs over time, then cast Leap Attack.\\n2. Basic Attacks and pinging orbs can both deal Dark DMG.",
+            "Scire can knock the enemy away.\\n1. Press and hold Basic Attack to start charging and consuming 3-Ping Orbs over time, then cast Leap Attack."
+        ]
+    },
+    {
+        "CharacterId": 1571003,
+        "Feature": [
+            null,
+            18,
+            7.0,
+            1.0
+        ],
+        "Name": [
+            null,
+            "Vanguard",
+            "Pull",
+            "Elemental DMG"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png"
+        ],
+        "Description": [
+            null,
+            "Arca is an efficient damage dealer.\\n1. Tap Basic Attack continuously after any 3-Ping to charge up the Rising Engine. Arca will unleash Gear-Break Combo to deal DMG when the tapping stops or goes over a certain period of time.",
+            "Arca can pull enemies in.\\n1. Upon a 3-Ping, the Yellow Orb skill deals Lightning DMG instead of Physical DMG and pulls in nearby enemies when the magnetic field contracts.\\n2. After any 3-Ping, tap Basic Attack continously to charge up the Rising Engine. Arca will unleash Gear-Break Combo to deal DMG when the tapping stops or goes over a certain period of time.",
+            "Arca is an efficient damage dealer.\\n1. Upon a 3-Ping, the Yellow Orb skill deals Lightning DMG instead of Physical DMG and pulls in nearby enemies when the magnetic field contracts.\\n2. After any 3-Ping, tap Basic Attack continously to charge up the Rising Engine. Arca will unleash Gear-Break Combo to deal DMG when the tapping stops or goes over a certain period of time."
+        ]
+    },
+    {
+        "CharacterId": 1041004,
+        "Feature": [
+            null,
+            14,
+            3.0,
+            null
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "Burst",
+            null
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon014.png",
+            null
+        ],
+        "Description": [
+            null,
+            "Stigmata is an efficient damage dealer.\\n1. In Staff Form, press and hold the Dodge button to activate Luminous Realm. While Luminous Realm is active, pinging Signal Orbs will also consume the Afterglow Orbs that are of the same color and aligned above them to damage the target.\\n2. After a successful dodge or the 4th hit of Basic Attack in Sword Form, press and hold Basic Attack to unleash a thrusting attack.",
+            "Stigmata unleash high damage within a short interval.\\n1. In Staff Form, press and hold the Dodge button to activate Luminous Realm. While Luminous Realm is active, pinging Signal Orbs will also consume the Afterglow Orbs that are of the same color and aligned above them to damage the target.\\n2. After a successful dodge or the 4th hit of Basic Attack in Sword Form, press and hold Basic Attack to unleash a thrusting attack.",
+            null
+        ]
+    },
+    {
+        "CharacterId": 1231002,
+        "Feature": [
+            null,
+            14,
+            1.0,
+            3.0
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "Elemental DMG",
+            "Burst"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon014.png"
+        ],
+        "Description": [
+            null,
+            "Vitrum is an efficient damage dealer.\\n1. Press and hold Basic Attack to enter the Strings On Me state, automatically dodging incoming attacks. Pinging orbs in this state can also deal damage.",
+            "Vitrum can deal Ice DMG.\\n1. Press and hold Basic Attack to enter the Strings on Me state. Taking hit in this state will cause Vitrum to enter the Solitary Dancer state, automatically dodging incoming attacks while dealing Ice DMG via pinging orbs.\\n2. Making 3-Pings in Solitary Dancer state will cause Vitrum to forget Signal Orbs of the color of the 3-Ping. Cast Signature Move to restore the forgotten orbs and deal massive Ice DMG.",
+            "Vitrum can unleash high damage within a short interval.\\n1. Press and hold Basic Attack to enter the Strings on Me state. Taking hit in this state will cause Vitrum to enter the Solitary Dancer state, automatically dodging incoming attacks while dealing Ice DMG via pinging orbs.\\n2. Making 3-Pings in Solitary Dancer state will cause Vitrum to forget Signal Orbs of the color of the 3-Ping. Cast Signature Move to restore the forgotten orbs and deal massive Ice DMG."
+        ]
+    },
+    {
+        "CharacterId": 1011004,
+        "Feature": [
+            null,
+            14,
+            1.0,
+            3.0
+        ],
+        "Name": [
+            null,
+            "Attacker",
+            "Elemental DMG",
+            "Burst"
+        ],
+        "Icon": [
+            null,
+            "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png",
+            "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon014.png"
+        ],
+        "Description": [
+            null,
+            "Hyperreal is an efficient damage dealer.\\n1. Press and hold Basic Attack to deal Fire DMG and enter Hypermatrix. Holding Basic Attack inside Hypermatrix can also extend its duration.",
+            "Hyperreal can deal Fire DMG.\\n1. Press and hold Basic Attack to deal Fire DMG and enter Hypermatrix. Holding Basic Attack inside Hypermatrix can also extend its duration.\\n2. Hyperreal's Basic Attacks and Orb Skills can both deal Fire DMG.",
+            "Hyperreal can unleash high damage within a short interval.\\n1. Press and hold Basic Attack to deal Fire DMG and enter Hypermatrix. Holding Basic Attack inside Hypermatrix can also extend its duration.\\n2. Hyperreal's Basic Attacks and Orb Skills can both deal Fire DMG."
+        ]
+    }
+]

@@ -16,6 +16,7 @@ function XUiCharacterElementDetail:OnStart(characterId)
 end
 
 function XUiCharacterElementDetail:OnEnable()
+    self.TxtTitle.text = CS.XTextManager.GetText(self.Name)
     self:UpdateDynamicTable()
 end
 

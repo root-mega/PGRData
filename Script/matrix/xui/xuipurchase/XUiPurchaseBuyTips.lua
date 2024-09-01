@@ -281,6 +281,19 @@ function XUiPurchaseBuyTips:SetList()
         v.LBGetType = LBGetTypeConfig.Direct
         table.insert(self.ListDirData,v)
     end
+    -- v1.31-采购优化-涂装增加CG展示道具
+    for _,v in pairs(rewards0) do
+        if v.RewardType == XRewardManager.XRewardType.Fashion then
+            local subItems = XDataCenter.FashionManager.GetFashionSubItems(v.TemplateId)
+            if subItems then
+                local isHave = XRewardManager.CheckRewardOwn(v.RewardType, v.TemplateId)
+                for _, itemTemplateId in ipairs(subItems) do
+                    table.insert(self.ListDirData, {TemplateId = itemTemplateId, Count = 1, LBGetType = LBGetTypeConfig.Direct, 
+                    IsSubItem = true, IsHave = isHave})
+                end
+            end
+        end
+    end
     -- 每日获得的道具
     local rewards1 = self.Data.DailyRewardGoodsList or {}
     for _,v in pairs(rewards1) do
@@ -299,6 +312,12 @@ function XUiPurchaseBuyTips:SetList()
             local item = self:GetItemObj(index2)
             item:OnRefresh(v)
             index2 = index2 + 1
+
+            -- v1.31-采购优化-涂装CG展示已拥有
+            if (v.IsSubItem and v.IsHave) or (self.Data.ConsumeCount ~= 0 and self.Data.ConvertSwitch == 0) then
+                item.GridItemUi.TxtHave.gameObject:SetActiveEx(true)
+                item.GridItemUi.TxtCount.gameObject:SetActiveEx(false)
+            end
         end
     end
 
@@ -541,9 +560,10 @@ function XUiPurchaseBuyTips:CheckLBRewardIsHave()
         if remainPrice < 0 then remainPrice = 0 end
         if remainPrice == 0 then -- 全部都拥有
             self.TxtHave.gameObject:SetActiveEx(true)
-            self.TxtHave.text = TextManager.GetText("PurchaseLBHaveFashion")
+            self.TxtHave.text = TextManager.GetText("PurchaseLBOwnAll")
             self.BtnBuy:SetName(TextManager.GetText("PurchaseLBDontNeed"))
-            self.BtnBuy:SetDisable(true, true)
+            self.BtnBuy:SetDisable(true, false)
+            self.TxtPrice.gameObject:SetActiveEx(false)
         else -- 未拥有和拥有同时存在
             self.TxtHave.gameObject:SetActiveEx(true)
             self.TxtHave.text = TextManager.GetText("PurchaseLBHaveFashion")
@@ -642,12 +662,15 @@ function XUiPurchaseBuyTips:OnBtnBuyClick()
     if not self.LastBuyTime or (self.LastBuyTime and now - self.LastBuyTime > PurchaseBuyPayCD) then
         self.LastBuyTime = now
         if self.CheckBuyFun then -- 存在检测函数
-            if self.CheckBuyFun(self.CurrentBuyCount, self.CurDiscountCouponIndex) then
+            local result =  self.CheckBuyFun(self.CurrentBuyCount, self.CurDiscountCouponIndex)
+            if result == 1 then
                 if self.BeforeBuyReqFun then -- 购买前执行函数
                     self.BeforeBuyReqFun(function() self:BuyPurchaseRequest() end)
                     return
                 end
                 self:BuyPurchaseRequest()
+            elseif result == 2 then
+                XUiHelper.BuyInOtherPlatformHongka()
             else
                 self:CloseTips()
             end

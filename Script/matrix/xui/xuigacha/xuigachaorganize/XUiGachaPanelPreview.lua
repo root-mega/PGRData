@@ -49,9 +49,9 @@ function XUiGachaPanelPreview:OnStart(gachaId)
 
     -- 刷新次数
     local countStr = CS.XTextManager.GetText("GachaAlreadyobtainedCount",
-            XDataCenter.GachaManager.GetCurCountOfAll(), XDataCenter.GachaManager.GetMaxCountOfAll())
+            XDataCenter.GachaManager.GetCurCountOfAll(self.CurGachaId), XDataCenter.GachaManager.GetMaxCountOfAll(self.CurGachaId))
     self.TxetFuwenben.text = countStr
-    self.PanelTxt.gameObject:SetActiveEx(not XDataCenter.GachaManager.GetIsInfinite())
+    self.PanelTxt.gameObject:SetActiveEx(not XDataCenter.GachaManager.GetIsInfinite(self.CurGachaId))
 end
 
 

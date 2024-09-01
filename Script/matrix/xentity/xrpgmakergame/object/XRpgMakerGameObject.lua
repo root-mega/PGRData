@@ -16,6 +16,8 @@ local MoveSpeed = CS.XGame.ClientConfig:GetInt("RpgMakeGameMoveSpeed")
 local DieByTrapTime = CS.XGame.ClientConfig:GetInt("RpgMakerGameDieByTrapTime") / 1000  --掉入陷阱动画时长
 local KillByElectricFenceEffectName = XRpgMakerGameConfigs.ModelKeyMaps.KillByElectricFenceEffect
 
+---推箱子物体对象
+---@class XRpgMakerGameObject : XRpgMakerGamePosition
 local XRpgMakerGameObject = XClass(XRpgMakerGamePosition, "XRpgMakerGameObject")
 
 function XRpgMakerGameObject:Ctor(id, gameObject)
@@ -111,7 +113,8 @@ local GetTransferPointDistanceList = function(data)
     local oneCubeDistance = cubeDistance / distance
 
     local UpdateDistanceList = function(posX, posY, index)
-        local transferPointId = XRpgMakerGameConfigs.GetRpgMakerGameTransferPointId(mapId, posX, posY)
+        -- local transferPointId = XRpgMakerGameConfigs.GetRpgMakerGameTransferPointId(mapId, posX, posY)
+        local transferPointId = XRpgMakerGameConfigs.GetMixTransferPointIndexByPosition(mapId, posX, posY)
         local obj = XDataCenter.RpgMakerGameManager.GetTransferPointObj(transferPointId)
         if obj then
             table.insert(distanceList, {
@@ -150,8 +153,9 @@ local GetEntityDistanceList = function(data)
     local oneCubeDistance = cubeDistance / distance
 
     local UpdateEntityDistanceList = function(posX, posY, index)
-        local entityIdList = XRpgMakerGameConfigs.GetEntityIdListByDic(mapId, posX, posY)
-        for _, entityId in ipairs(entityIdList) do
+        local entityDataList = XRpgMakerGameConfigs.GetMixBlockEntityListByPosition(mapId, posX, posY)
+        for _, data in ipairs(entityDataList) do
+            local entityId = XRpgMakerGameConfigs.GetEntityIndex(mapId, data)
             local entityObj = XTool.IsNumberValid(entityId) and XDataCenter.RpgMakerGameManager.GetEntityObj(entityId)
             if entityObj and entityObj:IsActive() then
                 table.insert(entityDistanceList, {
@@ -265,6 +269,7 @@ function XRpgMakerGameObject:PlayMoveAction(action, cb, skillType)
 
         movePositionX = gameObjPosition.x + moveX * f
         movePositionZ = gameObjPosition.z + moveZ * f
+
         self:SetGameObjectPosition(Vector3(movePositionX, startCubePosition.y, movePositionZ), trapId)
 
         --保留2位小数
@@ -282,23 +287,10 @@ function XRpgMakerGameObject:PlayMoveAction(action, cb, skillType)
             currPlayMoveSoundPosition = currPlayMoveSoundPosition + playMoveSoundSpacePosition
         end
 
+        
         --检查实体对象是否需要播放状态变化的特效
         if not XTool.IsTableEmpty(entityDistanceList) and curMoveDistance >= entityDistanceList[1].Distance then
-            local entityObj = entityDistanceList[1].EntityObj
-            local entityId = entityObj:GetId()
-            local type = XRpgMakerGameConfigs.GetEntityType(entityId)
-            if type == XRpgMakerGameConfigs.XRpgMakerGameEntityType.Water or type == XRpgMakerGameConfigs.XRpgMakerGameEntityType.Ice then
-                if entityObj:GetStatus() == XRpgMakerGameConfigs.XRpgMakerGameWaterType.Water and skillType == XRpgMakerGameConfigs.XRpgMakerGameRoleSkillType.Crystal then
-                    --冰属性角色触发水结冰
-                    entityObj:SetStatus(XRpgMakerGameConfigs.XRpgMakerGameWaterType.Ice)
-                    entityObj:CheckPlayFlat()
-                elseif entityObj:GetStatus() == XRpgMakerGameConfigs.XRpgMakerGameWaterType.Ice and skillType == XRpgMakerGameConfigs.XRpgMakerGameRoleSkillType.Flame then
-                    --火属性对象触发冰融化
-                    entityObj:SetStatus(XRpgMakerGameConfigs.XRpgMakerGameWaterType.Melt)
-                    entityObj:CheckPlayFlat()
-                end
-            end
-            table.remove(entityDistanceList, 1)
+            self:CheckEntityDistanceList(entityDistanceList, skillType)
         end
 
         --检查移动到传送点是否需要播放传送失败的特效
@@ -308,8 +300,31 @@ function XRpgMakerGameObject:PlayMoveAction(action, cb, skillType)
             table.remove(transPointList, 1)
         end
     end, function()
+        -- 防止残余
+        self:CheckEntityDistanceList(entityDistanceList, skillType)
         self:StopMove(cb)
     end)
+end
+
+---检查移动过程中冰火对象转换
+function XRpgMakerGameObject:CheckEntityDistanceList(entityDistanceList, skillType)
+    if not XTool.IsTableEmpty(entityDistanceList) then
+        local entityObj = entityDistanceList[1].EntityObj
+        local mapObjData = entityObj:GetMapObjData()
+        local type = mapObjData:GetType()
+        if type == XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Water or type == XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Ice then
+            if entityObj:GetStatus() == XRpgMakerGameConfigs.XRpgMakerGameWaterType.Water and skillType == XRpgMakerGameConfigs.XRpgMakerGameRoleSkillType.Crystal then
+                --冰属性角色触发水结冰
+                entityObj:SetStatus(XRpgMakerGameConfigs.XRpgMakerGameWaterType.Ice)
+                entityObj:CheckPlayFlat()
+            elseif entityObj:GetStatus() == XRpgMakerGameConfigs.XRpgMakerGameWaterType.Ice and skillType == XRpgMakerGameConfigs.XRpgMakerGameRoleSkillType.Flame then
+                --火属性对象触发冰融化
+                entityObj:SetStatus(XRpgMakerGameConfigs.XRpgMakerGameWaterType.Melt)
+                entityObj:CheckPlayFlat()
+            end
+        end
+        table.remove(entityDistanceList, 1)
+    end
 end
 
 function XRpgMakerGameObject:StopMove(cb)
@@ -406,7 +421,8 @@ function XRpgMakerGameObject:LoadModel(modelPath, root, modelName, modelKey)
             return
         end
         local model = CS.UnityEngine.Object.Instantiate(resource.Asset)
-        self:BindToRoot(model, self.ModelRoot)
+        local scale = not string.IsNilOrEmpty(modelKey) and XRpgMakerGameConfigs.GetModelScale(modelKey)
+        self:BindToRoot(model, self.ModelRoot, scale)
         self:SetModel(model)
     end
 
@@ -415,7 +431,7 @@ function XRpgMakerGameObject:LoadModel(modelPath, root, modelName, modelKey)
     end
 end
 
---加载技能特效
+---加载技能特效
 function XRpgMakerGameObject:LoadSkillEffect(skillType)
     if not self.RoleModelPanel then
         return
@@ -478,7 +494,7 @@ function XRpgMakerGameObject:LoadEffect(asset, position, rootTransform, isNotUse
     return model
 end
 
-function XRpgMakerGameObject:BindToRoot(model, root)
+function XRpgMakerGameObject:BindToRoot(model, root, scale)
     if XTool.UObjIsNil(model) then
         XLog.Error("绑定根节点失败，model不存在")
         return
@@ -486,7 +502,7 @@ function XRpgMakerGameObject:BindToRoot(model, root)
     model.transform:SetParent(root)
     model.transform.localPosition = CS.UnityEngine.Vector3.zero
     model.transform.localEulerAngles = CS.UnityEngine.Vector3.zero
-    model.transform.localScale = CS.UnityEngine.Vector3.one
+    model.transform.localScale = scale or CS.UnityEngine.Vector3.one
 end
 
 function XRpgMakerGameObject:ResetModel()
@@ -741,14 +757,15 @@ end
 --x, y：二维坐标
 function XRpgMakerGameObject:DieByDrown(mapId, x, y)
     local isDieByDrown = true
-    local entityIdList = XRpgMakerGameConfigs.GetEntityIdListByDic(mapId, x, y)
-    if XTool.IsTableEmpty(entityIdList) then
+    local entityMapDataList = XRpgMakerGameConfigs.GetMixBlockEntityListByPosition(mapId, x, y)
+    if XTool.IsTableEmpty(entityMapDataList) then
         return
     end
 
-    for _, entityId in ipairs(entityIdList) do
-        local type = XRpgMakerGameConfigs.GetEntityType(entityId)
-        if type == XRpgMakerGameConfigs.XRpgMakerGameEntityType.Water or type == XRpgMakerGameConfigs.XRpgMakerGameEntityType.Ice then
+    for _, entityMapData in pairs(entityMapDataList) do
+        local type = entityMapData:GetType()
+        if type == XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Water or type == XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Ice then
+            local entityId = XRpgMakerGameConfigs.GetEntityIndex(mapId, entityMapData)
             --目的地是冰面，会死说明站在冰面融化了，不播放模型动作
             local entityObj = XDataCenter.RpgMakerGameManager.GetEntityObj(entityId)
             local isNotPlayDrownAnima = (entityObj) and (entityObj:GetStatus() == XRpgMakerGameConfigs.XRpgMakerGameWaterType.Ice or entityObj:GetStatus() == XRpgMakerGameConfigs.XRpgMakerGameWaterType.Melt)
@@ -848,7 +865,7 @@ function XRpgMakerGameObject:CheckIsSteelAdsorb(mapId, x, y, skillType)
     if skillType ~= XRpgMakerGameConfigs.XRpgMakerGameRoleSkillType.Raiden then
         return
     end
-    local isPlay = XRpgMakerGameConfigs.IsSameEntity(mapId, x, y, XRpgMakerGameConfigs.XRpgMakerGameEntityType.Steel)
+    local isPlay = XRpgMakerGameConfigs.IsSameMixBlock(mapId, x, y, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Steel)
     self:SetIsPlayAdsorbAnima(isPlay)
 end
 
@@ -930,6 +947,104 @@ function XRpgMakerGameObject:PlayTransferAnima(cb)
     XSoundManager.PlaySoundByType(XSoundManager.UiBasicsMusic.RpgMakerGame_Transfer, XSoundManager.SoundType.Sound)
 end
 ---------传送相关 end----------
+
+--#region 掉落物相关
+
+---角色捡起掉落物动画
+---@param cb function
+function XRpgMakerGameObject:PlayPickUpAnim(cb)
+    local modelName = self:GetModelName()
+    local transferAnima = XRpgMakerGameConfigs.GetRpgMakerGameDropPickAnimaName(modelName)
+    local callBack = function()
+        self:PlayStandAnima()
+        if cb then
+            cb()
+        end
+    end
+    self.RoleModelPanel:PlayAnima(transferAnima, true, callBack, callBack)
+    -- XSoundManager.PlaySoundByType(XSoundManager.UiBasicsMusic.RpgMakerGame_Transfer, XSoundManager.SoundType.Sound)
+end
+
+--#endregion
+
+
+--#region 魔法阵相关
+
+---角色魔法阵传送特效
+---@param cb function
+function XRpgMakerGameObject:PlayMagicTransferAnim(endPosX, endPosY, cb)
+    local gameObjPosition = self:GetGameObjPosition()
+    --当前位置到传送点的位移
+    self:PlayMagicTransferDisEffect(function()
+        local endCubePosition = self:GetCubeUpCenterPosition(endPosY, endPosX)
+        self:SetGameObjectPosition(Vector3(endCubePosition.x, gameObjPosition.y, endCubePosition.z))
+        self:PlayMagicTransferEffect(cb)
+    end)
+end
+
+--播放传送阵消失特效
+function XRpgMakerGameObject:PlayMagicTransferDisEffect(cb)
+    if XTool.UObjIsNil(self._MagicDisEffect) then
+        local effectPath = XRpgMakerGameConfigs.GetRpgMakerGameModelPath(XRpgMakerGameConfigs.ModelKeyMaps.MagicDisEffect)
+        local resource = self:ResourceManagerLoad(effectPath)
+        local position = self:GetTransform().position
+        if not position then
+            return
+        end
+        self._MagicDisEffect = self:LoadEffect(resource.Asset, position)
+    end
+    self._MagicDisEffect.gameObject:SetActiveEx(true)
+    XScheduleManager.ScheduleOnce(function()
+        if not XTool.UObjIsNil(self._MagicDisEffect) then
+            self._MagicDisEffect.gameObject:SetActiveEx(false)
+        end
+        if cb then cb() end
+    end, XScheduleManager.SECOND)
+    XSoundManager.PlaySoundByType(XSoundManager.UiBasicsMusic.RpgMakerGame_TransferDis, XSoundManager.SoundType.Sound)
+end
+
+--播放传送阵出现特效
+function XRpgMakerGameObject:PlayMagicTransferEffect(cb)
+    if XTool.UObjIsNil(self._MagicShowEffect) then
+        local effectPath = XRpgMakerGameConfigs.GetRpgMakerGameModelPath(XRpgMakerGameConfigs.ModelKeyMaps.MagicShowEffect)
+        local resource = self:ResourceManagerLoad(effectPath)
+        local position = self:GetTransform().position
+        if not position then
+            return
+        end
+        self._MagicShowEffect = self:LoadEffect(resource.Asset, position)
+    end
+    self._MagicShowEffect.gameObject:SetActiveEx(true)
+    XScheduleManager.ScheduleOnce(function()
+        if not XTool.UObjIsNil(self._MagicDisEffect) then
+            self._MagicShowEffect.gameObject:SetActiveEx(false)
+        end
+        if cb then cb() end
+    end, XScheduleManager.SECOND)
+    XSoundManager.PlaySoundByType(XSoundManager.UiBasicsMusic.RpgMakerGame_Transfer, XSoundManager.SoundType.Sound)
+end
+
+--#endregion
+
+
+--#region 泡泡相关
+
+---推动泡泡动画
+---@param cb function
+function XRpgMakerGameObject:PlayPushBubbleAnim(cb)
+    local modelName = self:GetModelName()
+    local pushAnima = XRpgMakerGameConfigs.GetRpgMakerGameBubblePushAnimaName(modelName)
+    local callBack = function()
+        self:PlayStandAnima()
+        if cb then
+            cb()
+        end
+    end
+    self.RoleModelPanel:PlayAnima(pushAnima, true, callBack, callBack)
+    -- XSoundManager.PlaySoundByType(XSoundManager.UiBasicsMusic.RpgMakerGame_Transfer, XSoundManager.SoundType.Sound)
+end
+
+--#endregion
 
 function XRpgMakerGameObject:SetActive(isActive)
     local gameObject = self:GetGameObject()

@@ -6,7 +6,12 @@ local WinType = {
     "Normal",
     "ShortCut"
 }
+
 local MAX_COUNT = CS.XGame.Config:GetInt("ShopBuyGoodsCountLimit")
+
+function XUiBuyAsset:OnAwake()
+    self:InitUi()
+end
 
 --[[
     id : Share\Item\UiBuyAsset.tab的id
@@ -22,11 +27,14 @@ function XUiBuyAsset:OnStart(id, successCallback, challengeCountData, buyAmount,
         return
     end
     self.Id = id
+    local itemType = XDataCenter.ItemManager.GetItemType(id)
+    if itemType == XItemConfigs.ItemType.FurnitureItem then
+        MAX_COUNT = XFurnitureConfigs.MaxDrawBuyCount
+    end
 
     --判断界面的显示类型，根据Id
     local exchangeType = XItemConfigs.GetBuyAssetType(self.Id)
     self.WinType = WinType[exchangeType]
-
     --初始化数据
     self.curConsumeIdIndex = 1
 
@@ -37,7 +45,7 @@ function XUiBuyAsset:OnStart(id, successCallback, challengeCountData, buyAmount,
     if cosumeId == 2 or cosumeId == 3 then
         self:ShowSpecialRegulationForJP() --日服特定商吸引法弹窗链接显示
     end
-
+    
     -- -- 设置是否显示打折表现
     -- local discountShow = XItemConfigs.GetDiscountShow(id)
     -- self.PanelDiscount.gameObject:SetActiveEx(discountShow > 0)
@@ -68,6 +76,11 @@ end
 function XUiBuyAsset:OnEnable()
     self:CheckBuyAmount()
     self:Refresh(self.Id)
+
+end
+
+function XUiBuyAsset:OnDisable()
+
 end
 
 function XUiBuyAsset:OnDestroy()
@@ -107,6 +120,11 @@ function XUiBuyAsset:AutoAddListener()
         self:OnBtnSkipClick()
     end
 end
+
+function XUiBuyAsset:InitUi()
+    self.TargetImgQuality = self.TargetImg.transform.parent:Find("ImgQuality"):GetComponent("Image")
+end
+
 -- auto
 function XUiBuyAsset:OnBtnShowTypeClick()
     self:Close()
@@ -209,6 +227,7 @@ function XUiBuyAsset:OnBtnConfirmClick()
             self.SuccessCallback()
         end
         CsXGameEventManager.Instance:Notify(XEventId.EVENT_ITEM_FAST_TRADING, lackNum)
+        XEventManager.DispatchEvent(XEventId.EVENT_ITEM_FAST_TRADING, lackNum)
     end
 
     -- local failCallBack = function ()
@@ -272,6 +291,19 @@ function XUiBuyAsset:SetConsumeTextNum(hasCounsumCount, counsumeNum)
 end
 
 function XUiBuyAsset:Refresh(targetId)
+    --根据配置决定是否要显示资源回复速率的文本提示
+    local needDisplayRebackTips=XDataCenter.ItemManager.CheckItemNeedTips(self.Id)
+    self.TxtTips.gameObject:SetActiveEx(needDisplayRebackTips)
+    
+    if needDisplayRebackTips then
+        --显示提示文本
+        local template=XItemConfigs.GetItemTemplates()[self.Id]
+        if template and template.RecTime and template.RecCount then
+            local minute=XUiHelper.GetTimeAndUnit(template.RecTime,XUiHelper.TimeUnit.Minute,XUiHelper.TimeUnit.Minute)
+            self.TxtTips.text=XUiHelper.GetText("ItemRebackTips", minute,template.RecCount)
+        end
+    end
+    
     self.Data = XDataCenter.ItemManager.GetBuyAssetInfo(targetId)
 
     local currentConsumeId = self.Data.ConsumeId[self.curConsumeIdIndex]
@@ -280,7 +312,7 @@ function XUiBuyAsset:Refresh(targetId)
     self.PanelInfo.gameObject:SetActiveEx(active)
     self.PanelMax.gameObject:SetActiveEx(not active)
     self.BtnConfirm.gameObject:SetActiveEx(true)
-    self.BtnPackageExchange.gameObject:SetActiveEx(self.Data.TargetId == XDataCenter.ItemManager.ItemId.ActionPoint) -- 海外修改，从JP1.17搬过来的
+    self.BtnPackageExchange.gameObject:SetActiveEx(self.Data.TargetId == XDataCenter.ItemManager.ItemId.ActionPoint)
     self.BtnMoneyPackageExchange.gameObject:SetActiveEx(self.Data.TargetId == XDataCenter.ItemManager.ItemId.Coin)
     -- 当前状态
     local num = self:GetCurrentConsumeNum(self.Data, targetId) --消耗品拥有数
@@ -308,6 +340,7 @@ function XUiBuyAsset:Refresh(targetId)
     local targetName = XDataCenter.ItemManager.GetItemName(self.Data.TargetId)
     local targetCount = self.Data.TargetCount * (self.BuyAmount or 1)
     local targetNum = XDataCenter.ItemManager.GetItem(targetId).Count --购买品拥有数
+    local targetQualityIcon = XArrangeConfigs.GeQualityPath(XDataCenter.ItemManager.GetItemQuality(self.Data.TargetId))
 
     -- 消耗品和购买品拥有数
     num = CS.XTextManager.GetText("UiBuyAssetHasNum", num)
@@ -342,6 +375,9 @@ function XUiBuyAsset:Refresh(targetId)
     if targetIcon ~= nil then
         self.RawImageTarget:SetRawImage(targetIcon)
         self.TargetImg:SetRawImage(targetIcon)
+    end
+    if targetQualityIcon ~= nil then
+        self.TargetImgQuality:SetSprite(targetQualityIcon)
     end
     self.TxtSelect.text = tostring(self.BuyAmount)
     -- 更新剩余兑换次数
@@ -390,7 +426,8 @@ function XUiBuyAsset:OnBtnChallengeCountClick()
 
     local callback = function()
         local name = CS.XTextManager.GetText("BuyChallegeDesc")
-        XUiManager.TipMsg(CS.XTextManager.GetText("Buy") .. CS.XTextManager.GetText("Success") .. "," .. CS.XTextManager.GetText("Acquire") .. 1 .. name, XUiManager.UiTipType.Tip)
+        --XUiManager.TipMsg(CS.XTextManager.GetText("Buy") .. CS.XTextManager.GetText("Success") .. "," .. CS.XTextManager.GetText("Acquire") .. 1 .. name, XUiManager.UiTipType.Tip)
+        XUiManager.TipMsg(XUiHelper.GetText("JPBuyTicketSuccessTips", name, targetCount))
         if self.SuccessCallback then
             self.SuccessCallback()
         end
@@ -405,6 +442,7 @@ function XUiBuyAsset:SetCanMutiply(val)
     self.BtnAddSelect.gameObject:SetActive(val)
     self.BtnMinusSelect.gameObject:SetActive(val)
     self.TxtSelect.gameObject:SetActive(val)
+    self.BtnMax.gameObject:SetActiveEx(val)
 end
 
 --根据WinType初始化Ui类型

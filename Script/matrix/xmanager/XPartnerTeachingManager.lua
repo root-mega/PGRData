@@ -1,5 +1,7 @@
+local XExFubenCollegeStudyManager = require("XEntity/XFuben/XExFubenCollegeStudyManager")
+
 XPartnerTeachingManagerCreator = function()
-    local XPartnerTeachingManager = {}
+    local XPartnerTeachingManager = XExFubenCollegeStudyManager.New(XFubenConfigs.ChapterType.PartnerTeaching)
 
     -------------------------------------------------------副本相关------------------------------------------------------
     function XPartnerTeachingManager.InitStageInfo()
@@ -124,6 +126,35 @@ XPartnerTeachingManagerCreator = function()
         local orderId = XDataCenter.FubenManager.GetStageOrderId(stageId)
         return string.format("%s%d", stagePrefix, orderId)
     end
+
+    ------------------副本入口扩展 start-------------------------
+    function XPartnerTeachingManager:ExGetTagInfo()
+        for k, id in pairs(XPartnerTeachingConfigs.GetAllChapterId()) do
+            if XPartnerTeachingManager.WhetherInActivity(id) then
+                return true, CS.XTextManager.GetText("PartnerTeachingTag")
+            end
+        end
+
+        return false
+    end
+
+    function XPartnerTeachingManager:ExGetIcon()
+        for k, id in pairs(XPartnerTeachingConfigs.GetAllChapterId()) do
+            if XPartnerTeachingManager.WhetherInActivity(id) then
+                return XPartnerTeachingConfigs.GetActivityChapterIconById(id)
+            end
+        end
+
+        return self:ExGetConfig().Icon
+    end
+
+    function XPartnerTeachingManager:ExOpenMainUi()
+        if XFunctionManager.DetectionFunction(self:ExGetFunctionNameType()) then
+            XLuaUiManager.Open("UiPartnerTeachingBanner")
+        end
+    end
+    
+    ------------------副本入口扩展 end-------------------------
 
     return XPartnerTeachingManager
 end

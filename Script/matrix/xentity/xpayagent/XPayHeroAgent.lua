@@ -22,6 +22,7 @@ local function PayAndroid(self, productKey, cpOrderId, goodsId, cb)
         -- XLog.Error("信息info")
         -- XLog.Error(info)
         if err then
+            XLog.Error("Android Pay err:" .. tostring(err))
             TipPayFail()
             return
         end
@@ -63,11 +64,10 @@ function XPayHeroAgent:Ctor()
 
         self.Pay = PayIOS
     elseif Platform == RuntimePlatform.WindowsPlayer 
-        or Platform == RuntimePlatform.WindowsEditor 
-    then
+    or Platform == RuntimePlatform.WindowsEditor then
         self.Pay = PayPC
     else
-        XLog.error("XPayHeroAgent Ctor: unsupport platform, platform is ", Platform)
+        XLog.Error("XPayHeroAgent Ctor: unsupport platform, platform is ", Platform)
     end
 end
 
@@ -80,6 +80,7 @@ end
 -- end
 function XPayHeroAgent:OnIOSPayCallback(err, orderId)
     if err then
+        XLog.Error("IOS Pay err:" .. tostring(err))
         TipPayFail()
         return
     end

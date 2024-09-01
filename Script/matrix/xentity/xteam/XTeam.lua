@@ -1,5 +1,5 @@
 local tableInsert = table.insert
-
+---@class XTeam
 local XTeam = XClass(nil, "XTeam")
 
 function XTeam:Ctor(id)
@@ -76,6 +76,12 @@ function XTeam:UpdateCaptainPos(value)
     self:Save()
 end
 
+function XTeam:UpdateCaptainPosAndFirstFightPos(cPos,fPos)
+    self.FirstFightPos = fPos
+    self.CaptainPos = cPos
+    self:Save()
+end
+
 function XTeam:UpdateExtraData(data)
     self.ExtraData = data
 end
@@ -109,7 +115,7 @@ function XTeam:GetCharacterType()
         end
     end
     if entityId == nil then
-        return XCharacterConfigs.CharacterType.Normal
+        return nil
     end
     local characterId = nil
     if XRobotManager.CheckIsRobotId(entityId) then
@@ -130,12 +136,38 @@ end
 --     return self.CharacterLimitType
 -- end
 
+-- 按key顺序返回机器人列表，pos上没有的话就全为0
+function XTeam:GetRobotIdsOrder()
+    local robotIds = {}
+    for k, id in pairs(self:GetEntityIds()) do
+        if XRobotManager.CheckIsRobotId(id) then
+            robotIds[k] = id
+        else
+            robotIds[k] = 0
+        end
+    end
+    return robotIds
+end
+
 function XTeam:GetSaveKey()
     return self.Id .. XPlayer.Id
 end
 
 function XTeam:GetEntityIds()
     return self.EntitiyIds
+end
+
+-- 按顺序返回对应位置的charId，下标即是pos，如果对应pos上的角色是机器人或者位空则为0
+function XTeam:GetCharacterIdsOrder()
+    local res = {}
+    for k, id in pairs(self.EntitiyIds) do
+        if XRobotManager.CheckIsRobotId(id) then
+            res[k] = 0
+        else
+            res[k] = id
+        end
+    end
+    return res
 end
 
 function XTeam:GetEntityIdByTeamPos(pos)
@@ -202,6 +234,16 @@ function XTeam:GetIsFullMember()
         end
     end
     return true
+end
+
+function XTeam:GetEntityCount()
+    local count = 0
+    for _, v in ipairs(self.EntitiyIds) do
+        if v ~= 0 then
+            count = count + 1
+        end
+    end
+    return count
 end
 
 function XTeam:GetExtraData()

@@ -58,7 +58,7 @@ function asynTask(func, caller, callbackPos)
         local isSync  --同步方法，回调直接执行
         local args = { ... }
         local running = coroutineRunning()
-        callbackPos = callbackPos or select("#", ...) + 1
+        callbackPos = callbackPos or select("#", ...) + 1 -- 往当前参数列表，加入控制继续执行的回调
         args[callbackPos] = function()
             isSync = true
             coroutineResume(running, tableUnpack(results))
@@ -115,6 +115,15 @@ end
 function table.contains(tbl, ele)
     for i, v in pairs(tbl) do
         if v == ele then
+            return true, i
+        end
+    end
+    return false
+end
+
+function table.containsKey(tbl, valueKey, ele)
+    for i, v in pairs(tbl) do
+        if (v[valueKey] or v[valueKey]()) == ele then
             return true, i
         end
     end

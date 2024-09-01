@@ -397,6 +397,11 @@ function XTRPGConfigs.GetRoleModelId(roleId)
     return config.ModelId
 end
 
+function XTRPGConfigs.GetRoleIsShowTip(roleId)
+    local config = GetRoleConfig(roleId)
+    return config.IsShowTip == 1
+end
+
 --属性 begin--
 local GetRoleAttributeConfig = function(attrType)
     local config = RoleAttributeTemplate[attrType]

@@ -1,5 +1,6 @@
 local XUiPanelExpBar = require("XUi/XUiSettleWinMainLine/XUiPanelExpBar")
 local XUiPanelSettleWinPokemon = require("XUi/XUiSettleWin/XUiPanelSettleWinPokemon")
+local XUiStageSettleSound = require("XUi/XUiSettleWin/XUiStageSettleSound")
 
 local XUiSettleWin = XLuaUiManager.Register(XLuaUi, "UiSettleWin")
 local CSTextManagerGetText = CS.XTextManager.GetText
@@ -30,6 +31,8 @@ function XUiSettleWin:OnStart(data, cb, closeCb, onlyTouchBtn)
     self:PlayRewardAnimation()
     -- "再次挑战"上方显示血清消耗
     self.UiEncorePrice = require("XUi/XUiSettleWin/XUiSettleEncorePrice").New(self, data.StageId)
+    ---@type XUiStageSettleSound
+    self.UiStageSettleSound = XUiStageSettleSound.New(self, self.CurrentStageId, true)
 end
 
 function XUiSettleWin:OnEnable()
@@ -39,10 +42,12 @@ function XUiSettleWin:OnEnable()
             self:PlaySecondAnimation()
         end, 0)
     end
+    self.UiStageSettleSound:PlaySettleSound()
 end
 
 function XUiSettleWin:OnDestroy()
     XDataCenter.AntiAddictionManager.EndFightAction()
+    self.UiStageSettleSound:StopSettleSound()
 end
 
 -- 奖励动画
@@ -83,6 +88,7 @@ function XUiSettleWin:PlaySecondAnimation()
         XDataCenter.FunctionEventManager.UnLockFunctionEvent()
         this:PlayShowFriend()
         self.IsFirst = false;
+        XEventManager.DispatchEvent(XEventId.EVENT_CHARACTER_TOWER_CONDITION_LISTENING, XFubenCharacterTowerConfigs.ListeningType.Stage, { StageId = self.StageCfg.StageId })
     end)
 end
 
@@ -283,7 +289,8 @@ function XUiSettleWin:InitRewardCharacterList(data)
                                 break
                             end
                         end
-                        grid:UpdateRoleInfo(character, self.StageCfg.CardExp)
+                        local cardExp = XDataCenter.FubenManager.GetCardExp(self.CurrentStageId)
+                        grid:UpdateRoleInfo(character, cardExp)
                     end
                 end
             end
@@ -349,7 +356,8 @@ function XUiSettleWin:InitRewardCharacterList(data)
             if isRobot then
                 grid:UpdateRobotInfo(charId)
             else
-                grid:UpdateRoleInfo(charExp[i], self.StageCfg.CardExp)
+                local cardExp = XDataCenter.FubenManager.GetCardExp(self.CurrentStageId)
+                grid:UpdateRoleInfo(charExp[i], cardExp)
             end
             grid.GameObject:SetActiveEx(true)
         end
@@ -368,7 +376,7 @@ function XUiSettleWin:UpdatePlayerInfo(data)
     local curExp = XPlayer.Exp
     local curMaxExp = XPlayerManager.GetMaxExp(curLevel, XPlayer.IsHonorLevelOpen())
     local txtLevelName = XPlayer.IsHonorLevelOpen() and CS.XTextManager.GetText("HonorLevel") or nil
-    local addExp = self.StageCfg.TeamExp
+    local addExp = XDataCenter.FubenManager.GetTeamExp(self.CurrentStageId)
     self.PlayerExpBar = self.PlayerExpBar or XUiPanelExpBar.New(self.PanelPlayerExpBar)
     self.PlayerExpBar:LetsRoll(lastLevel, lastExp, lastMaxExp, curLevel, curExp, curMaxExp, addExp, txtLevelName)
 end

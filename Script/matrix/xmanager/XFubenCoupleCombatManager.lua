@@ -84,7 +84,7 @@ XFubenCoupleCombatManagerCreator = function()
             local nowTime = XTime.GetServerNowTimestamp()
             local startTime = XFunctionManager.GetStartTimeByTimeId(timeId)
             local timeDesc = XUiHelper.GetTime(startTime - nowTime)
-            return false, CsXTextManagerGetText("CoupleCombatStageUnlockText", timeDesc)
+            return false, timeDesc
         end
 
         local isUnlock = CoupleCombatDb:IsUnlockChapter(chapterId)
@@ -110,7 +110,8 @@ XFubenCoupleCombatManagerCreator = function()
 
     --获得区域进度
     function XFubenCoupleCombatManager.GetChapterSchedule()
-        local chapterIdList = XFubenCoupleCombatConfig.GetChapterIdList()
+        local activityInfo = XFubenCoupleCombatManager.GetCurrentActTemplate()
+        local chapterIdList = not XTool.IsTableEmpty(activityInfo) and activityInfo.ChapterIds or XFubenCoupleCombatConfig.GetChapterIdList()
         local chapterAllCount = #chapterIdList
         local chapterPassCount = 0
         local stagePassCount, stageAllCount
@@ -124,13 +125,30 @@ XFubenCoupleCombatManagerCreator = function()
         return chapterPassCount, chapterAllCount
     end
 
+    --==============================
+    ---@desc 新副本界面进度
+    ---@return string
+    --==============================
+    function XFubenCoupleCombatManager.GetProgressTips()
+        local activityInfo = XFubenCoupleCombatManager.GetCurrentActTemplate()
+        local chapterIdList = not XTool.IsTableEmpty(activityInfo) and activityInfo.ChapterIds or XFubenCoupleCombatConfig.GetChapterIdList()
+        local chapterStagePassCount = 0
+        local chapterStageAllCount = 0
+        for _, chapterId in ipairs(chapterIdList) do
+            local stagePassCount, stageAllCount = XFubenCoupleCombatManager.GetStageSchedule(chapterId)
+            chapterStagePassCount = chapterStagePassCount + stagePassCount
+            chapterStageAllCount = chapterStageAllCount + stageAllCount
+        end
+        return XUiHelper.GetText("ActivityBossSingleProcess", chapterStagePassCount, chapterStageAllCount)
+    end
+
     function XFubenCoupleCombatManager.GetFeatureMatch(stageId, teamData)
         local matchDic = {}
         local featureList = {}
-        local stageInterInfo = XFubenCoupleCombatConfig.GetStageInfo(stageId)
-        if not stageInterInfo then return matchDic end
-        featureList[0] = stageInterInfo.Feature
-        for _, v in ipairs(stageInterInfo.Feature) do
+        local feature = XFubenCoupleCombatManager.GetStageFeatureIdList(stageId)
+        if not feature then return matchDic end
+        featureList[0] = feature
+        for _, v in ipairs(feature) do
             matchDic[v] = 0
         end
 
@@ -144,6 +162,39 @@ XFubenCoupleCombatManagerCreator = function()
             end
         end
         return matchDic, featureList
+    end
+
+    --v1.32 角色特性与关卡推荐特性重合特性
+    function XFubenCoupleCombatManager.GetFeatureMatchOneChar(stageId, charId)
+        local matchDic = {}
+        local feature = XFubenCoupleCombatManager.GetStageFeatureIdList(stageId)
+        if not feature then return matchDic end
+        for _, v in ipairs(feature) do
+            matchDic[v] = 0
+        end
+
+        local charFeature = XFubenCoupleCombatConfig.GetCharacterFeature(charId)
+        for _, v in ipairs(charFeature) do
+            if matchDic[v] then
+                matchDic[v] = matchDic[v] + 1
+            end
+        end
+        return matchDic
+    end
+
+    --v1.32 获得关卡推荐特效
+    function XFubenCoupleCombatManager.GetStageFeatureIdList(stageId)
+        local featureDic = {}
+        local result = {}
+        local stageInterInfo = XFubenCoupleCombatConfig.GetStageInfo(stageId)
+        if not stageInterInfo then return featureDic end
+        for _, v in ipairs(stageInterInfo.Feature) do
+            if not XTool.IsNumberValid(featureDic[v]) then
+                table.insert(result, v)
+            end
+            featureDic[v] = v
+        end
+        return result
     end
 
     -- 检测角色是否已使用状态
@@ -173,8 +224,11 @@ XFubenCoupleCombatManagerCreator = function()
     function XFubenCoupleCombatManager.GetUsedSkillByType(type)
         local usedSkillIds = XFubenCoupleCombatManager.GetUsedSkillIds()
         for _, usedSkillId in ipairs(usedSkillIds) do
-            if XFubenCoupleCombatConfig.GetCharacterCareerSkillType(usedSkillId) == type then
-                return usedSkillId
+            local types = XFubenCoupleCombatConfig.GetCharacterCareerSkillType(usedSkillId)
+            for _, careerType in ipairs(types) do
+                if careerType == type then
+                    return usedSkillId
+                end
             end
         end
     end
@@ -185,17 +239,17 @@ XFubenCoupleCombatManagerCreator = function()
             return
         end
 
-        local characterLimitType = XFubenConfigs.GetStageCharacterLimitType(stageId)
-        local defaultCharacterType = XDataCenter.FubenManager.GetDefaultCharacterTypeByCharacterLimitType(characterLimitType)
         local robotIds = XFubenCoupleCombatConfig.GetChapterRobotIds(chapterId)
-        local limitTypeRobotIdList = {}
-        for _, robotId in ipairs(robotIds) do
-            if defaultCharacterType == XRobotManager.GetRobotCharacterType(robotId) then
-                table.insert(limitTypeRobotIdList, robotId)
-            end
-        end
+        -- local characterLimitType = XFubenConfigs.GetStageCharacterLimitType(stageId)
+        -- local defaultCharacterType = XDataCenter.FubenManager.GetDefaultCharacterTypeByCharacterLimitType(characterLimitType)
+        -- local limitTypeRobotIdList = {}
+        -- for _, robotId in ipairs(robotIds) do
+        --     if defaultCharacterType == XRobotManager.GetRobotCharacterType(robotId) then
+        --         table.insert(limitTypeRobotIdList, robotId)
+        --     end
+        -- end
 
-        return limitTypeRobotIdList
+        return robotIds
     end
 
     -- [初始化数据]
@@ -261,8 +315,8 @@ XFubenCoupleCombatManagerCreator = function()
             end
         end
 
-        preFight.CaptainPos = XDataCenter.TeamManager.GetTeamCaptainPos(teamId)
-        preFight.FirstFightPos = XDataCenter.TeamManager.GetTeamFirstFightPos(teamId)
+        preFight.CaptainPos = teamData.CaptainPos
+        preFight.FirstFightPos = teamData.FirstFightPos
 
         return preFight
     end
@@ -364,21 +418,19 @@ XFubenCoupleCombatManagerCreator = function()
         local skillGroupTypeToSkillIdsMap = XFubenCoupleCombatConfig.GetSkillGroupTypeToSkillIdsMap()
         local condition
         local isUnlock
-        local skillType
         local selectedSkillIds = {}
         local selectedSkillTypes = {}
-        for _, skillIds in pairs(skillGroupTypeToSkillIdsMap) do
+        for careerType, skillIds in pairs(skillGroupTypeToSkillIdsMap) do
             for _, skillId in ipairs(skillIds) do
-                skillType = XFubenCoupleCombatConfig.GetCharacterCareerSkillType(skillId)
-                if selectedSkillTypes[skillType] then
+                if selectedSkillTypes[careerType] then
                     goto continue
                 end
 
                 condition = XFubenCoupleCombatConfig.GetCharacterCareerSkillCondition(skillId)
                 isUnlock = not XTool.IsNumberValid(condition) and true or XConditionManager.CheckCondition(condition)
-                if not CoupleCombatDb:GetUsedSkillIdBySkillType(skillType) and isUnlock then
+                if not CoupleCombatDb:GetUsedSkillIdBySkillType(careerType) and isUnlock then
                     table.insert(selectedSkillIds, skillId)
-                    selectedSkillTypes[skillType] = skillId
+                    selectedSkillTypes[careerType] = skillId
                 end
                 :: continue ::
             end

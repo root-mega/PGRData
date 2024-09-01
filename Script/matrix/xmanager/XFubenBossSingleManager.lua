@@ -1,6 +1,8 @@
-XFubenBossSingleManagerCreator = function()
+local XExFubenSimulationChallengeManager = require("XEntity/XFuben/XExFubenSimulationChallengeManager")
 
-    local XFubenBossSingleManager = {}
+XFubenBossSingleManagerCreator = function()
+    ---@class XFubenBossSingleManager:XExFubenSimulationChallengeManager
+    local XFubenBossSingleManager = XExFubenSimulationChallengeManager.New(XFubenConfigs.ChapterType.BossSingle)
 
     -- 重置倒计时
     local RESET_COUNT_DOWN_NAME = "SingleBossReset"
@@ -21,6 +23,10 @@ XFubenBossSingleManagerCreator = function()
     local FubenBossSingleData = {}
     local SelfRankData = {}
     local BossList = {}
+    local ActivityNo = 0
+    local EnterBossInfo = {}
+    
+    local RewardGroupId = 0
 
     local LastSyncServerTimes = {}
     local RankData = {}
@@ -74,6 +80,19 @@ XFubenBossSingleManagerCreator = function()
     function XFubenBossSingleManager.GetResetCountDownName()
         return RESET_COUNT_DOWN_NAME
     end
+    
+    function XFubenBossSingleManager.GetActivityNo()
+        return ActivityNo
+    end
+    
+    function XFubenBossSingleManager.SetEnterBossInfo(bossId, bossLevel)
+        EnterBossInfo.BossId = bossId
+        EnterBossInfo.BossLevel = bossLevel
+    end
+    
+    function XFubenBossSingleManager.GetEnterBossInfo()
+        return EnterBossInfo
+    end
 
     -- function XFubenBossSingleManager.FinishFight(settle)
     --     XDataCenter.FubenManager.ChallengeWin(settle)
@@ -107,12 +126,37 @@ XFubenBossSingleManagerCreator = function()
         return BossSingleGradeCfg
     end
 
+    function XFubenBossSingleManager.GetRankIsOpenByType(type)
+        local timeId = BossSingleGradeCfg[type].RankTimeId
+        
+        return XFunctionManager.CheckInTimeByTimeId(timeId, true)
+    end
+
     function XFubenBossSingleManager.GetRankRewardCfg(levelType)
-        return RankRewardCfg[levelType]
+        local rewardCfg = {}
+        local rankRewardCfg = RankRewardCfg[levelType]
+
+        for _, config in pairs(rankRewardCfg) do
+            if config.RewardGroupId == RewardGroupId then
+                rewardCfg[#rewardCfg + 1] = config
+            end
+        end
+        
+        return rewardCfg
     end
 
     function XFubenBossSingleManager.GetScoreRewardCfg(levelType)
-        return ScoreRewardCfg[levelType]
+        local scoreRewardCfg = {}
+
+        if ScoreRewardCfg[levelType] then
+            for i, config in pairs(ScoreRewardCfg[levelType]) do
+                if config.RewardGroupId == RewardGroupId then
+                    scoreRewardCfg[#scoreRewardCfg + 1] = config
+                end
+            end
+        end
+        
+        return scoreRewardCfg
     end
 
     function XFubenBossSingleManager.GetBossSectionCfg(bossId)
@@ -134,8 +178,11 @@ XFubenBossSingleManagerCreator = function()
         FubenBossSingleData = bossSingleData
         BossList = bossSingleData.BossList
         XCountDown.CreateTimer(RESET_COUNT_DOWN_NAME, FubenBossSingleData.RemainTime)
+        FubenBossSingleData.EndTime = XTime.GetServerNowTimestamp() + FubenBossSingleData.RemainTime -- 结束时间是服务器刷新下发的，这里主动计算出结束的时间戳，方便倒计时计算
 
         local newActivityId = bossSingleData.ActivityNo
+        ActivityNo = newActivityId
+        RewardGroupId = bossSingleData.RewardGroupId or 0
         if oldActivityId and newActivityId and oldActivityId ~= newActivityId then
             XFubenBossSingleManager.SetNeedReset(true)
             XEventManager.DispatchEvent(XEventId.EVENT_FUBEN_SINGLE_BOSS_RESET)
@@ -188,6 +235,75 @@ XFubenBossSingleManagerCreator = function()
         return bossLoseHpScore
     end
 
+
+    -- v1.31【囚笼】当前boss相关数据
+    --=========================================================================
+    -- 获取某个Boss的所有stageId配置
+    function XFubenBossSingleManager.GetBossStageList(bossId)
+        local bossSectionCfg = XFubenBossSingleManager.GetBossSectionCfg(bossId)
+        return bossSectionCfg.StageId or {}
+    end
+
+    -- 获取某关当次讨伐值
+    function XFubenBossSingleManager.GetBossStageScore(stageId)
+        local stageData = XDataCenter.FubenManager.GetStageData(stageId)
+        return stageData and stageData.Score or 0
+    end
+
+    -- 根据stageID获取bossId
+    function XFubenBossSingleManager.GetBossIdByStageId(targetStageId)
+        for bossId, _ in pairs(BossSectionCfg) do
+            for _, stageId in ipairs(XFubenBossSingleManager.GetBossStageList(bossId)) do
+                if stageId == targetStageId then
+                    return bossId
+                end
+            end
+        end
+    end
+
+    -- 获取某个Boss讨伐值上限
+    function XFubenBossSingleManager.GetBossMaxScore(bossId)
+        local score = 0
+        for _, stageId in ipairs(XFubenBossSingleManager.GetBossStageList(bossId)) do
+            if XFubenBossSingleManager.GetBossStageCfg(stageId).DifficultyType ~= XFubenBossSingleConfigs.DifficultyType.Hide then
+                score = score + XFubenBossSingleManager.GetBossStageCfg(stageId).Score
+            end
+        end
+        return score
+    end
+
+    -- 获取某个Boss当前讨伐值
+    function XFubenBossSingleManager.GetBossCurScore(bossId)
+        local score = 0
+        for _, stageId in ipairs(XFubenBossSingleManager.GetBossStageList(bossId)) do
+            score = score + XFubenBossSingleManager.GetBossStageScore(stageId)
+        end
+        return score
+    end
+
+    -- 获取当次结算当前Boss的讨伐值
+    function XFubenBossSingleManager.GetBossCurSettleScore(sellleStageId, sellleScore)
+        local score = 0
+        local bossId = XFubenBossSingleManager.GetBossIdByStageId(sellleStageId)
+        if not bossId then return score end
+        for _, stageId in ipairs(XFubenBossSingleManager.GetBossStageList(bossId)) do
+            if stageId == sellleStageId then
+                score = score + sellleScore
+            else
+                score = score + XFubenBossSingleManager.GetBossStageScore(stageId)
+            end
+        end
+        return score
+    end
+
+    -- 通过stageId获取Boss讨伐值上限
+    function XFubenBossSingleManager.GetBossMaxScoreByStageId(stageId)
+        local bossId = XFubenBossSingleManager.GetBossIdByStageId(stageId)
+        return XFubenBossSingleManager.GetBossMaxScore(bossId)
+    end
+    --=================================end=====================================
+
+
     -- 检查奖励是否领取
     function XFubenBossSingleManager.CheckRewardGet(rewardId)
         local rewardIds = FubenBossSingleData.RewardIds
@@ -204,7 +320,7 @@ XFubenBossSingleManagerCreator = function()
         local index = FubenBossSingleData.LevelType
         local cfgs = XFubenBossSingleManager.GetScoreRewardCfg(index)
 
-        if not cfgs then return -1 end
+        if (not cfgs) or #cfgs == 0 then return -1 end
 
         local totalScore = FubenBossSingleData.TotalScore
         local rewardIds = FubenBossSingleData.RewardIds
@@ -250,10 +366,11 @@ XFubenBossSingleManagerCreator = function()
     function XFubenBossSingleManager.GetCurScoreRewardCfg()
         local curScore = FubenBossSingleData.TotalScore
         local levelType = FubenBossSingleData.LevelType
+        local scoreRewardCfg = XFubenBossSingleManager.GetScoreRewardCfg(levelType)
 
-        for i = 1, #ScoreRewardCfg[levelType] do
-            if curScore < ScoreRewardCfg[levelType][i].Score then
-                return ScoreRewardCfg[levelType][i]
+        for i = 1, #scoreRewardCfg do
+            if curScore < scoreRewardCfg[i].Score then
+                return scoreRewardCfg[i]
             end
         end
     end
@@ -314,7 +431,17 @@ XFubenBossSingleManagerCreator = function()
         local sectionInfo = XFubenBossSingleManager.GetBossSectionInfo(bossId)
         for i = 1, #sectionInfo do
             local stageInfo = XDataCenter.FubenManager.GetStageInfo(sectionInfo[i].StageId)
-            if not stageInfo.Passed then
+            local bossStageInfo = BossStageCfg[sectionInfo[i].StageId]
+            if not stageInfo.Passed and bossStageInfo.DifficultyType ~= XFubenBossSingleConfigs.DifficultyType.Hide then -- 检查boss全部完成时不检查隐藏关
+                return false
+            end
+        end
+        return true
+    end
+
+    function XFubenBossSingleManager.CheckAllPassed()
+        for k, bossId in pairs(FubenBossSingleData.BossList) do
+            if not XFubenBossSingleManager.CheckBossAllPassed(bossId) then
                 return false
             end
         end
@@ -479,6 +606,12 @@ XFubenBossSingleManagerCreator = function()
         end
 
         local cfgs = XFubenBossSingleManager.GetRankRewardCfg(levelType)
+
+        if not cfgs[num] then
+            XLog.Error(string.format("表BossSignleReward.tab不存在当前LevelType的RankIcon！索引:%d LevelType:%d", num, levelType))
+            return
+        end
+        
         return cfgs[num].RankIcon
     end
 
@@ -821,6 +954,66 @@ XFubenBossSingleManagerCreator = function()
 
         XFubenBossSingleManager.SetNeedReset(false)
     end
+
+    ------------------副本入口扩展 start-------------------------
+    function XFubenBossSingleManager:ExGetChapterType()
+        return XFubenConfigs.ChapterType.BossSingle
+    end
+    
+    -- 获取进度提示
+    function XFubenBossSingleManager:ExGetProgressTip() 
+        local strProgress = ""
+        if not self:ExGetIsLocked() then
+            -- 进度
+            if XFubenBossSingleManager.CheckNeedChooseLevelType() then
+                strProgress = CS.XTextManager.GetText("BossSingleProgressChooseable")
+            else
+                local allCount = XFubenBossSingleManager.GetChallengeCount()
+                local challengeCount = XFubenBossSingleManager.GetBoosSingleData().ChallengeCount
+                strProgress = CS.XTextManager.GetText("BossSingleProgress", challengeCount, allCount)
+            end
+        end
+
+        return strProgress
+    end
+
+    -- 获取倒计时
+    function XFubenBossSingleManager:ExGetRunningTimeStr()
+        local remainTime = FubenBossSingleData.EndTime - XTime.GetServerNowTimestamp()
+        local timeText = XUiHelper.GetTime(remainTime, XUiHelper.TimeFormatType.CHALLENGE)
+        return CS.XTextManager.GetText("BossSingleLeftTimeIcon", timeText)
+    end
+
+    function XFubenBossSingleManager:ExCheckIsFinished(cb)
+        local result = true
+
+        if XFubenBossSingleManager.CheckNeedChooseLevelType() -- 未选区 
+                or (FubenBossSingleData.ChallengeCount < XFubenBossSingleManager.GetChallengeCount() and not XFubenBossSingleManager.CheckAllPassed()) --还剩余挑战次数，有未通过关卡(一个boss5个关卡)
+                or XRedPointManager.CheckConditions({"CONDITION_BOSS_SINGLE_REWARD"}) -- 有奖励未领取
+                or self:ExGetIsLocked()
+        then
+            result =  false
+        end
+
+        if cb then
+            cb(result)
+        end
+        self.IsClear = result
+        return result
+    end
+
+    function XFubenBossSingleManager:ExOpenMainUi()
+        if XFunctionManager.DetectionFunction(self:ExGetFunctionNameType()) then
+            if XFubenBossSingleManager.CheckNeedChooseLevelType() then
+                XLuaUiManager.Open("UiFubenBossSingleChooseLevelType")
+                return
+            end
+    
+            XDataCenter.FubenBossSingleManager.OpenBossSingleView()
+        end
+    end
+    
+    ------------------副本入口扩展 end-------------------------
 
     XFubenBossSingleManager.Init()
     return XFubenBossSingleManager

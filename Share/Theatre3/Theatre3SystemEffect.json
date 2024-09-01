@@ -1,0 +1,458 @@
+[
+    {
+        "Id": 10001,
+        "Desc": "Changes revive cost to 5 gold",
+        "Type": 23,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10003,
+        "Desc": "Gains 50 gold for every node cleared",
+        "Type": 4,
+        "Params": [
+            null,
+            96189.0,
+            50.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10008,
+        "Desc": "Shop offers a 50% discount",
+        "Type": 13,
+        "Params": [
+            null,
+            0.625,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 100081,
+        "Desc": "Additionally grants 6 discount slots",
+        "Type": 5,
+        "Params": [
+            null,
+            6.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10009,
+        "Desc": "Recruit Energy +3",
+        "Type": 22,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10010,
+        "Desc": "Weight Carrying Limit +3",
+        "Type": 16,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10022,
+        "Desc": "Battle additionally drops an item crate",
+        "Type": 21,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11001,
+        "Desc": "Recruit Energy +1",
+        "Type": 22,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11002,
+        "Desc": "Recruit Energy +2",
+        "Type": 22,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11003,
+        "Desc": "Recruit Energy +3",
+        "Type": 22,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11004,
+        "Desc": "Weight Carrying Limit +1",
+        "Type": 16,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11005,
+        "Desc": "Weight Carrying Limit +2",
+        "Type": 16,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11006,
+        "Desc": "Gold +250",
+        "Type": 12,
+        "Params": [
+            null,
+            96189.0,
+            250.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12011,
+        "Desc": "Recruit Energy +2",
+        "Type": 22,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12012,
+        "Desc": "Weight Carrying Limit +2",
+        "Type": 16,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12021,
+        "Desc": "Recruit Energy +2",
+        "Type": 22,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12031,
+        "Desc": "Weight Carrying Limit +2",
+        "Type": 16,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20101,
+        "Desc": "Gold Drop +40%",
+        "Type": 3,
+        "Params": [
+            null,
+            40.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20104,
+        "Desc": "Gold Drop +20%",
+        "Type": 3,
+        "Params": [
+            null,
+            20.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20151,
+        "Desc": "For every battle node cleared, gains HP growth after a battle.",
+        "Type": 17,
+        "Params": [
+            null,
+            1501.0,
+            1.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20152,
+        "Desc": "For every battle node cleared, gains ATK after the battle.",
+        "Type": 17,
+        "Params": [
+            null,
+            1502.0,
+            2.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20153,
+        "Desc": "For every battle node cleared, drops 10 additional Gold after a battle (the more battles cleared, the more additional Gold drops).",
+        "Type": 20,
+        "Params": [
+            null,
+            1503.0,
+            21.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20154,
+        "Desc": "Record the number of battle nodes cleared after the set is collected.",
+        "Type": 18,
+        "Params": [
+            null,
+            15.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20155,
+        "Desc": "Record the number of Boss nodes cleared after the set is collected.",
+        "Type": 19,
+        "Params": [
+            null,
+            15.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30002,
+        "Desc": "Roguelike 3.0 Outer Loop - Starting Gold +50",
+        "Type": 12,
+        "Params": [
+            null,
+            96189.0,
+            50.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30004,
+        "Desc": "Roguelike 3.0 Outer Loop - Starting Gold +50",
+        "Type": 12,
+        "Params": [
+            null,
+            96189.0,
+            50.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30006,
+        "Desc": "Roguelike 3.0 Outer Loop - Starting Recruit Energy +1",
+        "Type": 22,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30011,
+        "Desc": "Roguelike 3.0 Outer Loop - Starting Gold +50",
+        "Type": 12,
+        "Params": [
+            null,
+            96189.0,
+            50.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30012,
+        "Desc": "Roguelike 3.0 Outer Loop - Gain an additional random item at the start of the game (First Clear Difficulty Chapter 1)",
+        "Type": 8,
+        "Params": [
+            null,
+            1.0,
+            30012.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 300121,
+        "Desc": "Roguelike 3.0 Outer Loop - Gain an additional random item at the start of the game (Easy Difficulty Chapter 1)",
+        "Type": 8,
+        "Params": [
+            null,
+            101.0,
+            30012.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 300122,
+        "Desc": "Roguelike 3.0 Outer Loop - Gain an additional random item at the start of the game (Normal Difficulty Chapter 1)",
+        "Type": 8,
+        "Params": [
+            null,
+            201.0,
+            30012.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 300123,
+        "Desc": "Roguelike 3.0 Outer Loop - Gain an additional random item at the start of the game (Hard Difficulty Chapter 1)",
+        "Type": 8,
+        "Params": [
+            null,
+            301.0,
+            30012.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30015,
+        "Desc": "Roguelike 3.0 Outer Loop - Shop Item Discount Slots +1",
+        "Type": 5,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30017,
+        "Desc": "Roguelike 3.0 Outer Loop - All Member Equipment Weight Carrying Limit +1",
+        "Type": 16,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30023,
+        "Desc": "Roguelike 3.0 Outer Loop - Starting Gold +50",
+        "Type": 12,
+        "Params": [
+            null,
+            96189.0,
+            50.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30025,
+        "Desc": "Roguelike 3.0 Outer Loop - Starting Gold +50",
+        "Type": 12,
+        "Params": [
+            null,
+            96189.0,
+            50.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30028,
+        "Desc": "Roguelike 3.0 Outer Loop - Starting Gold +50",
+        "Type": 12,
+        "Params": [
+            null,
+            96189.0,
+            50.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30030,
+        "Desc": "Roguelike 3.0 Outer Loop - Starting Recruit Energy +1",
+        "Type": 22,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null,
+            null
+        ]
+    }
+]

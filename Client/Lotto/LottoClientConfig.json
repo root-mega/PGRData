@@ -1,23 +1,82 @@
 [
     {
         "Key": "KalieVideo",
-        "Desc": "V2.6\u5361\u5217\u89c6\u9891\u80cc\u666f",
+        "Desc": "V2.6 Karenina Video Background",
         "Value": [
-            "10065"
+            null,
+            "10097",
+            null,
+            null
         ]
     },
     {
         "Key": "KalieStoryStage",
-        "Desc": "V2.6\u5361\u5217\u5267\u60c5\u5173\u5361\u9884\u5236\u4f53",
+        "Desc": "V2.6 Karenina Story Stage Preset Format",
         "Value": [
-            "Assets/Product/Ui/ComponentPrefab/FuBenLottoKarenina/GridLottoKareninaStory.prefab"
+            null,
+            "Assets/Product/Ui/ComponentPrefab/FuBenLottoKarenina/GridLottoKareninaStory.prefab",
+            null,
+            null
         ]
     },
     {
         "Key": "KalieFightStage",
-        "Desc": "V2.6\u5361\u5217\u6218\u6597\u5173\u5361\u9884\u5236\u4f53",
+        "Desc": "V2.6 Karenina Battle Stage Preset Format",
         "Value": [
-            "Assets/Product/Ui/ComponentPrefab/FuBenLottoKarenina/GridLottoKareninaFight.prefab"
+            null,
+            "Assets/Product/Ui/ComponentPrefab/FuBenLottoKarenina/GridLottoKareninaFight.prefab",
+            null,
+            null
+        ]
+    },
+    {
+        "Key": "KalieRewardEffectDraw",
+        "Desc": "V2.6 - Card Draw Display Timeline (Purple, Orange, Red)",
+        "Value": [
+            null,
+            "ChoukaVioletEnable",
+            "ChoukaYellowEnable",
+            "ChoukaRedEnable"
+        ]
+    },
+    {
+        "Key": "KalieRewardEffectShow",
+        "Desc": "V2.6 - Card Draw Interface Related Display Effect ID (DrawShowEffect.tab) (Purple, Orange, Red)",
+        "Value": [
+            null,
+            "16",
+            "17",
+            "18"
+        ]
+    },
+    {
+        "Key": "KalieSpecialRewardId",
+        "Desc": "V2.6 - Special Display Item ID",
+        "Value": [
+            null,
+            "3002",
+            null,
+            null
+        ]
+    },
+    {
+        "Key": "KalieSpecialRewardEffectDraw",
+        "Desc": "V2.6 - Special Display Item Drawn Timeline",
+        "Value": [
+            null,
+            "ChoukaYellowEnable",
+            null,
+            null
+        ]
+    },
+    {
+        "Key": "KalieSpecialRewardEffectShow",
+        "Desc": "V2.6 - Special Display Item Drawn Card Draw Interface Related Display Effect ID",
+        "Value": [
+            null,
+            "17",
+            null,
+            null
         ]
     }
 ]

@@ -12,13 +12,15 @@ function XUiSameColorGameEquipSkill:OnAwake()
     self:RegisterUiEvents()
 end
 
-function XUiSameColorGameEquipSkill:OnStart(role, skill, equipIndex, callback)
+function XUiSameColorGameEquipSkill:OnStart(boss, role, skill, equipIndex, callback)
     self.Callback = callback
+    self.Boss = boss
     self.Role = role
     self.Skill = XTool.Clone(skill)
     self.EquipIndex = equipIndex
     self.PanelWearing.gameObject:SetActiveEx(false)
-    self.UiSameColorPanelSkillDetail:SetData(self.Skill)
+    local isTimeType = self.Boss:IsTimeType()
+    self.UiSameColorPanelSkillDetail:SetData(self.Skill, isTimeType)
 end
 
 function XUiSameColorGameEquipSkill:RegisterUiEvents()

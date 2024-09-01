@@ -17,7 +17,7 @@
     {
         "Key": "UseOwnCharacterFa",
         "Comment": "Use Own Character BP Display",
-        "Value": 7200
+        "Value": 1000
     },
     {
         "Key": "ShopIdByNormal",
@@ -28,5 +28,10 @@
         "Key": "ShopIdBySpecial",
         "Comment": "Special Tag Shop ID",
         "Value": 1194
+    },
+    {
+        "Key": "SPModeConditionId",
+        "Comment": "Adventure Mode Requirements",
+        "Value": 1002095
     }
 ]

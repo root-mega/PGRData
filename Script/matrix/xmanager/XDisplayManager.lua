@@ -1,5 +1,5 @@
 XDisplayManagerCreator = function()
-
+    ---@class XDisplayManager
     local XDisplayManager = {}
 
     local DisplayTable = nil
@@ -7,6 +7,8 @@ XDisplayManagerCreator = function()
     local Groups = {}
     local CharDict = {}
     local CurDisplayChar
+    local CurDisplayCharNew
+    local NextCharId = nil
     local LoadStates = {}
 
     function XDisplayManager.Init()
@@ -65,6 +67,52 @@ XDisplayManagerCreator = function()
         return result
     end
 
+    -- 设置首席助理
+    function XDisplayManager.SetDisplayCharIdFirstRequest(id, cb)
+        local data = {CharId = id}
+        XNetwork.Call("SetDisplayCharIdFirstRequest", data, function(res)
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+                return
+            end
+
+            if cb then
+                cb(res)
+            end
+            XPlayer.SetDisplayCharIdList(res.DisplayCharIdList)
+        end)
+    end
+
+    -- 更换选中的助理
+    function XDisplayManager.UpdatePlayerDisplayCharIdRequest(oldCharId, newCharId, cb)
+        XNetwork.Call("UpdatePlayerDisplayCharIdRequest", {OldCharId = oldCharId, NewCharId = newCharId}, function(res)
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+                return
+            end
+            
+            if cb then
+                cb(res)
+            end
+            XPlayer.SetDisplayCharIdList(res.DisplayCharIdList)
+        end)
+    end
+
+    -- 添加助理
+    function XDisplayManager.AddPlayerDisplayCharIdRequest(charId, cb)
+        XNetwork.Call("AddPlayerDisplayCharIdRequest", {CharId = charId}, function(res)
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+                return
+            end
+            
+            XPlayer.SetDisplayCharIdList(res.DisplayCharIdList)
+            if cb then
+                cb()
+            end
+        end)
+    end
+
     function XDisplayManager.SetDisplayCharById(id, callback)
         if id == XPlayer.DisplayCharId then
             return
@@ -81,7 +129,7 @@ XDisplayManagerCreator = function()
                 return
             end
 
-            XDataCenter.SignBoardManager.ChangeDisplayCharacter(id)
+            -- XDataCenter.SignBoardManager.ChangeDisplayCharacter(id)
 
             CurDisplayChar = newChar
             XPlayer.SetDisplayCharId(id)
@@ -113,11 +161,42 @@ XDisplayManagerCreator = function()
     end
 
     function XDisplayManager.GetDisplayChar()
-        if not CurDisplayChar then
-            local charId = XPlayer.DisplayCharId
-            CurDisplayChar = XDataCenter.CharacterManager.GetCharacter(charId)
+        if not CurDisplayCharNew then
+            return {}
         end
-        return CurDisplayChar
+        return CurDisplayCharNew
+    end
+
+    function XDisplayManager.GetRandomDisplayCharByList()
+        if NextCharId then
+            return XDataCenter.CharacterManager.GetCharacter(NextCharId)
+        end
+
+        local list = XTool.Clone(XPlayer.DisplayCharIdList)
+        if CurDisplayCharNew and #list > 1 then
+            for k, v in pairs(list) do
+                if v == CurDisplayCharNew.Id then
+                    table.remove(list, k)
+                end
+            end            
+        end
+        local randomNum = XTool.Random(1, #list)
+        local charId = list[randomNum]
+        CurDisplayCharNew = XDataCenter.CharacterManager.GetCharacter(charId)
+
+        return CurDisplayCharNew
+    end
+
+    -- 下一次拿看板娘队列要不要进行随机
+    function XDisplayManager.SetNextDisplayChar(char)
+        NextCharId = char
+        if char then
+            CurDisplayCharNew = XDataCenter.CharacterManager.GetCharacter(char)
+        end
+    end
+
+    function XDisplayManager.GetNextDisplayChar()
+        return NextCharId
     end
 
     function XDisplayManager.GetModelName(id)
@@ -140,7 +219,7 @@ XDisplayManagerCreator = function()
         LoadStates[panelRoleModel] = state
         state.Panel = panelRoleModel
         state.Id = id
-        state.Callback = cb
+        --state.Callback = cb
         state.IsLoading = true
         state.ModelName = XDisplayManager.GetModelName(id)
 
@@ -179,12 +258,26 @@ XDisplayManagerCreator = function()
             state.Animator = state.Model:GetComponent("Animator")
             XDisplayManager.OnAssetLoaded(state)
         end
-        --panelRoleModel:UpdateCharacterModel(id, nil, XModelManager.MODEL_UINAME.XUiMain, callback, nil, fashionId)
+        state.Callback = function()
+            --由于状态机是在模型加载之后，需要状态机加载完之后, 重新根据动作加载对应特效
+            local actionId = panelRoleModel:GetPlayingStateName(0) -- 0:只展示身体
+
+            local weaponFashionId
+            local characterId = tonumber(id)
+            if XRobotManager.CheckIsRobotId(characterId) then
+                local robotId = characterId
+                characterId = XRobotManager.GetCharacterId(robotId)
+                weaponFashionId = XRobotManager.GetRobotWeaponFashionId(robotId)
+            end
+            panelRoleModel:LoadCharacterUiEffect(characterId, actionId, nil, weaponFashionId, nil)
+
+            if cb then cb() end
+        end
         panelRoleModel:UpdateCharacterModel(id, nil, panelRoleModel.RefName, callback, nil, fashionId)
 
         -- 加载animationController
         local runtimeController = CS.LoadHelper.LoadUiController(state.RuntimeControllerName, panelRoleModel.RefName)
-
+        
         if runtimeController == nil or not runtimeController:Exist() then
             XLog.Error("XUiPanelDisplay RefreshSelf 错误: 展示角色的动画状态机加载失败: 状态机名称 " .. state.RuntimeControllerName .. " Ui名称：" .. panelRoleModel.RefName)
             return

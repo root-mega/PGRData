@@ -4,15 +4,29 @@ local tableInsert = table.insert
 
 XFubenShortStoryChapterConfigs = {}
 
+local TABLE_SHORT_STORY_ACTIVITY = "Share/Fuben/ShortStory/ShortStoryActivity.tab"
 local TABLE_SHORT_STORY_CHAPTER = "Share/Fuben/ShortStory/ShortStoryChapter.tab"
 local TABLE_SHORT_STORY_CHAPTER_DETAILS = "Share/Fuben/ShortStory/ShortStoryDetails.tab"
 local TABLE_SHORT_STORY_CHAPTER_STAR_TREASURE = "Share/Fuben/ShortStory/ShortStoryStarTreasure.tab"
 local TABLE_SHORT_STORY_EXPLORE_GROUP = "Client/Fuben/ShortStory/ShortStoryExploreGroup.tab"
+local TABLE_SHORT_STORY_NEXT_CHAPTER = "Client/Fuben/ShortStory/ShortStoryNextChapter.tab"
 
+local ShortStoryActivityCfg = {}
 local ShortStoryChapterCfg = {}
 local ShortStoryChapterDetailsCfg = {}
 local ShortStoryChapterStarTreasureCfg = {}
 local ShortStoryExploreGroupCfg = {}
+local ShortStoryNextChapterCfg = {}
+
+local function GetShortStoryActivity(id)
+    local config = ShortStoryActivityCfg[id]
+    if not config then
+        XLog.Error("XFubenShortStoryChapterConfigs GetShortStoryActivity error:配置不存在, id:" ..
+                id .. ",path: " .. TABLE_SHORT_STORY_ACTIVITY)
+        return
+    end
+    return config
+end
 
 local function GetShortStoryChapter(id)
     local config = ShortStoryChapterCfg[id]
@@ -55,10 +69,12 @@ local function GetExploreGroups(groupId)
 end
 
 function XFubenShortStoryChapterConfigs.Init()
+    ShortStoryActivityCfg = XTableManager.ReadByIntKey(TABLE_SHORT_STORY_ACTIVITY, XTable.XTableShortStoryActivity, "Id")
     ShortStoryChapterCfg = XTableManager.ReadByIntKey(TABLE_SHORT_STORY_CHAPTER,XTable.XTableShortStory,"Id")
     ShortStoryChapterDetailsCfg = XTableManager.ReadByIntKey(TABLE_SHORT_STORY_CHAPTER_DETAILS,XTable.XTableShortStoryDetails,"ChapterId")
     ShortStoryChapterStarTreasureCfg = XTableManager.ReadByIntKey(TABLE_SHORT_STORY_CHAPTER_STAR_TREASURE,XTable.XTableShortStoryStarTreasure,"TreasureId")
     ShortStoryExploreGroupCfg = XTableManager.ReadByIntKey(TABLE_SHORT_STORY_EXPLORE_GROUP,XTable.XTableShortStoryExploreGroup,"Id")
+    ShortStoryNextChapterCfg = XTableManager.ReadByIntKey(TABLE_SHORT_STORY_NEXT_CHAPTER,XTable.XTableShortStoryNextChapter,"ChapterId")
 end
 
 function XFubenShortStoryChapterConfigs.UpdateChapterData()
@@ -75,6 +91,13 @@ function XFubenShortStoryChapterConfigs.UpdateChapterData()
         end
     end
 end
+
+------------------------------------------ShortStoryActivity.tab Start--------------------------------------------------
+function XFubenShortStoryChapterConfigs.GetShortStoryActivity(id)
+    local config = GetShortStoryActivity(id)
+    return config
+end
+------------------------------------------ShortStoryActivity.tab End----------------------------------------------------
 ------------------------------------------ShortStoryChapter.tab Start---------------------------------------------------
 function XFubenShortStoryChapterConfigs.GetShortStoryChapterIds(id)
     local chapterIds = {}
@@ -260,4 +283,8 @@ function XFubenShortStoryChapterConfigs.GetExploreGroupInfoByGroupId(groupId)
     return preShowIndexs
 end
 ------------------------------------------ShortStoryExploreGroup.tab End------------------------------------------------
-return XFubenShortStoryChapterConfigs
+
+function XFubenShortStoryChapterConfigs.GetNextChapterCfgByChapterId(chapterId)
+    local config = ShortStoryNextChapterCfg[chapterId]
+    return config
+end

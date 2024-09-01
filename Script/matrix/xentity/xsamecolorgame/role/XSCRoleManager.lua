@@ -20,18 +20,6 @@ end
 --     return self.ReceivedRoleIdDic[roleId] or false
 -- end
 
--- 获取初始角色
-function XSCRoleManager:GetInitRoles()
-    if self.__InitRoles == nil then
-        self.__InitRoles = {}
-        local roleIds = XDataCenter.SameColorActivityManager.GetInitRoleIds()
-        for _, id in ipairs(roleIds) do
-            table.insert(self.__InitRoles, self:GetRole(id))
-        end
-    end
-    return self.__InitRoles
-end
-
 function XSCRoleManager:GetRoles()
     local roleConfigDic = XSameColorGameConfigs.GetRoleConfigDic()
     local result = {}
@@ -40,15 +28,12 @@ function XSCRoleManager:GetRoles()
     end
     -- 默认选定的 已拥有的 已解锁 未解锁
     table.sort(result, function(roleA, roleB)
-        -- 是否已拥有
-        local hasA = roleA:GetIsReceived() and 1000000 or 0
-        local hasB = roleB:GetIsReceived() and 1000000 or 0
         -- 是否已解锁
         local isUnlockA = roleA:GetIsInUnlockTime() and 100000 or 0
         local isUnlockB = roleB:GetIsInUnlockTime() and 100000 or 0
         -- 权重
-        local weightA = hasA + isUnlockA + (99 - roleA:GetId())
-        local weightB = hasB + isUnlockB + (99 - roleB:GetId())
+        local weightA = isUnlockA + (99 - roleA:GetId())
+        local weightB = isUnlockB + (99 - roleB:GetId())
         return weightA > weightB
     end)
     return result

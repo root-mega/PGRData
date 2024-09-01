@@ -32,6 +32,7 @@ function XUiOnlineBoss:OnStart(selectIdx, isFirst)
     self.AssetPanel = XUiPanelAsset.New(self, self.PanelAsset, XDataCenter.ItemManager.ItemId.ActionPoint, XDataCenter.ItemManager.ItemId.Coin)
     self.MatchPanel = XUiPanelMatch.New(self.PanelMatch, self)
     self.BossInfoPanel = XUiPanelBossInfo.New(self.PanelBossInfo)
+    
 
     self.UiState = isFirst and UiState.NewBoss or UiState.Enter
     self.GameObjectGroup = {
@@ -87,10 +88,9 @@ function XUiOnlineBoss:OnStart(selectIdx, isFirst)
     self:InitModel()
     self:InitPanelInvade()
     self:SwitchState(self.UiState)
-    self:StartTimer()
 
     self:RegisterClickEvent(self.BtnStart, self.OnBtnStartClick)
-    self:RegisterClickEvent(self.BtnBack, self.OnBtnBackClick)
+    self:RegisterClickEvent(self.BtnBack, self.Close)
     self:RegisterClickEvent(self.BtnMainUi, self.OnBtnMainUiClick)
     self:RegisterClickEvent(self.BtnInvade, self.OnBtnInvadeClick)
 
@@ -101,6 +101,7 @@ function XUiOnlineBoss:OnStart(selectIdx, isFirst)
 end
 
 function XUiOnlineBoss:OnEnable()
+
     XDataCenter.FubenBossOnlineManager.RefreshBossData()
     self:RefreshBtnList()
     if self.CurAnimator and self.SectionTemplate then
@@ -136,10 +137,14 @@ function XUiOnlineBoss:OnEnable()
             self.EnterEnable:PlayTimelineAnimation()
         end
     end
+    self:StartTimer()
+end
+
+function XUiOnlineBoss:OnDisable()
+    self:StopTimer()
 end
 
 function XUiOnlineBoss:OnDestroy()
-    self:StopTimer()
     XEventManager.RemoveEventListener(XEventId.EVENT_ROOM_CANCEL_MATCH, self.OnCancelMatch, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_ROOM_ENTER_ROOM, self.EnterRoom, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_ONLINEBOSS_UPDATE, self.OnBossUpdate, self)
@@ -220,7 +225,6 @@ function XUiOnlineBoss:OnUpdateRefreshTime()
     end
 end
 
-
 function XUiOnlineBoss:StartTimer()
     if self.Timers then
         self:StopTimer()
@@ -263,9 +267,9 @@ function XUiOnlineBoss:OnBtnStartClick()
     self:OnEnterMatch(bossData.BossId)
 end
 
-function XUiOnlineBoss:OnBtnBackClick()
+function XUiOnlineBoss:Close()
     if self.UiState == UiState.Enter then
-        self:Close()
+        self.Super.Close(self)
     elseif self.UiState == UiState.Match then
         if XDataCenter.RoomManager.Matching then
             local title = CS.XTextManager.GetText("TipTitle")
@@ -336,8 +340,9 @@ function XUiOnlineBoss:OnTimeOut()
         XLuaUiManager.Close("UiDialog")
     end
 
-    if XDataCenter.FubenBossOnlineManager.TryPopOverTips() then
-        self:Close()
+    XDataCenter.FubenBossOnlineManager.TryPopOverTips()
+    if XUiManager.CheckTopUi(CsXUiType.Normal, self.Name) then
+        self.Super.Close(self)
     else
         self:Close()
         self.NeedClose = true

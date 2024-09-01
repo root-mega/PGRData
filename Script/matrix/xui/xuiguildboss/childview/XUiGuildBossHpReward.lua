@@ -21,10 +21,13 @@ end
 function XUiGuildBossHpReward:Show()
     self.GameObject:SetActiveEx(true)
     self:Refresh()
+    XDataCenter.UiPcManager.OnUiEnable(self)
 end
 
 function XUiGuildBossHpReward:Close()
     self.GameObject:SetActiveEx(false)
+    self.RootUi.Effect.gameObject:SetActiveEx(self.RootUi.IsShowEffect)
+    XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
 end
 
 

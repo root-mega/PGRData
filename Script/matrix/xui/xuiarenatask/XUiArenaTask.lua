@@ -12,6 +12,7 @@ function XUiArenaTask:OnStart()
     self.DynamicTable = XDynamicTableNormal.New(self.SViewTask.transform)
     self.DynamicTable:SetProxy(XDynamicGridTask)
     self.DynamicTable:SetDelegate(self)
+    self:InitView()
 end
 
 function XUiArenaTask:OnEnable()
@@ -50,7 +51,17 @@ function XUiArenaTask:Refresh()
         return
     end
 
-    self.DailyTasks = XDataCenter.TaskManager.GetArenaChallengeTaskList()
+    self.DailyTasks = XDataCenter.ArenaManager.GetCurChallengeTasks()
+    XDataCenter.TaskManager.SortTaskList(self.DailyTasks)
     self.DynamicTable:SetDataSource(self.DailyTasks)
     self.DynamicTable:ReloadDataASync()
 end
+
+function XUiArenaTask:InitView()
+    local challengeCfg = XDataCenter.ArenaManager.GetCurChallengeCfg()
+    if challengeCfg and self.TxtTitle then
+        self.TxtTitle.text = CS.XTextManager.GetText("ArenaTaskTitle", challengeCfg.Name, challengeCfg.MinLv, challengeCfg.MaxLv)
+    end
+end
+
+return XUiArenaTask

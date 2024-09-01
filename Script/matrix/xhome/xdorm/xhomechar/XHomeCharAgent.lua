@@ -1,3 +1,5 @@
+---@class XHomeCharAgent : XLuaBehaviorAgent 宿舍角色行为代理
+---@field HomeCharObj XHomeCharObj
 local XHomeCharAgent = XLuaBehaviorManager.RegisterAgent(XLuaBehaviorAgent, "HomeCharacter")
 
 function XHomeCharAgent:OnAwake()
@@ -57,6 +59,10 @@ end
 --隐藏特效
 function XHomeCharAgent:HideEffect()
     self.HomeCharObj:HideEffect()
+end
+
+function XHomeCharAgent:PlayFurnitureEffect(effectId)
+    return self.HomeCharObj:PlayFurnitureEffect(effectId)
 end
 
 --检测交互
@@ -144,6 +150,10 @@ function XHomeCharAgent:SetForwardToFurniture(forward)
     return self.HomeCharObj:SetForwardToFurniture(forward)
 end
 
+function XHomeCharAgent:PlayFurnitureAction(actionId, needFadeCross, crossDuration, needReplayAnimation)
+    return self.HomeCharObj:PlayFurnitureAction(actionId, needFadeCross, crossDuration, needReplayAnimation)
+end
+
 --获取ID
 function XHomeCharAgent:GetId()
     return self.HomeCharObj.Id
@@ -156,6 +166,11 @@ end
 --设置构造体交互开关
 function XHomeCharAgent:SetCharInteractTrigger(isOn)
     return self.HomeCharObj:SetCharInteractTrigger(isOn)
+end
+
+--设置构造体长按开关
+function XHomeCharAgent:SetCharLongPressTrigger(isOn)
+    return self.HomeCharObj:SetCharLongPressTrigger(isOn)
 end
 
 -- 检测构造体是否在坐标索引上

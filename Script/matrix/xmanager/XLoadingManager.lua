@@ -1,6 +1,8 @@
 LoadingType = {
     Fight = "10101", --战斗
     Dormitory = "902", --宿舍
+    Restaurant = "903", --餐厅
+    GuildDorm = "1901", --工会宿舍
 }
 
 XLoadingManagerCreator = function()
@@ -21,6 +23,10 @@ XLoadingManagerCreator = function()
             return
         end
 
+        if XUiManager.IsHideFunc then
+            CustomLoadingState = XSetConfigs.LoadingType.Default
+            type = XLoadingConfig.DEFAULT_TYPE
+        end
         if CustomLoadingState == XSetConfigs.LoadingType.Custom
                 and XLoadingConfig.CheckCustomAllowType(type)
                 and #CustomLoadingList >= 1

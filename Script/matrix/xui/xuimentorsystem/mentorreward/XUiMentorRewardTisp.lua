@@ -28,7 +28,9 @@ function XUiMentorRewardTisp:OnBtnStandClick()
 end
 
 function XUiMentorRewardTisp:ShowPanel(mailId)
-    local rewards = XMailConfigs.GetRewardList(mailId)
+    ---@type XMailAgency
+    local mailAgency = XMVCA:GetAgency(ModuleId.XMail)
+    local rewards = mailAgency:GetRewardList(mailId)
     self.GridGift.gameObject:SetActiveEx(false)
     if rewards then
         for _, item in pairs(rewards or {}) do

@@ -1,29 +1,36 @@
 [
     {
         "Key": "DrawTargetDefaultRoleImg",
-        "Desc": "\u6821\u51c6\u6d3b\u52a8A\u7ea7\u9ed8\u8ba4\u7a7a\u56fe\u6807",
+        "Desc": "Calibration Event A-Rank Default Empty Icon",
         "ValueList": [
-            "Assets/Product/Texture/Image/UiDrawLog/UiDrawARandom.png"
+            null,
+            "Assets/Product/Texture/Image/UiDrawLog/UiDrawARandom.png",
+            null
         ]
     },
     {
         "Key": "DrawTargetSelectNoneRoleImg",
-        "Desc": "\u6821\u51c6\u6d3b\u52a8\u9009\u62e9\u89d2\u8272\u9ed8\u8ba4\u7a7a\u56fe\u6807",
+        "Desc": "Calibration Event Character Selection Default Empty Icon",
         "ValueList": [
-            "Assets/Product/Texture/Image/UiDrawLog/UiDrawIconNone.png"
+            null,
+            "Assets/Product/Texture/Image/UiDrawLog/UiDrawIconNone.png",
+            null
         ]
     },
     {
         "Key": "DrawTargetSelectNoneRoleText",
-        "Desc": "\u6821\u51c6\u6d3b\u52a8\u9009\u62e9\u89d2\u8272\u9ed8\u8ba4\u7a7a\u6587\u672c",
+        "Desc": "Calibration Event Character Selection Default Empty Text",
         "ValueList": [
-            "<color=red>\u6682\u4e0d\u9009\u62e9</color>"
+            null,
+            "<color=red>Skip</color>",
+            null
         ]
     },
     {
         "Key": "DrawTargetAUpIcon",
-        "Desc": "\u6821\u51c6\u6d3b\u52a8\u539f\u5361\u6c60A\u7ea7\u9ed8\u8ba4\u7b49\u7ea7\u56fe\u6807",
+        "Desc": "Calibration Event Default Pool A-Rank Default Level Icon",
         "ValueList": [
+            null,
             "Assets/Product/Texture/Atlas/UiDrawCard/UiDrawIconA2.png",
             "Assets/Product/Texture/Atlas/UiDrawCard/UiDrawIconA.png"
         ]

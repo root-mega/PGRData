@@ -32,6 +32,8 @@ function XUiPanelGraphicsSetPc:AutoInitUi()
     self.FullscreenTogGraphics_2 = self.Transform:Find("Jiemian/Shezhi/Array/TGroupResolution/FullscreenTogGraphics_2"):GetComponent("Button")
     self.FullscreenTogGraphics_3 = self.Transform:Find("Jiemian/Shezhi/Array/TGroupResolution/FullscreenTogGraphics_3"):GetComponent("Toggle")
 
+    self.FullscreenTogGraphics_3.gameObject:SetActiveEx(false)
+
     if CS.XSettingHelper.ForceWindow then
         self.FullscreenTogGraphics_0.gameObject:SetActiveEx(false)
         self.FullscreenTogGraphics_2.gameObject:SetActiveEx(true)
@@ -91,7 +93,7 @@ function XUiPanelGraphicsSetPc:InitToggleFullScreen()
                 self:UpdateDropDownResolution()
             end
         end
-        self.FullscreenTogGraphics_3.gameObject:SetActiveEx(self.FullscreenTogGraphics_0.isOn)
+        -- self.FullscreenTogGraphics_3.gameObject:SetActiveEx(self.FullscreenTogGraphics_0.isOn)
     end)
 
     self.FullscreenTogGraphics_1.onValueChanged:AddListener(function()
@@ -121,7 +123,7 @@ function XUiPanelGraphicsSetPc:UpdateToggle()
     self.TGroupResolution:SetAllTogglesOff()
     if isFullScreen then
         self.FullscreenTogGraphics_0.isOn = true
-        self.FullscreenTogGraphics_3.gameObject:SetActiveEx(true)
+        -- self.FullscreenTogGraphics_3.gameObject:SetActiveEx(true)
         self.FullscreenTogGraphics_3.isOn = self._NoFrameWindowed
     else
         self.FullscreenTogGraphics_1.isOn = true
@@ -181,6 +183,10 @@ function XUiPanelGraphicsSetPc:SetFullScreen()
         CS.UnityEngine.Screen.fullScreen = isFullScreen
     end
     XDataCenter.UiPcManager.SetNoFrame(isNoFrame)
+end
+
+function XUiPanelGraphicsSetPc:SetResolution(x, y, isFullScreen)
+    XDataCenter.UiPcManager.SetResolution(x, y, isFullScreen or false)
 end
 
 function XUiPanelGraphicsSetPc:CheckDataIsChange()

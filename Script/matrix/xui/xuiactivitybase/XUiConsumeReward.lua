@@ -15,12 +15,31 @@ function XUiConsumeReward:Ctor(ui, rootUi)
     self:Init()
 end
 
+function XUiConsumeReward:OnHide()
+    --加个OnHide方法，防止xuiwelfare OnDestroy哪里调用OnHide接口报错
+end
+
 function XUiConsumeReward:Init()
     self.LayoutGroup = self.GridRewardPanel:GetComponent("HorizontalLayoutGroup")
     self.GridRewardPool = {}
     self.GridMiniRewardPool = {}
     self.LimitPosArr = {}
     self.BarWidth = self.ImgJd.transform.rect.width
+    self.BtnLaw1.CallBack = function() self:OnBtnLaw1() end
+    self.BtnLaw2.CallBack = function() self:OnBtnLaw2() end
+end
+
+--海外修改，新增条款显示
+function XUiConsumeReward:OnBtnLaw1()
+    local lawTxt = CS.XTextManager.GetText("Capitaldecisionmethod")
+    local lawTitle = CS.XTextManager.GetText("CapitaldecisionmethodTitle")
+    XLuaUiManager.Open("UiFubenDialog", lawTitle, lawTxt)
+end
+
+function XUiConsumeReward:OnBtnLaw2()
+    local lawTxt = CS.XTextManager.GetText("Specificbusinesstransactionlaw")
+    local lawTitle = CS.XTextManager.GetText("SpecificbusinesstransactionTitle")
+    XLuaUiManager.Open("UiFubenDialog", lawTitle, lawTxt)
 end
 
 function XUiConsumeReward:Refresh(activityCfg)

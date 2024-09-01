@@ -39,7 +39,7 @@ XAntiAddictionManagerCreator = function()
         NeedToKickOff = true
         KickMsg = msg
 
-        if CS.XFight.Instance ~= nil then
+        if XFightUtil.IsFighting() then
             -- 战斗中
             return
         end

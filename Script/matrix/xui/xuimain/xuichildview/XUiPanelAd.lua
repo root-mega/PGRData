@@ -143,7 +143,7 @@ function XUiPanelAd:OnPointerClick()
 
     if tonumber(data.JumpType) == JumpType.Web then
         if jumpAddr and #jumpAddr > 0 then
-            if string.find(jumpAddr, "eden") ~= nil then -- 伊甸文化跳转
+            if string.find(jumpAddr, "thewitchcafe") ~= nil then -- 伊甸文化跳转
                 local uid = XUserManager.UserId
                 local serverId = CS.XHeroBdcAgent.ServerId
                 if uid and uid ~= "" then
@@ -160,10 +160,11 @@ function XUiPanelAd:OnPointerClick()
                     CS.UnityEngine.Application.OpenURL(jumpAddr.."?uid="..uid)
                     return
                 end
-            elseif string.find(jumpAddr, "natsumatsuri") ~= nil then -- 夏日祭活动
-                local uid = XLoginManager.GetUserId()
+            elseif string.find(jumpAddr, "pgr3rd") ~= nil then -- 日服H5拉人活动
+                --local uid = XLoginManager.GetUserId()
+                local uid = XPlayer.Id
                 if uid and uid ~= "" then
-                    CS.UnityEngine.Application.OpenURL(jumpAddr.."?code_id="..uid)
+                    CS.UnityEngine.Application.OpenURL(jumpAddr.."?uid="..uid)
                     return
                 end
             elseif string.find(jumpAddr, "seeed") ~= nil or string.find(jumpAddr, "rooot") ~= nil then -- rooot活动的

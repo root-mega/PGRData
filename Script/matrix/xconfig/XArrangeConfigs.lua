@@ -42,6 +42,10 @@ XArrangeConfigs.Types = {
     Nameplate = 18, --铭牌
     RankScore = 20, --等级评分
     Medal    = 21, --勋章
+    DrawTicket = 22, --免费抽奖券
+    GuildGoods = 23, --公会道具
+    DlcHuntChip = 24, --dlcHunt芯片
+    ItemCollection = 25, --道具收藏
 }
 
 function XArrangeConfigs.GetType(id)

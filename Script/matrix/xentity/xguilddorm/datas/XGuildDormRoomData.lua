@@ -1,6 +1,7 @@
 --=============
 --公会宿舍房间数据
 --=============
+---@class XGuildDormRoomData
 local XGuildDormRoomData = XClass(nil, "XGuildDormRoomData")
 
 function XGuildDormRoomData:GetId()
@@ -62,12 +63,14 @@ end
 --=============
 --根据家具Id获取家具控件
 --=============
+---@return XGuildDormFurniture
 function XGuildDormRoomData:GetFurniture(id)
     return self.FurnitureDic and self.FurnitureDic[id]
 end
 --=============
 --获取所有家具
 --=============
+---@return table<number, XGuildDormFurniture>
 function XGuildDormRoomData:GetAllFurnitures()
     return self.FurnitureDic
 end

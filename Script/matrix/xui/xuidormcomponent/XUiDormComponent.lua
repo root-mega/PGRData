@@ -29,14 +29,19 @@ function XUiDormComponent:OnAwake()
     XEventManager.AddEventListener(XEventId.EVENT_DORM_TOUCH_ENTER, self.OnExpShow, self)
     XEventManager.AddEventListener(XEventId.EVENT_DORM_EXP_SHOW, self.OnExpShow, self)
     XEventManager.AddEventListener(XEventId.EVENT_DORM_EXP_HIDE, self.OnExpHide, self)
+    XEventManager.AddEventListener(XEventId.EVENT_DORM_RESET_HUD_SHOW, self.OnShowResetHud, self)
+    XEventManager.AddEventListener(XEventId.EVENT_DORM_RESET_HUD_HIDE, self.OnHideResetHud, self)
 
-    XEventManager.AddEventListener(XEventId.EVENT_DORM_HIDE_COMPONET, self.HieComponent, self)
+    XEventManager.AddEventListener(XEventId.EVENT_DORM_HIDE_COMPONENT, self.HieComponent, self)
     XEventManager.AddEventListener(XEventId.EVENT_DORM_CLOSE_COMPONET, self.CloseComponent, self)
     XEventManager.AddEventListener(XEventId.EVENT_DORM_SECOND_STATE, self.DormSecondState, self)
 
-    CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_DORM_FURNITURE_ATTR_TAG_DETAIL, handler(self, self.ShowFurnitureAttr))
-    CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_DORM_FURNITURE_HIDE_ATTR_TAG_DETAIL, handler(self, self.HideFurnitureAttr))
-    CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_DORM_FURNITURE_HIDE_ALL_ATTR_TAG_DETAIL, handler(self, self.HideAllFurnitureAttr))
+    self.OnShowFurnitureAttrCb = handler(self, self.ShowFurnitureAttr)
+    self.OnHideFurnitureAttrCb = handler(self, self.HideFurnitureAttr)
+    self.OnHideAllFurnitureAttrCb = handler(self, self.HideAllFurnitureAttr)
+    CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_DORM_FURNITURE_ATTR_TAG_DETAIL, self.OnShowFurnitureAttrCb)
+    CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_DORM_FURNITURE_HIDE_ATTR_TAG_DETAIL, self.OnHideFurnitureAttrCb)
+    CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_DORM_FURNITURE_HIDE_ALL_ATTR_TAG_DETAIL, self.OnHideAllFurnitureAttrCb)
 
 end
 
@@ -61,14 +66,16 @@ function XUiDormComponent:OnDestroy()
     XEventManager.RemoveEventListener(XEventId.EVENT_DORM_TOUCH_ENTER, self.OnExpShow, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_DORM_EXP_SHOW, self.OnExpShow, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_DORM_EXP_HIDE, self.OnExpHide, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_DORM_RESET_HUD_SHOW, self.OnShowResetHud, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_DORM_RESET_HUD_HIDE, self.OnHideResetHud, self)
 
-    XEventManager.RemoveEventListener(XEventId.EVENT_DORM_HIDE_COMPONET, self.HieComponent, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_DORM_HIDE_COMPONENT, self.HieComponent, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_DORM_CLOSE_COMPONET, self.CloseComponent, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_DORM_SECOND_STATE, self.DormSecondState, self)
 
-    CsXGameEventManager.Instance:RemoveEvent(XEventId.EVENT_DORM_FURNITURE_ATTR_TAG_DETAIL, handler(self, self.ShowFurnitureAttr))
-    CsXGameEventManager.Instance:RemoveEvent(XEventId.EVENT_DORM_FURNITURE_HIDE_ATTR_TAG_DETAIL, handler(self, self.HideFurnitureAttr))
-    CsXGameEventManager.Instance:RemoveEvent(XEventId.EVENT_DORM_FURNITURE_HIDE_ALL_ATTR_TAG_DETAIL, handler(self, self.HideAllFurnitureAttr))
+    CsXGameEventManager.Instance:RemoveEvent(XEventId.EVENT_DORM_FURNITURE_ATTR_TAG_DETAIL, self.OnShowFurnitureAttrCb)
+    CsXGameEventManager.Instance:RemoveEvent(XEventId.EVENT_DORM_FURNITURE_HIDE_ATTR_TAG_DETAIL, self.OnHideFurnitureAttrCb)
+    CsXGameEventManager.Instance:RemoveEvent(XEventId.EVENT_DORM_FURNITURE_HIDE_ALL_ATTR_TAG_DETAIL, self.OnHideAllFurnitureAttrCb)
 
 end
 
@@ -89,6 +96,7 @@ function XUiDormComponent:OnStart()
     self.UiPanelTouch = XUiPanelTouch.New(self, self.PanelTouch)
     self.UiPanelExpDetail = XUiPanelExpDetail.New(self, self.PanelExpDetail)
     self.UiPanelPutOn = XUiPanelPutOn.New(self, self.PanelPutOn)
+    self.UiPanelResetHud = require("XUi/XUiDormComponent/XUiPanelResetHud").New(self, self.ResetScore)
 
     self.UiPanelExp.GameObject:SetActive(false)
     self.UiPanelExpDetail.GameObject:SetActive(false)
@@ -96,6 +104,7 @@ function XUiDormComponent:OnStart()
     self.UiPanelTouch.GameObject:SetActive(false)
     self.GridDialogBox.gameObject:SetActive(false)
     self.Grid3DObj.gameObject:SetActive(false)
+    self.UiPanelResetHud:Hide()
 end
 
 function XUiDormComponent:OnEnterRoom(curRoomId)
@@ -153,17 +162,17 @@ function XUiDormComponent:OnHideDialoBox(characterId)
 end
 
 -- 3DUI显示
-function XUiDormComponent:OnShow3DObj(characterId, effectId, transform, bindWorldPos)
+function XUiDormComponent:OnShow3DObj(characterId, effectId, transform, bindWorldPos, renderUIProxy, headTransform)
     -- 处理已经在显示中
     if self.Obj3DGridsDir[characterId] then
-        self.Obj3DGridsDir[characterId]:RefreshEffect(effectId, bindWorldPos)
+        self.Obj3DGridsDir[characterId]:RefreshEffect(effectId, bindWorldPos, renderUIProxy)
         return
     end
 
     -- 处理缓存中的
-    if #self.Obj3DGridsList > 0 then
+    if #self.Obj3DGridsList >= 5 then
         local temp = table.remove(self.Obj3DGridsList, 1)
-        temp:Show(characterId, effectId, transform, bindWorldPos)
+        temp:Show(characterId, effectId, transform, bindWorldPos, renderUIProxy, headTransform)
         self.Obj3DGridsDir[characterId] = temp
         return
     end
@@ -171,7 +180,7 @@ function XUiDormComponent:OnShow3DObj(characterId, effectId, transform, bindWorl
     -- 重新实例一个
     local grid = CS.UnityEngine.Object.Instantiate(self.Grid3DObj)
     local gridBox = XUiGrid3DObj.New(grid)
-    gridBox:Show(characterId, effectId, transform, bindWorldPos)
+    gridBox:Show(characterId, effectId, transform, bindWorldPos, renderUIProxy, headTransform)
     self.Obj3DGridsDir[characterId] = gridBox
 end
 
@@ -329,6 +338,15 @@ function XUiDormComponent:HideAllFurnitureAttr(evt)
     XHomeDormManager.FurnitureShowAttrType = -1
     self.FurnitureScoreContainer.gameObject:SetActiveEx(false)
     self.FurnitureScoreDic = {}
+end
+
+function XUiDormComponent:OnShowResetHud(furnitureId, placeType, target, roomId)
+    self:PlayAnimation("ResetScoreEnable")
+    self.UiPanelResetHud:Show(furnitureId, placeType, target, roomId)
+end
+
+function XUiDormComponent:OnHideResetHud()
+    self.UiPanelResetHud:Hide()
 end
 
 -- 关闭

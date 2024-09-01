@@ -175,7 +175,7 @@ function XUiPanelAssignStage:OnBtnOccupyClick()
 
     XDataCenter.FubenAssignManager.SelectChapterId = self.ChapterData:GetId()
     XDataCenter.FubenAssignManager.SelectCharacterId = self.ChapterData:GetCharacterId()
-    XLuaUiManager.Open("UiAssignOccupy")
+    XLuaUiManager.Open("UiAssignOccupy", self.ChapterData:GetId())
 end
 
 function XUiPanelAssignStage:OnBtnTreasureClick()

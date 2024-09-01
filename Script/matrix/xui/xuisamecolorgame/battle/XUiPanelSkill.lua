@@ -38,6 +38,8 @@ function XUiPanelSkill:Init()
     local subSkillCount = XSameColorGameConfigs.RoleMaxSkillCount
     
     self:CreateSkillGrid(self.GridMainSkill, true)
+    -- 设置玩家主技能
+    self.BattleManager:SetRoleMainSkill(mainSkill:GetSkillId())
     for index = 1, subSkillCount do
         self:CreateSkillGrid(self.GridSubSkill[index], false)
     end
@@ -74,11 +76,14 @@ function XUiPanelSkill:CreateSkillGrid(gridObj, IsMainSkill)
 end
 
 function XUiPanelSkill:SelectSkill(skill)
-    if not self.IsInPrepSkill then
+    if not self.IsInPrepSkill or not self.BattleManager:CheckIsPrepSkill(skill) then
         self.IsInPrepSkill = true
         self:SetSkillDisable(true, skill)
         self.BattleManager:SetPrepSkill(skill)
         XEventManager.DispatchEvent(XEventId.EVENT_SC_PREP_SKILL, skill)
+    elseif self.BattleManager:CheckIsPrepSkill(skill) then
+        -- 已选择技能重复点击则关闭选择
+        XEventManager.DispatchEvent(XEventId.EVENT_SC_SKILL_USED, skill)
     end
 end
 
@@ -94,10 +99,9 @@ function XUiPanelSkill:SetSkillDisable(IsDisable, excludeSkill)
 end
 
 function XUiPanelSkill:SetSkillCountdown(data)
-   for _,gridSkill in pairs(self.GridSkillList) do
+    for _,gridSkill in pairs(self.GridSkillList) do
         gridSkill:SetCountdown(data.SkillGroupId, data.LeftCd)
-        self:SetSkillDisable(false)
-   end
+    end
 end
 
 return XUiPanelSkill

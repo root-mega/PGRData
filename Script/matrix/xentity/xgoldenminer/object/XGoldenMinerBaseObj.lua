@@ -18,7 +18,6 @@ function XGoldenMinerBaseObj:Ctor(go, id, index, trigerCallback, resourceManager
         self.GoInputHandler = self.GameObject:AddComponent(typeof(CS.XGoInputHandler))
     end
     self.GoInputHandler:AddTriggerEnter2DCallback(function(collider) self:OnTriggerEnter(collider) end)
-
     self.GameObject.name = id
 end
 
@@ -35,6 +34,7 @@ function XGoldenMinerBaseObj:Init(mapId, rectSize, originParent)
     self.Transform.localScale = Vector3(scale, scale, scale)
 
     self.OriginParent = originParent
+    self.IsCatch = false
 end
 
 function XGoldenMinerBaseObj:OnTriggerEnter(collider)
@@ -57,6 +57,7 @@ function XGoldenMinerBaseObj:OnTriggerEnter(collider)
         end
         return
     end
+    self.StopMove = true
 
     self:SetGoInputHandlerActive(false)
 
@@ -67,6 +68,27 @@ end
 
 function XGoldenMinerBaseObj:DestroySelf(isBoom)
     XUiHelper.Destroy(self.GameObject)
+end
+
+-- 自动销毁爆炸特效
+function XGoldenMinerBaseObj:SelfDestroy(isBoom)
+    if self.DestroyTime or self:GetIsCatch() or XTool.UObjIsNil(self.GameObject) then
+        return
+    end
+    local destroyTime = 0.5
+    local effectUrl = isBoom and XGoldenMinerConfigs.GetTypeBoomEffect() or XGoldenMinerConfigs.GetDestroyEffect()
+    local effect = self:LoadResource(self.Transform.parent, effectUrl)
+    effect.transform.position = self.Transform.position
+    XUiHelper.Destroy(self.GameObject)
+    self.StopMove = true
+    self.DestroyTime = XScheduleManager.ScheduleForeverEx(function()
+        destroyTime = destroyTime - CS.UnityEngine.Time.deltaTime
+        if not XTool.UObjIsNil(effect) and destroyTime <= 0 then
+            XUiHelper.Destroy(effect)
+            XScheduleManager.UnSchedule(self.DestroyTime)
+            self.DestroyTime = nil
+        end
+    end, 0)
 end
 
 function XGoldenMinerBaseObj:IsTriggerCollider(collider)
@@ -91,6 +113,11 @@ function XGoldenMinerBaseObj:SetObjToTriggerParent(triggerObjs)
     if XTool.UObjIsNil(triggerObjs) or XTool.UObjIsNil(self.GameObject) then
         return
     end
+    if self.MoveType == XGoldenMinerConfigs.StoneMoveType.Circle then
+        self.Transform.localPosition = self.InitPosition
+        self.Transform.rotation = self.InitRotation
+    end
+    self.IsCatch = true
 
     self.Transform:SetParent(triggerObjs.transform, false)
     self:EdgeTop()
@@ -101,6 +128,123 @@ function XGoldenMinerBaseObj:SetObjToTriggerParent(triggerObjs)
     end
     self:LoadResource(self.Transform, effect)
 end
+
+-- 移动相关
+--=======================================================================
+
+function XGoldenMinerBaseObj:Move(deltaTime)
+    if XTool.UObjIsNil(self.GameObject) or not XTool.IsNumberValid(self.MoveType) or not self.GameObject.activeSelf then
+        return
+    end
+
+    if self.StopMove then
+        return
+    end
+
+    if self.MoveType == XGoldenMinerConfigs.StoneMoveType.Horizontal then
+        self:MoveHorizontal(deltaTime)
+    elseif self.MoveType == XGoldenMinerConfigs.StoneMoveType.Vertical then
+        self:MoveVertical(deltaTime)
+    elseif self.MoveType == XGoldenMinerConfigs.StoneMoveType.Circle then
+        self:MoveCircle(deltaTime)
+    end
+end
+
+-- 移动参数初始化
+function XGoldenMinerBaseObj:InitMoveArgs()
+    self.StopMove = false
+    local stoneId = self:GetId()
+    self.Scale = self.Transform.localScale.x
+    self.MoveType = XGoldenMinerConfigs.GetStoneMoveType(stoneId)
+    if not XTool.IsNumberValid(self.MoveType) then
+        return
+    end
+    self.CurMoveDirection = XGoldenMinerConfigs.GetStoneStartMoveDirection(stoneId)
+    self.MoveSpeed = XGoldenMinerConfigs.GetStoneMoveSpeed(stoneId)
+    self.MoveRange = XGoldenMinerConfigs.GetStoneMoveRange(stoneId)
+
+    if self.MoveType == XGoldenMinerConfigs.StoneMoveType.Horizontal then
+        self:InitHorizontalMoveArgs()
+    elseif self.MoveType == XGoldenMinerConfigs.StoneMoveType.Vertical then
+        self:InitVerticalMoveArgs()
+    elseif self.MoveType == XGoldenMinerConfigs.StoneMoveType.Circle then
+        self:InitCircleMoveArgs()
+    end
+end
+
+-- 水平移动参数初始化
+function XGoldenMinerBaseObj:InitHorizontalMoveArgs()
+    self.PosY = self.Transform.localPosition.y
+    --左右方向能移动到的最大位置
+    local posX = self.Transform.localPosition.x
+    self.MoveMinPosX = posX - self.MoveRange
+    self.MoveMaxPosX = posX + self.MoveRange
+end
+
+-- 垂直移动参数初始化
+function XGoldenMinerBaseObj:InitVerticalMoveArgs()
+    self.PosX = self.Transform.localPosition.x
+    --左右方向能移动到的最大位置
+    local posY = self.Transform.localPosition.y
+    self.MoveMinPosY = posY - self.MoveRange
+    self.MoveMaxPosY = posY + self.MoveRange
+end
+
+-- 圆周运动参数初始化
+function XGoldenMinerBaseObj:InitCircleMoveArgs()
+    -- 记录初始状态(被抓取用)
+    self.InitPosition = self.Transform.localPosition
+    self.InitRotation = self.Transform.rotation
+    -- 记录圆心
+    self.CirclePoint = self.Transform.position
+    -- 设置初始起点与角度
+    local x =  self.Transform.localPosition.x + self.MoveRange * math.cos(self.CurMoveDirection / 180 * math.pi)
+    local y =  self.Transform.localPosition.y + self.MoveRange * math.sin(self.CurMoveDirection / 180 * math.pi)
+    self.Transform:Rotate(0, 0, self.CurMoveDirection - 90)
+    self.Transform.localPosition = Vector3(x, y, 0)
+end
+
+-- 水平移动
+local _MoveX
+function XGoldenMinerBaseObj:MoveHorizontal(deltaTime)
+    _MoveX = self.Transform.localPosition.x + deltaTime * self.CurMoveDirection * self.MoveSpeed
+    if _MoveX < self.MoveMinPosX then
+        _MoveX = self.MoveMinPosX
+        self:ChangeOrientation()
+    elseif _MoveX > self.MoveMaxPosX then
+        _MoveX = self.MoveMaxPosX
+        self:ChangeOrientation()
+    end
+
+    self.Transform.localPosition = Vector3(_MoveX, self.PosY, 0)
+end
+
+-- 垂直移动
+local _MoveY
+function XGoldenMinerBaseObj:MoveVertical(deltaTime)
+    _MoveY = self.Transform.localPosition.y + deltaTime * self.CurMoveDirection * self.MoveSpeed
+    if _MoveY < self.MoveMinPosY then
+        _MoveY = self.MoveMinPosY
+        self:ChangeOrientation()
+    elseif _MoveY > self.MoveMaxPosY then
+        _MoveY = self.MoveMaxPosY
+        self:ChangeOrientation()
+    end
+
+    self.Transform.localPosition = Vector3(self.PosX, _MoveY, 0)
+end
+
+-- 圆周运动
+function XGoldenMinerBaseObj:MoveCircle(deltaTime)
+    self.Transform:RotateAround(self.CirclePoint, -CS.UnityEngine.Vector3.forward, self.MoveSpeed * deltaTime)
+end
+
+--改变朝向
+function XGoldenMinerBaseObj:ChangeOrientation()
+    self.CurMoveDirection = -self.CurMoveDirection
+end
+
+--=======================================================================
 
 --变成等重量的黄金
 function XGoldenMinerBaseObj:ChangeToGold()
@@ -121,7 +265,6 @@ function XGoldenMinerBaseObj:ChangeToGold()
     end
 
     self:EdgeTop()
-
     self:SetId(goldId)
 end
 
@@ -150,6 +293,25 @@ function XGoldenMinerBaseObj:LoadResource(parent, prefabPath, isCenter)
         obj.transform.localPosition = Vector3.zero
         return obj
     end
+end
+
+--延迟生成用
+function XGoldenMinerBaseObj:SetDisable(isDisable)
+    if XTool.UObjIsNil(self.GameObject) then
+        return
+    end
+    self.GameObject:SetActiveEx(not isDisable)
+end
+
+function XGoldenMinerBaseObj:GetIsEnable()
+    if XTool.UObjIsNil(self.GameObject) then
+        return false
+    end
+    return self.GameObject.activeSelf
+end
+
+function XGoldenMinerBaseObj:GetIsCatch()
+    return self.IsCatch
 end
 
 function XGoldenMinerBaseObj:SetId(id)
@@ -191,6 +353,16 @@ end
 function XGoldenMinerBaseObj:GetWeight()
     local id = self:GetId()
     return XGoldenMinerConfigs.GetStoneWeight(id)
+end
+
+function XGoldenMinerBaseObj:GetStoneBornDelay()
+    local id = self:GetId()
+    return XGoldenMinerConfigs.GetStoneBornDelay(id)
+end
+
+function XGoldenMinerBaseObj:GetStoneDestroyTime()
+    local id = self:GetId()
+    return XGoldenMinerConfigs.GetStoneDestroyTime(id)
 end
 
 return XGoldenMinerBaseObj

@@ -1,3 +1,4 @@
+---@class XRLGuildDormFurniture
 local XRLGuildDormFurniture = XClass(nil, "XRLGuildDormFurniture")
 
 function XRLGuildDormFurniture:Ctor()

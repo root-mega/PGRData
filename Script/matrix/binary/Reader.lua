@@ -2,7 +2,12 @@ local Reader = XClass(nil, "Reader")
 local ReadByType = {}
 local MaxInt32 = 2147483647
 local FloatToInt = 10000
-function Reader:Ctor(bytes, len, index)
+
+function Reader:Ctor()
+
+end
+
+function Reader:LoadBytes(bytes, len, index)
     self.bytes = bytes
     self.len = len
     self.index = index or 1

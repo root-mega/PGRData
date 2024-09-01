@@ -1,6 +1,7 @@
+local XExFubenSimulationChallengeManager = require("XEntity/XFuben/XExFubenSimulationChallengeManager")
 XFubenBossOnlineManagerCreator = function()
 
-    local XFubenBossOnlineManager = {}
+    local XFubenBossOnlineManager = XExFubenSimulationChallengeManager.New(XFubenConfigs.ChapterType.BossOnline)
 
     XFubenBossOnlineManager.OnlineBossDifficultLevel = {
         SIMPLE = 1,
@@ -384,6 +385,78 @@ XFubenBossOnlineManagerCreator = function()
         end
         return false
     end
+
+    ------------------副本入口扩展 start-------------------------
+    function XFubenBossOnlineManager:ExGetChapterType()
+        return XFubenConfigs.ChapterType.BossOnline
+    end
+
+    -- 获取进度提示
+    function XFubenBossOnlineManager:ExGetProgressTip() 
+        local strProgress = ""
+        if self:ExGetIsLocked() then
+           
+        end
+
+        return strProgress
+    end
+
+    -- 获取倒计时
+    function XFubenBossOnlineManager:ExGetRunningTimeStr()
+        local timeText = ""
+        if XFubenBossOnlineManager.GetIsActivity() then
+            local endtime = XFubenBossOnlineManager.GetOnlineBossUpdateTime()
+            local time = XTime.GetServerNowTimestamp()
+
+            local shopStr = CsXTextManager.GetText("ActivityBranchShopLeftTime")
+            local fightStr = CsXTextManager.GetText("ActivityBranchFightLeftTime")
+
+            if endtime <= time and time <= endtime then
+                local leftTime = endtime - time
+                if leftTime > 0 then
+                    timeText = shopStr .. XUiHelper.GetTime(leftTime, XUiHelper.TimeFormatType.ACTIVITY)
+                else
+                    if self.OnActivityEnd then
+                        self:OnActivityEnd()
+                    end
+                end
+            else
+                local leftTime = endtime - time
+                if leftTime > 0 then
+                    timeText = fightStr .. XUiHelper.GetTime(leftTime, XUiHelper.TimeFormatType.ACTIVITY)
+                else
+                    if self.OnActivityEnd then
+                        self:OnActivityEnd()
+                    end
+                end
+            end
+        end
+
+        return timeText
+    end
+
+    function XFubenBossOnlineManager:ExOpenMainUi()
+        if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.FubenActivityOnlineBoss) then
+            return
+        end
+        --开启时间限制
+        if not XDataCenter.FubenBossOnlineManager.CheckNormalBossOnlineInTime() then
+            local tipText = XDataCenter.FubenBossOnlineManager.GetNotInTimeTip()
+            XUiManager.TipError(tipText)
+            return
+        end
+        -- 先检查更新再开界面
+        XFubenBossOnlineManager.RefreshBossData(
+            function()
+                if not XFubenBossOnlineManager.CheckBossDataCorrect() then
+                    return
+                end
+                XFubenBossOnlineManager.OpenBossOnlineUiWithoutCheck()
+            end
+        )
+    end
+    
+    ------------------副本入口扩展 end-------------------------
 
     XFubenBossOnlineManager.Init()
     return XFubenBossOnlineManager

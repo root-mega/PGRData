@@ -1,4 +1,3 @@
-
 local XGridSkill = XClass(nil, "XGridSkill")
 local SHOW_SKILL_LEVEL = 1 --展示的等级
 
@@ -8,7 +7,6 @@ function XGridSkill:Ctor(ui)
 end
 
 function XGridSkill:Refresh(skillGroupId)
-
     if not skillGroupId then 
         self.GameObject:SetActiveEx(false) 
         return
@@ -35,7 +33,7 @@ end
 
 function XGridSkill:OnBtnSubSkillIconBgClick()
     if not self.SkillData then return end
-    XLuaUiManager.Open("UiCharacterBuffDetails", self.SkillData)
+    XLuaUiManager.Open("UiSkillDetailsTips", self.SkillData)
 end
 
 
@@ -46,17 +44,14 @@ end
 local XUiCharacterPanelRoleSkill = XClass(nil, "XUiCharacterPanelRoleSkill")
 
 local SIGNAL_BAL_MEMBER     = 3 --信号球技能（红黄蓝)
-local ACTIVE_SKILL_INDEX    = 4 --主动技能下标
-local PASSIVE_SKILL_INDEX   = 5 --被动技能下标
 
 function XUiCharacterPanelRoleSkill:Ctor(ui, onBackCb)
     
     XTool.InitUiObjectByUi(self, ui)
     self.OnBackCb = onBackCb
     
+    self.SkillGrids = {}
     self.BallSkillGrids = {}
-    self.ActiveSkillGrids = {}
-    self.PassiveSkillGrids = {}
     
     self:InitUI()
     self:InitCB()
@@ -72,10 +67,15 @@ function XUiCharacterPanelRoleSkill:InitCB()
 end 
 
 function XUiCharacterPanelRoleSkill:InitUI()
-    
-    self.GridSkillBall.gameObject:SetActiveEx(false)
     self.GridActiveSkill.gameObject:SetActiveEx(false)
-    self.GridSubSkill.gameObject:SetActiveEx(false)
+    self.BasicSkills.gameObject:SetActiveEx(false)
+    for i = 2, XCharacterConfigs.MAX_SHOW_SKILL_POS do
+        local panel = self["PanelSkillGroup" .. i]
+        local grid = XUiHelper.TryGetComponent(panel, "PanelActiveSkill/GridActiveSkill")
+        if grid then
+            grid.gameObject:SetActiveEx(false)
+        end
+    end
 end
 
 function XUiCharacterPanelRoleSkill:Refresh(characterId)
@@ -98,51 +98,50 @@ function XUiCharacterPanelRoleSkill:Open(isOpen)
     if not self.SkillList or XTool.IsTableEmpty(self.SkillList) then
         return
     end
-    
-    local ballSkills = {}
-    for i = 1, SIGNAL_BAL_MEMBER do
-        for j = 1, #self.SkillList[i] do
-            local skillId = self.SkillList[i][j]
-            if XTool.IsNumberValid(skillId) then
-                table.insert(ballSkills, skillId)
-            end
+    -- 特殊处理
+    local ballSkill1 = {}
+    local ballSkill2 = {}
+    for _, skillGroupId in pairs(self.SkillList[1] or {}) do
+        local skillId = XCharacterConfigs.GetGroupDefaultSkillId(skillGroupId)
+        local skillType = XCharacterConfigs.GetSkillType(skillId)
+        if skillType <= SIGNAL_BAL_MEMBER then
+            table.insert(ballSkill1, skillGroupId)
+        else
+            table.insert(ballSkill2, skillGroupId)
         end
     end
-
-    local activeSkills = self.SkillList[ACTIVE_SKILL_INDEX]
-    local passiveSkills = self.SkillList[PASSIVE_SKILL_INDEX]
+    self:RefreshBallSkill(ballSkill1)
+    self:RefreshSkill(ballSkill2, self.GridActiveSkill, self.PanelSkillGroup1, 1)
     
-    self:RefreshBallSkill(ballSkills)
-    self:RefreshActiveSkill(activeSkills)
-    self:RefreshPassiveSkill(passiveSkills)
+    for i = 2, XCharacterConfigs.MAX_SHOW_SKILL_POS do
+        local panel = self["PanelSkillGroup" .. i]
+        local skills = self.SkillList[i]
+        local parent =  XUiHelper.TryGetComponent(panel, "PanelActiveSkill")
+        local grid = XUiHelper.TryGetComponent(panel, "PanelActiveSkill/GridActiveSkill")
+        
+        self:RefreshSkill(skills, grid, parent, i)
+    end
+end
+
+function XUiCharacterPanelRoleSkill:RefreshSkill(skills, grid, parent, index)
+    if XTool.IsTableEmpty(self.SkillGrids[index]) then
+        self.SkillGrids[index] = {}
+    end
+    if XTool.IsTableEmpty(skills) then
+        self:DisableSkillGrid(self.SkillGrids[index])
+        return
+    end
+
+    self:RefreshGrid(#skills, skills, self.SkillGrids[index], grid, parent)
 end
 
 function XUiCharacterPanelRoleSkill:RefreshBallSkill(skills)
-    if not skills then
+    if XTool.IsTableEmpty(skills) then
         self:DisableSkillGrid(self.BallSkillGrids)
         return
     end
     
-    self:RefreshGrid(SIGNAL_BAL_MEMBER, skills, self.BallSkillGrids, self.GridSkillBall, self.PanelSkilBall)
-end
-
-function XUiCharacterPanelRoleSkill:RefreshActiveSkill(skills)
-    if not skills then
-        self:DisableSkillGrid(self.ActiveSkillGrids)
-        return
-    end
-
-    self:RefreshGrid(#skills, skills, self.ActiveSkillGrids, self.GridActiveSkill, self.PanelActiveSkill)
-end
-
-function XUiCharacterPanelRoleSkill:RefreshPassiveSkill(skills)
-
-    if not skills then
-        self:DisableSkillGrid(self.PassiveSkillGrids)
-        return
-    end
-    
-    self:RefreshGrid(#skills, skills, self.PassiveSkillGrids, self.GridSubSkill, self.PanelPassiveSkill)
+    self:RefreshGrid(#skills, skills, self.BallSkillGrids, self.BasicSkills, self.PanelSkillGroup1)
 end
 
 function XUiCharacterPanelRoleSkill:DisableSkillGrid(skillGirdList)
@@ -161,6 +160,10 @@ function XUiCharacterPanelRoleSkill:RefreshGrid(length, skills, grids, grid, par
             grids[idx] = item
         end
         item:Refresh(skills[idx])
+    end
+
+    for i = length + 1, #grids do
+        grids[i].GameObject:SetActiveEx(false)
     end
 end
 

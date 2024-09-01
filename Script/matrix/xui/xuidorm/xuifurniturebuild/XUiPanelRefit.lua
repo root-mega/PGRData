@@ -110,7 +110,7 @@ function XUiPanelRefit:SelectFurniture(furnitureIds)
             self.TxtSelectNum.text = CS.XTextManager.GetText("DormRefitEnoughCount", #furnitureIds)
             self.ImgBtnSelectFurniture:SetRawImage(typeCfg.TypeIcon)
         else
-            self.TxtSelectFurniture.text = ""
+            --self.TxtSelectFurniture.text = ""
             local totalScore = 0
             for _, v in pairs(furnitureDatas.AttrList or {}) do
                 totalScore = totalScore + v
@@ -138,7 +138,7 @@ function XUiPanelRefit:SelectFurniture(furnitureIds)
     else
         self.SelectedFurnitureIds = nil
         self.FrunitureTypeId = nil
-        self.TxtSelectFurniture.text = DEFAULT_STRING3
+        --self.TxtSelectFurniture.text = DEFAULT_STRING3
         self.TxtSelectScore.gameObject:SetActiveEx(false)
         self.TxtSelectSpecial.gameObject:SetActiveEx(false)
         self.PanelSelectFrunitureInfo.gameObject:SetActiveEx(false)
@@ -311,7 +311,7 @@ end
 function XUiPanelRefit:OnBtnSelectFurnitureClick()
     --TODO
     --跳转到仓库选择一个家具
-    local pageRecord = XDormConfig.DORM_BAG_PANEL_INDEX.FURITURE
+    local pageRecord = XDormConfig.DORM_BAG_PANEL_INDEX.FURNITURE
     local furnitureState = XFurnitureConfigs.FURNITURE_STATE.SELECT
     local func = function(furnitureIds)
         local ids = #furnitureIds > 1 and furnitureIds or furnitureIds[1]
@@ -413,7 +413,10 @@ function XUiPanelRefit:OnBtnRefitClick()
     end
 
     local ids = self:IsFurnitureTable() and self.SelectedFurnitureIds or {self.SelectedFurnitureIds}
-    XDataCenter.FurnitureManager.RemouldFurniture(ids, self.SelectedDrawingId, function(furnitureList)
+    local map = {
+        [self.SelectedDrawingId] = ids
+    }
+    XDataCenter.FurnitureManager.RemouldFurniture(map, function(furnitureList)
         self:Init()
         if furnitureList then
             XUiManager.TipMsg(CS.XTextManager.GetText("FurnitureRefitSuccess"), XUiManager.UiTipType.Tip, function()

@@ -154,16 +154,12 @@ function XUiBodyCombineGameMain:OnEnable()
     
     self:CheckTreasureRedPoint()
 
-    XEventManager.AddEventListener(XEventId.EVENT_BODYCOMBINEGAME_ACTIVITY_END, function()
-        XDataCenter.BodyCombineGameManager.OnActivityEnd()
-    end, self)
+    XEventManager.AddEventListener(XEventId.EVENT_BODYCOMBINEGAME_ACTIVITY_END, XDataCenter.BodyCombineGameManager.OnActivityEnd)
     
 end
 
 function XUiBodyCombineGameMain:OnDisable()
-    XEventManager.RemoveEventListener(XEventId.EVENT_BODYCOMBINEGAME_ACTIVITY_END, function()
-        XDataCenter.BodyCombineGameManager.OnActivityEnd()
-    end, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_BODYCOMBINEGAME_ACTIVITY_END, XDataCenter.BodyCombineGameManager.OnActivityEnd)
 end
 
 function XUiBodyCombineGameMain:OnGetEvents()

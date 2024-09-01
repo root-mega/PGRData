@@ -46,6 +46,13 @@ function XUiActivityBaseChild:OnEnable()
     XEventManager.AddEventListener(XEventId.EVENT_NEWYEARYUNSHI_CLOSE_REFRESH, self.Update, self)
 end
 
+function XUiActivityBaseChild:OnDisable()
+    if self.SelectedPanel and self.SelectedPanel.OnDisable then
+        self.SelectedPanel:OnDisable()
+    end
+    self:StopDelayUpdateTaskPanelTimer()
+end
+
 function XUiActivityBaseChild:OnDestroy()
     if self.ShopPanel then
         self.ShopPanel:OnDestroy()
@@ -68,7 +75,7 @@ function XUiActivityBaseChild:Update()
 end
 
 function XUiActivityBaseChild:OnGetEvents()
-    return { XEventId.EVENT_FINISH_TASK, XEventId.EVENT_ACTIVITY_INFO_UPDATE }
+    return { XEventId.EVENT_FINISH_TASK, XEventId.EVENT_ACTIVITY_INFO_UPDATE, XEventId.EVENT_TASK_SYNC }
 end
 
 function XUiActivityBaseChild:OnNotify(evt, ...)
@@ -84,8 +91,31 @@ function XUiActivityBaseChild:OnNotify(evt, ...)
         if panel.UpdateInfo then 
             panel:UpdateInfo()
         end
-    end
+    elseif evt == XEventId.EVENT_TASK_SYNC then
+        --通知过多导致频繁刷新，延迟刷新防卡顿
+        if self.DelayUpdateTaskPanelTimer then
+            return
+        end
 
+        self.DelayUpdateTaskPanelTimer = XScheduleManager.ScheduleOnce(function()
+            if XTool.UObjIsNil(self.GameObject) then
+                return
+            end
+
+            local panel = self.SelectedPanel
+            if panel.UpdateTask then 
+                panel:UpdateTask()
+            end
+            self:StopDelayUpdateTaskPanelTimer()
+        end, 50)
+    end
+end
+
+function XUiActivityBaseChild:StopDelayUpdateTaskPanelTimer()
+    if self.DelayUpdateTaskPanelTimer then
+        XScheduleManager.UnSchedule(self.DelayUpdateTaskPanelTimer)
+        self.DelayUpdateTaskPanelTimer = nil
+    end
 end
 
 function XUiActivityBaseChild:OnCheckRedPointRegression()

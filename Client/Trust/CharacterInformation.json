@@ -8,60 +8,12 @@
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
-        "Id": 2,
-        "CharacterId": 1011002,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "Leave the Iso-Device to me.\\nKnown for high intelligence and exceptional computing ability, with a data storage capacity far exceeding normal Constructs. Responsible for the setup of Iso-Devices and the maintenance of Gray Raven equipment.\\nAlso familiar with Construct repair and maintenance.",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
-    },
-    {
-        "Id": 3,
-        "CharacterId": 1011002,
-        "UnlockLv": 3,
-        "Title": "No.003",
-        "Content": "Perhaps your intelligence quotient is no worse than the average human.\\nHas a sharp and biting tongue that cuts to the heart of the matter, but seems to have a hard time conveying words of kindness and affection.\\nHis intentions should be understood through action, not through words.",
-        "ConditionDescript": "Affection <color=#C14F38>3</color>"
-    },
-    {
-        "Id": 4,
-        "CharacterId": 1011002,
-        "UnlockLv": 4,
-        "Title": "No.004",
-        "Content": "Brother? Er... I'm not sure...\\nSeems to have complicated thoughts about being called \"brother.\"\\nSeems to be unconcerned about anything other than the mission at hand, but quietly watches everything that is going on.\\n\\nHe was injured when he put himself in harm's way to protect Liv from the Corrupted \"Tifa\".\\nDespite his unconcerned attitude, his care for his comrades is apparent.",
-        "ConditionDescript": "Affection <color=#C14F38>4</color>"
-    },
-    {
-        "Id": 5,
-        "CharacterId": 1011002,
-        "UnlockLv": 5,
-        "Title": "No.005",
-        "Content": "I'd like for you to live safe and sound. Just that.\\nFormerly the consciousness of the human Morian, he volunteered to join the Construct program as an experimental subject in order to save his brother.\\nHis human heart now beats within his brother's chest.\\nHis overall ability ranks at the top of his Construct class.",
-        "ConditionDescript": "Affection <color=#C14F38>5</color>"
-    },
-    {
-        "Id": 6,
-        "CharacterId": 1011002,
-        "UnlockLv": 6,
-        "Title": "No.006",
-        "Content": "Your little tricks will not work.\\nThe seeds of corruption were planted when he put himself in harm's way to protect Liv from Tifa's attack. He almost fell to Tifa's control when they met again in battle, but Lee's preventive measures were able to save him and turn the tide.\\nA trustworthy and loyal Construct.",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
-    },
-    {
         "Id": 7,
         "CharacterId": 1021001,
         "UnlockLv": 1,
         "Title": "No.001",
         "Content": "Leader of Gray Raven. Attacker.\\nAn outstanding soldier, committed to eliminating the infection and paving the way for humanity's return.\\nWields a katana. In burst mode, she launches a flurry of attackers by forming twin energy blades.",
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
-    },
-    {
-        "Id": 8,
-        "CharacterId": 1021001,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "Permission to engage the enemy.\\nAbsolutely loyal to the mission, carrying out orders calmly and efficiently. Has a tendency to ignore her own safety in combat.\\n",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
     },
     {
         "Id": 9,
@@ -96,36 +48,12 @@
         "ConditionDescript": "Affection <color=#C14F38>6</color>"
     },
     {
-        "Id": 13,
-        "CharacterId": 1031001,
-        "UnlockLv": 1,
-        "Title": "No.001",
-        "Content": "Don't... don't look at me like this...\\nMember of Gray Raven, Support type. Skilled at tactical analysis and Construct repair, she operates in support of Gray Raven's operations.\\nShy and introverted, combat is not her strong suit, but with Gray Raven being constantly short-handed, she has stepped up to the frontlines and is working to improve her skills.",
-        "ConditionDescript": "Affection <color=#C14F38>1</color>"
-    },
-    {
-        "Id": 14,
-        "CharacterId": 1031001,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "I'll work hard!\\nKind and gentle, Liv always works hard to help others and make them happy.\\nShe feels fortunate to be around friends and comrades whom she respects greatly.",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
-    },
-    {
         "Id": 15,
         "CharacterId": 1031001,
         "UnlockLv": 3,
         "Title": "No.003",
         "Content": "Liv's kind and pure nature also makes her get susceptible to deception and pain. She has a stubbornly altruistic streak which can put her in harm's way.\\nGray Raven and the commandant have helped keep her gentle nature unscathed.",
         "ConditionDescript": "Affection <color=#C14F38>3</color>"
-    },
-    {
-        "Id": 16,
-        "CharacterId": 1031001,
-        "UnlockLv": 4,
-        "Title": "No.004",
-        "Content": "Don't go by yourself, Karenina!\\nHaving parted then reunited with the commandant, Liv has grown from a young and naive girl into a dependable team member.\\nShe did not panic even when Karenina lost control of herself, and was able to give advice with calm, steady head.",
-        "ConditionDescript": "Affection <color=#C14F38>4</color>"
     },
     {
         "Id": 17,
@@ -208,14 +136,6 @@
         "ConditionDescript": "Affection <color=#C14F38>2</color>"
     },
     {
-        "Id": 27,
-        "CharacterId": 1051001,
-        "UnlockLv": 3,
-        "Title": "No.003",
-        "Content": "Nanami's the king of the world, baby.\\n\\nA true hacker-girl, all computer systems are naked before her. She can even communicate with mechanoids and the Corrupted.\\nShe has once butted heads with Team Hellhound, one of Babylonia's Execution Squads. While the details of the incident are unknown, the report indicates that she more than held her own against an entire elite squad.",
-        "ConditionDescript": "Affection <color=#C14F38>3</color>"
-    },
-    {
         "Id": 28,
         "CharacterId": 1051001,
         "UnlockLv": 4,
@@ -254,14 +174,6 @@
         "Title": "No.002",
         "Content": "Always has a smile on his face. Optimistic and direct, his approach is always simple, and he never hesitates to speak his mind.\\nThis naturally brings him into conflict with Lee, who prefers to think things over carefully.\\nDespite their frequent verbal sparring, Lee and Kamui's relationship does not seem at all unfriendly.",
         "ConditionDescript": "Affection <color=#C14F38>2</color>"
-    },
-    {
-        "Id": 33,
-        "CharacterId": 1061002,
-        "UnlockLv": 3,
-        "Title": "No.003",
-        "Content": "Affiliation? That's a headache...\\nThough Kamui is a member of Strike Hawk, his assignments have led to him spending most of his time with Gray Raven.\\nHe once said that he would be willing to lay down his life for Gray Raven, if need be.",
-        "ConditionDescript": "Affection <color=#C14F38>3</color>"
     },
     {
         "Id": 34,
@@ -360,14 +272,6 @@
         "ConditionDescript": "Affection <color=#C14F38>3</color>"
     },
     {
-        "Id": 46,
-        "CharacterId": 1081002,
-        "UnlockLv": 4,
-        "Title": "No.004",
-        "Content": "The world I want is one that is fair and peaceful.\\n\\nAs a dissident of Babylonia, Watanabe's suspicions were confirmed when he came to Earth and saw for himself the lives of the humans and Constructs left behind.\\nHis opinion of Babylonia seems to have improved slightly after encountering Gray Raven.",
-        "ConditionDescript": "Affection <color=#C14F38>4</color>"
-    },
-    {
         "Id": 47,
         "CharacterId": 1081002,
         "UnlockLv": 5,
@@ -422,14 +326,6 @@
         "Title": "No.005",
         "Content": "Feeling more for the commandant than a simple superior and subordinate relationship, she finds it difficult to seek the answer.",
         "ConditionDescript": "Affection <color=#C14F38>5</color>"
-    },
-    {
-        "Id": 54,
-        "CharacterId": 1021002,
-        "UnlockLv": 6,
-        "Title": "No.006",
-        "Content": "Does this hairstyle suit me?\\nThe hairstyle of Lucia's new frame seems to be troubling her.\\nPerhaps all she seeks is a word of approval from the commandant.",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
     },
     {
         "Id": 55,
@@ -808,14 +704,6 @@
         "ConditionDescript": "Affection <color=#C14F38>5</color>"
     },
     {
-        "Id": 102,
-        "CharacterId": 1081003,
-        "UnlockLv": 6,
-        "Title": "No.006",
-        "Content": "Power is nothing without just means.\\nThough the operation on the space station did not change Watanabe's views on Babylonia, he sees Gray Raven's acts as the just way of wielding power.",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
-    },
-    {
         "Id": 103,
         "CharacterId": 1091002,
         "UnlockLv": 1,
@@ -838,14 +726,6 @@
         "Title": "No.003",
         "Content": "Her skirt is not merely a skirt, but also a piece of equipment for combat purposes.\\nAs the scythe is a heavy weapon, a great sense of balance is required for the user to stay on their feet. The skirt is a balancing system and functions as counterweights.",
         "ConditionDescript": "Affection <color=#C14F38>3</color>"
-    },
-    {
-        "Id": 106,
-        "CharacterId": 1091002,
-        "UnlockLv": 4,
-        "Title": "No.004",
-        "Content": "This world needs more colors!\\nAlways confident, infectiously optimistic, and unbelievable empathic, Ayla is welcomed like a superstar everywhere.\\nWherever she goes, her voluminous charm catches people's eyes.",
-        "ConditionDescript": "Affection <color=#C14F38>4</color>"
     },
     {
         "Id": 107,
@@ -912,22 +792,6 @@
         "ConditionDescript": "Affection <color=#C14F38>6</color>"
     },
     {
-        "Id": 115,
-        "CharacterId": 1111002,
-        "UnlockLv": 1,
-        "Title": "No.001",
-        "Content": "My name is Sophia. I come for the benefit of Akdilek Commercial Alliance.\\nA temporary member of Gray Raven, Support. Skilled at firearms CQC and emergency repairs.To bring the Eternal Engine to its true terminal station, she has temporarily joined Gray Raven as an Akdilek Commercial Alliance envoy to learn everything she can.Her loyalty to her master impresses anyone she meets.",
-        "ConditionDescript": "Affection <color=#C14F38>1</color>"
-    },
-    {
-        "Id": 116,
-        "CharacterId": 1111002,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "System all green, ready to engage.\\nBy adopting a full-coverage design, this frame provides exceptional mobility, helping Sophia speed through tiny spaces that others might find it hard to squeeze in. The robotic arms are linked to her M.I.N.D. with a sync rate reaching 99.78%, meaning that Sophia can control these arms without delay.",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
-    },
-    {
         "Id": 117,
         "CharacterId": 1111002,
         "UnlockLv": 3,
@@ -936,36 +800,12 @@
         "ConditionDescript": "Affection <color=#C14F38>3</color>"
     },
     {
-        "Id": 118,
-        "CharacterId": 1111002,
-        "UnlockLv": 4,
-        "Title": "No.004",
-        "Content": "Thank you... I'll cherish it as much as I cherish my tools...\\nWhile her team was on a repair mission gone wrong, she put herself in harms way to bring the youngest girl safely back to the carriage . Sophia, a girl who accidentally fell into the noble carriage, was involved in the storm of power struggle and was transformed into a structure and became a tool in the hands of the aristocracy.",
-        "ConditionDescript": "Affection <color=#C14F38>4</color>"
-    },
-    {
-        "Id": 119,
-        "CharacterId": 1111002,
-        "UnlockLv": 5,
-        "Title": "No.005",
-        "Content": "You're nice to me... Just like Jamilah.\\nAt the night of the aristocrats' usurpatory scheme, Sophia came to the carriage of the leader of Akdilek. What happened that night remains unknown, but ever since then, a petite guard can be seen near Jamilah's side.",
-        "ConditionDescript": "Affection <color=#C14F38>5</color>"
-    },
-    {
         "Id": 120,
         "CharacterId": 1111002,
         "UnlockLv": 6,
         "Title": "No.006",
         "Content": "After Protecting Asslam with Gray Raven, Jamilah has forged an official alliance with Babylonia. As an envoy of Akdilek Commercial Alliance, Sophia has left for Babylonia to provide assistance and expand her knowledge. She regularly brings Helium-3 collected by Babylonia to Asslam as train fuel.",
         "ConditionDescript": "Affection <color=#C14F38>6</color>"
-    },
-    {
-        "Id": 121,
-        "CharacterId": 1121002,
-        "UnlockLv": 1,
-        "Title": "No.001",
-        "Content": "Commandant, do you have a moment? I'd like to confirm some details about the mission. Leader of Strike Hawk, Tank. He is proficient in all weapons but prefers scythes. Temporarily visiting Gray Raven for a special co-op mission. Always tries to do his best in all tasks.",
-        "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
         "Id": 122,
@@ -998,14 +838,6 @@
         "Title": "No.005",
         "Content": "When Chrome first became a Construct, he was often seen as an incapable pretty boy who only got promoted through political influence. However, he soon demonstrated outstanding capabilities that shut off all the accusations.",
         "ConditionDescript": "Affection <color=#C14F38>5</color>"
-    },
-    {
-        "Id": 126,
-        "CharacterId": 1121002,
-        "UnlockLv": 6,
-        "Title": "No.006",
-        "Content": "A leader must always set high standards for himself both in battles and in a spiritual way. Always places high standards on himself. Prioritizes others around him in all situations and chooses to take on all the problems on his own.",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
     },
     {
         "Id": 127,
@@ -1064,22 +896,6 @@
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
-        "Id": 134,
-        "CharacterId": 1131002,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "You want to know about Cerberus' commandant? Save it. You're not getting anything from me.\\nAs part of the first batch of experimental Babylonia troops for mind linking, the Cerberus squad has always been without a commandant for unspoken reasons. They have always been looking for a commandant that can remotely link with their minds.\\nIn the battle in Kowloong Metropolis, Cerberus was assigned a commandant and can finally fight while mind-linked.",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
-    },
-    {
-        "Id": 135,
-        "CharacterId": 1131002,
-        "UnlockLv": 3,
-        "Title": "No.003",
-        "Content": "Still alive? Looks like your suffering gets to continue.\\nOnly through suffering\u2014the other's, the world's, her own\u2014can Vera prove that she exists, prove that she still lives.",
-        "ConditionDescript": "Affection <color=#C14F38>3</color>"
-    },
-    {
         "Id": 136,
         "CharacterId": 1131002,
         "UnlockLv": 4,
@@ -1110,14 +926,6 @@
         "Title": "No.001",
         "Content": "Transcendant, Vanguard. Good at using his greatsword to tear everything apart.\\nOne of the experimental subjects of a secret Babylonia program.\\nAs a Transcendant, he can use Asimov's specially tuned frame to move freely even in high viral density regions.",
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
-    },
-    {
-        "Id": 140,
-        "CharacterId": 1511003,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "So it did end up like this... What a loathsome world. Writes his emotions, likes and dislikes on his face. Always trusts his instincts.\\nJoined Kurono's early secret experiment, and as such, he bears great disgust for Kurono.",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
     },
     {
         "Id": 141,
@@ -1160,36 +968,12 @@
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
-        "Id": 146,
-        "CharacterId": 1141003,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "If I go out of control again, please don't hesitate. It's for my own good... A previous exposure to the virus has put Rosetta's M.I.N.D. in an unstable state. She has since been plagued by worries about any lingering traces of the virus causing her to go out of control again.",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
-    },
-    {
         "Id": 147,
         "CharacterId": 1141003,
         "UnlockLv": 3,
         "Title": "No.003",
         "Content": "Though Rosetta is used to being alone, she does not dislike social interaction. Quite the opposite, all members of the Forest Guard know that Rosetta is more afraid of solitude than any of them, and that she treasures their bonds the greatest too.",
         "ConditionDescript": "Affection <color=#C14F38>3</color>"
-    },
-    {
-        "Id": 148,
-        "CharacterId": 1141003,
-        "UnlockLv": 4,
-        "Title": "No.004",
-        "Content": "I did not believe in Babylonia's theories about humanoid-hybrid Constructs at first, but after taking on a human form, I do feel like I'm still human sometimes. Due to Babylonia's technical issues, Rosetta has operated in her human form after she allied with Babylonia. This seems to have made her realize that, before she became part of the Forest Guard, she was just a normal girl.",
-        "ConditionDescript": "Affection <color=#C14F38>4</color>"
-    },
-    {
-        "Id": 149,
-        "CharacterId": 1141003,
-        "UnlockLv": 5,
-        "Title": "No.005",
-        "Content": "Only by my staying here, will the Forest Guard be accepted by the others. Though the skirmish with the Ascendants has made the port-dwellers rethink their relationship with the Forest Guard, most members of the union administration are still wary of the Forest Guard out of fear and loathing. By staying in Babylonia as a representative ally, Rosetta restrains any overt movements from the union traditionalists.",
-        "ConditionDescript": "Affection <color=#C14F38>5</color>"
     },
     {
         "Id": 150,
@@ -1240,14 +1024,6 @@
         "ConditionDescript": "Affection <color=#C14F38>5</color>"
     },
     {
-        "Id": 156,
-        "CharacterId": 1521003,
-        "UnlockLv": 6,
-        "Title": "No.006",
-        "Content": "Tell me more about you. Being protective as she is, Qu wants to know the complete information of those she sees as important, and make sure it is well-remembered.",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
-    },
-    {
         "Id": 157,
         "CharacterId": 1161002,
         "UnlockLv": 1,
@@ -1280,36 +1056,12 @@
         "ConditionDescript": "Affection <color=#C14F38>4</color>"
     },
     {
-        "Id": 161,
-        "CharacterId": 1161002,
-        "UnlockLv": 5,
-        "Title": "No.005",
-        "Content": "Never abandoning each other\u2014never leaving each other. That's a promise, okay?! Keep this promise no matter what happens. Changyu witnessed too much separation and betrayal in the slums of Kowloong. This is the first time that he completely lets down his guard to offer the commandant a promise and an invitation.",
-        "ConditionDescript": "Affection <color=#C14F38>5</color>"
-    },
-    {
-        "Id": 162,
-        "CharacterId": 1161002,
-        "UnlockLv": 6,
-        "Title": "No.006",
-        "Content": "War took everything that I was familiar with. I will do my best to protect you so this won't happen again. If anyone ever asks Changyu why he would do that, he will say it is for the promise and he does not want to fail the commandant's trust. But there is another reason that he will never say: he hopes that one day, the commandant can sit with him together on a dinner table and enjoy his dishes like family.",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
-    },
-    {
         "Id": 163,
         "CharacterId": 1171003,
         "UnlockLv": 1,
         "Title": "No.001",
         "Content": "This unit preserved Luna's original form when she was remodeled. The external equipment is made of Punishing Heteromer, which is exceptionally durable and lightweight. Luna can make a variety of weapons by altering the shape of Heteromer, inflicting varied attacks. And she has the ability to go from devastating attack to impenetrable defense in the blink of an eye.",
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
-    },
-    {
-        "Id": 164,
-        "CharacterId": 1171003,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "I shall lead them in rebuilding this world, and my first mission will be to terminate the existence of Babylonia... Luna believes that human hubris and greed are the root causes of all catastrophes. They are arrogant and aloof, and they seek to reclaim the world, which has fallen into despair due to their deeds.",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
     },
     {
         "Id": 165,
@@ -1320,28 +1072,12 @@
         "ConditionDescript": "Affection <color=#C14F38>3</color>"
     },
     {
-        "Id": 166,
-        "CharacterId": 1171003,
-        "UnlockLv": 4,
-        "Title": "No.004",
-        "Content": "Sister... Please stay by my side till I fall asleep. Luna did not find peace and tranquility until Alpha became an Ascendant. Although she is the Ascendant's leader, she is still the young girl scared of loneliness in front of her sister.",
-        "ConditionDescript": "Affection <color=#C14F38>4</color>"
-    },
-    {
         "Id": 167,
         "CharacterId": 1171003,
         "UnlockLv": 5,
         "Title": "No.005",
         "Content": "Luna is adamant about finding her other sister before everything is destroyed and persuading her to join her cause, even if force is needed. Luna feels that after all is settled, she will understand.",
         "ConditionDescript": "Affection <color=#C14F38>5</color>"
-    },
-    {
-        "Id": 168,
-        "CharacterId": 1171003,
-        "UnlockLv": 6,
-        "Title": "No.006",
-        "Content": "I've known long ago that you, not Babylonia, are the real threat to Ascendant... More than once Luna had been convinced that Babylonia's frail power would crumble in the face of the Ascendants' attacks, and that humans would perish as well. Finally, she learned that despair, not the virus or the Corrupted, is capable of destroying the world. As a result, the most difficult situation arises when people who refuse to give up hope band together.",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
     },
     {
         "Id": 169,
@@ -1376,14 +1112,6 @@
         "ConditionDescript": "Affection <color=#C14F38>4</color>"
     },
     {
-        "Id": 173,
-        "CharacterId": 1181003,
-        "UnlockLv": 6,
-        "Title": "No.005",
-        "Content": "This is YoRHa unit 2B...If anyone is listening to this, there's something I need you to do. If you ever meet up with YoRHa unit 9S...\\n\"I want him...I mean...\"",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
-    },
-    {
         "Id": 174,
         "CharacterId": 1191003,
         "UnlockLv": 1,
@@ -1406,14 +1134,6 @@
         "Title": "No.003",
         "Content": "While 9S normally had a kind personality, he began to exhibit hatred for \u2588\u2588 when she killed \u2588\u2588\u2588\u2588. In a cruel twist, he also met end at the hands of \u2588\u2588.",
         "ConditionDescript": "Affection <color=#C14F38>3</color>"
-    },
-    {
-        "Id": 177,
-        "CharacterId": 1191003,
-        "UnlockLv": 4,
-        "Title": "No.004",
-        "Content": "My name... is 9S. A newly manufactured Scanner model.\\n\"January 30th, 11942... Rolled out at 4:25 AM, Bunker time.\"\\n\"I will fight for humanity with all my strength.\"",
-        "ConditionDescript": "Affection <color=#C14F38>4</color>"
     },
     {
         "Id": 178,
@@ -1472,36 +1192,12 @@
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
-        "Id": 185,
-        "CharacterId": 1211002,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "The sober world doesn't seem so bad with you around. Wanshi has witnessed too many secrets and knows the consequences too well. This leads to him being very casual in many situations, but also causes misunderstanding often.",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
-    },
-    {
         "Id": 186,
         "CharacterId": 1211002,
         "UnlockLv": 3,
         "Title": "No.003",
         "Content": "Wanshi found it difficult to accept the greater goal of mankind due to some secrets that were purposely concealed by Star of Life. This was part of the reason that he gave up the career in Star of Life and chose to become a Construct instead. He finally found what he could and wanted to do in the Task Force.",
         "ConditionDescript": "Affection <color=#C14F38>3</color>"
-    },
-    {
-        "Id": 187,
-        "CharacterId": 1211002,
-        "UnlockLv": 4,
-        "Title": "No.004",
-        "Content": "No medical disturbance! Wanshi is great at handling conflicts, both medically and socially, and often acts as a mediator. However, if the conflict roots from himself, he often chooses to take a step back.",
-        "ConditionDescript": "Affection <color=#C14F38>4</color>"
-    },
-    {
-        "Id": 188,
-        "CharacterId": 1211002,
-        "UnlockLv": 5,
-        "Title": "No.005",
-        "Content": "Sigh, that felt so exhausting. Never sitting when he can lie down, Wanshi always prefers the most effective and cost-efficient solution, both in battle and in life. However, if his companions are in danger, he would not hesitate to choose an action that completely contradicts this principle.",
-        "ConditionDescript": "Affection <color=#C14F38>5</color>"
     },
     {
         "Id": 189,
@@ -1568,14 +1264,6 @@
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
-        "Id": 197,
-        "CharacterId": 1121003,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "I believe this is a solid decision despite it being unconventional. Chrome often has to multi-task as both a fighter and field commander thanks to the specialized Inver-Device and unique duties of Strike Hawk.",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
-    },
-    {
         "Id": 198,
         "CharacterId": 1121003,
         "UnlockLv": 3,
@@ -1614,14 +1302,6 @@
         "Title": "No.001",
         "Content": "Designation BPH-22, No. 21: Tank. Originally a Daedalus test subject. While she was still human, due to her poor physical condition, she was dependent on the support of a Medic Bot to do most daily activities. As the 21st test subject, she was the hardest one to modify among her peers. After being recycled by Kurono HQ, due to her special constitution being highly compatible with the Medic Bot, Kurono researchers were inspired to modify it into a Co-Bot for battle. After which, No. 21 became the first Construct to be connected with a mobile machine.",
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
-    },
-    {
-        "Id": 203,
-        "CharacterId": 1221002,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "Sometimes... I can still smell the disinfectant in the air. No. 21, who spent part of her life as a human in the institute, has never left the lab and knows nothing about human emotions or social structures.",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
     },
     {
         "Id": 204,
@@ -1664,14 +1344,6 @@
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
-        "Id": 209,
-        "CharacterId": 1131003,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "If Death exists to kill, then what is the point of such killing? Vera's creed is to complete the missions that she must complete and slay the enemies that must be slayed. Only she gets to decide what classifies as \"must\"\u2014it is her code and her responsibility.",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
-    },
-    {
         "Id": 210,
         "CharacterId": 1131003,
         "UnlockLv": 3,
@@ -1680,28 +1352,12 @@
         "ConditionDescript": "Affection <color=#C14F38>3</color>"
     },
     {
-        "Id": 211,
-        "CharacterId": 1131003,
-        "UnlockLv": 4,
-        "Title": "No.004",
-        "Content": "No one is allowed to die as long as my banner is still standing. This banner once existed as a symbol of heroism and the undying hope of the battlefield. The old hero may be gone, but the banner is still standing tall in the very frontline, guiding numerous anonymous heroes in their relentless fighting.",
-        "ConditionDescript": "Affection <color=#C14F38>4</color>"
-    },
-    {
         "Id": 212,
         "CharacterId": 1131003,
         "UnlockLv": 5,
         "Title": "No.005",
         "Content": "Many unconventional parts were used in the production of this frame. They did not interfere with regular maintenance, but still caused a lot of concern for Bridget from the Support Force. She always urged Vera to try to avoid injuries\u2014which never worked.",
         "ConditionDescript": "Affection <color=#C14F38>5</color>"
-    },
-    {
-        "Id": 213,
-        "CharacterId": 1131003,
-        "UnlockLv": 6,
-        "Title": "No.006",
-        "Content": "Perhaps you are right, that one day our battle will come to an end. Will this pain still be around? Vera is still haunted by the never-ending agony, which she once relied on solely. But she is also beginning to have hope that she cannot abandon apart from endless fighting and pain.",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
     },
     {
         "Id": 214,
@@ -1728,28 +1384,12 @@
         "ConditionDescript": "Affection <color=#C14F38>3</color>"
     },
     {
-        "Id": 217,
-        "CharacterId": 1541003,
-        "UnlockLv": 4,
-        "Title": "No.004",
-        "Content": "The show is about to begin! Maybe because Roland used to be an actor, his speech is always melodramatic, even when he is alone. It is as if he lives under a perpetual spotlight with cameras locking on to his every move.",
-        "ConditionDescript": "Affection <color=#C14F38>4</color>"
-    },
-    {
         "Id": 218,
         "CharacterId": 1541003,
         "UnlockLv": 5,
         "Title": "No.005",
         "Content": "Roland scoffs at grand narratives, but he does applaud those who still possess a strong will and clear goal after knowing the truth. Of course, that doesn't mean he would help them.",
         "ConditionDescript": "Affection <color=#C14F38>5</color>"
-    },
-    {
-        "Id": 219,
-        "CharacterId": 1541003,
-        "UnlockLv": 6,
-        "Title": "No.006",
-        "Content": "You have an order for me? It shall be done. Haha, have a little faith in me. Everything Roland does or says always has multiple meanings. One must be careful to weed the truth out of his sea of lies. His true intentions, however, will forever remain a mystery.",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
     },
     {
         "Id": 220,
@@ -1768,28 +1408,12 @@
         "ConditionDescript": "Affection <color=#C14F38>2</color>"
     },
     {
-        "Id": 222,
-        "CharacterId": 1031004,
-        "UnlockLv": 3,
-        "Title": "No.003",
-        "Content": "...For the good of humanity. After switching her frame, Liv has grown empathy and compassion for all living beings in the world. With her unconditional love, Liv resolves to fight for humanity even if it means sacrificing her own future.",
-        "ConditionDescript": "Affection <color=#C14F38>3</color>"
-    },
-    {
         "Id": 223,
         "CharacterId": 1031004,
         "UnlockLv": 4,
         "Title": "No.004",
         "Content": "The wings attached to the frame were Liv's idea. Made of incredibly durable but lightweight materials, those wings are capable of maintaining flying stability when the frame operates at a high power level. They can also form a shield whenever necessary.",
         "ConditionDescript": "Affection <color=#C14F38>4</color>"
-    },
-    {
-        "Id": 224,
-        "CharacterId": 1031004,
-        "UnlockLv": 5,
-        "Title": "No.005",
-        "Content": "This is my answer, my choice... I'll never give up. Liv has never regretted the decisions she made. To protect the ones she loves, she has no fear of death or what it may cost to live on. She will keep going with a smile no matter what horrible mirages and migraines await her in the future.",
-        "ConditionDescript": "Affection <color=#C14F38>5</color>"
     },
     {
         "Id": 225,
@@ -1814,14 +1438,6 @@
         "Title": "No.002",
         "Content": "The artist was also personally involved in the frame's exterior design, of which the flower-shaped decoration on its chest became the most unique element. The designer also claimed that part of the design concept came from Selena herself.",
         "ConditionDescript": "Affection <color=#C14F38>2</color>"
-    },
-    {
-        "Id": 228,
-        "CharacterId": 1531004,
-        "UnlockLv": 3,
-        "Title": "No.003",
-        "Content": "How I wish... she can see this with her own eyes. Most of Capriccio's data came from a wide-area sound wave detector in Babylonia.",
-        "ConditionDescript": "Affection <color=#C14F38>3</color>"
     },
     {
         "Id": 229,
@@ -1856,14 +1472,6 @@
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
-        "Id": 233,
-        "CharacterId": 1551003,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "Fuxi told me that Constructs were humans in mechanical bodies... So I guess there must be machines with human minds. In the eyes of young Pulao, machines and mankind are the same in essence, which may be utterly ridiculous but could also be a truth that humans ignore out of arrogance.",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
-    },
-    {
         "Id": 234,
         "CharacterId": 1551003,
         "UnlockLv": 3,
@@ -1888,36 +1496,12 @@
         "ConditionDescript": "Affection <color=#C14F38>5</color>"
     },
     {
-        "Id": 237,
-        "CharacterId": 1551003,
-        "UnlockLv": 6,
-        "Title": "No.006",
-        "Content": "Although I barely understand what value is, I want to protect those who are in pursuit of it and everything they cherish. People always spend their life searching for their own value, which gives value to the process itself. What happened on the Nighter may have already become \"Pulao's\" value.",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
-    },
-    {
         "Id": 238,
         "CharacterId": 1051004,
         "UnlockLv": 1,
         "Title": "No.001",
         "Content": "Like her last frame, Nanami designed and built this new one herself as well. It has drawn the attention of the Science Council with its many unknown technologies, especially the mech she calls \"Power\". The Science Council has tried to dissemble it for research\u2014but all their requests have been rejected immediately for strange reasons.",
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
-    },
-    {
-        "Id": 239,
-        "CharacterId": 1051004,
-        "UnlockLv": 2,
-        "Title": "No.002",
-        "Content": "Nanami has Power... to travel everywhere! We'll go to a new place soon... Fly me to the moon! Nanami loves traveling, not just because she gets to explore the unknown \"there\" but because it also gives her new perspectives about \"here.\"",
-        "ConditionDescript": "Affection <color=#C14F38>2</color>"
-    },
-    {
-        "Id": 240,
-        "CharacterId": 1051004,
-        "UnlockLv": 3,
-        "Title": "No.003",
-        "Content": "Such excessive firepower in one frame... What kind of things was it designed to fight? Having obtained rare footage of Starfarer in battle, Asimov still has no idea what the designer was thinking. Starfarer is extremely intricate... and equally mad.",
-        "ConditionDescript": "Affection <color=#C14F38>3</color>"
     },
     {
         "Id": 241,
@@ -1936,14 +1520,6 @@
         "ConditionDescript": "Affection <color=#C14F38>5</color>"
     },
     {
-        "Id": 243,
-        "CharacterId": 1051004,
-        "UnlockLv": 6,
-        "Title": "No.006",
-        "Content": "Yeah! Nanami wants to be friends with everyone... but what is a friend? Can you tell me, Commandant? With no clear definitions\u2014perhaps all it takes is hands held, laughter shared, shoulders lent... or even a short path together walked\u2014Nanami has long been everyone's friend.",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
-    },
-    {
         "Id": 244,
         "CharacterId": 1561003,
         "UnlockLv": 1,
@@ -1960,36 +1536,12 @@
         "ConditionDescript": "Affection <color=#C14F38>2</color>"
     },
     {
-        "Id": 246,
-        "CharacterId": 1561003,
-        "UnlockLv": 3,
-        "Title": "No.003",
-        "Content": "I will find her. After obtaining a new body and mission, Haicma embarked on a journey to find Nanami. Along her journey, Haicma encountered different machines and learned about the existence of \"Sage\" through their beliefs. Little does she know that when she meets the girl from her memories again, the girl will have already become \"Sagemachina\" that is believed to save each and every machine.",
-        "ConditionDescript": "Affection <color=#C14F38>3</color>"
-    },
-    {
-        "Id": 247,
-        "CharacterId": 1561003,
-        "UnlockLv": 4,
-        "Title": "No.004",
-        "Content": "I believe you are aware that I can simulate most personalities within human definitions. In order to optimize experiment recording, the administrative AI's emotion module has hundreds of personality types installed, and its simulation and computing capability can perfectly harness any human personality. However, Haicma would often rather communicate through her own \"perception\" and \"thinking\" than rely on this function.",
-        "ConditionDescript": "Affection <color=#C14F38>4</color>"
-    },
-    {
         "Id": 248,
         "CharacterId": 1561003,
         "UnlockLv": 5,
         "Title": "No.005",
         "Content": "Although Haicma understands the objective definition of all emotions, she has never thought that she has genuine emotions like humans. Aware of her mechanical nature, she realizes that her emotions are a product of the emotion module's simulation, yet she will subconsciously store up those indescribable feelings and pursue anything about humans that can arouse unique emotions and create a \"miracle\" itself.",
         "ConditionDescript": "Affection <color=#C14F38>5</color>"
-    },
-    {
-        "Id": 249,
-        "CharacterId": 1561003,
-        "UnlockLv": 6,
-        "Title": "No.006",
-        "Content": "Information is a cradle for a machine's self-awareness. However, facing a future that falls beyond computing power, I... What should Haicma do? A machine's thinking revolves around taking \"rational\" rather than \"desired\" action. Haicma realizes this is the difference between herself and Sage. She wants to find the answer to this question\u2014even though her functions may terminate long before she reaches that singularity, she believes she has already taken the first step.",
-        "ConditionDescript": "Affection <color=#C14F38>6</color>"
     },
     {
         "Id": 250,
@@ -2022,14 +1574,6 @@
         "Title": "No.004",
         "Content": "Even though Karenina does not fight on the frontlines as often as the Task Force members, she is always searching for a glimmer of hope on the battlefield of technology. Fortunately, Karenina is never alone in this fight. She races against time with her \"warriors.\" Battling difficulties is her responsibility as the captain and her source of pride.",
         "ConditionDescript": "Affection <color=#C14F38>4</color>"
-    },
-    {
-        "Id": 254,
-        "CharacterId": 1071004,
-        "UnlockLv": 5,
-        "Title": "No.005",
-        "Content": "Destruction is not an end, it's a means. Karenina doesn't take pleasure in destroying things for the sake of it. In fact, she approaches it with great caution. Once she determines that destruction is necessary, she will completely destroy her target in order to rebuild a beautiful new world in its place.",
-        "ConditionDescript": "Affection <color=#C14F38>5</color>"
     },
     {
         "Id": 255,
@@ -2133,6 +1677,398 @@
         "UnlockLv": 6,
         "Title": "No.006",
         "Content": "A \"witch.\" Before Bianca was turned into a Construct, it was what she was being called by those who were afraid of her. Nevertheless, she has never considered being dubbed a \"witch\" to be derogation. She believes there must be something in this world so heinous that only a \"witch\" can destroy it.",
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
+    },
+    {
+        "Id": 268,
+        "CharacterId": 1231002,
+        "UnlockLv": 1,
+        "Title": "No.001",
+        "Content": "BPM-11, frame name Vitrum, Attacker, Egret Squad Construct. The frame was modified by the Science Council based on an old non-attacker frame to fulfill the requirements of a combat model.",
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 269,
+        "CharacterId": 1231002,
+        "UnlockLv": 2,
+        "Title": "No.002",
+        "Content": "The frame experienced a lot of adaptation issues at the early stage after carrying the combat module due to its obsolete prototype. The most serious issue was overheating paralysis. Eventually, the bio-coating shells in the front and back of the spine were removed for better heat extraction at the cost of potential M.I.N.D. deviations according to Commandant Vanessa's order.",
+        "ConditionDescript": "Affection <color=#C14F38>2</color>"
+    },
+    {
+        "Id": 270,
+        "CharacterId": 1231002,
+        "UnlockLv": 3,
+        "Title": "No.003",
+        "Content": "Since most Constructs have coatings resembling humans instead of robots, Bambinata's exposed spine is a very dangerous design, but luckily, it didn't lead to any issues. With the technological advances, Vitrum's early issues have already been resolved through module optimization, but Bambinata hasn't raised any coating modification requests after that.",
+        "ConditionDescript": "Affection <color=#C14F38>3</color>"
+    },
+    {
+        "Id": 271,
+        "CharacterId": 1231002,
+        "UnlockLv": 4,
+        "Title": "No.004",
+        "Content": "Considering various issues, Mantis Blades that can be hidden in the arms were eventually adopted as Bambinata's weapons. Meanwhile, the outer shells of the arms were strengthened to an unprecedented level to withstand the impact brought by the blades.",
+        "ConditionDescript": "Affection <color=#C14F38>4</color>"
+    },
+    {
+        "Id": 272,
+        "CharacterId": 1231002,
+        "UnlockLv": 5,
+        "Title": "No.005",
+        "Content": "Bambinata's \"amnesia\" is still one of the Science Council's research subjects today. Only a few insiders know that behind her amnesia is the hardest problem at the moment\u2014how the Inver-Device works and induces M.I.N.D. diseases related to it.",
+        "ConditionDescript": "Affection <color=#C14F38>5</color>"
+    },
+    {
+        "Id": 273,
+        "CharacterId": 1231002,
+        "UnlockLv": 6,
+        "Title": "No.006",
+        "Content": "One of the rules in Bambinata's enlistment protocols says, \"The Construct was enlisted and modified for battles as an exception due to the rarity of its current status and past experiment performances. However, the military holds the right to use the frame for activities including but not limited to observation, analysis, and research.\"",
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
+    },
+    {
+        "Id": 274,
+        "CharacterId": 1011004,
+        "UnlockLv": 1,
+        "Title": "No.001",
+        "Content": "BPN-06. Frame: Hyperreal. Type: Attacker. A brand new Omega specialized frame developed by the Science Council based on Kurono's research on the Inver-Device and the small amount of information deciphered from the Heteromer Shard. All the functions of the frame were made to maintain the absolute stability of the frame and make sure the Construct is immune to the Punishing Virus.",
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 275,
+        "CharacterId": 1011004,
+        "UnlockLv": 2,
+        "Title": "No.002",
+        "Content": "Due to the massive calculations required to manipulate the frame, the components for energy dispatching and computing power adjustment have been enhanced. To ensure the stability of the frame, all external equipment was made of composite metal-carbon nanotube material with heat conductivity enhanced by reducing its weight.",
+        "ConditionDescript": "Affection <color=#C14F38>2</color>"
+    },
+    {
+        "Id": 276,
+        "CharacterId": 1011004,
+        "UnlockLv": 3,
+        "Title": "No.003",
+        "Content": "The Composite Armaments' box gun set is a new weapon that can only be mastered by gun experts and is suitable for all special battlefields. Its complicated steps to use and high requirements for the carrier have made Hyperreal the only frame qualified to use it.",
+        "ConditionDescript": "Affection <color=#C14F38>3</color>"
+    },
+    {
+        "Id": 277,
+        "CharacterId": 1011004,
+        "UnlockLv": 4,
+        "Title": "No.004",
+        "Content": "The outstanding computing power of the frame is able to perform various highly precise calculations at the same time, which often pushes Lee's M.I.N.D. load to the extreme. However, Lee always convinces himself, \"This won't cause any data error or affect daily work,\" and never tells anyone about it.",
+        "ConditionDescript": "Affection <color=#C14F38>4</color>"
+    },
+    {
+        "Id": 278,
+        "CharacterId": 1011004,
+        "UnlockLv": 5,
+        "Title": "No.005",
+        "Content": "Lee volunteered to participate in the extensive experiment of the Omega specialized frame instead of Liv because he believed that his M.I.N.D. was more stable than Liv's as hers had suffered damage during the development of Empyrea. However, after he started to follow up with the experiment, he realized that he was supposed to be the first candidate for the development of the Omega specialized frame.",
+        "ConditionDescript": "Affection <color=#C14F38>5</color>"
+    },
+    {
+        "Id": 279,
+        "CharacterId": 1011004,
+        "UnlockLv": 6,
+        "Title": "No.006",
+        "Content": "Lee can't remember the whispers and scenes in his dream, but when asked if he feels scared or insecure about fighting alone, he would give a negative answer calmly, because he knows that no matter how far he goes, someone behind will always light a beacon for him to find the way home.",
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
+    },
+    {
+        "Id": 280,
+        "CharacterId": 1091003,
+        "UnlockLv": 1,
+        "Title": "No.001",
+        "Content": "The latest Omniframe co-developed by Leonie and Ayla. All frame data specially customized for Ayla. Has greatly enhanced combat capability compared to \"Brilliance\". Suitable for most ground battles.",
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 281,
+        "CharacterId": 1091003,
+        "UnlockLv": 2,
+        "Title": "No.002",
+        "Content": "Kaleido was initially designed to have Hamlet's features to automatically detect Selena's Whale Song signals. However, the idea was later suspended due to many unsolved technical barriers.",
+        "ConditionDescript": "Affection <color=#C14F38>2</color>"
+    },
+    {
+        "Id": 282,
+        "CharacterId": 1091003,
+        "UnlockLv": 3,
+        "Title": "No.003",
+        "Content": "The initial design didn't have many ornaments and was more in line with how a \"combat frame\" normally looked like. However, Ayla abandoned it immediately after seeing it, because it wasn't \"Ayla\" enough.",
+        "ConditionDescript": "Affection <color=#C14F38>3</color>"
+    },
+    {
+        "Id": 283,
+        "CharacterId": 1091003,
+        "UnlockLv": 4,
+        "Title": "No.004",
+        "Content": "Ayla asked Constructs and technicians from various departments for advice and ideas during the development process. These ideas were more or less kept in Kaleido's final design with the overall performance balance of the frame considered. However, there are still opposite opinions such as \"This part is not powerful enough!\" or \"Isn't it overly powerful?\"",
+        "ConditionDescript": "Affection <color=#C14F38>4</color>"
+    },
+    {
+        "Id": 284,
+        "CharacterId": 1091003,
+        "UnlockLv": 5,
+        "Title": "No.005",
+        "Content": "Ayla named this frame \"Kaleido\" because black, its main color theme, is a mixture of all colors. The stars look bright because of the black night sky. Black doesn't represent rejection but the warmth of tolerance.",
+        "ConditionDescript": "Affection <color=#C14F38>5</color>"
+    },
+    {
+        "Id": 285,
+        "CharacterId": 1091003,
+        "UnlockLv": 6,
+        "Title": "No.006",
+        "Content": "After Constellia's mission, Iris Warbler members left for various reasons. But Ayla believes that they will be together again one day as long as she is still using Iris Warbler's Kaleido frame.",
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
+    },
+    {
+        "Id": 286,
+        "CharacterId": 1021005,
+        "UnlockLv": 1,
+        "Title": "No.001",
+        "Content": "A Punishing Virus heteromer frame. However, if you could analyze its energy flow, you'll find two Punishing energies in it. The two balance each other to keep the frame in a stable state.",
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 288,
+        "CharacterId": 1021005,
+        "UnlockLv": 3,
+        "Title": "No.003",
+        "Content": "Having gone through \"another trial\" of the Punishing Virus, the frame has its performance significantly enhanced. Different from the previous frame that slightly \"accepted\" the Punishing enhancement for hating to be controlled by energy, this frame is more powerful and can even further break through in extreme situations\u2014It all depends on how much it can suppress the Punishing Virus.",
+        "ConditionDescript": "Affection <color=#C14F38>3</color>"
+    },
+    {
+        "Id": 290,
+        "CharacterId": 1021005,
+        "UnlockLv": 5,
+        "Title": "No.005",
+        "Content": "With the hair tied up, two old scars can be seen on the frame's back. They have been there for a very long time, but few have noticed them. There are many ways to fix them, but the one who carries them is more willing to keep them to remember the person who did this to her.",
+        "ConditionDescript": "Affection <color=#C14F38>5</color>"
+    },
+    {
+        "Id": 291,
+        "CharacterId": 1021005,
+        "UnlockLv": 6,
+        "Title": "No.006",
+        "Content": "To stay in a stable state, she can't relax\u2014the fight against the Punishing Virus, or in other words, the Ascension-Network, never stops. Limit breakthrough practices are necessary to balance the ever-changing energies in her body. Perhaps in outsiders' eyes, she is just practicing swordsmanship, but wise people would know that \"isolation\" is a choice she made under pressure.",
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
+    },
+    {
+        "Id": 292,
+        "CharacterId": 1241002,
+        "UnlockLv": 1,
+        "Title": "No.001",
+        "Content": "Code-named MPK-12, Hanying: Zitherwoe features Kowloong's unique mechanoid manufacturing technology. Originally designed to be a vessel for highly intelligent AI, the frame possesses a human-like mind. With the appearance and construction highly resembling a human being, the frame can pretend to be human and live in the human society.",
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 293,
+        "CharacterId": 1241002,
+        "UnlockLv": 2,
+        "Title": "No.002",
+        "Content": "The original frame suffered a certain degree of damage when breaking from the Nighter's \"collar\". Due to its lack of knowledge of Kowloong machines, the Church of Machina failed to fix Hanying's scar with their parts or with the Kowloong parts previously sent to them with the frame. However, it seems that Hanying doesn't want the scar to be fixed, because it has a special meaning.",
+        "ConditionDescript": "Affection <color=#C14F38>2</color>"
+    },
+    {
+        "Id": 294,
+        "CharacterId": 1241002,
+        "UnlockLv": 3,
+        "Title": "No.003",
+        "Content": "Hanying was already famous for her fan dance when she was on the Nighter. With Hanying's permission, the Church of Machina has preserved the structure of the traditional Kowloong fan and enhanced the original fragile fan to the maximum while making the fan as sharp as a regular blade.",
+        "ConditionDescript": "Affection <color=#C14F38>3</color>"
+    },
+    {
+        "Id": 295,
+        "CharacterId": 1241002,
+        "UnlockLv": 4,
+        "Title": "No.004",
+        "Content": "Hanying has gone through the preliminary awakening without Sagemachina's guidance. She also features intelligence that can describe human \"dreams\" with great precision. There are still a lot of things that the Church of Machina doesn't know about Hanying. Whether there is a further possibility of machine awakening still remains unknown.",
+        "ConditionDescript": "Affection <color=#C14F38>4</color>"
+    },
+    {
+        "Id": 297,
+        "CharacterId": 1241002,
+        "UnlockLv": 6,
+        "Title": "No.006",
+        "Content": "The past is heavy. The future is unknown. Hanying and the relentless survivors on the land of Kowloong are still chasing after the future named \"hope.\"",
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
+    },
+    {
+        "Id": 298,
+        "CharacterId": 1221003,
+        "UnlockLv": 1,
+        "Title": "No.001",
+        "Content": "Feral is a special frame that combines the human-like Construct with bionic animal elements, but it is completely different in terms of M.I.N.D. stability designs when compared to humanoid-hybrid Constructs.",
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 299,
+        "CharacterId": 1221003,
+        "UnlockLv": 2,
+        "Title": "No.002",
+        "Content": "In the frame design phase, with No. 21's opinions considered, multiple designs resembling humans were put into trial use. In the prototype frame adaption phase, No. 21 showed intense and frequent M.I.N.D. boilovers and triggered unconscious riots across all circumstances. In the end, No. 21 agreed to give up adopting a frame with a human appearance.",
+        "ConditionDescript": "Affection <color=#C14F38>2</color>"
+    },
+    {
+        "Id": 300,
+        "CharacterId": 1221003,
+        "UnlockLv": 3,
+        "Title": "No.003",
+        "Content": "Another design challenge is to disconnect the consciousness-sharing module between the new frame and the Co-Bot. The sharing module of the prototype frame was too good, making No. 21 highly dependent on the Co-Bot (which is one of the main causes of the M.I.N.D. boilovers and cannot be avoided even if the prototype frame's appearance with the consciousness-sharing module is removed). In the end, the designers had to keep the consciousness-sharing port for now.",
+        "ConditionDescript": "Affection <color=#C14F38>3</color>"
+    },
+    {
+        "Id": 301,
+        "CharacterId": 1221003,
+        "UnlockLv": 4,
+        "Title": "No.004",
+        "Content": "To preserve and enhance No. 21's unique intensive attack capability, bold improvements have been made to her new frame's durability, weapon power, and maneuverability. As the adaptation data for No. 21 indicated a M.I.N.D. stability level lower than expected, a restraint device was added to the frame's neck to help No. 21 with self-control and risk management. The captain of No. 21's squad holds one of the keys to the restraint device to adjust No. 21's status based on the situation on the battlefield.",
+        "ConditionDescript": "Affection <color=#C14F38>4</color>"
+    },
+    {
+        "Id": 302,
+        "CharacterId": 1221003,
+        "UnlockLv": 5,
+        "Title": "No.005",
+        "Content": "The frame features ears that combine an Inver-Device with a sound collector, which can move even more flexibly than real animal ears. The frame's spine has been made larger than the regular size to provide better support for No. 21 to move more flexibly and powerfully like an animal. Meanwhile, the frame's tail is a large balancing device that can keep No. 21 balanced while moving at high speed.",
+        "ConditionDescript": "Affection <color=#C14F38>5</color>"
+    },
+    {
+        "Id": 303,
+        "CharacterId": 1221003,
+        "UnlockLv": 6,
+        "Title": "No.006",
+        "Content": "Without the need to share consciousness with the Co-Bot, No. 21 no longer has to deliberately limit her perception. Therefore, the designers have specially added a functional ocular prosthesis to the frame to further enhance its visual perception and increase its computing ability to provide No. 21 with more efficiency and accuracy in combat and investigation missions.",
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
+    },
+    {
+        "Id": 304,
+        "CharacterId": 1251002,
+        "UnlockLv": 1,
+        "Title": "No.001",
+        "Content": "BPO-03. Frame name: Indomitus. Although it's an early model in the history of Construct technologies, its performance is not inferior to any other highly improved Construct now. \"I'll take care of the rest!\"",
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 307,
+        "CharacterId": 1251002,
+        "UnlockLv": 4,
+        "Title": "No.004",
+        "Content": "The bombs the frame uses are a byproduct of the robotic arm engine. The robotic arm can generate positive electrons and store them in a special container to make bombs when running at full capacity. However, one could barely notice the red bomb detonation button near the center of the robotic arm's palm by simply glancing at the frame.",
+        "ConditionDescript": "Affection <color=#C14F38>4</color>"
+    },
+    {
+        "Id": 308,
+        "CharacterId": 1251002,
+        "UnlockLv": 5,
+        "Title": "No.005",
+        "Content": "Noctis cherishes a golden name tag in addition to his own. It is something left from that \"incident.\" He believes that all debts old and new will be settled one day, and the truth will be revealed by then.",
+        "ConditionDescript": "Affection <color=#C14F38>5</color>"
+    },
+    {
+        "Id": 309,
+        "CharacterId": 1251002,
+        "UnlockLv": 6,
+        "Title": "No.006",
+        "Content": "The scratches on the frame are Noctis' old wounds at the Purifying Force, including the ones he got when fighting along with Vera and No. 21. However, Noctis isn't bothered by them, because they're his medals that remind him of his past full of battles and passion.",
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
+    },
+    {
+        "Id": 310,
+        "CharacterId": 1261003,
+        "UnlockLv": 1,
+        "Title": "No.001",
+        "Content": "Construct ID: UPC-15 (Utopia Produced C). Designed by Pickman, it is a gen-3 Construct made by Utopia with an enhanced M.I.N.D. system design able to accommodate a more \"powerful\" M.I.N.D.",
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 311,
+        "CharacterId": 1261003,
+        "UnlockLv": 2,
+        "Title": "No.002",
+        "Content": "In the beginning, Echo was not aware of the true purpose for which the frame was created, nor did she pay any attention to the details of its design. She simply picked up the artificial hair of the color closest to her original hair while looking forward to the day when she could make a greater contribution to Utopia.",
+        "ConditionDescript": "Affection <color=#C14F38>2</color>"
+    },
+    {
+        "Id": 312,
+        "CharacterId": 1261003,
+        "UnlockLv": 3,
+        "Title": "No.003",
+        "Content": "Echo designed the Libra icon that stands for the manifestation of the Utopia Protocols on her skirt. She was going to remove it after escaping from Utopia but ended up keeping it after hesitation. The mud is dirty but maybe the flower grew in the mud is... innocent.",
+        "ConditionDescript": "Affection <color=#C14F38>3</color>"
+    },
+    {
+        "Id": 313,
+        "CharacterId": 1261003,
+        "UnlockLv": 4,
+        "Title": "No.004",
+        "Content": "The frame was adapted for Echo to use a bow. Although Cecily suggested she to use a long blade or other melee weapons, Echo eventually opted for the longbow, secretly looking for the day when she could \"work\" with Cecily who's good at melee battles.",
+        "ConditionDescript": "Affection <color=#C14F38>4</color>"
+    },
+    {
+        "Id": 314,
+        "CharacterId": 1261003,
+        "UnlockLv": 5,
+        "Title": "No.005",
+        "Content": "Defined as a biological weapon by the Science Council, her armor \"sister\" was a result of Pickman's research into \"M.I.N.D. Fusion and Detachable Modular Technology\". The armor's \"M.I.N.D.\" contains numerous M.I.N.D. shards, among which there seems to be a consciousness that controls the armor's actions, but it's hard to determine its identity and source.",
+        "ConditionDescript": "Affection <color=#C14F38>5</color>"
+    },
+    {
+        "Id": 315,
+        "CharacterId": 1261003,
+        "UnlockLv": 6,
+        "Title": "No.006",
+        "Content": "Out of the darkness, Echo is no longer lost. She might still get lost on the way ahead into the unknown, but she is no longer afraid of it, because she knows very well that \"No matter what kind of swamp I fall into, there will always be a burning torch ahead that leads me forward.\" \u2014Line 5, Page 76, Echo's Notebook",
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
+    },
+    {
+        "Id": 316,
+        "CharacterId": 1271003,
+        "UnlockLv": 1,
+        "Title": "No.001",
+        "Content": "ATL-01. The origin of the code is from Atlantis Zero-Point Energy Research Base. She is the first and the only Atlantis-altered Construct, her current form a result of Luna's enhancements.",
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 317,
+        "CharacterId": 1271003,
+        "UnlockLv": 2,
+        "Title": "No.002",
+        "Content": "Lamia's main abilities are disguise and stealth. After getting her frame enhanced, she has sharpened these abilities.",
+        "ConditionDescript": "Affection <color=#C14F38>2</color>"
+    },
+    {
+        "Id": 318,
+        "CharacterId": 1271003,
+        "UnlockLv": 3,
+        "Title": "No.003",
+        "Content": "The enhancement has basically made the shells under the fin ears the new \"communication receivers,\" but Lamia would turn them off when she doesn't want to receive any messages.",
+        "ConditionDescript": "Affection <color=#C14F38>3</color>"
+    },
+    {
+        "Id": 319,
+        "CharacterId": 1271003,
+        "UnlockLv": 4,
+        "Title": "No.004",
+        "Content": "Lamia prefers her current frame to her old one, because of its color. But she was not very used to this enhanced frame at the beginning as she lost the hair to hide her eyes behind.",
+        "ConditionDescript": "Affection <color=#C14F38>4</color>"
+    },
+    {
+        "Id": 320,
+        "CharacterId": 1271003,
+        "UnlockLv": 5,
+        "Title": "No.005",
+        "Content": "Lamia was very happy when she found that the new frame was not able to have four legs, thinking that Roland wouldn't be able to make her pull a carriage anymore.",
+        "ConditionDescript": "Affection <color=#C14F38>5</color>"
+    },
+    {
+        "Id": 321,
+        "CharacterId": 1271003,
+        "UnlockLv": 6,
+        "Title": "No.006",
+        "Content": "Lamia once attempted to transform into a Gray Raven Construct with her disguise ability to stay with Gray Raven Commandant but got spotted right away.",
         "ConditionDescript": "Affection <color=#C14F38>6</color>"
     }
 ]

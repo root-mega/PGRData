@@ -1,5 +1,6 @@
 local type = type
 
+---@class XGoldenMinerStageMapInfo
 local XGoldenMinerStageMapInfo = XClass(nil, "XGoldenMinerStageMapInfo")
 
 local Default = {

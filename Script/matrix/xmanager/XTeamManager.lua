@@ -598,8 +598,21 @@ XTeamManagerCreator = function()
         return result
     end
 
+    --根据teamID从内存获取XTeam
     function XTeamManager.GetXTeam(teamId)
         return TeamDic[teamId]
+    end
+
+    --把XTeam根据其TeamID存到内存
+    ---@param xTeam
+    function XTeamManager.SetXTeam(xTeam)
+        TeamDic[xTeam:GetId()] = xTeam
+    end
+
+    --把XTeam从内存引用中移除
+    ---@param xTeam
+    function XTeamManager.RemoveXTeam(xTeam)
+        TeamDic[xTeam:GetId()] = nil
     end
 
     function XTeamManager.GetXTeamEntityIds(teamId)

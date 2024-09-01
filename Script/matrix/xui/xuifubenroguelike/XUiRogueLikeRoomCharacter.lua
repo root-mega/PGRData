@@ -402,12 +402,12 @@ end
 
 function XUiRogueLikeRoomCharacter:OnBtnConsciousnessClick()
     if not self.CurCharacter then return end
-    XLuaUiManager.Open("UiEquipAwarenessReplace", self.CurCharacter.Id, nil, true)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipAwareness(self.CurCharacter.Id)
 end
 
 function XUiRogueLikeRoomCharacter:OnBtnWeaponClick()
     if not self.CurCharacter then return end
-    XLuaUiManager.Open("UiEquipReplaceNew", self.CurCharacter.Id, nil, true)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipReplace(self.CurCharacter.Id, nil, true)
 end
 
 -- 加入队伍

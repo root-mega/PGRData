@@ -10,19 +10,7 @@ function XRedPointConditionGetCard.GetSubEvents()
 end
 
 function XRedPointConditionGetCard.Check()
-    local cardList = XSignInConfigs.GetSignCardConfigs()
-    local isCanGotCard = false
-    for _,v in pairs(cardList) do
-        local uiType = v.Param[1]
-        local id = v.Param[2]
-        if uiType and id then
-            isCanGotCard = not XDataCenter.PayManager.IsGotCard(uiType, id)
-        end
-        if isCanGotCard then
-            return isCanGotCard
-        end
-    end
-    return isCanGotCard
+    return not XDataCenter.PayManager.IsGotCard()
 end
 
 return XRedPointConditionGetCard

@@ -9,7 +9,7 @@ function XUiPlayer:OnStart(closeCb, selectIdx, achiveIdx,medalViewType)
     }
     self.SelectIdx = selectIdx
     self.MedalViewType = medalViewType
-    self.BtnBack.CallBack = function() self:OnBtnBackClick() end
+    self.BtnBack.CallBack = function() self:Close() end
     self.BtnMainUi.CallBack = function() self:OnBtnMainUiClick() end
     self.BtnAchievement:SetDisable(not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.PlayerAchievement))
     self.TagBtns = { self.BtnPlayerInfo, self.BtnAchievement, self.BtnSetting, self.BtnCollect }
@@ -75,13 +75,13 @@ function XUiPlayer:OnBtnMainUiClick()
     XLuaUiManager.RunMain()
 end
 
-function XUiPlayer:OnBtnBackClick()
+function XUiPlayer:Close()
     if self.NeedSave then
-        self:CheckSave(function() self:OnBtnBackClick() end)
+        self:CheckSave(function() self:Close() end)
         return
     end
 
-    self:Close()
+    self.Super.Close(self)
 
     if self.closeCb then
         self.closeCb()

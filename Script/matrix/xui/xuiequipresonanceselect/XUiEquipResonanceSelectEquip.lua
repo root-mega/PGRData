@@ -31,7 +31,7 @@ end
 function XUiEquipResonanceSelectEquip:InitDynamicTable()
     self.DynamicTable = XDynamicTableNormal.New(self.PanelEquipScroll)
     self.DynamicTable:SetDelegate(self)
-    self.DynamicTable:SetProxy(XUiGridEquip)
+    self.DynamicTable:SetProxy(XUiGridEquip, self)
 end
 
 function XUiEquipResonanceSelectEquip:UpdateEquipGridList()

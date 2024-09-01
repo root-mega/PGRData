@@ -71,8 +71,11 @@ function XUiGuildRecommendation:OnStart()
     self.FirstRefresh = true
     --首次进入展示帮助
     if not XSaveTool.GetData(ShowGuildRecommendHelp) then
-        XSaveTool.SaveData(ShowGuildRecommendHelp, true)
-        XUiManager.ShowHelpTip("GuildRecommendHelp")
+        -- 引导状态下不需要显示
+        if not XDataCenter.GuideManager.CheckIsInGuide() then
+            XSaveTool.SaveData(ShowGuildRecommendHelp, true)
+            XUiManager.ShowHelpTip("GuildRecommendHelp")
+        end
     end
 end
 
@@ -174,13 +177,14 @@ function XUiGuildRecommendation:OnBtnSearchOfficeClick()
     self.RefreshTimer = XScheduleManager.ScheduleOnce(self.RefreshTimerCb,RefreshTime)
     self.IsDelayIng = true
     local str = self.InputField.text
-    if str == "" then
+    local id = tonumber(str)
+    if str == "" or string.Utf8Len(str) ~= 8 or (not id) then
         XUiManager.TipText("GuildRecommErrorTipsDes",XUiManager.UiTipType.Wrong)
         return
     end
     self.CurRefreshIndex = self.CurIndex
-    XDataCenter.GuildManager.GuildFind(str,function()
-        local datas = XDataCenter.GuildManager.GetGuildFindDatas(str)
+    XDataCenter.GuildManager.GuildFind(id, function()
+        local datas = XDataCenter.GuildManager.GetGuildFindDatas(id)
         if #datas <= 0 then
             XUiManager.TipMsg(CS.XTextManager.GetText("GuildSearchGuildNotFound"))
         end

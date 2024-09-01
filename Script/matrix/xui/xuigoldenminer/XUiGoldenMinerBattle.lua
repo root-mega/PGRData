@@ -30,6 +30,7 @@ local TxtTimeColor = {
 
 
 local MILLISECOND = 1000    --毫秒
+local TimeOffect = 0.99     --秒，补足倒计时为0时舍弃的0.9几秒
 local PERCENT = XGoldenMinerConfigs.Percent         --倍率
 local ROLE_MOVE_RANGE_PERCENT = XGoldenMinerConfigs.GetRoleMoveRangePercent()   --角色移动范围百分比
 local GAME_NEAR_END_TIME = XGoldenMinerConfigs.GetGameNearEndTime() --临近结束的时间（单位：秒）
@@ -46,8 +47,13 @@ local CSXResourceManagerLoad = CS.XResourceManager.Load
 local CSUiButtonStateNormal = CS.UiButtonState.Normal
 local CSUiButtonStateSelect = CS.UiButtonState.Select
 local MathFloor = math.floor
+local MathCeil = math.ceil
 local MahtAbs = math.abs
 local TableInsert = table.insert
+-- 返回百分比倍率值(已计算底数100)
+local GetPercentRate = function(percent)
+    return XTool.IsNumberValid(percent) and 1 + percent or 1
+end
 
 --黄金矿工玩法界面
 local XUiGoldenMinerBattle = XLuaUiManager.Register(XLuaUi, "UiGoldenMinerBattle")
@@ -72,6 +78,10 @@ function XUiGoldenMinerBattle:OnAwake()
     self.EffectPool = {}
     self.CurTriggerObjDic = {}	--钩子抓到的对象字典
     self.CurTriggerObjSettleList = {} --钩子抓到并结算成得分的对象列表
+    self.CurTriggerObjSettleScoreDir = {} --结算的抓取物类型得分
+
+    self.ItemContinueTimers = {}    --持续性道具计时器
+    self.ItemContinueParams = {}    --持续性道具参数字典
 
     self:RegisterButtonEvent()
     self.ItemPanel = XUiItemPanel.New(self.PanelSkillParent, handler(self, self.UseItem))
@@ -85,12 +95,14 @@ function XUiGoldenMinerBattle:OnStart()
     local characterId = XDataCenter.GoldenMinerManager.GetUseCharacterId()
     self.CurStageId, self.CurStageIndex = dataDb:GetCurStageId()
     self.MapId = dataDb:GetStageMapId(self.CurStageId)
-    self.LastTime = XGoldenMinerConfigs.GetMapTime(self.MapId)
+    self.LastTime = XGoldenMinerConfigs.GetMapTime(self.MapId) + TimeOffect
     self.BeforeScore = dataDb:GetStageScores()
     self.CurMapScore = self.BeforeScore --在当前地图中的得分
     self.SettlementItems = dataDb:GetItemColumns()
     self.DefaultFaceImgPath = XGoldenMinerConfigs.GetCharacterDefaultFace(characterId)  --角色默认表情资源路径
     self.IsPlayNearEndAnima = true  --是否播放临近结束时的动画
+    self.PassTime = 0  --游戏已进行时间，用于处理延迟生成的抓取物
+    self.MoveCount = 0  --玩家移动次数
 
     --飞碟特效首次打开界面隐藏，等倒计时结束后再显示
     self:SetHumenEffectActive(false)
@@ -107,12 +119,34 @@ function XUiGoldenMinerBattle:OnStart()
 
     --设置发射钩爪按钮音效的音量为原大小
     self.BtnChange.transform:GetComponent("XUguiPlaySound").VolumePercent = 100
+
+    -- en1.32提前搬迁国服黄金矿工活动PC按键
+    self.PcBtnShoot = self.BtnChange.gameObject:GetComponent(typeof(CS.XUiPc.XUiPcCustomKey))
+    if self.PcBtnShoot then
+        self.PcBtnShoot:SetKey(CS.XOperationType.ActivityGame, XEnumConstEn.GOLDEN_MINER.GAME_PC_KEY.Shoot)
+    end
 end
 
 function XUiGoldenMinerBattle:OnEnable()
     XUiGoldenMinerBattle.Super.OnEnable(self)
     XEventManager.AddEventListener(XEventId.EVENT_APPLICATION_PAUSE, self.ApplicationPause, self)
+    CS.XInputManager.SetCurOperationType(CS.XOperationType.ActivityGame)
     self:Init()
+    -- 注册A/D按下事件
+    self.EvtMngIdIndex = CS.XCommonGenericEventManager.RegisterLuaEvent(XEventId.EVENT_ALTER_LEFT_STICK_EVENT, function(evtId, arg)
+        if self:GetCurState() ~= RopeState.Rock then
+            return
+        end
+        local vector3 = arg.Vector
+        if vector3.x < 0 then
+            self.HumenCurState = HumenState.MoveLeft
+        elseif vector3.x > 0 then
+            self.HumenCurState = HumenState.MoveRight
+        else
+            self.HumenCurState = HumenState.Idle
+        end
+    end)
+    XEventManager.AddEventListener(XEventId.EVENT_ACTIVITY_GAME_ESC, self.OnBtnStopClick, self)
 end
 
 function XUiGoldenMinerBattle:Init()
@@ -126,6 +160,7 @@ function XUiGoldenMinerBattle:Init()
         self.RectSize = areaPanel:GetComponent("RectTransform").rect.size
         self.RoleMoveRange = self.RectSize.x * ROLE_MOVE_RANGE_PERCENT
 
+        self:InitTipAnimArgs()
         self:UpdateCurScore()
         self:InitMap(self.MapId)
         self:SetHumenCurState(HumenState.Idle)
@@ -146,9 +181,13 @@ end
 function XUiGoldenMinerBattle:OnDisable()
     XUiGoldenMinerBattle.Super.OnDisable(self)
     XEventManager.RemoveEventListener(XEventId.EVENT_APPLICATION_PAUSE, self.ApplicationPause, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_ACTIVITY_GAME_ESC, self.OnBtnStopClick, self)
+    CS.XInputManager.SetCurOperationType(CS.XInputManager.BeforeOperationType)
     self:StopTimer()
     self:StopGameStopCountdown()
     self:StopCurScoreChangeAnima()
+    -- 注销A/D按下事件
+    CS.XCommonGenericEventManager.RemoveLuaEvent(XEventId.EVENT_ALTER_LEFT_STICK_EVENT, self.EvtMngIdIndex)
 end
 
 function XUiGoldenMinerBattle:OnDestroy()
@@ -285,6 +324,10 @@ end
 function XUiGoldenMinerBattle:InitMap(mapId)
     self.MouseObjList = {}
     self.BoomObjList = {}
+    self.MoveObjList = {}
+    self.NormalObjList = {}
+    self.BornDelayObjList = {}
+    self.DestroyObjList = {}
     local stoneIdList = XGoldenMinerConfigs.GetMapStoneId(mapId)
     local grapObj
     local triggerCb = handler(self, self.TrigerCallback)
@@ -303,12 +346,27 @@ function XUiGoldenMinerBattle:InitMap(mapId)
             TableInsert(self.MouseObjList, grapObj)
         elseif stoneType == XGoldenMinerConfigs.StoneType.RedEnvelope then
             grapObj = XGoldenMinerRedEnvelope.New(obj, stoneId, i, triggerCb, resourceManagerLoadFunc)
+            TableInsert(self.NormalObjList, grapObj)
         else
             grapObj = XGoldenMinerBaseObj.New(obj, stoneId, i, triggerCb, resourceManagerLoadFunc)
+            if XTool.IsNumberValid(XGoldenMinerConfigs.GetStoneMoveType(stoneId)) then
+                TableInsert(self.MoveObjList, grapObj)
+            else
+                TableInsert(self.NormalObjList, grapObj)
+            end
         end
 
         obj.transform:SetParent(self.PanelStone, false)
         grapObj:Init(self.MapId, self.RectSize, self.PanelStone)
+        grapObj:InitMoveArgs()
+
+        if XTool.IsNumberValid(grapObj:GetStoneBornDelay()) then
+            grapObj:SetDisable(true)
+            TableInsert(self.BornDelayObjList, grapObj)
+        end
+        if XTool.IsNumberValid(grapObj:GetStoneDestroyTime()) then
+            TableInsert(self.DestroyObjList, grapObj)
+        end
     end
 end
 
@@ -324,7 +382,7 @@ function XUiGoldenMinerBattle:UseItem(itemGrid)
     local buffId = XGoldenMinerConfigs.GetItemBuffId(itemId)
     local buffType = XGoldenMinerConfigs.GetBuffType(buffId)
     local params = XGoldenMinerConfigs.GetBuffParams(buffId)
-
+    
     if buffType == XGoldenMinerConfigs.BuffType.GoldenMinerBoom then
         --绳子回收且有抓取物时，使用炸弹消灭抓取物
         if self:GetCurState() ~= RopeState.Shorten or XTool.IsTableEmpty(self.CurTriggerObjDic) then
@@ -356,17 +414,37 @@ function XUiGoldenMinerBattle:UseItem(itemGrid)
     elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerShortenSpeed then
         --拉回速度变为N倍
         if self:GetCurState() == RopeState.Shorten then
-            self:UpdateCurShortenSpeed(self.ShortenSpeed * tonumber(params[1]) / PERCENT)
+            self:StartItemTimer(XGoldenMinerConfigs.BuffType.GoldenMinerShortenSpeed, params[2], params)
         end
         self:SetRoleFace(XGoldenMinerConfigs.FaceId.RoleUseShortenSpeed)
+    elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerWeightFloat then
+        self:StartItemTimer(XGoldenMinerConfigs.BuffType.GoldenMinerWeightFloat, params[3], params)
+        self:LoadFullEffect(XGoldenMinerConfigs.GetWeightFloatEffect(), self.EffectFull)
+        self:SetRoleFace(XGoldenMinerConfigs.FaceId.RoleUseWeightFloat)
+    elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerItemStopTime then
+        local charBuffType = XGoldenMinerConfigs.BuffType.GoldenMinerUseItemStopTime
+        local time = tonumber(params[1])
+        -- 角色技能时停使用时停道具时叠加时停时长
+        if not XTool.IsTableEmpty(self.UseItemExBuffIdList) and self.UseItemExBuffIdList[charBuffType] then
+            time = time + self.UseItemExBuffIdList[charBuffType][1]
+        end
+        self:SetTimeStop(time)
+        self:SetRoleFace(XGoldenMinerConfigs.FaceId.RoleUseTimeStop)
+    elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerUseItemAddTime then
+        self:AddLastTime(params[1])
+        self:SetRoleFace(XGoldenMinerConfigs.FaceId.RoleUseAddTime)
+    elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerTypeBoom then
+        self:UseTypeBoom(params[1])
+        self:SetRoleFace(XGoldenMinerConfigs.FaceId.RoleUseTypeBoom)
     else
         return
     end
 
+    self:OnUseItemExBuff(buffType)
     self:PlayUseItemSound(itemId)
     itemGrid:SetRImgIconActive(false)
-    self.DataDb:UseItem(itemGridIndex)
     self:UpdateItemChangeInfo(itemGridIndex, XGoldenMinerConfigs.ItemChangeType.OnUse)
+    self.DataDb:UseItem(itemGridIndex)
 end
 
 --播放使用道具音效
@@ -393,6 +471,36 @@ function XUiGoldenMinerBattle:UseBoom()
     self:RemoveCurTriggerObjDic(true)
 end
 
+--使用物品类型炸弹
+function XUiGoldenMinerBattle:UseTypeBoom(type)
+    self:SetRoleFace(XGoldenMinerConfigs.FaceId.RoleUseBoom)
+    local isDestoryAll = not XTool.IsNumberValid(type)
+
+    for _, obj in pairs(self.MouseObjList) do
+        if (obj:GetType() == type or isDestoryAll) and obj:GetIsEnable() then
+            obj:SelfDestroy(true)
+        end
+    end
+
+    for _, obj in pairs(self.BoomObjList) do
+        if (obj:GetType() == type or isDestoryAll) and obj:GetIsEnable() then
+            obj:SelfDestroy(true)
+        end
+    end
+
+    for _, obj in pairs(self.MoveObjList) do
+        if (obj:GetType() == type or isDestoryAll) and obj:GetIsEnable() then
+            obj:SelfDestroy(true)
+        end
+    end
+
+    for _, obj in pairs(self.NormalObjList) do
+        if (obj:GetType() == type or isDestoryAll) and obj:GetIsEnable() then
+            obj:SelfDestroy(true)
+        end
+    end
+end
+
 function XUiGoldenMinerBattle:UpdateItemChangeInfo(itemGridIndex, status)
     local itemChangeInfo = XGoldenMinerItemChangeInfo.New()
     local itemDb = self.DataDb:GetItemColumnByIndex(itemGridIndex)
@@ -402,6 +510,88 @@ function XUiGoldenMinerBattle:UpdateItemChangeInfo(itemGridIndex, status)
         GridIndex = itemGridIndex
     })
     self.SettlementInfo:InsertSettlementItem(itemChangeInfo)
+end
+
+-- 使用道具时额外效果
+function XUiGoldenMinerBattle:OnUseItemExBuff(itemBuffType)
+    if XTool.IsTableEmpty(self.UseItemExBuffIdList) then
+        return
+    end
+    for buffType, params in pairs(self.UseItemExBuffIdList) do
+        -- 角色技能时停使用时停道具时不触发技能时停效果
+        if buffType == XGoldenMinerConfigs.BuffType.GoldenMinerUseItemStopTime and 
+            itemBuffType ~= XGoldenMinerConfigs.BuffType.GoldenMinerItemStopTime then
+            self:SetTimeStop(tonumber(params[1]))
+        end
+    end
+end
+
+-- 启动持续性道具计时器
+function XUiGoldenMinerBattle:StartItemTimer(itemType, time, params)
+    self:StopItemTimer(itemType)
+    self.ItemContinueTimers[itemType] = time
+    self.ItemContinueParams[itemType] = params
+end
+
+-- 更新持续性道具计时
+function XUiGoldenMinerBattle:UpdateItemTimer(deltaTime)
+    if not self:IsTimeKeepOn() then
+        return
+    end
+    for type, _ in pairs(self.ItemContinueTimers) do
+        if not self:CheckInItemTimer(type) then
+            self:StopItemTimer(type)
+        else
+            self.ItemContinueTimers[type] = self.ItemContinueTimers[type] - deltaTime
+        end
+    end
+end
+
+-- 关闭持续性道具计时器
+function XUiGoldenMinerBattle:StopItemTimer(itemType)
+    self.ItemContinueTimers[itemType] = nil
+    self.ItemContinueParams[itemType] = nil
+    if itemType == XGoldenMinerConfigs.BuffType.GoldenMinerWeightFloat then
+        -- 关闭特效
+        self:LoadFullEffect(XGoldenMinerConfigs.GetWeightFloatEffect(), self.EffectFull, false)
+    end
+end
+
+-- 判断某持续性道具是否正在计时
+function XUiGoldenMinerBattle:CheckInItemTimer(itemType)
+    return self.ItemContinueTimers[itemType] ~= nil and self.ItemContinueTimers[itemType] > 0
+end
+
+-- 持续性道具改变钩爪回收速度
+function XUiGoldenMinerBattle:TimeItemToChangeShortenSpeed()
+    if not self:CheckInItemTimer(XGoldenMinerConfigs.BuffType.GoldenMinerWeightFloat) and
+        not self:CheckInItemTimer(XGoldenMinerConfigs.BuffType.GoldenMinerShortenSpeed) then
+        return self.CurShortenSpeed
+    end
+    local baseSpeed = self.ShortenSpeed or 0
+
+    -- 通过影响抓取物重量改变回收速度
+    local totalWeight = 0
+    local weightFloatParams = self.ItemContinueParams[XGoldenMinerConfigs.BuffType.GoldenMinerWeightFloat]
+    local weightFloatObjType = not XTool.IsTableEmpty(weightFloatParams) and weightFloatParams[1] or nil
+    local weightFloatPercent = not XTool.IsTableEmpty(weightFloatParams) and weightFloatParams[2] or nil
+    local isAllType = weightFloatObjType ~= nil and weightFloatObjType == 0
+    for _, obj in pairs(self.CurTriggerObjDic) do
+        if isAllType or obj:GetType() == weightFloatObjType then
+            totalWeight = totalWeight + MathFloor(obj:GetWeight() * GetPercentRate(weightFloatPercent / PERCENT))
+        else
+            totalWeight = totalWeight + obj:GetWeight()
+        end
+    end
+
+    local denominator = totalWeight + SHORTEN_SPEED_PARAMETER
+    denominator = XTool.IsNumberValid(denominator) and denominator or 1
+
+    -- 通过直接影响速度改变回收速度
+    local shortenSpeedParams = self.ItemContinueParams[XGoldenMinerConfigs.BuffType.GoldenMinerShortenSpeed]
+    local shortenSpeedPercent = not XTool.IsTableEmpty(shortenSpeedParams) and GetPercentRate(tonumber(shortenSpeedParams[1]) / PERCENT) or 1
+    baseSpeed = baseSpeed * shortenSpeedPercent * (1 - (totalWeight / denominator))
+    return math.max(SHORTEN_MIN_SPEED, baseSpeed)
 end
 -----------------使用道具 end--------------------
 
@@ -431,7 +621,6 @@ function XUiGoldenMinerBattle:OnBtnChangeClick()
     if self:GetCurState() ~= RopeState.Rock then
         return
     end
-
 
     self:OnPointerUp()
     self:SetCurState(RopeState.Stretch)
@@ -533,7 +722,9 @@ function XUiGoldenMinerBattle:UpdateBuff()
     self:SetShortenSpeed(XGoldenMinerConfigs.GetRopeShortenSpeed())     --绳子拉回基本速度
     self:SetHumenMoveSpeed(XGoldenMinerConfigs.GetHumenMoveSpeed())     --飞碟移动速度
     self:SetRopeRockSpeed(XGoldenMinerConfigs.GetRopeRockSpeed())       --绳子摇摆速度
-    self.StoneUpScoreDic = {}   --抓取物获得的分数变为原本的X倍，默认为1
+    self.StoneUpScoreDic = {}       --抓取物获得的分数变为原本的X倍，默认为1
+    self.UseItemExBuffIdList = {}   --使用道具时额外效果
+    self.GetObjExBuffIdList = {}   --抓取物品时额外效果
 
     local ownBuffDic = XDataCenter.GoldenMinerManager.GetOwnBuffDic()
     local stoneScoreBuffs = ownBuffDic[XGoldenMinerConfigs.BuffType.GoldenMinerStoneScore]
@@ -545,54 +736,207 @@ function XUiGoldenMinerBattle:UpdateBuff()
 
     for buffType, params in pairs(ownBuffDic) do
         if buffType == XGoldenMinerConfigs.BuffType.GoldenMinerShortenSpeed then
-            self:SetShortenSpeed(self.ShortenSpeed * params[1] / PERCENT)
+            self:SetShortenSpeed(self.ShortenSpeed * GetPercentRate(params[1] / PERCENT))
         elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerNotActiveBoom then
             local curNotActiveBoomTimes = self:GetNotActiveBoomTimes()
             self:SetNotActiveBoomTimes(curNotActiveBoomTimes + params[1])
-        elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerHumenSpeed then
-            self:SetHumenMoveSpeed(self.HumenMoveSpeed * params[1] / PERCENT)
+        elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerHumanSpeed then
+            self:SetHumenMoveSpeed(self.HumenMoveSpeed * GetPercentRate(params[1] / PERCENT))
         elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerStretchSpeed then
-            self:SetStretchSpeed(self.StretchSpeed * params[1] / PERCENT)
+            self:SetStretchSpeed(self.StretchSpeed * GetPercentRate(params[1] / PERCENT))
         elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerCordMode then
             self:SetFalculaType(params[1])
         elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerAim then
             self:SetIsShowAim(true)
+        elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerInitAddTime then
+            if not XTool.IsNumberValid(params[2]) or self.DataDb:GetFinishStageCount() <= params[2] then
+                XScheduleManager.ScheduleOnce(function()
+                    self:AddLastTime(params[1])
+                end, GAME_STOP_COUNTDOWN * XScheduleManager.SECOND)
+            end
+        elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerUseItemStopTime then
+            self.UseItemExBuffIdList[XGoldenMinerConfigs.BuffType.GoldenMinerUseItemStopTime] = params
+        elseif buffType == XGoldenMinerConfigs.BuffType.GoldenMinerValueFloat then
+            self.GetObjExBuffIdList[XGoldenMinerConfigs.BuffType.GoldenMinerValueFloat] = params
         end
     end
 end
+
+
+-- 时间相关
+--==============================================================
+
+-- 增加剩余时间
+function XUiGoldenMinerBattle:AddLastTime(time)
+    if not XTool.IsNumberValid(time) then
+        return
+    end
+    if self.LastTime == nil then
+        self.LastTime = 0
+    end
+    self.LastTime = self.LastTime + time
+    self:SetTxtTime(self.LastTime)
+    self:PlayAddTimeAnim(time)
+end
+
+-- 时间暂停
+function XUiGoldenMinerBattle:SetTimeStop(time)
+    local stopTime = time
+    self:StopTimeStopTimer()
+    self:TimeStop()
+    self:LoadFullEffect(XGoldenMinerConfigs.GetStopTimeStartEffect(), self.EffectFull)
+    self.TimeStopTimer = XScheduleManager.ScheduleForeverEx(function()
+        stopTime = stopTime - (self.Timer and CSUnityEngineTime.deltaTime or 0)
+        local isInGame = XTool.IsNumberValid(self.PanelStone.transform.childCount)
+        if XTool.UObjIsNil(self.GameObject) then
+            self:StopTimeStopTimer()
+        end
+        if not isInGame or stopTime <= 0 then
+            self:StopTimeStopTimer()
+            self.TimeStopTimer = nil
+            self:TimeContinue()
+        end
+    end, 0)
+end
+
+function XUiGoldenMinerBattle:StopTimeStopTimer()
+    if self.TimeStopTimer then
+        self:LoadFullEffect(XGoldenMinerConfigs.GetStopTimeStopEffect(), self.EffectFull)
+        XScheduleManager.UnSchedule(self.TimeStopTimer)
+        self.TimeStopTimer = nil
+    end
+end
+
+function XUiGoldenMinerBattle:TimeStop()
+    self.IsTick = false
+end
+
+function XUiGoldenMinerBattle:TimeContinue()
+    self.IsTick = true
+end
+
+function XUiGoldenMinerBattle:IsTimeKeepOn()
+    if self.IsTick == nil then
+        self.IsTick = true
+    end
+    return self.IsTick
+end
+
+--==============================================================
+
+
+-- Update相关
+--==============================================================
 
 local _DeltaTime
 local _CurState
 function XUiGoldenMinerBattle:Update()
     _DeltaTime = self:GetDeltaTime()
-    self.LastTime = self.LastTime - _DeltaTime
-    self:SetTxtTime(self.LastTime)
+    self:UpdateTime()
     if MathFloor(self.LastTime) <= 0 then
+        self.LastTime = 0
         self:GameOver()
         return
     end
 
+    self:UpdateItemTimer(_DeltaTime)
+    self:UpdateShipState()
+    self:UpdateShipMove()
+
+    self:UpdateObjBorn()
+    self:UpdateObjDestroy()
+    self:UpdateObjMove()
+end
+
+function XUiGoldenMinerBattle:UpdateTime()
+    if not self:IsTimeKeepOn() then
+        return
+    end
+    self.LastTime = self.LastTime - _DeltaTime
+    self.PassTime = self.PassTime + _DeltaTime
+    if self.LastTime < 0 then
+        self.LastTime = 0
+    end
+    self:SetTxtTime(self.LastTime)
+end
+
+-- 飞船抓取状态
+function XUiGoldenMinerBattle:UpdateShipState()
     _CurState = self:GetCurState()
     if _CurState == RopeState.Rock then
         self:Rock()
         self:SetRoleDefaultFace()
+        self:CheckGameOver()
     elseif _CurState == RopeState.Stretch then
         self:Stretch()
         self:SetRoleFace(XGoldenMinerConfigs.FaceId.RoleStretch)
     elseif _CurState == RopeState.Shorten then
         self:Shorten()
     end
+end
 
+-- 飞船移动
+function XUiGoldenMinerBattle:UpdateShipMove()
     if self.HumenCurState == HumenState.MoveLeft then
         self:HumenMoveLeft()
     elseif self.HumenCurState == HumenState.MoveRight then
         self:HumenMoveRight()
     end
+end
 
-    for _, mouseObj in ipairs(self.MouseObjList) do
-        mouseObj:Move(_DeltaTime)
+local _BornDelayObjList = {}
+function XUiGoldenMinerBattle:UpdateObjBorn()
+    if not self:IsTimeKeepOn() then
+        return
+    end
+    if XTool.IsTableEmpty(self.BornDelayObjList) then
+        return
+    end
+    _BornDelayObjList = {}
+    for _, obj in ipairs(self.BornDelayObjList) do
+        if self.PassTime >= obj:GetStoneBornDelay() then
+            obj:SetDisable(false)
+        else
+            TableInsert(_BornDelayObjList, obj)
+        end
+    end
+    self.BornDelayObjList = _BornDelayObjList
+end
+
+
+local _DestoryObjList = {}
+function XUiGoldenMinerBattle:UpdateObjDestroy()
+    if not self:IsTimeKeepOn() then
+        return
+    end
+    if XTool.IsTableEmpty(self.DestroyObjList) then
+        return
+    end
+    _DestoryObjList = {}
+    for _, obj in ipairs(self.DestroyObjList) do
+        if self.PassTime >= obj:GetStoneBornDelay() + obj:GetStoneDestroyTime() and not obj:GetIsCatch() then
+            obj:SelfDestroy()
+        else
+            TableInsert(_DestoryObjList, obj)
+        end
+    end
+    self.DestroyObjList = _DestoryObjList
+end
+
+-- 抓取物移动
+function XUiGoldenMinerBattle:UpdateObjMove()
+    if not self:IsTimeKeepOn() then
+        return
+    end
+    for _, obj in ipairs(self.MouseObjList) do
+        obj:Move(_DeltaTime)
+    end
+    for _, obj in ipairs(self.MoveObjList) do
+        obj:Move(_DeltaTime)
     end
 end
+
+--==============================================================
 
 -----------Buff相关 begin---------------
 --设置回收绳子基本速度
@@ -635,6 +979,11 @@ function XUiGoldenMinerBattle:SetFalculaType(type)
     self.FalculaType = type
 end
 
+--设置钩爪变大
+function XUiGoldenMinerBattle:SetFalculaBigger(type)
+    self.FalculaType = type
+end
+
 function XUiGoldenMinerBattle:GetFalculaType()
     return self.FalculaType
 end
@@ -647,7 +996,7 @@ end
 --获得抓取物分数上升倍率，默认1
 function XUiGoldenMinerBattle:GetStoneUpScoreMultiple(goldenMinerStoneType)
     local multiple = self.StoneUpScoreDic[goldenMinerStoneType]
-    return multiple and multiple / PERCENT or 1
+    return XTool.IsNumberValid(multiple) and GetPercentRate(multiple / PERCENT) or 1
 end
 
 --获得抓取物分数
@@ -660,8 +1009,15 @@ function XUiGoldenMinerBattle:GetStoneScore(goldenMinerObject)
         local carryStoneId = goldenMinerObject:GetCurCarryStoneId()
         if XTool.IsNumberValid(carryStoneId) then
             local stoneType = XGoldenMinerConfigs.GetStoneType(carryStoneId)
-            score = score + goldenMinerObject:GetCarryStoneScore() * self:GetStoneUpScoreMultiple(stoneType)
+            -- 红包抓取物之后的抓取物类型都是效果型
+            if stoneType <= XGoldenMinerConfigs.StoneType.RedEnvelope  then
+                score = score + goldenMinerObject:GetCarryStoneScore() * self:GetStoneUpScoreMultiple(stoneType)
+            end
         end
+    elseif goldenMinerStoneType == XGoldenMinerConfigs.StoneType.AddTimeStone then
+        return goldenMinerObject:GetScore()
+    elseif goldenMinerStoneType == XGoldenMinerConfigs.StoneType.ItemStone then
+        return score
     end
 
     score = score + goldenMinerObject:GetScore() * self:GetStoneUpScoreMultiple(goldenMinerStoneType)
@@ -686,6 +1042,7 @@ function XUiGoldenMinerBattle:OnPointerDown(eventData)
         --向右移动
         self:SetHumenCurState(HumenState.MoveRight)
     end
+    self.MoveCount = self.MoveCount + 1
 end
 
 function XUiGoldenMinerBattle:OnPointerUp()
@@ -755,7 +1112,7 @@ function XUiGoldenMinerBattle:Shorten()
         return
     end
 
-    _RopeLength = self.RopeLength - self:GetDeltaTime() * self.CurShortenSpeed
+    _RopeLength = self.RopeLength - self:GetDeltaTime() * self:TimeItemToChangeShortenSpeed()
     self:SetRopeLength(_RopeLength)
     self:SetRopeCordPosY(self.RopeMinLength - self.RopeRectTrans.sizeDelta.y)
 end
@@ -802,6 +1159,10 @@ function XUiGoldenMinerBattle:SetCurState(state, boomObj)
     --电磁钩爪不播放夹子动画，直接回收
     if state == RopeState.Stop and falculaType == XGoldenMinerConfigs.FalculaType.Magnetic then
         state = RopeState.Shorten
+        if boomObj then
+            self:TriggerBoom(boomObj)
+        end
+    elseif state == RopeState.Stop and falculaType == XGoldenMinerConfigs.FalculaType.Big then
         if boomObj then
             self:TriggerBoom(boomObj)
         end
@@ -873,7 +1234,6 @@ function XUiGoldenMinerBattle:PlayRopeAnima(state, boomObj)
     if state == RopeState.Stop then
         self:SetIsPlayRopeOpenAnima(true)
     end
-
     if animaName then
         self:PlayAnimation(animaName, function()
             if state == RopeState.Stop then
@@ -975,6 +1335,11 @@ function XUiGoldenMinerBattle:TriggerBoom(boomObj)
     self:RemoveCurTriggerObjDic()
     self:SetRoleFace(XGoldenMinerConfigs.FaceId.RoleGrapBoom)
 end
+
+-- 碰到加时道具
+function XUiGoldenMinerBattle:TriggerAddTime(boomObj)
+    
+end
 -----------钩子触发器相关 end--------------
 
 -----------表情相关 begin------------
@@ -996,8 +1361,19 @@ end
 
 --检查角色成功拉回表情
 function XUiGoldenMinerBattle:CheckRoleGrapSuccess()
-    local score = self:GetCurTriggerObjTotalScore()
-    self:SetRoleFaceByGroup(XGoldenMinerConfigs.FaceGroup.RoleGrapSuccess, score)
+    for _, obj in pairs(self.CurTriggerObjDic) do
+        if obj:GetType() == XGoldenMinerConfigs.StoneType.RedEnvelope then
+            self:SetRoleFace(XGoldenMinerConfigs.FaceId.RoleGrapRedEnvelope)
+        elseif obj:GetType() == XGoldenMinerConfigs.StoneType.AddTimeStone then
+            self:SetRoleFace(XGoldenMinerConfigs.FaceId.RoleGrapAddTime)
+        elseif obj:GetType() == XGoldenMinerConfigs.StoneType.ItemStone then
+            self:SetRoleFace(XGoldenMinerConfigs.FaceId.RoleGrapTimeStop)
+        else
+            local score = self:GetCurTriggerObjTotalScore()
+            self:SetRoleFaceByGroup(XGoldenMinerConfigs.FaceGroup.RoleGrapSuccess, score)
+        end
+    end
+
     self.RoleGrapSuccessTime = self.LastTime - ROLE_GRAP_SUCCESS_TIME / MILLISECOND
 end
 
@@ -1083,16 +1459,51 @@ end
 
 function XUiGoldenMinerBattle:UpdateCurScore()
     local score
+    local addTime = 0
+    local stopTime = 0
     for _, goldenMinerObject in pairs(self.CurTriggerObjDic) do
-        score = self:GetStoneScore(goldenMinerObject)
-        self:AddCurMapScore(score)
-        self:CheckRedEnvelopeItem(goldenMinerObject)
-        TableInsert(self.CurTriggerObjSettleList, goldenMinerObject)
+        if goldenMinerObject:GetType() == XGoldenMinerConfigs.StoneType.AddTimeStone then
+            addTime = addTime + self:GetStoneScore(goldenMinerObject)
+        elseif goldenMinerObject:GetType()  == XGoldenMinerConfigs.StoneType.ItemStone then
+            stopTime = goldenMinerObject:GetScore()
+        else
+            score = self:OnGetObjScoreExBuff(self:GetStoneScore(goldenMinerObject))
+            self:AddCurMapScore(score)
+            self:CheckRedEnvelopeItem(goldenMinerObject)
+            if goldenMinerObject:GetScore() ~= 0 then
+                self:AddCurTriggerObjSettleScore(goldenMinerObject:GetType(), score)
+                TableInsert(self.CurTriggerObjSettleList, goldenMinerObject)
+            end
+        end
+        -- 携带式效果型抓取物处理
+        if goldenMinerObject:GetType()  == XGoldenMinerConfigs.StoneType.Mouse then
+            local carryStoneId = goldenMinerObject:GetCurCarryStoneId()
+            if XTool.IsNumberValid(carryStoneId) then
+                if XGoldenMinerConfigs.GetStoneType(carryStoneId) == XGoldenMinerConfigs.StoneType.AddTimeStone then
+                    addTime = addTime + XGoldenMinerConfigs.GetStoneScore(carryStoneId)
+                elseif XGoldenMinerConfigs.GetStoneType(carryStoneId)  == XGoldenMinerConfigs.StoneType.ItemStone then
+                    stopTime = XGoldenMinerConfigs.GetStoneScore(carryStoneId)
+                end
+            end
+        end
     end
 
+    if XTool.IsNumberValid(stopTime) then
+        self:SetTimeStop(stopTime)
+    end
+    if XTool.IsNumberValid(addTime) then
+        self:AddLastTime(addTime)
+    end
     self:RemoveCurTriggerObjDic()
-
     self:UpdateTextCurScore()
+end
+
+-- 处理计分时受百分比增幅的分数
+function XUiGoldenMinerBattle:AddCurTriggerObjSettleScore(stoneType, score)
+    if not XTool.IsNumberValid(self.CurTriggerObjSettleScoreDir[stoneType]) then
+        self.CurTriggerObjSettleScoreDir[stoneType] = 0
+    end
+    self.CurTriggerObjSettleScoreDir[stoneType] = self.CurTriggerObjSettleScoreDir[stoneType] + MathFloor(score)
 end
 
 function XUiGoldenMinerBattle:UpdateTextCurScore()
@@ -1104,6 +1515,21 @@ function XUiGoldenMinerBattle:UpdateTextCurScore()
         self:PlayCurScoreChangeAnima(score - self.OriginScore, self.OriginScore)
         self.OriginScore = score
     end
+end
+
+-- 获得抓取物额外buff
+function XUiGoldenMinerBattle:OnGetObjScoreExBuff(score)
+    if XTool.IsTableEmpty(self.GetObjExBuffIdList) then
+        return score
+    end
+    for buffType, params in pairs(self.GetObjExBuffIdList) do
+        -- 抓取物浮动
+        if buffType == XGoldenMinerConfigs.BuffType.GoldenMinerValueFloat then
+            local percent = GetPercentRate(math.random(params[1], params[2]) / PERCENT)
+            return MathCeil(score * percent)
+        end
+    end
+    return score
 end
 
 --检查红包箱是否能获得道具
@@ -1121,6 +1547,7 @@ function XUiGoldenMinerBattle:CheckRedEnvelopeItem(goldenMinerObject)
 
     dataDb:UpdateItemColumn(itemId, itemColumnIndex)
     self.ItemPanel:UpdateItemColumns()
+    self:PlayGetItemAnim(itemId)
     self:UpdateItemChangeInfo(itemColumnIndex, XGoldenMinerConfigs.ItemChangeType.OnGet)
 end
 
@@ -1146,19 +1573,33 @@ end
 --没物品可以抓时直接游戏结束
 function XUiGoldenMinerBattle:CheckGameOver()
     local transform = self.PanelStone.transform
-    if not XTool.IsNumberValid(transform.childCount) then
+    local childCount = transform.childCount
+    -- 全部物体被抓
+    if not XTool.IsNumberValid(childCount) then
+        self:GameOver()
+        return
+    end
+    -- 除了延迟生成的物体全部被抓
+    local enabledCount = 0
+    for i = 0, childCount-1, 1 do
+        if transform:GetChild(i).gameObject.activeSelf then
+            enabledCount = enabledCount + 1
+        end
+    end
+    if not XTool.IsNumberValid(enabledCount) then
         self:GameOver()
     end
 end
 
 function XUiGoldenMinerBattle:GameOver()
     self:StopTimer()
-    self:UpdateSettlementInfo()
+    self:UpdateSettlementInfo(true)
 
     local curMapScore = self.CurMapScore
     local mapId = self.MapId
     local curStageId = self.CurStageId
-    self.IsWin = curMapScore >= self.TargetScoreData
+    local lastTimeScore = self:GetLastTimeScore()
+    self.IsWin = curMapScore + lastTimeScore >= self.TargetScoreData
 
     local closeCb = handler(self, self.CheckGameState)
     local isCloseFunc = handler(self, self.GetIsCloseBattle)
@@ -1169,13 +1610,47 @@ function XUiGoldenMinerBattle:GameOver()
         BeforeScore = self.BeforeScore,
         CurMapScore = curMapScore,
         GoldenMinerObjectList = self.CurTriggerObjSettleList,
+        GoldenMinerObjectScoreDir = self.CurTriggerObjSettleScoreDir,
         TargetScore = self.TargetScoreData,
+        LastTime = MathFloor(self.LastTime),
+        LastTimeScore = lastTimeScore
     }
     XLuaUiManager.Open("UiGoldenMinerReport", data, closeCb, isCloseFunc)
-    XDataCenter.GoldenMinerManager.RequestGoldenMinerFinishStage(curStageId, self.SettlementInfo, curMapScore, function(isFinishSuccess)
+    XDataCenter.GoldenMinerManager.RequestGoldenMinerFinishStage(curStageId, self.SettlementInfo, curMapScore + lastTimeScore, function(isFinishSuccess)
         self.IsCloseBattle = true
         self.IsFinishSuccess = isFinishSuccess
     end, self.IsWin)
+end
+
+-- 计算剩余时间分数
+function XUiGoldenMinerBattle:GetLastTimeScore()
+    local score = 0
+    local countTime = MathCeil(self.LastTime)
+    local scoreGroup = XGoldenMinerConfigs.GetScoreGroupIdList()
+    for index, scoreId in ipairs(scoreGroup) do
+        if countTime <= 0 then
+            return score
+        end
+        local countMaxTime = XGoldenMinerConfigs.GetLastTimeMax(scoreId)
+        local countPerPoint = XGoldenMinerConfigs.GetPerTimePoint(scoreId)
+        if index <= 1 then
+            if countTime > countMaxTime then
+                score = score + countPerPoint * countMaxTime
+            else
+                score = score + countPerPoint * countTime
+            end
+            countTime = countTime - countMaxTime
+        else
+            local needCountTime = countMaxTime - XGoldenMinerConfigs.GetLastTimeMax(scoreGroup[index-1])
+            if countTime > needCountTime then
+                score = score + countPerPoint * needCountTime
+            else
+                score = score + countPerPoint * countTime
+            end
+            countTime = countTime - needCountTime
+        end
+    end
+    return score
 end
 
 function XUiGoldenMinerBattle:GetIsCloseBattle()
@@ -1183,10 +1658,15 @@ function XUiGoldenMinerBattle:GetIsCloseBattle()
 end
 
 --刷新发给后端的关卡结算数据
-function XUiGoldenMinerBattle:UpdateSettlementInfo()
+function XUiGoldenMinerBattle:UpdateSettlementInfo(isTimeSettle)
     local mapId = self.MapId
     local mapTime = XGoldenMinerConfigs.GetMapTime(mapId)
-    self.SettlementInfo:SetScores(self.CurMapScore - self.BeforeScore)
+    local addScore = self.CurMapScore - self.BeforeScore
+    if isTimeSettle then
+        addScore = addScore + self:GetLastTimeScore()
+    end
+    self.SettlementInfo:SetMoveCount(self.MoveCount)
+    self.SettlementInfo:SetScores(addScore)
     self.SettlementInfo:SetCostTime(MathFloor(mapTime - self.LastTime))
     self.SettlementInfo:UpdateGrabDataInfos(self.CurTriggerObjSettleList)
 end
@@ -1224,6 +1704,22 @@ function XUiGoldenMinerBattle:LoadEffect(path, parent, localPosition)
     model.gameObject:SetActiveEx(false)
     model.gameObject:SetActiveEx(true)
     return model
+end
+
+--加载具有全屏要求的ui层级特效-parent需要具有XUiEffectLayer控件
+function XUiGoldenMinerBattle:LoadFullEffect(path, parent, active)
+    if XTool.UObjIsNil(parent) then
+        return
+    end
+    parent.gameObject:SetActiveEx(false)
+    if XTool.UObjIsNil(self.EffectPool[path]) then
+        self.EffectPool[path] = XUiHelper.Instantiate(parent.gameObject, parent.transform.parent)
+    end
+    self.EffectPool[path].gameObject:SetActiveEx(false)
+    if active == nil or active then
+        self.EffectPool[path].gameObject:SetActiveEx(true)
+        self.EffectPool[path].gameObject:LoadUiEffect(path)
+    end
 end
 
 function XUiGoldenMinerBattle:CheckGameState()
@@ -1312,3 +1808,43 @@ function XUiGoldenMinerBattle:HideCurScoreChange()
     end
 end
 ---------------抓取成功播放动画 end------------------
+
+--提示动画相关
+--==============================================================
+
+function XUiGoldenMinerBattle:InitTipAnimArgs()
+    self.AddTimeTipPosition = self.TxtAddTimeTip.transform.position
+end
+
+function XUiGoldenMinerBattle:PlayGetItemAnim(itemId)
+    self.TxtAddItemTip.gameObject:SetActive(true)
+    self.TxtAddItemTip.text = "+1"
+    self.TxtAddItemTip.transform.position = self.Humen.transform.position
+    self.RImgAddItemIcon:SetRawImage(XGoldenMinerConfigs.GetItemIcon(itemId))
+    local endY = self.TxtAddItemTip.transform.localPosition.y + XGoldenMinerConfigs.GetTipAnimMoveLength()
+    local time = XGoldenMinerConfigs.GetTipAnimTime() / XScheduleManager.SECOND
+    self.TxtAddItemTip.transform:DOLocalMoveY(endY, time)
+    XScheduleManager.ScheduleOnce(function()
+        if XTool.UObjIsNil(self.GameObject) then
+            return
+        end
+        self.TxtAddItemTip.gameObject:SetActive(false)
+    end, XGoldenMinerConfigs.GetTipAnimTime())
+end
+
+function XUiGoldenMinerBattle:PlayAddTimeAnim(time)
+    self.TxtAddTimeTip.transform.position = self.AddTimeTipPosition
+    self.TxtAddTimeTip.gameObject:SetActive(true)
+    self.TxtAddTimeTip.text = "+"..time
+    local endY = self.TxtAddTimeTip.transform.localPosition.y + XGoldenMinerConfigs.GetTipAnimMoveLength()
+    local time = XGoldenMinerConfigs.GetTipAnimTime() / XScheduleManager.SECOND
+    self.TxtAddTimeTip.transform:DOLocalMoveY(endY, time)
+    XScheduleManager.ScheduleOnce(function()
+        if XTool.UObjIsNil(self.GameObject) then
+            return
+        end
+        self.TxtAddTimeTip.gameObject:SetActive(false)
+    end, XGoldenMinerConfigs.GetTipAnimTime())
+end
+
+--==============================================================

@@ -1,10 +1,12 @@
+local XExFubenCollegeStudyManager = require("XEntity/XFuben/XExFubenCollegeStudyManager")
+
 local CSXTextManagerGetText = CS.XTextManager.GetText
 local tableInsert = table.insert
 local tableSort = table.sort
 local CSGameEventManager = CS.XGameEventManager.Instance
 
 XFubenExperimentManagerCreator = function()
-    local XFubenExperimentManager = {}
+    local XFubenExperimentManager = XExFubenCollegeStudyManager.New(XFubenConfigs.ChapterType.Experiment)
 
     local TrialGroup = {}
     local TrialLevel = {}
@@ -82,6 +84,19 @@ XFubenExperimentManagerCreator = function()
             end
 		end
 		return startTime,endTime
+	end
+
+	function XFubenExperimentManager.GetCurrActivtySkin()
+		local levels = TrialLevelDic[XFubenExperimentManager.TabGroupId.SkinTrial]
+		if #levels == 0 then return end
+        local levelConfig -- 记录是哪个皮肤关卡开放
+		for i = 1, #levels do
+            local timeId = levels[i].TimeId
+            if timeId and timeId ~= 0 and XFunctionManager.CheckInTimeByTimeId(timeId) then
+                levelConfig = levels[i]
+            end
+		end
+		return levelConfig
 	end
 
 	function XFubenExperimentManager.GetTrialLevelByGroupID(groupID)
@@ -408,6 +423,36 @@ XFubenExperimentManagerCreator = function()
 
         return false
     end
+    ------------------副本入口扩展 start-------------------------
+    function XFubenExperimentManager:ExGetIcon()
+        local skinLevelConfig = XFubenExperimentManager.GetCurrActivtySkin()
+        if skinLevelConfig then
+            return skinLevelConfig.ChapterIcon
+        end
+
+        return self:ExGetConfig().Icon
+    end
+
+    function XFubenExperimentManager:ExCheckIsShowRedPoint()
+        return XFubenExperimentManager.CheckExperimentRedPoint()
+    end
+
+    function XFubenExperimentManager:ExGetTagInfo()
+        local skinLevelConfig = XFubenExperimentManager.GetCurrActivtySkin()
+        if skinLevelConfig then
+            return true, CS.XTextManager.GetText("FuBenExperimentSkinTag")
+        end
+        return false
+    end
+
+    function XFubenExperimentManager:ExOpenMainUi()
+        if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.FubenActivityTrial) then
+            return
+        end
+        XLuaUiManager.Open("UiFubenExperiment")
+    end
+    
+    ------------------副本入口扩展 end-------------------------
 
     XFubenExperimentManager.Init()
     return XFubenExperimentManager

@@ -16,7 +16,8 @@ local ModelDefaultScale = Vector3(1, 1, 1)      --模型默认大小
 local TriggerType2OpenScale = Vector3(0.9, 0.9, 0.9)          --类型2开关开启时的模型大小
 local TriggerType2PlayTime = 0.5            --类型2开关开启或关闭播放动画的时间（单位：秒）
 
---开关对象
+---推箱子开关对象
+---@class XRpgMakerGameTriggerData:XRpgMakerGameObject
 local XRpgMakerGameTriggerData = XClass(XRpgMakerGameObject, "XRpgMakerGameTriggerData")
 
 function XRpgMakerGameTriggerData:Ctor(id)
@@ -36,12 +37,20 @@ function XRpgMakerGameTriggerData:InitData()
     self.IsPlayElectricStatusSwitchSound = false    --是否播放电墙机关切换音效
 
     local triggerId = self:GetId()
-    local pointX = XRpgMakerGameConfigs.GetRpgMakerGameTriggerX(triggerId)
-    local pointY = XRpgMakerGameConfigs.GetRpgMakerGameTriggerY(triggerId)
     local defaultBlock = XRpgMakerGameConfigs.GetRpgMakerGameTriggerDefaultBlock(triggerId)
-    self:UpdatePosition({PositionX = pointX, PositionY = pointY})
     self:SetTriggerStatus(defaultBlock)
     self:SetElectricStatus(XRpgMakerGameConfigs.XRpgMakerGameElectricStatus.OpenElectricFence)
+end
+
+---@param mapObjData XMapObjectData
+function XRpgMakerGameTriggerData:InitDataByMapObjData(mapObjData)
+    self.MapObjData = mapObjData
+    self:UpdatePosition({PositionX = self.MapObjData:GetX(), PositionY = self.MapObjData:GetY()})
+end
+
+---@return XMapObjectData
+function XRpgMakerGameTriggerData:GetMapObjData()
+    return self.MapObjData
 end
 
 function XRpgMakerGameTriggerData:UpdateData(data)
@@ -107,9 +116,9 @@ function XRpgMakerGameTriggerData:PlayTriggerStatusChangeAction(action, cb, isNo
     local positionX = gameObjPosition.x
     local positionZ = gameObjPosition.z
     local originScale = transform.localScale
-    local pointX = XRpgMakerGameConfigs.GetRpgMakerGameTriggerX(triggerId)
-    local pointY = XRpgMakerGameConfigs.GetRpgMakerGameTriggerY(triggerId)
-    local cubeUpCenterPosition = self:GetCubeUpCenterPosition(pointY, pointX)
+    local pointX = self.MapObjData:GetX()
+    local pointY = self.MapObjData:GetY()
+    local cubeUpCenterPosition = self:GetCubeUpCenterPosition(self.MapObjData:GetRow(), self.MapObjData:GetCol())
     local cubeUpCenterPositionY = cubeUpCenterPosition.y
 
     local isGrassShelter = XDataCenter.RpgMakerGameManager.IsGrassShelter(pointX, pointY)

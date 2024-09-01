@@ -14,9 +14,8 @@ function XUiPanelStageActive:Refresh()
     local stageCfg = XDataCenter.FubenManager.GetStageCfg(stageId)
     local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
     --文字
+    local strTxtStage
     if not XTool.UObjIsNil(self.TxtStage) then
-        local strTxtStage
-
         if XDataCenter.BfrtManager.CheckStageTypeIsBfrt(stageId) then
             strTxtStage = self.ChapterOrderId .. "-" .. XDataCenter.BfrtManager.GetGroupOrderIdByStageId(stageId)
         elseif stageInfo.Type == XDataCenter.FubenManager.StageType.ExtraChapter then
@@ -36,6 +35,14 @@ function XUiPanelStageActive:Refresh()
         local icon = stageCfg.Icon
         if icon then self.RImgNor:SetRawImage(icon) end
     end
+
+    -- v1.31隐藏模式
+    if not XTool.UObjIsNil(self.Normal) and not XTool.UObjIsNil(self.Hidden) then
+        local haveHideAction = stageCfg.HideAction == 1 and #stageCfg.RobotId > 0
+        self.Normal.gameObject:SetActiveEx(not haveHideAction)
+        self.Hidden.gameObject:SetActiveEx(haveHideAction)
+        self.TxtStage2.text = strTxtStage
+    end
 end
 
 -- auto
@@ -48,6 +55,14 @@ end
 function XUiPanelStageActive:AutoInitUi()
     self.TxtStage = XUiHelper.TryGetComponent(self.Transform, "TxtStage", "Text")
     self.RImgNor = XUiHelper.TryGetComponent(self.Transform, "RImgNor", "RawImage")
+
+    -- v1.31隐藏模式
+    if XTool.UObjIsNil(self.TxtStage) then 
+        self.TxtStage = XUiHelper.TryGetComponent(self.Transform, "Normal/TxtStage", "Text")
+    end
+    self.TxtStage2 = XUiHelper.TryGetComponent(self.Transform, "Hidden/TxtStage2", "Text")
+    self.Normal = XUiHelper.TryGetComponent(self.Transform, "Normal", "RectTransform")
+    self.Hidden = XUiHelper.TryGetComponent(self.Transform, "Hidden", "RectTransform")
 end
 
 function XUiPanelStageActive:RegisterClickEvent(uiNode, func)

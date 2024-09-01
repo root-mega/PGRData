@@ -50,6 +50,11 @@
         "Description": "Increases Physical DMG."
     },
     {
+        "Id": 43,
+        "Name": "Ultralimit Torque",
+        "Description": "Increases Physical DMG."
+    },
+    {
         "Id": 101,
         "Name": "Glorious Shield",
         "Description": "Glory's HP is reduced during battle. The remaining HP bar will be replaced by a shield that regenerates over time."
@@ -97,12 +102,22 @@
     {
         "Id": 110,
         "Name": "Kowloong Unit",
-        "Description": "The current Kowloong units are Qu: Pavo and Pulao: Dragontoll."
+        "Description": "The current Kowloong units are Qu: Pavo, Pulao: Dragontoll, and Hanying: Zitherwoe."
     },
     {
         "Id": 111,
         "Name": "Time Lag Calculation",
         "Description": "Some of the skill effects on the character and the enemy, Matrix cooldown, character switch cooldown, QTE cooldown, and stage timer will all be paused."
+    },
+    {
+        "Id": 112,
+        "Name": "Kowloong Uniframe Unit",
+        "Description": "The current Kowloong Uniframe units are Qu: Pavo and Pulao: Dragontoll."
+    },
+    {
+        "Id": 113,
+        "Name": "Single Orb",
+        "Description": "Signal Orbs that cannot form a 3-Ping or a 2-Ping."
     },
     {
         "Id": 3,

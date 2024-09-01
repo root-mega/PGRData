@@ -1,0 +1,852 @@
+[
+    {
+        "Id": 2001,
+        "Description": "Spend 1 attempt to recover deployed Construct HP to 100%. ",
+        "Title": "Repair Kit"
+    },
+    {
+        "Id": 2002,
+        "Description": "Spend 1 attempt to gain Support Points. ",
+        "Title": "Support Airdrop"
+    },
+    {
+        "Id": 2003,
+        "Description": "Spend 1 attempt to gain 3 Support Constructs. ",
+        "Title": "Support Team"
+    },
+    {
+        "Id": 2004,
+        "Description": "Spend 45 Support Points to gain 1 Support Construct. ",
+        "Title": "Support Construct"
+    },
+    {
+        "Id": 3001,
+        "Description": "1 random bonus obtained. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3002,
+        "Description": "Obtained 3 Support Constructs. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3003,
+        "Description": "The HP of the deployed Constructs is healed to 100%. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3004,
+        "Description": "Obtained 1 challenge attempt. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3005,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3006,
+        "Description": "The deployed Constructs lose 30% of their current HP. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3007,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3008,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3009,
+        "Description": "The HP of the deployed Constructs is healed to 100%. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3010,
+        "Description": "The deployed Constructs lose 50% of their current HP. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3011,
+        "Description": "Obtained 1 Support Construct. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3012,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3013,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3014,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3015,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3016,
+        "Description": "Nothing happened. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3017,
+        "Description": "1 random bonus obtained. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3018,
+        "Description": "1 random bonus obtained. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3019,
+        "Description": "1 random bonus obtained. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 3020,
+        "Description": "1 random bonus obtained. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4001,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4002,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4003,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4004,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4005,
+        "Description": "Obtain {0} Halloween Candy(ies). ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4006,
+        "Description": "Gain {0} Support Proof(s). ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4007,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4008,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4009,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4010,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4011,
+        "Description": "The deployed Constructs lose 5% of their current HP.",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4012,
+        "Description": "The deployed Constructs lose 15% of their current HP.",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4013,
+        "Description": "The deployed Constructs lose 30% of their current HP. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4014,
+        "Description": "If deployed Constructs' HP is lower than 50%, restores their HP to 50%.",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4015,
+        "Description": "The HP of the deployed Constructs is healed to 100%. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 4016,
+        "Description": "Nothing happened. ",
+        "Title": "Event Results"
+    },
+    {
+        "Id": 1001,
+        "Description": "The deployed Constructs lose 30% of their current HP. ",
+        "Title": "Event 1"
+    },
+    {
+        "Id": 1002,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 1"
+    },
+    {
+        "Id": 1003,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 1"
+    },
+    {
+        "Id": 1004,
+        "Description": "Obtained 2 Support Constructs. ",
+        "Title": "Event 1"
+    },
+    {
+        "Id": 1005,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 1"
+    },
+    {
+        "Id": 1006,
+        "Description": "The deployed Constructs lose 25% of their current HP. ",
+        "Title": "Event 2"
+    },
+    {
+        "Id": 1007,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 2"
+    },
+    {
+        "Id": 1008,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 2"
+    },
+    {
+        "Id": 1009,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 2"
+    },
+    {
+        "Id": 1010,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 2"
+    },
+    {
+        "Id": 1011,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 3"
+    },
+    {
+        "Id": 1012,
+        "Description": "The deployed Constructs recover 100% of their HP. ",
+        "Title": "Event 3"
+    },
+    {
+        "Id": 1013,
+        "Description": "The deployed Constructs lose 20% of their current HP. ",
+        "Title": "Event 3"
+    },
+    {
+        "Id": 1014,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 3"
+    },
+    {
+        "Id": 1015,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 3"
+    },
+    {
+        "Id": 1016,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 4"
+    },
+    {
+        "Id": 1017,
+        "Description": "Obtained 1 Support Construct. ",
+        "Title": "Event 4"
+    },
+    {
+        "Id": 1018,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 4"
+    },
+    {
+        "Id": 1019,
+        "Description": "The deployed Constructs lose 25% of their current HP. ",
+        "Title": "Event 5"
+    },
+    {
+        "Id": 1020,
+        "Description": "Obtained 1 Support Construct. ",
+        "Title": "Event 5"
+    },
+    {
+        "Id": 1021,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 5"
+    },
+    {
+        "Id": 1022,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 5"
+    },
+    {
+        "Id": 1023,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 5"
+    },
+    {
+        "Id": 1024,
+        "Description": "The deployed Constructs lose 25% of their current HP. ",
+        "Title": "Event 5"
+    },
+    {
+        "Id": 1025,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 5"
+    },
+    {
+        "Id": 1026,
+        "Description": "Obtained 1 challenge attempt. ",
+        "Title": "Event 6"
+    },
+    {
+        "Id": 1027,
+        "Description": "The deployed Constructs recover 100% of their HP. ",
+        "Title": "Event 6"
+    },
+    {
+        "Id": 1028,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 6"
+    },
+    {
+        "Id": 1029,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 6"
+    },
+    {
+        "Id": 1030,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 6"
+    },
+    {
+        "Id": 1031,
+        "Description": "The deployed Constructs lose 30% of their current HP. ",
+        "Title": "Event 6"
+    },
+    {
+        "Id": 1032,
+        "Description": "Obtained 1 Support Construct. ",
+        "Title": "Event 6"
+    },
+    {
+        "Id": 1033,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 7"
+    },
+    {
+        "Id": 1034,
+        "Description": "The deployed Constructs recover 100% of their HP. ",
+        "Title": "Event 7"
+    },
+    {
+        "Id": 1035,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 7"
+    },
+    {
+        "Id": 1036,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 7"
+    },
+    {
+        "Id": 1037,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 7"
+    },
+    {
+        "Id": 1038,
+        "Description": "Obtained 2 Support Constructs. ",
+        "Title": "Event 7"
+    },
+    {
+        "Id": 1039,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 8"
+    },
+    {
+        "Id": 1040,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 8"
+    },
+    {
+        "Id": 1041,
+        "Description": "The deployed Constructs lose 50% of their current HP. ",
+        "Title": "Event 8"
+    },
+    {
+        "Id": 1042,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 8"
+    },
+    {
+        "Id": 1043,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 8"
+    },
+    {
+        "Id": 1044,
+        "Description": "Obtained 1 Support Construct. ",
+        "Title": "Event 8"
+    },
+    {
+        "Id": 1045,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 8"
+    },
+    {
+        "Id": 1046,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 8"
+    },
+    {
+        "Id": 1047,
+        "Description": "The deployed Constructs lose 20% of their current HP. ",
+        "Title": "Event 9"
+    },
+    {
+        "Id": 1048,
+        "Description": "Obtained effect \"Tactical Team\". ",
+        "Title": "Event 9"
+    },
+    {
+        "Id": 1049,
+        "Description": "Obtained effect \"False Target\". ",
+        "Title": "Event 9"
+    },
+    {
+        "Id": 1050,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 9"
+    },
+    {
+        "Id": 1051,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 10"
+    },
+    {
+        "Id": 1052,
+        "Description": "The deployed Constructs lose 15% of their current HP. ",
+        "Title": "Event 10"
+    },
+    {
+        "Id": 1053,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 10"
+    },
+    {
+        "Id": 1054,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 10"
+    },
+    {
+        "Id": 1055,
+        "Description": "Obtained 1 Support Construct. ",
+        "Title": "Event 10"
+    },
+    {
+        "Id": 1056,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 11"
+    },
+    {
+        "Id": 1057,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 11"
+    },
+    {
+        "Id": 1058,
+        "Description": "Obtained 1 challenge attempt. ",
+        "Title": "Event 11"
+    },
+    {
+        "Id": 1059,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 11"
+    },
+    {
+        "Id": 1060,
+        "Description": "The deployed Constructs lose 15% of their current HP. ",
+        "Title": "Event 11"
+    },
+    {
+        "Id": 1061,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 11"
+    },
+    {
+        "Id": 1062,
+        "Description": "The deployed Constructs lose 20% of their current HP. ",
+        "Title": "Event 12"
+    },
+    {
+        "Id": 1063,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 12"
+    },
+    {
+        "Id": 1064,
+        "Description": "The deployed Constructs lose 15% of their current HP. ",
+        "Title": "Event 12"
+    },
+    {
+        "Id": 1065,
+        "Description": "Obtained 1 Support Construct. ",
+        "Title": "Event 12"
+    },
+    {
+        "Id": 1066,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 12"
+    },
+    {
+        "Id": 1067,
+        "Description": "The deployed Constructs lose 20% of their current HP. ",
+        "Title": "Event 12"
+    },
+    {
+        "Id": 1068,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 12"
+    },
+    {
+        "Id": 1069,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 13"
+    },
+    {
+        "Id": 1070,
+        "Description": "The deployed Constructs recover 100% of their HP. ",
+        "Title": "Event 13"
+    },
+    {
+        "Id": 1071,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 13"
+    },
+    {
+        "Id": 1072,
+        "Description": "Obtained 2 Support Constructs. ",
+        "Title": "Event 13"
+    },
+    {
+        "Id": 1073,
+        "Description": "The deployed Constructs lose 50% of their current HP. ",
+        "Title": "Event 13"
+    },
+    {
+        "Id": 1074,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 13"
+    },
+    {
+        "Id": 1075,
+        "Description": "Obtained 1 Support Construct. ",
+        "Title": "Event 13"
+    },
+    {
+        "Id": 1076,
+        "Description": "The deployed Constructs lose 50% of their current HP. ",
+        "Title": "Event 14"
+    },
+    {
+        "Id": 1077,
+        "Description": "Obtained 1 challenge attempt. ",
+        "Title": "Event 14"
+    },
+    {
+        "Id": 1078,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 14"
+    },
+    {
+        "Id": 1079,
+        "Description": "The deployed Constructs recover 100% of their HP. ",
+        "Title": "Event 14"
+    },
+    {
+        "Id": 1080,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 14"
+    },
+    {
+        "Id": 1081,
+        "Description": "The deployed Constructs recover 100% of their HP. ",
+        "Title": "Event 14"
+    },
+    {
+        "Id": 1082,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 15"
+    },
+    {
+        "Id": 1083,
+        "Description": "The deployed Constructs recover 100% of their HP. ",
+        "Title": "Event 15"
+    },
+    {
+        "Id": 1084,
+        "Description": "The deployed Constructs lose 50% of their current HP. ",
+        "Title": "Event 15"
+    },
+    {
+        "Id": 1085,
+        "Description": "Obtained 1 challenge attempt. ",
+        "Title": "Event 15"
+    },
+    {
+        "Id": 1086,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 15"
+    },
+    {
+        "Id": 1087,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 15"
+    },
+    {
+        "Id": 1088,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 16"
+    },
+    {
+        "Id": 1089,
+        "Description": "The deployed Constructs lose 30% of their current HP. ",
+        "Title": "Event 16"
+    },
+    {
+        "Id": 1090,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 16"
+    },
+    {
+        "Id": 1091,
+        "Description": "The deployed Constructs lose 20% of their current HP. ",
+        "Title": "Event 16"
+    },
+    {
+        "Id": 1092,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 16"
+    },
+    {
+        "Id": 1093,
+        "Description": "The deployed Constructs lose 10% of their current HP. ",
+        "Title": "Event 16"
+    },
+    {
+        "Id": 1094,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 16"
+    },
+    {
+        "Id": 1095,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 17"
+    },
+    {
+        "Id": 1096,
+        "Description": "The deployed Constructs recover 100% of their HP. ",
+        "Title": "Event 17"
+    },
+    {
+        "Id": 1097,
+        "Description": "The deployed Constructs lose 20% of their current HP. ",
+        "Title": "Event 17"
+    },
+    {
+        "Id": 1098,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 17"
+    },
+    {
+        "Id": 1099,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 17"
+    },
+    {
+        "Id": 1100,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 18"
+    },
+    {
+        "Id": 1101,
+        "Description": "The deployed Constructs recover 100% of their HP. ",
+        "Title": "Event 18"
+    },
+    {
+        "Id": 1102,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 18"
+    },
+    {
+        "Id": 1103,
+        "Description": "The deployed Constructs lose 20% of their current HP. ",
+        "Title": "Event 18"
+    },
+    {
+        "Id": 1104,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 18"
+    },
+    {
+        "Id": 1105,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 18"
+    },
+    {
+        "Id": 1106,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 19"
+    },
+    {
+        "Id": 1107,
+        "Description": "Obtained 2 Support Constructs. ",
+        "Title": "Event 19"
+    },
+    {
+        "Id": 1108,
+        "Description": "The deployed Constructs lose 30% of their current HP. ",
+        "Title": "Event 19"
+    },
+    {
+        "Id": 1109,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 19"
+    },
+    {
+        "Id": 1110,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 19"
+    },
+    {
+        "Id": 1111,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 20"
+    },
+    {
+        "Id": 1112,
+        "Description": "The deployed Constructs recover 100% of their HP. ",
+        "Title": "Event 20"
+    },
+    {
+        "Id": 1113,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 20"
+    },
+    {
+        "Id": 1114,
+        "Description": "Obtained 2 Support Constructs. ",
+        "Title": "Event 20"
+    },
+    {
+        "Id": 1115,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 20"
+    },
+    {
+        "Id": 1116,
+        "Description": "Obtained 2 Support Constructs. ",
+        "Title": "Event 20"
+    },
+    {
+        "Id": 1117,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 21"
+    },
+    {
+        "Id": 1118,
+        "Description": "The deployed Constructs recover 100% of their HP. ",
+        "Title": "Event 21"
+    },
+    {
+        "Id": 1119,
+        "Description": "The deployed Constructs lose 25% of their current HP. ",
+        "Title": "Event 21"
+    },
+    {
+        "Id": 1120,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 21"
+    },
+    {
+        "Id": 1121,
+        "Description": "Lost 1 challenge attempt. ",
+        "Title": "Event 22"
+    },
+    {
+        "Id": 1122,
+        "Description": "Obtained 2 Support Constructs. ",
+        "Title": "Event 22"
+    },
+    {
+        "Id": 1123,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 22"
+    },
+    {
+        "Id": 1124,
+        "Description": "Obtained 2 Support Constructs. ",
+        "Title": "Event 22"
+    },
+    {
+        "Id": 1125,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 23"
+    },
+    {
+        "Id": 1126,
+        "Description": "Obtained 1 challenge attempt. ",
+        "Title": "Event 23"
+    },
+    {
+        "Id": 1127,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 23"
+    },
+    {
+        "Id": 1128,
+        "Description": "The deployed Constructs lose 20% of their current HP. ",
+        "Title": "Event 24"
+    },
+    {
+        "Id": 1129,
+        "Description": "Gain {0} Support Points. ",
+        "Title": "Event 24"
+    },
+    {
+        "Id": 1130,
+        "Description": "Lose {0} Support Points. ",
+        "Title": "Event 24"
+    }
+]

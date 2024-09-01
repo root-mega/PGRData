@@ -8,7 +8,11 @@
         "TabBg": "Assets/Product/Texture/Image/UiChouka/UiChoukaJichu.png",
         "Priority": 8,
         "ParentName": "PanelCardsStandard",
-        "Condition": []
+        "Condition": [
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 2,
@@ -19,7 +23,11 @@
         "TabBg": "Assets/Product/Texture/Image/UiChouka/UiChoukaHuodong.png",
         "Priority": 7,
         "ParentName": "PanelCardsActivity",
-        "Condition": []
+        "Condition": [
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 3,
@@ -30,7 +38,11 @@
         "TabBg": "Assets/Product/Texture/Image/UiChouka/UiChoukaHuodong.png",
         "Priority": 12,
         "ParentName": "PanelCardsStandard",
-        "Condition": []
+        "Condition": [
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 4,
@@ -42,7 +54,9 @@
         "Priority": 13,
         "ParentName": "PanelCardsActivity",
         "Condition": [
-            8005.0
+            null,
+            8005.0,
+            null
         ]
     },
     {
@@ -54,7 +68,11 @@
         "TabBg": "Assets/Product/Texture/Image/UiChouka/UiChoukaLiandong.png",
         "Priority": 9,
         "ParentName": "PanelCardsStandard",
-        "Condition": []
+        "Condition": [
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 6,
@@ -65,7 +83,11 @@
         "TabBg": "Assets/Product/Texture/Image/UiChouka/UiChoukaTuzhuang.png",
         "Priority": 10,
         "ParentName": null,
-        "Condition": []
+        "Condition": [
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 7,
@@ -77,7 +99,9 @@
         "Priority": 14,
         "ParentName": "PanelCardsActivity",
         "Condition": [
-            8006.0
+            null,
+            8006.0,
+            null
         ]
     }
 ]

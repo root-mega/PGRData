@@ -3,9 +3,13 @@ local XTheatreTokenManager = require("XEntity/XTheatre/Token/XTheatreTokenManage
 local XTheatreDecorationManager = require("XEntity/XTheatre/Decoration/XTheatreDecorationManager")
 local XTheatrePowerManager = require("XEntity/XTheatre/Power/XTheatrePowerManager")
 local XTheatreTaskManager = require("XEntity/XTheatre/Task/XTheatreTaskManager")
+local XExFubenSimulationChallengeManager = require("XEntity/XFuben/XExFubenSimulationChallengeManager")
+
 XTheatreManagerCreator = function()
-    local XTheatreManager = {}
+    ---@class XTheatreManager:XExFubenSimulationChallengeManager
+    local XTheatreManager = XExFubenSimulationChallengeManager.New(XFubenConfigs.ChapterType.Theatre)
     -- 当前冒险管理 XAdventureManager
+    ---@type XTheatreAdventureManager
     local CurrentAdventureManager = nil
     -- 信物管理 XTheatreTokenManager
     local TokenManager = nil
@@ -103,6 +107,7 @@ XTheatreManagerCreator = function()
         return DecorationManager
     end
 
+    ---@return XTheatreAdventureManager
     function XTheatreManager.GetCurrentAdventureManager()
         return CurrentAdventureManager
     end
@@ -254,8 +259,10 @@ XTheatreManagerCreator = function()
 
         --去掉了奖励结算界面，战后播完剧情会没恢复被释放的UI
         if not _AutoMultiFight and not _MultiFight and not XLuaUiManager.IsUiLoad("UiTheatrePlayMain") and playEndStory then
-            XLuaUiManager.Remove("UiTheatrePlayMain")
-            XLuaUiManager.Open("UiTheatrePlayMain")
+            --XLuaUiManager.Remove("UiTheatrePlayMain")
+            --XLuaUiManager.Open("UiTheatrePlayMain")
+            --v2.6 UiTheatrePlayMain的enable处理导致Ui连续open卡死锁，故这么写
+            CurrentAdventureManager:ShowNextOperation()
         end
     end
 
@@ -383,7 +390,7 @@ XTheatreManagerCreator = function()
             XTheatreManager.SetSceneActive(false)
 
             rootUi:LoadUiScene(sceneUrl, modelUrl, nil, false)
-            rootUi:SetGameObject()
+            --rootUi:SetGameObject()
             _UiModel = rootUi.UiModel
             _UiModelGo = rootUi.UiModelGo
             _SceneInfo = rootUi.UiSceneInfo
@@ -781,7 +788,115 @@ XTheatreManagerCreator = function()
             end
         end
     end
+    
+    local TheatreSPModeRedPointCookieKey = "TheatreSPModeRedPoint"
+    function XTheatreManager.CheckSPModeRedPoint()
+        if not XTheatreManager.CheckSPModeIsOpen() then
+            return false
+        end
+        return XTheatreManager.CheckIsCookie(TheatreSPModeRedPointCookieKey)
+    end
     ------------------红点相关 end-------------------------
+
+    ------------------副本入口扩展 start-------------------------
+
+    function XTheatreManager:ExOpenMainUi()
+        if XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.Theatre) then
+            XTheatreManager.CheckAutoPlayStory()
+        end
+    end
+
+    -- 检查是否展示红点
+    function XTheatreManager:ExCheckIsShowRedPoint()
+        return XRedPointConditionTheatreAllRedPoint.Check()
+    end
+
+    ---商店买空即为Clear
+    function XTheatreManager:ExCheckIsFinished(cb)
+        local result = false
+        self.IsClear = result
+        
+        if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.ShopCommon, nil, true) 
+                or not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.Theatre, nil, true) then
+            if cb then cb(result) end
+            return
+        end
+        local shopIdList = XTheatreConfigs.GetShopIds()
+        if XTool.IsTableEmpty(shopIdList) then
+            if cb then cb(result) end
+            return
+        end
+        
+        local SetShopIsFinish = function()
+            local tempTotalBuyTimes
+            local tempBuyTimesLimit
+            for _, shopId in ipairs(shopIdList) do
+                local shopGoods = XShopManager.GetShopGoodsList(shopId, true)
+                for _, shopGood in pairs(shopGoods) do
+                    tempTotalBuyTimes = shopGood.TotalBuyTimes
+                    tempBuyTimesLimit = shopGood.BuyTimesLimit
+
+                    if tempTotalBuyTimes and tempBuyTimesLimit
+                            and tempBuyTimesLimit ~= 0
+                            and tempTotalBuyTimes ~= tempBuyTimesLimit then
+                        if cb then cb(result) end
+                        return
+                    end
+                end
+            end
+
+            result = true
+            self.IsClear = result
+            if cb then cb(result) end
+        end
+
+        if XTool.IsTableEmpty(XShopManager.GetShopGoodsList(shopIdList[1], true)) then
+            XShopManager.GetShopInfoList(shopIdList, SetShopIsFinish, XShopManager.ActivityShopType.TheatreShop, true)
+        else
+            SetShopIsFinish()
+        end
+    end
+    ------------------副本入口扩展 end-------------------------
+    
+    --region 冒险模式
+    function XTheatreManager.CheckSPModeIsOpen(isTip)
+        local conditionId = XTheatreConfigs.GetSPModeConditionId()
+        if not XTool.IsNumberValid(conditionId) then
+            return false
+        end
+        local ret, desc = XConditionManager.CheckCondition(conditionId)
+        if isTip and not ret then
+            XUiManager.TipError(desc)
+        end
+        return ret
+    end
+    
+    ---@return boolean
+    function XTheatreManager.GetSPMode()
+        if not XTheatreManager.CheckSPModeIsOpen() then
+            return false
+        end
+        local key = GetLocalSavedKey("TheatreSPMode_")
+        return XSaveTool.GetData(key, false)
+    end
+
+    function XTheatreManager.SetSPMode(isOn, isTip)
+        local key = GetLocalSavedKey("TheatreSPMode_")
+        if isTip then
+            if isOn then
+                XUiManager.TipError(XTheatreConfigs.GetSPModeOpenTile())
+            else
+                XUiManager.TipError(XTheatreConfigs.GetSPModeCloseTile())
+            end
+        end
+        return XSaveTool.SaveData(key, isOn)
+    end
+    
+    function XTheatreManager.SetSPModeRedPoint()
+        local key = GetLocalSavedKey(TheatreSPModeRedPointCookieKey)
+        XSaveTool.SaveData(key, true)
+    end
+    --endregion
 
     return XTheatreManager
 end

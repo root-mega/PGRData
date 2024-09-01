@@ -200,54 +200,56 @@ function XUiGridTeam:OnPivotCombatBtnChoicesClick()
             newTeamData[id] = entityId
         end
     end
-    local pivotStage = XDataCenter.PivotCombatManager.GetStage(self.StageId)
-    local isCenterStage = pivotStage and pivotStage:CheckIsScoreStage() or false
-    if lockTeamMembers >= teamMembers and teamMembers ~= 0 and not isCenterStage then
-        XUiManager.TipText("PivotCombatTeamPrefabLockTeam")
-        return
-    elseif lockTeamMembers > 0 and not isCenterStage then --被锁定角色大于0，且非积分关卡
-        local confirmCb = function()
-            local newTeam = XTool.Clone(self.TeamData)
-            newTeam.TeamData = newTeamData
+    local stage = XDataCenter.PivotCombatManager.GetStage(self.StageId)
+    local useLockRole = stage and stage:CanUseLockedRole() or false
+    if not useLockRole and lockTeamMembers > 0 then
+        if lockTeamMembers >= teamMembers and teamMembers ~= 0 then
+            XUiManager.TipText("PivotCombatTeamPrefabLockTeam")
+            return
+        else
+            local confirmCb = function()
+                local newTeam = XTool.Clone(self.TeamData)
+                newTeam.TeamData = newTeamData
 
-            local characterLimitType = self.CharacterLimitType
-            local characterType = self.CharacterType
+                local characterLimitType = self.CharacterLimitType
+                local characterType = self.CharacterType
 
-            local selectFunc = function()
-                XEventManager.DispatchEvent(XEventId.EVENT_TEAM_PREFAB_SELECT, newTeam)
-                self.RootUi:EmitSignal("RefreshTeamData", newTeam)
-                self.RootUi:Close(newTeam)
-            end
+                local selectFunc = function()
+                    XEventManager.DispatchEvent(XEventId.EVENT_TEAM_PREFAB_SELECT, newTeam)
+                    self.RootUi:EmitSignal("RefreshTeamData", newTeam)
+                    self.RootUi:Close(newTeam)
+                end
 
-            -- 混合类型
-            if self:GetTeamIsMixType() then
+                -- 混合类型
+                if self:GetTeamIsMixType() then
+                    if characterLimitType == XFubenConfigs.CharacterLimitType.Normal then
+                        XUiManager.TipText("TeamCharacterTypeNormalLimitText")
+                        return
+                    end
+                    if characterLimitType == XFubenConfigs.CharacterLimitType.Isomer then
+                        XUiManager.TipText("TeamCharacterTypeIsomerLimitText")
+                        return
+                    end
+                end
+
                 if characterLimitType == XFubenConfigs.CharacterLimitType.Normal then
-                    XUiManager.TipText("TeamCharacterTypeNormalLimitText")
-                    return
+                    if characterType == XCharacterConfigs.CharacterType.Isomer then
+                        XUiManager.TipText("TeamCharacterTypeNormalLimitText")
+                        return
+                    end
+                elseif characterLimitType == XFubenConfigs.CharacterLimitType.Isomer then
+                    if characterType == XCharacterConfigs.CharacterType.Normal then
+                        XUiManager.TipText("TeamCharacterTypeIsomerLimitText")
+                        return
+                    end
                 end
-                if characterLimitType == XFubenConfigs.CharacterLimitType.Isomer then
-                    XUiManager.TipText("TeamCharacterTypeIsomerLimitText")
-                    return
-                end
-            end
 
-            if characterLimitType == XFubenConfigs.CharacterLimitType.Normal then
-                if characterType == XCharacterConfigs.CharacterType.Isomer then
-                    XUiManager.TipText("TeamCharacterTypeNormalLimitText")
-                    return
-                end
-            elseif characterLimitType == XFubenConfigs.CharacterLimitType.Isomer then
-                if characterType == XCharacterConfigs.CharacterType.Normal then
-                    XUiManager.TipText("TeamCharacterTypeIsomerLimitText")
-                    return
-                end
+                selectFunc()
             end
-
-            selectFunc()
+            local title = XUiHelper.GetText("BfrtDeployTipTitle")
+            local content = XUiHelper.GetText("PivotCombatTeamPrefabLockCharacter")
+            XUiManager.DialogTip(title, content, nil, nil, confirmCb)
         end
-        local title = XUiHelper.GetText("BfrtDeployTipTitle")
-        local content = XUiHelper.GetText("PivotCombatTeamPrefabLockCharacter")
-        XUiManager.DialogTip(title, content, nil, nil, confirmCb)
     else
         self:OnSelectCallback()
     end

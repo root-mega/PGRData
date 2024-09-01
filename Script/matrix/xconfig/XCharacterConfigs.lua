@@ -18,8 +18,9 @@ XCharacterConfigs.GrowUpLevel = {
     New = 1, -- 新兵
     Lower = 2, -- 低级
     Middle = 3, -- 中级
-    Higher = 4, -- 高级
-    End = 4,
+    Higher = 4, -- 终阶
+    Super = 5, -- 超级
+    End = 5,
 }
 
 -- 推荐类型
@@ -43,17 +44,27 @@ XCharacterConfigs.SkillUnLockType = {
     Sp = 2,
 }
 
+XCharacterConfigs.SkillDetailsType = {
+    Normal = 1,
+    Enhance = 2,
+}
+
+-- 信号球颜色
+XCharacterConfigs.CharacterLiberateBallColorType = {
+    Red = 1,
+    Yellow = 2,
+    Blue = 3,
+}
+
 -- 基本职业类型索引
 local Career2CareerType = {
     [5] = 3, -- 增幅型 -> 辅助型
 }
 
-XCharacterConfigs.MAX_QUALITY_STAR = 10
-
 --角色终阶解放技能ID约定配置
 XCharacterConfigs.MAX_LEBERATION_SKILL_POS_INDEX = 13
 
-XCharacterConfigs.MAX_SHOW_SKILL_POS = 5--展示用技能组数量
+XCharacterConfigs.MAX_SHOW_SKILL_POS = 4--展示用技能组数量
 
 local TABLE_CHARACTER_PATH = "Share/Character/Character.tab"
 local TABLE_LEVEL_UP_TEMPLATE_PATH = "Share/Character/LevelUpTemplate/"
@@ -71,6 +82,7 @@ local TABLE_CHARACTER_ELEMENT_CONFIG = "Client/Character/CharacterElement.tab"
 local TABLE_CHARACTER_SKILL_POS = "Share/Character/Skill/CharacterSkillPos.tab"
 local TABLE_CHARACTER_SKILL_GRADE = "Share/Character/Skill/CharacterSkillUpgrade.tab"
 local TABLE_CHARACTER_SKILL_GRADE_DES = "Client/Character/Skill/CharacterSkillUpgradeDes.tab"
+local TABLE_CHARACTER_SKILL_GATE = "Client/Character/Skill/CharacterSkillGate.tab"
 local TABLE_CHARACTER_SKILL_LEVEL = "Share/Character/Skill/CharacterSkillLevelEffect.tab"
 local TABLE_CHARACTER_SKILL_TYPE_INFO = "Client/Character/Skill/CharacterSkillTypeInfo.tab"
 local TABLE_CHARACTER_SKILL_TYPE = "Share/Character/Skill/CharacterSkillType.tab"
@@ -78,7 +90,7 @@ local TABLE_CHARACTER_SKILL_TYPE_PLUS = "Share/Character/Skill/CharacterSkillTyp
 local TABLE_CHARACTER_GRAPH_INFO = "Client/Character/CharacterGraph.tab"
 local TABLE_CHARACTER_SKILL_POOL = "Share/Character/Skill/CharacterSkillPool.tab"
 local TABLE_CHARACTER_DETAIL_PARNER = "Client/Character/CharacterRecommend.tab"
-local TABLE_CHARACTER_DETAIL_EQUIP = "Client/Character/EquipRecommend.tab"
+local TABLE_CHARACTER_DETAIL_EQUIP = "Share/Equip/EquipGuide/EquipRecommend.tab"
 local TABLE_CHARACTER_RECOMMEND_TAB_CONFIG = "Client/Character/CharacterTabId.tab"
 local TABLE_CHARACTER_QUALITY_ICON_PATH = "Client/Character/CharacterQualityIcon.tab"
 local TABLE_NPC_PATH = "Share/Fight/Npc/Npc"
@@ -113,10 +125,12 @@ local CharTeachSkill = {}                   -- 角色技能教学
 local CharElementTemplates = {}             -- 角色元素配置
 local SkillGradeConfig = {}                 -- 角色技能升级表
 local SkillGradeDesConfig = {}              -- 角色技能升级描述表
+local SkillGateConfig = {}                  -- 角色技能模块配置表
 local SkillPosConfig = {}                   -- 角色技能大组显示配置
 local CharGraphTemplates = {}               -- 角色六位图配置
 local CharSkillLevelDict = {}               -- 角色技能Id，等级Id的属性表Map
 local CharSkillLevelDesDict = {}            -- 角色技能Id，等级Id的属性表Map
+local SkillIdIconDic = {}                   -- 角色技能Id，skillDesc表项的icon
 local CharSkillLevelEffectDict = {}         -- 角色技能Id, 等级Id的升级表Map
 local CharSkillPoolSkillIdDic = {}          -- 角色技能共鸣池SkillId映射技能信息字典
 local SkillTypeInfoConfig = {}              -- 角色技能分类名字
@@ -153,6 +167,7 @@ local CharacterRecommendTemplates   --角色推荐表
 local EquipRecommendTemplates       --装备推荐表
 local CharacterTabToVoteGroupMap    --角色标签转投票组表
 local CharacterTemplatesCount       --角色总数量
+local CharSkillGroupTemplates       --技能组表
 
 -- 体验包保留角色
 local IncludeCharacterIds = {
@@ -293,6 +308,7 @@ local IntCharSubSkillConfig = function()
     SkillTypePlusConfig = XTableManager.ReadByIntKey(TABLE_CHARACTER_SKILL_TYPE_PLUS, XTable.XTableCharacterSkillTypePlus, "Id")
     CharacterSkillType = XTableManager.ReadByIntKey(TABLE_CHARACTER_SKILL_TYPE, XTable.XTableCharacterSkillType, "Id")
     CharSkillTemplates = XTableManager.ReadByIntKey(TABLE_CHARACTER_SKILL, XTable.XTableCharacterSkill, "CharacterId")
+    SkillGateConfig = XTableManager.ReadByIntKey(TABLE_CHARACTER_SKILL_GATE, XTable.XTableCharacterSkillGate, "Id")
     
     for _, config in pairs(CharSkillTemplates) do
         local characterId = config.CharacterId
@@ -326,8 +342,8 @@ local IntCharSubSkillConfig = function()
         end
     end
 
-    local charSkillGroupTemplates = XTableManager.ReadByIntKey(TABLE_CHARACTER_SKILL_GROUP, XTable.XTableCharacterSkillGroup, "Id")
-    for _, config in pairs(charSkillGroupTemplates) do
+    CharSkillGroupTemplates = XTableManager.ReadByIntKey(TABLE_CHARACTER_SKILL_GROUP, XTable.XTableCharacterSkillGroup, "Id")
+    for _, config in pairs(CharSkillGroupTemplates) do
         local skillGroupId = config.Id
         local skillIds = config.SkillId
 
@@ -360,6 +376,8 @@ local IntCharSubSkillConfig = function()
             CharSkillLevelDesDict[v.SkillId] = {}
         end
         CharSkillLevelDesDict[v.SkillId][v.Level] = k
+
+        SkillIdIconDic[v.SkillId] = v.Icon
     end
 
     SubSkillMinMaxLevelDicLevel = {}
@@ -607,13 +625,12 @@ function XCharacterConfigs.GetCharacterSkillsByCharacter(character, clientLevel,
         skills[i].config = {}
         skills[i].config.Pos = i
 
-        if not SkillPosConfig[templateId] then
-            XLog.ErrorTableDataNotFound("XCharacterConfigs.GetCharacterSkills",
-            "SkillPosConfig", TABLE_CHARACTER_SKILL_POS, "templateId", tostring(templateId))
+        if not SkillGateConfig[i] then
+            XLog.ErrorTableDataNotFound("XCharacterConfigs.GetCharacterSkills", "SkillGateConfig", TABLE_CHARACTER_SKILL_GATE, "Id", tostring(i))
         else
-            skills[i].Icon = SkillPosConfig[templateId].MainSkillIcon[i]
-            skills[i].Name = SkillPosConfig[templateId].MainSkillName[i]
-            skills[i].TypeDes = SkillPosConfig[templateId].MainSkillType[i]
+            skills[i].Icon = SkillGateConfig[i].Icon
+            skills[i].Name = SkillGateConfig[i].Name
+            skills[i].EnName = SkillGateConfig[i].EnName
             skills[i].TotalLevel = 0
 
             --skills[i].SkillIdList = CharacterSkillDictTemplates[templateId][i]-- todo optimize
@@ -645,7 +662,9 @@ function XCharacterConfigs.GetCharacterSkillsByCharacter(character, clientLevel,
                     skillCo.config = SkillGradeConfig[tabId]
                 end
 
-                tabId = CharSkillLevelDesDict[skillId][skillCo.Level]
+                local temp = CharSkillLevelDesDict[skillId]
+
+                tabId = temp and temp[skillCo.Level] or nil
                 if tabId then
                     skillCo.configDes = SkillGradeDesConfig[tabId]
                 end
@@ -656,6 +675,10 @@ function XCharacterConfigs.GetCharacterSkillsByCharacter(character, clientLevel,
     end
 
     return skills
+end
+
+function XCharacterConfigs.GetSkillIconById(skillId)
+    return SkillIdIconDic[skillId]
 end
 
 function XCharacterConfigs.GetCharDetailParnerTemplate(templateId)
@@ -858,6 +881,7 @@ function XCharacterConfigs.GetAllCharElments()
     return CharElementTemplates
 end
 
+---@return XTableCharacterElement
 function XCharacterConfigs.GetCharElement(elementId)
     local template = CharElementTemplates[elementId]
     if template == nil then
@@ -1181,7 +1205,7 @@ function XCharacterConfigs.GetStarUseCount(characterType, quality, star)
         return
     end
 
-    if not star or (star < 1 or star > XCharacterConfigs.MAX_QUALITY_STAR) then
+    if not star or (star < 1 or star > XEnumConst.CHARACTER.MAX_QUALITY_STAR) then
         XLog.Error("XCharacterConfigs.GetStarUseCount函数参数不规范，参数是star：" .. star)
         return
     end
@@ -1212,7 +1236,7 @@ function XCharacterConfigs.GetCharStarAttribId(templateId, quality, star)
         return
     end
 
-    if not star or (star < 1 or star > XCharacterConfigs.MAX_QUALITY_STAR) then
+    if not star or (star < 1 or star > XEnumConst.CHARACTER.MAX_QUALITY_STAR) then
         XLog.Error("XCharacterConfigs.GetCharStarAttribId函数参数不规范，参数是star：" .. star)
         return
     end
@@ -1239,8 +1263,26 @@ function XCharacterConfigs.GetCharStarAttribs(templateId, quality, star)
         return
     end
 
-    if star < XCharacterConfigs.MAX_QUALITY_STAR then
+    if star < XEnumConst.CHARACTER.MAX_QUALITY_STAR then
         local attrId = XCharacterConfigs.GetCharStarAttribId(templateId, quality, star + 1)
+        if not attrId then
+            XLog.ErrorTableDataNotFound("XCharacterConfigs.GetCharStarAttribs",
+            "CharQualityTemplates", TABLE_CHARACTER_QUALITY_PATH, "templateId", tostring(templateId))
+            return
+        end
+
+        return XAttribManager.GetBaseAttribs(attrId)
+    end
+end
+
+function XCharacterConfigs.GetCharCurStarAttribsV2P6(templateId, quality, star)
+    if not templateId and not quality and not star then
+        XLog.Error("XCharacterConfigs.GetCharStarAttribs函数参数不规范，参数是templateId, quality, star")
+        return
+    end
+
+    if star <= XEnumConst.CHARACTER.MAX_QUALITY_STAR then
+        local attrId = XCharacterConfigs.GetCharStarAttribId(templateId, quality, star)
         if not attrId then
             XLog.ErrorTableDataNotFound("XCharacterConfigs.GetCharStarAttribs",
             "CharQualityTemplates", TABLE_CHARACTER_QUALITY_PATH, "templateId", tostring(templateId))
@@ -1449,7 +1491,13 @@ end
 --战中设置
 function XCharacterConfigs.GetCharTeachDescriptionById(charId)
     local cfg = CharTeachSkill[charId]
-    return cfg and cfg.Description or nil
+    return cfg and cfg.Description or {}
+end
+
+-- 战中设置
+function XCharacterConfigs.GetCharTeachHeadLineById(charId)
+    local cfg = CharTeachSkill[charId]
+    return cfg and cfg.HeadLine or {}
 end
 
 function XCharacterConfigs.GetCharTeachStageIdById(charId)
@@ -1512,18 +1560,7 @@ function XCharacterConfigs.GetCaptainSkillInfo(characterId, skillLevel)
         skillLevel = config.Min
     end
 
-    if not CharSkillLevelDesDict[captianSkillId] then
-        XLog.ErrorTableDataNotFound("XCharacterConfigs.GetCaptainSkillInfo",
-        "CharSkillLevelDesDict", TABLE_CHARACTER_SKILL_GRADE_DES, "characterId  ：  skillLevel", tostring(characterId) .. " : " .. tostring(skillLevel))
-    end
-    local tab = CharSkillLevelDesDict[captianSkillId][skillLevel]
-    local config = SkillGradeDesConfig[tab]
-    if not config then
-        XLog.ErrorTableDataNotFound("XCharacterConfigs.GetCaptainSkillInfo",
-        "CharSkillLevelDesDict", TABLE_CHARACTER_SKILL_GRADE_DES, "characterId  ：  skillLevel", tostring(characterId) .. " : " .. tostring(skillLevel))
-    end
-
-    return config
+    return XCharacterConfigs.GetSkillGradeDesConfig(captianSkillId, skillLevel)
 end
 
 function XCharacterConfigs.GetSkillGradeConfig(subSkillId, subSkillLevel)
@@ -1552,13 +1589,24 @@ function XCharacterConfigs.GetSkillGradeDesConfig(subSkillId, subSkillLevel)
         XLog.Error("XCharacterConfigs.GetSkillGradeDesConfig Error: 获取技能等级配置错误, subSkillId: " .. subSkillId .. " subSkillLevel: " .. subSkillLevel .. ", 配置路径: " .. TABLE_CHARACTER_SKILL_GRADE_DES)
         return
     end
-
-    return SkillGradeDesConfig[tabId]
+    local config = SkillGradeDesConfig[tabId]
+    local cloneConfig = XTool.Clone(config)
+    cloneConfig.Intro = XCharacterConfigs.GetGradeDesConfigIntro(cloneConfig)
+    return cloneConfig
 end
 
-function XCharacterConfigs.GetSkillGradeDesConfigSkillDes(subSkillId, subSkillLevel)
-    local config = XCharacterConfigs.GetSkillGradeDesConfig(subSkillId, subSkillLevel)
-    return config.Name, config.Intro
+-- V1.29 返回详情描述的整合，原技能描述配置字段Intro字段配置表里已删除，该接口是为了兼容旧版Intro字段。
+-- 技能描述请使用新字段BriefDes 简略 和SpecificDes 详情 两字段
+-- GetCharacterSkillsByCharacter 接口的configDes信息里不包含Intro字段信息
+function XCharacterConfigs.GetGradeDesConfigIntro(gradeDesConfig)
+    local tempData = nil
+    for index, specificDes in pairs(gradeDesConfig.SpecificDes or {}) do
+        local title = gradeDesConfig.Title[index]
+        tempData = tempData and tempData .. "\n" or ""
+        title = title and title .. "\n" or ""
+        tempData = string.format("%s%s%s", tempData, title, specificDes)
+    end
+    return XUiHelper.ConvertLineBreakSymbol(tempData)
 end
 
 function XCharacterConfigs.GetSkillGradeDesConfigWeaponSkillDes(subSkillId, subSkillLevel)
@@ -1928,4 +1976,12 @@ function XCharacterConfigs.GetEnhanceSkillTypeConfig(Id)
         XLog.Error("Id Is Not Exist In "..TABLE_CHARACTER_ENHANCESKILL_TYPE..":"..Id)
     end
     return cfg
+end
+
+function XCharacterConfigs.GetCharSkillGroupTemplates()
+    return CharSkillGroupTemplates
+end
+
+function XCharacterConfigs.GetCharSkillGroupTemplatesById(id)
+    return CharSkillGroupTemplates[id]
 end

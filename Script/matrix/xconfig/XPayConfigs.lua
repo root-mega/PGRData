@@ -12,13 +12,15 @@ local FirstPayTemplates = {}
 local PayPlatformTemplates = {}
 local PayListDataConfig = nil
 
--- -- 充值目标模块（该类型决定服务端去走哪一部分的业务逻辑）
--- XPayConfigs.PayTargetModuleTypes = {
---     None = 0,
---     Purchase = 1, -- 采购系统
---     Shop = 2, -- 商店系统
---     Passport = 3,-- 通行证系统
--- }
+-- 充值目标模块（该类型决定服务端去走哪一部分的业务逻辑）
+XPayConfigs.PayTargetModuleTypes = {
+    None = 0,
+    Purchase = 1, -- 采购系统
+    Shop = 2, -- 商店系统
+    Passport = 3,-- 通行证系统
+    GooglePlayPoints = 4,--谷歌积分兑换系统 -- 来自日服
+    Regression3Passport = 5,--回归3通行证系统 
+}
 
 XPayConfigs.PayTemplateType = {
     PC = 0,

@@ -69,14 +69,47 @@ XSetConfigs.PressKeyIndex = {
     Two = 1,
     End = 2
 }
+
+XSetConfigs.FocusType = {
+    Auto = 1,       -- 智能锁定
+    Manual = 2,     -- 手动锁定
+    SemiAuto = 3,   -- 半自动锁定
+}
+
+XSetConfigs.FocusTypeDlcHunt = {
+    Auto = 1,       -- 智能锁定
+    Manual = 2,     -- 手动锁定
+    --SemiAuto = 3,   -- 半自动锁定 dlc不存在
+}
+
+--按键下标
+XSetConfigs.PressKeyIndex = {
+    One = 0,
+    Two = 1,
+    End = 2
+}
+
+--运营埋点
+XSetConfigs.RecordOperationType = {
+    Back = 1,       --返回
+    Retreat = 2,    --撤退
+    ReStart = 3,    --重开
+}
+
 XSetConfigs.SelfNum = "SelfNum"---自身伤害数字
 XSetConfigs.FriendNum = "FriendNum"--队友伤害数字
 XSetConfigs.FriendEffect = "FriendEffect"--队友特效
 XSetConfigs.IsFirstFriendEffect = "IsFirstFriendEffect"--是否是第一次在联机页面开启队友特效
 XSetConfigs.ScreenOff = "ScreenOff"
 XSetConfigs.DefaultDynamicJoystickKey = "DefaultDynamicJoystick"
+--region focus
 XSetConfigs.DefaultFocusTypeKey = "DefaultFocusType"
 XSetConfigs.DefaultFocusButtonKey = "DefaultFocusButton"
+--region focus
+--region focus dlcHunt
+XSetConfigs.DefaultFocusTypeDlcHuntKey = "DefaultFocusTypeDlcHunt"
+XSetConfigs.DefaultFocusButtonDlcHuntKey = "DefaultFocusButtonDlcHunt"
+--region focus dlcHunt
 XSetConfigs.DefaultInviteButtonKey = "DefaultInviteButton"
 XSetConfigs.DefaultWeaponTransTypeKey = "DefaultWeaponTransType"
 XSetConfigs.DefaultRechargeTypeKey = "DefaultRechargeType"
@@ -91,8 +124,14 @@ function XSetConfigs.Init()
     XSetConfigs.SelfNumSizes[key2] = CS.XGame.ClientConfig:GetInt(key2) or 0
     XSetConfigs.SelfNumSizes[key3] = CS.XGame.ClientConfig:GetInt(key3) or 0
     XSetConfigs.DefaultDynamicJoystick = CS.XGame.ClientConfig:GetInt(XSetConfigs.DefaultDynamicJoystickKey)
+    --region focus
     XSetConfigs.DefaultFocusType = CS.XGame.ClientConfig:GetInt(XSetConfigs.DefaultFocusTypeKey)
     XSetConfigs.DefaultFocusButton = CS.XGame.ClientConfig:GetInt(XSetConfigs.DefaultFocusButtonKey)
+    --endregion focus
+    --region focus dlcHunt
+    XSetConfigs.DefaultFocusTypeDlcHunt = CS.XGame.ClientConfig:GetInt(XSetConfigs.DefaultFocusTypeDlcHuntKey)
+    XSetConfigs.DefaultFocusButtonDlcHunt = CS.XGame.ClientConfig:GetInt(XSetConfigs.DefaultFocusButtonDlcHuntKey)
+    --endregion focus dlcHunt
     XSetConfigs.DefaultInviteButton = CS.XGame.ClientConfig:GetInt(XSetConfigs.DefaultInviteButtonKey)
     XSetConfigs.DefaultWeaponTransType = CS.XGame.ClientConfig:GetInt(XSetConfigs.DefaultWeaponTransTypeKey)
     XSetConfigs.DefaultRechargeType = CS.XGame.ClientConfig:GetInt(XSetConfigs.DefaultRechargeTypeKey)
@@ -118,22 +157,27 @@ local InitOperationMapConfig = function()
     if IsInitOperationMapConfig then
         return
     end
+
     OperationTypeMapTemplates = XTableManager.ReadByIntKey(TABLE_OPERATION_TYPE_MAP_PATH, XTable.XTableOperationTypeMap, "OperationType")
     for operationType in pairs(OperationTypeMapTemplates) do
         table.insert(OperationTypeList, operationType)
     end
     table.sort(OperationTypeList)
+
     IsInitOperationMapConfig = true
 end
+
 function XSetConfigs.GetOperationTypeList()
     InitOperationMapConfig()
     return OperationTypeList
 end
+
 function XSetConfigs.GetOperationTypeStr(operationType)
     InitOperationMapConfig()
     local config = OperationTypeMapTemplates[operationType]
     return config and config.Str or ""
 end
+
 function XSetConfigs.GetOperationTypeTimeId(operationType)
     InitOperationMapConfig()
     local config = OperationTypeMapTemplates[operationType]

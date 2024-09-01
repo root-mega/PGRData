@@ -5,6 +5,18 @@ XTaikoMasterManagerCreator = function()
     ---@class XTaikoMasterManager@音游
     local XTaikoMasterManager = {}
 
+    --设置关卡类型
+    XTaikoMasterManager.InitStageInfo = function()
+        local allStage = XTaikoMasterConfigs.GetAllStage()
+        for _, stage in pairs(allStage) do
+            local stageId = stage.StageId
+            local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
+            if stageInfo then
+                stageInfo.Type = XDataCenter.FubenManager.StageType.TaikoMaster
+            end
+        end
+    end
+
     XTaikoMasterManager.GetSongName = function(songId)
         return XTaikoMasterConfigs.GetSongName(songId)
     end
@@ -193,7 +205,7 @@ XTaikoMasterManagerCreator = function()
     end
 
     XTaikoMasterManager.IsActivityOpen = function()
-        return XFunctionManager.CheckInTimeByTimeId(XTaikoMasterManager.GetActivityTimeId(), true)
+        return XFunctionManager.CheckInTimeByTimeId(XTaikoMasterManager.GetActivityTimeId(), false)
     end
 
     XTaikoMasterManager.IsFunctionOpen = function()

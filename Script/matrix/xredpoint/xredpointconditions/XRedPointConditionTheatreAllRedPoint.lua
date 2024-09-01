@@ -14,6 +14,9 @@ function XRedPointConditionTheatreAllRedPoint.Check()
     if XRedPointConditionTheatreTaskRewardRedPoint.Check() then
         return true
     end
+    if XDataCenter.TheatreManager.CheckSPModeRedPoint() then
+        return true
+    end
     return false
 end
 

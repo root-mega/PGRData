@@ -1,6 +1,7 @@
 --============
 --公会宿舍场景实体基类
 --============
+---@class XGuildDormBaseSceneObj
 local XGuildDormBaseSceneObj = XClass(nil, "XGuildDormBaseSceneObj")
 --============
 --将GameObject移动到root根节点

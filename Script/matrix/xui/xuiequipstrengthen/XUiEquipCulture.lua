@@ -367,7 +367,7 @@ function XUiEquipCulture:OnClickBtnPreview()
 
     --升级素材不足
     if not self.CanLevelUp then
-        local skipIds = XDataCenter.EquipManager.GetEquipSkipIds(XEquipConfig.EatType.Item, self.EquipId)
+        local skipIds = XDataCenter.EquipManager.GetEquipEatSkipIds(XEquipConfig.EatType.Item, self.EquipId)
         XLuaUiManager.Open("UiEquipStrengthenSkip", skipIds)
         return
     end
@@ -410,18 +410,17 @@ function XUiEquipCulture:OnClickBtnEvoConfirm()
         return
     end
 
-    --打开确认培养弹窗
-    local confirmCb = function()
-        local targetBreakthrough, targetLevel =
-            XDataCenter.EquipManager.ConvertToBreakThroughAndLevel(self.TemplateId, self.TargetLevelUnit)
-        XDataCenter.EquipManager.EquipOneKeyFeedRequest(self.EquipId, targetBreakthrough, targetLevel, self.Operations)
+    if XLuaUiManager.IsUiShow("UiEquipCultureConfirm") then
+        return
     end
+
+    --打开确认培养弹窗
     XLuaUiManager.Open(
         "UiEquipCultureConfirm",
-        self.TemplateId,
+        self.EquipId,
         self.MinLevelUnit,
         self.TargetLevelUnit,
         self.RealTargetLevel,
-        confirmCb
+        self.Operations
     )
 end

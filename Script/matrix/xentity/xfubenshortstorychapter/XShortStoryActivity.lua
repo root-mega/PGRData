@@ -6,19 +6,18 @@ local ipairs = ipairs
 --[[
 public class NotifyShortStoryActivity
 {
-    public List<int> Chapters = new List<int>();
-    public long EndTime;
-    public long HideChapterBeginTime;
+    public int ActivityId -- 活动Id
 }
 ]]
 
 local Default = {
+    _ActivityId = 0, -- 活动Id
     _ActivityChapters = {}, --活动抢先体验ChapterId列表
     _EndTime = 0, --活动抢先体验结束时间
     _HideChapterBeginTime = 0, --活动抢先体验结束时间(隐藏模式)
     _ActivityTimer = nil, --定时器
+    _IsActivity = {}, --活动是否结束
 }
-local IsActivity = {} --活动是否结束
 local XShortStoryActivity = XClass(nil,"XShortStoryActivity")
 
 function XShortStoryActivity:Ctor(activityCb)
@@ -33,19 +32,33 @@ function XShortStoryActivity:Ctor(activityCb)
 end
 
 function XShortStoryActivity:UpdateData(data)
+    self._ActivityId = data.ActivityId or self._ActivityId
+    if not XTool.IsNumberValid(self._ActivityId) then
+        self._EndTime = 0
+        self._HideChapterBeginTime = 0
+        self:ShortStoryActivityEnd()
+        return
+    end
+    
+    local shortStoryActivityCfg = XFubenShortStoryChapterConfigs.GetShortStoryActivity(self._ActivityId)
+    local chapterIds = shortStoryActivityCfg.ChapterId
+    local chapterTimeId = shortStoryActivityCfg.ChapterTimeId
+    local hideChapterTimeId = shortStoryActivityCfg.HideChapterTimeId
+    
     local now = XTime.GetServerNowTimestamp()
-    self._EndTime = data.EndTime or self._EndTime
-    self._HideChapterBeginTime = data.HideChapterBeginTime or self._HideChapterBeginTime
+    self._EndTime = XFunctionManager.GetEndTimeByTimeId(chapterTimeId) or self._EndTime
+    self._HideChapterBeginTime = XFunctionManager.GetStartTimeByTimeId(hideChapterTimeId) or self._HideChapterBeginTime
 
     if now < self._EndTime then
         --清理上次活动状态
         if next(self._ActivityChapters) then
             self:ShortStoryActivityEnd()
         end
-        self._ActivityChapters = { Chapters = data.Chapters } or self._ActivityChapters
+        self._ActivityChapters = { Chapters = chapterIds } or self._ActivityChapters
         self:ShortStoryActivityStart()
+    else
+        self:ShortStoryActivityEnd()
     end
-    self:ShortStoryActivityEnd()
 end
 
 --活动开始
@@ -84,13 +97,14 @@ function XShortStoryActivity:ShortStoryActivityEnd()
     if chapterIds then
         for _, chapterId in pairs(chapterIds) do
             if XTool.IsNumberValid(chapterId) then
-                IsActivity[chapterId] = false
+                self._IsActivity[chapterId] = false
+                self:CheckStageStatus(chapterId, false)
             end
         end
     end
     
     self.ActivityCallback.UpdateStageInfo(true)
-    self:ShortStoryActivityStart()
+    --self:ShortStoryActivityStart()
     CsXGameEventManager.Instance:Notify(XEventId.EVENT_ACTIVITY_SHORT_STORY_CHAPTER_STATE_CHANGE)
     XEventManager.DispatchEvent(XEventId.EVENT_FUBEN_REFRESH_STAGE_DATA)
 end
@@ -108,22 +122,31 @@ end
 function XShortStoryActivity:UnlockChapterViaActivity(chapterId)
     --开启章节，标识活动状态
     if not chapterId then return end
-    IsActivity[chapterId] = true
+    self._IsActivity[chapterId] = true
     
     self.ActivityCallback.UpdateChapterData(chapterId)
 
+    self:CheckStageStatus(chapterId, true)
+end
+
+function XShortStoryActivity:CheckStageStatus(chapterId, isFirstSpecial)
     local stageIds = XFubenShortStoryChapterConfigs.GetStageIdByChapterId(chapterId)
+
     for index, stageId in ipairs(stageIds) do
         local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
         stageInfo.Unlock = true
         stageInfo.IsOpen = true
-        --章节第一关无视前置条件
-        if index ~= 1 then
+
+        local isSpecial = true
+        if isFirstSpecial then
+            isSpecial = index ~= 1 -- 章节第一关无视前置条件
+        end
+        
+        if isSpecial then
             local stageCfg = XDataCenter.FubenManager.GetStageCfg(stageId)
-            --其余关卡只检测前置条件组
-            for _, prestageId in pairs(stageCfg.PreStageId or {}) do
-                if prestageId > 0 then
-                    local stageData = XDataCenter.FubenManager.GetStageData(prestageId)
+            for _, preStageId in pairs(stageCfg.PreStageId or {}) do
+                if preStageId > 0 then
+                    local stageData = XDataCenter.FubenManager.GetStageData(preStageId)
                     if not stageData or not stageData.Passed then
                         stageInfo.Unlock = false
                         stageInfo.IsOpen = false
@@ -162,7 +185,7 @@ function XShortStoryActivity:GetActivityHideChapterBeginTime()
 end
 
 function XShortStoryActivity:IsActivity(chapterId)
-    return IsActivity[chapterId]
+    return self._IsActivity[chapterId]
 end
 
 return XShortStoryActivity

@@ -73,25 +73,24 @@ function XDynamicDailyTask:ResetData(data)
     for i = 1, #self.RewardPanelList do
         self.RewardPanelList[i]:Refresh()
     end
-    XScheduleManager.ScheduleOnce(function()--异形屏适配需要
-        if rewards then
-            for i = 1, #rewards do
-                local panel = self.RewardPanelList[i]
-                if not panel then
-                    if #self.RewardPanelList == 0 then
-                        panel = XUiGridCommon.New(self.RootUi, self.GridCommon)
-                    else
-                        local ui = CS.UnityEngine.Object.Instantiate(self.GridCommon)
-                        ui.transform:SetParent(self.GridCommon.parent, false)
-                        panel = XUiGridCommon.New(self.RootUi, ui)
-                    end
-                    table.insert(self.RewardPanelList, panel)
+    if rewards then
+        for i = 1, #rewards do
+            local panel = self.RewardPanelList[i]
+            if not panel then
+                if #self.RewardPanelList == 0 then
+                    panel = XUiGridCommon.New(self.RootUi, self.GridCommon)
+                else
+                    local ui = CS.UnityEngine.Object.Instantiate(self.GridCommon)
+                    ui.transform:SetParent(self.GridCommon.parent, false)
+                    panel = XUiGridCommon.New(self.RootUi, ui)
                 end
-
-                panel:Refresh(rewards[i])
+                table.insert(self.RewardPanelList, panel)
             end
+
+            panel:Refresh(rewards[i])
         end
-    end, 0)
+        XUiHelper.MarkLayoutForRebuild(self.Transform.parent) --异形屏适配需要
+    end
 
     local isFinish = data.State == XDataCenter.TaskManager.TaskState.Finish
     self.ImgComplete.gameObject:SetActive(isFinish)
@@ -391,4 +390,8 @@ function XDynamicDailyTask:IsTimePeriodCondition(conditionType)
         end
     end
     return false
+end
+
+function XDynamicDailyTask:GetTaskState()
+    return self.Data and self.Data.State
 end

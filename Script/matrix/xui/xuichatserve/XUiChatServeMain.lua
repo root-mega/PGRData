@@ -136,7 +136,7 @@ function XUiChatServeMain:AutoInitUi()
     self.BtnPanelMsgTips = self.Transform:Find("SafeAreaContentPane/PanelChatServe/PanelMsgTips/BtnImgBg"):GetComponent("Button")
     self.TxtMsgCount = self.Transform:Find("SafeAreaContentPane/PanelChatServe/PanelMsgTips/TxtMsgCount"):GetComponent("Text")
     self.BtnSend = self.Transform:Find("SafeAreaContentPane/PanelChatServe/BtnContent/BtnSend"):GetComponent("Button")
-    self.BtnAdd = self.Transform:Find("SafeAreaContentPane/PanelChatServe/BtnContent/BtnAdd"):GetComponent("Button")
+    -- self.BtnAdd = self.Transform:Find("SafeAreaContentPane/PanelChatServe/BtnContent/BtnAdd"):GetComponent("Button")
     self.InputField = self.Transform:Find("SafeAreaContentPane/PanelChatServe/BtnContent/InF_Content"):GetComponent("InputField")
     self.TxtEnter = self.Transform:Find("SafeAreaContentPane/PanelChatServe/BtnContent/InF_Content/TxtEnter"):GetComponent("Text")
     self.PanelEmoji = self.Transform:Find("SafeAreaContentPane/PanelChatServe/BtnContent/PanelEmoji")
@@ -150,7 +150,7 @@ function XUiChatServeMain:AutoAddListener()
     self:RegisterClickEvent(self.BtnPanelMsgTips, self.OnBtnPanelMsgTipsClick)
     self:RegisterClickEvent(self.BtnSend, self.OnBtnSendClick)
     self:RegisterClickEvent(self.BtnAdd, self.OnBtnAddClick)
-    self:RegisterClickEvent(self.BtnBack, self.OnBtnBackClick)
+    self:RegisterClickEvent(self.BtnBack, self.Close)
     self:RegisterClickEvent(self.BtnChat, self.OnBtnChatClick)
     if self.BtnReport then
         self:RegisterClickEvent(self.BtnReport, self.OnBtnReportClick)
@@ -162,7 +162,7 @@ function XUiChatServeMain:OnGetEvents()
     return { XEventId.EVENT_CHAT_RECEIVE_WORLD_MSG, XEventId.EVENT_CHAT_RECEIVE_ROOM_MSG,
         XEventId.EVENT_PULL_SCROLLVIEW_END, XEventId.EVENT_CHAT_CHANNEL_CHANGED,
         XEventId.EVENT_CHAT_SERVER_CHANNEL_CHANGED, XEventId.EVENT_GUILD_RECEIVE_CHAT,
-        XEventId.EVENT_CHAT_RECEIVE_MENTOR_MSG, XEventId.EVENT_CHAT_MATCH_EFFECT}
+        XEventId.EVENT_CHAT_RECEIVE_MENTOR_MSG, XEventId.EVENT_CHAT_MATCH_EFFECT, XEventId.EVENT_CHAT_EMOJI_REFRESH_RED}
 end
 
 function XUiChatServeMain:OnNotify(evt, ...)
@@ -190,6 +190,8 @@ function XUiChatServeMain:OnNotify(evt, ...)
         end
     elseif evt == XEventId.EVENT_CHAT_MATCH_EFFECT then
         self:ShowKeywordEffect(...)
+    elseif evt == XEventId.EVENT_CHAT_EMOJI_REFRESH_RED then
+        self:RefreshRedPoint()
     end
 end
 -------------------------------Event end-------------------------------
@@ -206,7 +208,7 @@ function XUiChatServeMain:OnBtnAddClick()
 end
 
 function XUiChatServeMain:OnBtnChatClick(eventData)
-    self:OnBtnBackClick(eventData)
+    self:Close(eventData)
 end
 
 function XUiChatServeMain:OnBtnSendClick()
@@ -261,6 +263,8 @@ function XUiChatServeMain:OnClickEmoji(content)
     sendChat.Content = content
     sendChat.TargetIds = { XPlayer.Id }
     XDataCenter.ChatManager.SendChat(sendChat)
+
+    self:RefreshRedPoint()
 end
 
 function XUiChatServeMain:SendChat(sendChat)
@@ -275,15 +279,13 @@ function XUiChatServeMain:SendChat(sendChat)
     XDataCenter.ChatManager.SendChat(sendChat, callBack, true)
 end
 
-function XUiChatServeMain:OnBtnBackClick()
+function XUiChatServeMain:Close()
     if self.InputField.isFocused then
         return
     end
     --关闭聊天
-    XLuaUiManager.SetMask(true)
-    self:PlayAnimation("AnimChatOut", function()
-            XLuaUiManager.SetMask(false)
-            self:Close()
+    self:PlayAnimationWithMask("AnimChatOut", function()
+            self.Super.Close(self)
             XEventManager.DispatchEvent(XEventId.EVENT_CARD_REFRESH_WELFARE_BTN)
         end)
 
@@ -297,6 +299,12 @@ function XUiChatServeMain:Refresh()
     self:InitTabBtnGroup()
     self:RefreshMsgPanel()
     self:UpdateCurrentChannel()
+    self:RefreshRedPoint()
+end
+
+function XUiChatServeMain:RefreshRedPoint()
+    local isRed = XDataCenter.ChatManager.CheckIsNewEmoji()
+    self.BtnAdd:ShowReddot(isRed)
 end
 
 function XUiChatServeMain:InitializationView()
@@ -476,7 +484,11 @@ function XUiChatServeMain:ShowChangeChatChannel(channelId)
     end
 
     self.PanelMsgTips.gameObject:SetActive(true)
-    self.TxtMsgCount.text = CS.XTextManager.GetText("ChannelChanged", channelId ~= XDataCenter.ChatManager.GetRecruitChannelId() and tostring(channelId) or CS.XTextManager.GetText("ChannelRecruitIdStr"))
+
+    local currentChannelId = XDataCenter.ChatManager.GetCurrentChatChannelId()
+    currentChannelId = currentChannelId >= 5 and (currentChannelId + 1) or currentChannelId
+
+    self.TxtMsgCount.text = CS.XTextManager.GetText("ChannelChanged", currentChannelId ~= XDataCenter.ChatManager.GetRecruitChannelId() and tostring(currentChannelId) or CS.XTextManager.GetText("ChannelRecruitIdStr"))
     -- 开计时器关闭
     self:StartMsgTipsTimer()
 end

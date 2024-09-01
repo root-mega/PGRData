@@ -41,8 +41,7 @@ function XUiPanelMainLineBanner:ClickChapterGrid(chapterMain, index)
         local doneCb = function()
             self.ParentUi:PushUi(function()
                 if chapterMain.Id == XDataCenter.FubenMainLineManager.TRPGChapterId then
-                    local uiName = XDataCenter.TRPGManager.GetMainName()
-                    XLuaUiManager.Open(uiName)
+                    XDataCenter.TRPGManager.PlayStartStory()
                 elseif chapterMain.Id == XDataCenter.FubenMainLineManager.MainLine3DId then
                     XLuaUiManager.Open("UiFubenMainLine3D")
                 else
@@ -51,7 +50,6 @@ function XUiPanelMainLineBanner:ClickChapterGrid(chapterMain, index)
             end)
         end -- doneCb
         XDataCenter.DlcManager.CheckDownloadForEntry(XDlcConfig.EntryType.MainChapter, chapterMain.Id, doneCb)
-
         self:SaveScrollPos(index)
     elseif chapterInfo.IsActivity then
         local chapterId = XDataCenter.FubenMainLineManager.GetChapterIdByChapterMain(chapterMain.Id, self.CurDiff)

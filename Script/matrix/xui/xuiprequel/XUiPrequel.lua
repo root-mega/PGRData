@@ -37,9 +37,10 @@ function XUiPrequel:SetChallengeAnimBegin(isBegin)
     self.IsChallengeAnimBegin = isBegin
 end
 
-function XUiPrequel:OnStart(coverData, currentMode, defaultChapter)
+function XUiPrequel:OnStart(coverData, currentMode, defaultChapter, chanllengeStageId)
     self.CurrentCover = coverData
     self.DefaultChapter = defaultChapter
+    self.ChanllengeStageId = chanllengeStageId
     self:SetPanelAssetActive(true)
     if currentMode and currentMode ~= 0 then
         self.CurrentMode = currentMode
@@ -174,6 +175,12 @@ function XUiPrequel:Switch2Challenge(coverData)
     local coverDatas = XPrequelConfigs.GetPrequelCoverInfoById(coverData.CoverId)
     self:ResetBgFx(coverData.CoverVal.ChallengeFx)
     self:ResetBackground(coverDatas.ChallengeBg)
+    if self.ChanllengeStageId then
+        self:OpenOneChildUi("UiPrequelLineDetail")
+        self:FindChildUiObj("UiPrequelLineDetail"):Refresh(self.ChanllengeStageId)
+        self:SetPanelAssetActive(false)
+        self.ChanllengeStageId = nil
+    end
 end
 
 -- [刷新挑战界面]

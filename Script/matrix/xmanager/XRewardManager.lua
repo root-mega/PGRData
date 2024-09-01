@@ -23,6 +23,10 @@ local XRewardType = {
     Nameplate = 18,
     RankScore = 20,
     Medal = 21, --勋章
+    DrawTicket = 22,--免费抽奖券
+    GuildGoods = 23, --公会道具
+    DlcHuntChip = 24, --dlcHunt芯片
+    ItemCollection = 25, --道具收藏
 }
 
 --local HeadPortraitQuality = CS.XGame.Config:GetInt("HeadPortraitQuality")
@@ -52,6 +56,10 @@ local Arrange2RewardType = {
     [XArrangeConfigs.Types.Nameplate] = XRewardType.Nameplate,
     [XArrangeConfigs.Types.RankScore] = XRewardType.RankScore,
     [XArrangeConfigs.Types.Medal] = XRewardType.Medal,
+    [XArrangeConfigs.Types.DrawTicket] = XRewardType.DrawTicket,
+    [XArrangeConfigs.Types.GuildGoods] = XRewardType.GuildGoods,
+    [XArrangeConfigs.Types.DlcHuntChip] = XRewardType.DlcHuntChip,
+    [XArrangeConfigs.Types.ItemCollection] = XRewardType.ItemCollection,
 }
 
 local CreateGoodsFunc = {
@@ -256,6 +264,27 @@ local CreateGoodsFunc = {
             Count = count and count or 1,
         }
     end,
+    [XRewardType.DrawTicket] = function(templateId, count)
+        return {
+            RewardType = XRewardType.DrawTicket,
+            TemplateId = templateId, 
+            Count = count and count or 1,
+        }
+    end,
+    [XRewardType.DlcHuntChip] = function(templateId, count)
+        return {
+            RewardType = XRewardType.DlcHuntChip,
+            TemplateId = templateId,
+            Count = count and count or 1,
+        }
+    end,
+    [XRewardType.ItemCollection] = function(templateId, count) 
+        return {
+            RewardType = XRewardType.ItemCollection,
+            TemplateId = templateId,
+            Count = count and count or 1,
+        }
+    end
 }
 
 local CloneRewardGoods = function(rewardGoods)
@@ -511,6 +540,21 @@ local SortRankScore = function(a, b)
     return a.TemplateId > b.TemplateId
 end
 
+local SortDlcHuntChip = function(a, b)
+    return XDlcHuntChipConfigs.GetChipPriority(a.TemplateId) >  XDlcHuntChipConfigs.GetChipPriority(b.TemplateId)
+end
+
+local SortItemCollect = function(a, b) 
+    local templateA = XItemConfigs.GetItemCollectTemplate(a.TemplateId)
+    local templateB = XItemConfigs.GetItemCollectTemplate(b.TemplateId)
+
+    if templateA.Quality ~= templateB.Quality then
+        return templateA.Quality > templateB.Quality
+    end
+    
+    return a.TemplateId > b.TemplateId
+end
+
 local SortRewardTypePrioriy = {
     [XRewardType.Item] = 1,
     [XRewardType.Character] = 4,
@@ -526,6 +570,8 @@ local SortRewardTypePrioriy = {
     [XRewardType.Nameplate] = 16,
     [XRewardType.Background] = 17,
     [XRewardType.RankScore] = 18,
+    [XRewardType.DlcHuntChip] = 19,
+    [XRewardType.ItemCollection] = 20,
 }
 
 local SortFunc = {
@@ -544,6 +590,8 @@ local SortFunc = {
     [XRewardType.Partner] = SortPartner,
     [XRewardType.Nameplate] = SortNameplate,
     [XRewardType.RankScore] = SortRankScore,
+    [XRewardType.DlcHuntChip] = SortDlcHuntChip,
+    [XRewardType.ItemCollection] = SortItemCollect,
 }
 
 local RewardsFilter = {
@@ -575,7 +623,7 @@ local function SortRewardGoodsList(rewardGoodsList)
         XLog.Warning("XRewardManager.SortRewardGoodsList: rewardGoodsList is nil")
         return
     end
-
+    
     tableSort(rewardGoodsList, function(a, b)
         local rewardType1, rewardType2 = a.RewardType, b.RewardType
 
@@ -583,7 +631,11 @@ local function SortRewardGoodsList(rewardGoodsList)
             return SortRewardTypePrioriy[rewardType1] > SortRewardTypePrioriy[rewardType2]
         end
 
-        return SortFunc[rewardType1](a, b)
+        local sort = SortFunc[rewardType1]
+        if sort then
+            return sort(a, b)
+        end
+        return a.TemplateId > b.TemplateId
     end)
 
     return rewardGoodsList

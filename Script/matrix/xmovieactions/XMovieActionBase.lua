@@ -89,10 +89,7 @@ end
 
 function XMovieActionBase:ClearUiRoot()
     self.UiRoot = {}
-    if self.DelayId then
-        CSXScheduleManagerUnSchedule(self.DelayId)
-        self.DelayId = nil
-    end
+    self:ClearDelayId()
     self.Status = ActionStatus.UNINIIALIZED
     self:OnUiRootDestroy()
 
@@ -135,7 +132,8 @@ function XMovieActionBase:Destroy()
     if self.Status ~= ActionStatus.TERMINATED then
         return
     end
-    self.Status = ActionStatus.UNINIIALIZED
+
+    --self.Status = ActionStatus.UNINIIALIZED
     self:OnDestroy()
     return true
 end
@@ -217,6 +215,14 @@ function XMovieActionBase:ChangeStatus(delay, animName)
     else
         animCb()
     end
+end
+
+function XMovieActionBase:ClearDelayId()
+    if self.DelayId then
+        CSXScheduleManagerUnSchedule(self.DelayId)
+        self.DelayId = nil
+    end
+    self.Lock = false
 end
 
 function XMovieActionBase:OnUiRootInit()

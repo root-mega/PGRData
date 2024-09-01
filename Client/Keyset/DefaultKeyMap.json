@@ -1,0 +1,752 @@
+[
+    {
+        "Id": 1,
+        "OperationKey": 1,
+        "XboxKeyCode": "JoystickButton1",
+        "PsKeyCode": "JoystickButton2",
+        "KeyboardKeyCode": "Alpha1",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 2,
+        "OperationKey": 2,
+        "XboxKeyCode": "JoystickButton0",
+        "PsKeyCode": "JoystickButton1",
+        "KeyboardKeyCode": "Alpha2",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 3,
+        "OperationKey": 3,
+        "XboxKeyCode": "JoystickButton2",
+        "PsKeyCode": "JoystickButton0",
+        "KeyboardKeyCode": "Alpha3",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 4,
+        "OperationKey": 4,
+        "XboxKeyCode": "JoystickButton3",
+        "PsKeyCode": "JoystickButton3",
+        "KeyboardKeyCode": "Alpha4",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 5,
+        "OperationKey": 5,
+        "XboxKeyCode": "Axis3M&JoystickButton1",
+        "PsKeyCode": "JoystickButton6&JoystickButton2",
+        "KeyboardKeyCode": "Alpha5",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 6,
+        "OperationKey": 6,
+        "XboxKeyCode": "Axis3M&JoystickButton0",
+        "PsKeyCode": "JoystickButton6&JoystickButton1",
+        "KeyboardKeyCode": "Alpha6",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 7,
+        "OperationKey": 7,
+        "XboxKeyCode": "Axis3M&JoystickButton2",
+        "PsKeyCode": "JoystickButton6&JoystickButton0",
+        "KeyboardKeyCode": "Alpha7",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 8,
+        "OperationKey": 8,
+        "XboxKeyCode": "Axis3M&JoystickButton3",
+        "PsKeyCode": "JoystickButton6&JoystickButton3",
+        "KeyboardKeyCode": "Alpha8",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 9,
+        "OperationKey": 15,
+        "XboxKeyCode": "JoystickButton5",
+        "PsKeyCode": "JoystickButton5",
+        "KeyboardKeyCode": "Mouse0|J",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 4
+    },
+    {
+        "Id": 10,
+        "OperationKey": 16,
+        "XboxKeyCode": "JoystickButton4",
+        "PsKeyCode": "JoystickButton4",
+        "KeyboardKeyCode": "Mouse1|K",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 4
+    },
+    {
+        "Id": 11,
+        "OperationKey": 17,
+        "XboxKeyCode": "Axis3P",
+        "PsKeyCode": "JoystickButton7",
+        "KeyboardKeyCode": "L|R",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 12,
+        "OperationKey": 18,
+        "XboxKeyCode": "Axis3M",
+        "PsKeyCode": "JoystickButton6",
+        "KeyboardKeyCode": "I",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 0
+    },
+    {
+        "Id": 13,
+        "OperationKey": 20,
+        "XboxKeyCode": "Axis7P",
+        "PsKeyCode": "Axis8P",
+        "KeyboardKeyCode": "Q",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 14,
+        "OperationKey": 21,
+        "XboxKeyCode": "Axis7M",
+        "PsKeyCode": "Axis8M",
+        "KeyboardKeyCode": "E",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 15,
+        "OperationKey": 23,
+        "XboxKeyCode": "Axis6M",
+        "PsKeyCode": "Axis7M",
+        "KeyboardKeyCode": "C",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 16,
+        "OperationKey": 28,
+        "XboxKeyCode": "Axis6P",
+        "PsKeyCode": "Axis7P",
+        "KeyboardKeyCode": "Space",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 0
+    },
+    {
+        "Id": 17,
+        "OperationKey": 29,
+        "XboxKeyCode": "JoystickButton6",
+        "PsKeyCode": "JoystickButton8",
+        "KeyboardKeyCode": "G",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 0
+    },
+    {
+        "Id": 18,
+        "OperationKey": 81,
+        "XboxKeyCode": "JoystickButton6",
+        "PsKeyCode": "JoystickButton8",
+        "KeyboardKeyCode": "H",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 0
+    },
+    {
+        "Id": 19,
+        "OperationKey": 128,
+        "XboxKeyCode": "Axis2M",
+        "PsKeyCode": "Axis2M",
+        "KeyboardKeyCode": "W",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 0
+    },
+    {
+        "Id": 20,
+        "OperationKey": 129,
+        "XboxKeyCode": "Axis2P",
+        "PsKeyCode": "Axis2P",
+        "KeyboardKeyCode": "S",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 0
+    },
+    {
+        "Id": 21,
+        "OperationKey": 130,
+        "XboxKeyCode": "Axis1M",
+        "PsKeyCode": "Axis1M",
+        "KeyboardKeyCode": "A",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 0
+    },
+    {
+        "Id": 22,
+        "OperationKey": 131,
+        "XboxKeyCode": "Axis1P",
+        "PsKeyCode": "Axis1P",
+        "KeyboardKeyCode": "D",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 0
+    },
+    {
+        "Id": 23,
+        "OperationKey": 132,
+        "XboxKeyCode": "Axis5M",
+        "PsKeyCode": "Axis6M",
+        "KeyboardKeyCode": "UpArrow",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 24,
+        "OperationKey": 133,
+        "XboxKeyCode": "Axis5P",
+        "PsKeyCode": "Axis6P",
+        "KeyboardKeyCode": "DownArrow",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 25,
+        "OperationKey": 134,
+        "XboxKeyCode": "Axis4M",
+        "PsKeyCode": "Axis3M",
+        "KeyboardKeyCode": "LeftArrow",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 26,
+        "OperationKey": 135,
+        "XboxKeyCode": "Axis4P",
+        "PsKeyCode": "Axis3P",
+        "KeyboardKeyCode": "RightArrow",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 27,
+        "OperationKey": 136,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "F",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 28,
+        "OperationKey": 137,
+        "XboxKeyCode": "Axis3M&JoystickButton9",
+        "PsKeyCode": "JoystickButton6&JoystickButton11",
+        "KeyboardKeyCode": "Tab",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 29,
+        "OperationKey": 138,
+        "XboxKeyCode": "Axis3M&JoystickButton8",
+        "PsKeyCode": "JoystickButton6&JoystickButton10",
+        "KeyboardKeyCode": "BackQuote",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 30,
+        "OperationKey": 139,
+        "XboxKeyCode": "JoystickButton9",
+        "PsKeyCode": "JoystickButton11",
+        "KeyboardKeyCode": null,
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 31,
+        "OperationKey": 140,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "Y",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 32,
+        "OperationKey": 141,
+        "XboxKeyCode": "JoystickButton7",
+        "PsKeyCode": "JoystickButton9",
+        "KeyboardKeyCode": "Escape",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 33,
+        "OperationKey": 141,
+        "XboxKeyCode": "JoystickButton0",
+        "PsKeyCode": "JoystickButton1",
+        "KeyboardKeyCode": "Escape",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 34,
+        "OperationKey": 142,
+        "XboxKeyCode": "JoystickButton3",
+        "PsKeyCode": "JoystickButton3",
+        "KeyboardKeyCode": "R",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 35,
+        "OperationKey": 143,
+        "XboxKeyCode": "JoystickButton8",
+        "PsKeyCode": "JoystickButton10",
+        "KeyboardKeyCode": "P",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 36,
+        "OperationKey": 144,
+        "XboxKeyCode": "Axis3M",
+        "PsKeyCode": "JoystickButton6",
+        "KeyboardKeyCode": "G",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 37,
+        "OperationKey": 145,
+        "XboxKeyCode": "Axis6P",
+        "PsKeyCode": "Axis7P",
+        "KeyboardKeyCode": "Space",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 38,
+        "OperationKey": 146,
+        "XboxKeyCode": "Axis5M",
+        "PsKeyCode": "Axis6M",
+        "KeyboardKeyCode": "UpArrow",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 39,
+        "OperationKey": 147,
+        "XboxKeyCode": "Axis5P",
+        "PsKeyCode": "Axis6P",
+        "KeyboardKeyCode": "DownArrow",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 40,
+        "OperationKey": 148,
+        "XboxKeyCode": "JoystickButton0",
+        "PsKeyCode": "JoystickButton1",
+        "KeyboardKeyCode": "K",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 41,
+        "OperationKey": 149,
+        "XboxKeyCode": "JoystickButton1",
+        "PsKeyCode": "JoystickButton2",
+        "KeyboardKeyCode": "J",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 42,
+        "OperationKey": 151,
+        "XboxKeyCode": "JoystickButton6",
+        "PsKeyCode": "JoystickButton8",
+        "KeyboardKeyCode": "Home",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 43,
+        "OperationKey": 155,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "Return",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 44,
+        "OperationKey": 1000,
+        "XboxKeyCode": "Axis3P",
+        "PsKeyCode": "JoystickButton7",
+        "KeyboardKeyCode": null,
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 45,
+        "OperationKey": 156,
+        "XboxKeyCode": "Axis2M",
+        "PsKeyCode": "Axis2M",
+        "KeyboardKeyCode": null,
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 46,
+        "OperationKey": 157,
+        "XboxKeyCode": "Axis2P",
+        "PsKeyCode": "Axis2P",
+        "KeyboardKeyCode": null,
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 47,
+        "OperationKey": 158,
+        "XboxKeyCode": "Axis1M",
+        "PsKeyCode": "Axis1M",
+        "KeyboardKeyCode": null,
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 48,
+        "OperationKey": 159,
+        "XboxKeyCode": "Axis1P",
+        "PsKeyCode": "Axis1P",
+        "KeyboardKeyCode": null,
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 49,
+        "OperationKey": 1156,
+        "XboxKeyCode": "Axis3P#Axis2M",
+        "PsKeyCode": "JoystickButton7#Axis2M",
+        "KeyboardKeyCode": "W",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 50,
+        "OperationKey": 1157,
+        "XboxKeyCode": "Axis3P#Axis2P",
+        "PsKeyCode": "JoystickButton7#Axis2P",
+        "KeyboardKeyCode": "S",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 51,
+        "OperationKey": 1158,
+        "XboxKeyCode": "Axis3P#Axis1M",
+        "PsKeyCode": "JoystickButton7#Axis1M",
+        "KeyboardKeyCode": "A",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 52,
+        "OperationKey": 1159,
+        "XboxKeyCode": "Axis3P#Axis1P",
+        "PsKeyCode": "JoystickButton7#Axis1P",
+        "KeyboardKeyCode": "D",
+        "OtherKeyCode": null,
+        "OperationType": 4,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 53,
+        "OperationKey": 1,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "N",
+        "OtherKeyCode": null,
+        "OperationType": 2,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 54,
+        "OperationKey": 2,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "M",
+        "OtherKeyCode": null,
+        "OperationType": 2,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 55,
+        "OperationKey": 3,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "W",
+        "OtherKeyCode": null,
+        "OperationType": 2,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 56,
+        "OperationKey": 4,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "S",
+        "OtherKeyCode": null,
+        "OperationType": 2,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 57,
+        "OperationKey": 5,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "A",
+        "OtherKeyCode": null,
+        "OperationType": 2,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 58,
+        "OperationKey": 6,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "D",
+        "OtherKeyCode": null,
+        "OperationType": 2,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 59,
+        "OperationKey": 150,
+        "XboxKeyCode": "JoystickButton7",
+        "PsKeyCode": "JoystickButton9",
+        "KeyboardKeyCode": "Escape",
+        "OtherKeyCode": null,
+        "OperationType": 2,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 60,
+        "OperationKey": 240,
+        "XboxKeyCode": "Axis6P&JoystickButton1",
+        "PsKeyCode": "Axis7P&JoystickButton2",
+        "KeyboardKeyCode": "LeftControl&Q",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 61,
+        "OperationKey": 241,
+        "XboxKeyCode": "Axis6P&JoystickButton0",
+        "PsKeyCode": "Axis7P&JoystickButton1",
+        "KeyboardKeyCode": "LeftControl&E",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 62,
+        "OperationKey": 242,
+        "XboxKeyCode": "Axis6P&JoystickButton2",
+        "PsKeyCode": "Axis7P&JoystickButton0",
+        "KeyboardKeyCode": "LeftControl&Alpha1",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 63,
+        "OperationKey": 243,
+        "XboxKeyCode": "Axis6P&JoystickButton3",
+        "PsKeyCode": "Axis7P&JoystickButton3",
+        "KeyboardKeyCode": "LeftControl&Alpha2",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 64,
+        "OperationKey": 244,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "LeftControl&Alpha3",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 65,
+        "OperationKey": 245,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "LeftControl&Alpha4",
+        "OtherKeyCode": null,
+        "OperationType": 1,
+        "KeyCodeType": 1
+    },
+    {
+        "Id": 66,
+        "OperationKey": 1,
+        "XboxKeyCode": "Axis6P",
+        "PsKeyCode": "Axis7P",
+        "KeyboardKeyCode": "Space",
+        "OtherKeyCode": null,
+        "OperationType": 3,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 67,
+        "OperationKey": 2,
+        "XboxKeyCode": "Axis3M",
+        "PsKeyCode": "JoystickButton6",
+        "KeyboardKeyCode": "G",
+        "OtherKeyCode": null,
+        "OperationType": 3,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 68,
+        "OperationKey": 1,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "Space",
+        "OtherKeyCode": null,
+        "OperationType": 5,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 69,
+        "OperationKey": 2,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "A",
+        "OtherKeyCode": null,
+        "OperationType": 5,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 70,
+        "OperationKey": 3,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "D",
+        "OtherKeyCode": null,
+        "OperationType": 5,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 71,
+        "OperationKey": 4,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "Q",
+        "OtherKeyCode": null,
+        "OperationType": 5,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 72,
+        "OperationKey": 5,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "W",
+        "OtherKeyCode": null,
+        "OperationType": 5,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 73,
+        "OperationKey": 6,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "E",
+        "OtherKeyCode": null,
+        "OperationType": 5,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 74,
+        "OperationKey": 7,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "R",
+        "OtherKeyCode": null,
+        "OperationType": 5,
+        "KeyCodeType": 2
+    },
+    {
+        "Id": 75,
+        "OperationKey": 8,
+        "XboxKeyCode": null,
+        "PsKeyCode": null,
+        "KeyboardKeyCode": "T",
+        "OtherKeyCode": null,
+        "OperationType": 5,
+        "KeyCodeType": 2
+    }
+]

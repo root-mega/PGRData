@@ -25,7 +25,7 @@ XReviewActivityManagerCreator = function()
 
     function XReviewActivityManager.AutoOpenReview()
         if not ReviewData or IsShown then return false end
-        XLuaUiManager.Open("UiReviewActivity2Anniversary")
+        XLuaUiManager.Open("UiReviewActivityAnniversary")
         return true
     end
     
@@ -143,13 +143,12 @@ XReviewActivityManagerCreator = function()
 
     function XReviewActivityManager.GetMainLineStage()
         local stageId = ReviewData and ReviewData.MainLineStageId
-        if not stageId or (stageId == 0) then stageId = 10010101 end
-        local stageCfg = XDataCenter.FubenManager.GetStageCfg(stageId)
-        local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
-        if not stageInfo then return "0-0", "NoRecord" end
-        local chapter = XDataCenter.FubenMainLineManager.GetChapterCfg(stageInfo.ChapterId)
-        local orderStr = (chapter and chapter.OrderId or 0) .. "-" .. (stageInfo.OrderId or 0)
-        return orderStr, stageCfg.Name
+        local stageOrder,stageName = XDataCenter.FubenManager.GetStageNameLevel(stageId)
+        if stageOrder then
+            return stageOrder,stageName
+        else
+            return CS.XTextManager.GetText("ReviewActivityNoGuild") , ""
+        end
     end
 
     function XReviewActivityManager.GetMainLineChapterName()
@@ -226,6 +225,21 @@ XReviewActivityManagerCreator = function()
         return ReviewData and ReviewData.FurnitureCount or 0
     end
 
+    --今年登录游戏天数
+    function XReviewActivityManager.GetLoginDayTimes(cb)
+        return ReviewData and ReviewData.ReviewActivityStaticData and ReviewData.ReviewActivityStaticData.OnlineDayCount or 0
+    end
+
+    --今年消耗的血清总数
+    function XReviewActivityManager.GetConsumeSerum(cb)
+        return ReviewData and ReviewData.ReviewActivityStaticData and ReviewData.ReviewActivityStaticData.UseActionPointCount or 0
+    end
+
+    --今年消耗的螺母总数
+    function XReviewActivityManager.GetConsumeNut(cb)
+        return ReviewData and ReviewData.ReviewActivityStaticData and ReviewData.ReviewActivityStaticData.UseCoinTotalCount or 0
+    end
+
     function XReviewActivityManager.GetReviewData(cb)
         if ReviewData then
             if cb then
@@ -276,6 +290,7 @@ XReviewActivityManagerCreator = function()
                 end
             end)
     end
+    
     
     XReviewActivityManager.Init()
 

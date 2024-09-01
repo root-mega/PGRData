@@ -10,7 +10,9 @@ function XUiGridBossRankReward:Ctor(rootUi, ui)
 end
 
 function XUiGridBossRankReward:Refresh(cfg, myRankNum, myLevelType, totalCount)
-    local rewardList = XDataCenter.MailManager.GetRewardList(cfg.MailID)
+    ---@type XMailAgency
+    local mailAgency = XMVCA:GetAgency(ModuleId.XMail)
+    local rewardList = mailAgency:GetRewardList(cfg.MailID)
 
     for i = 1, #rewardList do
         local grid = self.GridRewardList[i]

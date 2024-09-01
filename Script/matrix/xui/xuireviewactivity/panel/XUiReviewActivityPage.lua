@@ -38,20 +38,28 @@ end
 XUiReviewActivityPage.UpdateModel = function(rootUi, modelType)
     if not rootUi.UiRoleModel then
         local uiModelRoot = rootUi.UiModelGo.transform
-        rootUi.UiRoleModel = XUiPanelRoleModel.New(uiModelRoot:FindTransform("PanelModel"), rootUi.Name, nil, true, nil, true, true)
+        rootUi.UiRoleModel = XUiPanelRoleModel.New(uiModelRoot:FindTransform("PanelRoleModel"), rootUi.Name, nil, true, nil, true, true)
         local modelTypeName = XReviewActivityConfigs.ModelTypeName[modelType]
         local getFunc = XDataCenter.ReviewActivityManager["Get" .. (modelTypeName or "") .. "CharacterId"]
         local charaId = XDataCenter.ReviewActivityManager.GetTopAbilityCharacterId()
         local cb = function()
 
         end
-        rootUi.UiRoleModel:UpdateCharacterModel(charaId, rootUi.UiRoleModel, XModelManager.MODEL_UINAME.XUiReviewActivity, cb)
+        rootUi.UiRoleModel:UpdateCharacterModel(charaId, rootUi.UiRoleModel, XModelManager.MODEL_UINAME.UiReviewActivityAnniversary, cb)
     end
     local uiRoleModel = rootUi.UiRoleModel
     if modelType == XReviewActivityConfigs.ModelType.None then
         uiRoleModel:HideRoleModel()
+        rootUi.NearCameras[0].gameObject:SetActiveEx(true)
+        rootUi.NearCameras[1].gameObject:SetActiveEx(false)
+        rootUi.FarCameras[0].gameObject:SetActiveEx(true)
+        rootUi.FarCameras[1].gameObject:SetActiveEx(false)
     else
         uiRoleModel:ShowRoleModel()
+        rootUi.NearCameras[0].gameObject:SetActiveEx(false)
+        rootUi.NearCameras[1].gameObject:SetActiveEx(true)
+        rootUi.FarCameras[0].gameObject:SetActiveEx(false)
+        rootUi.FarCameras[1].gameObject:SetActiveEx(true)
     end
 end
 
@@ -71,7 +79,6 @@ XUiReviewActivityPage.ShowPageText = function(pagePanel, currentActivityId, page
             goto nextInfo
         end
         local textFormat = string.gsub(textInfo.TextFormat, "\\n", "\n")
-        XLog.Debug(textInfo, textFormat, get())
         text.text = CS.XTextManager.FormatString(textFormat, get())
         :: nextInfo ::
     end
@@ -118,13 +125,20 @@ XUiReviewActivityPage.PlayAnimation = function(rootUi, page)
     if rootUi.UiModelCurrentAnimation then
         rootUi.UiModelCurrentAnimation:Stop()
     end
-    if page < 3 then
-        local anime = rootUi.AnimationUObj:GetObject("Bg" .. page .. "Enable")
-        if anime then
-            rootUi.UiModelCurrentAnimation = anime
-            anime:Play()
-        end
+end
+
+--界面子页面翻页(播放动画)
+XUiReviewActivityPage.TurnPanelSubPage = function(rootUi, page, subPage)
+    local anim = TempPanel["PanelSequence" .. page .. "Enable" .. subPage]
+    if anim then
+        XLuaUiManager.SetMask(true)
+        anim:Play()
+        XScheduleManager.ScheduleOnce(function()
+            XLuaUiManager.SetMask(false)
+        end, 2500)
+        return true
     end
+    return false
 end
 
 return XUiReviewActivityPage

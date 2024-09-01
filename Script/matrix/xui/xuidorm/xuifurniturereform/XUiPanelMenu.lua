@@ -164,6 +164,10 @@ function XUiPanelMenu:OnBtnBuildClick()
         XUiManager.TipText("FurnitureBuildingListFull")
         return
     end
+    if XDataCenter.FurnitureManager.CheckFurnitureSlopLimit() then
+        XLuaUiManager.Open("UiFurnitureCreateDetail")
+        return
+    end
 
     XLuaUiManager.Open("UiFurnitureCreate", self.Furniture.Cfg.TypeId)
 end

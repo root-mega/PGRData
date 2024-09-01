@@ -12,12 +12,12 @@ function XUiSameColorGameUnEquipSkill:OnAwake()
     self:RegisterUiEvents()
 end
 
-function XUiSameColorGameUnEquipSkill:OnStart(role, skill, equipIndex, callback)
+function XUiSameColorGameUnEquipSkill:OnStart(role, skill, equipIndex, isTimeType, callback)
     self.Callback = callback
     self.Role = role
     self.Skill = XTool.Clone(skill)
     self.EquipIndex = equipIndex
-    self.UiSameColorPanelSkillDetail:SetData(self.Skill)
+    self.UiSameColorPanelSkillDetail:SetData(self.Skill, isTimeType)
     local containSkill = role:ContainSkillGroupId(skill:GetSkillGroupId())
     local isMainSkill = role:GetMainSkill() == skill
     self.TxtMainSkillTip.gameObject.gameObject:SetActiveEx(isMainSkill)

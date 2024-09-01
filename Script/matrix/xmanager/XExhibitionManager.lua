@@ -10,6 +10,10 @@ XExhibitionManagerCreator = function()
     --临时存放要查看的人的数据
     local CharacterInfo = nil
     local SelfGatherRewards = {}
+
+    -- 自定义字典
+    local CharColorBallSkillDic = {}
+
     XExhibitionManager.ExhibitionType = {
         STRUCT = XCharacterConfigs.CharacterType.Normal, -- 构造体
         PUNISHER = XCharacterConfigs.CharacterType.Isomer, -- 授格者
@@ -42,6 +46,24 @@ XExhibitionManagerCreator = function()
         return SelfGatherRewards
     end
 
+    -- 根据角色id获取该角色的3个颜色的终解球技能
+    function XExhibitionManager.GetCharColorBallSkillsByCharacterId(id)
+        if XTool.IsTableEmpty(CharColorBallSkillDic) then
+            local exhibitionRawardCfgs = XExhibitionConfigs.GetGrowUpTasksConfig()
+            for k, cfg in pairs(exhibitionRawardCfgs) do
+                local charId = cfg.CharacterId
+                if not CharColorBallSkillDic[charId] then
+                    CharColorBallSkillDic[charId] = {}
+                end
+                local skillGroupId = cfg.SkillGroupId
+                local skillIds = XTool.IsNumberValid(skillGroupId) and XCharacterConfigs.GetCharSkillGroupTemplatesById(skillGroupId).SkillId or nil
+                CharColorBallSkillDic[charId] = skillIds
+            end
+        end
+
+        return CharColorBallSkillDic[id]
+    end
+
     function XExhibitionManager.CheckTempCharacterTaskFinish(id, IsNotSelf)
         local info = IsNotSelf and CharacterInfo or SelfGatherRewards
         for _, v in pairs(info) do
@@ -71,7 +93,7 @@ XExhibitionManagerCreator = function()
     end
 
     function XExhibitionManager.IsAchieveLiberation(characterId, level, IsNotSelf)
-        return level and XExhibitionManager.GetCharacterGrowUpLevel(characterId, IsNotSelf) == level
+        return level and XExhibitionManager.GetCharacterGrowUpLevel(characterId, IsNotSelf) >= level
     end
 
     function XExhibitionManager.IsMaxLiberationLevel(level)
@@ -168,19 +190,20 @@ XExhibitionManagerCreator = function()
         local tempExhibitionConfigs = XExhibitionConfigs.GetExhibitionLevelPoints()
         local info = IsNotSelf and CharacterInfo or SelfGatherRewards
         for _, v in pairs(info) do
-            if tempConfigData[v] then
-                if tempData[tempConfigData[v].CharacterId] then
-                    if tempExhibitionConfigs[tempConfigData[v].LevelId] then
-                        tempData[tempConfigData[v].CharacterId] = tempData[tempConfigData[v].CharacterId]
-                        + tempExhibitionConfigs[tempConfigData[v].LevelId]
+            local tempConfig = tempConfigData[v]
+            if tempConfig and tempConfig.LevelId ~= XCharacterConfigs.GrowUpLevel.Super then
+                if tempData[tempConfig.CharacterId] then
+                    if tempExhibitionConfigs[tempConfig.LevelId] then
+                        tempData[tempConfig.CharacterId] = tempData[tempConfig.CharacterId]
+                        + tempExhibitionConfigs[tempConfig.LevelId]
                     else
-                        tempData[tempConfigData[v].CharacterId] = tempData[tempConfigData[v].CharacterId] + 1
+                        tempData[tempConfig.CharacterId] = tempData[tempConfig.CharacterId] + 1
                     end
                 else
-                    if tempExhibitionConfigs[tempConfigData[v].LevelId] then
-                        tempData[tempConfigData[v].CharacterId] = tempExhibitionConfigs[tempConfigData[v].LevelId]
+                    if tempExhibitionConfigs[tempConfig.LevelId] then
+                        tempData[tempConfig.CharacterId] = tempExhibitionConfigs[tempConfig.LevelId]
                     else
-                        tempData[tempConfigData[v].CharacterId] = 1
+                        tempData[tempConfig.CharacterId] = 1
                     end
                 end
             end
@@ -232,7 +255,7 @@ XExhibitionManagerCreator = function()
                 end
             end
         end
-        return count >= XCharacterConfigs.GrowUpLevel.End
+        return count >= XCharacterConfigs.GrowUpLevel.Higher
     end
     --区分是否是查看自己的信息
     function XExhibitionManager.GetCharHeadPortrait(characterId, IsNotSelf)
@@ -275,16 +298,52 @@ XExhibitionManagerCreator = function()
             XEventManager.DispatchEvent(XEventId.EVENT_CHARACTER_EXHIBITION_REFRESH)
             if cb then cb() end
 
-            XUiManager.OpenUiObtain(response.RewardGoods, nil, function()
+            local afterShowTipCb = function ()
                 local levelId = taskConfig.LevelId
                 local levelName = XExhibitionConfigs.GetExhibitionLevelNameByLevel(levelId)
                 XLuaUiManager.Open("UiEquipLevelUpTips", CS.XTextManager.GetText("CharacterLiberateSuccess", levelName))
-            end)
+            end
+            
+            if XTool.IsTableEmpty(response.RewardGoods) then
+                afterShowTipCb()
+            else
+                XUiManager.OpenUiObtain(response.RewardGoods, nil, afterShowTipCb)
+            end
 
             --终阶解放自动解放技能
             local growUpLevel = XExhibitionManager.GetCharacterGrowUpLevel(characterId)
             if growUpLevel == XCharacterConfigs.GrowUpLevel.End then
                 XDataCenter.CharacterManager.UnlockMaxLiberationSkill(characterId)
+            end
+        end)
+    end
+
+    -- 设置超解球颜色(实际为magicId，枚举颜色和magicId的关系)
+    function XExhibitionManager.CharacterSwitchLiberateMagicIdRequest(characterId, magicId, cb)
+        XNetwork.Call("CharacterSwitchLiberateMagicIdRequest", { CharacterId = characterId, MagicId = magicId },
+        function(response)
+            if response.Code ~= XCode.Success then
+                XUiManager.TipCode(response.Code)
+                return
+            end
+
+            if cb then
+                cb()
+            end
+        end)
+    end
+
+    -- 设置超解环
+    function XExhibitionManager.CharacterSetLiberateAureoleIdRequest(characterId, aureoleId, cb)
+        XNetwork.Call("CharacterSetLiberateAureoleIdRequest", { CharacterId = characterId, AureoleId = aureoleId },
+        function(response)
+            if response.Code ~= XCode.Success then
+                XUiManager.TipCode(response.Code)
+                return
+            end
+          
+            if cb then
+                cb()
             end
         end)
     end

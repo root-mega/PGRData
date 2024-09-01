@@ -123,8 +123,9 @@ function XUiGridSelectItem:OnBtnItemClick(data)
         end
     else
         -- 收藏品
-        if self.RootUi.CurSelectCollection then
+        if self.RootUi.CurSelectCollection or self.RootUi:GetIsSaving() then
             -- 已经处于摆放模式(防止多次点击)
+            -- 保存中不进入摆放模式
             return
         end
 

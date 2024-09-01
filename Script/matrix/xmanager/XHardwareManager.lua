@@ -514,7 +514,7 @@ function XHardwareManager.CheckGpuAndroid(gpuName)
 
     --检查模拟器
     if string.match(gpuName, "direct3d") or string.match(gpuName, "geforce") or string.match(gpuName, "gtx")
-    or string.match(cpuName, "intel") or string.match(cpuName, "amd") or string.match(cpuName, "intel")
+    or string.match(cpuName, "intel") or string.match(cpuName, "amd")
     or string.match(gpuName, "mumu") or string.match(gpuName, "nvidia") or string.match(deviceModel, "mumu") then
         XLog.Debug("XHardwareManager.SetAndroidSimulator")
         XQualityManager.IsSimulator = true

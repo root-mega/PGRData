@@ -121,6 +121,14 @@ function XUiBag:OnAwake()
     self.GridBagItemRect = self.PanelBagItem.transform:Find("GridEquip"):GetComponent("RectTransform").rect
     self.GridSuitSimpleRect = self.PanelBagItem.transform:Find("GridSuitSimple"):GetComponent("RectTransform").rect
 
+    XRedPointManager.AddRedPointEvent(self.BtnTog2, self.OnCheckBtnItemRed, self, {
+        XRedPointConditions.Types.CONDITION_ITEM_COLLECTION_ENTRANCE,
+    })
+
+    XRedPointManager.AddRedPointEvent(self.BtnCollection, self.OnCheckBtnCollectRed, self, {
+        XRedPointConditions.Types.CONDITION_ITEM_COLLECTION_ENTRANCE,
+    })
+
     self:AutoAddListener()
 end
 
@@ -144,12 +152,14 @@ function XUiBag:OnStart(record)
     self.SortBtnGroup:SelectIndex(self.SortType + 1, false)
     self.PartnerSortBtnGroup:SelectIndex(self.PartnerSortType + 1, false)
 
-    self:PlayAnimationWithMask("AnimStartEnable")
+    --self:PlayAnimationWithMask("AnimStartEnable")
 end
 
 function XUiBag:OnEnable()
     self.GridCount = 1
     self:Refresh(false)
+    self.SelectGiftPanel:OnEnable()
+    self:PlayAnimationWithMask("AnimStartEnable")
 end
 
 function XUiBag:OnDestroy()
@@ -196,7 +206,7 @@ function XUiBag:UpdateDynamicTable(bReload)
     else
         gridSize = CS.UnityEngine.Vector2(self.GridBagItemRect.width, self.GridBagItemRect.height)
     end
-
+    
     self.DynamicTable:SetGridSize(gridSize)
     self.DynamicTable:SetDataSource(self.PageDatas)
     self.DynamicTable:ReloadDataASync(bReload and 1 or -1)
@@ -503,7 +513,7 @@ function XUiBag:OpenDetailUi(data, grid)
     if self.PageRecord == XItemConfigs.PageType.Equip or self.PageRecord == XItemConfigs.PageType.Awareness then
         local equipId = data
         local forceShowBindCharacter = true
-        XLuaUiManager.Open("UiEquipDetail", equipId, nil, nil, forceShowBindCharacter)
+        XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipDetail(equipId, nil, nil, forceShowBindCharacter)
     elseif self.PageRecord == XItemConfigs.PageType.SuitCover then
         self.SelectSuitId = data
         self:PageTurn(XItemConfigs.PageType.Awareness)
@@ -672,6 +682,10 @@ function XUiBag:AutoAddListener()
     self.PanelPartnerSort:GetObject("BtnPartnerOrder").CallBack = function()
         self:OnBtnOrderClick()
     end
+    
+    self.BtnCollection.CallBack = function() 
+        self:OnBtnCollectionClick()
+    end
 end
 
 function XUiBag:OnBtnMainUiClick()
@@ -734,6 +748,10 @@ function XUiBag:OnTogStar3Click()
     self:StarToggleStateChange(3, self.TogStar3.isOn)
     self:StarToggleStateChange(2, self.TogStar3.isOn)
     self:StarToggleStateChange(1, self.TogStar3.isOn)
+end
+
+function XUiBag:OnBtnCollectionClick()
+    XLuaUiManager.Open("UiItemCollectionMain")
 end
 
 --切换页签
@@ -818,4 +836,12 @@ function XUiBag:SelectMaterialType(index)
     if not self.SidePopUpPanel.CurState and not self.IsFirstAnimation then
         self:PlayAnimationWithMask("AnimNeiRongEnable")
     end
+end
+
+function XUiBag:OnCheckBtnItemRed(count)
+    self.BtnTog2:ShowReddot(count >= 0)
+end
+
+function XUiBag:OnCheckBtnCollectRed(count)
+    self.BtnCollection:ShowReddot(count >= 0)
 end

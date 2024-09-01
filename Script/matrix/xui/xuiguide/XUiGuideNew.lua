@@ -1,4 +1,7 @@
+---@class XUiGuideNew : XLuaUi
+---@field Guide XGuide
 local XUiGuideNew = XLuaUiManager.Register(XLuaUi, "UiGuide")
+
 
 function XUiGuideNew:OnAwake()
     self:AutoAddListener()
@@ -14,7 +17,7 @@ function XUiGuideNew:OnAwake()
 end
 
 function XUiGuideNew:OnStart(targetImg, isWeakGuide, guideDesc, icon, name, callback)
-
+    
     self.Guide = self.BtnPanelMaskGuide:GetComponent("XGuide")
     if (not self.Guide) then
         self.Guide = self.BtnPanelMaskGuide.gameObject:AddComponent(typeof(CS.XGuide))
@@ -29,8 +32,9 @@ function XUiGuideNew:OnStart(targetImg, isWeakGuide, guideDesc, icon, name, call
         CS.XGuideEventPass.IsFightGuide = true
         self.IsFight = true
         self:ShowMark(true, true)
-        self:ShowDialog(icon, name, guideDesc, 0)
-        self:FocuOnFightPanel(targetImg)
+        local anchor = CS.UnityEngine.Vector2(0, 1)
+        self:ShowDialog(icon, name, guideDesc, anchor, anchor, CS.UnityEngine.Vector2(500, -380))
+        self:FocusOnFightPanel(targetImg)
         self.UiWidget = self.Transform:Find("FullScreenBackground/BtnPanelMaskGuide/BtnPass").gameObject:AddComponent(typeof(CS.XUiWidget))
         self.UiWidget:AddPointerDownListener(function(eventData)
             self.Transform:Find("SafeAreaContentPane").gameObject:SetActive(false)
@@ -58,39 +62,11 @@ function XUiGuideNew:OnDestroy()
     -- end)
 end
 
-
--- auto
--- Automatic generation of code, forbid to edit
-function XUiGuideNew:InitAutoScript()
-    self:AutoInitUi()
-end
-
-function XUiGuideNew:AutoInitUi()
-    self.PanelMaskAll = self.Transform:Find("FullScreenBackground/PanelMaskAll")
-    self.BtnPanelMaskGuide = self.Transform:Find("FullScreenBackground/BtnPanelMaskGuide"):GetComponent("Button")
-    self.BtnPass = self.Transform:Find("FullScreenBackground/BtnPanelMaskGuide/BtnPass"):GetComponent("Button")
-    self.PanelInfo = self.Transform:Find("FullScreenBackground/BtnPanelMaskGuide/PanelInfo")
-    self.PanelHead = self.Transform:Find("FullScreenBackground/BtnPanelMaskGuide/PanelInfo/PanelHead")
-    self.ImgRole = self.Transform:Find("FullScreenBackground/BtnPanelMaskGuide/PanelInfo/PanelHead/FxUiguide005/ImgRole"):GetComponent("Image")
-    self.PanelTime = self.Transform:Find("FullScreenBackground/BtnPanelMaskGuide/PanelInfo/PanelHead/PanelTime")
-    self.TxtTime = self.Transform:Find("FullScreenBackground/BtnPanelMaskGuide/PanelInfo/PanelHead/PanelTime/TxtTime"):GetComponent("Text")
-    self.PanelTxt = self.Transform:Find("FullScreenBackground/BtnPanelMaskGuide/PanelInfo/PanelTxt")
-    self.TxtName = self.Transform:Find("FullScreenBackground/BtnPanelMaskGuide/PanelInfo/PanelTxt/TxtName"):GetComponent("Text")
-    self.TxtDesc = self.Transform:Find("FullScreenBackground/BtnPanelMaskGuide/PanelInfo/PanelTxt/TxtDesc"):GetComponent("Text")
-    self.PanelBtn = self.Transform:Find("SafeAreaContentPane/PanelBtn")
-    self.BtnSkip = self.Transform:Find("SafeAreaContentPane/PanelBtn/BtnSkip"):GetComponent("Button")
-    self.PanelWarning = self.Transform:Find("SafeAreaContentPane/PanelWarning")
-    self.BtnConfrim = self.Transform:Find("SafeAreaContentPane/PanelWarning/BtnConfrim"):GetComponent("Button")
-    self.BtnCancel = self.Transform:Find("SafeAreaContentPane/PanelWarning/BtnCancel"):GetComponent("Button")
-end
-
 function XUiGuideNew:AutoAddListener()
-
-
     self:RegisterClickEvent(self.BtnPanelMaskGuide, self.OnBtnPanelMaskGuideClick)
     self:RegisterClickEvent(self.BtnPass, self.OnBtnPassClick)
     self:RegisterClickEvent(self.BtnSkip, self.OnBtnSkipClick)
-    self:RegisterClickEvent(self.BtnConfrim, self.OnBtnConfrimClick)
+    self:RegisterClickEvent(self.BtnConfirm, self.OnBtnConfirmClick)
     self:RegisterClickEvent(self.BtnCancel, self.OnBtnCancelClick)
 end
 -- auto
@@ -98,8 +74,9 @@ function XUiGuideNew:OnBtnSkipClick()
     self.PanelWarning.gameObject:SetActive(true)
 end
 
-function XUiGuideNew:OnBtnConfrimClick()
+function XUiGuideNew:OnBtnConfirmClick()
     XDataCenter.GuideManager.ReqCompleteGuideGroup(function()
+        XDataCenter.GuideManager.RecordBuryingPoint(XDataCenter.GuideManager.BuryingPointType.Skip)
         XDataCenter.GuideManager.ResetGuide()
         XEventManager.DispatchEvent(XEventId.EVENT_FUNCTION_EVENT_COMPLETE)
     end)
@@ -142,21 +119,15 @@ function XUiGuideNew:OnBtnPanelMaskGuideClick()
 end
 
 --显示头像
-function XUiGuideNew:ShowDialog(icon, name, content, pos)
+function XUiGuideNew:ShowDialog(icon, name, content, anchorMax, anchorMin, position)
     self.PanelInfo.gameObject:SetActive(true)
     self:SetUiSprite(self.ImgRole, icon)
     self.TxtName.text = name or ""
     self.TxtDesc.text = content
 
-    if pos == 0 then
-        self.PanelInfoRect.anchorMax = CS.UnityEngine.Vector2(0, 1)
-        self.PanelInfoRect.anchorMin = CS.UnityEngine.Vector2(0, 1)
-        self.PanelInfoRect.anchoredPosition = CS.UnityEngine.Vector2(500, -380)
-    else
-        self.PanelInfoRect.anchorMax = CS.UnityEngine.Vector2(1, 1)
-        self.PanelInfoRect.anchorMin = CS.UnityEngine.Vector2(1, 1)
-        self.PanelInfoRect.anchoredPosition = CS.UnityEngine.Vector2(-500, -380)
-    end
+    self.PanelInfoRect.anchorMax = anchorMax
+    self.PanelInfoRect.anchorMin = anchorMin
+    self.PanelInfoRect.anchoredPosition = position
 end
 
 --隐藏头像
@@ -165,11 +136,12 @@ function XUiGuideNew:HideDialog()
 end
 
 --聚焦panel
-function XUiGuideNew:FocuOnPanel(panel, eulerAngles, passEvent)
+function XUiGuideNew:FocusOnPanel(panel, eulerAngles, passEvent, sizeDelta)
     eulerAngles = eulerAngles or CS.UnityEngine.Vector3.zero
+    sizeDelta = sizeDelta or CS.UnityEngine.Vector2.zero
     self.BtnPass.gameObject:SetActive(true)
     self.BtnPass.gameObject.transform.eulerAngles = eulerAngles
-    self.Guide:SetTarget(panel)
+    self.Guide:SetTarget(panel, sizeDelta)
 
     if not XTool.UObjIsNil(panel.gameObject) then
         CS.XGuideEventPass.Target = panel.gameObject
@@ -182,9 +154,28 @@ function XUiGuideNew:FocuOnPanel(panel, eulerAngles, passEvent)
     end
 end
 
-function XUiGuideNew:FocuOnFightPanel(panel)
+function XUiGuideNew:FocusOn3DPanel(camera, panel, offset, eulerAngles, passEvent, sizeDelta)
+    
+    eulerAngles = eulerAngles or CS.UnityEngine.Vector3.zero
+    sizeDelta = sizeDelta or CS.UnityEngine.Vector2.zero
     self.BtnPass.gameObject:SetActive(true)
-    self.Guide:SetTarget(panel)
+    self.BtnPass.gameObject.transform.eulerAngles = eulerAngles
+    self.Guide:SetTarget(panel, camera, sizeDelta, offset)
+
+    if not XTool.UObjIsNil(panel.gameObject) then
+        CS.XGuideEventPass.Target = panel.gameObject
+    end
+
+    CS.XGuideEventPass.IsPassEvent = passEvent
+    if self.AniGuideJiaoLoop then
+        self.AniGuideJiaoLoop.gameObject:SetActive(false)
+        self.AniGuideJiaoLoop.gameObject:SetActive(true)
+    end
+end
+
+function XUiGuideNew:FocusOnFightPanel(panel)
+    self.BtnPass.gameObject:SetActive(true)
+    self.Guide:SetTarget(panel, CS.UnityEngine.Vector2.zero)
     CS.XGuideEventPass.Target = nil
 end
 

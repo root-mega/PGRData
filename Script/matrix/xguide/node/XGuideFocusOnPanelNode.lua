@@ -1,3 +1,5 @@
+---@class XGuideFocusOnPanelNode : XLuaBehaviorNode
+---@field AgentProxy XGuideAgent
 local XGuideFocusOnPanelNode = XLuaBehaviorManager.RegisterNode(XLuaBehaviorNode, "GuideFocusOn", CsBehaviorNodeType.Action, true, false)
 
 --初始化数据
@@ -11,9 +13,9 @@ function XGuideFocusOnPanelNode:InitNodeData()
     self.Fields = {}
 
     local fields = self.Node.Fields.Fields
-
+    
     for _, v in pairs(fields) do
-        if (v.FieldName == "EulerAngles") then
+        if v.FieldName == "EulerAngles" or v.FieldName == "SizeDelta" then
             self.Fields[v.FieldName] = v
         else
             self.Fields[v.FieldName] = v.Value
@@ -42,10 +44,12 @@ function XGuideFocusOnPanelNode:OnAwake()
     local eulerAngles = self.Fields["EulerAngles"]
     self.EulerAngles = CS.UnityEngine.Vector3(eulerAngles.X, eulerAngles.Y, eulerAngles.Z)
     self.PassEvent = self.Fields["PassEvent"]
+    local sizeDelta = self.Fields["SizeDelta"]
+    self.SizeDelta = CS.UnityEngine.Vector2(sizeDelta.X, sizeDelta.Y)
 end
 
 function XGuideFocusOnPanelNode:OnEnter()
-    self.AgentProxy:FocusOn(self.UiName, self.Transform, self.EulerAngles, self.PassEvent)
+    self.AgentProxy:FocusOn(self.UiName, self.Transform, self.EulerAngles, self.PassEvent, self.SizeDelta)
 
 end
 

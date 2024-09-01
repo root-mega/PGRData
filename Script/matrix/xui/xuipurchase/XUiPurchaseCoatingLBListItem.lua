@@ -44,7 +44,9 @@ function XUiPurchaseCoatingLBListItem:SetData()
     end
     self.TxtName.text = self.ItemData.Name
     self.ImgSellout.gameObject:SetActive(false)
+    self.ImgHave.gameObject:SetActive(false)
     self.TxtUnShelveTime.gameObject:SetActive(false)
+    self.TextNotNeed.gameObject:SetActiveEx(false)
     self.Parent:RemoveTimerFun(self.ItemData.Id)
     self.RemainTime = 0
     local nowTime = XTime.GetServerNowTimestamp()
@@ -101,7 +103,7 @@ function XUiPurchaseCoatingLBListItem:SetData()
             self.TextNotNeed.gameObject:SetActiveEx(true)
         else
             self.TxtHk2.gameObject:SetActiveEx(true)
-            self.TextNotNeed.gameObject:SetActiveEx(false)
+            --self.TextNotNeed.gameObject:SetActiveEx(false)
             local consumeNum = consumeCount
             if self.ItemData.ConvertSwitch > 0 and self.ItemData.ConvertSwitch < consumeCount then
                 consumeNum = self.ItemData.ConvertSwitch
@@ -122,23 +124,6 @@ function XUiPurchaseCoatingLBListItem:SetData()
             self.RawConsumeImage:SetRawImage(path)
         end
         self.TxtHk.text = self.ItemData.ConsumeCount or ""
-    end
-
-    --是否已拥有
-    if self.ImgHave then
-        local isShowHave
-        -- if self.ItemData.RewardGoodsList and #self.ItemData.RewardGoodsList == 1 then
-        --     local isHave, isLimitTime = XRewardManager.CheckRewardGoodsListIsOwn(self.ItemData.RewardGoodsList)
-        --     isShowHave = isHave and not isLimitTime
-        -- else
-        --     isShowHave = false
-        -- end
-        if self.ItemData.RewardGoodsList then
-            isShowHave = XRewardManager.CheckRewardGoodsListIsOwnWithAll(self.ItemData.RewardGoodsList)
-        else
-            isShowHave = false
-        end
-        self.ImgHave.gameObject:SetActive(isShowHave)
     end
 
     -- 上架时间
@@ -168,6 +153,11 @@ function XUiPurchaseCoatingLBListItem:SetData()
         return
     end
 
+    --是否已拥有
+    if self.ImgHave then
+        local isShowHave = XDataCenter.PurchaseManager.IsLBHave(self.ItemData)
+        self.ImgHave.gameObject:SetActive(isShowHave)
+    end
 
     self.ImgQuota.gameObject:SetActive(true)
     self:SetBuyDes()
@@ -271,7 +261,11 @@ function XUiPurchaseCoatingLBListItem:UpdateTimer(isRecover)
         if self.UpdateTimerType == UpdateTimerTypeEnum.SettOff then
             self.ImgSellout.gameObject:SetActive(true)
             self.TxtUnShelveTime.text = ""
-            self.TxtSetOut.text = TextManager.GetText("PurchaseLBSettOff")
+            if self.ItemData.BuyLimitTimes and self.ItemData.BuyLimitTimes > 0 and self.ItemData.BuyTimes == self.ItemData.BuyLimitTimes then
+                self.TxtSetOut.text = TextManager.GetText("PurchaseSettOut")
+            else
+                self.TxtSetOut.text = TextManager.GetText("PurchaseLBSettOff")
+            end
             return
         end
 

@@ -1,0 +1,116 @@
+[
+    {
+        "Id": 1,
+        "Name": "Elemental Damage",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon010.png",
+        "Description": "Can deal elemental DMG"
+    },
+    {
+        "Id": 2,
+        "Name": "High Frequency Attack",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png",
+        "Description": "Can perform high frequency attack"
+    },
+    {
+        "Id": 3,
+        "Name": "Burst",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon014.png",
+        "Description": "Can deal heavy damage in short-time"
+    },
+    {
+        "Id": 4,
+        "Name": "Health Recovery",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon006.png",
+        "Description": "Can regenerate the HP of team member"
+    },
+    {
+        "Id": 5,
+        "Name": "Weaken",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Description": "Weaken the enemy"
+    },
+    {
+        "Id": 6,
+        "Name": "Critical",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon1.png",
+        "Description": "Easier to deal CRIT DMG to enemies"
+    },
+    {
+        "Id": 7,
+        "Name": "Pull",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon026.png",
+        "Description": "Pull the enemy"
+    },
+    {
+        "Id": 8,
+        "Name": "Damage Reduction",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Description": "Can reduce the DMG dealt to your members"
+    },
+    {
+        "Id": 9,
+        "Name": "Control",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon018.png",
+        "Description": "Can control the enemy"
+    },
+    {
+        "Id": 10,
+        "Name": "Shield",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Description": "Can give your members shields"
+    },
+    {
+        "Id": 11,
+        "Name": "Enhance",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon019.png",
+        "Description": "Can enhance the abilities of your members"
+    },
+    {
+        "Id": 12,
+        "Name": "Enmity Vortex",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon007.png",
+        "Description": "Easier to become the enemies' target on the battlefield"
+    },
+    {
+        "Id": 13,
+        "Name": "Destroy Super Armor",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon12141.png",
+        "Description": "Can effectively reduce the Super Armor value of the enemy"
+    },
+    {
+        "Id": 14,
+        "Name": "Attacker",
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "Description": "Can deal damage efficiently"
+    },
+    {
+        "Id": 15,
+        "Name": "Tank",
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "Description": "Enhances Armor, grants Super Armor, and resist 50% damage"
+    },
+    {
+        "Id": 16,
+        "Name": "Support",
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+        "Description": "Boosts restoration efficiency and Synergy Energy recovery speed"
+    },
+    {
+        "Id": 17,
+        "Name": "Ranged Damage",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon12251.png",
+        "Description": "Can deal ranged attacks against enemies"
+    },
+    {
+        "Id": 18,
+        "Name": "Vanguard",
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+        "Description": "Can deal damage efficiently"
+    },
+    {
+        "Id": 19,
+        "Name": "Amplifier",
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter5.png",
+        "Description": "An all-round character that can pull, control, and deal damage to enemies."
+    }
+]

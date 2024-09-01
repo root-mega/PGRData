@@ -7,7 +7,7 @@ local CONDITION_COLOR = {
 
 local XUiGridResonanceSkill = XClass(nil, "XUiGridResonanceSkill")
 
-function XUiGridResonanceSkill:Ctor(ui, equipId, pos, characterId, clickCb, isAwakeDes, forceShowBindCharacter)
+function XUiGridResonanceSkill:Ctor(ui, equipId, pos, characterId, clickCb, isAwakeDes, forceShowBindCharacter, isShowPos)
     self.GameObject = ui.gameObject
     self.Transform = ui.transform
     self.EquipId = equipId
@@ -16,6 +16,7 @@ function XUiGridResonanceSkill:Ctor(ui, equipId, pos, characterId, clickCb, isAw
     self.ClickCb = clickCb
     self.IsAwakeDes = isAwakeDes
     self.ForceShowBindCharacter = forceShowBindCharacter
+    self.IsShowPos = isShowPos
     self:InitAutoScript()
 end
 
@@ -23,6 +24,10 @@ function XUiGridResonanceSkill:SetEquipIdAndPos(equipId, pos, isAwakeDes)
     self.EquipId = equipId
     self.Pos = pos
     self.IsAwakeDes = isAwakeDes
+end
+
+function XUiGridResonanceSkill:SetCharacterId(characterId)
+    self.CharacterId = characterId
 end
 
 function XUiGridResonanceSkill:Refresh(skillInfo, bindCharacterId)
@@ -60,8 +65,8 @@ function XUiGridResonanceSkill:Refresh(skillInfo, bindCharacterId)
     end
 
     if self.TxtPos then
-        -- self.TxtPos.text = CsXTextManagerGetText("EquipResonancePosText", self.Pos)
-        self.TxtPos.gameObject:SetActiveEx(false)
+        self.TxtPos.text = "0"..tostring(self.Pos)
+        self.TxtPos.gameObject:SetActiveEx(self.IsShowPos == true)
     end
 
     if self.PanelAwakeSkills then

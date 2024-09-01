@@ -20,15 +20,16 @@ function XUiArenaRankGrid:OnBtnHeadClick()
     XDataCenter.PersonalInfoManager.ReqShowInfoPanel(self.PlayerInfo.Id)
 end
 
-function XUiArenaRankGrid:Refresh(index, playerInfo)
+function XUiArenaRankGrid:Refresh(data)
+    local playerInfo = data.PlayerInfo
     self.PlayerInfo = playerInfo
     local challengeCfg = XDataCenter.ArenaManager.GetLastChallengeCfg()
-    local contributeScore = XDataCenter.ArenaManager.GetContributeScoreByCfg(index, challengeCfg, playerInfo.Point)
+    local contributeScore = XDataCenter.ArenaManager.GetContributeScoreByCfg(data.Rank, challengeCfg, playerInfo.Point)
 
     self.TxtNickname.text = XDataCenter.SocialManager.GetPlayerRemark(playerInfo.Id, playerInfo.Name)
     XUiPLayerHead.InitPortrait(playerInfo.CurrHeadPortraitId, playerInfo.CurrHeadFrameId, self.Head)
 
-    self.TxtRank.text = "No." .. index
+    self.TxtRank.text = "No." .. data.Rank
     self.TxtPoint.text = CS.XTextManager.GetText("ArenaRankPonit", playerInfo.Point)
 
     if playerInfo.LastPointTime == nil or playerInfo.LastPointTime == 0 then
@@ -47,7 +48,7 @@ function XUiArenaRankGrid:Refresh(index, playerInfo)
         return
     end
 
-    local score = rankNum - index
+    local score = rankNum - data.Rank
     if score > 0 then
         self.ImgChangeJia.gameObject:SetActiveEx(true)
         self.ImgChangeJian.gameObject:SetActiveEx(false)

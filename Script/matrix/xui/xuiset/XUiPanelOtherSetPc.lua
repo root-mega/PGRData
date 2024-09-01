@@ -8,6 +8,7 @@ function XUiPanelOtherSetPc:Ctor()
     self._IsShowJoystick = XInputManager.GetJoystickActive()
     self._IsShowFightButton = XInputManager.GetKeyCodeTipActive(CS.XOperationType.Fight)
     self._IsShowSystemButton = false
+    self._IsNoUiMode = CS.XFightUiManager.NoUiMode
     self._IsDirtyPc = false
     self._CursorSizeIndex = XCursorHelper.CursorSizeIndex
     self:InitPc()
@@ -18,10 +19,12 @@ function XUiPanelOtherSetPc:InitPc()
     self.TogJoystick.isOn = self._IsShowJoystick
     self.TogFightButton.isOn = self._IsShowFightButton
     self.TogSystemButton.isOn = self._IsShowSystemButton
+    self.TogClearUI.isOn = self._IsNoUiMode
     self.TogFPS.onValueChanged:AddListener(handler(self, self.OnTogFPSValueChanged))
     self.TogJoystick.onValueChanged:AddListener(handler(self, self.OnTogJoystickValueChanged))
     self.TogFightButton.onValueChanged:AddListener(handler(self, self.OnTogFightButtonValueChanged))
     self.TogSystemButton.onValueChanged:AddListener(handler(self, self.OnTogSystemButtonChanged))
+    self.TogClearUI.onValueChanged:AddListener(handler(self, self.OnTogClearUIButtonChanged))
     self:InitCursorToggles()
 end
 
@@ -100,12 +103,21 @@ function XUiPanelOtherSetPc:RevertCursorSetting()
     self._RevertingCursorSize = false
 end
 
+function XUiPanelOtherSetPc:OnTogClearUIButtonChanged(value)
+    if self._IsNoUiMode ~= value then
+        self._IsNoUiMode = value
+        self._IsDirtyPc = true
+    end
+end
+
+
 function XUiPanelOtherSetPc:SaveChange()
     XUiPanelOtherSetPc.Super.SaveChange(self)
     self._IsDirtyPc = false
     XInputManager.SetFPSActive(self._IsShowFPS)
     XInputManager.SetJoystickActive(self._IsShowJoystick)
     XInputManager.SetFightKeyCodeTipActive(self._IsShowFightButton)
+    CS.XFightUiManager.NoUiMode = self._IsNoUiMode
     XCursorHelper.CursorSizeIndex = self._CursorSizeIndex
 end
 
@@ -119,10 +131,12 @@ function XUiPanelOtherSetPc:ResetToDefault()
     self._IsShowJoystick = XInputManager.DEFAULT_JOYSTICK_ACTIVE == 1
     self._IsShowFightButton = XInputManager.DEFAULT_FPS_ACTIVE == 1
     self._IsShowSystemButton = false
+    self._IsNoUiMode = CS.XFightUiManager.NoUiMode
     self.TogFPS.isOn = self._IsShowFPS
     self.TogJoystick.isOn = self._IsShowJoystick
     self.TogFightButton.isOn = self._IsShowFightButton
     self.TogSystemButton.isOn = self._IsShowSystemButton
+    self.TogClearUI.isOn = self._IsNoUiMode
     self:RevertCursorSetting()
     XInputManager.SetFPSActive(self._IsShowFPS)
     XInputManager.SetJoystickActive(self._IsShowJoystick)

@@ -1,0 +1,35 @@
+[
+    {
+        "Id": 100201,
+        "HeadIconPath": "Assets/Product/Texture/Image/Role/RoleHeadluxiya6.png",
+        "EnergyGroupBar": "Assets/Product/Ui/UiFightPrefab/EnergyBarDlc/EnergyR1LuxiyaDlc.prefab",
+        "Model": [
+            null,
+            "R1LuxiyaMd010011"
+        ],
+        "AttackIconImage": "Assets/Product/Texture/Image/UiFight/FightIconSword.png",
+        "DodgeIconImage": "Assets/Product/Texture/Image/UiFight/FightIconDoge1.png"
+    },
+    {
+        "Id": 100701,
+        "HeadIconPath": "Assets/Product/Texture/Image/Role/RoleHeadKalienina6.png",
+        "EnergyGroupBar": "Assets/Product/Ui/UiFightPrefab/EnergyBarDlc/EnergyR2KalieninaDlc.prefab",
+        "Model": [
+            null,
+            "R2KalieninaMd010031RM"
+        ],
+        "AttackIconImage": "Assets/Product/Texture/Image/UiFight/FightIconSleeve.png",
+        "DodgeIconImage": "Assets/Product/Texture/Image/UiFight/FightIconDoge1.png"
+    },
+    {
+        "Id": 101401,
+        "HeadIconPath": "Assets/Product/Texture/Image/Role/RoleHeadBianka6SS.png",
+        "EnergyGroupBar": "Assets/Product/Ui/UiFightPrefab/EnergyBarDlc/EnergyR3BiankaDlc.prefab",
+        "Model": [
+            null,
+            "R3BiankaMd010031RM"
+        ],
+        "AttackIconImage": "Assets/Product/Texture/Image/UiFight/FightIconFightIconbow.png",
+        "DodgeIconImage": "Assets/Product/Texture/Image/UiFight/FightIconDoge1.png"
+    }
+]

@@ -30,8 +30,8 @@ function XUiGridTeamInfoExp:UpdateDataInfo(baseStageId, index, teamInfoId)
 end
 
 function XUiGridTeamInfoExp:UpdateTxtExp()
-    local stageCfg = XDataCenter.FubenManager.GetStageCfg(self.BaseStage)
-    self.TxtExp.text = "+" .. stageCfg.CardExp
+    local cardExp = XDataCenter.FubenManager.GetCardExp(self.BaseStage)
+    self.TxtExp.text = "+" .. cardExp
 end
 
 function XUiGridTeamInfoExp:UpdateTxtEchelonIndex()

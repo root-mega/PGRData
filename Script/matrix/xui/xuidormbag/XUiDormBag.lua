@@ -6,6 +6,8 @@ local SELECT_OFFSET_MIN = CS.UnityEngine.Vector2(32, 155)
 local SELECT_OFFSET_MAX = CS.UnityEngine.Vector2(-59, -216)
 local SELECT_TYPE_ALL = 0
 local LEVEL_A = 4
+local LimitColor = "#0f70bc"
+local SlopLimitColor = "#FF0000"
 
 function XUiDormBag:OnAwake()
     self:AddListener()
@@ -41,13 +43,13 @@ end
 
 function XUiDormBag:OnEnable()
     self:RefreshSelectedPanel(self.PageRecord, true)
-    XEventManager.AddEventListener(XEventId.EVENT_CLICKFURNITURE_GRID, self.OnFurnitureGridClick, self)
+    XEventManager.AddEventListener(XEventId.EVENT_CLICK_FURNITURE_GRID, self.OnFurnitureGridClick, self)
     XEventManager.AddEventListener(XEventId.EVENT_CLICKDRAFT_GRID, self.OnDraftGridClick, self)
     XEventManager.AddEventListener(XEventId.EVENT_DORM_BAG_REFRESH, self.UpdateDynamicTable, self)
 end
 
 function XUiDormBag:OnDisable()
-    XEventManager.RemoveEventListener(XEventId.EVENT_CLICKFURNITURE_GRID, self.OnFurnitureGridClick, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_CLICK_FURNITURE_GRID, self.OnFurnitureGridClick, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_CLICKDRAFT_GRID, self.OnDraftGridClick, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_DORM_BAG_REFRESH, self.UpdateDynamicTable, self)
 end
@@ -80,8 +82,8 @@ end
 
 function XUiDormBag:InitTabGroup(furnitureTypeId)
     self.BtnList = {}
+    self.BtnTogCharacter.gameObject:SetActiveEx(false)
     table.insert(self.BtnList, self.BtnTogFurniture)
-    table.insert(self.BtnList, self.BtnTogCharacter)
     table.insert(self.BtnList, self.BtnTogDraft)
 
     self.PanelTogs:Init(self.BtnList, function(index)
@@ -91,16 +93,16 @@ function XUiDormBag:InitTabGroup(furnitureTypeId)
     self.BtnTogHuman.gameObject:SetActiveEx(false)
 
     -- 处理构造体/感染体
-    self.BtnCharList = {}
-    table.insert(self.BtnCharList, self.BtnTogChar)
-    table.insert(self.BtnCharList, self.BtnTogEmney)
-    -- table.insert(self.BtnCharList, self.BtnTogHuman)
-    table.insert(self.BtnCharList, self.BtnTogInfestor)
-    table.insert(self.BtnCharList, self.BtnTogNier)
-    self.PanelCharacterBtn:Init(self.BtnCharList, function(index)
-            self:RefreshSelectedCharPanel(index)
-        end)
-
+    --self.BtnCharList = {}
+    --table.insert(self.BtnCharList, self.BtnTogChar)
+    --table.insert(self.BtnCharList, self.BtnTogEmney)
+    --table.insert(self.BtnCharList, self.BtnTogHuman)
+    --table.insert(self.BtnCharList, self.BtnTogInfestor)
+    --table.insert(self.BtnCharList, self.BtnTogNier)
+    --
+    --self.PanelCharacterBtn:Init(self.BtnCharList, function(index)
+    --        self:RefreshSelectedCharPanel(index)
+    --    end)
     -- 选择家具状态处理
     if self.FurnitureState == XFurnitureConfigs.FURNITURE_STATE.SELECT or
         self.FurnitureState == XFurnitureConfigs.FURNITURE_STATE.SELECTSINGLE then
@@ -108,12 +110,10 @@ function XUiDormBag:InitTabGroup(furnitureTypeId)
         self.FurnitureSelectList = {}
         if self.PageRecord == XDormConfig.DORM_BAG_PANEL_INDEX.FURNITURE then
             self.BtnTogFurniture.gameObject:SetActiveEx(true)
-            self.BtnTogCharacter.gameObject:SetActiveEx(false)
             self.BtnTogDraft.gameObject:SetActiveEx(false)
             self.TxtSelectTip.gameObject:SetActiveEx(true)
         elseif self.PageRecord == XDormConfig.DORM_BAG_PANEL_INDEX.DRAFT then
             self.BtnTogFurniture.gameObject:SetActiveEx(false)
-            self.BtnTogCharacter.gameObject:SetActiveEx(false)
             self.BtnTogDraft.gameObject:SetActiveEx(true)
             self.TxtSelectTip.gameObject:SetActiveEx(false)
         end
@@ -159,7 +159,7 @@ function XUiDormBag:InitTabGroup(furnitureTypeId)
     self.PanelTogs:SelectIndex(self.PageRecord)
 
     -- 设置默认开启
-    self.PanelCharacterBtn:SelectIndex(self.CharPageRecord)
+    --self.PanelCharacterBtn:SelectIndex(self.CharPageRecord)
 end
 
 function XUiDormBag:InitDynamicTable()
@@ -171,12 +171,12 @@ end
 
 function XUiDormBag:InitFurniturePart()
     local typeList = XFurnitureConfigs.GetFurnitureTemplateTypeList()
-    for _, furnitureType in ipairs(typeList) do
+    for _, furnitureType in pairs(typeList) do
         table.insert(self.SelectIds, furnitureType.Id)
     end
 
     local typeSuitList = XFurnitureConfigs.GetFurnitureSuitTemplates()
-    for _, suit in ipairs(typeSuitList) do
+    for _, suit in pairs(typeSuitList) do
         if suit.Id ~= XFurnitureConfigs.FURNITURE_SUIT_CATEGORY_ALL_ID then
             table.insert(self.SelectSuitIds, suit.Id)
             table.insert(self.SelectDraftSuitIds, suit.Id)
@@ -253,6 +253,10 @@ function XUiDormBag:OnBtnBackClick()
 end
 
 function XUiDormBag:OnBtnBuildClick()
+    if XDataCenter.FurnitureManager.CheckFurnitureSlopLimit() then
+        XLuaUiManager.Open("UiFurnitureCreateDetail")
+        return
+    end
     XLuaUiManager.Open("UiFurnitureBuild")
 end
 
@@ -407,7 +411,7 @@ end
 --图纸回收
 function XUiDormBag:DecomposeDraft(count, cb)
     local tm = {}
-    for i,v in ipairs(self.FurnitureSelectList) do
+    for i,v in pairs(self.FurnitureSelectList) do
         tm[v] = count
     end
     XDataCenter.ItemManager.Sell(tm, function(rewardGoodDic)
@@ -434,13 +438,16 @@ function XUiDormBag:DecomposeFurniture(cb)
                 XLuaUiManager.Open("UiDormBagRecycle", self.FurnitureSelectList, rewardItems)
 
                 -- 将分解成功的家具从缓存中移除
-                for _, id in ipairs(successIds) do
+                for _, id in pairs(successIds) do
                     XDataCenter.FurnitureManager.RemoveFurniture(id)
                 end
 
                 -- 删除红点
                 XDataCenter.FurnitureManager.DeleteNewHint(successIds)
             end
+
+            XEventManager.DispatchEvent(XEventId.EVENT_FURNITURE_ON_MODIFY)
+			CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_ON_MODIFY)
 
             -- 清理数据
             self:OnRecycleCancel()
@@ -625,19 +632,19 @@ function XUiDormBag:UpdateDynamicTable(startIndex)
     if self.PageRecord == XDormConfig.DORM_BAG_PANEL_INDEX.FURNITURE then
         self.PanelFurnitureBtn.gameObject:SetActiveEx(true)
         self.PanelDraftBtn.gameObject:SetActiveEx(false)
-        self.PanelCharacterBtn.gameObject:SetActiveEx(false)
+        --self.PanelCharacterBtn.gameObject:SetActiveEx(false)
         if isEmpty then
             self.TxtNull.text = CS.XTextManager.GetText("DormNullFurniture")
         end
     elseif self.PageRecord == XDormConfig.DORM_BAG_PANEL_INDEX.CHARACTER then
         self.PanelFurnitureBtn.gameObject:SetActiveEx(false)
         self.PanelDraftBtn.gameObject:SetActiveEx(false)
-        self.PanelCharacterBtn.gameObject:SetActiveEx(true)
+        --self.PanelCharacterBtn.gameObject:SetActiveEx(true)
         if isEmpty then
             if self.CharPageRecord == XDormConfig.DORM_CHAR_INDEX.CHARACTER then
                 self.TxtNull.text = CS.XTextManager.GetText("DormNullCharacter")
-            -- elseif self.CharPageRecord == XDormConfig.DORM_CHAR_INDEX.HUMAN then
-            --     self.TxtNull.text = CS.XTextManager.GetText("DormNullHumman")
+            elseif self.CharPageRecord == XDormConfig.DORM_CHAR_INDEX.HUMAN then
+                self.TxtNull.text = CS.XTextManager.GetText("DormNullHumman")
             elseif self.CharPageRecord == XDormConfig.DORM_CHAR_INDEX.INFESTOR then
                 self.TxtNull.text = CS.XTextManager.GetText("DormNullInfestor")
             elseif self.CharPageRecord == XDormConfig.DORM_CHAR_INDEX.NIER then
@@ -652,7 +659,7 @@ function XUiDormBag:UpdateDynamicTable(startIndex)
             self.PanelDordPart.gameObject:SetActiveEx(false)
         end
         self.PanelDraftBtn.gameObject:SetActiveEx(true)
-        self.PanelCharacterBtn.gameObject:SetActiveEx(false)
+        --self.PanelCharacterBtn.gameObject:SetActiveEx(false)
         if isEmpty then
             self.TxtNull.text = CS.XTextManager.GetText("DormNullDraft")
         end
@@ -684,8 +691,10 @@ function XUiDormBag:GetDataByPage()
             end
         end
         local allCount = XDataCenter.FurnitureManager.GetAllFurnitureCount()
-        self.TxtCount.text = CS.XTextManager.GetText("DormBagFurnitureCount", allCount)
-        self.TxtSelectCount.text = CS.XTextManager.GetText("DormBagFurnitureCount", allCount)
+        local maxFurnitureCount = XFurnitureConfigs.MaxTotalFurnitureCount
+        local color = allCount > maxFurnitureCount and SlopLimitColor or LimitColor
+        self.TxtCount.text = CS.XTextManager.GetText("DormBagFurnitureCount", color, allCount, maxFurnitureCount)
+        self.TxtSelectCount.text = CS.XTextManager.GetText("DormBagFurnitureCount", color, allCount, maxFurnitureCount)
         self:SetPartCount(filter and #filterIds or #furnitureIds)
 
         return filter and filterIds or furnitureIds
@@ -753,7 +762,7 @@ function XUiDormBag:GetDataByPage()
 end
 
 function XUiDormBag:GuideGetDynamicTableIndex(id)
-    for i, v in ipairs(self.PageDatas) do
+    for i, v in pairs(self.PageDatas) do
         local furnitureConfig = XDataCenter.FurnitureManager.GetFurnitureConfigByUniqueId(v)
         if not furnitureConfig then
             return -1
@@ -806,7 +815,7 @@ function XUiDormBag:SetDrdSortIndexToType(furnitureTypeId)
 
     if self.PageRecord == XDormConfig.DORM_BAG_PANEL_INDEX.FURNITURE then
         local typeList = XFurnitureConfigs.GetFurnitureTemplateTypeList()
-        for i, config in ipairs(typeList) do
+        for i, config in pairs(typeList) do
             if furnitureTypeId and furnitureTypeId == config.Id then
                 drodIndex = i
             end
@@ -827,7 +836,7 @@ function XUiDormBag:SetDrdSortIndexToType(furnitureTypeId)
         end
     elseif self.PageRecord == XDormConfig.DORM_BAG_PANEL_INDEX.DRAFT then
         local typeList = XFurnitureConfigs.GetFurnitureSuitTemplatesList()
-        for i, config in ipairs(typeList) do
+        for i, config in pairs(typeList) do
             local data = {
                 TypeId = config.Id,
                 Name = config.SuitName,
@@ -841,7 +850,7 @@ end
 
 function XUiDormBag:CreateDrodPart()
     local CsDropdown = CS.UnityEngine.UI.Dropdown
-    for _, partType in ipairs(self.DrdSortIndexToType) do
+    for _, partType in pairs(self.DrdSortIndexToType) do
         local op = CsDropdown.OptionData()
         op.text = partType.Name
         self.DrodPart.options:Add(op)
@@ -881,7 +890,7 @@ function XUiDormBag:GetSelectIdsByTypeId(typeId)
     local selectIds = {}
     if self.PageRecord == XDormConfig.DORM_BAG_PANEL_INDEX.FURNITURE then
         if typeId == SELECT_TYPE_ALL then
-            for i,v in ipairs(self.DrdSortIndexToType) do
+            for i,v in pairs(self.DrdSortIndexToType) do
                 if v.TypeId ~= SELECT_TYPE_ALL then
                     table.insert(selectIds, v.TypeId)
                 end
@@ -902,7 +911,7 @@ function XUiDormBag:DOAnchorPosY()
         local minRow = 3
         local dynamicTableNormal = self.PanelDynamicTable.gameObject:GetComponent(typeof(CS.XDynamicTableNormal))
         local index = 0
-        for i,id in ipairs(self.PageDatas) do
+        for i,id in pairs(self.PageDatas) do
             if furnitureId == id then
                 index = i
                 break

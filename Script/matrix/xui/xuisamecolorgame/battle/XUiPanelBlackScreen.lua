@@ -15,6 +15,7 @@ function XUiPanelBlackScreen:Ctor(ui, base, role)
     self.BattleManager = XDataCenter.SameColorActivityManager.GetBattleManager()
 
     XTool.InitUiObject(self)
+    self.GameObject:SetActiveEx(true)
     self:SetButtonCallBack()
 
     self.CanvasOrder = {[OrderKey.Buff] = self.PanelBuffCanvas.sortingOrder,
@@ -33,11 +34,15 @@ end
 function XUiPanelBlackScreen:AddEventListener()
     XEventManager.AddEventListener(XEventId.EVENT_SC_PREP_SKILL, self.SetScreenMask, self)
     XEventManager.AddEventListener(XEventId.EVENT_SC_SKILL_USED, self.OnBtnCloseClick, self)
+    XEventManager.AddEventListener(XEventId.EVENT_SC_ACTION_CDCHANGE, self.OnCDChange, self)  -- 主动技能进入冷却
+    XEventManager.AddEventListener(XEventId.EVENT_SC_BATTLESHOW_CLOSE_BLACKSCENE_TIPS, self.CloseSkillTips, self)
 end
 
 function XUiPanelBlackScreen:RemoveEventListener()
     XEventManager.RemoveEventListener(XEventId.EVENT_SC_PREP_SKILL, self.SetScreenMask, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_SC_SKILL_USED, self.OnBtnCloseClick, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_SC_ACTION_CDCHANGE, self.OnCDChange, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_SC_BATTLESHOW_CLOSE_BLACKSCENE_TIPS, self.CloseSkillTips, self)
 end
 
 function XUiPanelBlackScreen:SetButtonCallBack()
@@ -63,11 +68,15 @@ function XUiPanelBlackScreen:SetButtonCallBack()
 end
 
 function XUiPanelBlackScreen:OnBtnCloseClick()
+    if self:IsNoneMask() then
+        return
+    end
+
     if self.Skill:GetUsedCount() == 0 then
-        self:SetScreenMask()
-        self.BattleManager:ClearPrepSkill()
-        XEventManager.DispatchEvent(XEventId.EVENT_SC_UNPREP_SKILL)
+        self:OnSkillEnd()
     else
+        -- v4.0移除弹窗
+        --[[ 
         local callBack = function()
             local skillId = self.Skill:GetSkillId()
             local skillGroupId = self.Skill:GetSkillGroupId()
@@ -75,6 +84,21 @@ function XUiPanelBlackScreen:OnBtnCloseClick()
         end
         local content = CSXTextManagerGetText("SameColorGameCancelSkill", self.Skill:GetUsedCount())
         XUiManager.DialogTip(nil, content, XUiManager.DialogType.Normal, nil, callBack)
+        ]]
+    end
+end
+
+function XUiPanelBlackScreen:OnSkillEnd()
+    self.BattleManager:ClearPrepSkill()
+    self:SetScreenMask()
+    XEventManager.DispatchEvent(XEventId.EVENT_SC_UNPREP_SKILL)
+end
+
+function XUiPanelBlackScreen:OnCDChange(data)
+    -- 使用的技能进入倒计时，技能结束
+    local preSkill = self.BattleManager:GetPrepSkill()
+    if preSkill and preSkill:GetSkillId() == data.SkillGroupId then 
+        self:OnSkillEnd()
     end
 end
 
@@ -104,6 +128,9 @@ function XUiPanelBlackScreen:CheckAutoDoSkill()
     end
     if self:IsPopupMask() then
         self:UsePopupSkill()
+    elseif self:IsNullMask() then
+        self.BlackScreen.gameObject:SetActiveEx(false)
+        self:UseNoParamSkill()
     end
 end
 
@@ -122,10 +149,14 @@ function XUiPanelBlackScreen:CheckClickDoSkill()
 
     elseif self:IsSkillMask() then
         self:UseNoParamSkill()
-
     end
 end
 
+function XUiPanelBlackScreen:CloseSkillTips()
+    self.TextTipsBoard.gameObject:SetActiveEx(false)
+end
+
+-- skill参数为nil，关闭mask
 function XUiPanelBlackScreen:SetScreenMask(skill)
     self.Skill = skill
 
@@ -170,7 +201,9 @@ function XUiPanelBlackScreen:SetScreenMask(skill)
     self.OrderPlus[OrderKey.Buff] = self:IsBuffMask() and 2 or 0
     self.OrderPlus[OrderKey.Board] = self:IsBoardMask() and 2 or 0
     self.OrderPlus[OrderKey.Condition] = self:IsConditionMask() and 2 or 0
-    self.OrderPlus[OrderKey.Energy] = (self:IsEnergyMask() or (skill and skill:GetIsOn())) and 2 or 0
+    -- 准备技能时不是主技能覆盖能量节点层
+    self.OrderPlus[OrderKey.Energy] = (self:IsEnergyMask() or (skill and skill:GetIsOn())) and 2 or
+                                      skill and not self.BattleManager:CheckPrepSkillIsMain(skill:GetSkillId(0)) and -4 or 0
 
     self:SetSortingOrder()
     self:CheckAutoDoSkill()
@@ -205,6 +238,10 @@ end
 
 function XUiPanelBlackScreen:IsPopupMask()
     return self.Skill and self.Skill:GetScreenMaskType() == XSameColorGameConfigs.ScreenMaskType.Popup
+end
+
+function XUiPanelBlackScreen:IsNullMask()
+    return self.Skill and self.Skill:GetScreenMaskType() == XSameColorGameConfigs.ScreenMaskType.None
 end
 
 function XUiPanelBlackScreen:IsNoneMask()

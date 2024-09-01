@@ -20,12 +20,13 @@ function XUiPanelCharPropertyOther:OnAwake()
 end
 
 -- partner : XPartner
-function XUiPanelCharPropertyOther:OnStart(character, equipList, weaponFashionId, assignChapterRecords, partner)
+function XUiPanelCharPropertyOther:OnStart(character, equipList, weaponFashionId, assignChapterRecords, partner, awarenessSetPositions)
     self.Character = character
     self.EquipList = equipList
     self.WeaponFashionId = weaponFashionId
     self.AssignChapterRecords = assignChapterRecords
     self.Partner = partner
+    self.AwarenessSetPositions = awarenessSetPositions
 
     --把服务器发来的装备数据分成武器与意识
     self.Awareness = {}
@@ -43,7 +44,7 @@ function XUiPanelCharPropertyOther:OnStart(character, equipList, weaponFashionId
 end
 
 function XUiPanelCharPropertyOther:OnEnable()
-    self.PanelPropertyButtons:SelectIndex(DEFAULT_INDEX)
+    self.PanelPropertyButtons:SelectIndex(self.SelectedIndex or DEFAULT_INDEX)
     self:UpdateSceneAndModel()
 end
 
@@ -72,7 +73,7 @@ end
 
 function XUiPanelCharPropertyOther:InitChildUiInfos()
     --总览面板不是不是预制体
-    local panelAll = XUiPanelCharAllOther.New(self.PanelOwnedInfoOther, self, self.Character, self.EquipList, self.AssignChapterRecords, self.Partner)
+    local panelAll = XUiPanelCharAllOther.New(self.PanelOwnedInfoOther, self, self.Character, self.EquipList, self.AssignChapterRecords, self.Partner, self.AwarenessSetPositions)
     self.PanelsMap = {
         [PANEL_INDEX.All] = panelAll
     }
@@ -166,7 +167,7 @@ function XUiPanelCharPropertyOther:UpdateShowPanel()
         self.PanelsMap[index] = panel
     end
     if self.SelectedIndex == PANEL_INDEX.All then
-        panel:ShowPanel(self.Character, self.Weapon, self.Awareness, self.Partner)
+        panel:ShowPanel(self.Character, self.Weapon, self.Awareness, self.Partner, self.AssignChapterRecords, self.AwarenessSetPositions)
     elseif self.SelectedIndex == PANEL_INDEX.Skill then
         panel:ShowPanel(self.Character, self.EquipList)
     else
@@ -196,13 +197,6 @@ function XUiPanelCharPropertyOther:GetSceneUrl()
 end
 
 function XUiPanelCharPropertyOther:RecoveryPanel()
-    local skillPanel = self.PanelsMap[PANEL_INDEX.Skill]
-    if skillPanel and skillPanel.SkillInfoPanel.IsShow then
-        skillPanel.SkillInfoPanel:HidePanel()
-        skillPanel:ShowPanel(self.Character, self.EquipList)
-        return true
-    end
-
     local enhanceSkillPanel = self.PanelsMap[PANEL_INDEX.EnhanceSkill]
     if enhanceSkillPanel and enhanceSkillPanel:IsSelectPos() then
         enhanceSkillPanel:CleatSelectPos()

@@ -1,4 +1,5 @@
 XPurchaseManagerCreator = function()
+    ---@class XPurchaseManager
     local XPurchaseManager = {}
     local PurchaseRequest = {
         PurchaseGetDailyRewardReq = "PurchaseGetDailyRewardRequest",
@@ -12,9 +13,14 @@ XPurchaseManagerCreator = function()
     local AccumulatedData = {}
     local LBExpireIdKey = "LBExpireIdKey"
     local LBExpireIdDic = nil
-    local IsYKShowContinueBuy = false
+    local IsYKShowContinueBuy = false 
     local PurchaseInfoDataDic = {}
     local MutexPurchaseDic = {}
+    
+    --不显示在研发按钮红点的UiType
+    local RejectFreeLBUiType = {
+        [13] = true,
+    }
 
     function XPurchaseManager.Init()
         XPurchaseManager.CurBuyIds = {}
@@ -34,7 +40,7 @@ XPurchaseManagerCreator = function()
     -- 判断是否UiTypes都有数据
     function XPurchaseManager.IsHaveDataByUiTypes(uiTypes)
         for _, uiType in pairs(uiTypes) do
-            if not PurchaseInfosData[uiType] then
+            if XTool.IsTableEmpty(PurchaseInfosData[uiType]) then
                 return false
             end
         end
@@ -366,14 +372,18 @@ end
             return false
         end
 
-        if not XPurchaseManager.CurBuyIds or not Next(XPurchaseManager.CurBuyIds) then
-            return true
-        end
+        --if not XPurchaseManager.CurBuyIds or not Next(XPurchaseManager.CurBuyIds) then
+        --    return true
+        --end
 
-        for _, id in pairs(XPurchaseManager.CurFreeRewardId) do
-            if not XPurchaseManager.CurBuyIds[id] then
+        for _, v in pairs(XPurchaseManager.CurFreeRewardId) do
+            if RejectFreeLBUiType[v.UiType] then
+                goto continue
+            end
+            if not XPurchaseManager.CurBuyIds[v.Id] then
                 return true
             end
+            ::continue::
         end
         return false
     end
@@ -381,9 +391,13 @@ end
     -- Notify
     function XPurchaseManager.PurchaseDailyNotify(info)
         XPurchaseManager.CurFreeRewardId = {}
+        XPurchaseManager.CurBuyIds = {}
         if info and info.FreeRewardInfoList and Next(info.FreeRewardInfoList) then
             for _, v in pairs(info.FreeRewardInfoList) do
-                XPurchaseManager.CurFreeRewardId[v.Id] = v.Id
+                XPurchaseManager.CurFreeRewardId[v.Id] = {
+                    Id = v.Id,
+                    UiType = v.UiType
+                }
             end
         end
 
@@ -400,7 +414,6 @@ end
 
                         -- 设置月卡信息本地缓存
                         XDataCenter.PurchaseManager.SetYKLocalCache()
-                        XEventManager.DispatchEvent(XEventId.EVENT_DAYLY_REFESH_RECHARGE_BTN)
                     end)
                 end
             end
@@ -536,6 +549,21 @@ end
 
     function XPurchaseManager.LBRedPointUiTypes()
         return PurchaseLbRedUiTypes
+    end
+
+    function XPurchaseManager.IsLBHave(lbData)
+        if lbData.RewardGoodsList then
+            if XRewardManager.CheckRewardGoodsListIsOwnWithAll(lbData.RewardGoodsList) then 
+                return true
+            end
+
+            -- v1.31非折价礼包：拥有涂装之后，ConvertSwitch价格不变/价位变为0元
+            local isHaveFashion = XRewardManager.CheckRewardGoodsListIsOwnWithAll({lbData.RewardGoodsList[1]})
+            if isHaveFashion and (lbData.ConvertSwitch == lbData.ConsumeCount or lbData.ConvertSwitch == 0) then 
+                return true
+            end
+        end
+        return false
     end
 
     -- 累计充值相关
@@ -730,12 +758,13 @@ end
             CS.UnityEngine.PlayerPrefs.SetInt(key, count)
         end
 
-        if data.DailyRewardRemainDay and count ~= data.DailyRewardRemainDay then
+        --if data.DailyRewardRemainDay and count ~= data.DailyRewardRemainDay then
+        if XTool.IsNumberValid(data.DailyRewardRemainDay) then
             local continueBuyDays = XPurchaseConfigs.PurYKContinueBuyDays
-            if data.DailyRewardRemainDay > continueBuyDays then
+            --if data.DailyRewardRemainDay > continueBuyDays then
                 CS.UnityEngine.PlayerPrefs.SetInt(key, data.DailyRewardRemainDay)
-            end
-
+            --end
+            
             if count > 0 and data.DailyRewardRemainDay <= continueBuyDays then
                 IsYKShowContinueBuy = true
             else
@@ -899,26 +928,29 @@ end
     end
 
     function XPurchaseManager.OpenYKPackageBuyUi(notEnoughCb, beforeBuyCb, buyFinishedCb)
-        local callback = function()
-            local data = XPurchaseManager.GetPurchasePackageById(XPurchaseConfigs.YKID)
-            if data:GetCurrentBuyTime() > 0 then
-                local clientResetInfo = data:GetClientResetInfo()
-                if not (clientResetInfo and clientResetInfo.DayCount >= data:GetDailyRewardRemainDay() 
-                    and data:GetCurrentBuyTime() < data:GetBuyLimitTime()) then
-                    XUiManager.TipText("PurchaseNotBuy")
-                    return
-                end
-            end
-            XPurchaseManager.OpenPurchaseBuyUiByPurchasePackage(data, notEnoughCb, beforeBuyCb, buyFinishedCb)
-        end
-        XPurchaseManager.RequestUpdateDataByTabType(XPurchaseConfigs.TabsConfig.YK, callback)
+        -- local callback = function()
+        --     local data = XPurchaseManager.GetPurchasePackageById(XPurchaseConfigs.YKID)
+        --     if data:GetCurrentBuyTime() > 0 then
+        --         local clientResetInfo = data:GetClientResetInfo()
+        --         if not (clientResetInfo and clientResetInfo.DayCount >= data:GetDailyRewardRemainDay() 
+        --             and data:GetCurrentBuyTime() < data:GetBuyLimitTime()) then
+        --             XUiManager.TipText("PurchaseNotBuy")
+        --             return
+        --         end
+        --     end
+        --     XPurchaseManager.OpenPurchaseBuyUiByPurchasePackage(data, notEnoughCb, beforeBuyCb, buyFinishedCb)
+        -- end
+        -- XPurchaseManager.RequestUpdateDataByTabType(XPurchaseConfigs.TabsConfig.YK, callback)
+        -- 打开活动礼包, 传入月卡 IDA IDC
+        
     end
 
     function XPurchaseManager.OpenPurchaseBuyUiByPurchasePackage(data, notEnoughCb, beforeBuyCb, buyFinishedCb)
         local templateId, isWeaponFashion = data:CheckIsSingleFashion()
         -- 皮肤礼包特殊处理
         if templateId and data:GetUiType() == XPurchaseConfigs.UiType.CoatingLB then
-            local buyData = data:GetUiFashionDetailBuyData(buyFinishedCb)
+            -- en1.32 英文服在涂装推荐页, 虹卡不足时需要跳转充值
+            local buyData = data:GetUiFashionDetailBuyData(buyFinishedCb, notEnoughCb)
             -- 从推荐页跳转需要购买冷却
             XLuaUiManager.Open("UiFashionDetail", templateId, isWeaponFashion, buyData, nil, true)
         else
@@ -937,7 +969,7 @@ end
                 return data:CheckCanBuy(count, disCountCouponIndex, notEnoughCb)
             end
             XLuaUiManager.Open("UiPurchaseBuyTips", data:GetRawData(), mergeCheckBuy
-                , mergeBuyFinishedCb, mergeBeforeBuyCb, data:GetUiTypes())
+                , mergeBuyFinishedCb, mergeBeforeBuyCb, data:GetUiTypes(),data:GetUiType())
         end
         
     end
@@ -955,7 +987,10 @@ end
         local uiTypes = XPurchaseConfigs.GetUiTypesByTab(XPurchaseConfigs.TabsConfig.YK)
         local result = {}
         for _, v in ipairs(uiTypes) do
-            result = appendArray(result, XPurchaseManager.GetPurchasePackagesByUiType(v.UiType)) 
+             -- en2.0 屏蔽13月卡
+             if v.UiType ~= 13 then
+                result = appendArray(result, XPurchaseManager.GetPurchasePackagesByUiType(v.UiType)) 
+            end
         end
         return result
     end
@@ -976,6 +1011,7 @@ end
         return result
     end
 
+    ---@return XPurchaseRecommendManager
     function XPurchaseManager.GetRecommendManager()
         if XPurchaseManager.__RecommendManager == nil then
             local class = require("XEntity/XPurchase/XPurchaseRecommendManager")

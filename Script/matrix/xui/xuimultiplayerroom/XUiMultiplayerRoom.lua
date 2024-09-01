@@ -48,6 +48,11 @@ local TipsType = {
     ["TongTiaoTips"] = 3, --同调提示
 }
 function XUiMultiplayerRoom:OnAwake()
+    if not XDataCenter.RoomManager.RoomData then
+        self:Close()
+        return
+    end
+    
     self.RoomKickCountDownTime = CS.XGame.Config:GetInt("RoomKickCountDownTime")
     self.RoomKickCountDownShowTime = CS.XGame.Config:GetInt("RoomKickCountDownShowTime")
 
@@ -75,6 +80,9 @@ function XUiMultiplayerRoom:OnAwake()
     self:RegisterClickEvent(self.BtnDifficultySelect, self.OnBtnDifficultySelectClick)
     self:RegisterClickEvent(self.BtnCloseDifficulty, self.OnBtnCloseDifficultyClick)
     self:RegisterClickEvent(self.BtnMapSelect, self.OnBtnMapsSelectClick)
+    --2.6取消模式切换，只有合作模式
+    --self:RegisterClickEvent(self.BtnSummerEpisode, self.OnBtnSummerEpisodeClick)
+    self:RegisterClickEvent(self.BtnActionPointAdd, function () XUiManager.OpenBuyAssetPanel(XDataCenter.ItemManager.ItemId.ActionPoint) end)
     self.BtnSetAbilityLimit.CallBack = handler(self, self.OnBtnSetAbilityLimitClick)
     self.BtnCloseAbilityLimit.CallBack = handler(self, self.OnBtnCloseAbilityLimitClick)
     self.BtnCancel.CallBack = handler(self, self.OnBtnCloseAbilityLimitClick)
@@ -319,7 +327,9 @@ function XUiMultiplayerRoom:OnStageChangeSummerEpisode()
     local roomData = XDataCenter.RoomManager.RoomData
     self.TxtMap.text = XDataCenter.FubenManager.GetStageName(roomData.StageId)
     self.TxtTitle.text = XDataCenter.FubenManager.GetStageName(roomData.StageId)
-    --todo aafasou 待接入地图更改后的动画
+    local isHell = XFubenSpecialTrainConfig.IsHellStageId(roomData.StageId)
+    --2.6取消模式切换，只有合作模式
+    --self.BtnSummerEpisode:SetButtonState(isHell and XUiButtonState.Select or XUiButtonState.Normal)
 end
 
 function XUiMultiplayerRoom:PlayStageLevelChange(lastLevel, curLevel)
@@ -448,6 +458,9 @@ end
 -- 界面刷新
 function XUiMultiplayerRoom:Refresh()
     local roomData = XDataCenter.RoomManager.RoomData
+    if not roomData then
+        return
+    end
     local stageId = roomData.StageId
     local challengeId = roomData.ChallengeId
     local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
@@ -481,8 +494,7 @@ function XUiMultiplayerRoom:Refresh()
         self.TxtLv.text = CS.XTextManager.GetText("ArenaOnlineChapterLevel", arenaChapterCfg.MinLevel, arenaChapterCfg.MaxLevel)
         self.ActiveBuffMainPanel:Show(stageId)
     elseif stageInfo.Type == XDataCenter.FubenManager.StageType.MultiDimOnline then
-        local stage = XDataCenter.FubenManager.GetStageCfg(stageId)
-        self.TxtActionConsume.text = stage.RequireActionPoint
+        self.TxtActionConsume.text = XDataCenter.FubenManager.GetRequireActionPoint(stageId)
         self.PanelFlopItem.gameObject:SetActiveEx(false)
         self.PanelStaminaCost.gameObject:SetActiveEx(false)
         self.PanelArenaOnlineTip.gameObject:SetActiveEx(false)
@@ -491,8 +503,7 @@ function XUiMultiplayerRoom:Refresh()
         self.BtnSpecialEffects.gameObject:SetActiveEx(false)
         self.BtnIntelligenceMatch.gameObject:SetActiveEx(false)
     else
-        local stage = XDataCenter.FubenManager.GetStageCfg(stageId)
-        self.TxtActionConsume.text = stage.RequireActionPoint
+        self.TxtActionConsume.text = XDataCenter.FubenManager.GetRequireActionPoint(stageId)
         self.PanelFlopItem.gameObject:SetActiveEx(false)
         self.PanelStaminaCost.gameObject:SetActiveEx(false)
         self.PanelArenaOnlineTip.gameObject:SetActiveEx(false)
@@ -532,7 +543,7 @@ function XUiMultiplayerRoom:Refresh()
 end
 
 function XUiMultiplayerRoom:CloseAllOperationPanel(exceptIndex)
-    for k, v in pairs(self.GridList) do
+    for k, v in pairs(self.GridList or {}) do
         if not exceptIndex or k ~= exceptIndex then
             v:CloseOperationPanelAndInvitePanel()
         end
@@ -614,7 +625,13 @@ function XUiMultiplayerRoom:InitSummerEpisodeMapSelectBtn()
     if not roomData then
         return
     end
+    if not XFubenSpecialTrainConfig.IsSpecialTrainStage(roomData.StageId, XFubenSpecialTrainConfig.StageType.Photo) then
+        return
+    end
     self.TxtMap.text = XDataCenter.FubenManager.GetStageName(roomData.StageId)
+    local isHell = XFubenSpecialTrainConfig.IsHellStageId(roomData.StageId)
+    --2.6取消模式切换，只有合作模式
+    --self.BtnSummerEpisode:SetButtonState(isHell and XUiButtonState.Select or XUiButtonState.Normal)
 end
 
 function XUiMultiplayerRoom:InitSpecialTrainMusicBtn()
@@ -686,7 +703,6 @@ function XUiMultiplayerRoom:InitMultiDim()
         end
     end
     self.MultiDimRecommendCareerPanel:SetActive(isMultiDim)
-    self.PanelConsume.gameObject:SetActiveEx(not isMultiDim)
     self.BtnMultiDimDifficultySelect.gameObject:SetActiveEx(isMultiDim)
 end
 
@@ -718,7 +734,7 @@ function XUiMultiplayerRoom:GetGrid(playerId)
         end
     end
     if not grid then
-        XLog.Error("XUiMultiplayerRoom:GetGrid error, there is no empty grid")
+        XLog.Error("XUiMultiplayerRoom:GetGrid error, there is no empty grid。XPlayer.Id:" .. tostring(XPlayer.Id) .. " playerId:" .. tostring(playerId))
     end
     return grid
 end
@@ -746,6 +762,11 @@ function XUiMultiplayerRoom:RefreshButtonStatus()
         self:SwitchDifficultyState(0)
     end
     self.BtnMapSelect.gameObject:SetActiveEx(XFubenSpecialTrainConfig.IsSpecialTrainStage(roomData.StageId, XFubenSpecialTrainConfig.StageType.Photo))
+    --2.6取消模式切换，只有合作模式
+    if self.BtnSummerEpisode then
+        self.BtnSummerEpisode.gameObject:SetActiveEx(false)
+        --self.BtnSummerEpisode.gameObject:SetActiveEx(XFubenSpecialTrainConfig.IsSpecialTrainStage(roomData.StageId, XFubenSpecialTrainConfig.StageType.Photo))
+    end
     local isShowSpecial = XDataCenter.FubenSpecialTrainManager.CheckSpecialTrainShowSpecial(roomData.StageId)
     local isMultiDim = XDataCenter.MultiDimManager.IsMultiDimStage(roomData.StageId)
     self.PanelLimit.gameObject:SetActiveEx(isShowSpecial)
@@ -753,8 +774,8 @@ function XUiMultiplayerRoom:RefreshButtonStatus()
     self.BtnMusic.gameObject:SetActiveEx(XFubenSpecialTrainConfig.IsSpecialTrainStage(roomData.StageId, XFubenSpecialTrainConfig.StageType.Music))
     self.BtnPattern.gameObject:SetActiveEx(XDataCenter.FubenSpecialTrainManager.CheckSpecialTrainShowPattern(roomData.StageId))
     self.BtnAutoMatch.ButtonState = roomData.AutoMatch and CS.UiButtonState.Select or CS.UiButtonState.Normal
-    self.BtnSnowGame.gameObject:SetActiveEx(XFubenSpecialTrainConfig.IsSpecialTrainStage(roomData.StageId, XFubenSpecialTrainConfig.StageType.Snow))
-    self.BtnYuanXiao.gameObject:SetActiveEx(XFubenSpecialTrainConfig.IsSpecialTrainStage(roomData.StageId, XFubenSpecialTrainConfig.StageType.Rhythm))
+    --self.BtnSnowGame.gameObject:SetActiveEx(XFubenSpecialTrainConfig.IsSpecialTrainStage(roomData.StageId, XFubenSpecialTrainConfig.StageType.Snow))
+    --self.BtnYuanXiao.gameObject:SetActiveEx(XFubenSpecialTrainConfig.IsSpecialTrainStage(roomData.StageId, XFubenSpecialTrainConfig.StageType.Rhythm))
 end
 
 function XUiMultiplayerRoom:RefreshChars()
@@ -1117,6 +1138,27 @@ function XUiMultiplayerRoom:OnBtnChangeDifficultyClick()
 
 end
 
+function XUiMultiplayerRoom:PcClose()
+    if self.PanelDifficulty.gameObject.activeSelf then
+        self:OnBtnCloseDifficultyClick()
+        return
+    end
+    if self.PanelAbilityLimit.gameObject.activeSelf then
+        self:OnBtnCloseAbilityLimitClick()
+        return
+    end
+    if self.PanelActiveBuff.gameObject.activeSelf then
+        self.PanelActiveBuff.gameObject:SetActiveEx(false)
+        return
+    end
+    if self.PanelChangeStage.gameObject.activeSelf then
+        self.PanelChangeStage.gameObject:SetActiveEx(false)
+        return
+    end
+    
+    self:OnBtnBackClick()
+end
+
 function XUiMultiplayerRoom:OnBtnBackClick()
     self:OnQuitRoomDialogTip(function()
         XDataCenter.RoomManager.CloseMultiPlayerRoom()
@@ -1155,11 +1197,29 @@ end
 function XUiMultiplayerRoom:OnBtnMapsSelectClick()
     local leader = self:GetLeaderRole()
     if leader.Id ~= XPlayer.Id then return end
-    XLuaUiManager.Open("UiSummerEpisodeMap", XDataCenter.RoomManager.RoomData.StageId, function()
+    XLuaUiManager.Open("UiSummerEpisodeMap", XDataCenter.RoomManager.RoomData.StageId, false, function()
         self:PlayAnimation("BtnMapSelectEnable")
-    end)
+    end,true)
 end
 
+--2.6取消模式切换，只有合作模式
+--[[
+function XUiMultiplayerRoom:OnBtnSummerEpisodeClick()
+    local leader = self:GetLeaderRole()
+    if leader.Id ~= XPlayer.Id then
+        XUiManager.TipText("MultiplayerRoomOnlyLeaderTip")
+        local isHell = not self.BtnSummerEpisode:GetToggleState()
+        self.BtnSummerEpisode:SetButtonState(isHell and XUiButtonState.Select or XUiButtonState.Normal)
+        return 
+    end
+    local isHell = self.BtnSummerEpisode:GetToggleState()
+    local roomData = XDataCenter.RoomManager.RoomData
+    local stageId = isHell and XFubenSpecialTrainConfig.GetHellStageId(roomData.StageId) or XFubenSpecialTrainConfig.GetStageIdByHellId(roomData.StageId) 
+    XDataCenter.RoomManager.PhotoChangeMapRequest(stageId, function()
+        self:Refresh()
+    end)
+end
+--]]
 function XUiMultiplayerRoom:OnBtnDifficultySelectClick()
     self:CloseAllOperationPanel()
     local curRole = self:GetCurRole()

@@ -1,0 +1,2162 @@
+[
+    {
+        "Id": 99960001,
+        "Content": "<size=50>Three Variables <color=#FF3300>{0}{1}{2}</color> Row: 1</size>"
+    },
+    {
+        "Id": 99960002,
+        "Content": "<size=45>Three Variables <color=#FF0033>{0}{1}{2}</color> Row: 2</size>"
+    },
+    {
+        "Id": 99960003,
+        "Content": "<size=40>Three Variables <color=#33FF00>{0}{1}{2}</color> Row: 3</size>"
+    },
+    {
+        "Id": 99960004,
+        "Content": "<size=35>Three Variables <color=#3300FF>{0}{1}{2}</color> Row: 4</size>"
+    },
+    {
+        "Id": 99960005,
+        "Content": "<size=30>Three Variables <color=#0033FF>{0}{1}{2}</color> Row: 5</size>"
+    },
+    {
+        "Id": 99960006,
+        "Content": "<size=25>Three Variables <color=#00FF33>{0}{1}{2}</color> Row: 6</size>"
+    },
+    {
+        "Id": 99960007,
+        "Content": "<size=20>Three Variables {0}{1}{2} Row: 7</size>"
+    },
+    {
+        "Id": 99960008,
+        "Content": "<size=15>Three Variables {0}{1}{2} Row: 8</size>"
+    },
+    {
+        "Id": 99960009,
+        "Content": "<size=10>Three Variables {0}{1}{2} Row: 9</size>"
+    },
+    {
+        "Id": 99960010,
+        "Content": "<size=5>Three Variables {0}{1}{2} Row: 10</size>"
+    },
+    {
+        "Id": 99960011,
+        "Content": "Move Function Test"
+    },
+    {
+        "Id": 99960012,
+        "Content": "Button 1: Start Moving|Button 2: Stop Moving"
+    },
+    {
+        "Id": 99960014,
+        "Content": "Button 3: Switch Moving Status, Currently: Run"
+    },
+    {
+        "Id": 99960015,
+        "Content": "Button 3: Switch Moving Status, Currently: Walk"
+    },
+    {
+        "Id": 99960016,
+        "Content": "Button 4: Switch Moving Target, Currently: PB1"
+    },
+    {
+        "Id": 99960017,
+        "Content": "Button 4: Switch Moving Target, Currently: Player"
+    },
+    {
+        "Id": 99960018,
+        "Content": "Button 5: Switch Moving Counter, Currently: Continuous"
+    },
+    {
+        "Id": 99960019,
+        "Content": "Button 5: Switch Moving Counter, Currently: 1"
+    },
+    {
+        "Id": 99960020,
+        "Content": "Button 8: Switch Npc"
+    },
+    {
+        "Id": 99960021,
+        "Content": "Drag Function Test"
+    },
+    {
+        "Id": 99960022,
+        "Content": "Button 1: Refresh Custom Button"
+    },
+    {
+        "Id": 99960023,
+        "Content": "Button 2: Turn On Button Drag"
+    },
+    {
+        "Id": 99960024,
+        "Content": "Button 3: Turn Off Button Drag"
+    },
+    {
+        "Id": 99960025,
+        "Content": "Button Transition Test"
+    },
+    {
+        "Id": 99960026,
+        "Content": "Button 1: 3s Zoom Transition"
+    },
+    {
+        "Id": 99960027,
+        "Content": "Button 2: 1s Transparency Transition"
+    },
+    {
+        "Id": 99960028,
+        "Content": "Button 3: 3s Location Transition"
+    },
+    {
+        "Id": 99960029,
+        "Content": "Button 4: Instantly Move Location"
+    },
+    {
+        "Id": 99960030,
+        "Content": "Button 8: End Transition in Advance"
+    },
+    {
+        "Id": 99960031,
+        "Content": "Punishing Survivor"
+    },
+    {
+        "Id": 99960032,
+        "Content": "<size=30> destroyed <color=#FF3300>{0}</color>, your ATK <color=#FF3300>{1}</color>, enemy HP <color=#FF3300>{2}</color>, enemy ATK <color=#FF3300>{3}</color></size>"
+    },
+    {
+        "Id": 99960033,
+        "Content": "<color=#00FF68>Level{0} - Uncommon</color>"
+    },
+    {
+        "Id": 99960034,
+        "Content": "<color=#0033FF>Level{0} - Rare</color>"
+    },
+    {
+        "Id": 99960035,
+        "Content": "<color=#9900CC>Level{0} - Epic</color>"
+    },
+    {
+        "Id": 99960036,
+        "Content": "<color=#FF6600>Level{0} - Legendary</color>"
+    },
+    {
+        "Id": 99960037,
+        "Content": "<color=#FF3333>Level{0} - Mythic</color>"
+    },
+    {
+        "Id": 3180701,
+        "Content": "When this unit takes damage, its wound will be Burnt. The [Burnt Wound] effect stacks up to 3 times. Might can tear apart the wound: every 5 Might Points can make the target take 10% more Burnt DMG and increase the Burn duration by 0.5s."
+    },
+    {
+        "Id": 3180702,
+        "Content": "This unit's wound is Burnt, taking Burn DMG {0} times per second over {1}s ({2} + {3}). The unit gains [Wound Recovery] at the end of the Burn."
+    },
+    {
+        "Id": 3180703,
+        "Content": "Wound recovering: become immune to Burn for 8s."
+    },
+    {
+        "Id": 3180704,
+        "Content": "This unit loses 20% movement speed and Dodge Gauge recovery speed every 30s, stacking up to {0} times. Constitution can resist the impact of coldness: every 5 Constitution Points can reduce the effect by 5%."
+    },
+    {
+        "Id": 3180705,
+        "Content": "The movement speed and Dodge Gauge recovery speed of this unit have decreased by {0}%."
+    },
+    {
+        "Id": 3180706,
+        "Content": "This unit will be damaged by Lightning Bugs. Lightning Bugs spawn every {0}s ({1} + ). Once spawned, they will immediately rush toward the player's position and explode, dealing DMG to all units within 6m. Use Tenacity Points to control the lightning power: every 5 Tenacity Points will increase Lightning Bugs' spawn interval by 0.5s, and return 5% of the explosion DMG back to the enemy."
+    },
+    {
+        "Id": 3180707,
+        "Content": "The unit will take {0}% more DMG from Lightning Bugs."
+    },
+    {
+        "Id": 3180708,
+        "Content": "Upon receiving damage, the unit will expose its weakness and take more damage until the end of the battle. Use the Focus Points to suppress the generation of the weaknesses. Every 5 Focus Points can reduce the Vulnerable effect by 2%. Every 10 Focus Points can further increase the target's Vulnerable effect by 2%."
+    },
+    {
+        "Id": 3180709,
+        "Content": "This unit takes Extra DMG based on the weakness level. Current corrosion level {0}/max level {1}, increasing DMG taken by {2}% ({3}% + {4}%)."
+    },
+    {
+        "Id": 3180710,
+        "Content": "If there are more than 3 ally units within 10m from this unit, every 1 extra ally will increase their DMG by {0}%; if the number of ally units is below 3, every 1 less ally will increase their DMG Reduction by %. The effects stack up to 3 times. Might Points can suppress the enemy: each 10 Might Points will reduce the DMG Bonus by 5% and DMG Reduction by 1%."
+    },
+    {
+        "Id": 3180711,
+        "Content": "Allies: {0}, DMG Increase: {1}% ({2}% - {3}%)"
+    },
+    {
+        "Id": 3180712,
+        "Content": "Allies: {0}, DMG Reduction Increase: {1}% ({2}% - {3}%)"
+    },
+    {
+        "Id": 3180713,
+        "Content": "The unit is in an unstable state and deals fluctuating damage between {0}% - {1}% (starting from {2}% - {3}%). Use Constitution Points to adapt the unstable attacks: every 5 Constitution Points can reduce the enemy's maximum damage dealt by 5%, while every 10 Constitution Points can reduce the enemy's minimum damage dealt by 5%."
+    },
+    {
+        "Id": 3180714,
+        "Content": "Charges once every {0}s (20 + ) and gains 1 stack of [Charge] effect. After charging 3 times, becomes [Overloaded] and stops charging. Use Tenacity Points to better understand the Charge effect: every 10 Tenacity Points can increase the charging interval by 5s and reduce the final DMG Bonus by 5% and Signature Energy Reduction by 1."
+    },
+    {
+        "Id": 3180715,
+        "Content": "Increases DMG by {0}% ({1}% - {2}%) and Movement Speed by {3}%."
+    },
+    {
+        "Id": 3180716,
+        "Content": "Every time this unit deals damage, it will reduce the target's Signature Energy by {0} ({1} - {2})."
+    },
+    {
+        "Id": 3180717,
+        "Content": "The unit can interfere with the enemy's combat system, reducing the incoming damage dealt by the enemy from {0}m ({1} + ) away and having a chance to dodge the attack. Use the Focus Points to be more concentrated and resist the Interference effect. Every 10 Focus Points can reduce the range of the Interference effect by 1m, the DMG Reduction by 5% and dodge chance by 3%."
+    },
+    {
+        "Id": 3180718,
+        "Content": "This unit receives {0}% ({1}% - {2}%) less damage from you and has a {3}% ({4}% - {5}%) chance to dodge your attacks."
+    },
+    {
+        "Id": 318070011,
+        "Content": "Boss arriving: <color=#FF3300>{0}</color> / {1}"
+    },
+    {
+        "Id": 318070012,
+        "Content": "Elite enemies appearing after: <color=#FF3300>{0}</color> kills"
+    },
+    {
+        "Id": 318070013,
+        "Content": "Boss arriving"
+    },
+    {
+        "Id": 318070014,
+        "Content": "Elite Enemy battle in progress"
+    },
+    {
+        "Id": 318070015,
+        "Content": "Boss defeated"
+    },
+    {
+        "Id": 318070016,
+        "Content": "Pick up rewards and leave the battle"
+    },
+    {
+        "Id": 318070017,
+        "Content": "Regular Battle"
+    },
+    {
+        "Id": 318070018,
+        "Content": "Collapsed Battle"
+    },
+    {
+        "Id": 318070019,
+        "Content": "Overlapped Battle"
+    },
+    {
+        "Id": 318070020,
+        "Content": "Open the chest to earn rewards"
+    },
+    {
+        "Id": 318070021,
+        "Content": "Wave <color=#FF3300>{0}</color> (next Leap in: <color=#FF3300>{1}</color> waves)"
+    },
+    {
+        "Id": 318070022,
+        "Content": "Floors Leaped:<size=50><color=#00FFFF>{0}</color></size> (Max Floors Leaped: <color=#00FFFF>{1}</color>)"
+    },
+    {
+        "Id": 318070023,
+        "Content": "Floors Leaped:<size=50><color=#00D2FF>{0}</color></size> (Max Floors Leaped: <color=#00D2FF>{1}</color>)"
+    },
+    {
+        "Id": 318070024,
+        "Content": "Floors Leaped:<size=50><color=#00B4FF>{0}</color></size> (Max Floors Leaped: <color=#00B4FF>{1}</color>)"
+    },
+    {
+        "Id": 318070025,
+        "Content": "Floors Leaped:<size=50><color=#0096FF>{0}</color></size> (Max Floors Leaped: <color=#0096FF>{1}</color>)"
+    },
+    {
+        "Id": 318070026,
+        "Content": "Floors Leaped:<size=50><color=#0064FF>{0}</color></size> (Max Floors Leaped: <color=#0064FF>{1}</color>)"
+    },
+    {
+        "Id": 318070027,
+        "Content": "Floors Leaped:<size=50>{0}</size> (Max Floors Leaped: {1})"
+    },
+    {
+        "Id": 318070031,
+        "Content": "Current Wave: <color=#FF3300>{0}</color> / {1}"
+    },
+    {
+        "Id": 150204100,
+        "Content": "07:00 - 07:30 Get Up"
+    },
+    {
+        "Id": 150204101,
+        "Content": "07:30 - 12:00 \u2587\u2587\u2587\u2587"
+    },
+    {
+        "Id": 150204102,
+        "Content": "12:00 - 14:00 Afternoon \u2587\u2587"
+    },
+    {
+        "Id": 150204103,
+        "Content": "14:00 - 16:00 Group Games"
+    },
+    {
+        "Id": 150204104,
+        "Content": "16:00 - 22:00 \u2587\u2587\u2587\u2587"
+    },
+    {
+        "Id": 150204105,
+        "Content": "22:00 - 07:00 Night Rest"
+    },
+    {
+        "Id": 150204106,
+        "Content": "07:00 - 07:30 Talks"
+    },
+    {
+        "Id": 150204107,
+        "Content": "07:30 - 12:00 Talks"
+    },
+    {
+        "Id": 150204108,
+        "Content": "12:00 - 14:00 Talks"
+    },
+    {
+        "Id": 150204109,
+        "Content": "14:00 - 16:00 Talks"
+    },
+    {
+        "Id": 150204110,
+        "Content": "16:00 - 22:00 Talks"
+    },
+    {
+        "Id": 150204111,
+        "Content": "22:00 - 07:00 Talks"
+    },
+    {
+        "Id": 150204112,
+        "Content": "Doris, listen, listen."
+    },
+    {
+        "Id": 150204113,
+        "Content": "Family, Mother, Sister."
+    },
+    {
+        "Id": 150204114,
+        "Content": "Listen, listen, good girl."
+    },
+    {
+        "Id": 150204115,
+        "Content": "Doris, good girl, good girl."
+    },
+    {
+        "Id": 150204116,
+        "Content": "Mother, Mother, Mother."
+    },
+    {
+        "Id": 150204117,
+        "Content": "Doris, Doris, Doris."
+    },
+    {
+        "Id": 301626011,
+        "Content": "<size=45>When character's shield capacity reaches the required amount, triggers <color=#FF0000>ATK Bonus</color></size>"
+    },
+    {
+        "Id": 301626012,
+        "Content": "<size=45>Required shield capacity for next ATK Bonus <color=#FF0000>{0}</color>/<color=#0099FF>{1}</color></size>"
+    },
+    {
+        "Id": 301626013,
+        "Content": "<size=45>Current character shield: <color=#FF0000>{0}</color></size>"
+    },
+    {
+        "Id": 301626014,
+        "Content": "<size=35>Current character shield capacity > 0: Gains <color=#FFFF00>ATK Bonus</color></size>"
+    },
+    {
+        "Id": 301626015,
+        "Content": "<size=35>Current character's shield capacity = 0: losing <color=#FFFF00>ATK Bonus</color></size> in <color=#FF0000>{0}</color>s"
+    },
+    {
+        "Id": 301626016,
+        "Content": "<size=35>Increase character's shield capacity to <color=#0099FF>gain </color><color=#FFFF00>ATK Bonus</color></size>"
+    },
+    {
+        "Id": 301626161,
+        "Content": "<size=35>Hetero-Sapien HP: <color=#0099FF>{0}</color></size>%"
+    },
+    {
+        "Id": 301626162,
+        "Content": "<size=35>Hetero-Sapien HP: <color=#0099FF>{0}</color></size>%"
+    },
+    {
+        "Id": 301626163,
+        "Content": "<size=35>Hetero-Sapien HP: <color=#0099FF>{0}</color></size>%"
+    },
+    {
+        "Id": 301626164,
+        "Content": "<size=35>Hetero-Sapien HP: <color=#0099FF>{0}</color></size>%"
+    },
+    {
+        "Id": 301626165,
+        "Content": "<size=35>Hetero-Sapien reviving: <color=#FF0000>{0}</color></size>s"
+    },
+    {
+        "Id": 301626166,
+        "Content": "<size=35>Hetero-Sapien reviving: <color=#FF0000>{0}</color></size>s"
+    },
+    {
+        "Id": 301626167,
+        "Content": "<size=35>Hetero-Sapien reviving: <color=#FF0000>{0}</color></size>s"
+    },
+    {
+        "Id": 301626168,
+        "Content": "<size=35>Hetero-Sapien reviving: <color=#FF0000>{0}</color></size>s"
+    },
+    {
+        "Id": 301626171,
+        "Content": "Trailblazing Surfer \u03b1 Super Armor: <color=#0099FF>{0}</color>%"
+    },
+    {
+        "Id": 301626172,
+        "Content": "Trailblazing Surfer \u03b2 Super Armor: <color=#0099FF>{0}</color>%"
+    },
+    {
+        "Id": 301626173,
+        "Content": "Trailblazing Surfer \u03b1 Super Armor recovery countdown: <color=#0099FF>{0}</color>s"
+    },
+    {
+        "Id": 301626174,
+        "Content": "Trailblazing Surfer \u03b2 Super Armor recovery countdown: <color=#0099FF>{0}</color>s"
+    },
+    {
+        "Id": 301626175,
+        "Content": "Trailblazing Surfer \u03b1: <color=#0099FF>Eliminated</color>"
+    },
+    {
+        "Id": 301626176,
+        "Content": "Trailblazing Surfer \u03b2: <color=#0099FF>Eliminated</color>"
+    },
+    {
+        "Id": 301626181,
+        "Content": "<size=35>Gabriel gaining <color=#FF0000>\u25cf</color> DMG Immunity in: <color=#FF0000>{0}</color></size>s"
+    },
+    {
+        "Id": 301626182,
+        "Content": "<size=35>Gabriel has gained <color=#FF0000>\u25cf </color>DMG Immunity</size>"
+    },
+    {
+        "Id": 301626183,
+        "Content": "<size=35>Waiting to gain <color=#0099FF>\u25cf </color>DMG Immunity</size>"
+    },
+    {
+        "Id": 301626184,
+        "Content": "<size=35>Gabriel gaining <color=#0099FF>\u25cf</color> DMG Immunity in: <color=#FF0000>{0}</color></size>s"
+    },
+    {
+        "Id": 301626185,
+        "Content": "<size=35>Gabriel has gained <color=#0099FF>\u25cf </color>DMG Immunity</size>"
+    },
+    {
+        "Id": 301626186,
+        "Content": "<size=35>Waiting to gain <color=#FFFF00>\u25cf </color>DMG Immunity</size>"
+    },
+    {
+        "Id": 301626187,
+        "Content": "<size=35>Gabriel gaining <color=#FFFF00>\u25cf</color> DMG Immunity in: <color=#FF0000>{0}</color></size>s"
+    },
+    {
+        "Id": 301626188,
+        "Content": "<size=35>Gabriel has gained <color=#FFFF00>\u25cf </color>DMG Immunity</size>"
+    },
+    {
+        "Id": 301626201,
+        "Content": "<size=35>Deal <color=#660099>Dark</color> DMG to charge up the Tank: <color=#FF0000>{0}</color></size>%"
+    },
+    {
+        "Id": 301626202,
+        "Content": "<size=35>Tank auto-charging countdown: <color=#FF0000>{0}</color></size>s"
+    },
+    {
+        "Id": 301626021,
+        "Content": "Recycle Prisoner gaining shield in: <color=#0099FF>{0}</color>s"
+    },
+    {
+        "Id": 301626022,
+        "Content": "Recycle Prisoner's shield duration: <color=#FF0000>{0}</color>s"
+    },
+    {
+        "Id": 301626023,
+        "Content": "Recycle Prisoner's fatigue duration: <color=#FF6600>{0}</color>s"
+    },
+    {
+        "Id": 301626024,
+        "Content": "Recycle Prisoner: <color=#FF0000>Eliminated</color>"
+    },
+    {
+        "Id": 301626061,
+        "Content": "<size=30><color=#FF0000>An Amplifier </color>is <color=#0099FF>enhancing </color>Vassago</size>"
+    },
+    {
+        "Id": 301626062,
+        "Content": "<size=30>Amplifier No.1 status: <color=#0099FF>In use</color></size>"
+    },
+    {
+        "Id": 301626063,
+        "Content": "<size=30>Amplifier No.1 status: <color=#FF6600>Rebooting...</color></size>"
+    },
+    {
+        "Id": 301626064,
+        "Content": "<size=30>Amplifier No.1 status: <color=#FF0000>Overloaded</color></size>"
+    },
+    {
+        "Id": 301626065,
+        "Content": "<size=30>Amplifier No.2 status: <color=#0099FF>In use</color></size>"
+    },
+    {
+        "Id": 301626066,
+        "Content": "<size=30>Amplifier No.2 status: <color=#FF6600>Rebooting...</color></size>"
+    },
+    {
+        "Id": 301626067,
+        "Content": "<size=30>Amplifier No.2 status: <color=#FF0000>Overloaded</color></size>"
+    },
+    {
+        "Id": 301626068,
+        "Content": "<size=30>Amplifier No.3 status: <color=#0099FF>In use</color></size>"
+    },
+    {
+        "Id": 301626069,
+        "Content": "<size=30>Amplifier No.3 status: <color=#FF6600>Rebooting...</color></size>"
+    },
+    {
+        "Id": 301626070,
+        "Content": "<size=30>Amplifier No.3 status: <color=#FF0000>Overloaded</color></size>"
+    },
+    {
+        "Id": 301626071,
+        "Content": "<size=30>Amplifier No.4 status: <color=#0099FF>In use</color></size>"
+    },
+    {
+        "Id": 301626072,
+        "Content": "<size=30>Amplifier No.4 status: <color=#FF6600>Rebooting...</color></size>"
+    },
+    {
+        "Id": 301626073,
+        "Content": "<size=30>Amplifier No.4 status: <color=#FF0000>Overloaded</color></size>"
+    },
+    {
+        "Id": 301626074,
+        "Content": "<size=30>Amplifier <color=#FF6600>Reboot</color> Countdown: <color=#FF0000>{0}</color></size>s"
+    },
+    {
+        "Id": 301626111,
+        "Content": "<size=35>Accumulate <color=#0099FF>Ice Attacks</color> to inflict the enemy with <color=#0099FF>Frozen</color></size>"
+    },
+    {
+        "Id": 301626112,
+        "Content": "<size=35>Total <color=#0099FF>Ice</color> DMG accumulated: <color=#0099FF>{0}</color>%</size>"
+    },
+    {
+        "Id": 301626113,
+        "Content": "<size=35>Use <color=#FF0000>Fire Attacks</color> to deal bonus DMG</size>"
+    },
+    {
+        "Id": 301626114,
+        "Content": "<size=35>Enemy's <color=#0099FF>Frozen</color> duration: <color=#0099FF>{0}</color>s</size>"
+    },
+    {
+        "Id": 301626115,
+        "Content": "<size=35>Accumulate <color=#FF0000>Fire Attacks</color> to inflict the enemy with <color=#FF0000>Burn</color></size>"
+    },
+    {
+        "Id": 301626116,
+        "Content": "<size=35>Total <color=#FF0000>Fire</color> DMG accumulated: <color=#FF0000>{0}</color>%</size>"
+    },
+    {
+        "Id": 301626117,
+        "Content": "<size=35>Use <color=#0099FF>Ice Attacks</color> to deal bonus DMG</size>"
+    },
+    {
+        "Id": 301626118,
+        "Content": "<size=35>Enemy's <color=#FF0000>Burn</color> duration: <color=#FF0000>{0}</color>s</size>"
+    },
+    {
+        "Id": 301626119,
+        "Content": "Jaspers appearing in: <color=#0099FF>{0}</color>S"
+    },
+    {
+        "Id": 74860600,
+        "Content": "<b><size=25>{0}</size><size=27>m</size></b>"
+    },
+    {
+        "Id": 74864400,
+        "Content": "<b><size=29>Damage</size></b>"
+    },
+    {
+        "Id": 74864401,
+        "Content": "<size=27>{0}%</size>"
+    },
+    {
+        "Id": 74864402,
+        "Content": "<b><size=29>Energy Core Drop Rate</size></b>"
+    },
+    {
+        "Id": 74864403,
+        "Content": "<b><size=29>ID</size></b>"
+    },
+    {
+        "Id": 74864404,
+        "Content": "<size=27>Nalasr-E</size>"
+    },
+    {
+        "Id": 74864405,
+        "Content": "<b><size=29>Version</size></b>"
+    },
+    {
+        "Id": 74864406,
+        "Content": "<size=27>Basic</size>"
+    },
+    {
+        "Id": 74441510,
+        "Content": "<b><size=29>Individual ID</size></b>"
+    },
+    {
+        "Id": 74441511,
+        "Content": "<size=27>MPA-01</size>"
+    },
+    {
+        "Id": 74441520,
+        "Content": "<b><size=29>Energy Reaction</size></b>"
+    },
+    {
+        "Id": 74441521,
+        "Content": "<size=27>Low</size>"
+    },
+    {
+        "Id": 74441530,
+        "Content": "<b><size=29>Damage Received</size></b>"
+    },
+    {
+        "Id": 74441531,
+        "Content": "<size=27>N/A</size>"
+    },
+    {
+        "Id": 74441540,
+        "Content": "<b><size=29>Threat Level</size></b>"
+    },
+    {
+        "Id": 74441541,
+        "Content": "<size=27><color=#FF0000>Medium</color></size>"
+    },
+    {
+        "Id": 74864407,
+        "Content": "<size=27>Enhanced</size>"
+    },
+    {
+        "Id": 74864408,
+        "Content": "<size=27>Extreme</size>"
+    },
+    {
+        "Id": 74864900,
+        "Content": "<b><size=29>Data</size></b>"
+    },
+    {
+        "Id": 74864901,
+        "Content": "<size=27>Broken Machine</size>"
+    },
+    {
+        "Id": 74864902,
+        "Content": "<b><size=29>Energy Core Content</size></b>"
+    },
+    {
+        "Id": 74864903,
+        "Content": "<size=27>80%</size>"
+    },
+    {
+        "Id": 300613041,
+        "Content": "<b><size=29>Logic Module</size></b>"
+    },
+    {
+        "Id": 300613042,
+        "Content": "<size=27>Protocol Activated</size>"
+    },
+    {
+        "Id": 300613043,
+        "Content": "<b><size=29>Weapon Module</size></b>"
+    },
+    {
+        "Id": 300613044,
+        "Content": "<size=27>Protocol Inactive</size>"
+    },
+    {
+        "Id": 300613045,
+        "Content": "<b><size=29>Dash System</size></b>"
+    },
+    {
+        "Id": 300613046,
+        "Content": "<size=27>Functioning Normally</size>"
+    },
+    {
+        "Id": 300613047,
+        "Content": "<b><size=29>Energy Saver Mode</size></b>"
+    },
+    {
+        "Id": 300613048,
+        "Content": "<size=27>Combat System Temporarily Disabled</size>"
+    },
+    {
+        "Id": 300613049,
+        "Content": "<size=27>Checkpoint Gate</size>"
+    },
+    {
+        "Id": 300613050,
+        "Content": "<size=27>Scrap Car</size>"
+    },
+    {
+        "Id": 300613051,
+        "Content": "<size=27>Abandoned Metal Crate</size>"
+    },
+    {
+        "Id": 300613052,
+        "Content": "<size=27>Device Control Panel</size>"
+    },
+    {
+        "Id": 300613053,
+        "Content": "<b><size=29>Storage</size></b>"
+    },
+    {
+        "Id": 300613054,
+        "Content": "<size=27>Circuit Module Storage Device</size>"
+    },
+    {
+        "Id": 300613055,
+        "Content": "<size=27>Weapon Circuit Module 2</size>"
+    },
+    {
+        "Id": 300613056,
+        "Content": "<b><size=27>Destroy </size><size=25>{0}</size><size=27>m</size></b>"
+    },
+    {
+        "Id": 300613057,
+        "Content": "<b><size=27>Defeat</size><size=25> {0}</size><size=27>m</size></b>"
+    },
+    {
+        "Id": 300613058,
+        "Content": "<b><size=27>Operate</size><size=25> {0}</size><size=27>m</size></b>"
+    },
+    {
+        "Id": 300613059,
+        "Content": "<b><size=29>ID: </size></b><size=27>Nalasr-E</size>"
+    },
+    {
+        "Id": 300613060,
+        "Content": "<b><size=29>Version: </size></b><size=27>Extreme</size>"
+    },
+    {
+        "Id": 300613061,
+        "Content": "<b><size=29>Stability: </size></b><size=27>{0}%</size>"
+    },
+    {
+        "Id": 300613062,
+        "Content": "<b><size=29>Energy Core Content: </size></b><size=27>{0}</size>"
+    },
+    {
+        "Id": 300613063,
+        "Content": "<b><size=29>Stability: </size></b><color=#FF0000><size=27>{0}%</size></color>"
+    },
+    {
+        "Id": 300613071,
+        "Content": "<size=27>Control Panel Inactive</size>"
+    },
+    {
+        "Id": 300613072,
+        "Content": "<size=27>No. 1 Constraint</size>"
+    },
+    {
+        "Id": 300613073,
+        "Content": "<size=27>No. 2 Constraint</size>"
+    },
+    {
+        "Id": 300613074,
+        "Content": "<size=27>No. 1 Constraint Control Panel</size>"
+    },
+    {
+        "Id": 300613075,
+        "Content": "<size=27>No. 2 Constraint Control Panel</size>"
+    },
+    {
+        "Id": 300613076,
+        "Content": "<b><size=27>Check</size><size=25> {0}</size><size=27>m</size></b>"
+    },
+    {
+        "Id": 300613121,
+        "Content": "<size=27>Fallen Tree</size>"
+    },
+    {
+        "Id": 300613141,
+        "Content": "<size=27>Control Panel I Activated</size>"
+    },
+    {
+        "Id": 300613142,
+        "Content": "<size=27>Control Panel II Activated</size>"
+    },
+    {
+        "Id": 300613143,
+        "Content": "<size=27>Control Panel III Activated</size>"
+    },
+    {
+        "Id": 300613144,
+        "Content": "<size=27>Control Panel IV Activated</size>"
+    },
+    {
+        "Id": 300613145,
+        "Content": "<size=27>Constraint</size>"
+    },
+    {
+        "Id": 300613146,
+        "Content": "<size=27>Main Constraint</size>"
+    },
+    {
+        "Id": 300613147,
+        "Content": "<size=27>Device Locked</size>"
+    },
+    {
+        "Id": 300613148,
+        "Content": "<size=27>Operation Locked</size>"
+    },
+    {
+        "Id": 300613321,
+        "Content": "<b><size=29>ID: </size></b><size=27>Tamer</size>"
+    },
+    {
+        "Id": 300613322,
+        "Content": "<b><size=29>ID: </size></b><size=27>Sentry Gun</size>"
+    },
+    {
+        "Id": 300613323,
+        "Content": "<b><size=29>ID: </size></b><size=27>Harvester</size>"
+    },
+    {
+        "Id": 300613324,
+        "Content": "<b><size=29>ID: </size></b><size=27>Gear</size>"
+    },
+    {
+        "Id": 300613325,
+        "Content": "<b><size=29>ID: </size></b><size=27>Hetero Explore Unit</size>"
+    },
+    {
+        "Id": 300613326,
+        "Content": "<b><size=29>ID: </size></b><size=27>Courier-M</size>"
+    },
+    {
+        "Id": 300613327,
+        "Content": "<b><size=29>ID: </size></b><size=27>PK43 Type \"Sergeant\"</size>"
+    },
+    {
+        "Id": 300613328,
+        "Content": "<b><size=29>ID: </size></b><size=27>Deporter-R</size>"
+    },
+    {
+        "Id": 300613329,
+        "Content": "<b><size=29>ID: </size></b><size=27>Deconstructor</size>"
+    },
+    {
+        "Id": 300613330,
+        "Content": "<b><size=29>ID: </size></b><size=27>Heal-Z</size>"
+    },
+    {
+        "Id": 300613331,
+        "Content": "<b><size=29>ID: </size></b><size=27>Firefighter</size>"
+    },
+    {
+        "Id": 300613332,
+        "Content": "<b><size=29>ID: </size></b><size=27>Heteromer Aerial Monitor</size>"
+    },
+    {
+        "Id": 300613333,
+        "Content": "<b><size=29>ID: </size></b><size=27>Heteromer Hydraulic</size>"
+    },
+    {
+        "Id": 300613334,
+        "Content": "<b><size=29>ID: </size></b><size=27>Hetero Deconstruct Unit</size>"
+    },
+    {
+        "Id": 300613335,
+        "Content": "<b><size=29>ID: </size></b><size=27>Martini</size>"
+    },
+    {
+        "Id": 300613336,
+        "Content": "<b><size=29>ID: </size></b><size=27>Polar Soldier</size>"
+    },
+    {
+        "Id": 300613337,
+        "Content": "<b><size=29>ID: </size></b><size=27>Deep-sea Ambusher</size>"
+    },
+    {
+        "Id": 300613338,
+        "Content": "<b><size=29>ID: </size></b><size=27>Prototype - Right Front Leg</size>"
+    },
+    {
+        "Id": 300613339,
+        "Content": "<b><size=29>ID: </size></b><size=27>Prototype - Left Front Leg</size>"
+    },
+    {
+        "Id": 300613340,
+        "Content": "<b><size=29>ID: </size></b><size=27>Prototype - Left Back Leg</size>"
+    },
+    {
+        "Id": 300613341,
+        "Content": "<b><size=29>ID: </size></b><size=27>Prototype - Right Back Leg</size>"
+    },
+    {
+        "Id": 300613342,
+        "Content": "<b><size=29>ID: </size></b><size=27>Polar Bear</size>"
+    },
+    {
+        "Id": 300613343,
+        "Content": "<b><size=29>ID: </size></b><size=27>Bio-Bull</size>"
+    },
+    {
+        "Id": 300613344,
+        "Content": "<b><size=29>ID: </size></b><size=27>Squid</size>"
+    },
+    {
+        "Id": 300613345,
+        "Content": "<b><size=29>ID: </size></b><size=27>Heteromer Sentry Gun</size>"
+    },
+    {
+        "Id": 300613346,
+        "Content": "<size=27>Data Singularity</size>"
+    },
+    {
+        "Id": 300613347,
+        "Content": "<size=27>Circuit Module</size>"
+    },
+    {
+        "Id": 300613348,
+        "Content": "<b><size=29>ID: </size></b><size=27>Hetero Repair Unit</size>"
+    },
+    {
+        "Id": 300613349,
+        "Content": "<b><size=29>ID: </size></b><size=27>Hetero Fire Unit</size>"
+    },
+    {
+        "Id": 300613350,
+        "Content": "<b><size=29>ID: </size></b><size=27>Snow Owl</size>"
+    },
+    {
+        "Id": 300613351,
+        "Content": "<b><size=29>ID: </size></b><size=27>Bio-Salamander</size>"
+    },
+    {
+        "Id": 300613352,
+        "Content": "<b><size=29>ID: </size></b><size=27>Acid Ant</size>"
+    },
+    {
+        "Id": 300613353,
+        "Content": "<b><size=29>ID: </size></b><size=27>Buthus</size>"
+    },
+    {
+        "Id": 300613354,
+        "Content": "<b><size=29>ID: </size></b><size=27>Musashi IX</size>"
+    },
+    {
+        "Id": 300613355,
+        "Content": "<b><size=29>ID: </size></b><size=27>Popper</size>"
+    },
+    {
+        "Id": 300613356,
+        "Content": "<b><size=29>ID: </size></b><size=27>Jaspers</size>"
+    },
+    {
+        "Id": 300613357,
+        "Content": "<b><size=29>ID: </size></b><size=27>Terrapod</size>"
+    },
+    {
+        "Id": 300613358,
+        "Content": "<b><size=29>ID: </size></b><size=27>DB02-Sanitizer</size>"
+    },
+    {
+        "Id": 300613359,
+        "Content": "<b><size=29>ID: </size></b><size=27>Trailblazing Surfer</size>"
+    },
+    {
+        "Id": 300613360,
+        "Content": "<b><size=29>ID: </size></b><size=27>Blubber VI</size>"
+    },
+    {
+        "Id": 300613361,
+        "Content": "<b><size=29>ID: </size></b><size=27>Musashi IX</size>"
+    },
+    {
+        "Id": 300613362,
+        "Content": "<b><size=29>ID: </size></b><size=27>Wheel of Fortune</size>"
+    },
+    {
+        "Id": 300613363,
+        "Content": "<b><size=29>ID: </size></b><size=27>Sanctuary Guard</size>"
+    },
+    {
+        "Id": 300613364,
+        "Content": "<b><size=29>ID: </size></b><size=27>Shark-speare</size>"
+    },
+    {
+        "Id": 300613365,
+        "Content": "<b><size=29>Additional Data: </size></b><size=27> Haywire</size>"
+    },
+    {
+        "Id": 300613366,
+        "Content": "<b><size=29>ID: </size></b><size=27>Moon Eater</size>"
+    },
+    {
+        "Id": 300613367,
+        "Content": "<b><size=29>Additional Data: </size></b><size=27>Basic Form</size>"
+    },
+    {
+        "Id": 300613368,
+        "Content": "<b><size=29>HP: </size></b><size=27>{0}%</size>"
+    },
+    {
+        "Id": 300613369,
+        "Content": "<b><size=29>HP: </size></b><color=#FF0000><size=27>{0}%</size></color>"
+    },
+    {
+        "Id": 300613370,
+        "Content": "<b><size=29>Additional Data: </size></b><size=27>Burst Form</size>"
+    },
+    {
+        "Id": 300613371,
+        "Content": "<b><size=29>ID: </size></b><size=27>Gabriel</size>"
+    },
+    {
+        "Id": 300613372,
+        "Content": "<b><size=29>Additional Data: </size></b><size=27><color=#FF0000>Dangerous Target</color></size>"
+    },
+    {
+        "Id": 300613373,
+        "Content": "<b><size=29>ID: </size></b><size=27>Voodoo</size>"
+    },
+    {
+        "Id": 300613374,
+        "Content": "<b><size=29>Additional Data: </size></b><size=27><color=#FF0000>Dangerous Target</color></size>"
+    },
+    {
+        "Id": 300613375,
+        "Content": "<b><size=29>ID: </size></b><size=27>Mr. White</size>"
+    },
+    {
+        "Id": 300613376,
+        "Content": "<b><size=29>ID: </size></b><size=27>Shieldbearer</size>"
+    },
+    {
+        "Id": 300613377,
+        "Content": "<b><size=29>ID: </size></b><size=27>Excavator</size>"
+    },
+    {
+        "Id": 300613378,
+        "Content": "<b><size=29>ID: </size></b><size=27>Explorer</size>"
+    },
+    {
+        "Id": 300613379,
+        "Content": "<b><size=29>Core Target</size></b>"
+    },
+    {
+        "Id": 7445781,
+        "Content": "<b><size=29>Clearance Progress: </size></b><size=27>{0}%</size>"
+    },
+    {
+        "Id": 7445782,
+        "Content": "<size=23>Attacks More Effective from Behind</size>"
+    },
+    {
+        "Id": 7445841,
+        "Content": "<b><size=29>Charging: </size></b><size=27>{0}%</size>"
+    },
+    {
+        "Id": 7445842,
+        "Content": "<size=23>Attack with Charge</size>"
+    },
+    {
+        "Id": 7445843,
+        "Content": "<b><size=29>Releasing charge: </size></b><size=27>{0}%</size>"
+    },
+    {
+        "Id": 7445844,
+        "Content": "<size=23>Attack with Blood Draining</size>"
+    },
+    {
+        "Id": 74830101,
+        "Content": "<b><size=29>Enemy Traits</size></b>"
+    },
+    {
+        "Id": 74830102,
+        "Content": "<b><size=29>Red Orb DMG Up</size></b>"
+    },
+    {
+        "Id": 74830103,
+        "Content": "<b><size=29>Immune to Blue Orb DMG</size></b>"
+    },
+    {
+        "Id": 74830201,
+        "Content": "<b><size=29>Enemy Traits</size></b>"
+    },
+    {
+        "Id": 74830202,
+        "Content": "<b><size=29>Blue Orb DMG Up</size></b>"
+    },
+    {
+        "Id": 74830203,
+        "Content": "<b><size=29>Immune to Yellow Orb DMG</size></b>"
+    },
+    {
+        "Id": 74830301,
+        "Content": "<b><size=29>Enemy Traits</size></b>"
+    },
+    {
+        "Id": 74830302,
+        "Content": "<b><size=29>Yellow Orb DMG Up</size></b>"
+    },
+    {
+        "Id": 74830303,
+        "Content": "<b><size=29>Immune to Red Orb DMG</size></b>"
+    },
+    {
+        "Id": 74830304,
+        "Content": "<b><size=29>Immune to Blue Orb DMG</size></b>"
+    },
+    {
+        "Id": 74830401,
+        "Content": "<b><size=29>Enemy Traits</size></b>"
+    },
+    {
+        "Id": 74830402,
+        "Content": "<b><size=29>Basic Attack DMG Up</size></b>"
+    },
+    {
+        "Id": 74830403,
+        "Content": "<b><size=29>Immune to Signal Orb DMG</size></b>"
+    },
+    {
+        "Id": 74830501,
+        "Content": "<b><size=29>Enemy Traits</size></b>"
+    },
+    {
+        "Id": 74830502,
+        "Content": "<b><size=29>Signature DMG Up</size></b>"
+    },
+    {
+        "Id": 74830503,
+        "Content": "<b><size=29>Immune to Basic Attack and Signal Orb DMG</size></b>"
+    },
+    {
+        "Id": 74830601,
+        "Content": "<b><size=29>Enemy Traits</size></b>"
+    },
+    {
+        "Id": 74830602,
+        "Content": "<b><size=29>Signal Orb DMG Up</size></b>"
+    },
+    {
+        "Id": 74830603,
+        "Content": "<b><size=29>Immune to Basic Attack and Signature DMG</size></b>"
+    },
+    {
+        "Id": 74830701,
+        "Content": "<b><size=29>Enemy Traits</size></b>"
+    },
+    {
+        "Id": 74830702,
+        "Content": "<b><size=29>Signature and Basic Attack DMG Up</size></b>"
+    },
+    {
+        "Id": 74830703,
+        "Content": "<b><size=29>Immune to Signal Orb DMG</size></b>"
+    },
+    {
+        "Id": 74830801,
+        "Content": "<b><size=29>Enemy Traits</size></b>"
+    },
+    {
+        "Id": 74830802,
+        "Content": "<b><size=29>Red and Yellow Orb DMG Up</size></b>"
+    },
+    {
+        "Id": 74830803,
+        "Content": "<b><size=29>Immune to Signature DMG</size></b>"
+    },
+    {
+        "Id": 74829001,
+        "Content": "<b><size=29>Experiment Pod</size></b>"
+    },
+    {
+        "Id": 74829002,
+        "Content": "<b><size=29>Pod Integrity Intact</size></b>"
+    },
+    {
+        "Id": 74829101,
+        "Content": "<b><size=29>Test Subject</size></b>"
+    },
+    {
+        "Id": 74829102,
+        "Content": "<b><size=29>No Test Subject Detected</size></b>"
+    },
+    {
+        "Id": 74829201,
+        "Content": "<b><size=29>Test Subject: Hetero-Sapien</size></b>"
+    },
+    {
+        "Id": 74829202,
+        "Content": "<b><size=29>Danger Level: <color=#BB1609>Extremely High</color></size></b>"
+    },
+    {
+        "Id": 74873301,
+        "Content": "<size=25>Press to Assassinate</size>"
+    },
+    {
+        "Id": 1023010701,
+        "Content": "<b><size=29>Info: </size></b><size=27>Blockade Control Device</size>"
+    },
+    {
+        "Id": 1023010702,
+        "Content": "<b><size=29><color=#FF0000>Objective: </color></size></b><size=27>Seize Control</size>"
+    },
+    {
+        "Id": 1023010703,
+        "Content": "<b><size=29>Info: </size></b><size=27>\"Orca\" Transport Craft</size>"
+    },
+    {
+        "Id": 74873101,
+        "Content": "<size=27>All clear, alarm disengaged, over.</size>"
+    },
+    {
+        "Id": 74873102,
+        "Content": "<size=27>Am I seeing things?</size>"
+    },
+    {
+        "Id": 74873103,
+        "Content": "<size=27>Was that just my imagination?</size>"
+    },
+    {
+        "Id": 74873104,
+        "Content": "<size=27>Alarm disengaged.</size>"
+    },
+    {
+        "Id": 1023011601,
+        "Content": "\u25cf Seize the opportunity to counterattack after dodging an attack"
+    },
+    {
+        "Id": 1023011602,
+        "Content": "\u25cf Successful dodges reset Matrix cooldown and restore some Dodge Gauge"
+    },
+    {
+        "Id": 300627091,
+        "Content": "Gabriel is immune to <color=#FF0000>Red Orb</color> damage!"
+    },
+    {
+        "Id": 300627092,
+        "Content": "Gabriel is immune to <color=#fff143>Yellow Orb</color> damage!"
+    },
+    {
+        "Id": 300627093,
+        "Content": "Gabriel is immune to <color=#0000FF>Blue Orb</color> damage!"
+    },
+    {
+        "Id": 300627094,
+        "Content": "Gabriel is immune to <color=#99FF99>Basic Attack</color> damage!"
+    },
+    {
+        "Id": 300627095,
+        "Content": "Gabriel is immune to <color=#FFCCFF>Signature Move</color> damage!"
+    },
+    {
+        "Id": 300627096,
+        "Content": "Gabriel's damage immunity:"
+    },
+    {
+        "Id": 999200030,
+        "Content": "Hoeing in the paddy under the mid-day sun,"
+    },
+    {
+        "Id": 999200031,
+        "Content": "Sweat dripping to the soil underneath the plant."
+    },
+    {
+        "Id": 999200032,
+        "Content": "Who knows that the meals in our plates,"
+    },
+    {
+        "Id": 999200033,
+        "Content": "Every morsel of them comes with toil and pains."
+    },
+    {
+        "Id": 1502051101,
+        "Content": "My heart lingers in the twisty mountains."
+    },
+    {
+        "Id": 1502051102,
+        "Content": "I lost my direction as paths wander and shift."
+    },
+    {
+        "Id": 1502051103,
+        "Content": "I have finally departed from the mundane world!"
+    },
+    {
+        "Id": 1502051104,
+        "Content": "The grass withered, yet its essence blooms."
+    },
+    {
+        "Id": 1502051105,
+        "Content": "All passes shall open at my presence."
+    },
+    {
+        "Id": 1502051106,
+        "Content": "When my utmost sincerity reaches the heavens, my merits are fulfilled."
+    },
+    {
+        "Id": 1502051107,
+        "Content": "The flowering buds embellish the rosy clouds, even thieves would avoid them."
+    },
+    {
+        "Id": 1502051108,
+        "Content": "The maiden's sleeves dance in the chilling spring air."
+    },
+    {
+        "Id": 1502051109,
+        "Content": "In the vague dream, I embark on a journey with no strangers."
+    },
+    {
+        "Id": 1502051110,
+        "Content": "When my thoughts are absent, my mind reaches tranquility."
+    },
+    {
+        "Id": 1502051111,
+        "Content": "Open attacks are easily dodged, but hidden insults are hard to guard against."
+    },
+    {
+        "Id": 1502051112,
+        "Content": "With swift maneuvers, I shall step on clouds that cover the moon."
+    },
+    {
+        "Id": 1502051113,
+        "Content": "My heart bears no regret, for this path will persist."
+    },
+    {
+        "Id": 1502051201,
+        "Content": "The human world is but a dream,"
+    },
+    {
+        "Id": 1502051202,
+        "Content": "In life, how many autumn soughs?"
+    },
+    {
+        "Id": 1502051203,
+        "Content": "The night wind blows leaves to the porch beam,"
+    },
+    {
+        "Id": 1502051204,
+        "Content": "And unto my sideburns and brows."
+    },
+    {
+        "Id": 1502051211,
+        "Content": "To Kowloong..."
+    },
+    {
+        "Id": 1502051212,
+        "Content": "To Akdilek..."
+    },
+    {
+        "Id": 1502051213,
+        "Content": "To the north..."
+    },
+    {
+        "Id": 1502051214,
+        "Content": "I want to sing..."
+    },
+    {
+        "Id": 1502051215,
+        "Content": "Wish, wish, wish, wish, wish"
+    },
+    {
+        "Id": 1502051216,
+        "Content": "I think... I'm thinking."
+    },
+    {
+        "Id": 1502051217,
+        "Content": "You are not my... daddy... mommy."
+    },
+    {
+        "Id": 1502051218,
+        "Content": "I'm... here..."
+    },
+    {
+        "Id": 1502051219,
+        "Content": "I'm... here..."
+    },
+    {
+        "Id": 1502051241,
+        "Content": "Tongue..."
+    },
+    {
+        "Id": 1502051242,
+        "Content": "Tongue..."
+    },
+    {
+        "Id": 1502051243,
+        "Content": "My mouth..."
+    },
+    {
+        "Id": 1502051244,
+        "Content": "I'm not..."
+    },
+    {
+        "Id": 1502051245,
+        "Content": "Am I a tongue?"
+    },
+    {
+        "Id": 1502051246,
+        "Content": "Talk... Talk..."
+    },
+    {
+        "Id": 1502051247,
+        "Content": "Shh..."
+    },
+    {
+        "Id": 1502051248,
+        "Content": "Tongue... Tongue..."
+    },
+    {
+        "Id": 1502051249,
+        "Content": "Tongue... Tongue..."
+    },
+    {
+        "Id": 1502051251,
+        "Content": "Jealous..."
+    },
+    {
+        "Id": 1502051252,
+        "Content": "You are jealous..."
+    },
+    {
+        "Id": 1502051253,
+        "Content": "I'm not crazy..."
+    },
+    {
+        "Id": 1502051254,
+        "Content": "I'm a... genius!"
+    },
+    {
+        "Id": 1502051255,
+        "Content": "I was wronged..."
+    },
+    {
+        "Id": 1502051256,
+        "Content": "My... belongings."
+    },
+    {
+        "Id": 1502051257,
+        "Content": "You are..."
+    },
+    {
+        "Id": 1502051258,
+        "Content": "I'm going to... prove it!"
+    },
+    {
+        "Id": 1502051259,
+        "Content": "I was wronged..."
+    },
+    {
+        "Id": 1502051261,
+        "Content": "Cough..."
+    },
+    {
+        "Id": 1502051262,
+        "Content": "Daughter..."
+    },
+    {
+        "Id": 1502051263,
+        "Content": "My..."
+    },
+    {
+        "Id": 1502051264,
+        "Content": "Home..."
+    },
+    {
+        "Id": 1502051265,
+        "Content": "My daughter..."
+    },
+    {
+        "Id": 1502051266,
+        "Content": "Daddy's back..."
+    },
+    {
+        "Id": 1502051267,
+        "Content": "Everything's going to be okay..."
+    },
+    {
+        "Id": 1502051268,
+        "Content": "Right here..."
+    },
+    {
+        "Id": 1502051269,
+        "Content": "Daddy's back..."
+    },
+    {
+        "Id": 1502051221,
+        "Content": "I want to go to Akdilek."
+    },
+    {
+        "Id": 1502051222,
+        "Content": "         I have never been on a train."
+    },
+    {
+        "Id": 1502051223,
+        "Content": "But you never came back,"
+    },
+    {
+        "Id": 1502051224,
+        "Content": "                             Daddy."
+    },
+    {
+        "Id": 1502051225,
+        "Content": "I'm the only one here all along."
+    },
+    {
+        "Id": 1502051226,
+        "Content": "                     All along..."
+    },
+    {
+        "Id": 1502051227,
+        "Content": "T-they are all laughing at me."
+    },
+    {
+        "Id": 1502051228,
+        "Content": "Just, because of my tongue."
+    },
+    {
+        "Id": 1502051229,
+        "Content": "They, look down on me, insult me..."
+    },
+    {
+        "Id": 1502051230,
+        "Content": "You kicked me out because you were jealous of me."
+    },
+    {
+        "Id": 1502051231,
+        "Content": "                        It's your loss."
+    },
+    {
+        "Id": 1502051232,
+        "Content": "You just couldn't take it."
+    },
+    {
+        "Id": 1502051233,
+        "Content": "                          I was right!"
+    },
+    {
+        "Id": 1502051234,
+        "Content": "You never care about the truth."
+    },
+    {
+        "Id": 1502051235,
+        "Content": "                                You just don't."
+    },
+    {
+        "Id": 1502051236,
+        "Content": "Coughs... My child."
+    },
+    {
+        "Id": 1502051237,
+        "Content": "I have always wanted to see you."
+    },
+    {
+        "Id": 1502051238,
+        "Content": "                          You must be tall and pretty."
+    },
+    {
+        "Id": 1502051239,
+        "Content": "Daddy is back."
+    },
+    {
+        "Id": 1502051240,
+        "Content": "           He will recover soon."
+    },
+    {
+        "Id": 74876101,
+        "Content": "How time flies. Another year has passed."
+    },
+    {
+        "Id": 74876102,
+        "Content": "I can't help but think of Tangston on this day."
+    },
+    {
+        "Id": 74876103,
+        "Content": "Yeah. We could have buried him in a nice place in the olden days."
+    },
+    {
+        "Id": 74876104,
+        "Content": "It must be the hardest for Salans."
+    },
+    {
+        "Id": 74876105,
+        "Content": "Tangston and he were best mates for so many years."
+    },
+    {
+        "Id": 74876106,
+        "Content": "He even quit drinking after Tangston left us."
+    },
+    {
+        "Id": 74876107,
+        "Content": "Huh? What did I see in his tent then?"
+    },
+    {
+        "Id": 74876108,
+        "Content": "He saved them for Tangston. I saw it once."
+    },
+    {
+        "Id": 74876109,
+        "Content": "He poured two drinks but didn't have any. He just talked to the air for the whole night."
+    },
+    {
+        "Id": 74877101,
+        "Content": "Hmm? Why is it not playing? Stuck?"
+    },
+    {
+        "Id": 74877102,
+        "Content": "C'mon, give the machine some time. It's quite old."
+    },
+    {
+        "Id": 74877103,
+        "Content": "Let me take a look."
+    },
+    {
+        "Id": 74877104,
+        "Content": "Stop it, you drunkard!"
+    },
+    {
+        "Id": 74877105,
+        "Content": "I'm not drunk! I just had two sips!"
+    },
+    {
+        "Id": 74877106,
+        "Content": "Just stop. Leave it alone."
+    },
+    {
+        "Id": 74877107,
+        "Content": "I said leave it alone... And who are you?"
+    },
+    {
+        "Id": 74877108,
+        "Content": "What are you doing... Oh! You like this song too? Pretty good taste you have."
+    },
+    {
+        "Id": 74884501,
+        "Content": "Sob... Brother..."
+    },
+    {
+        "Id": 74884502,
+        "Content": "You promised to give me a surprise today..."
+    },
+    {
+        "Id": 74884503,
+        "Content": "I don't want any gift... I just want you to come back..."
+    },
+    {
+        "Id": 74884504,
+        "Content": "Sob..."
+    },
+    {
+        "Id": 74884601,
+        "Content": "I'm exhausted... Even a robot can't work non-stop for so long..."
+    },
+    {
+        "Id": 74884602,
+        "Content": "When are we ever getting reinforcements...?"
+    },
+    {
+        "Id": 74884701,
+        "Content": "Hey you!"
+    },
+    {
+        "Id": 74884702,
+        "Content": "Are you here to pick up the goods?"
+    },
+    {
+        "Id": 74884703,
+        "Content": "The batch of goods from two weeks ago... Someone paid a deposit for it. Isn't that what you're after?"
+    },
+    {
+        "Id": 74884704,
+        "Content": "Now isn't a good time. I'll meet you next to the bonfire at night. Don't forget."
+    },
+    {
+        "Id": 74884801,
+        "Content": "I..."
+    },
+    {
+        "Id": 74884802,
+        "Content": "I..."
+    },
+    {
+        "Id": 74884803,
+        "Content": "I..."
+    },
+    {
+        "Id": 74884804,
+        "Content": "Sorry, I just want to have some time alone. Can you go somewhere else to play?"
+    },
+    {
+        "Id": 74884901,
+        "Content": "How's Lily now? Is she any better?"
+    },
+    {
+        "Id": 74884902,
+        "Content": "Not really..."
+    },
+    {
+        "Id": 74884903,
+        "Content": "Sigh. Poor kid."
+    },
+    {
+        "Id": 74884904,
+        "Content": "I still have half of a serum shot. Do you want to...?"
+    },
+    {
+        "Id": 74884905,
+        "Content": "I've got one too."
+    },
+    {
+        "Id": 74884906,
+        "Content": "...Thanks, but we can't just keep being a burden."
+    },
+    {
+        "Id": 74884907,
+        "Content": "Don't say that. You are never a burden."
+    },
+    {
+        "Id": 74884908,
+        "Content": "Right. Life is hard for everyone."
+    },
+    {
+        "Id": 74884909,
+        "Content": "Lily's such an adorable kid."
+    },
+    {
+        "Id": 74884910,
+        "Content": "It's all my fault... I should have kept her with me."
+    },
+    {
+        "Id": 74884911,
+        "Content": "She wouldn't have got infected if I didn't let her walk into the forest alone..."
+    },
+    {
+        "Id": 74884912,
+        "Content": "I heard the army nearby gave us lots of medicines. Lily will get well, don't worry."
+    },
+    {
+        "Id": 74884913,
+        "Content": "I hope so..."
+    },
+    {
+        "Id": 74884914,
+        "Content": "Why don't we go visit her together later?"
+    },
+    {
+        "Id": 74884915,
+        "Content": "She loves to be around people. See, I have even kept a candy for her."
+    },
+    {
+        "Id": 74885001,
+        "Content": "...This isn't the price we agreed on earlier."
+    },
+    {
+        "Id": 74885002,
+        "Content": "Business has been tough recently."
+    },
+    {
+        "Id": 74885003,
+        "Content": "I lost contact with quite a few fellow traveling merchants."
+    },
+    {
+        "Id": 74885004,
+        "Content": "I was also freaking out on the way here as I had no idea what happened to them."
+    },
+    {
+        "Id": 74885005,
+        "Content": "But the price is way more expensive than the last time."
+    },
+    {
+        "Id": 74885006,
+        "Content": "I don't have that much money with me."
+    },
+    {
+        "Id": 74885007,
+        "Content": "I'll try to work out a solution. Give me some time..."
+    },
+    {
+        "Id": 74885101,
+        "Content": "Are we really playing another round? My mom asked me to go back early."
+    },
+    {
+        "Id": 74885102,
+        "Content": "I know. But it's still early now."
+    },
+    {
+        "Id": 74885103,
+        "Content": "...Alright, just one more game. But this time I'll hide!"
+    },
+    {
+        "Id": 74885104,
+        "Content": "Okay, okay. I'm going to count..."
+    },
+    {
+        "Id": 74885105,
+        "Content": "1\u20142\u20143\u2014"
+    },
+    {
+        "Id": 74885106,
+        "Content": "Stay away! You're going to expose me!"
+    },
+    {
+        "Id": 74885107,
+        "Content": "I already saw you\u2014 Huh? Where did you go...?"
+    },
+    {
+        "Id": 74885301,
+        "Content": "I feel terrible..."
+    },
+    {
+        "Id": 74885302,
+        "Content": "I feel terrible..."
+    },
+    {
+        "Id": 74885401,
+        "Content": "It's okay, Lily. Don't be scared... Good girl..."
+    },
+    {
+        "Id": 74885402,
+        "Content": "Uncle Salans and others are just playing a game out there..."
+    },
+    {
+        "Id": 74885501,
+        "Content": "They came out of nowhere. Dammit..."
+    },
+    {
+        "Id": 74885502,
+        "Content": "I..."
+    },
+    {
+        "Id": 74885601,
+        "Content": "(Weeping) Where are you hiding? I can't find you anywhere... What to do..."
+    },
+    {
+        "Id": 74885602,
+        "Content": "(Weeping)"
+    },
+    {
+        "Id": 74877201,
+        "Content": "(\u25cb\uff40 3\u2032\u25cb)"
+    },
+    {
+        "Id": 74877202,
+        "Content": "\u2570(\u00b0 \u25bd\u00b0)\u256f\uff1f"
+    },
+    {
+        "Id": 74877203,
+        "Content": "(\u00b0\u30fc\u00b0\u3003)"
+    },
+    {
+        "Id": 74877204,
+        "Content": "(u_u\u3003)"
+    },
+    {
+        "Id": 1024010401,
+        "Content": "We will do our best to locate the missing people."
+    },
+    {
+        "Id": 1024010402,
+        "Content": "I lost contact with all of them! How is that possible?"
+    },
+    {
+        "Id": 1024010403,
+        "Content": "But... Huh? Wh-what the hell is that thing!!"
+    },
+    {
+        "Id": 1024010404,
+        "Content": "Snore"
+    },
+    {
+        "Id": 1024010405,
+        "Content": "Unknown Slime"
+    },
+    {
+        "Id": 1024010406,
+        "Content": "How is that possible\u2014?"
+    },
+    {
+        "Id": 1024010407,
+        "Content": "Stop it. It's not this officer's fault..."
+    },
+    {
+        "Id": 74940201,
+        "Content": "Detecting Unit <color=#11E959>in good condition</color>"
+    },
+    {
+        "Id": 74940202,
+        "Content": "Laser Unit <color=#E01606>damaged</color>"
+    },
+    {
+        "Id": 74940203,
+        "Content": "Chip Unit <color=#E01606>damaged</color>"
+    },
+    {
+        "Id": 74940204,
+        "Content": "Detecting Unit <color=#E01606>damaged</color>"
+    },
+    {
+        "Id": 74940205,
+        "Content": "Laser Unit <color=#11E959>in good condition</color>"
+    },
+    {
+        "Id": 74940206,
+        "Content": "Chip Unit <color=#11E959>in good condition</color>"
+    },
+    {
+        "Id": 74940207,
+        "Content": "Identity: Construct"
+    },
+    {
+        "Id": 74940208,
+        "Content": "Danger Level: <color=#E01606>Extremely High</color>"
+    },
+    {
+        "Id": 74940209,
+        "Content": "Danger Level: Medium"
+    },
+    {
+        "Id": 71035011,
+        "Content": "Auto Hide Interface <color=#CC3333>(Off)</color>"
+    },
+    {
+        "Id": 71035012,
+        "Content": "Auto Hide Interface <color=#00FF68>(On)</color>"
+    },
+    {
+        "Id": 71035013,
+        "Content": "Auto Pause Time <color=#CC3333>(Off)</color>"
+    },
+    {
+        "Id": 71035014,
+        "Content": "Auto Pause Time <color=#00FF68>(On)</color>"
+    },
+    {
+        "Id": 71035015,
+        "Content": "Auto Cast Time Stop on Enemy <color=#CC3333>(Off)</color>"
+    },
+    {
+        "Id": 71035016,
+        "Content": "Auto Cast Time Stop on Enemy <color=#00FF68>(On)</color>"
+    },
+    {
+        "Id": 71035020,
+        "Content": "4#{0} = {1}"
+    },
+    {
+        "Id": 71035021,
+        "Content": "Add to Character <color=#CC3333>(No)</color>"
+    },
+    {
+        "Id": 71035022,
+        "Content": "Add to Character <color=#00FF68>(Yes)</color>"
+    },
+    {
+        "Id": 71035023,
+        "Content": "Add to Ally <color=#CC3333>(No)</color>"
+    },
+    {
+        "Id": 71035024,
+        "Content": "Add to Ally <color=#00FF68>(Yes)</color>"
+    },
+    {
+        "Id": 71035025,
+        "Content": "Add to Enemy <color=#CC3333>(No)</color>"
+    },
+    {
+        "Id": 71035026,
+        "Content": "Add to Enemy <color=#00FF68>(Yes)</color>"
+    },
+    {
+        "Id": 74938701,
+        "Content": "This is a 3-second tip"
+    },
+    {
+        "Id": 74945501,
+        "Content": "How did the assassination fail?"
+    },
+    {
+        "Id": 74945502,
+        "Content": "Nobody knows when the next group of reinforcements is going to arrive."
+    },
+    {
+        "Id": 74945503,
+        "Content": "Who are you?!"
+    },
+    {
+        "Id": 74948201,
+        "Content": "What a bunch of useless fools. Can't even finish off a resident."
+    },
+    {
+        "Id": 74948202,
+        "Content": "Let me check the equipment..."
+    },
+    {
+        "Id": 74948203,
+        "Content": "Something's not right!"
+    },
+    {
+        "Id": 74948301,
+        "Content": "I can't believe I have to come to such a lousy place for the mission..."
+    },
+    {
+        "Id": 74948302,
+        "Content": "Shh..."
+    },
+    {
+        "Id": 74948303,
+        "Content": "Hey you, red head! Stop!"
+    },
+    {
+        "Id": 74943801,
+        "Content": "Thank goodness, only the limbs are injured. Those bloody assassins..."
+    },
+    {
+        "Id": 74943802,
+        "Content": "How's the injury? Is it bad?"
+    },
+    {
+        "Id": 74943601,
+        "Content": "No! Stay with me! You still owe me two drinks!"
+    },
+    {
+        "Id": 74943602,
+        "Content": "Hah... Please take care of my daughter..."
+    },
+    {
+        "Id": 150206101,
+        "Content": "Have you heard it? \"Sergeant\" was murdered last night! I'm talking about the mechanoid that gave a player to the little beggar near the tavern."
+    },
+    {
+        "Id": 150206102,
+        "Content": "I quite like that guy. It was always nice to kids. What did the guards say?"
+    },
+    {
+        "Id": 150206103,
+        "Content": "They said the surveillance cameras just happen to all be faulty at that time. Speaking of which, why do they already break at the times we need them the most?"
+    },
+    {
+        "Id": 150206104,
+        "Content": "I..."
+    },
+    {
+        "Id": 150206105,
+        "Content": "Why are you so good at this?!"
+    },
+    {
+        "Id": 150206106,
+        "Content": "I came first..."
+    },
+    {
+        "Id": 150206107,
+        "Content": "Dammit! Is it a rat or someone's purposely breaking it?"
+    },
+    {
+        "Id": 301605531,
+        "Content": "<size=35>Upon entering <color=#99CCFF>Judgment Zone</color>, gains <color=#FF0000>20%</color> DMG Bonus. Current bonus: <color=#FF0000>{0}%</color></size>"
+    },
+    {
+        "Id": 301605532,
+        "Content": "<size=35>Gains a random set of 3-Ping Orbs when casting <color=#99CCFF>Swift Archery</color></size>"
+    },
+    {
+        "Id": 301605541,
+        "Content": "<size=35>Upon triggering <color=#99CCFF>Imprisoning Co-Strike</color>, gains <color=#FF0000>20%</color> DMG Bonus. Current bonus: <color=#FF0000>{0}%</color></size>"
+    },
+    {
+        "Id": 301605542,
+        "Content": "<size=35>Gains 2 sets of 3-Ping Orbs upon entering <color=#99CCFF>Judgment Zone</color></size>"
+    },
+    {
+        "Id": 1025010600,
+        "Content": "{0}m"
+    },
+    {
+        "Id": 1025010601,
+        "Content": "<color=#00FF00>Snowfield</color>"
+    },
+    {
+        "Id": 1025010602,
+        "Content": "<color=#00FF00>2F</color>"
+    },
+    {
+        "Id": 1025010603,
+        "Content": "<color=#00FF00>Checkpoint Gate</color>"
+    },
+    {
+        "Id": 1025010604,
+        "Content": "Exit"
+    },
+    {
+        "Id": 7447270,
+        "Content": "Destination"
+    },
+    {
+        "Id": 7447271,
+        "Content": "Central Platform"
+    },
+    {
+        "Id": 716521,
+        "Content": "<size=30><color=#FFCC99>[Weapon - Pistol]</color>: Medium attack speed. Shoots bullets that can pierce through enemies.</size>"
+    },
+    {
+        "Id": 716523,
+        "Content": "<size=30><color=#FFCC99>[Weapon - Katana]</color>: Slow attack speed. Attacks all surrounding enemies.</size>"
+    },
+    {
+        "Id": 716525,
+        "Content": "<size=30><color=#FFCC99>[Weapon - Levi-Gun]</color>: Very slow attack speed. Fires shells that explode upon hitting enemies.</size>"
+    },
+    {
+        "Id": 716527,
+        "Content": "<size=30><color=#CFB53B>[Magic - Spinning Fireballs]</color>: Becomes surrounded by fireballs that damage enemies upon contact. Level up this skill to increase the number of fireballs.</size>"
+    },
+    {
+        "Id": 716530,
+        "Content": "<size=30><color=#CFB53B>[Magic - Lightning Strike]</color>: Randomly strikes enemies with lightning bolts. Level up this skill to increase the frequency and quantity of the lightning bolts.</size>"
+    },
+    {
+        "Id": 716532,
+        "Content": "<size=30><color=#999999>[Add-on - Attack]</color>: Increases the character's ATK by half of the Add-on's level.</size>"
+    },
+    {
+        "Id": 716533,
+        "Content": "<size=30><color=#CFB53B>[Magic - Dark Serpent]</color>: Randomly attacks nearby enemies with a dark serpent, dealing Dark DMG. Level up this skill to increase its attack frequency and the number of targets hit.</size>"
+    },
+    {
+        "Id": 716535,
+        "Content": "<size=30><color=#CFB53B>[Magic - Freezing Path]</color>: Leaves a freezing path when moving, dealing Ice DMG to the enemies that walk on it. Level up this skill to increase the Ice DMG.</size>"
+    },
+    {
+        "Id": 716540,
+        "Content": "<size=30><color=#999999>[Add-on - Defense]</color>: Increases the character's DEF by half of the Add-on's level.</size>"
+    },
+    {
+        "Id": 747164001,
+        "Content": "Upon death, absorb Mechanoid Moon Eater's HP to revive"
+    },
+    {
+        "Id": 10260124,
+        "Content": "<color=#00CCFF>Operate the naval gun</color>"
+    }
+]

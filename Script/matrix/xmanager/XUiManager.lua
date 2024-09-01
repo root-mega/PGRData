@@ -146,7 +146,7 @@ function XUiManager.TipMsg(msg, type, cb, hideCloseMark)
         XLog.Error("XUiManager.TipMsg error, msg is nil")
         return
     end
-
+    
     if not type then
         type = XUiManager.UiTipType.Tip
     end
@@ -186,6 +186,11 @@ function XUiManager.TipErrorWithKey(key, ...)
     XUiManager.TipError(XUiHelper.GetText(key, ...))
 end
 
+-- v2.0 Tip支持换行符，虽然怪，但策划说要换行那就加吧
+function XUiManager.TipErrorReadTextWithNewLine(key, ...)
+    XUiManager.TipError(XUiHelper.ReadTextWithNewLine(key, ...))
+end
+
 function XUiManager.TipCode(code, ...)
     local text = CS.XTextManager.GetCodeText(code, ...)
     if code == XCode.Success then
@@ -195,7 +200,31 @@ function XUiManager.TipCode(code, ...)
     end
 end
 
-function XUiManager.DialogTip(title, content, dialogType, closeCallback, sureCallback, extraData)
+-- 竖屏提示
+function XUiManager.TipPortraitMsg(msg, cb, hideCloseMark)
+    if string.IsNilOrEmpty(msg) then
+        XLog.Error("XUiManager.TipPortraitMsg error, msg is nil")
+        return
+    end
+
+    if CurrentTipState == TipState.SHOWING then return end
+    CurrentTipState = TipState.SHOWING
+    CS.XAudioManager.PlaySound(XSoundManager.UiBasicsMusic.Tip_small)
+    local callback = function()
+        if cb then cb() end
+        CurrentTipState = TipState.IDLE
+        XUiManager.TipMsgDequeue()
+    end
+    XLuaUiManager.Open("UiPortraitTip", msg, callback, hideCloseMark)
+end
+
+function XUiManager.TipPortraitText(key, cb, hideCloseMark, ...)
+    local text = XUiHelper.GetText(key, ...)
+    XUiManager.TipPortraitMsg(text, cb, hideCloseMark)
+end
+
+
+function XUiManager.DialogTip(title, content, dialogType, closeCallback, sureCallback, extraData, cancelCallback)
     if not title and not content then
         XLog.Error("XUiManager.DialogTip error, title and content is nil")
         return
@@ -208,7 +237,7 @@ function XUiManager.DialogTip(title, content, dialogType, closeCallback, sureCal
     CS.XAudioManager.PlaySound(XSoundManager.UiBasicsMusic.Tip_Big)
 
     --CS.XUiManager.DialogManager:Push("UiDialog", true, true, title, content, dialogType, closeCallback, sureCallback)
-    XLuaUiManager.Open("UiDialog", title, content, dialogType, closeCallback, sureCallback, extraData)
+    XLuaUiManager.Open("UiDialog", title, content, dialogType, closeCallback, sureCallback, extraData, cancelCallback)
 end
 
 function XUiManager.DialogDragTip(title, content, dialogType, closeCallback, sureCallback, extraData)
@@ -254,14 +283,14 @@ end
 
 -- 显示帮助界面
 -- Param:cb 关闭帮助界面时执行的回调
-function XUiManager.ShowHelpTip(helpDataKey, cb)
+function XUiManager.ShowHelpTip(helpDataKey, cb, jumpIndex, closeCb)
     local config = XHelpCourseConfig.GetHelpCourseTemplateByFunction(helpDataKey)
     if not config then
         return
     end
 
     if config.IsShowCourse == 1 then
-        XLuaUiManager.Open("UiHelp", config, cb)
+        XLuaUiManager.Open("UiHelp", config, cb, jumpIndex, closeCb)
     else
         XUiManager.UiFubenDialogTip(config.Name, config.Describe)
     end
@@ -291,22 +320,29 @@ function XUiManager.UiFubenDialogTip(title, content, closeCallback, sureCallback
     XLuaUiManager.Open("UiFubenDialog", title, content, closeCallback, sureCallback)
 end
 
-function XUiManager.OpenBuyAssetPanel(id, successCallback)
-    XDataCenter.ItemManager.SelectBuyAssetType(id, successCallback, nil, nil)
+function XUiManager.OpenBuyAssetPanel(id, successCallback, challengeCountData, buyAmount)
+    XDataCenter.ItemManager.SelectBuyAssetType(id, successCallback, challengeCountData, buyAmount)
 end
 
 function XUiManager.OpenUiObtain(data, title, closeCallback, sureCallback, horizontalNormalizedPosition)
-    XLuaUiManager.Open("UiObtain", data, title, closeCallback, sureCallback, horizontalNormalizedPosition)
+    -- 等待父级ui中列表异步刷新完成，以保证弹窗的截图效果正常
+    if XUiManager.IsTableAsyncLoading() then
+        XUiManager.WaitTableLoadComplete(function()
+            XLuaUiManager.Open("UiObtain", data, title, closeCallback, sureCallback, horizontalNormalizedPosition)
+        end)
+    else
+        XLuaUiManager.Open("UiObtain", data, title, closeCallback, sureCallback, horizontalNormalizedPosition)
+    end
 end
 
 function XUiManager.OpenUiTipReward(data, title, closeCallback, sureCallback)
     XLuaUiManager.Open("UiTipReward", data, title, closeCallback, sureCallback)
 end
 
-function XUiManager.OpenUiTipRewardByRewardId(id, title, closeCallback, sureCallback, extraTip)
+function XUiManager.OpenUiTipRewardByRewardId(id, title, closeCallback, sureCallback, extraTip, preTitle)
     local data = XRewardManager.GetRewardList(id)
     if not data then return end
-    XLuaUiManager.Open("UiTipReward", data, title, closeCallback, sureCallback, extraTip)
+    XLuaUiManager.Open("UiTipReward", data, title, closeCallback, sureCallback, extraTip, preTitle)
 end
 
 function XUiManager.OpenMainUi()
@@ -319,6 +355,36 @@ function XUiManager.OpenMainUi()
     end
 end
 
+--- 下载弹窗
+---@param title string 标题
+---@param content string 主内容
+---@param subContent string 子内容
+---@param confirmCallback function 确定按钮回调
+---@param jumpCallback function 界面跳转回调
+---@param closeCallback function 界面关闭回调
+--------------------------
+function XUiManager.DialogDownload(title, content, subContent, confirmCallback, jumpCallback, closeCallback)
+    local uiName = "UiDownloadtips"
+    if XLuaUiManager.IsUiShow(uiName) then
+        return
+    end
+    XLuaUiManager.Open(uiName, title, content, subContent, confirmCallback, jumpCallback, closeCallback)
+end
+
+--- 左上角弹出提示
+---@param title string 标题
+---@param content string 主内容
+---@param closeCb function 关闭回调
+---@return void
+--------------------------
+function XUiManager.PopupLeftTip(title, content, closeCb)
+    local uiName = "UiLeftPopupTip"
+    if XLuaUiManager.IsUiShow(uiName) then
+        XLuaUiManager.Close(uiName)
+    end
+    XLuaUiManager.Open(uiName, title, content, closeCb)
+end
+
 function XUiManager.CheckTopUi(type, name)
     local ui = CsXUiManager.Instance:GetTopUi(type)
     return ui.UiData.UiName == name
@@ -326,16 +392,11 @@ end
 
 function XUiManager.OpenPopWebview(url, title)
     --如果是PC正常使用URL跳转，手机平台才用WEB VIEW打开
-    if CS.UnityEngine.Application.platform == CS.UnityEngine.RuntimePlatform.WindowsEditor or
-    CS.UnityEngine.Application.platform == CS.UnityEngine.RuntimePlatform.WindowsPlayer then
-        CS.UnityEngine.Application.OpenURL(url)
-    else
-        XLuaUiManager.Open("UiLoginNotice", {
+    XLuaUiManager.Open("UiLoginNotice", {
             HtmlUrl = url,
             Title = title and XUiHelper.RichTextToTextString(title) or CS.XTextManager.GetText("Agreement"),
             isFullUrl = true
         })
-    end
 end
 
 function XUiManager.OpenGoodDetailUi(goodId, fromUiName, customData, hideSkipBtn)
@@ -354,7 +415,7 @@ function XUiManager.OpenGoodDetailUi(goodId, fromUiName, customData, hideSkipBtn
         XDataCenter.AutoWindowManager.StopAutoWindow()
         XLuaUiManager.Open("UiCharacterDetail", goodId)
     elseif goodsShowParams.RewardType == XRewardManager.XRewardType.Equip then
-        XLuaUiManager.Open("UiEquipDetail", goodId, true)
+        XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipPreview(goodId)
         --从Tips的ui跳转需要关闭Tips的UI
         if uiType == CsXUiType.Tips then
             XLuaUiManager.Close(fromUiName)
@@ -397,5 +458,93 @@ function XUiManager.OpenGoodDetailUi(goodId, fromUiName, customData, hideSkipBtn
         XLuaUiManager.Open("UiTip", customData and customData or goodId, hideSkipBtn, fromUiName)
     end
 end
+
+
+local LoadTableHandler = nil
+local LoadTableCBList = {}
+
+function XUiManager.IsTableAsyncLoading()
+    return CS.XDynamicTableNormal.IsAnyAsyncLoading and CS.XDynamicTableNormal.IsAnyAsyncLoading()
+end
+
+local function OnTableLoadComplete()
+    for i, callback in ipairs(LoadTableCBList) do
+        callback()
+    end
+    LoadTableCBList = {}
+    
+    CsXGameEventManager.Instance:RemoveEvent(XEventId.DYNAMIC_GRID_RELOAD_COMPLETED, LoadTableHandler)
+    LoadTableHandler = nil
+end
+
+--等待异步列表刷新完成
+function XUiManager.WaitTableLoadComplete(cb)
+    -- XLog.Debug("Wait Table LoadComplete ...")
+    table.insert(LoadTableCBList, cb)
+    if LoadTableHandler == nil then
+        LoadTableHandler = function(go)
+            if XUiManager.IsTableAsyncLoading() then
+                return
+            end
+            OnTableLoadComplete()
+        end
+    end
+    CsXGameEventManager.Instance:RegisterEvent(XEventId.DYNAMIC_GRID_RELOAD_COMPLETED, LoadTableHandler)
+    XUiManager.CheckAsyncCBList()
+end
+
+local LoadBgHandler = nil
+local LoadBgCBList = {}
+
+function XUiManager.IsBgAsyncLoading()
+    return CS.XUiManager.IsAnyAsyncLoading and CS.XUiManager.IsAnyAsyncLoading()
+end
+
+local function OnBgLoadComplete()
+    for i, callback in ipairs(LoadBgCBList) do
+        callback()
+    end
+    LoadBgCBList = {}
+    
+    CsXGameEventManager.Instance:RemoveEvent(XEventId.UI_BG_LOAD_COMPLETED, LoadBgHandler)
+    LoadBgHandler = nil
+end
+
+--等待ui的截图背景加载完成
+function XUiManager.WaitBgLoadComplete(cb)
+    -- XLog.Debug("Wait Bg LoadComplete ...")
+    table.insert(LoadBgCBList, cb)
+    if LoadBgHandler == nil then
+        LoadBgHandler = function(go)
+            if XUiManager.IsBgAsyncLoading() then
+                return
+            end
+            OnBgLoadComplete()
+        end
+    end
+    CsXGameEventManager.Instance:RegisterEvent(XEventId.UI_BG_LOAD_COMPLETED, LoadBgHandler)
+    XUiManager.CheckAsyncCBList()
+end
+
+local MAX_ASYNC_TIME = 1000
+local timeId = nil
+-- 增加超时逻辑，保证回调正常
+function XUiManager.CheckAsyncCBList()
+    if timeId then
+        XScheduleManager.UnSchedule(timeId)
+    end
+    timeId = XScheduleManager.ScheduleOnce(function()
+        if LoadTableHandler then
+            XLog.Warning("Load Table Aync too long, callback.")
+            OnTableLoadComplete()
+        end
+        if LoadBgHandler then
+            XLog.Warning("Load Bg Aync too long, callback.")
+            OnBgLoadComplete()
+        end
+        timeId = nil
+    end, MAX_ASYNC_TIME)
+end
+
 
 XUiManager.Init()

@@ -1,3 +1,4 @@
+---@class XUiPhotographSDKPanel
 local XUiPhotographSDKPanel = XClass(XSignalData, "XUiPhotographSDKPanel")
 local DBEUG_SHOW_CUSTOM_SHARE_TEXT = true
 

@@ -1,0 +1,247 @@
+[
+    {
+        "Id": 1,
+        "MovieId": 10101,
+        "Condition": 1,
+        "StageId": 101,
+        "BossId": null
+    },
+    {
+        "Id": 2,
+        "MovieId": 10102,
+        "Condition": 2,
+        "StageId": 101,
+        "BossId": 10101.0
+    },
+    {
+        "Id": 3,
+        "MovieId": 10103,
+        "Condition": 3,
+        "StageId": 101,
+        "BossId": 10101.0
+    },
+    {
+        "Id": 4,
+        "MovieId": 10202,
+        "Condition": 2,
+        "StageId": 102,
+        "BossId": 10201.0
+    },
+    {
+        "Id": 5,
+        "MovieId": 10203,
+        "Condition": 3,
+        "StageId": 102,
+        "BossId": 10201.0
+    },
+    {
+        "Id": 6,
+        "MovieId": 10302,
+        "Condition": 2,
+        "StageId": 103,
+        "BossId": 10301.0
+    },
+    {
+        "Id": 7,
+        "MovieId": 10303,
+        "Condition": 3,
+        "StageId": 103,
+        "BossId": 10301.0
+    },
+    {
+        "Id": 8,
+        "MovieId": 20101,
+        "Condition": 1,
+        "StageId": 201,
+        "BossId": null
+    },
+    {
+        "Id": 9,
+        "MovieId": 20102,
+        "Condition": 2,
+        "StageId": 201,
+        "BossId": 20101.0
+    },
+    {
+        "Id": 10,
+        "MovieId": 20103,
+        "Condition": 3,
+        "StageId": 201,
+        "BossId": 20101.0
+    },
+    {
+        "Id": 11,
+        "MovieId": 20202,
+        "Condition": 2,
+        "StageId": 202,
+        "BossId": 20201.0
+    },
+    {
+        "Id": 12,
+        "MovieId": 20203,
+        "Condition": 3,
+        "StageId": 202,
+        "BossId": 20201.0
+    },
+    {
+        "Id": 13,
+        "MovieId": 20302,
+        "Condition": 2,
+        "StageId": 203,
+        "BossId": 20301.0
+    },
+    {
+        "Id": 14,
+        "MovieId": 20303,
+        "Condition": 3,
+        "StageId": 203,
+        "BossId": 20301.0
+    },
+    {
+        "Id": 15,
+        "MovieId": 30101,
+        "Condition": 1,
+        "StageId": 301,
+        "BossId": null
+    },
+    {
+        "Id": 16,
+        "MovieId": 30102,
+        "Condition": 2,
+        "StageId": 301,
+        "BossId": 30101.0
+    },
+    {
+        "Id": 17,
+        "MovieId": 30103,
+        "Condition": 3,
+        "StageId": 301,
+        "BossId": 30101.0
+    },
+    {
+        "Id": 18,
+        "MovieId": 30202,
+        "Condition": 2,
+        "StageId": 302,
+        "BossId": 30201.0
+    },
+    {
+        "Id": 19,
+        "MovieId": 30203,
+        "Condition": 3,
+        "StageId": 302,
+        "BossId": 30201.0
+    },
+    {
+        "Id": 20,
+        "MovieId": 30302,
+        "Condition": 2,
+        "StageId": 303,
+        "BossId": 30301.0
+    },
+    {
+        "Id": 21,
+        "MovieId": 30303,
+        "Condition": 3,
+        "StageId": 303,
+        "BossId": 30301.0
+    },
+    {
+        "Id": 22,
+        "MovieId": 40101,
+        "Condition": 1,
+        "StageId": 401,
+        "BossId": null
+    },
+    {
+        "Id": 23,
+        "MovieId": 40102,
+        "Condition": 2,
+        "StageId": 401,
+        "BossId": 40101.0
+    },
+    {
+        "Id": 24,
+        "MovieId": 40103,
+        "Condition": 3,
+        "StageId": 401,
+        "BossId": 40101.0
+    },
+    {
+        "Id": 25,
+        "MovieId": 40202,
+        "Condition": 2,
+        "StageId": 402,
+        "BossId": 40201.0
+    },
+    {
+        "Id": 26,
+        "MovieId": 40203,
+        "Condition": 3,
+        "StageId": 402,
+        "BossId": 40201.0
+    },
+    {
+        "Id": 27,
+        "MovieId": 40302,
+        "Condition": 2,
+        "StageId": 403,
+        "BossId": 40301.0
+    },
+    {
+        "Id": 28,
+        "MovieId": 40303,
+        "Condition": 3,
+        "StageId": 403,
+        "BossId": 40301.0
+    },
+    {
+        "Id": 29,
+        "MovieId": 50101,
+        "Condition": 1,
+        "StageId": 501,
+        "BossId": null
+    },
+    {
+        "Id": 30,
+        "MovieId": 50102,
+        "Condition": 2,
+        "StageId": 501,
+        "BossId": 50101.0
+    },
+    {
+        "Id": 31,
+        "MovieId": 50103,
+        "Condition": 3,
+        "StageId": 501,
+        "BossId": 50101.0
+    },
+    {
+        "Id": 32,
+        "MovieId": 50202,
+        "Condition": 2,
+        "StageId": 502,
+        "BossId": 50201.0
+    },
+    {
+        "Id": 33,
+        "MovieId": 50203,
+        "Condition": 3,
+        "StageId": 502,
+        "BossId": 50201.0
+    },
+    {
+        "Id": 34,
+        "MovieId": 50302,
+        "Condition": 2,
+        "StageId": 503,
+        "BossId": 50301.0
+    },
+    {
+        "Id": 35,
+        "MovieId": 50303,
+        "Condition": 3,
+        "StageId": 503,
+        "BossId": 50301.0
+    }
+]

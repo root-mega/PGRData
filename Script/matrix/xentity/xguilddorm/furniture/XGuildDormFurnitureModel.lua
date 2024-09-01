@@ -1,4 +1,4 @@
-
+---@class XGuildDormFurnitureModel
 local XGuildDormFurnitureModel = XClass(nil, "XGuildDormFurnitureModel")
 local MapGridManager
 local CsXGameEventManager = CS.XGameEventManager
@@ -7,32 +7,38 @@ function XGuildDormFurnitureModel:Ctor(id)
     local cfg = XGuildDormConfig.GetCfgByIdKey(XGuildDormConfig.TableKey.DefaultFurniture, id)
     local furnitureCfg = XGuildDormConfig.GetCfgByIdKey(XGuildDormConfig.TableKey.Furniture, cfg.FurnitureId)
     self.Id = cfg.Id
-    self.RoomId = cfg.RoomId
+    self.ThemeId = cfg.ThemeId
     self.FurnitureId = furnitureCfg.Id
     self.Name = furnitureCfg.Name
-    self.BehaviorType = furnitureCfg.BehaviorType
     self.AttractBehaviorType = furnitureCfg.AttractBehaviorType
     self.FunitureBehaviorType = furnitureCfg.FunitureBehaviorType
     self.InteractPos = furnitureCfg.InteractPos
     self.IsNeedLoad = furnitureCfg.IsNeedLoad > 0
     self.FurnitureType = furnitureCfg.FurnitureType
-    self.ShowButtonName = furnitureCfg.ShowButtonName
     self.DontAutoCreateCollider = furnitureCfg.DontAutoCreateCollider == 1
     self.AnimationType = furnitureCfg.AnimationType
     if self.AnimationType ~= XGuildDormConfig.FurnitureAnimationType.NoAnimation then
         self.AnimationName = furnitureCfg.AnimationName
         self.AnimationArg = furnitureCfg.AnimationArg
     end
-    -- XGuildDormConfig.FurnitureButtonType
-    self.ButtonType = furnitureCfg.ButtonType
-    self.ButtonArg = furnitureCfg.ButtonArg
+    self.EnvironmentSound = furnitureCfg.EnvironmentSound
+    self.ShowButtonGroupId = furnitureCfg.ShowButtonGroupId
+    self.EffectGroupId = furnitureCfg.EffectGroupId
+    
     self.InteractInfoList = {}
+    self.HaveConditionInfoList = {}
+    self.NotHaveConditionInfoList = {}
 end
 
 function XGuildDormFurnitureModel:SetGameObject(go)
     self.GameObject = go.gameObject
     self.Transform = go.transform
     self:OnLoadComplete()
+end
+
+---@return UnityEngine.Transform
+function XGuildDormFurnitureModel:GetTransform()
+    return self.Transform
 end
 
 function XGuildDormFurnitureModel:OnLoadComplete()
@@ -79,8 +85,11 @@ function XGuildDormFurnitureModel:OnLoadComplete()
     self.GoInputHandler:AddPressListener(function(pressTime) self:OnPress(pressTime) end)
     end
     ]]
-    self:InitInteractInfo()
+    self:GenerateInteractInfo()
     self:InitNavMesh()
+    if self.EnvironmentSound and self.EnvironmentSound ~= 0 then
+        self.AudioInfo = CS.XAudioManager.PlaySound(self.EnvironmentSound,self.GameObject)
+    end
 end
 --=================
 --初始化家具交互信息
@@ -145,6 +154,10 @@ function XGuildDormFurnitureModel:Dispose()
     if self.AnimationEvent then
         self.AnimationEvent:Dispose()
     end
+    if self.AudioInfo then
+        self.AudioInfo:Stop()
+        self.AudioInfo = nil
+    end
 end
 --============
 --遮挡状态改变时
@@ -179,11 +192,70 @@ end
 --============
 function XGuildDormFurnitureModel:GetInteractInfoList()
     if not self.InteractInfoList or next(self.InteractInfoList) == nil then
-        local roomMap = CS.XRoomMapInfo.GenerateMap(self.CfgId)
-        self:GenerateInteractInfo(roomMap)
+        self:GenerateInteractInfo()
     end
-    return self.InteractInfoList
+    -- 有条件
+    for _, info in pairs(self.HaveConditionInfoList) do
+        local isCheck = false
+        if info.ConditionType == XGuildDormConfig.FurnitureConditionType.Condition then
+            isCheck = XConditionManager.CheckCondition(info.ConditionArg)
+        end
+        if info.ConditionType == XGuildDormConfig.FurnitureConditionType.RedPointCondition then
+            isCheck = XRedPointManager.CheckConditions({ info.ConditionArg })
+        end
+        if info.ConditionState == isCheck then
+            return info
+        end
+    end
+    -- 无条件 直接返回第一个
+    if not XTool.IsTableEmpty(self.NotHaveConditionInfoList) then
+        return self.NotHaveConditionInfoList[1]
+    end
+    -- 上面都不成立 默认返回第一个
+    return self.InteractInfoList[1]
 end
+
+function XGuildDormFurnitureModel:GenerateInteractInfo()
+    if not XTool.IsNumberValid(self.ShowButtonGroupId) then
+        return
+    end
+    local interactBtnConfigs = XGuildDormConfig.GetFurnitureInteractBtnByGroupId(self.ShowButtonGroupId)
+    for _, config in pairs(interactBtnConfigs) do
+        local interactPoint = config.InteractPoint
+        local stayPoint = self.GameObject:FindGameObject("StayPos" .. tostring(interactPoint))
+        local interactPointObj = self.GameObject:FindGameObject("InteractPos" .. tostring(interactPoint))
+        if interactPointObj == nil or stayPoint == nil then
+            if XMain.IsEditorDebug then
+                XLog.Error(string.format("%s 缺少InteractPos点 或者 StayPos点%s号", self.Name, interactPoint))
+            end
+            return
+        end
+
+        local info = {}
+        info.Index = interactPoint
+        info.Id = self.Id
+        info.StayPos = stayPoint
+        info.InteractPos = interactPointObj
+        info.BehaviorType = config.BehaviorType
+        info.ButtonId = self.Id .. "_" .. config.Id
+        info.ShowButtonName = config.ShowButtonName
+        info.ButtonType = config.ButtonType
+        info.ButtonArg = config.ButtonArg
+        info.ConditionType = config.ConditionType
+        info.ConditionArg = config.ConditionArg
+        info.ConditionState = config.ConditionState == 1
+        if info.ConditionType == XGuildDormConfig.FurnitureConditionType.Condition then
+            info.ConditionArg = tonumber(info.ConditionArg)
+        end
+        if info.ConditionType == XGuildDormConfig.FurnitureConditionType.None then
+            table.insert(self.NotHaveConditionInfoList, info)
+        else
+            table.insert(self.HaveConditionInfoList, info)
+        end
+        table.insert(self.InteractInfoList, info)
+    end
+end
+
 --==============
 -- 播放动画
 --==============

@@ -23,9 +23,8 @@ XVideoManagerCreator = function()
         end
 
         local config = XVideoConfig.GetMovieById(id)
-
+        
         if not XDataCenter.UiPcManager.IsPc() and not CS.XResourceManager.HasFile(config.VideoUrl, true) then
-            XLog.Error("非pc端且路径不存在", config.VideoUrl)
             if callback then
                 callback()
             end
@@ -33,7 +32,6 @@ XVideoManagerCreator = function()
         end
 
         if XDataCenter.UiPcManager.IsPc() and not CS.XResourceManager.HasFile(config.VideoUrlPc, true) then
-            XLog.Error("pc端且路劲不存在", config.VideoUrlPc)
             if callback then
                 callback()
             end

@@ -5,15 +5,21 @@
         "CharacterId": 1031004,
         "PositionId": 1,
         "Behavior": [
-            "LIFUPRAY"
+            null,
+            "LIFUPRAY",
+            null
         ],
         "BehaviorWeight": [
-            100
+            null,
+            100,
+            null
         ],
         "AttractBehavior": [
+            null,
             "LIFUGOPRAY"
         ],
         "AttractBehaviorWeight": [
+            null,
             100
         ]
     },
@@ -23,15 +29,21 @@
         "CharacterId": 1041003,
         "PositionId": 1,
         "Behavior": [
-            "BIANKAPRAY"
+            null,
+            "BIANKAPRAY",
+            null
         ],
         "BehaviorWeight": [
-            100
+            null,
+            100,
+            null
         ],
         "AttractBehavior": [
+            null,
             "BIANKAGOPRAY"
         ],
         "AttractBehaviorWeight": [
+            null,
             100
         ]
     },
@@ -41,15 +53,21 @@
         "CharacterId": 1051001,
         "PositionId": 1,
         "Behavior": [
-            "SING"
+            null,
+            "SING",
+            null
         ],
         "BehaviorWeight": [
-            100
+            null,
+            100,
+            null
         ],
         "AttractBehavior": [
+            null,
             "GOSING"
         ],
         "AttractBehaviorWeight": [
+            null,
             100
         ]
     },
@@ -59,15 +77,21 @@
         "CharacterId": 1051003,
         "PositionId": 1,
         "Behavior": [
-            "SING"
+            null,
+            "SING",
+            null
         ],
         "BehaviorWeight": [
-            100
+            null,
+            100,
+            null
         ],
         "AttractBehavior": [
+            null,
             "GOSING"
         ],
         "AttractBehaviorWeight": [
+            null,
             100
         ]
     },
@@ -77,15 +101,21 @@
         "CharacterId": 1061002,
         "PositionId": 1,
         "Behavior": [
-            "SING"
+            null,
+            "SING",
+            null
         ],
         "BehaviorWeight": [
-            100
+            null,
+            100,
+            null
         ],
         "AttractBehavior": [
+            null,
             "GOSING"
         ],
         "AttractBehaviorWeight": [
+            null,
             100
         ]
     },
@@ -95,15 +125,21 @@
         "CharacterId": 1061003,
         "PositionId": 1,
         "Behavior": [
-            "SING"
+            null,
+            "SING",
+            null
         ],
         "BehaviorWeight": [
-            100
+            null,
+            100,
+            null
         ],
         "AttractBehavior": [
+            null,
             "GOSING"
         ],
         "AttractBehaviorWeight": [
+            null,
             100
         ]
     },
@@ -113,15 +149,21 @@
         "CharacterId": 1161002,
         "PositionId": 1,
         "Behavior": [
-            "SING"
+            null,
+            "SING",
+            null
         ],
         "BehaviorWeight": [
-            100
+            null,
+            100,
+            null
         ],
         "AttractBehavior": [
+            null,
             "GOSING"
         ],
         "AttractBehaviorWeight": [
+            null,
             100
         ]
     },
@@ -131,15 +173,21 @@
         "CharacterId": 1531003,
         "PositionId": 1,
         "Behavior": [
-            "SING"
+            null,
+            "SING",
+            null
         ],
         "BehaviorWeight": [
-            100
+            null,
+            100,
+            null
         ],
         "AttractBehavior": [
+            null,
             "GOSING"
         ],
         "AttractBehaviorWeight": [
+            null,
             100
         ]
     },
@@ -149,15 +197,21 @@
         "CharacterId": 1531004,
         "PositionId": 1,
         "Behavior": [
-            "SING"
+            null,
+            "SING",
+            null
         ],
         "BehaviorWeight": [
-            100
+            null,
+            100,
+            null
         ],
         "AttractBehavior": [
+            null,
             "GOSING"
         ],
         "AttractBehaviorWeight": [
+            null,
             100
         ]
     },
@@ -167,15 +221,45 @@
         "CharacterId": 1021003,
         "PositionId": 1,
         "Behavior": [
-            "DRAWSWORD"
+            null,
+            "DRAWSWORD",
+            null
         ],
         "BehaviorWeight": [
-            100
+            null,
+            100,
+            null
         ],
         "AttractBehavior": [
+            null,
             "GODRAWSWORD"
         ],
         "AttractBehaviorWeight": [
+            null,
+            100
+        ]
+    },
+    {
+        "Id": 11,
+        "FurnitureId": 8981914,
+        "CharacterId": 1031003,
+        "PositionId": 1,
+        "Behavior": [
+            null,
+            "GARAGEKIT",
+            null
+        ],
+        "BehaviorWeight": [
+            null,
+            100,
+            null
+        ],
+        "AttractBehavior": [
+            null,
+            "GOGARAGEKIT"
+        ],
+        "AttractBehaviorWeight": [
+            null,
             100
         ]
     }

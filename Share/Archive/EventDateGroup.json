@@ -1,12 +1,5 @@
 [
     {
-        "Id": 1,
-        "Order": 1,
-        "Name": "2022 New Year",
-        "GroupType": 1,
-        "ShowTime": null
-    },
-    {
         "Id": 2,
         "Order": 2,
         "Name": "2022 Valentine's Day",
@@ -49,11 +42,32 @@
         "ShowTime": null
     },
     {
-        "Id": 5,
-        "Order": 5,
-        "Name": "Activation Date",
+        "Id": 7,
+        "Order": 7,
+        "Name": "Gilded Snapshots 2024",
         "GroupType": 1,
-        "ShowTime": null
+        "ShowTime": "2024/2/13 7:00"
+    },
+    {
+        "Id": 1007,
+        "Order": 8,
+        "Name": "2024 Double Seventh Festival",
+        "GroupType": 2,
+        "ShowTime": "2024/8/10 7:00"
+    },
+    {
+        "Id": 8,
+        "Order": 9,
+        "Name": "2024 Double Seventh Festival",
+        "GroupType": 1,
+        "ShowTime": "2024/8/10 7:00"
+    },
+    {
+        "Id": 10,
+        "Order": 10,
+        "Name": "2024 Summer Shadow",
+        "GroupType": 1,
+        "ShowTime": "2024/9/15 7:00"
     },
     {
         "Id": 6,
@@ -61,5 +75,19 @@
         "Name": "2023\u00b7Summer Thoughts",
         "GroupType": 1,
         "ShowTime": null
+    },
+    {
+        "Id": 5,
+        "Order": 5,
+        "Name": "2024 White Day",
+        "GroupType": 1,
+        "ShowTime": "2024/3/14 7:00"
+    },
+    {
+        "Id": 1006,
+        "Order": 6,
+        "Name": "2024 White Day",
+        "GroupType": 2,
+        "ShowTime": "2024/3/14 7:00"
     }
 ]

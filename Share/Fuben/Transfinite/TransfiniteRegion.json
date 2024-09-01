@@ -1,0 +1,32 @@
+[
+    {
+        "RegionId": 1,
+        "RegionName": "Low Power Zone",
+        "TimeId": 711,
+        "MinLv": 80,
+        "MaxLv": 89,
+        "RotateGroupId": 1,
+        "TaskGroupId": [
+            null,
+            3
+        ],
+        "ScoreRewardGroupId": 1,
+        "IslandId": 1,
+        "IconLv": "Assets/Product/Texture/Image/UiTransfinite/UiTransfiniteLv.png"
+    },
+    {
+        "RegionId": 2,
+        "RegionName": "High Power Zone",
+        "TimeId": 711,
+        "MinLv": 90,
+        "MaxLv": 120,
+        "RotateGroupId": 2,
+        "TaskGroupId": [
+            null,
+            4
+        ],
+        "ScoreRewardGroupId": 2,
+        "IslandId": 2,
+        "IconLv": "Assets/Product/Texture/Image/UiTransfinite/UiTransfiniteLv02.png"
+    }
+]

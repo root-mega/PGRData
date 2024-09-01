@@ -27,6 +27,10 @@ function XUiGridCharacterNew:InitAutoScript()
     if self.PanelSupportIn then
         self.PanelSupportIn.gameObject:SetActiveEx(false)
     end
+
+    if self.PanelHighPriority then
+        self.PanelHighPriority.gameObject:SetActiveEx(false)
+    end
 end
 
 function XUiGridCharacterNew:AutoInitUi()
@@ -47,6 +51,7 @@ function XUiGridCharacterNew:AutoInitUi()
     self.ImgSelected = self.Transform:Find("PanelSelected/ImgSelected"):GetComponent("Image")
     self.ImgRedPoint = self.Transform:Find("ImgRedPoint"):GetComponent("Image")
     self.TxtCur = self.Transform:Find("TxtCur"):GetComponent("Text")
+    self.IconEquipGuide = self.Transform:Find("IconEquipGuide")
 end
 
 function XUiGridCharacterNew:AutoAddListener()
@@ -59,9 +64,12 @@ end
 
 function XUiGridCharacterNew:UpdateOwnInfo()
     self.TxtLevel.text = self.Character.Level
-    self.RImgGrade:SetRawImage(XCharacterConfigs.GetCharGradeIcon(self.Character.Id, self.Character.Grade))
-    self.RImgQuality:SetRawImage(XCharacterConfigs.GetCharacterQualityIcon(self.Character.Quality))
+    self.RImgGrade:SetRawImage(XCharacterConfigs.GetCharGradeIcon(self.Character.Id, self.Character.Grade or XDataCenter.CharacterManager.GetCharacterGrade(self.Character.Id)))
+    self.RImgQuality:SetRawImage(XCharacterConfigs.GetCharacterQualityIcon(XDataCenter.CharacterManager.GetCharacterQuality(self.Character.Id)))
     self.RImgHeadIcon:SetRawImage(XDataCenter.CharacterManager.GetCharSmallHeadIcon(self.Character.Id))
+    if self.IconEquipGuide then
+        self.IconEquipGuide.gameObject:SetActiveEx(XDataCenter.EquipGuideManager.IsEquipGuideCharacter(self.Character.Id))
+    end
 end
 
 function XUiGridCharacterNew:UpdateUnOwnInfo()
@@ -71,6 +79,10 @@ function XUiGridCharacterNew:UpdateUnOwnInfo()
     local characterType = XCharacterConfigs.GetCharacterType(characterId)
     self.TxtNeedCount.text = XCharacterConfigs.GetComposeCount(characterType, bornQuality)
     self.RImgHeadIcon:SetRawImage(XDataCenter.CharacterManager.GetCharSmallHeadIcon(characterId))
+    if self.IconEquipGuide then
+        self.IconEquipGuide.gameObject:SetActiveEx(false)
+    end
+    
 end
 
 function XUiGridCharacterNew:UpdateGrid(character)
@@ -101,6 +113,9 @@ end
 
 function XUiGridCharacterNew:SetSelect(isSelect)
     self.ImgSelected.gameObject:SetActiveEx(isSelect)
+    if isSelect then
+        XEventManager.DispatchEvent(XEventId.EVENT_CHARACTER_TOWER_CONDITION_LISTENING, XFubenCharacterTowerConfigs.ListeningType.Character, { CharacterId = self.Character.Id })
+    end
 end
 
 function XUiGridCharacterNew:HideRedPoint()
@@ -130,6 +145,20 @@ function XUiGridCharacterNew:UpdateSupport(supportData)
     if self.PanelSupportIn then
         local showSupport = supportData.CheckInSupportCb(characterId)
         self.PanelSupportIn.gameObject:SetActiveEx(showSupport)
+    end
+
+    if self.PanelHighPriority and supportData.CheckHighPriority then
+        local showHighPriority = false
+        local icon = false
+        if supportData.CheckHighPriority then
+            showHighPriority, icon = supportData.CheckHighPriority(characterId)
+        end
+        self.PanelHighPriority.gameObject:SetActiveEx(showHighPriority)
+        if icon then
+            local tran = self.PanelHighPriority.transform:Find("UpTag/RImgGuildWarUP")
+            local rawImage = tran:GetComponent("RawImage")
+            rawImage:SetRawImage(icon)
+        end
     end
 end
 

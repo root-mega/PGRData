@@ -1,0 +1,44 @@
+[
+    {
+        "Id": 1,
+        "Key": "Life",
+        "Name": "Current HP",
+        "Desc": null
+    },
+    {
+        "Id": 2,
+        "Key": "MaxLife",
+        "Name": "HP",
+        "Desc": "Units with 0 HP will leave the battlefield"
+    },
+    {
+        "Id": 3,
+        "Key": "Attack",
+        "Name": "ATK",
+        "Desc": "The amount of damage an attack deals"
+    },
+    {
+        "Id": 4,
+        "Key": "Defense",
+        "Name": "DEF",
+        "Desc": "Reduces the damage taken"
+    },
+    {
+        "Id": 5,
+        "Key": "CriticalChance",
+        "Name": "CRIT Rate",
+        "Desc": "The chance to trigger a critical hit"
+    },
+    {
+        "Id": 6,
+        "Key": "CriticalDamage",
+        "Name": "CRIT Bonus",
+        "Desc": "The extra damage provided by the critical hit triggered"
+    },
+    {
+        "Id": 7,
+        "Key": "AttackSpeed",
+        "Name": "Speed Bonus",
+        "Desc": "The higher the Speed Bonus, the higher the attack frequency"
+    }
+]

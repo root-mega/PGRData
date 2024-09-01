@@ -3,6 +3,7 @@
 
 local XRedPointConditionBossSingle = {}
 local Events = nil
+local Conditions = nil
 function XRedPointConditionBossSingle.GetSubEvents()
     Events = Events or
     {
@@ -10,26 +11,19 @@ function XRedPointConditionBossSingle.GetSubEvents()
     return Events
 end
 
+function XRedPointConditionBossSingle.GetSubConditions()
+    Conditions = Conditions or { 
+        XRedPointConditions.Types.CONDITION_ACTIVITY_BOSS_SINGLE_NEW 
+    }
+    return Conditions
+end
+
 --有关卡还没打， 而且开放了
 function XRedPointConditionBossSingle.Check()
-    local isOpen = XActivityBrieIsOpen.Get(XActivityBriefConfigs.ActivityGroupId.BossSingle)
-    if isOpen then
-        local sectionId = XDataCenter.FubenActivityBossSingleManager.GetCurSectionId()
-        local stageIds = XDataCenter.FubenActivityBossSingleManager.GetSectionStageIdList(sectionId)
-        for i,stageId in ipairs(stageIds) do
-            local isUnLock = XDataCenter.FubenActivityBossSingleManager.IsChallengeUnlockByStageId(stageId)
-            if isUnLock then
-                local isPassed = XDataCenter.FubenActivityBossSingleManager.IsChallengePassedByStageId(stageId)
-                if not isPassed then
-                    return true
-                end
-            end
-        end
-
-        return false
-    else
-        return false
+    if XDataCenter.FubenActivityBossSingleManager.CheckActivityRedPoint() then
+        return true
     end
+    return XRedPointActivityBossSingleStoryNew.Check()
 end
 
 return XRedPointConditionBossSingle

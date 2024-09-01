@@ -44,13 +44,17 @@ function XUiPanelBossRankInfo:Init()
     end
     self.TabBtnGroup = nil
     self.BtnTabList = {}
+    self.BtnIndexDic = {}
     local Cfgs = XDataCenter.FubenBossSingleManager.GetRankLevelCfgs()
 
-    for _ = 1, #Cfgs do
-        local grid = CS.UnityEngine.Object.Instantiate(self.GridRankLevel)
-        grid.transform:SetParent(self.PanelTags, false)
-        grid.gameObject:SetActive(true)
-        table.insert(self.BtnTabList, grid)
+    for i = 1, #Cfgs do
+        if XDataCenter.FubenBossSingleManager.GetRankIsOpenByType(Cfgs[i].LevelType) then
+            local grid = CS.UnityEngine.Object.Instantiate(self.GridRankLevel)
+            grid.transform:SetParent(self.PanelTags, false)
+            grid.gameObject:SetActive(true)
+            table.insert(self.BtnTabList, grid)
+            self.BtnIndexDic[#self.BtnIndexDic + 1] = Cfgs[i].LevelType
+        end
     end
 
     self.TabBtnGroup = XUiTabBtnGroup.New(self.BtnTabList, function(levelType)
@@ -58,10 +62,11 @@ function XUiPanelBossRankInfo:Init()
         end)
 
     for k, btn in ipairs(self.TabBtnGroup.TabBtnList) do
-        local text = CS.XTextManager.GetText("BossSingleRankDesc", Cfgs[k].MinPlayerLevel, Cfgs[k].MaxPlayerLevel)
-        btn:SetName(Cfgs[k].LevelName, text)
+        local type = self.BtnIndexDic[k]
+        local text = CS.XTextManager.GetText("BossSingleRankDesc", Cfgs[type].MinPlayerLevel, Cfgs[type].MaxPlayerLevel)
+        btn:SetName(Cfgs[type].LevelName, text)
         local icon = btn.Transform:Find("RImgIcon"):GetComponent("RawImage")
-        icon:SetRawImage(Cfgs[k].Icon)
+        icon:SetRawImage(Cfgs[type].Icon)
         self.TabBtnGroup:UnLockIndex(k)
     end
 
@@ -72,10 +77,16 @@ end
 
 
 function XUiPanelBossRankInfo:ShowPanel(levelType, rankPlatform)
+    local index = 1
+    
     self.CurLevelType = levelType
     self.RankPlatform = rankPlatform
-
-    self.TabBtnGroup:SelectIndex(self.CurLevelType)
+    for i = 1, #self.BtnIndexDic do
+        if self.BtnIndexDic[i] == levelType then
+            index = i
+        end
+    end
+    self.TabBtnGroup:SelectIndex(index)
     self.GameObject:SetActive(true)
 
     self.RootUi:PlayAnimation("AnimRankInfolEnable")
@@ -88,7 +99,9 @@ function XUiPanelBossRankInfo:HidePanel()
 end
 
 function XUiPanelBossRankInfo:RefreshRankInfo(levelType)
-    self.CurLevelType = levelType
+    local type = self.BtnIndexDic[levelType] or 1
+
+    self.CurLevelType = type
     self.RootUi:PlayAnimation("AnimInfoQieHuan")
     self:RefreshRank()
 end

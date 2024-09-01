@@ -1,6 +1,8 @@
 local XGDComponet = require("XEntity/XGuildDorm/Components/XGDComponet")
+---@class XGDActionPlayComponent : XGDComponet
 local XGDActionPlayComponent = XClass(XGDComponet, "XGDActionPlayComponent")
 
+---@param role XGuildDormRole
 function XGDActionPlayComponent:Ctor(role)
     self.Role = role
     self.IsPlaying = false

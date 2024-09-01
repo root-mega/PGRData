@@ -1,11 +1,22 @@
 --=============
---二周年回顾活动
+--回顾活动(无论几周年 有变动就直接改)
 --=============
-local XUiReviewActivity = XLuaUiManager.Register(XLuaUi, "UiReviewActivity2Anniversary")
+local XUiReviewActivity = XLuaUiManager.Register(XLuaUi, "UiReviewActivityAnniversary")
 
 local TotlePageNum
 
 local PageController = require("XUi/XUiReviewActivity/Panel/XUiReviewActivityPage")
+
+function XUiReviewActivity:OnAwake()
+    local uiNearRootObj = self.UiModel.UiNearRoot:GetComponent("UiObject")
+    self.NearCameras = {}
+    self.NearCameras[0] = uiNearRootObj:GetObject("NearCamera0") --有模型镜头
+    self.NearCameras[1] = uiNearRootObj:GetObject("NearCamera1") --无模型镜头
+    local uiFarRootObj = self.UiModel.UiFarRoot:GetComponent("UiObject")
+    self.FarCameras = {}
+    self.FarCameras[0] = uiFarRootObj:GetObject("FarCamera0") --有模型镜头
+    self.FarCameras[1] = uiFarRootObj:GetObject("FarCamera1") --无模型镜头
+end
 
 function XUiReviewActivity:OnStart()
     self.CurrentPage = 1
@@ -44,8 +55,6 @@ function XUiReviewActivity:NextPage()
     self.CurrentPage = self.CurrentPage + 1
     if self.CurrentPage <= TotlePageNum then
         self:ShowCurrent()
-    else
-        self:Close()
     end
 end
 
@@ -59,12 +68,14 @@ function XUiReviewActivity:OnClick()
                 self.FirstPageAnimClosingFlag = nil
             end)
         return
-    elseif self.CurrentPage == 2 and not self.SecondPageAnimPlayFlag then
-        if self.Sequence2NextPage then
-            self.Sequence2NextPage:Play()
+    elseif self.CurrentPage == 2 then
+        if not self.Sequence2SubPage then
+            self.Sequence2SubPage = 2
         end
-        self.SecondPageAnimPlayFlag = true
-        return
+        if PageController.TurnPanelSubPage(self,self.CurrentPage,self.Sequence2SubPage) then
+            self.Sequence2SubPage = self.Sequence2SubPage + 1
+            return
+        end
     end
     if self.CurrentPage == 2 then
         local medalInfos = XDataCenter.ReviewActivityManager.GetMedalInfos()

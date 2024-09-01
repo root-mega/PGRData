@@ -28,9 +28,11 @@ function XUiBfrtStageDetail:OnEnable()
     end))
 
     self.IsOpen = true
+
 end
 
 function XUiBfrtStageDetail:OnDisable()
+
     self.IsOpen = false
 end
 
@@ -175,7 +177,7 @@ function XUiBfrtStageDetail:UpdateDetailText()
     self.TxtTitle.text = id .. self.Stage.Name
     self.TxtLevelVal.text = self.Stage.RecommandLevel
     self.TxtDesc.text = self.Stage.Description
-    self.TxtATNums.text = self.Stage.RequireActionPoint
+    self.TxtATNums.text = XDataCenter.FubenManager.GetRequireActionPoint(self.BaseStageId)
 
     local chanllengeNum = XDataCenter.BfrtManager.GetGroupFinishCount(self.BaseStageId)
     local maxChallengeNum = XDataCenter.BfrtManager.GetGroupMaxChallengeNum(self.BaseStageId)

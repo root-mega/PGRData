@@ -16,15 +16,26 @@ XQuitHandler.OnEscBtnClick = function()
     -- 战斗中
     local fight = CS.XFight.Instance
     if fight then
+        if XLuaUiManager.IsUiShow("UiHelp") then
+            XLuaUiManager.Close("UiHelp")
+            return
+        end
         if XLuaUiManager.IsUiShow("UiSet") then
             XQuitHandler.ExitGame()
             return;
         end
-        if fight.IsAlreadyCloseLoading and fight.State == CS.XFightState.Fight then
+        if fight.IsClosedLoading and fight.State == CS.XFightState.Fight then
             fight.UiManager:GetUi(typeof(CS.XUiFight)):OnClickExit(nil)
         end
         return
     end
+
+    -- 特殊玩法中
+    if CS.XInputManager.CurOperationType == CS.XOperationType.ActivityGame then
+        XEventManager.DispatchEvent(XEventId.EVENT_ACTIVITY_GAME_ESC)
+        return
+    end
+
     -- 剧情
     if XLuaUiManager.IsUiShow("UiMovie") then
         return

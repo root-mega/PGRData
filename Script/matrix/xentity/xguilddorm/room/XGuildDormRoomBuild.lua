@@ -3,20 +3,26 @@ local XRoomMap = require("XEntity/XGuildDorm/Room/XGuildRoomMapData")
 --=============
 --公会宿舍房间建筑，家具构成控件
 --=============
+---@class XGuildDormRoomBuild
 local XGuildDormRoomBuild = XClass(nil, "XGuildDormRoomBuild")
 local ROOM_DEFAULT_SO_PATH = CS.XGame.ClientConfig:GetString("RoomDefaultSoPath")
 local WallNum = 4
 local ROOM_FAR_CLIP_PLANE = 25
+---@param roomData XGuildDormRoomData
 function XGuildDormRoomBuild:Ctor(roomData)
     self.Data = roomData
     self.SurfaceRoot = nil
     self.CharacterRoot = nil
     self.FurnitureRoot = nil
+    self.NpcInteractRoot = nil
+    self.SwitchCameraRoot = nil
     self.Ground = nil
     self.Wall = nil
     self.Ceiling = nil
     self.WallFurnitureList = {}
     self.GroundFurnitureList = {}
+    self.SwitchMainCamera = nil
+    self.SwitchCameraDic = {}
 end
 
 function XGuildDormRoomBuild:OnLoadComplete(roomTransform)
@@ -25,6 +31,8 @@ function XGuildDormRoomBuild:OnLoadComplete(roomTransform)
     self.SurfaceRoot = self.Transform:Find("@Surface")
     self.CharacterRoot = self.Transform:Find("@Character")
     self.FurnitureRoot = self.Transform:Find("@Furniture")
+    self.NpcInteractRoot = self.Transform:Find("@NpcInteractPos")
+    self.SwitchCameraRoot = self.Transform:Find("@Camera")
     self.SurfaceRoot.gameObject:SetActiveEx(false)
     self.FurnitureRoot.gameObject:SetActiveEx(false)
     self.CharacterRoot.gameObject:SetActiveEx(false)
@@ -32,12 +40,32 @@ function XGuildDormRoomBuild:OnLoadComplete(roomTransform)
     if not self.GoInputHandler then
         self.GoInputHandler = self.GameObject:AddComponent(typeof(CS.XGoInputHandler))
     end
+    self:InitSwitchCameras()
 end
+
+function XGuildDormRoomBuild:InitSwitchCameras()
+    self.SwitchMainCamera = XDataCenter.GuildDormManager.SceneManager.GetCurrentScene():GetCamera()
+        .transform:GetComponent("CinemachineBrain")
+    local child = nil
+    for i = 0, self.SwitchCameraRoot.childCount - 1 do
+        child = self.SwitchCameraRoot:GetChild(i)
+        self.SwitchCameraDic[child.gameObject.name] = child:GetComponent("CinemachineVirtualCamera")
+    end
+end
+
+function XGuildDormRoomBuild:GetSwitchMainCamera()
+    return self.SwitchMainCamera
+end
+
+function XGuildDormRoomBuild:GetSwitchCameraByName(name)
+    return self.SwitchCameraDic[name]
+end
+
 -- 加载家具
 function XGuildDormRoomBuild:InitFurnitures()
     local furnitureList = XGuildDormConfig.GetAllConfigs(XGuildDormConfig.TableKey.DefaultFurniture)
     for _, cfg in pairs(furnitureList) do
-        if cfg.RoomId ~= self.Data.Id then goto nextCfg end
+        if cfg.ThemeId ~= XDataCenter.GuildDormManager.GetThemeId() then goto nextCfg end
         local furnitureCfg = XGuildDormConfig.GetCfgByIdKey(XGuildDormConfig.TableKey.Furniture, cfg.FurnitureId)
         if not furnitureCfg then goto nextCfg end
         --若该家具不需要动态加载(直接做在场景中)
@@ -65,6 +93,7 @@ function XGuildDormRoomBuild:GenerateRoomMap()
         return
     end
     --房间动态地图信息
+    ---@type XGuildRoomMapData
     self.RoomMap = XRoomMap.New(self.Data)
     --第一期没有关于摆放方面的需求，地图网格
     --先将HomeDormManager节点转到对应房间里再计算网格点里的数据，不然会有误差
@@ -145,6 +174,10 @@ function XGuildDormRoomBuild:ResetNavmeshObstacle()
     for _, furniture in pairs(allFurniture or {}) do
         furniture:ResetNavmeshObstacle()
     end
+end
+
+function XGuildDormRoomBuild:GetRoomData()
+    return self.Data
 end
 
 return XGuildDormRoomBuild

@@ -109,6 +109,11 @@ function XUiArenaLevelDetail:RefreshRankRegionGrid()
         local title = XArenaConfigs.GetRankRegionColorText(region)
         local rewardId = XArenaConfigs.GetRankRegionRewardId(region, challengeCfg)
         local rewardList = rewardId and rewardId ~= 0 and XRewardManager.GetRewardList(rewardId) or {}
+        -- 英雄小队
+        if challengeCfg.ArenaLv == XArenaConfigs.ArenaHeroLv and challengeCfg.DanUpRankCostContributeScore > 0 and region == XArenaPlayerRankRegion.UpRegion then
+            des = XUiHelper.GetText("ArenaActivityUpRegionContributeScoreDes", challengeCfg.DanUpRank, challengeCfg.DanUpRankCostContributeScore)
+        end
+        
         grid:SetMetaData(title, des, isNotBorder, rewardList)
     end
 end

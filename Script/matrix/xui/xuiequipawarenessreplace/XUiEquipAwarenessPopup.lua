@@ -155,7 +155,7 @@ end
 
 function XUiEquipAwarenessPopup:UpdateSelectPanel()
     if not self.SelectEquipGrid then
-        self.SelectEquipGrid = XUiGridEquip.New(self.GridEquipSelect)
+        self.SelectEquipGrid = XUiGridEquip.New(self.GridEquipSelect, self, nil, true)
         self.SelectEquipGrid:InitRootUi(self)
     end
     self.SelectEquipGrid:Refresh(self.EquipId)
@@ -199,7 +199,8 @@ function XUiEquipAwarenessPopup:UpdateSelectPanel()
     --是否激活颜色不同
     local suitId = XDataCenter.EquipManager.GetSuitId(equip.Id)
     local activeEquipsCount = XDataCenter.EquipManager.GetActiveSuitEquipsCount(self.CharacterId, suitId)
-    local skillDesList = XDataCenter.EquipManager.GetSuitActiveSkillDesList(suitId, activeEquipsCount)
+    local isOverrun = self:IsOverrun(suitId, self.CharacterId)
+    local skillDesList = XDataCenter.EquipManager.GetSuitActiveSkillDesList(suitId, activeEquipsCount, isOverrun, isOverrun)
     for i = 1, XEquipConfig.MAX_SUIT_SKILL_COUNT do
         local componentText = self["TxtSkillDesA" .. i]
         if not skillDesList[i] then
@@ -233,7 +234,7 @@ function XUiEquipAwarenessPopup:UpdateUsingPanel()
     end
 
     if not self.UsingEquipGrid then
-        self.UsingEquipGrid = XUiGridEquip.New(self.GridEquipUsing)
+        self.UsingEquipGrid = XUiGridEquip.New(self.GridEquipUsing, self, nil, true)
         self.UsingEquipGrid:InitRootUi(self)
     end
     self.UsingEquipGrid:Refresh(self.UsingEquipId)
@@ -261,7 +262,8 @@ function XUiEquipAwarenessPopup:UpdateUsingPanel()
     --是否激活颜色不同
     local suitId = XDataCenter.EquipManager.GetSuitId(equip.Id)
     local activeEquipsCount = XDataCenter.EquipManager.GetActiveSuitEquipsCount(self.CharacterId, suitId)
-    local skillDesList = XDataCenter.EquipManager.GetSuitActiveSkillDesList(suitId, activeEquipsCount)
+    local isOverrun = self:IsOverrun(suitId, self.CharacterId)
+    local skillDesList = XDataCenter.EquipManager.GetSuitActiveSkillDesList(suitId, activeEquipsCount, isOverrun, isOverrun)
 
     for i = 1, XEquipConfig.MAX_SUIT_SKILL_COUNT do
         local componentText = self["TxtSkillDes" .. i]
@@ -315,6 +317,7 @@ function XUiEquipAwarenessPopup:AutoAddListener()
     self:RegisterClickEvent(self.BtnUnlaJiUsing, self.OnBtnUnlaJiUsingClick)
     self:RegisterClickEvent(self.BtnLaJiSelect, self.OnBtnLaJiSelectClick)
     self:RegisterClickEvent(self.BtnUnlaJiSelect, self.OnBtnUnlaJiSelectClick)
+    self:RegisterClickEvent(self.BtnClose, self.Close)
 end
 
 function XUiEquipAwarenessPopup:OnBtnLaJiSelectClick()
@@ -350,7 +353,7 @@ function XUiEquipAwarenessPopup:OnBtnUnlockUsingClick()
 end
 
 function XUiEquipAwarenessPopup:OnBtnStrengthenClick()
-    XLuaUiManager.Open("UiEquipDetail", self.EquipId, nil, self.CharacterId)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipDetail(self.EquipId, nil, self.CharacterId)
     self:Close()
 end
 
@@ -369,14 +372,27 @@ function XUiEquipAwarenessPopup:OnBtnPutOnClick()
             function()
             end,
             function()
-                XDataCenter.EquipManager.PutOn(characterId, equipId)
+                XMVCA:GetAgency(ModuleId.XEquip):PutOn(characterId, equipId)
             end
         )
     else
-        XDataCenter.EquipManager.PutOn(characterId, equipId)
+        XMVCA:GetAgency(ModuleId.XEquip):PutOn(characterId, equipId)
     end
 end
 
 function XUiEquipAwarenessPopup:OnBtnTakeOffClick()
-    XDataCenter.EquipManager.TakeOff({self.EquipId})
+    XMVCA:GetAgency(ModuleId.XEquip):TakeOff({self.EquipId})
+end
+
+function XUiEquipAwarenessPopup:IsOverrun(suitId, characterId)
+    if characterId then
+        local usingWeaponId = XDataCenter.EquipManager.GetCharacterWearingWeaponId(characterId)
+        if usingWeaponId ~= 0 then
+            local usingEquip = XDataCenter.EquipManager.GetEquip(usingWeaponId)
+            local choseSuit = usingEquip:GetOverrunChoseSuit()
+            return choseSuit == suitId
+        end
+    end
+
+    return false
 end

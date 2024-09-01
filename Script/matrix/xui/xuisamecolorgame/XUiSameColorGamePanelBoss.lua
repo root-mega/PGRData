@@ -35,6 +35,7 @@ function XUiSameColorGamePanelBoss:Ctor(ui, rootUi)
     self.GameObject = ui.gameObject
     self.Transform = ui.transform
     XTool.InitUiObject(self)
+    self.QieHuan = XUiHelper.TryGetComponent(self.Transform, "Animation/QieHuan")
     self.RootUi = rootUi
     -- XSCBoss
     self.Boss = nil
@@ -49,7 +50,14 @@ function XUiSameColorGamePanelBoss:SetData(boss)
     self.RImgGradeIcon:SetRawImage(boss:GetMaxGradeIcon())
     local maxScore = boss:GetMaxScore()
     self.TxtMaxScore.text = XUiHelper.GetText("SCBossMaxScoreText", maxScore)
-    self.TxtActionPoint.text = boss:GetMaxRound()
+    self.TxtStepsTitle.gameObject:SetActiveEx(boss:IsRoundType())
+    if boss:IsRoundType() then
+        self.TxtSteps.text = boss:GetMaxRound()
+    end
+    self.TxtTimesTitle.gameObject:SetActiveEx(boss:IsTimeType())
+    if boss:IsTimeType() then
+        self.TxtTimes.text = boss:GetMaxTime()
+    end
     local showGradeInfo = self.Boss:GetIsOpen() and maxScore > 0
     self.RImgGradeIcon.gameObject:SetActiveEx(showGradeInfo)
     self.TxtMaxScore.gameObject:SetActiveEx(showGradeInfo)
@@ -86,6 +94,7 @@ function XUiSameColorGamePanelBoss:SetGridSelectStatusBySkill(skill)
     for _, value in ipairs(self.SkillGrids) do
         value:SetSelectStatusBySkill(skill)
     end
+    self.QieHuan.gameObject:PlayTimelineAnimation()
 end
 
 function XUiSameColorGamePanelBoss:RegisterUiEvents()

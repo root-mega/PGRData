@@ -4,6 +4,7 @@ local ANIMATION_OPEN = "AniBfrtDeployBegin"
 
 local XUiGridEchelon = require("XUi/XUiBfrt/XUiGridEchelon")
 
+---@class XUiBfrtDeploy
 local XUiBfrtDeploy = XLuaUiManager.Register(XLuaUi, "UiBfrtDeploy")
 
 function XUiBfrtDeploy:OnAwake()

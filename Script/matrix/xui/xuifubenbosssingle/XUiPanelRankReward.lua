@@ -52,6 +52,7 @@ function XUiPanelRankReward:ShowPanel(levelType, myRankData)
     end
 
     self.GameObject:SetActive(true)
+    XDataCenter.UiPcManager.OnUiEnable(self, "OnBtnBlockClick")
     self.RootUi:PlayAnimation("AnimRankRewardEnable")
 end
 
@@ -61,6 +62,7 @@ end
 
 function XUiPanelRankReward:HidePanel()
     self.GameObject:SetActive(false)
+    XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
     -- self.RootUi:PlayAnimation("AnimRankRewardDisable", function()
     --     end)
 end

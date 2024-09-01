@@ -17,7 +17,7 @@ function XUiNotCustomKeyItem:Refresh(data, cb, resetTextOnly, curOperationType)
             self.GroupRecommend.gameObject:SetActiveEx(true)
         end
         
-        local isCustom = XInputManager.IsCustomKey(operationKey, 0)
+        local isCustom = XInputManager.IsCustomKey(operationKey, 0, self._KeySetType, self.CurOperationType)
         self.BtnKeyItem.enabled = isCustom
         local name = XInputManager.GetKeyCodeString(self._KeySetType, CS.XOperationType.__CastFrom(self.CurOperationType), operationKey)
         self.BtnKeyItem:SetName(name)

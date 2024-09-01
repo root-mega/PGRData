@@ -1,7 +1,8 @@
 local XUiGoldenMinerRank = XLuaUiManager.Register(XLuaUi, "UiGoldenMinerRank")
 local XUiGridRank = require("XUi/XUiGoldenMiner/Rank/XUiGridRank")
 
---黄金矿工排行榜主界面
+---黄金矿工排行榜主界面
+---@class XUiGoldenMinerRank : XLuaUi
 function XUiGoldenMinerRank:OnAwake()
     self:AutoAddListener()
     self:Init()
@@ -16,12 +17,8 @@ function XUiGoldenMinerRank:OnEnable()
     self:Refresh()
 end
 
-function XUiGoldenMinerRank:AutoAddListener()
-    self:RegisterClickEvent(self.BtnBack, self.Close)
-    self:RegisterClickEvent(self.BtnMainUi, function() XLuaUiManager.RunMain() end)
-    self:BindHelpBtn(self.BtnHelp, XGoldenMinerConfigs.GetHelpKey())
-end
 
+--region Activity - AutoClose
 function XUiGoldenMinerRank:InitTimes()
     self:SetAutoCloseInfo(XDataCenter.GoldenMinerManager.GetActivityEndTime(), function(isClose)
         if isClose then
@@ -30,7 +27,10 @@ function XUiGoldenMinerRank:InitTimes()
         end
     end, nil, 0)
 end
+--endregion
 
+
+--region Ui - Refresh
 function XUiGoldenMinerRank:Init()
     self.MyGridRank = XUiGridRank.New(self.GridMyRank, self)
     self.RankData = XDataCenter.GoldenMinerManager.GetGoldenMinerRankData()
@@ -38,6 +38,14 @@ function XUiGoldenMinerRank:Init()
     self.TxtRankCount.text = XUiHelper.GetText("GoldenMinerRankTop")
 end
 
+function XUiGoldenMinerRank:Refresh()
+    self:UpdateDynamicTable()
+    self.MyGridRank:Refresh(self.RankData:GetMyRankPlayInfo(), true)
+end
+--endregion
+
+
+--region Ui - RankGrid DynamicTable
 function XUiGoldenMinerRank:InitDynamicTable()
     self.DynamicTable = XDynamicTableNormal.New(self.RankList)
     self.DynamicTable:SetProxy(XUiGridRank, self)
@@ -57,8 +65,13 @@ function XUiGoldenMinerRank:OnDynamicTableEvent(event, index, grid)
         grid:Refresh(taskData)
     end
 end
+--endregion
 
-function XUiGoldenMinerRank:Refresh()
-    self:UpdateDynamicTable()
-    self.MyGridRank:Refresh(self.RankData:GetMyRankPlayInfo(), true)
+
+--region Ui - BtnListener
+function XUiGoldenMinerRank:AutoAddListener()
+    self:RegisterClickEvent(self.BtnBack, self.Close)
+    self:RegisterClickEvent(self.BtnMainUi, function() XLuaUiManager.RunMain() end)
+    self:BindHelpBtn(self.BtnHelp, XGoldenMinerConfigs.GetHelpKey())
 end
+--endregion

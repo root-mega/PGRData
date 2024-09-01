@@ -35,7 +35,7 @@ end
 
 function XUiGridObtain:OnBtnClickClick()
     local furnitureConfigId = XDataCenter.FurnitureManager.GetFurnitureConfigId(self.FurnitureId)
-    XEventManager.DispatchEvent(XEventId.EVENT_CLICKFURNITURE_GRID, self.FurnitureId, furnitureConfigId, self)
+    XEventManager.DispatchEvent(XEventId.EVENT_CLICK_FURNITURE_GRID, self.FurnitureId, furnitureConfigId, self)
 end
 
 function XUiGridObtain:SetSelected(status)

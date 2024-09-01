@@ -2,6 +2,7 @@ local XPartnerMainSkillGroup = require("XEntity/XPartner/XPartnerMainSkillGroup"
 local XPartnerPassiveSkillGroup = require("XEntity/XPartner/XPartnerPassiveSkillGroup")
 local XPartnerBase = require("XEntity/XPartner/XPartnerBase")
 
+---@class XPartner : XPartnerBase
 local XPartner = XClass(XPartnerBase, "XPartner")
 local DefaultQuality = 1
 local DefaultBreakthrough = 0
@@ -767,10 +768,6 @@ end
 
 function XPartner:GetLevelUpSkipIdList()
     return self:GetItemSkipCfg().LevelUpSkipIdParams or {}
-end
-
-function XPartner:GetClipSkipIdList()
-    return self:GetItemSkipCfg().ClipSkipIdParams or {}
 end
 
 function XPartner:GetStageSkipId()

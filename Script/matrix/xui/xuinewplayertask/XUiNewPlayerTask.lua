@@ -8,6 +8,7 @@ function XUiNewPlayerTask:OnAwake()
     self:InitDayTabView()
     self:InitNewbieTaskView()
 
+    self.MaskClickCount = 0
     self.AssetPanel = XUiPanelAsset.New(self, self.PanelAsset, XDataCenter.ItemManager.ItemId.FreeGem, XDataCenter.ItemManager.ItemId.ActionPoint, XDataCenter.ItemManager.ItemId.Coin)
     self.BtnBack.CallBack = function() self:Close() end
     self.BtnMainUi.CallBack = function() XLuaUiManager.RunMain() end
@@ -131,8 +132,8 @@ function XUiNewPlayerTask:OnEnable()
     self:UpdateTabGroupStatus()
     self.TabBtnGroup:SelectIndex(hintTab)
 
-    -- 不是第一次播放了，可以直接播入場動畫
-    if self.OnStartState and hintTabFirstOpen == 1 then
+    -- 不是第一次播放或功能引导中，可以直接播入場動畫
+    if (XDataCenter.GuideManager.CheckIsInGuide()) or (self.OnStartState and hintTabFirstOpen == 1) then
         self:PlayAnimation("AnimEnableOpen", function()
             self.AnimEnableOpenDirector:Stop()
             XLuaUiManager.SetMask(false)
@@ -257,7 +258,7 @@ function XUiNewPlayerTask:OnBtnDaySelected(day)
         local hintFirstOpenTab = string.format("%s%d", XDataCenter.TaskManager.NewPLayerTaskFirstTalk, day)
         local isFirstOpen = XDataCenter.TaskManager.GetNewPlayerHint(hintFirstOpenTab, 0)
 
-        if isFirstOpen == 1 then
+        if isFirstOpen == 1 or XDataCenter.GuideManager.CheckIsInGuide() then
             self.AnimQieHuan:PlayTimelineAnimation(function()
                 self:UpdateNewbieActivePositions()
             end)

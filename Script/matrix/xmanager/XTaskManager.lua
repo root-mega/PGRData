@@ -52,11 +52,17 @@ TaskType = {
     PivotCombat = 62, --SP区域作战
     BodyCombineGame = 63, -- 接头霸王
     GuildWar = 64, --公会战任务
+    GuildWarTerm2 = 65, --工会战任务 二期 
     WeekChallenge = 66, -- 周挑战
     DoubleTower = 67,   --动作塔防
     GoldenMiner = 68, --黄金矿工
     TaikoMaster = 69, --音游
     SuperSmash = 70, --超限乱斗（2期时新增）
+    Newbie = 71, -- 新手荣誉任务（新手任务二期）
+    CharacterTower = 73, -- 本我回廊（角色塔）
+    DlcHunt = 75, -- DlcHunt
+    BackFlow = 76, -- 回流玩家
+    SpecialTrainDailySwitchTask = 77, -- 特训关每日任务
 }
 
 XTaskManagerCreator = function()
@@ -67,7 +73,7 @@ XTaskManagerCreator = function()
     local WeekTaskRefreshId = 10001
     local WeekTaskEpochTime = 0
     local WeekTaskRefreshDay = 1
-
+    ---@class XTaskManager
     local XTaskManager = {}
 
     local ITEM_NEWBIE_PROGRESS_ID = CS.XGame.ClientConfig:GetInt("NewPlayerTaskExpId")
@@ -136,11 +142,12 @@ XTaskManagerCreator = function()
     local TimeLimitTaskData = {}
     local ArenaOnlineWeeklyTaskData = {}
     local InfestorWeeklyTaskData = {}
-    local BossOnlineTaskData = {}
+
     local StoryGroupTaskData = {}
     local DormStoryGroupTaskData = {}
     local DormDailyGroupTaskData = {}
     local FinishedTasks = {}
+    local BossOnlineTaskData = {}
 
     -- 宿舍任务
     local DormNormalTaskData = {}
@@ -182,6 +189,8 @@ XTaskManagerCreator = function()
     --音频解密
     local LivWarmSoundsActivityTaskData = {}
     
+    local TaskResultDataCache = {}
+    local _IsInit = false
     
     -------------------------------------------------------
 
@@ -204,7 +213,66 @@ XTaskManagerCreator = function()
         WeekTaskRefreshDay = jsonFormatData[1]
     end
 
+    -- 重登时，重置cache
+    function XTaskManager.ClearCache()
+        --CourseInfos = {}
+        --CourseChapterRewards = {}
+        TaskDataGroup = {}
+        --CourseData = {}
+        TotalTaskData = {}
+        StoryTaskData = {}
+        DailyTaskData = {}
+        WeeklyTaskData = {}
+        --ActivityTaskData = {}
+        --NewPlayerTaskData = {}
+        --AchvTaskData = {}
+        --ArenaTaskData = {}
+        --TimeLimitTaskData = {}
+        --ArenaOnlineWeeklyTaskData = {}
+        --InfestorWeeklyTaskData = {}
+        --StoryGroupTaskData = {}
+        --DormStoryGroupTaskData = {}
+        --DormDailyGroupTaskData = {}
+        FinishedTasks = {}
+        --DormNormalTaskData = {}
+        --DormDailyTaskData = {}
+        --BabelTowerTaskData = {}
+        --RogueLikeTaskData = {}
+        --WorldBossTaskData = {}
+        --MentorGrowTaskData = {}
+        --MentorGraduateTaskData = {}
+        --MentorWeeklyTaskData = {}
+        --RpgTowerTaskData = {}
+        --WhiteValentineTaskData = {}
+        --FingerGuessingTaskData = {}
+        PokerGuessingTaskData = {}
+        --GuildDailyTaskData = {}
+        --GuildMainlyTaskData = {}
+        --GuildWeeklyTaskData = {}
+        --ZhouMuTaskData = {}
+        --RegressionTaskData = {}
+        --LinkTaskTimeDict = {}
+        --NieRTaskData = {}
+        --PokemonTaskData = {}
+        --CoupletTaskData = {}
+        --SimulatedCombatTaskData = {}
+        --MoeWarDailyTaskData = {}
+        --MoeWarNormalTaskData = {}
+        --PassportTaskData = {}
+        --LivWarmSoundsActivityTaskData = {}
+        TaskResultDataCache = {}
+        --RegressionTaskRedPointCount = 0
+        --RegressionTaskCanGetDic = {}
+        --RegressionTaskTypeToRedPointCountDic = {}
+    end
+
     function XTaskManager.InitTaskData(data)
+        if _IsInit then
+            XTaskManager.ClearCache()
+        else
+            _IsInit = true
+        end
+        
         local taskdata = data.Tasks
         FinishedTasks = {}
         for _, v in pairs(data.FinishedTasks or {}) do
@@ -878,12 +946,18 @@ XTaskManagerCreator = function()
         if taskList == nil then
             return false
         end
+        local res = false
         for _, taskInfo in pairs(taskList) do
             if taskInfo ~= nil and taskInfo.State == XTaskManager.TaskState.Achieved then
-                return true
+                res = true
+                if taskType == XTaskManager.TaskType.Story then
+                    -- 剧情模式判断有无可领取时 必须判断是否是当前进度中的章节任务
+                    res = res and XTaskManager.GetCurrentStoryTaskGroupId() == XDataCenter.TaskManager.GetTaskTemplate(taskInfo.Id).GroupId
+                end
+                break
             end
         end
-        return false
+        return res
     end
 
     --判断新手任务是否有奖励可以领取
@@ -1361,6 +1435,47 @@ XTaskManagerCreator = function()
         return taskDatas
     end
 
+    -- 读取一串taskid的数据
+    function XTaskManager.GetTaskIdListData(taskIds, isSort)
+        if isSort == nil then isSort = true end
+        local taskDatas = {}
+        if XTool.IsTableEmpty(taskIds) then return taskDatas end
+        
+        for _, taskId in ipairs(taskIds) do
+            local taskData = XDataCenter.TaskManager.GetTaskDataById(taskId)
+            if CheckTask(taskData) then
+                tableInsert(taskDatas, taskData)
+            end
+        end
+
+        if isSort then
+            local achieved = XDataCenter.TaskManager.TaskState.Achieved
+            local finish = XDataCenter.TaskManager.TaskState.Finish
+            tableSort(taskDatas, function(a, b)
+                if a.State ~= b.State then
+                    if a.State == achieved then
+                        return true
+                    end
+                    if b.State == achieved then
+                        return false
+                    end
+                    if a.State == finish then
+                        return false
+                    end
+                    if b.State == finish then
+                        return true
+                    end
+                end
+    
+                local templatesTaskA = XDataCenter.TaskManager.GetTaskTemplate(a.Id)
+                local templatesTaskB = XDataCenter.TaskManager.GetTaskTemplate(b.Id)
+                return templatesTaskA.Priority > templatesTaskB.Priority
+            end)
+        end
+
+        return taskDatas
+    end
+
     function XTaskManager.GetPokemonTaskList()
         return GetTaskList(XTaskManager.GetTaskDataByTaskType(XTaskManager.TaskType.Pokemon))
     end
@@ -1375,6 +1490,10 @@ XTaskManagerCreator = function()
 
     function XTaskManager.GetPassportTaskList()
         return GetTaskList(PassportTaskData)
+    end
+
+    function XTaskManager.GetDlcHuntTaskList()
+        return GetTaskList(XTaskManager.GetTaskDataByTaskType(XTaskManager.TaskType.DlcHunt))
     end
 
     function XTaskManager.GetLivWarmSoundsActivityFullTaskList()
@@ -1520,17 +1639,26 @@ XTaskManagerCreator = function()
         elseif taskType then
             datas = TaskDataGroup[taskType] or {}
         end
-        local result = {}
+        local result = TaskResultDataCache[taskType] or {}
+        if not XTool.IsTableEmpty(result) then
+            return result
+        end
         for k, v in pairs(datas) do
             --原:  v.State ~= XTaskManager.TaskState.Finish and v.State ~= XTaskManager.TaskState.Invalid
-            if XTaskConfig.GetTaskTemplate()[v.Id].Type == XTaskManager.TaskType.Achievement and v.State == XTaskManager.TaskState.Finish then
+            local dataTaskType = XTaskConfig.GetTaskTemplate()[v.Id].Type
+            if dataTaskType == XTaskManager.TaskType.Achievement and v.State == XTaskManager.TaskState.Finish then
                 result[k] = v
             elseif v.State ~= XTaskManager.TaskState.Finish and v.State ~= XTaskManager.TaskState.Invalid then
                 result[k] = v
-            elseif XTaskConfig.GetTaskTemplate()[v.Id].Type == XTaskManager.TaskType.ArenaChallenge and v.State ~= XTaskManager.TaskState.Invalid then
+            elseif dataTaskType == XTaskManager.TaskType.ArenaChallenge and v.State ~= XTaskManager.TaskState.Invalid then
+                result[k] = v
+            elseif dataTaskType == XTaskManager.TaskType.SpecialTrainDailySwitchTask and v.State ~= XTaskManager.TaskState.Invalid then
+                result[k] = v
+            elseif dataTaskType == XTaskManager.TaskType.DlcHunt and v.State ~= XTaskManager.TaskState.Invalid then
                 result[k] = v
             end
         end
+        TaskResultDataCache[taskType] = result
         return result
     end
 
@@ -1721,6 +1849,8 @@ XTaskManagerCreator = function()
         if data.TaskLimitIdActiveInfos then
             for _, v in pairs(data.TaskLimitIdActiveInfos) do
                 LinkTaskTimeDict[v.TaskLimitId] = v.ActiveTime
+            end
+            if not XTaskManager.IgnoreSyncTasksEvent then
                 XEventManager.DispatchEvent(XEventId.EVENT_ACTIVITY_INFO_UPDATE)
             end
         end
@@ -1728,6 +1858,10 @@ XTaskManagerCreator = function()
         XTool.LoopCollection(tasks.Tasks, function(value)
             FinishedTasks[value.Id] = value.State == XTaskManager.TaskState.Finish
             local taskType = XTaskManager.GetTaskTemplate(value.Id).Type
+            if taskType then
+                --如果有任务同步，则清空缓存
+                TaskResultDataCache[taskType] = nil
+            end
             TotalTaskData[value.Id] = value
             XAppEventManager.TaskAppLogEvent(value.Id,value.State)
             if taskType == XTaskManager.TaskType.Story then
@@ -1819,12 +1953,31 @@ XTaskManagerCreator = function()
             elseif taskType == XTaskManager.TaskType.BossOnLine then
                 BossOnlineTaskData[value.Id] = value
             else
+                if not TaskDataGroup[taskType] then
+                    TaskDataGroup[taskType] = {}
+                end
                 TaskDataGroup[taskType][value.Id] = value
             end
         end)
+        if not XTaskManager.IgnoreSyncTasksEvent then
+            XEventManager.DispatchEvent(XEventId.EVENT_TASK_SYNC)
+            CsXGameEventManager.Instance:Notify(XEventId.EVENT_TASK_SYNC)
+        end
+    end
+
+    -- 关闭同步任务事件
+    function XTaskManager.CloseSyncTasksEvent()
+        XTaskManager.IgnoreSyncTasksEvent = true
+    end
+
+    -- 开启同步任务事件
+    function XTaskManager.OpenSyncTasksEvent()
+        XTaskManager.IgnoreSyncTasksEvent = false
+        XEventManager.DispatchEvent(XEventId.EVENT_ACTIVITY_INFO_UPDATE)
         XEventManager.DispatchEvent(XEventId.EVENT_TASK_SYNC)
         CsXGameEventManager.Instance:Notify(XEventId.EVENT_TASK_SYNC)
     end
+
     --根据任务类型判断是否有奖励可以领取
     function XTaskManager.GetIsRewardFor(taskType)
         local taskList = nil
@@ -1915,6 +2068,7 @@ XTaskManagerCreator = function()
                 break
             end
         end
+        return res
     end
     --获取周奖励
     function XTaskManager.GetIsWeekReward()
@@ -1949,7 +2103,8 @@ XTaskManagerCreator = function()
     end
 
     --批量领取任务奖励
-    function XTaskManager.FinishMultiTaskRequest(taskIds, cb, notTip)
+    local MultiTaskResReward = {}
+    function XTaskManager.FinishMultiTaskRequest(taskIds, cb, notTip, isLoopReceive)
         cb = cb or function() end
         XNetwork.Call("FinishMultiTaskRequest", { TaskIds = taskIds }, function(reply)
             if reply.Code ~= XCode.Success then
@@ -1960,7 +2115,20 @@ XTaskManagerCreator = function()
                 return
             end
 
-            cb(reply.RewardGoodsList)
+            if isLoopReceive then
+                for k, v in pairs(reply.RewardGoodsList) do
+                    table.insert(MultiTaskResReward, v)
+                end
+                if not XTool.IsTableEmpty(reply.NotDealTaskIds) then
+                    XTaskManager.FinishMultiTaskRequest(reply.NotDealTaskIds, cb, notTip, isLoopReceive)
+                    return
+                end
+            else
+                MultiTaskResReward = reply.RewardGoodsList
+            end
+
+            cb(MultiTaskResReward)
+            MultiTaskResReward = {}
             XEventManager.DispatchEvent(XEventId.EVENT_FINISH_MULTI, true)
         end)
     end
@@ -1983,10 +2151,11 @@ XTaskManagerCreator = function()
         end)
     end
 
-    function XTaskManager.GetActivenessReward(index, rewardId, rewardType, cb)
-        index = index - 1 -- 客户端从1开始，服务端从0开始
+    -- v1.31 【任务日常活跃】一键领取
+    function XTaskManager.GetActivenessReward(rewardType, cb)
         cb = cb or function() end
-        XNetwork.Call("GetActivenessRewardRequest", { StageIndex = index, RewardId = rewardId, RewardType = rewardType }, function(reply)
+        -- 优化一键领取后StageIndex和RewardId这两个参数后端不再使用
+        XNetwork.Call("GetActivenessRewardRequest", { StageIndex = 0, RewardId = 0, RewardType = rewardType }, function(reply)
             if reply.Code ~= XCode.Success then
                 XUiManager.TipCode(reply.Code)
                 return
@@ -2293,6 +2462,86 @@ XTaskManagerCreator = function()
         return XTaskManager.SortDormStoryTaskByGroup(XTaskManager.GetDormNormalTaskList()) or {}
     end
 
+    -- v1.31 【宿舍】获取带一键领取任务数据-日常
+    function XTaskManager.GetDormDailyTasksAllReceiveData()
+        local result = {}
+        -- 有任务可领取时添加一键领取数据
+        if XTaskManager.GetIsRewardForEx(XTaskManager.TaskType.DormDaily) then
+            result = XTaskManager.GetAchieveTaskByRecursion(XTaskManager.GetDormTaskDailyListData(), XTaskManager.TaskType.DormDaily, XTaskManager.GetDormTaskDailyListData)
+        else
+            result = XTaskManager.GetDormTaskDailyListData()
+        end
+        return result
+    end
+
+    -- v1.31 【宿舍】获取带一键领取任务数据-剧情
+    function XTaskManager.GetDormStoryTasksAllReceiveData()
+        local result = {}
+        -- 有任务可领取时添加一键领取数据
+        if XTaskManager.GetIsRewardForEx(XTaskManager.TaskType.DormNormal) then
+            result = XTaskManager.GetAchieveTaskByRecursion(XTaskManager.GetDormTaskStoryListData(), XTaskManager.TaskType.DormNormal, XTaskManager.GetDormTaskStoryListData)
+        else
+            result = XTaskManager.GetDormTaskStoryListData()
+        end
+        return result
+    end
+
+    -- v1.31 【任务】处理可完成任务taskID
+    function XTaskManager.GetAchieveTask(tasksData)
+        local result = {}
+        for _, task in ipairs(tasksData) do
+            if task.State == XTaskManager.TaskState.Achieved then
+                table.insert(result, task.Id)
+            end
+        end
+        return result
+    end
+
+    -- v1.31 【任务】递归思路添加多级任务添加一键领取数据
+    function XTaskManager.GetAchieveTaskByRecursion(tasksData, taskType, getNewTasksCB)
+        local result = {}
+        -- 领取奖励table
+        local GoodsList = {}
+        -- 前向引用定义
+        local cb
+        local first = function ()
+            XDataCenter.TaskManager.FinishMultiTaskRequest(XTaskManager.GetAchieveTask(getNewTasksCB()), function(rewardGoodsList)
+                for _, goods in ipairs(rewardGoodsList) do
+                    table.insert(GoodsList, goods)
+                end
+                -- 刷新数据后判断是否有可领取的多级任务，有则递归调用
+                if XTaskManager.GetIsRewardForEx(taskType) then
+                    cb()
+                else
+                    local horizontalNormalizedPosition = 0
+                    XUiManager.OpenUiObtain(GoodsList, nil, nil, nil, horizontalNormalizedPosition)
+                end
+            end)
+        end
+        -- 递归方法引用
+        cb = first
+        result = XTaskManager.AddReceiveData(tasksData, first)
+        return result
+    end
+
+    -- v1.31 【任务】添加一键领取数据
+    function XTaskManager.AddReceiveData(tasksData, receiveCb)
+        local result = {}
+        local receiveAllData = {ReceiveAll = true, AllAchieveTaskDatas = {}, ReceiveCb = nil}
+        if receiveCb then
+            receiveAllData.ReceiveCb = receiveCb
+        end
+
+        result[1] = receiveAllData
+        for index, task in ipairs(tasksData) do
+            table.insert(result, index + 1, task)
+            if task.State == XTaskManager.TaskState.Achieved then
+                table.insert(receiveAllData.AllAchieveTaskDatas, task.Id)
+            end
+        end
+        return result
+    end
+
     function XTaskManager.SortDormStoryTaskByGroup(tasks)
         local currTaskGroupId = XDataCenter.TaskManager.GetCurrentDormStoryTaskGroupId()
         if currTaskGroupId == nil or currTaskGroupId <= 0 then return tasks end
@@ -2518,6 +2767,19 @@ XTaskManagerCreator = function()
             end
         end)
     end
+
+    function XTaskManager.GetTaskByTypeAndGroup(taskType, groupId)
+        local taskList = XTaskManager.GetTaskDataByTaskType(taskType)
+        local result = {}
+        for id, data in pairs(taskList) do
+            if XTaskConfig.GetTaskGroupId(id) == groupId then
+                result[#result + 1] = data
+            end
+        end
+        XTaskManager.SortTaskList(result)
+        return result
+    end
+
     --获取协同合作任务列表，包括已经完成的任务
     function XTaskManager.GetBossOnlineTaskListData()
         local task = {}
@@ -2528,15 +2790,19 @@ XTaskManagerCreator = function()
 
         return task
     end
+
     XTaskManager.Init()
     return XTaskManager
 end
 
-
+--玩法登录下发
 XRpc.NotifyTask = function(data)
     XDataCenter.TaskManager.SyncTasks(data)
 end
 
+--登录下发
 XRpc.NotifyTaskData = function(data)
     XDataCenter.TaskManager.InitTaskData(data.TaskData)
+    XDataCenter.NewbieTaskManager.InitTaskData(data.TaskData)
+    XDataCenter.ActivityManager.SetBackFlowEndTime(data.TaskData)
 end

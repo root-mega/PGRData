@@ -9,6 +9,7 @@ function XUiActivityBriefRefreshButton:Ctor(rootUi, panelType)
     self.GameObject = rootUi.GameObject
     self.Transform = rootUi.Transform
     self.RootUi = rootUi
+    ---@type table<number, XActivityBrieButton>
     self.TlActivityBrieButton = {}
     -- 根据主副面板Id进行Btn事件绑定
     self.PanelType = panelType
@@ -16,7 +17,7 @@ function XUiActivityBriefRefreshButton:Ctor(rootUi, panelType)
     XTool.InitUiObject(self)
 end
 
---@region 按钮的刷新逻辑
+---刷新总接口
 function XUiActivityBriefRefreshButton:Refresh()
     -- Logo节点刷新独立于各Btn刷新函数
     self:RefreshLogo()
@@ -34,11 +35,57 @@ function XUiActivityBriefRefreshButton:Refresh()
             self.ActivityGroupId = 0
         end
     end
+    -- self:CheckBtnUnlockAnim()
 end
 
---@endregion
---@region 活动的各个按钮处理函数
---Logo节点的
+--region 按钮的刷新逻辑
+
+---v1.28 活动面板优化:Btn初始化函数
+---@param index number ActivityBriefGroup.tab的GroupIdList的下标索引
+---@param groupId number ActivityBriefGroup.tab的Id,对应XActivityBriefConfigs.ActivityGroupId
+function XUiActivityBriefRefreshButton:InitActivityBriefButton(index, groupId)
+    local btnName
+    if self.PanelType == XActivityBriefConfigs.PanelType.Main then     -- 主面板按钮占位
+        btnName = "MainBtn" .. index
+    else                            -- 副面板按钮占位
+        btnName = "SecondBtn" .. index
+    end
+    local btn
+    local btnGrid = self[btnName]
+    if XTool.IsNumberValid(btnGrid.transform.childCount) then
+        btn = btnGrid.transform:GetChild(0):GetComponent("XUiButton")
+    else
+        XLog.Error("InitActivityBriefButton() Error: ".. btnName .." 下不存在Button")
+        return
+    end
+
+    if XTool.UObjIsNil(btn) then
+        XLog.Error("InitActivityBriefButton() Error: Prefab文件不包含了XUiButton Component")
+        return
+    end
+
+    if self.TlActivityBrieButton[groupId] == nil then
+        self.TlActivityBrieButton[groupId] = XActivityBrieButton.New(btn, self, groupId)
+    end
+end
+
+---v1.28 活动面板优化:根据activityGroupId获取Btn
+---@param activityGroupId number ActivityBriefGroup.tab的Id,对应XActivityBriefConfigs.ActivityGroupId
+---@return XActivityBrieButton|nil
+function XUiActivityBriefRefreshButton:GetActivityBrieButton(activityGroupId)
+    if not self.TlActivityBrieButton then
+        XLog.Error("GetActivityBrieButton() Error: self.TlActivityBrieButton为空")
+        return
+    end
+    if self.TlActivityBrieButton[activityGroupId] then
+        return self.TlActivityBrieButton[activityGroupId]
+    else
+        XLog.Error("GetActivityBrieButton() Error: Btn不存在 activityGroupId = ", activityGroupId)
+        return
+    end
+end
+
+---Logo节点刷新接口
 function XUiActivityBriefRefreshButton:RefreshLogo()
     local nowTime = XTime.GetServerNowTimestamp()
     local taskBeginTime = XActivityBriefConfigs.GetActivityBeginTime()
@@ -50,15 +97,81 @@ function XUiActivityBriefRefreshButton:RefreshLogo()
         local timeStr = XUiHelper.GetTime(taskEndTime - nowTime, XUiHelper.TimeFormatType.ACTIVITY)
         -- local textStr = CSXTextManagerGetText("ActivityBriefLeftTime", timeStr)
         self.TxtTime.text = timeStr
-        self.TxtTime.gameObject:SetActiveEx(true)        
+        self.TxtTime.gameObject:SetActiveEx(true)
         self.TxtTimeSecond.text = timeStr
         self.TxtTimeSecond.gameObject:SetActiveEx(true)
     end
 end
 
---===========================================================================
---v1.27 商店
---===========================================================================
+---v1.27 通用Btn事件绑定函数,不包含RedDot和Tag处理
+function XUiActivityBriefRefreshButton:RefreshNormal()
+    if not XTool.IsNumberValid(self.ActivityGroupId) then return end
+    local activityGroupId = self.ActivityGroupId
+
+    local activityBrieButton = self:GetActivityBrieButton(activityGroupId)
+    if not activityBrieButton then
+        return
+    end
+    local tagCondition = XActivityBriefConfigs.GetActivityBriefGroupTagCondition(activityGroupId)
+    local tagOffset = XActivityBriefConfigs.GetActivityBriefGroupTagOffset(activityGroupId) * 3600
+    if not string.IsNilOrEmpty(tagCondition) then
+        if tagCondition == "Default" then
+            activityBrieButton:ShowTag(true)
+        elseif XRedPointConditions.Types[tagCondition] then
+            activityBrieButton:AddNewTagEvent({ XRedPointConditions.Types[tagCondition] }, nil, false, tagOffset)
+        elseif XTool.IsNumberValid(tagOffset) then
+            activityBrieButton:ShowTag(true, tagOffset)
+        end
+    elseif XTool.IsNumberValid(tagOffset) then
+        activityBrieButton:ShowTag(true, tagOffset)
+    end
+    activityBrieButton:Refresh()
+    activityBrieButton:SetOnClick(function()
+        local config = XActivityBriefConfigs.GetActivityGroupConfig(activityGroupId)
+        local skipId = config.SkipId
+        XFunctionManager.SkipInterface(skipId)
+    end)
+end
+
+--endregion
+
+
+--region 解锁动画相关
+
+---检查是否有动画要解锁
+function XUiActivityBriefRefreshButton:CheckBtnUnlockAnim()
+    self.UnlockAcitvityList = XDataCenter.ActivityBriefManager.GetNeedUnlockAnimGroupIdList(self.PanelType)
+    if XTool.IsTableEmpty(self.UnlockAcitvityList) then
+        return
+    end
+    -- 播放列表索引
+    self.UnLockAnimPlayIndex = 1
+    self:PlayBtnUnlockAnim()
+end
+
+---动画递归回调方法
+function XUiActivityBriefRefreshButton:PlayBtnUnlockAnim()
+    local btn = self.TlActivityBrieButton[self.UnlockAcitvityList[self.UnLockAnimPlayIndex]]
+    if self.UnLockAnimPlayIndex == 1 then
+        XLuaUiManager.SetMask(true)
+    end
+    self.UnLockAnimPlayIndex = self.UnLockAnimPlayIndex + 1
+    if btn then
+        btn:PlayUnlockAnim(function ()
+            self:PlayBtnUnlockAnim()
+        end)
+    else
+        self.UnLockAnimPlayIndex = 1
+        XLuaUiManager.SetMask(false)
+    end
+end
+
+--endregion
+
+
+--region 活动的各个按钮处理函数
+
+--常驻 商店
 function XUiActivityBriefRefreshButton:RefreshActivityShop()
     local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.ActivityBriefShop)
     if not activityBrieButton then
@@ -73,9 +186,7 @@ function XUiActivityBriefRefreshButton:RefreshActivityShop()
         local openCb = function()
             self.RootUi:Close()
         end
-        XShopManager.GetShopInfoList(XDataCenter.ActivityBriefManager.GetActivityShopIds(),function()
-            XLuaUiManager.Open("UiActivityBriefShop", closeCb, openCb)
-        end)
+        XDataCenter.ActivityBriefManager.OpenShop(closeCb, openCb)
     end)
 end
 
@@ -94,9 +205,7 @@ function XUiActivityBriefRefreshButton:RefreshSecondActivityShop()
         local openCb = function()
             self.RootUi:Close()
         end
-        XShopManager.GetShopInfoList(XDataCenter.ActivityBriefManager.GetActivityShopIds(),function()
-            XLuaUiManager.Open("UiActivityBriefShop", closeCb, openCb)
-        end)
+        XDataCenter.ActivityBriefManager.OpenShop(closeCb, openCb)
     end)
 end
 
@@ -116,7 +225,7 @@ function XUiActivityBriefRefreshButton:RefreshDrawActivity()
     end)
 end
 
----幻痛囚笼
+--幻痛囚笼
 function XUiActivityBriefRefreshButton:RefreshFubenBossSingle()
     local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.FubenBossSingle)
     if not activityBrieButton then
@@ -127,26 +236,6 @@ function XUiActivityBriefRefreshButton:RefreshFubenBossSingle()
     activityBrieButton:SetOnClick(function()
         local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.FubenBossSingle)
         local skipId = config.SkipId
-
-        XFunctionManager.SkipInterface(skipId)
-    end)
-end
-
---自走棋
-function XUiActivityBriefRefreshButton:RefreshExpedition()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.Expedition)
-    if not activityBrieButton then
-        return
-    end
-
-    local isShowTag = XDataCenter.ExpeditionManager.CheckActivityRedPoint()
-
-    activityBrieButton:Refresh()
-    activityBrieButton:ShowTag(isShowTag)
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.Expedition)
-        local skipId = config.SkipId
-
         XFunctionManager.SkipInterface(skipId)
     end)
 end
@@ -168,22 +257,15 @@ function XUiActivityBriefRefreshButton:RefreshWorldBoss()
 end
 
 function XUiActivityBriefRefreshButton:RefreshActivityMainLine()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.MainLine)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        local skipConfig = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.MainLine).SkipId
+        local skipList = XFunctionConfig.GetSkipList(skipConfig)
+        local stageId = skipList and skipList.CustomParams[1]
+        local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
+        btn:AddRedPointEvent({XRedPointConditions.Types.CONDITION_MAINLINE_CHAPTER_REWARD},stageInfo.ChapterId)
     end
-    local skipConfig = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.MainLine).SkipId
-    local skipList = XFunctionConfig.GetSkipList(skipConfig)
-    local stageId = skipList and skipList.CustomParams[1]
-    local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
-    activityBrieButton:AddRedPointEvent({XRedPointConditions.Types.CONDITION_MAINLINE_CHAPTER_REWARD},stageInfo.ChapterId)
-    activityBrieButton:Refresh()
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.MainLine)
-        local skipId = config.SkipId
-
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
 --番外篇，普通或困难
@@ -219,30 +301,19 @@ function XUiActivityBriefRefreshButton:RefreshActivityExtraByType(activityGroupI
     activityBrieButton:ShowReddot(showRed)
 
     activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(activityGroupId)
-        local skipId = config.SkipId
         XFunctionManager.SkipInterface(skipId)
     end)
 end
 
---大作战
-function XUiActivityBriefRefreshButton:RefreshActivityBigWar()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.BigWar)
-    if not activityBrieButton then
-        return
+--v2.4 特训关:大作战/魔方2.0/元宵/冰雪感谢祭
+function XUiActivityBriefRefreshButton:RefreshActivitySpecialTrain()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        --local isShowTag = XDataCenter.FubenSpecialTrainManager.CheckNotPassStage()
+        --btn:ShowTag(isShowTag)
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_SPECIALTRAIN_RED })
     end
-
-    local isShowTag = XDataCenter.FubenSpecialTrainManager.CheckNotPassStage()
-
-    activityBrieButton:Refresh()
-    activityBrieButton:ShowTag(isShowTag)
-    activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_SPECIALTRAIN_RED })
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.BigWar)
-        local skipId = config.SkipId
-
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
 --资源
@@ -322,21 +393,14 @@ function XUiActivityBriefRefreshButton:RefreshActivityBranch()
     end)
 end
 
+-- v2.6 超难关
 function XUiActivityBriefRefreshButton:RefreshActivityBossSingle()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.BossSingle)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        local isShowRed = XDataCenter.FubenActivityBossSingleManager.CheckRedPoint()
+        btn:ShowReddot(isShowRed)
     end
-
-    activityBrieButton:Refresh()
-    activityBrieButton:AddNewTagEvent({ XRedPointConditions.Types.CONDITION_ACTIVITYBRIE_BOSSSINGLE })
-
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.BossSingle)
-        local skipId = config.SkipId
-
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
 function XUiActivityBriefRefreshButton:RefreshActivityBossOnline()
@@ -381,21 +445,14 @@ function XUiActivityBriefRefreshButton:RefreshActivityPrequel(activityGroupId)
     end)
 end
 
+--v2.6 巴别塔
 function XUiActivityBriefRefreshButton:RefreshActivityBabelTower()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.BabelTower)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_ACTIVITYBRIE_BABELTOWER_REWARD })
+        --btn:AddNewTagEvent({XRedPointConditions.Types.CONDITION_ACTIVITYBRIE_BABELTOWER})
     end
-
-    activityBrieButton:Refresh()
-    activityBrieButton:AddNewTagEvent({ XRedPointConditions.Types.CONDITION_ACTIVITYBRIE_BABELTOWER })
-    activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_ACTIVITYBRIE_BABELTOWER_REWARD })
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.BabelTower)
-        local skipId = config.SkipId
-
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
 function XUiActivityBriefRefreshButton:RefreshActivityRogueLike() -- 爬塔
@@ -414,23 +471,13 @@ function XUiActivityBriefRefreshButton:RefreshActivityRogueLike() -- 爬塔
     end)
 end
 
---===========================================================================
---v1.27 复刷关 - 哈卡玛
---===========================================================================
+--常驻 复刷关
 function XUiActivityBriefRefreshButton:RefreshActivityRepeateChallenge()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.RepeatChallenge)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_REPEAT_CHALLENGE_REWARD })
     end
-
-    activityBrieButton:Refresh()
-    activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_REPEAT_CHALLENGE_REWARD })
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.RepeatChallenge)
-        local skipId = config.SkipId
-
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
 function XUiActivityBriefRefreshButton:RefreshActivityArenaOnline()
@@ -478,22 +525,18 @@ function XUiActivityBriefRefreshButton:RefreshMaintainerAction()
     end)
 end
 
+--v1.31 RPG五期
 function XUiActivityBriefRefreshButton:RefreshRpgTower()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.RpgTower)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        local isShowTag = XDataCenter.RpgTowerManager.GetHaveNewStage()
+        btn:ShowTag(isShowTag)
+        btn:AddRedPointEvent({
+            XRedPointConditions.Types.CONDITION_RPGTOWER_TEAM_RED,
+            XRedPointConditions.Types.CONDITION_RPGTOWER_TASK_RED,
+            XRedPointConditions.Types.CONDITION_RPGTOWER_DAILYREWARD_RED })
     end
-
-    activityBrieButton:Refresh()
-    activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_RPGTOWER_TEAM_RED,XRedPointConditions.Types.CONDITION_RPGTOWER_TASK_RED,XRedPointConditions.Types.CONDITION_RPGTOWER_DAILYREWARD_RED })
-    local isShowTag = XDataCenter.RpgTowerManager.GetHaveNewStage()
-    activityBrieButton:ShowTag(isShowTag)
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.RpgTower)
-        local skipId = config.SkipId
-
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
 function XUiActivityBriefRefreshButton:RefreshTRPG()
@@ -517,48 +560,30 @@ function XUiActivityBriefRefreshButton:RefreshTRPG()
     end)
 end
 
---===========================================================================
---v1.27 新角色预热 - 哈卡玛
---===========================================================================
+--常驻 新角色预热
 function XUiActivityBriefRefreshButton:RefreshNewCharActivity()
-    local activityGroupId = XActivityBriefConfigs.ActivityGroupId.NewCharActivity
-    local activityBrieButton = self:GetActivityBrieButton(activityGroupId)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_KOROMCHARACTIVITYMAINRED })
+        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.NewCharActivity)
+        local skipList = XFunctionConfig.GetSkipList(config.SkipId)
+        local actId = skipList.CustomParams[1]
+        -- local isShowTag = XDataCenter.FubenNewCharActivityManager.IsChallengeable(actId)
+        -- btn:ShowTag(isShowTag)
+        btn:Refresh(actId)
     end
-
-    local config = XActivityBriefConfigs.GetActivityGroupConfig(activityGroupId)
-    local skipList = XFunctionConfig.GetSkipList(config.SkipId)
-    local actId = skipList.CustomParams[1]
-    local isShowTag = XDataCenter.FubenNewCharActivityManager.IsChallengeable(actId)
-    activityBrieButton:Refresh(actId)
-    activityBrieButton:AddRedPointEvent({XRedPointConditions.Types.CONDITION_KOROMCHARACTIVITYMAINRED})
-    activityBrieButton:ShowTag(isShowTag)
-    activityBrieButton:SetOnClick(function()
-        XFunctionManager.SkipInterface(config.SkipId)
-    end)
 end
 
---===========================================================================
---v1.27 涂装试玩 - 哈卡玛
---===========================================================================
+--常驻 涂装试玩
 function XUiActivityBriefRefreshButton:RefreshFubenActivityTrial()
-    local activityGroupId = XActivityBriefConfigs.ActivityGroupId.FubenActivityTrial
-    local activityBrieButton = self:GetActivityBrieButton(activityGroupId)
-    if not activityBrieButton then
-        return
-    end
-    local isShowTag = XDataCenter.FubenExperimentManager.CheckSkinTrialRedPoint()
-
-    activityBrieButton:Refresh()
-    --activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_FASHION_STORY_HAVE_STAGE })
-    activityBrieButton:ShowTag(isShowTag)
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(activityGroupId)
-        local skipId = config.SkipId
-
-        XFunctionManager.SkipInterface(skipId)
-    end)
+    self:RefreshNormal()
+    -- local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    -- if btn then
+        -- btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_FASHION_STORY_HAVE_STAGE })
+        -- local isShowTag = XDataCenter.FubenExperimentManager.CheckSkinTrialRedPoint()
+        -- btn:ShowTag(isShowTag)
+    -- end
 end
 
 function XUiActivityBriefRefreshButton:RefreshShiTu()
@@ -745,19 +770,13 @@ function XUiActivityBriefRefreshButton:RefreshPokerGuessing()
     end)
 end
 
---端午活动
+--v2.2 推箱子4.0
 function XUiActivityBriefRefreshButton:RefreshRpgMaker()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.RpgMaker)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_RPG_MAKER_GAME_RED })
     end
-    activityBrieButton:Refresh()
-    activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_RPG_MAKER_GAME_RED })
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.RpgMaker)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
 --骇客
@@ -777,24 +796,19 @@ function XUiActivityBriefRefreshButton:RefreshHack()
     end)
 end
 
---改造
+--v2.4 改造(界限构解)4.0
 function XUiActivityBriefRefreshButton:RefreshReform()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.Reform)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_REFORM_All_RED_POINT })
+        -- 九点刷新
+        --local timeOffset = 4 * XScheduleManager.SECOND * 3600
+        --btn:ShowTag(XDataCenter.ReformActivityManager.GetIsOpen(), timeOffset)
     end
-    activityBrieButton:Refresh()
-    activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_REFORM_All_RED_POINT })
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.Reform)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
---===========================================================================
---v1.27 双人同行(分光双星)三期
---===========================================================================
+--v1.32 双人同行(分光双星)4.0
 function XUiActivityBriefRefreshButton:RefreshCoupleCombat()
     local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.CoupleCombat)
     if not activityBrieButton then
@@ -811,7 +825,7 @@ function XUiActivityBriefRefreshButton:RefreshCoupleCombat()
     end)
 end
 
---超级爬塔
+--v1.32 超级爬塔
 function XUiActivityBriefRefreshButton:RefreshSuperTower()
     local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.SuperTower)
     if not activityBrieButton then
@@ -831,19 +845,14 @@ function XUiActivityBriefRefreshButton:RefreshSuperTower()
     end)
 end
 
---杀戮无双
+--v2.5 杀戮无双
 function XUiActivityBriefRefreshButton:RefreshKillZone()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.KillZone)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.XRedPointConditionKillZoneActivity })
+        --btn:ShowTag(true)
     end
-    activityBrieButton:Refresh()
-    activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.XRedPointConditionKillZoneActivity })
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.KillZone)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
 --夏活系列关
@@ -866,7 +875,7 @@ function XUiActivityBriefRefreshButton:RefreshSummerSeries()
     end)
 end
 
---虚像地平线
+--虚像地平线(自走棋)
 function XUiActivityBriefRefreshButton:RefreshExpedition()
     local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.Expedition)
     if not activityBrieButton then
@@ -881,84 +890,56 @@ function XUiActivityBriefRefreshButton:RefreshExpedition()
     end)
 end
 
---三消游戏
+--v2.3 三消4.0
 function XUiActivityBriefRefreshButton:RefreshSameColor()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.SameColorGame)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_SAMECOLOR_TASK })
+        btn:AddNewTagEvent({XRedPointConditions.Types.CONDITION_SAMECOLOR_IS_CHALLENGE})
     end
-    activityBrieButton:Refresh()
-    activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_SAMECOLOR_TASK })
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.SameColorGame)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
---全服决战
+--v2.5 全服决战/全境特遣
 function XUiActivityBriefRefreshButton:RefreshAreaWar()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.AreaWar)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.XRedPointConditionAreaWarActivity })
     end
-    activityBrieButton:Refresh()
-    activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.XRedPointConditionAreaWarActivity })
-    activityBrieButton:ShowTag(true)
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.AreaWar)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
 --全服决战
 function XUiActivityBriefRefreshButton:RefreshSuperSmashBros()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.SuperSmashBros)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_SUPERSMASHBROS_HAVE_REWARD })
     end
-    activityBrieButton:Refresh()
-    activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_SUPERSMASHBROS_HAVE_REWARD })
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.SuperSmashBros)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
+--v1.32 涂装教学关
 function XUiActivityBriefRefreshButton:RefreshTeachingSkin()
-    local activityGroupId = XActivityBriefConfigs.ActivityGroupId.TeachingSkin
-    local activityBrieButton = self:GetActivityBrieButton(activityGroupId)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.TeachingSkin)
+        local skipList = XFunctionConfig.GetSkipList(config.SkipId)
+        local actId = skipList.CustomParams[1]
+        btn:Refresh(actId)
     end
-
-    local config = XActivityBriefConfigs.GetActivityGroupConfig(activityGroupId)
-    local skipList = XFunctionConfig.GetSkipList(config.SkipId)
-    local actId = skipList.CustomParams[1]
-    activityBrieButton:Refresh(actId)
-    activityBrieButton:SetOnClick(function()
-        XFunctionManager.SkipInterface(config.SkipId)
-    end)
 end
 
 --射击玩法 异构阵线
 function XUiActivityBriefRefreshButton:RefreshMaverick()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.Maverick)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_MAVERICK_MAIN })
     end
-    activityBrieButton:Refresh()
-    activityBrieButton:ShowTag(true)
-    activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_MAVERICK_MAIN })
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.Maverick)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
+--v2.0 意识拯救战
 function XUiActivityBriefRefreshButton:RefreshMemorySave()
     local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.MemorySave)
     if not activityBrieButton then
@@ -975,6 +956,7 @@ function XUiActivityBriefRefreshButton:RefreshMemorySave()
     end)
 end
 
+-- 肉鸽1/宣叙妄响
 function XUiActivityBriefRefreshButton:RefreshTheatre()
     local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.Theatre)
     if not activityBrieButton then
@@ -990,25 +972,27 @@ function XUiActivityBriefRefreshButton:RefreshTheatre()
     end)
 end
 
-function XUiActivityBriefRefreshButton:RefreshDoomsDay()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.DoomsDay)
-    if not activityBrieButton then
-        return
+--v2.1 肉鸽2/厄怨潮声
+function XUiActivityBriefRefreshButton:RefreshBiancaTheatre()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_BIANCATHEATRE_ALL_RED_POINT })
+        btn:ShowTag(true)
     end
-    activityBrieButton:Refresh()
-    activityBrieButton:AddRedPointEvent({ XRedPointConditions.Types.XRedPointConditionDoomsdayActivity })
-    local isShowTag = XDataCenter.DoomsdayManager.CheckHasStageIncomplete()
-    activityBrieButton:ShowTag(isShowTag)
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.DoomsDay)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
---===========================================================================
---v1.27 独域特攻二期
---===========================================================================
+--v1.29 模拟经营二期
+function XUiActivityBriefRefreshButton:RefreshDoomsDay()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.XRedPointConditionDoomsdayActivity })
+        btn:ShowTag(XDataCenter.DoomsdayManager.CheckHasStageIncomplete())
+    end
+end
+
+--v2.2 独域特攻5.0
 function XUiActivityBriefRefreshButton:RefreshPivotCombat()
     self:RefreshNormal()
     local btn = self.TlActivityBrieButton[self.ActivityGroupId]
@@ -1017,52 +1001,35 @@ function XUiActivityBriefRefreshButton:RefreshPivotCombat()
     end
 end
 
+---v2.4 大逃杀2.0
 function XUiActivityBriefRefreshButton:RefreshEscape()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.Escape)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        --btn:AddRedPointEvent({XRedPointConditions.Types.XRedPointConditionEscapeTask})
     end
-    activityBrieButton:Refresh()
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.Escape)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
---===========================================================================
---v1.27 哈卡吗大间章
---===========================================================================
+--常驻 主线
 function XUiActivityBriefRefreshButton:RefreshFubenShortStory()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.FubenShortStory)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        local skipConfig = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.FubenShortStory).SkipId
+        local skipList = XFunctionConfig.GetSkipList(skipConfig)
+        local chapterId = skipList and skipList.CustomParams[1]
+        btn:AddRedPointEvent({XRedPointConditions.Types.CONDITION_SHORT_STORY_CHAPTER_REWARD},chapterId)
     end
-    local skipConfig = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.FubenShortStory).SkipId
-    local skipList = XFunctionConfig.GetSkipList(skipConfig)
-    local chapterId = skipList and skipList.CustomParams[1]
-    activityBrieButton:AddRedPointEvent({XRedPointConditions.Types.CONDITION_SHORT_STORY_CHAPTER_REWARD},chapterId)
-    activityBrieButton:Refresh()
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.FubenShortStory)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
+--v2.5 黄金矿工3.0
 function XUiActivityBriefRefreshButton:RefreshGoldenMiner()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.GoldenMiner)
-    if not activityBrieButton then
-        return
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        local isCanReward = XDataCenter.GoldenMinerManager.CheckTaskCanReward()
+        btn:ShowReddot(isCanReward)
     end
-    activityBrieButton:Refresh()
-    local isCanReward = XDataCenter.GoldenMinerManager.CheckTaskCanReward()
-    activityBrieButton:ShowReddot(isCanReward)
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.GoldenMiner)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
 end
 
 function XUiActivityBriefRefreshButton:RefreshDoubleTower()
@@ -1079,19 +1046,9 @@ function XUiActivityBriefRefreshButton:RefreshDoubleTower()
     end)
 end
 
+--v2.6 公会战4.0
 function XUiActivityBriefRefreshButton:RefreshGuildWar()
-    local activityBrieButton = self:GetActivityBrieButton(XActivityBriefConfigs.ActivityGroupId.GuildWar)
-    if not activityBrieButton then
-        return
-    end
-    activityBrieButton:Refresh()
-    local timeOffset = 15 * XScheduleManager.SECOND * 3600
-    activityBrieButton:ShowTag(true, timeOffset)
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.GuildWar)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
+    self:RefreshNormal()
 end
 
 function XUiActivityBriefRefreshButton:RefreshQiGuan()
@@ -1120,9 +1077,7 @@ function XUiActivityBriefRefreshButton:RefreshSecondActivityPanel()
     end)
 end
 
---===========================================================================
---v1.27 音游小游戏
---===========================================================================
+--v1.27 音游
 function XUiActivityBriefRefreshButton:RefreshTaiKoMaster()
     self:RefreshNormal()
     local btn = self.TlActivityBrieButton[self.ActivityGroupId]
@@ -1132,9 +1087,7 @@ function XUiActivityBriefRefreshButton:RefreshTaiKoMaster()
     end
 end
 
---===========================================================================
 --v1.27 多维挑战
---===========================================================================
 function XUiActivityBriefRefreshButton:RefreshMultiDim()
     self:RefreshNormal()
     local btn = self.TlActivityBrieButton[self.ActivityGroupId]
@@ -1144,76 +1097,129 @@ function XUiActivityBriefRefreshButton:RefreshMultiDim()
     end
 end
 
---@endregion
---@region 通用函数
-
---===========================================================================
---v1.27 通用Btn事件绑定函数，不包含RedDot和Tag处理
---===========================================================================
-function XUiActivityBriefRefreshButton:RefreshNormal()
-    if not XTool.IsNumberValid(self.ActivityGroupId) then return end
-    local activityGroupId = self.ActivityGroupId
-
-    -- local activityBrieButton = self.TlActivityBrieButton[activityGroupId]
-    local activityBrieButton = self:GetActivityBrieButton(activityGroupId)
-    if not activityBrieButton then
-        return
-    end
-    activityBrieButton:Refresh()
-    activityBrieButton:SetOnClick(function()
-        local config = XActivityBriefConfigs.GetActivityGroupConfig(activityGroupId)
-        local skipId = config.SkipId
-        XFunctionManager.SkipInterface(skipId)
-    end)
-end
-
---===========================================================================
---v1.28 活动面板优化：Btn初始化函数
---===========================================================================
-function XUiActivityBriefRefreshButton:InitActivityBriefButton(index, groupId)
-    local btnName
-    if self.PanelType then      -- 主面板按钮占位
-        btnName = "MainBtn" .. index
-    else                        -- 副面板按钮占位
-        btnName = "SecondBtn" .. index
-    end
-    
-    local btn
-    local btnGrid = self[btnName]
-    if XTool.IsNumberValid(btnGrid.transform.childCount) then
-        btn = btnGrid.transform:GetChild(0):GetComponent("XUiButton")
-    else
-        -- Todo-根据配置读取预制体动态生成
-        -- local btnPrefab = btnGrid:LoadPrefab(XActivityBriefConfigs.GetActivityGroupConfig(groupId).BtnPath)
-        -- btn = btnPrefab.transform:GetComponent("XUiButton")
-        XLog.Error("InitActivityBriefButton() Error: ".. btnName .." 下不存在XUiButton")
-        return
-    end
-
-    if XTool.UObjIsNil(btn) then
-        XLog.Error("InitActivityBriefButton() Error: Prefab文件不包含了XUiButton Component")
-        return
-    end
-
-    if self.TlActivityBrieButton[groupId] == nil then
-        self.TlActivityBrieButton[groupId] = XActivityBrieButton.New(btn, self, groupId)
+--v2.2 正逆塔
+function XUiActivityBriefRefreshButton:RefreshTwoSideTower()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_TWO_SIDE_TOWER_TASK })
+        -- btn:AddNewTagEvent({ XRedPointConditions.Types.CONDITION_TWO_SIDE_TOWER_NEW_CHAPTER })
     end
 end
 
---===========================================================================
---v1.28 活动面板优化：根据activityGroupId获取Btn
---===========================================================================
-function XUiActivityBriefRefreshButton:GetActivityBrieButton(activityGroupId)
-    if not self.TlActivityBrieButton then
-        XLog.Error("GetActivityBrieButton() Error: self.TlActivityBrieButton为空")
-        return
-    end
-    if self.TlActivityBrieButton[activityGroupId] then
-        return self.TlActivityBrieButton[activityGroupId]
-    else
-        XLog.Error("GetActivityBrieButton() Error: Btn不存在 activityGroupId = ", activityGroupId)
-        return
+--v1.29 拟真围剿
+function XUiActivityBriefRefreshButton:RefreshGuildBoss()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_GUILDBOSS_BOSSHP, XRedPointConditions.Types.CONDITION_GUILDBOSS_SCORE })
     end
 end
---@endregion
+
+--v2.6 节日 - 七夕
+function XUiActivityBriefRefreshButton:RefreshActivityFestival()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_POKER_GUESSING_RED})
+    end
+end
+
+--v1.32 角色塔 - 本我回廊
+function XUiActivityBriefRefreshButton:RefreshActivityCharacterTower()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:ShowReddot(XDataCenter.CharacterTowerManager:ExCheckIsShowRedPoint())
+        btn:ShowTag(XDataCenter.CharacterTowerManager.CheckNewCharacterTowerChapterOpen())
+    end
+end
+
+--v1.32 战双大秘境
+function XUiActivityBriefRefreshButton:RefreshActivityRift()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_RIFT_ENTRANCE })
+        btn:ShowTag(XDataCenter.RiftManager.CheckIsHasFightLayerRedPoint())
+    end
+end
+
+--v2.0 调色板战争
+function XUiActivityBriefRefreshButton:RefreshColorTable()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_COLORTABLE_ENTRANCE })
+    end
+end
+
+--v2.0 光辉同行
+function XUiActivityBriefRefreshButton:RefreshBrilliantWalk()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_BRILLIANTWALK_ENTRANCE })
+    end
+end
+
+--v2.0 意识公约(危机公约)
+function XUiActivityBriefRefreshButton:RefreshFubenAwareness()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:ShowReddot(XDataCenter.FubenAwarenessManager.CheckIsShowRedPoint())
+    end
+end
+
+--v2.6 春节厨房/战双厨房(春节餐厅/战双餐厅)
+function XUiActivityBriefRefreshButton:RefreshRestaurant()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_RESTAURANT_ENTRANCE })
+    end
+end
+
+--v2.3 行星环游记
+function XUiActivityBriefRefreshButton:RefreshPlanetRunning()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_PLANET_RUNNING_REWARD })
+        --btn:AddNewTagEvent({XRedPointConditions.Types.CONDITION_PLANET_RUNNING_NEW_CHAPTER})
+    end
+end
+
+--v2.3 战双BVB
+function XUiActivityBriefRefreshButton:RefreshMonsterCombat()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_MONSTER_COMBAT_ACTIVITY })
+        --btn:AddNewTagEvent({XRedPointConditions.Types.CONDITION_MONSTER_COMBAT_NEW_CHAPTER})
+    end
+end
+
+--v2.5 超限连战
+function XUiActivityBriefRefreshButton:RefreshTransfinite()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:ShowReddot(XDataCenter.TransfiniteManager.IsRewardCanReceive())
+    end
+end
+
+--v2.6 肉鸽3
+function XUiActivityBriefRefreshButton:RefreshTheatre3()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        ---@type XTheatre3Agency
+        local agency = XMVCA:GetAgency(ModuleId.XTheatre3)
+        btn:ShowReddot(agency:ExCheckIsShowRedPoint())
+    end
+end
+--endregion
+
 return XUiActivityBriefRefreshButton

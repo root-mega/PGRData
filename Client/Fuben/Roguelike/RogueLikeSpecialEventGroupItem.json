@@ -1,0 +1,3402 @@
+[
+    {
+        "Id": 1,
+        "Title": "Strange Vehicle",
+        "Icon": null,
+        "Description": "You find a car on the shoulder of the road. Its engine seems to need a bit of fuel to get it going.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            3.0,
+            4.0
+        ],
+        "OptionDesc": [
+            null,
+            "Check the nearby gas station.",
+            "Try to start the abandoned car anyway.",
+            "Fill the fuel tank with vital fluid."
+        ]
+    },
+    {
+        "Id": 2,
+        "Title": "Strange Vehicle",
+        "Icon": null,
+        "Description": "There is no petrol left in the gas station. You only find some supplies and a bunch of wandering lunatics.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 3,
+        "Title": "Strange Vehicle",
+        "Icon": null,
+        "Description": "A little petrol flows into the fuel tank. It should now be able to run for a while.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4,
+        "Title": "Strange Vehicle",
+        "Icon": null,
+        "Description": "...What is on your mind?",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5,
+        "Title": "Stalker",
+        "Icon": null,
+        "Description": "The trees rustle and the light flickers. You hear stealthy footsteps behind you... It feels like someone is following you.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            6,
+            7.0,
+            8.0
+        ],
+        "OptionDesc": [
+            null,
+            "Fight whoever it is.",
+            "Try to get rid of it.",
+            "Distract the stalker."
+        ]
+    },
+    {
+        "Id": 6,
+        "Title": "Stalker",
+        "Icon": null,
+        "Description": "You notice a figure hiding behind a streetlight and decide to teach him a lesson.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 7,
+        "Title": "Stalker",
+        "Icon": null,
+        "Description": "A longer route, but the safest play.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 8,
+        "Title": "Stalker",
+        "Icon": null,
+        "Description": "You throw some money behind you and run away instantly. The figure does not come after you.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 9,
+        "Title": "Wrecked Vending Machine",
+        "Icon": null,
+        "Description": "You happen on a wrecked vending machine at the roadside.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            10,
+            11.0,
+            12.0
+        ],
+        "OptionDesc": [
+            null,
+            "Put a coin into it.",
+            "Shake it roughly.",
+            "Look around."
+        ]
+    },
+    {
+        "Id": 10,
+        "Title": "Wrecked Vending Machine",
+        "Icon": null,
+        "Description": "Ding-dong! The vending machine still works! You get some food from it.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11,
+        "Title": "Wrecked Vending Machine",
+        "Icon": null,
+        "Description": "The vending machine falls and hits your foot, but you manage to get many supplies.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12,
+        "Title": "Wrecked Vending Machine",
+        "Icon": null,
+        "Description": "You pick up some coins in the grass.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13,
+        "Title": "Dusty Toy Box",
+        "Icon": null,
+        "Description": "A dusty toy box lies in the corner. It looks like a normal box that nothing will burst out of it.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            14,
+            15.0,
+            16.0
+        ],
+        "OptionDesc": [
+            null,
+            "Search.",
+            "Ignore.",
+            "Search carefully."
+        ]
+    },
+    {
+        "Id": 14,
+        "Title": "Dusty Toy Box",
+        "Icon": null,
+        "Description": "It might be a trap, but you cannot give up any chances to get extra supplies.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15,
+        "Title": "Dusty Toy Box",
+        "Icon": null,
+        "Description": "The first rule of survival is you never touch a suspicious box.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 16,
+        "Title": "Dusty Toy Box",
+        "Icon": null,
+        "Description": "You find some old jewelry.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 17,
+        "Title": "Strange Figure",
+        "Icon": null,
+        "Description": "A dark figure appears ahead of you. You cannot see his face, but he is clearly digging a hole, mumbling to himself.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            18,
+            19.0,
+            20.0
+        ],
+        "OptionDesc": [
+            null,
+            "Pat him on the shoulder.",
+            "Pretend not to see anything and take another route.",
+            "You are startled and fall to the ground."
+        ]
+    },
+    {
+        "Id": 18,
+        "Title": "Strange Figure",
+        "Icon": null,
+        "Description": "A punch is thrown at your face as you scare him out of his wits. He then offers you help, as a token of apology.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 19,
+        "Title": "Strange Figure",
+        "Icon": null,
+        "Description": "Although it costs you extra time to bypass him, you feel much safer and find some supplies on your way.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20,
+        "Title": "Strange Figure",
+        "Icon": null,
+        "Description": "Your dramatic reaction typically seen in horror movies makes him nod in satisfaction. Your butt hurts so bad.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 21,
+        "Title": "Forbidden Magic Circle",
+        "Icon": null,
+        "Description": "An ancient magic book lies quietly next to a huge magic circle. It seems that the book records some taboo spells.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            22,
+            23.0,
+            24.0
+        ],
+        "OptionDesc": [
+            null,
+            "View the healing spell.",
+            "View the alchemy spell.",
+            "View the demon king summoning spell."
+        ]
+    },
+    {
+        "Id": 22,
+        "Title": "Forbidden Magic Circle",
+        "Icon": null,
+        "Description": "A white-haired fairy appears from the magic circle. She heals your injuries and, with an impassive expression, charges you for her services. She looks like someone you know, or is it just a feeling of d\u00e9j\u00e0 vu?",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 23,
+        "Title": "Forbidden Magic Circle",
+        "Icon": null,
+        "Description": "You obtain some gold from the magic circle. The spell is real, but it can be used once only.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 24,
+        "Title": "Forbidden Magic Circle",
+        "Icon": null,
+        "Description": "You offer your bright red blood to the magic circle, and the treasure of the demon king appears instantly with a burst of light.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 25,
+        "Title": "A Priest's Gaze",
+        "Icon": null,
+        "Description": "A priest passes you by and stares at you worriedly. He thinks you are possessed by something unholy.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            26,
+            27.0,
+            28.0
+        ],
+        "OptionDesc": [
+            null,
+            "Plead for an exorcism.",
+            "Plead for blessing.",
+            "You are the protagonist. You believe you will be all right."
+        ]
+    },
+    {
+        "Id": 26,
+        "Title": "A Priest's Gaze",
+        "Icon": null,
+        "Description": "The priest sends for a professional exorcist couple to perform a rite of exorcism.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 27,
+        "Title": "A Priest's Gaze",
+        "Icon": null,
+        "Description": "The priest gives you a silver necklace that looks remarkably expensive.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 28,
+        "Title": "A Priest's Gaze",
+        "Icon": null,
+        "Description": "Although bewildered, the priest still casts blessing on you out of concern for your safety.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 29,
+        "Title": "Bloody Art",
+        "Icon": null,
+        "Description": "The mad artist is holding a rumbling chainsaw. He needs one more arm to complete his \"masterwork.\"",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            30,
+            31.0,
+            32.0
+        ],
+        "OptionDesc": [
+            null,
+            "Confront him head-on.",
+            "Hide in the cabinet.",
+            "Create a diversion."
+        ]
+    },
+    {
+        "Id": 30,
+        "Title": "Bloody Art",
+        "Icon": null,
+        "Description": "You manage to take down the mad artist in a tough fight.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 31,
+        "Title": "Bloody Art",
+        "Icon": null,
+        "Description": "Grumbling to himself, the mad artist searches every cabinet except the ones you are hiding in. You notice something in the corner of your cabinet after the artist has left.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 32,
+        "Title": "Bloody Art",
+        "Icon": null,
+        "Description": "A brick thrown at the wall draws the mad artist's attention. You take this chance to grab the supplies left aside and leave.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 33,
+        "Title": "Heavy Rain",
+        "Icon": null,
+        "Description": "A heavy rain suddenly pours down on you with flashes of lightning. You decide to\u2014",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            34,
+            35.0,
+            36.0
+        ],
+        "OptionDesc": [
+            null,
+            "Get some rest.",
+            "Find a place to wait out the rain.",
+            "Keep moving on."
+        ]
+    },
+    {
+        "Id": 34,
+        "Title": "Heavy Rain",
+        "Icon": null,
+        "Description": "The rain lasts for a long while. You earn sufficient resting time.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 35,
+        "Title": "Heavy Rain",
+        "Icon": null,
+        "Description": "You have waited for a long while, but the rain shows no signs of letting up. A hospitable old man invites you to his house until the rain ends.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 36,
+        "Title": "Heavy Rain",
+        "Icon": null,
+        "Description": "No matter how bad is the weather, it will not stop you from going forward!",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 37,
+        "Title": "Ominous Precognition",
+        "Icon": null,
+        "Description": "A mysterious fortune teller holds a crystal ball, waiting for a question from you.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            38,
+            39.0,
+            40.0
+        ],
+        "OptionDesc": [
+            null,
+            "Ask about the past.",
+            "Ask about the future.",
+            "Ask about financial tips."
+        ]
+    },
+    {
+        "Id": 38,
+        "Title": "Ominous Precognition",
+        "Icon": null,
+        "Description": "The fortune-teller looks at the crystal ball and starts mumbling. All of a sudden, his jaw drops open. \"You... you should've been dead. How come you...\"",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 39,
+        "Title": "Ominous Precognition",
+        "Icon": null,
+        "Description": "Perhaps your future has overloaded the crystal ball. It breaks in the fortune-teller's hands.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 40,
+        "Title": "Ominous Precognition",
+        "Icon": null,
+        "Description": "The fortune-teller gives you some tips for earning money. Unfortunately, these tips belong to the Golden Age. They do not work anymore.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 42,
+        "Title": "Children",
+        "Icon": null,
+        "Description": "The kids grab their candy and leave with great joy.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 43,
+        "Title": "Children",
+        "Icon": null,
+        "Description": "You learn a lesson that getting rid of a bunch of kids is as difficult as nailing jelly to a tree.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 44,
+        "Title": "Children",
+        "Icon": null,
+        "Description": "You put on a sheet with two eye holes and join the kids' trick-or-treat parade.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 45,
+        "Title": "The Killing Begins",
+        "Icon": null,
+        "Description": "A killer, armed with a machete, stands ahead of you and a horde of zombies are chasing behind. No time to hesitate anymore!",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            46,
+            47.0,
+            48.0
+        ],
+        "OptionDesc": [
+            null,
+            "Jump into a sewer.",
+            "Fight until the bitter end.",
+            "Run away as fast as you can."
+        ]
+    },
+    {
+        "Id": 47,
+        "Title": "The Killing Begins",
+        "Icon": null,
+        "Description": "You survive, but at a cost.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 48,
+        "Title": "The Killing Begins",
+        "Icon": null,
+        "Description": "You toss away some of your belongings to increase your speed.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 49,
+        "Title": "A Scraggy Mother",
+        "Icon": null,
+        "Description": "A scraggy mother cradles a swaddled baby in her arms. Her baby is sick and she pleads for help.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            50,
+            51.0,
+            52.0
+        ],
+        "OptionDesc": [
+            null,
+            "Check on the baby.",
+            "Leave her some supplies.",
+            "Leave immediately."
+        ]
+    },
+    {
+        "Id": 50,
+        "Title": "A Scraggy Mother",
+        "Icon": null,
+        "Description": "The baby is already dead, but the mother keeps mumbling an unknown nursery rhyme.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 51,
+        "Title": "A Scraggy Mother",
+        "Icon": null,
+        "Description": "A smile creeps across the mother's face. She appreciates your kindness.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 52,
+        "Title": "A Scraggy Mother",
+        "Icon": null,
+        "Description": "You leave without doing anything.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 53,
+        "Title": "Feeding Ground",
+        "Icon": null,
+        "Description": "You decide to hurry through a dangerous area before dusk falls. But many dark figures are wandering around ahead. What attracted them?",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            54,
+            55.0,
+            56.0
+        ],
+        "OptionDesc": [
+            null,
+            "Force your way through.",
+            "Find a safe route.",
+            "Sneak past them."
+        ]
+    },
+    {
+        "Id": 54,
+        "Title": "Feeding Ground",
+        "Icon": null,
+        "Description": "Dawn is about to break. You have to break through this area before all the dark figures become drawn to you.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 55,
+        "Title": "Feeding Ground",
+        "Icon": null,
+        "Description": "You still have a long way to go. If you can avoid danger, it is worth spending even a day to find a safer route.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 56,
+        "Title": "Feeding Ground",
+        "Icon": null,
+        "Description": "Thanks to Asimov's topographic radar and laser sensors, you manage to get through and find an abandoned supply crate.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 57,
+        "Title": "Footprints",
+        "Icon": null,
+        "Description": "You follow the smoke and find an abandoned store. The only issue is that it seems like it has already seen visitors.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            58,
+            59.0,
+            60.0
+        ],
+        "OptionDesc": [
+            null,
+            "Search the supply crates.",
+            "Investigate the trails of the visitors.",
+            "Leave it behind."
+        ]
+    },
+    {
+        "Id": 58,
+        "Title": "Footprints",
+        "Icon": null,
+        "Description": "Judging by the supplies they left in the store, they must have gone in a rush.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 59,
+        "Title": "Footprints",
+        "Icon": null,
+        "Description": "Someone got here ahead of you.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 60,
+        "Title": "Footprints",
+        "Icon": null,
+        "Description": "You decide to hasten to the next destination.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 61,
+        "Title": "A Chilling Gaze",
+        "Icon": null,
+        "Description": "The intentionally left tunnel, a pile of rubbish in the corner, the glimmering light in the mist... Someone is probably watching you.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            62,
+            63.0,
+            64.0
+        ],
+        "OptionDesc": [
+            null,
+            "Walk right through it.",
+            "Try to walk around it.",
+            "Try to disassemble it."
+        ]
+    },
+    {
+        "Id": 62,
+        "Title": "A Chilling Gaze",
+        "Icon": null,
+        "Description": "Your worries are not unfound. An ally has also stepped into the same trap. You both took some damage, but at least you are alive.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 63,
+        "Title": "A Chilling Gaze",
+        "Icon": null,
+        "Description": "Taking the long route is a waste of time and resources, but for the safety of your team, you decide to do it anyway.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 64,
+        "Title": "A Chilling Gaze",
+        "Icon": null,
+        "Description": "Disassembling it took a longer amount of time than you expected... But the materials you gained from the trap seem to be useful.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 65,
+        "Title": "Vending Machine",
+        "Icon": null,
+        "Description": "You see a wrecked vending machine far away. A little repair might make it work again...",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            66,
+            67.0,
+            68.0
+        ],
+        "OptionDesc": [
+            null,
+            "Kick it.",
+            "Repair it.",
+            "Leave."
+        ]
+    },
+    {
+        "Id": 66,
+        "Title": "Vending Machine",
+        "Icon": null,
+        "Description": "Your kick seems to have made matters worse. Now you have to disassemble the vending machine to take out the supplies inside.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 67,
+        "Title": "Vending Machine",
+        "Icon": null,
+        "Description": "It only takes a couple of minutes to repair the vending machine. It dispenses something that might come in useful.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 68,
+        "Title": "Vending Machine",
+        "Icon": null,
+        "Description": "You leave without doing anything.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 69,
+        "Title": "Strike",
+        "Icon": null,
+        "Description": "How could it be? You were surrounded all of a sudden! Your movement sensors must be malfunctioning.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            70,
+            71.0,
+            72.0
+        ],
+        "OptionDesc": [
+            null,
+            "Break through the encirclement.",
+            "Gather up and defend.",
+            "Full frontal assault."
+        ]
+    },
+    {
+        "Id": 70,
+        "Title": "Strike",
+        "Icon": null,
+        "Description": "You attack the weakest-looking section of the enemy.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 71,
+        "Title": "Strike",
+        "Icon": null,
+        "Description": "You decide to gather up and defend, crying out for help.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 72,
+        "Title": "Strike",
+        "Icon": null,
+        "Description": "You decide to go full frontal to mess up the enemy formation.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 73,
+        "Title": "Religious Fanatics",
+        "Icon": null,
+        "Description": "A group of religious fanatics surrounds you.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            74,
+            75.0,
+            76.0
+        ],
+        "OptionDesc": [
+            null,
+            "Satisfy them.",
+            "Fend them off.",
+            "Scare them off."
+        ]
+    },
+    {
+        "Id": 74,
+        "Title": "Religious Fanatics",
+        "Icon": null,
+        "Description": "You give all you have to them.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 75,
+        "Title": "Religious Fanatics",
+        "Icon": null,
+        "Description": "Brandishing your heat sabers and guns, you manage to fend them off. They drop some of their resources while running away.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 76,
+        "Title": "Religious Fanatics",
+        "Icon": null,
+        "Description": "You brandish your firearms, and they give you some of their resources straightaway. They must have mistaken you for something else...",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 77,
+        "Title": "A Gray Shade",
+        "Icon": null,
+        "Description": "There seems to be a lady with pale skin curling up on the ground, sobbing, not that far away...",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            78,
+            79.0,
+            80.0
+        ],
+        "OptionDesc": [
+            null,
+            "Approach and ask if she is all right.",
+            "Ambush.",
+            "Leave immediately."
+        ]
+    },
+    {
+        "Id": 78,
+        "Title": "A Gray Shade",
+        "Icon": null,
+        "Description": "The pale lady turns to you\u2014but she has no face! It sends a chill down your spine, and she disappears before you even know it.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 79,
+        "Title": "A Gray Shade",
+        "Icon": null,
+        "Description": "She pounces on you with a piercing wail. Luckily bullets and blades can deal damage to her. No one gets hurt in the end.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 80,
+        "Title": "A Gray Shade",
+        "Icon": null,
+        "Description": "You leave without doing anything.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 81,
+        "Title": "Tracker",
+        "Icon": null,
+        "Description": "Whoever it is, it is closely chasing you. You have to make a choice now.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            82,
+            83.0,
+            84.0
+        ],
+        "OptionDesc": [
+            null,
+            "Enter a ventilation pipe.",
+            "Take an elevator.",
+            "Take stairway."
+        ]
+    },
+    {
+        "Id": 82,
+        "Title": "Tracker",
+        "Icon": null,
+        "Description": "You are crawling through a ventilation pipe, but there are two split paths.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            85,
+            86.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Turn left.",
+            "Turn right.",
+            null
+        ]
+    },
+    {
+        "Id": 83,
+        "Title": "Tracker",
+        "Icon": null,
+        "Description": "A large number of frog plushies sprout up in the elevator all of a sudden. It takes a long while to crawl out of them, but you find a golden limited edition plushie.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 84,
+        "Title": "Tracker",
+        "Icon": null,
+        "Description": "You climb the quiet stairway to a safe place, where you, out of the blue, discover bloodstains and... a jaw covered with blood.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 85,
+        "Title": "Tracker",
+        "Icon": null,
+        "Description": "You are met with a journalist hiding in the ventilation pipe. Looking him in the eye, you decide to let him join your crew.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 86,
+        "Title": "Tracker",
+        "Icon": null,
+        "Description": "This pipe leads to a warehouse, where you find many useful supplies.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            4,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 87,
+        "Title": "Below the Floor",
+        "Icon": null,
+        "Description": "When you are resting in an abandoned hut, you hear something strange under the floor.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            88,
+            91.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Check it out.",
+            "Ignore.",
+            null
+        ]
+    },
+    {
+        "Id": 88,
+        "Title": "Below the Floor",
+        "Icon": null,
+        "Description": "Disturbing sounds are coming from below. You decide to get to its source.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            89,
+            90.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Approach with caution.",
+            "Storm the basement.",
+            null
+        ]
+    },
+    {
+        "Id": 89,
+        "Title": "Below the Floor",
+        "Icon": null,
+        "Description": "The basement is empty. It appears that those sounds are from a mouse hole in the corner.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 90,
+        "Title": "Below the Floor",
+        "Icon": null,
+        "Description": "A stairway appears as you accidentally trigger some kind of mechanism. Going downstairs, you see a camcorder recording an unconscious girl tied on a chair. The camcorder owner is nowhere to be found.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 91,
+        "Title": "Below the Floor",
+        "Icon": null,
+        "Description": "As the saying goes, \"You've made your bed, now lie in it.\"",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 92,
+        "Title": "Panicking Students",
+        "Icon": null,
+        "Description": "You are met with a group of college students who are on their road trip, but one of their friends seems to have gone missing. They plead for your help.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            93,
+            96.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Help them search.",
+            "There is no time to waste.",
+            null
+        ]
+    },
+    {
+        "Id": 93,
+        "Title": "Panicking Students",
+        "Icon": null,
+        "Description": "You cannot leave them alone, but you will need a plan.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            94,
+            95.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Scour the place.",
+            "Split up to search.",
+            null
+        ]
+    },
+    {
+        "Id": 94,
+        "Title": "Panicking Students",
+        "Icon": null,
+        "Description": "You have spent a lot of time searching around. Fortunately, your effort pays off. You find the student critically injured in the forest.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 95,
+        "Title": "Panicking Students",
+        "Icon": null,
+        "Description": "Your members split up to perform an organized search. Under your command, you soon find the student in the forest.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 96,
+        "Title": "Panicking Students",
+        "Icon": null,
+        "Description": "Back on your way, \"something\" suddenly appears, and you figure out the truth of the student's disappearance. But it is already too late.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 97,
+        "Title": "Hitchhike",
+        "Icon": null,
+        "Description": "You are still far away from your next destination. When you are worrying about whether you can make it or not, a young man comes and offers you a ride in his own truck.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            98,
+            101.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Accept.",
+            "Decline.",
+            null
+        ]
+    },
+    {
+        "Id": 98,
+        "Title": "Hitchhike",
+        "Icon": null,
+        "Description": "Liv notices something when she talks to the young man. It seems that he has his own schemes up his sleeve.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            99,
+            100.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Wait and see.",
+            "Jump out of the truck.",
+            null
+        ]
+    },
+    {
+        "Id": 99,
+        "Title": "Hitchhike",
+        "Icon": null,
+        "Description": "The young man takes you to a base camp where he holds his victims all together. In the end, you defeat the young man and his henchmen, getting all of his victims out of this camp.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 100,
+        "Title": "Hitchhike",
+        "Icon": null,
+        "Description": "Lee points his gun at the young man's head. He smirks and lets you get off his truck, but Liv notices him hiding a dagger behind his back. She knocks it out of his hand, the Kamui stuns him with one blow, tossing him on the roadside. Anyway, you have a vehicle now.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 101,
+        "Title": "Hitchhike",
+        "Icon": null,
+        "Description": "It never hurts to act cautiously.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102,
+        "Title": "Black Box",
+        "Icon": null,
+        "Description": "You find a strange black box that is covered with an ominous pattern.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            103,
+            106.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Open the box.",
+            "Abandon.",
+            null
+        ]
+    },
+    {
+        "Id": 103,
+        "Title": "Black Box",
+        "Icon": null,
+        "Description": "You find some supplies. Should you continue rummaging in it?",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            104,
+            105.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            "Abandon.",
+            null
+        ]
+    },
+    {
+        "Id": 104,
+        "Title": "Black Box",
+        "Icon": null,
+        "Description": "Let's get to the bottom of this!",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 105,
+        "Title": "Black Box",
+        "Icon": null,
+        "Description": "This should be enough.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 106,
+        "Title": "Black Box",
+        "Icon": null,
+        "Description": "Let's not take the risk.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 107,
+        "Title": "Disturbing Smells",
+        "Icon": null,
+        "Description": "A strong smell of blood rushes toward you. It comes from a house by the road.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            108,
+            111.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Go in.",
+            "Ignore.",
+            null
+        ]
+    },
+    {
+        "Id": 108,
+        "Title": "Disturbing Smells",
+        "Icon": null,
+        "Description": "Something must have happened. You cannot turn a blind eye to it.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            109,
+            110.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Get in through a window.",
+            "Get in through the front door.",
+            null
+        ]
+    },
+    {
+        "Id": 109,
+        "Title": "Disturbing Smells",
+        "Icon": null,
+        "Description": "Inside the house is a terrifying scene that almost makes you throw up. The killer does not notice you and leaves through the front door.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 110,
+        "Title": "Disturbing Smells",
+        "Icon": null,
+        "Description": "You encounter the killer the moment you open the door. It seems a tough battle is unavoidable.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 111,
+        "Title": "Disturbing Smells",
+        "Icon": null,
+        "Description": "You have more important things to do.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 112,
+        "Title": "Hermit",
+        "Icon": null,
+        "Description": "It seems the hermetic wizard is not surprised by your uninvited visit. He asks what you are seeking.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            113,
+            116.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Seek power.",
+            "Apologize for entering a wrong house.",
+            null
+        ]
+    },
+    {
+        "Id": 113,
+        "Title": "Hermit",
+        "Icon": null,
+        "Description": "The wizard gestures you toward the offerings on the table. You have to select one as a summoning medium.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            114,
+            115.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Black goat skull.",
+            "Broken music box.",
+            null
+        ]
+    },
+    {
+        "Id": 114,
+        "Title": "Hermit",
+        "Icon": null,
+        "Description": "The wizard gives you three antique dolls and receives something he deserves in return.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 115,
+        "Title": "Hermit",
+        "Icon": null,
+        "Description": "Unfortunately, nothing has happened... Or fortunately instead?",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 116,
+        "Title": "Hermit",
+        "Icon": null,
+        "Description": "Fearful of the doll's creepiness, you make up an excuse to leave instantly.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 117,
+        "Title": "Strange Sign",
+        "Icon": null,
+        "Description": "In front of you is an old water well with a sign that says \"PULL THE ROPE\".",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            118,
+            121.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Pull.",
+            "Ignore.",
+            null
+        ]
+    },
+    {
+        "Id": 118,
+        "Title": "Strange Sign",
+        "Icon": null,
+        "Description": "The well seems to have been abandoned for a long time.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            119,
+            120.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Pull the rope with bare hands.",
+            "Use the pulley.",
+            null
+        ]
+    },
+    {
+        "Id": 119,
+        "Title": "Strange Sign",
+        "Icon": null,
+        "Description": "It exhausts your muscles, but at least you have pulled a chest up.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 120,
+        "Title": "Strange Sign",
+        "Icon": null,
+        "Description": "The dilapidated handle suddenly cracks. Something falls to the bottom of the well with a dull thump.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 121,
+        "Title": "Strange Sign",
+        "Icon": null,
+        "Description": "You have a feeling that something is wrong with this well. You decide to leave it alone.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 122,
+        "Title": "A Pair of Heartbroken Parents",
+        "Icon": null,
+        "Description": "A pair of heartbroken parents is looking for their lost child. You meet with them by chance... You might be their last hope.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            123,
+            126.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Help them search.",
+            "Leave.",
+            null
+        ]
+    },
+    {
+        "Id": 123,
+        "Title": "A Pair of Heartbroken Parents",
+        "Icon": null,
+        "Description": "You cannot leave them alone, but you will need a plan.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            124,
+            125.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Scour the place.",
+            "Search for clues.",
+            null
+        ]
+    },
+    {
+        "Id": 124,
+        "Title": "A Pair of Heartbroken Parents",
+        "Icon": null,
+        "Description": "Your numbers are few, so scouring the place took you a long time. But finally, you find the child deep in an abandoned shelter.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 125,
+        "Title": "A Pair of Heartbroken Parents",
+        "Icon": null,
+        "Description": "You decide to use the thermographic sensors and bio sensors to look for traces. You succeed. The parents are grateful for that.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 126,
+        "Title": "A Pair of Heartbroken Parents",
+        "Icon": null,
+        "Description": "Your camp is raided by unknown dark figures at night.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 127,
+        "Title": "Inclement Weather",
+        "Icon": null,
+        "Description": "The weather begins to act up while you are hurrying to your next target point. You decide to...",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            128,
+            131.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Seek shelter first.",
+            "Keep moving despite the weather.",
+            null
+        ]
+    },
+    {
+        "Id": 128,
+        "Title": "Inclement Weather",
+        "Icon": null,
+        "Description": "You find a place that barely fits the definition of a shelter. Looks like the weather is not calming down in a short while, though...",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            129,
+            130.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Wait for the storm to pass.",
+            "Move on when the storm shows signs of it waning.",
+            null
+        ]
+    },
+    {
+        "Id": 129,
+        "Title": "Inclement Weather",
+        "Icon": null,
+        "Description": "The storm continues for a long time. Your team was forced to get enough rest.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 130,
+        "Title": "Inclement Weather",
+        "Icon": null,
+        "Description": "You are not the only ones who are waiting out the bad weather. Your teams join together and go on when the sun comes out again.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 131,
+        "Title": "Inclement Weather",
+        "Icon": null,
+        "Description": "You find an abandoned chest.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 132,
+        "Title": "Sounds in a Box",
+        "Icon": null,
+        "Description": "You hear choking sobs coming from a box next to you...",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            133,
+            136.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Investigate the box.",
+            "Ignore.",
+            null
+        ]
+    },
+    {
+        "Id": 133,
+        "Title": "Sounds in a Box",
+        "Icon": null,
+        "Description": "You find some bloodstains on the box...",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            134,
+            135.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Use your weapon to cut the box open.",
+            "Open the box.",
+            null
+        ]
+    },
+    {
+        "Id": 134,
+        "Title": "Sounds in a Box",
+        "Icon": null,
+        "Description": "A dark shade pops out the moment you cut the box open. Your limbs become paralyzed until it dissipates.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 135,
+        "Title": "Sounds in a Box",
+        "Icon": null,
+        "Description": "A dark shade pops out, totally catching you off guard and unprepared.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 136,
+        "Title": "Sounds in a Box",
+        "Icon": null,
+        "Description": "You rush out of this place instantly.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 137,
+        "Title": "A Wandering Shade",
+        "Icon": null,
+        "Description": "A dark figure is wandering around somewhere nearby. He looks a bit strange... Could it be the virus?",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            138,
+            141.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Try to think of a solution.",
+            "Put him down.",
+            null
+        ]
+    },
+    {
+        "Id": 138,
+        "Title": "A Wandering Shade",
+        "Icon": null,
+        "Description": "There is nothing you can do to cure such severe corruption.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            139,
+            140.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "End his suffering.",
+            "Request support from the superiors.",
+            null
+        ]
+    },
+    {
+        "Id": 139,
+        "Title": "A Wandering Shade",
+        "Icon": null,
+        "Description": "He falls. Did you do the right thing...? Who knows?",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 140,
+        "Title": "A Wandering Shade",
+        "Icon": null,
+        "Description": "You are ordered to pass him on to other squads.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 141,
+        "Title": "A Wandering Shade",
+        "Icon": null,
+        "Description": "Upon seeing you, he attacks immediately. You have no choice but to defeat him... Was it the correct thing to do?",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 142,
+        "Title": "Strange Box",
+        "Icon": null,
+        "Description": "You find a strange box with a couple of cracks outside.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            143,
+            146.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Open the box.",
+            "Abandon.",
+            null
+        ]
+    },
+    {
+        "Id": 143,
+        "Title": "Strange Box",
+        "Icon": null,
+        "Description": "Almost to the bottom... Continue?",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            144,
+            145.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            "Abandon.",
+            null
+        ]
+    },
+    {
+        "Id": 144,
+        "Title": "Strange Box",
+        "Icon": null,
+        "Description": "You find some useful supplies.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 145,
+        "Title": "Strange Box",
+        "Icon": null,
+        "Description": "You find some supplies.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 146,
+        "Title": "Strange Box",
+        "Icon": null,
+        "Description": "You find a small amount of supplies.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 147,
+        "Title": "Black Mist",
+        "Icon": null,
+        "Description": "A cloud of black mist suddenly billows from the ground nearby.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            148,
+            149.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Move carefully.",
+            "Break it through.",
+            null
+        ]
+    },
+    {
+        "Id": 148,
+        "Title": "Black Mist",
+        "Icon": null,
+        "Description": "You get through this area while keeping your guard up.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 149,
+        "Title": "Black Mist",
+        "Icon": null,
+        "Description": "After breaking through this area, you notice that you have some fresh scratches made by unknown creatures.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 152,
+        "Title": "Illusory Sight",
+        "Icon": null,
+        "Description": "You suddenly feel that the things ahead are somehow blurred.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            153,
+            154.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Advance.",
+            "Bypass.",
+            null
+        ]
+    },
+    {
+        "Id": 153,
+        "Title": "Illusory Sight",
+        "Icon": null,
+        "Description": "You bump into an invisible gelatinous wall, and it starts crawling to your joints along your skin.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 154,
+        "Title": "Illusory Sight",
+        "Icon": null,
+        "Description": "You take another path for safety's sake.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 155,
+        "Title": "Split Paths",
+        "Icon": null,
+        "Description": "You have to cross the bridge when you come to it, but what to do if you see several bridges? Now the road branches into two...",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            156,
+            157.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Left.",
+            "Right.",
+            null
+        ]
+    },
+    {
+        "Id": 156,
+        "Title": "Split Paths",
+        "Icon": null,
+        "Description": "This road seems to be going in the wrong direction... You have wasted enough time. You decide to camp and rest for the day.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 157,
+        "Title": "Split Paths",
+        "Icon": null,
+        "Description": "You encounter a group of dark figures. You freeze at the shock, but they are scared away.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 158,
+        "Title": "Strange Comms",
+        "Icon": null,
+        "Description": "A person that is not supposed to exist contacts you through the comms...",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            159,
+            160.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Question him.",
+            "Invite him to join you.",
+            null
+        ]
+    },
+    {
+        "Id": 159,
+        "Title": "Strange Comms",
+        "Icon": null,
+        "Description": "Ignoring your words, he only tells you a nearby coordinate, where you find a few supply crates.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 160,
+        "Title": "Strange Comms",
+        "Icon": null,
+        "Description": "He leads you to a place filled with dark shades. After fending them off, you find an abandoned warehouse.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 161,
+        "Title": "Abandoned Hospital",
+        "Icon": null,
+        "Description": "A long-abandoned hospital stands in front of you. You might find some medical supplies here. Go in?",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            162,
+            163.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Enter.",
+            "Leave.",
+            null
+        ]
+    },
+    {
+        "Id": 162,
+        "Title": "Abandoned Hospital",
+        "Icon": null,
+        "Description": "As you approach, you notice the entrance is locked and a warning \"DEAD BODY INSIDE NO ENTRY\" is painted on it.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            164,
+            165.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Find another entrance.",
+            "Breach the entrance.",
+            null
+        ]
+    },
+    {
+        "Id": 163,
+        "Title": "Abandoned Hospital",
+        "Icon": null,
+        "Description": "It looks dangerous. You would rather not go inside.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            166,
+            167.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Find supplies nearby.",
+            "It would be better to stay away from it.",
+            null
+        ]
+    },
+    {
+        "Id": 164,
+        "Title": "Abandoned Hospital",
+        "Icon": null,
+        "Description": "There is not a living soul in this huge hospital. You have spent some time finding a few medical supplies.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 165,
+        "Title": "Abandoned Hospital",
+        "Icon": null,
+        "Description": "You are ambushed by several zombies. Although slightly wounded, you manage to fend them off and retrieve some supplies.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 166,
+        "Title": "Abandoned Hospital",
+        "Icon": null,
+        "Description": "You hear some strange sounds not far away. Without hesitation, you rush out of the hospital, but some of your belongings are lost halfway.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 167,
+        "Title": "Abandoned Hospital",
+        "Icon": null,
+        "Description": "You have made a wise choice. Several disfigured corpses lie around the hospital. You find their belongings not far away.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            4,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 168,
+        "Title": "Roller Shutter",
+        "Icon": null,
+        "Description": "A roller shutter suddenly descends, separating you from your companions. You are now locked in a pitch-black shopping mall...",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            169,
+            170.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Try to open the shutter.",
+            "Find another way.",
+            null
+        ]
+    },
+    {
+        "Id": 169,
+        "Title": "Roller Shutter",
+        "Icon": null,
+        "Description": "It is an impossible mission to open this shutter with your bare hands.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            171,
+            172.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Find another entrance.",
+            "Breach the entrance.",
+            null
+        ]
+    },
+    {
+        "Id": 170,
+        "Title": "Roller Shutter",
+        "Icon": null,
+        "Description": "It is too dark for you to find a way out.",
+        "IsEnd": null,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            173,
+            174.0,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Find supplies nearby.",
+            "It would be better to stay away from it.",
+            null
+        ]
+    },
+    {
+        "Id": 171,
+        "Title": "Roller Shutter",
+        "Icon": null,
+        "Description": "The explosion shockwave seems to have awoken \"something\" in the dark.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 172,
+        "Title": "Roller Shutter",
+        "Icon": null,
+        "Description": "Lee is very fast. You have only waited for a while.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 173,
+        "Title": "Roller Shutter",
+        "Icon": null,
+        "Description": "You find the main switch by intuition and open the roller shutter.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            3,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 174,
+        "Title": "Roller Shutter",
+        "Icon": null,
+        "Description": "Your clothes are ripped by shards of window glass. Liv gives you a full body check-up even though you insist you are not hurt.",
+        "IsEnd": 1.0,
+        "HasLeave": null,
+        "OptionId": [
+            null,
+            4,
+            null,
+            null
+        ],
+        "OptionDesc": [
+            null,
+            "Continue.",
+            null,
+            null
+        ]
+    }
+]

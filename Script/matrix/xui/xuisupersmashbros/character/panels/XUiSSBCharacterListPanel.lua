@@ -141,10 +141,16 @@ function XUiSSBCharacterListPanel:OnDestroy()
     
 end
 
+---@param chara XSmashBCharacter
 function XUiSSBCharacterListPanel:OnSelectGrid(chara)
     self.CurrentChara = chara
     if self.OnSelectCallBack then
         self.OnSelectCallBack(chara)
+    end
+    if self.CurrentChara:IsSmashEggRobot() then
+        self.BtnFashion.gameObject:SetActiveEx(false)
+    else
+        self.BtnFashion.gameObject:SetActiveEx(true)
     end
 end
 

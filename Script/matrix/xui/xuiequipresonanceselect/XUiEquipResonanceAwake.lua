@@ -26,8 +26,6 @@ end
 
 function XUiEquipResonanceAwake:OnEnable(equipId)
     self.EquipId = equipId or self.EquipId
-    self:SetTogRedPoint()
-    self:UpdateTogButtonState()
     self:UpdateResonanceSkill()
     self:UpdateConsumeCoin()
     self:UpdateConsumeItem()
@@ -48,8 +46,9 @@ function XUiEquipResonanceAwake:OnNotify(evt, ...)
         if equipId ~= self.EquipId then return end
         if pos ~= self.Pos then return end
         
-        self.RootUi:FindChildUiObj("UiEquipResonanceSkill").UiProxy:SetActive(true)
-        self.UiProxy:SetActive(false)
+        -- self.RootUi:FindChildUiObj("UiEquipResonanceSkill").UiProxy:SetActive(true)
+        -- self.UiProxy:SetActive(false)
+        self.RootUi.PanelTabGroup:SelectIndex(XEquipConfig.EquipDetailBtnTabIndex.Overclocking)
         local isAwakeDes = true
         local forceShowBindCharacter = self.RootUi.ForceShowBindCharacter
         XLuaUiManager.Open("UiEquipResonanceSelectAfter", self.EquipId, self.Pos, self.RootUi.CharacterId, isAwakeDes, forceShowBindCharacter)
@@ -75,17 +74,13 @@ end
 
 --@region 物品消耗列表
 function XUiEquipResonanceAwake:GetAwakeConsumeCoin(equipAwakeTabIndex)
-    if equipAwakeTabIndex == XEquipConfig.EquipAwakeTabIndex.Material then
-        return XDataCenter.EquipManager.GetAwakeConsumeCoin(self.EquipId)
-    elseif equipAwakeTabIndex == XEquipConfig.EquipAwakeTabIndex.CrystalMoney then
+    if equipAwakeTabIndex == XEquipConfig.EquipAwakeTabIndex.CrystalMoney then
         return XDataCenter.EquipManager.GetAwakeConsumeCrystalCoin(self.EquipId)
     end
 end
 
 function XUiEquipResonanceAwake:GetAwakeConsumeItemList(equipAwakeTabIndex)
-    if equipAwakeTabIndex == XEquipConfig.EquipAwakeTabIndex.Material then
-        return XDataCenter.EquipManager.GetAwakeConsumeItemList(self.EquipId)
-    elseif equipAwakeTabIndex == XEquipConfig.EquipAwakeTabIndex.CrystalMoney then
+    if equipAwakeTabIndex == XEquipConfig.EquipAwakeTabIndex.CrystalMoney then
         return XDataCenter.EquipManager.GetAwakeConsumeItemCrystalList(self.EquipId)
     end
 end
@@ -142,9 +137,6 @@ function XUiEquipResonanceAwake:UpdateConsumeItem()
     end
 
     self.GridCostItem.gameObject:SetActiveEx(false)
-
-    local imageRedPoint = self:GetImgRedPoint(XEquipConfig.GetEquipAwakeTabIndex())
-    imageRedPoint.gameObject:SetActiveEx(false)
 end
 --@endregion
 
@@ -153,14 +145,12 @@ end
 function XUiEquipResonanceAwake:AutoAddListener()
     self:RegisterClickEvent(self.BtnHelp, self.OnBtnHelpClick)
     self.BtnAwake.CallBack = function() self:OnBtnAwakeClick() end
-    self.TogConsumeType.CallBack = function(value) self:OnTogConsumeTypeClick(value, true) end
 end
 
 function XUiEquipResonanceAwake:OnBtnAwakeClick()
     local equipId = self.EquipId
     local pos = self.Pos
     local coinEnough, itemEnough, consumeCoin = self:CheckIsEnough(XEquipConfig.GetEquipAwakeTabIndex())
-
     if not coinEnough then
         local closeCb = function ()
             self:UpdateConsumeCoin()
@@ -181,53 +171,15 @@ function XUiEquipResonanceAwake:OnBtnAwakeClick()
     local name = XCharacterConfigs.GetCharacterTradeName(bindCharacterId)
     local content = CSXTextManagerGetText("EquipAwakeTipContent", name)
     XUiManager.DialogTip(title, content, XUiManager.DialogType.Normal, nil, function()
-        XDataCenter.EquipManager.Awake(equipId, pos, XEquipConfig.GetEquipAwakeTabIndex())
+        XMVCA:GetAgency(ModuleId.XEquip):Awake(equipId, pos, XEquipConfig.GetEquipAwakeTabIndex())
     end)
 end
 
 function XUiEquipResonanceAwake:OnBtnHelpClick()
     XUiManager.UiFubenDialogTip(DescriptionTitle, Description)
 end
-
-function XUiEquipResonanceAwake:OnTogConsumeTypeClick(value, doTip)
-    XEquipConfig.SetEquipAwakeTabIndex(value == 0 and XEquipConfig.EquipAwakeTabIndex.Material or XEquipConfig.EquipAwakeTabIndex.CrystalMoney)
-
-    self:UpdateConsumeCoin()
-    self:UpdateConsumeItem()
-end
 --@endregion
 
-function XUiEquipResonanceAwake:UpdateTogButtonState()
-    if XEquipConfig.GetEquipAwakeTabIndex() == XEquipConfig.EquipAwakeTabIndex.Material then
-        self.TogConsumeType:SetButtonState(TOG_STATE.NORMAL)
-    else
-        self.TogConsumeType:SetButtonState(TOG_STATE.SELECT)
-    end
-end
-
-function XUiEquipResonanceAwake:UpdateTogButtonState()
-    if XEquipConfig.GetEquipAwakeTabIndex() == XEquipConfig.EquipAwakeTabIndex.Material then
-        self.TogConsumeType:SetButtonState(TOG_STATE.NORMAL)
-    else
-        self.TogConsumeType:SetButtonState(TOG_STATE.SELECT)
-    end
-end
-
-function XUiEquipResonanceAwake:SetTogRedPoint()
-    local coinEnough, itemEnough, consumeCoin = self:CheckIsEnough(XEquipConfig.EquipAwakeTabIndex.CrystalMoney)
-    self.ImgRedPointCrystal.gameObject:SetActiveEx(coinEnough and itemEnough)
-    
-    local coinEnough, itemEnough, consumeCoin = self:CheckIsEnough(XEquipConfig.EquipAwakeTabIndex.Material)
-    self.ImgRedPointMaterials.gameObject:SetActiveEx(coinEnough and itemEnough)
-end
-
-function XUiEquipResonanceAwake:GetImgRedPoint(equipAwakeTabIndex)
-    if equipAwakeTabIndex == XEquipConfig.EquipAwakeTabIndex.Material then
-        return self.ImgRedPointMaterials
-    else
-        return self.ImgRedPointCrystal
-    end
-end
 
 function XUiEquipResonanceAwake:CheckIsEnough(equipAwakeTabIndex)
     local itemEnough = true

@@ -5,7 +5,11 @@ local XUiGuildDormPanelGITopInfo = XClass(nil, "XUiGuildDormPanelGITopInfo")
 local GuildBuildIntervalWhenMaxLevel = CS.XGame.Config:GetInt("GuildBuildIntervalWhenMaxLevel")
 function XUiGuildDormPanelGITopInfo:Ctor(panel)
     XTool.InitUiObjectByUi(self, panel)
+    
+    self.BtnSetFace.gameObject:SetActiveEx(XDataCenter.GuildManager.IsGuildLeader())
     self.BtnSetFace.CallBack = function() self:OnClickBtnSetFace() end
+    self.BtnGrade.CallBack = function() self:OnBtnGradeClick() end
+    self.BtnCopy.CallBack = function() XTool.CopyToClipboard(self.TxtID.text) end
     XEventManager.AddEventListener(XEventId.EVENT_GUILD_DATA_CHANGED, self.Refresh, self)
 end
 --==========
@@ -18,6 +22,8 @@ function XUiGuildDormPanelGITopInfo:Refresh()
     local guildLevel = XDataCenter.GuildManager.GetGuildLevel()
     local curBuild = XDataCenter.GuildManager.GetBuild()
     local guildLevelTemplate = XGuildConfig.GetGuildLevelDataBylevel(guildLevel)
+    local guildId = XDataCenter.GuildManager.GetGuildId()
+    self.TxtID.text = string.format("%08d",guildId)
     if XDataCenter.GuildManager.CheckAllTalentLevelMax() then
         local gloryLevel = XDataCenter.GuildManager.GetGloryLevel()
         self.TxtLvNum.text = string.format("<size=28>%d</size><color=#FFF400>(%d)</color>", guildLevel, gloryLevel)
@@ -38,6 +44,14 @@ end
 
 function XUiGuildDormPanelGITopInfo:OnClickBtnSetFace()
     XLuaUiManager.Open("UiGuildDormHeadPotrait")
+end
+
+function XUiGuildDormPanelGITopInfo:OnBtnGradeClick()
+    if not XDataCenter.GuildManager.IsJoinGuild() then
+        return
+    end
+    XLuaUiManager.Open("UiGuildGrade")
+
 end
 
 function XUiGuildDormPanelGITopInfo:Dispose()

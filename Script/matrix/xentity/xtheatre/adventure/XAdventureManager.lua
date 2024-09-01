@@ -6,6 +6,8 @@ local XTheatreTeam = require("XEntity/XTheatre/XTheatreTeam")
 local XAdventureRole = require("XEntity/XTheatre/Adventure/XAdventureRole")
 local XAdventureSkill = require("XEntity/XTheatre/Adventure/XAdventureSkill")
 local XAdventureEnd = require("XEntity/XTheatre/Adventure/XAdventureEnd")
+
+---@class XTheatreAdventureManager
 local XAdventureManager = XClass(nil, "XAdventureManager")
 
 function XAdventureManager:Ctor()
@@ -297,6 +299,7 @@ function XAdventureManager:CheckCanUseLocalRole()
 end
 
 -- includeLocal : 是否包含本地角色
+---@return XTheatreAdventureRole[]
 function XAdventureManager:GetCurrentRoles(includeLocal)
     if includeLocal == nil then includeLocal = false end
     local canUseLocal = false
@@ -322,16 +325,20 @@ end
 function XAdventureManager:GetRecruitTotalRoles()
     local adventureChapter = self:GetCurrentChapter()
     local currentRoles = self:GetCurrentRoles()
-    currentRoles = XTool.Clone(currentRoles)
-
     local recruitGridCount = XTheatreConfigs.GetChapterRecruitGrid(adventureChapter:GetId())
     local lastGridCount = recruitGridCount - #currentRoles
+    local result = {}
 
+    if not XTool.IsTableEmpty(currentRoles) then
+        for _, grid in ipairs(currentRoles) do
+            table.insert(result, grid)
+        end
+    end
     for i = 1, lastGridCount do
-        table.insert(currentRoles, {})
+        table.insert(result, {})
     end
 
-    return currentRoles
+    return result
 end
 
 function XAdventureManager:AddRoleById(roleId, configId)
@@ -346,9 +353,21 @@ function XAdventureManager:AddRoleById(roleId, configId)
     return self.CurrentRoles[#self.CurrentRoles]
 end
 
+---@return XTheatreAdventureRole
 function XAdventureManager:GetRole(id)
     for _, role in ipairs(self:GetCurrentRoles(true)) do
         if role:GetId() == id then
+            return role
+        end
+    end
+end
+
+---BattleRoom用
+---@param id number characterId or robotId
+---@return XTheatreAdventureRole
+function XAdventureManager:GetRoleByRobotId(id)
+    for _, role in ipairs(self:GetCurrentRoles(true)) do
+        if role:GetId() == id or role:GetRawDataId() == id then
             return role
         end
     end
@@ -588,6 +607,7 @@ function XAdventureManager:RequestStartAdventure(callback)
     local requestBody = {
         Difficulty = self.CurrentDifficulty:GetId(), -- 难度Id
         KeepsakeId = self.CurrentToken and self.CurrentToken:GetKeepsakeId() or nil, -- 信物id
+        Mode = XDataCenter.TheatreManager.GetSPMode() and 1 or 0    -- 冒险模式
     }
     self.CurrentChapter = nil -- 避免其他GetChapter时创建了默认的章节数据
     XNetwork.CallWithAutoHandleErrorCode("TheatreStartAdventureRequest", requestBody, function(res)

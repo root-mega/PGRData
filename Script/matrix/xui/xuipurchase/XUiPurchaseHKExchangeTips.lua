@@ -43,7 +43,7 @@ end
 
 function XUiPurchaseHKExchangeTips:ReqBuy()
     if self.ItemData.ConsumeCount > XDataCenter.ItemManager.GetCount(XDataCenter.ItemManager.ItemId.HongKa) then
-        XUiManager.TipText("PurchaseBuyHongKaCountTips")
+        XUiHelper.OpenPurchaseBuyHongKaCountTips()
         if self.Parent and self.Parent.NotEnoughCb then
             self.Parent.NotEnoughCb(XPurchaseConfigs.TabsConfig.Pay)
             self:PlayAnimation()

@@ -10,6 +10,14 @@ function XUiFubenBossSingleHide:OnStart(bossStageCfg)
     self:Init(bossStageCfg)
 end
 
+function XUiFubenBossSingleHide:OnEnable()
+
+end
+
+function XUiFubenBossSingleHide:OnDisable()
+
+end
+
 function XUiFubenBossSingleHide:AutoAddListener()
     self:RegisterClickEvent(self.BtnClose, self.OnBtnBackClick)
 end

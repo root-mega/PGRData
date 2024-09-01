@@ -392,7 +392,7 @@ XSlotMachineManagerCreator = function()
         local isRewardCanTake = false
         local isTaskCanFinish = false
         local actId = 1
-        local configs = XActivityBriefConfigs.GetNowActivityEntryConfig()
+        local configs = XDataCenter.ActivityBriefManager.GetNowActivityEntryConfig()
         for key, value in pairs(configs) do
             if value.SkipId == 1400008 then
                 actId = value.Id
@@ -420,7 +420,7 @@ XSlotMachineManagerCreator = function()
         local isRewardCanTake = false
         local isTaskCanFinish = false
         local actId = 2
-        local configs = XActivityBriefConfigs.GetNowActivityEntryConfig()
+        local configs = XDataCenter.ActivityBriefManager.GetNowActivityEntryConfig()
         for key, value in pairs(configs) do
             if value.SkipId == 1400009 then
                 actId = value.Id

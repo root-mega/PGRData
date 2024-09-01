@@ -95,6 +95,10 @@ function XUiActivityBase:OnBtnMainUiClick()
     XLuaUiManager.RunMain()
 end
 
+function XUiActivityBase:CloseChildUi(childUiName)
+end
+
+
 function XUiActivityBase:OnClickTabCallBack(tabIndex)
     if self.SelectedIndex and self.SelectedIndex == tabIndex then
         return
@@ -111,7 +115,7 @@ function XUiActivityBase:OnClickTabCallBack(tabIndex)
         if not XLuaUiManager.IsUiShow("UiGameNotice") then
             self:OpenOneChildUi("UiGameNotice", self, self.SubSkipIndex, self.SubSkipId, XUiActivityBase.GameNoticeType.Notice)
         else
-            CsXGameEventManager.Instance:Notify(XEventId.EVENT_NOTICE_TYPE_CHANAGE, XUiActivityBase.GameNoticeType.Notice)
+            CsXGameEventManager.Instance:Notify(XEventId.EVENT_NOTICE_TYPE_CHANGE, XUiActivityBase.GameNoticeType.Notice)
         end
     elseif tabIndex == XUiActivityBase.BtnTabIndex.ActivityNotice then
         if not XDataCenter.NoticeManager.CheckHaveNotice(XUiActivityBase.GameNoticeType.ActivityNotice) then
@@ -122,7 +126,7 @@ function XUiActivityBase:OnClickTabCallBack(tabIndex)
         if not XLuaUiManager.IsUiShow("UiGameNotice") then
             self:OpenOneChildUi("UiGameNotice", self, self.SubSkipIndex, self.SubSkipId, XUiActivityBase.GameNoticeType.ActivityNotice)
         else
-            CsXGameEventManager.Instance:Notify(XEventId.EVENT_NOTICE_TYPE_CHANAGE, XUiActivityBase.GameNoticeType.ActivityNotice)
+            CsXGameEventManager.Instance:Notify(XEventId.EVENT_NOTICE_TYPE_CHANGE, XUiActivityBase.GameNoticeType.ActivityNotice)
         end
     elseif tabIndex == XUiActivityBase.BtnTabIndex.ActivityLink then
         self:OpenOneChildUi("UiActivityBaseLink")

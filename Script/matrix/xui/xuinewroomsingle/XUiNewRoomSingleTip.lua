@@ -72,6 +72,14 @@ function XUiNewRoomSingleTip:OnStart(rootUi, teamData, curCaptainPos, cb, charac
     self:Refresh()
 end
 
+function XUiNewRoomSingleTip:OnEnable()
+
+end
+
+function XUiNewRoomSingleTip:OnDisable()
+
+end
+
 function XUiNewRoomSingleTip:Refresh()
     if not self.TeamData then
         XLog.Error("XUiNewRoomSingleTip:Refresh函数错误：self.TeamData为nil")

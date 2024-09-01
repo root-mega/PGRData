@@ -60,6 +60,10 @@ function XUiPanelArenaSelfRank:Show(challengeId)
         end
         self.RankList = res.Rank.RankPlayer
         local selfInfo = XDataCenter.ArenaManager.GetPlayerArenaInfo()
+        if not selfInfo then
+            XLog.Error("GroupMemberRequest data error. id not found. playerId:" .. tostring(XPlayer.Id))
+            return
+        end
         XUiPLayerHead.InitPortrait(XPlayer.CurrHeadPortraitId, XPlayer.CurrHeadFrameId, self.Head)
         self.TxtPoint.text = selfInfo.Point
         self.DynamicTable:SetTotalCount(#self.RankList)

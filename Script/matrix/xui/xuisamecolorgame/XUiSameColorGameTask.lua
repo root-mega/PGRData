@@ -11,14 +11,20 @@ function XUiSameColorGameTask:OnAwake()
     -- XSameColorGameConfigs.TaskType
     self.CurrentTaskType = nil
     -- 资源栏
-    XUiHelper.NewPanelActivityAsset(self.SameColorGameManager.GetAssetItemIds(), self.PanelAsset)
+    local itemIds = self.SameColorGameManager.GetAssetItemIds()
+    XUiHelper.NewPanelActivityAsset(itemIds, self.PanelAsset, nil , function(uiSelf, index)
+        local itemId = itemIds[index]
+        XLuaUiManager.Open("UiSameColorGameSkillDetails", nil, itemId)
+    end)
     self:RegisterUiEvents()
 end
 
 function XUiSameColorGameTask:OnStart()
     local btnTabList = { self.BtnDayTask, self.BtnRewardTask }
     self.BtnGroup:Init(btnTabList, function(index)
-        self:RefreshTaskList(index)
+        if self.CurrentTaskType ~= index then
+            self:RefreshTaskList(index)
+        end
     end)
     self.BtnGroup:SelectIndex(XSameColorGameConfigs.TaskType.Day)
     local endTime = self.SameColorGameManager.GetEndTime()
@@ -57,8 +63,34 @@ function XUiSameColorGameTask:RefreshTaskList(taskType)
 end
 
 function XUiSameColorGameTask:OnDynamicTableEvent(event, index, grid)
-    if event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_ATINDEX then
-        grid:ResetData(self.CurrentTasks[index])
+     if event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_INIT then
+        grid.OpenUiObtain = function(gridSelf, ...)
+            local rewardGoodsList = ...
+            XLuaUiManager.Open("UiSameColorGameRewardDetails", rewardGoodsList)
+        end
+    elseif event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_ATINDEX then
+        local taskData = self.CurrentTasks[index]
+        grid:ResetData(taskData)
+
+        -- 特殊处理背景图和名称
+        if not grid.Bg then
+            grid.Bg = XUiHelper.TryGetComponent(grid.Transform, "PanelAnimation/Bg")
+        end
+        if not grid.Bg2 then
+            grid.Bg2 = XUiHelper.TryGetComponent(grid.Transform, "PanelAnimation/Bg2")
+        end
+        if not grid.TxtTaskName2 then
+            grid.TxtTaskName2 = XUiHelper.TryGetComponent(grid.Transform, "PanelAnimation/TxtTaskName2", "Text")
+        end
+        local config = XDataCenter.TaskManager.GetTaskTemplate(taskData.Id)
+        grid.TxtTaskName2.text = config.Title
+
+        local isFinish = taskData.State == XDataCenter.TaskManager.TaskState.Finish
+        grid.Bg.gameObject:SetActiveEx(not isFinish)
+        grid.Bg2.gameObject:SetActiveEx(isFinish)
+        grid.TxtTaskName.gameObject:SetActiveEx(not isFinish)
+        grid.TxtTaskName2.gameObject:SetActiveEx(isFinish)
+        
         -- 特殊处理进度显示
         local splite = string.Split(grid.TxtTaskNumQian.text, "/")
         local currentValue = tonumber(splite[1])

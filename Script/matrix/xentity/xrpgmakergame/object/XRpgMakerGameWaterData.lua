@@ -4,7 +4,8 @@ local type = type
 local pairs = pairs
 local Vector3 = CS.UnityEngine.Vector3
 
---水、冰对象
+---水、冰对象
+---@class XRpgMakerGameWaterData:XRpgMakerGameObject
 local XRpgMakerGameWaterData = XClass(XRpgMakerGameObject, "XRpgMakerGameWaterData")
 
 function XRpgMakerGameWaterData:Ctor(id, gameObject)
@@ -13,15 +14,31 @@ function XRpgMakerGameWaterData:Ctor(id, gameObject)
 end
 
 function XRpgMakerGameWaterData:InitData()
-    local id = self:GetId()
-    local x = XRpgMakerGameConfigs.GetEntityX(id)
-    local y = XRpgMakerGameConfigs.GetEntityY(id)
-    self:UpdatePosition({PositionX = x, PositionY = y})
-    
-    local type = XRpgMakerGameConfigs.GetEntityType(id)
-    self:SetStatus(type == XRpgMakerGameConfigs.XRpgMakerGameEntityType.Water and 
+    -- local id = self:GetId()
+    -- local x = XRpgMakerGameConfigs.GetEntityX(id)
+    -- local y = XRpgMakerGameConfigs.GetEntityY(id)
+    -- self:UpdatePosition({PositionX = x, PositionY = y})
+    -- local type = XRpgMakerGameConfigs.GetEntityType(id)
+    -- self:SetStatus(type == XRpgMakerGameConfigs.XRpgMakerGameEntityType.Water and 
+    --     XRpgMakerGameConfigs.XRpgMakerGameWaterType.Water or
+    --     XRpgMakerGameConfigs.XRpgMakerGameWaterType.Ice)
+    if not XTool.IsTableEmpty(self.MapObjData) then
+        self:InitDataByMapObjData(self.MapObjData)
+    end
+end
+
+---@param mapObjData XMapObjectData
+function XRpgMakerGameWaterData:InitDataByMapObjData(mapObjData)
+    self.MapObjData = mapObjData
+    self:UpdatePosition({PositionX = self.MapObjData:GetX(), PositionY = self.MapObjData:GetY()})
+    self:SetStatus(self.MapObjData:GetType() == XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Water and 
         XRpgMakerGameConfigs.XRpgMakerGameWaterType.Water or
         XRpgMakerGameConfigs.XRpgMakerGameWaterType.Ice)
+end
+
+---@return XMapObjectData
+function XRpgMakerGameWaterData:GetMapObjData()
+    return self.MapObjData
 end
 
 --1水，2冰

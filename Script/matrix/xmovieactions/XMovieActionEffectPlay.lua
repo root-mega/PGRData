@@ -51,9 +51,9 @@ function XMovieActionEffectPlay:OnRunning()
         if self.BodyActorIndex > 0 then
             local actor = self.UiRoot:GetActor(self.BodyActorIndex)
             local path = XMovieConfigs.GetActorImgPath(actor.ActorId)
-            local resource = CS.XResourceManager.Load(path)
+            local resource = self.UiRoot:LoadResource(path)
             local texture = resource.Asset
-            
+
             local bodyParticle = effectGo.transform:FindTransform("lihui")
             if bodyParticle then
                 local renderer = bodyParticle:GetComponent(typeof(CS.UnityEngine.Renderer))
@@ -63,11 +63,23 @@ function XMovieActionEffectPlay:OnRunning()
     else
         effectGo.gameObject:SetActiveEx(false)
         effectGo.gameObject:SetActiveEx(true)
+        if self.BodyActorIndex > 0 then
+            local actor = self.UiRoot:GetActor(self.BodyActorIndex)
+            local path = XMovieConfigs.GetActorImgPath(actor.ActorId)
+            local resource = self.UiRoot:LoadResource(path)
+            local texture = resource.Asset
+
+            local bodyParticle = effectGo.transform:FindTransform("lihui")
+            if bodyParticle then
+                local renderer = bodyParticle:GetComponent(typeof(CS.UnityEngine.Renderer))
+                renderer.material:SetTexture("_MainTex", texture)
+            end
+        end
     end
 end
 
 function XMovieActionEffectPlay:OnExit()
     XLuaUiManager.SetMask(false)
-end 
+end
 
 return XMovieActionEffectPlay

@@ -100,10 +100,10 @@ function XMedalConfigs.InitNameplateConfig()
     for _, config in pairs(NameplateConfigs) do
         if config.Title and config.IconType == 2 then
             if config.Title and string.Utf8Len(config.Title) > 14 then
-                XLog.Error("铭牌Title字符数量超过十四个----Id = "..config.Id.." "..config.Title)
+                XLog.Warning("铭牌Title字符数量超过十四个----Id = "..config.Id.." "..config.Title)
             end
         elseif not config.Title and config.IconType == 2 then
-            XLog.Error("铭牌Title为空请检查" .. config.Id)
+            XLog.Warning("铭牌Title为空请检查" .. config.Id)
         end
         NameplateGroupDic[config.Group] = NameplateGroupDic[config.Group] or {}
         table.insert(NameplateGroupDic[config.Group], config)

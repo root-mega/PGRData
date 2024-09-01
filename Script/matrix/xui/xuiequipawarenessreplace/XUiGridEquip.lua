@@ -1,25 +1,36 @@
 local PanelUsingWords = CS.XTextManager.GetText("EquipGridUsingWords")
 local PanelInPrefabWords = CS.XTextManager.GetText("EquipGridInPrefabWords")
 local PanelSelectedWords = CS.XTextManager.GetText("MentorGiftIsSelectedText")
-local XUiGridEquip = XClass(nil, "XUiGridEquip")
+local XUiGridEquip = XClass(XUiNode, "XUiGridEquip")
 
-function XUiGridEquip:Ctor(ui, clickCb, rootUi)
-    self.GameObject = ui.gameObject
-    self.Transform = ui.transform
-    self.RootUi = rootUi
+-- 如需注册事件在界面里注册，后续会优化删掉XUiGridEquip事件的注册
+function XUiGridEquip:OnStart(clickCb, isNeedEvent)
     self.ClickCb = clickCb
+    self.IsNeedEvent = isNeedEvent
     self:InitAutoScript()
     self:SetSelected(false)
 
-    XEventManager.AddEventListener(XEventId.EVENT_EQUIP_PUTON_NOTYFY, self.UpdateUsing, self)
-    XEventManager.AddEventListener(XEventId.EVENT_EQUIP_TAKEOFF_NOTYFY, self.UpdateUsing, self)
-    XEventManager.AddEventListener(XEventId.EVENT_EQUIP_LOCK_STATUS_CHANGE_NOTYFY, self.UpdateIsLock, self)
-    XEventManager.AddEventListener(XEventId.EVENT_EQUIP_RECYCLE_STATUS_CHANGE_NOTYFY, self.UpdateIsRecycle, self)
-    XEventManager.AddEventListener(XEventId.EVENT_EQUIP_BREAKTHROUGH_NOTYFY, self.UpdateBreakthrough, self)
+    if self.IsNeedEvent then
+        XEventManager.AddEventListener(XEventId.EVENT_EQUIP_PUTON_NOTYFY, self.UpdateUsing, self)
+        XEventManager.AddEventListener(XEventId.EVENT_EQUIP_TAKEOFF_NOTYFY, self.UpdateUsing, self)
+        XEventManager.AddEventListener(XEventId.EVENT_EQUIP_LOCK_STATUS_CHANGE_NOTYFY, self.UpdateIsLock, self)
+        XEventManager.AddEventListener(XEventId.EVENT_EQUIP_RECYCLE_STATUS_CHANGE_NOTYFY, self.UpdateIsRecycle, self)
+        XEventManager.AddEventListener(XEventId.EVENT_EQUIP_BREAKTHROUGH_NOTYFY, self.UpdateBreakthrough, self)
+    end
+end
+
+function XUiGridEquip:OnRelease()
+    if self.IsNeedEvent then
+        XEventManager.RemoveEventListener(XEventId.EVENT_EQUIP_PUTON_NOTYFY, self.UpdateUsing, self)
+        XEventManager.RemoveEventListener(XEventId.EVENT_EQUIP_TAKEOFF_NOTYFY, self.UpdateUsing, self)
+        XEventManager.RemoveEventListener(XEventId.EVENT_EQUIP_LOCK_STATUS_CHANGE_NOTYFY, self.UpdateIsLock, self)
+        XEventManager.RemoveEventListener(XEventId.EVENT_EQUIP_RECYCLE_STATUS_CHANGE_NOTYFY, self.UpdateIsRecycle, self)
+        XEventManager.RemoveEventListener(XEventId.EVENT_EQUIP_BREAKTHROUGH_NOTYFY, self.UpdateBreakthrough, self)
+    end
 end
 
 function XUiGridEquip:InitRootUi(rootUi)
-    self.RootUi = rootUi
+    self.Parent = rootUi
 end
 
 function XUiGridEquip:Refresh(equipId,idList)
@@ -37,12 +48,30 @@ function XUiGridEquip:Refresh(equipId,idList)
 
     --通用的横条品质色
     if self.ImgQuality then
-        self.RootUi:SetUiSprite(self.ImgQuality, XDataCenter.EquipManager.GetEquipQualityPath(templateId))
+        local qualityPath = equip:GetEquipQualityPath()
+        self.Parent:SetUiSprite(self.ImgQuality, qualityPath)
+
+        if self.ImgQualityEffect then
+            local effectPath = equip:GetEquipQualityEffectPath()
+            self.ImgQualityEffect.gameObject:SetActiveEx(effectPath ~= nil)
+            if effectPath then
+                self.ImgQualityEffect.gameObject:LoadUiEffect(effectPath)
+            end
+        end
     end
 
     --装备专用的竖条品质色
     if self.ImgEquipQuality then
-        self.RootUi:SetUiSprite(self.ImgEquipQuality, XDataCenter.EquipManager.GetEquipBgPath(templateId))
+        local bgPath = equip:GetEquipBgPath()
+        self.Parent:SetUiSprite(self.ImgEquipQuality, bgPath)
+
+        if self.ImgEquipQualityEffect then
+            local effectPath = equip:GetEquipBgEffectPath()
+            self.ImgEquipQualityEffect.gameObject:SetActiveEx(effectPath ~= nil)
+            if effectPath then
+                self.ImgEquipQualityEffect.gameObject:LoadUiEffect(effectPath)
+            end
+        end
     end
 
     if self.TxtName then
@@ -51,6 +80,13 @@ function XUiGridEquip:Refresh(equipId,idList)
 
     if self.TxtLevel then
         self.TxtLevel.text = equip.Level
+    end
+
+    -- 公约驻守激活橙色边框
+    local equipSite = XDataCenter.EquipManager.GetEquipSite(equipId)
+    local isActiveAwarenessOcuupy = XTool.IsNumberValid(equipSite) and XDataCenter.FubenAwarenessManager.GetChapterDataBySiteNum(equipSite):IsOccupy()
+    if self.ImgFrame then
+        self.ImgFrame.gameObject:SetActiveEx(isActiveAwarenessOcuupy)
     end
 
     if self.PanelSite and self.TxtSite then
@@ -77,8 +113,15 @@ function XUiGridEquip:Refresh(equipId,idList)
         local obj = self["ImgResonance" .. i]
         if obj then
             if XDataCenter.EquipManager.CheckEquipPosResonanced(equipId, i) then
-                local icon = XEquipConfig.GetEquipResoanceIconPath(XDataCenter.EquipManager.IsEquipPosAwaken(equipId, i))
-                self.RootUi:SetUiSprite(obj, icon)
+                -- 公约驻守+超频激活橙色标签
+                local awaken = XDataCenter.EquipManager.IsEquipPosAwaken(equipId, i)
+                local icon = XEquipConfig.GetEquipResoanceIconPath(awaken)
+                local bindCharId = XDataCenter.EquipManager.GetResonanceBindCharacterId(equipId, i)
+                local characterId = XDataCenter.EquipManager.GetEquipWearingCharacterId(equipId)
+                if isActiveAwarenessOcuupy and awaken and bindCharId == characterId then
+                    icon = CS.XGame.ClientConfig:GetString("AwarenessOcuupyActiveResonanced")
+                end
+                self.Parent:SetUiSprite(obj, icon)
                 obj.gameObject:SetActiveEx(true)
             else
                 obj.gameObject:SetActiveEx(false)
@@ -176,7 +219,7 @@ function XUiGridEquip:UpdateBreakthrough(equipId)
 
     local icon = XDataCenter.EquipManager.GetEquipBreakThroughSmallIcon(self.EquipId)
     if icon then
-        self.RootUi:SetUiSprite(self.ImgBreakthrough, icon)
+        self.Parent:SetUiSprite(self.ImgBreakthrough, icon)
         self.ImgBreakthrough.gameObject:SetActiveEx(true)
     else
         self.ImgBreakthrough.gameObject:SetActiveEx(false)
@@ -193,7 +236,17 @@ function XUiGridEquip:InitAutoScript()
         self.PanelDefault = self.GameObject.transform:Find("GridEquipRectangle/PanelDefault") or nil
         self.TextInPrefab = not XTool.UObjIsNil(self.PanelDefault) and self.PanelDefault.transform:Find("TextUsing"):GetComponent("Text") or nil
     end
-    CsXUiHelper.RegisterClickEvent(self.BtnClick, function() self:OnBtnClickClick() end)
+    if self.BtnClick and self.ClickCb then
+        CsXUiHelper.RegisterClickEvent(self.BtnClick, function() self:OnBtnClickClick() end)
+    end
+
+    --v2.5 品质特效
+    if self.ImgQuality then
+        self.ImgQualityEffect = XUiHelper.TryGetComponent(self.ImgQuality.transform, "ImgQualityEffect")
+    end
+    if self.ImgEquipQuality then
+        self.ImgEquipQualityEffect = XUiHelper.TryGetComponent(self.ImgEquipQuality.transform, "ImgEquipQualityEffect")
+    end
 end
 
 function XUiGridEquip:OnBtnClickClick()

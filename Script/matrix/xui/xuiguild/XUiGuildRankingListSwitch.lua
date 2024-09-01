@@ -111,6 +111,7 @@ function XUiGuildRankingListSwitch:OnSetRefreshInfo(data, rank)
         --公会头像
         local path = XGuildConfig.GetGuildHeadPortraitIconById(data.GuildIconId)
         self.ImgIcon:SetRawImage(path)
+        self.TxtID.text = string.format("%08d", data.GuildId)
     end
 end
 

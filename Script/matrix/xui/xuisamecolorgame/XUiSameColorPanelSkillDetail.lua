@@ -10,8 +10,9 @@ function XUiSameColorPanelSkillDetail:Ctor(ui)
 end
 
 -- skill : XSCRoleSkill
-function XUiSameColorPanelSkillDetail:SetData(skill)
+function XUiSameColorPanelSkillDetail:SetData(skill, isTimeType)
     self.Skill = skill
+    self.IsTimeType = isTimeType
     self:RefreshSkillInfo()
 end
 
@@ -19,16 +20,18 @@ function XUiSameColorPanelSkillDetail:RefreshSkillInfo()
     local skill = self.Skill
     self.RImgIcon:SetRawImage(skill:GetIcon())
     self.TxtName.text = skill:GetName()
-    self.TxtSkillDesOff.text = skill:GetDesc()
-    self.TxtSkillDesOn.text = skill:GetDesc()
+    self.TxtSkillDesOff.text = skill:GetDesc(self.IsTimeType)
+    self.TxtSkillDesOn.text = skill:GetDesc(self.IsTimeType)
     -- CD
     self.TxtCD.text = XUiHelper.GetText("SameColorGameRoleTip2", self.Skill:GetCD())
     -- 播放动画
     if self.AnimSwitch then -- 防打包
         self.AnimSwitch:Play()
     end
-    local hasOn = self.Skill:GetIsHasOnSkill()
-    if not hasOn then -- 如果没有on技能，直接显示off描述，隐藏切换按钮
+    -- local hasOn = self.Skill:GetIsHasOnSkill()
+    -- if not hasOn then -- 如果没有on技能，直接显示off描述，隐藏切换按钮
+    -- v1.31 3期不需要切换技能描述
+    if true then
         self.TxtSkillDesOn.gameObject:SetActiveEx(false)
         self.TxtSkillDesOff.gameObject:SetActiveEx(true)
         self.BtnOn.gameObject:SetActiveEx(false)
@@ -52,10 +55,12 @@ end
 
 function XUiSameColorPanelSkillDetail:Open()
     self.GameObject:SetActiveEx(true)
+    XDataCenter.UiPcManager.OnUiEnable(self)
 end
 
 function XUiSameColorPanelSkillDetail:Close()
     self.GameObject:SetActiveEx(false)
+    XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
 end
 
 function XUiSameColorPanelSkillDetail:OnBtnSwitchClicked()

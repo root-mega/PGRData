@@ -3,6 +3,7 @@ local XUiBabelTowerChallengeSelect = require("XUi/XUiFubenBabelTower/XUiBabelTow
 
 local CSXTextManagerGetText = CS.XTextManager.GetText
 
+---@class UiBabelTowerChildChallenge : XLuaUi
 local XUiBabelTowerChildChallenge = XLuaUiManager.Register(XLuaUi, "UiBabelTowerChildChallenge")
 
 function XUiBabelTowerChildChallenge:OnAwake()
@@ -25,6 +26,7 @@ function XUiBabelTowerChildChallenge:OnAwake()
     self.GridChoice.gameObject:SetActiveEx(false)
 end
 
+---@param uiRoot UiBabelTowerBase
 function XUiBabelTowerChildChallenge:OnStart(uiRoot, stageId, guideId, teamId)
     self.UiRoot = uiRoot
     self.StageId = stageId
@@ -153,7 +155,7 @@ function XUiBabelTowerChildChallenge:InitDefaultSelect()
         local groupItem = self.ChallengeBuffSelectGroup[i]
         local buffId = cache[groupItem.BuffGroupId]
         groupItem.SelectBuffId = buffId
-        if buffId and buffId ~= 0 and not self:IsBuffLock(buffId) then
+        if buffId and buffId ~= 0 and not self.UiRoot:IsBuffLock(buffId) then
             table.insert(self.ChoosedChallengeList, groupItem)
         end
     end
@@ -232,7 +234,7 @@ function XUiBabelTowerChildChallenge:UpdateChoosedChallengeDatas(buffGroupId, bu
         if groupItem.BuffGroupId == buffGroupId then
             groupItem.SelectBuffId = buffId
         end
-        if groupItem.SelectBuffId and groupItem.SelectBuffId ~= 0 and self:IsBuffLock(groupItem.SelectBuffId) then
+        if groupItem.SelectBuffId and groupItem.SelectBuffId ~= 0 and self.UiRoot:IsBuffLock(groupItem.SelectBuffId) then
             groupItem.SelectBuffId = nil
         end
         if groupItem.SelectBuffId then
@@ -242,8 +244,8 @@ function XUiBabelTowerChildChallenge:UpdateChoosedChallengeDatas(buffGroupId, bu
 
     if self.ChoosedChallengeList then
         for k = #self.ChoosedChallengeList, 1, -1 do
-            local buffId = self.ChoosedChallengeList[k].SelectBuffId
-            if not buffId or buffId ~= 0 and self:IsBuffLock(buffId) then
+            local selectBuffId = self.ChoosedChallengeList[k].SelectBuffId
+            if not selectBuffId or selectBuffId ~= 0 and self.UiRoot:IsBuffLock(selectBuffId) then
                 table.remove(self.ChoosedChallengeList, k)
             end
         end
@@ -302,13 +304,13 @@ function XUiBabelTowerChildChallenge:ReportChallengeChoice()
     self.UiRoot:UpdateChallengeBuffInfos(self.ChoosedChallengeList)
 end
 
-function XUiBabelTowerChildChallenge:DealDiffRealatedData()
+function XUiBabelTowerChildChallenge:DealDiffRealatedData(isShowTip)
     local dataChanged = false
 
     if self.ChoosedChallengeList then
         for k = #self.ChoosedChallengeList, 1, -1 do
             local buffId = self.ChoosedChallengeList[k].SelectBuffId
-            if buffId ~= 0 and self:IsBuffLock(buffId) then
+            if buffId ~= 0 and self.UiRoot:IsBuffLock(buffId) then
                 table.remove(self.ChoosedChallengeList, k)
                 dataChanged = true
             end
@@ -317,7 +319,7 @@ function XUiBabelTowerChildChallenge:DealDiffRealatedData()
 
     for i = 1, #self.ChallengeBuffSelectGroup do
         local groupItem = self.ChallengeBuffSelectGroup[i]
-        if groupItem.SelectBuffId and groupItem.SelectBuffId ~= 0 and self:IsBuffLock(groupItem.SelectBuffId) then
+        if groupItem.SelectBuffId and groupItem.SelectBuffId ~= 0 and self.UiRoot:IsBuffLock(groupItem.SelectBuffId) then
             groupItem.SelectBuffId = nil
         end
     end
@@ -326,7 +328,7 @@ function XUiBabelTowerChildChallenge:DealDiffRealatedData()
         for k = #self.ChallengeBuffGroup, 1, -1 do
             local data = self.ChallengeBuffGroup[k]
             local buffId = data.SelectedBuffId
-            if buffId ~= 0 and self:IsBuffLock(buffId) then
+            if buffId ~= 0 and self.UiRoot:IsBuffLock(buffId) then
                 data.SelectedBuffId = nil
                 data.CurSelectId = -1
                 dataChanged = true
@@ -334,14 +336,16 @@ function XUiBabelTowerChildChallenge:DealDiffRealatedData()
         end
     end
 
-    if dataChanged then
+    if dataChanged and isShowTip then
         XUiManager.TipText("BabelTowerStageLevelBuffChanged")
     end
+    
+    return dataChanged
 end
 
 function XUiBabelTowerChildChallenge:OnClickBtnDifficult()
     XLuaUiManager.Open("UiBabelTowerSelectDiffcult", self.StageId, self.TeamId, function()
-        self:DealDiffRealatedData()
+        self:DealDiffRealatedData(true)
         self:ReportChallengeChoice()
         self:RefreshSelectChoiceList()
         self.DynamicTableChallengeChoice:ReloadDataASync()
@@ -350,8 +354,11 @@ function XUiBabelTowerChildChallenge:OnClickBtnDifficult()
     end)
 end
 
-function XUiBabelTowerChildChallenge:IsBuffLock(buffId)
-    local selectDifficult = XDataCenter.FubenBabelTowerManager.GetTeamSelectDifficult(self.StageId, self.TeamId)
-    local openLevel = XFubenBabelTowerConfigs.GetStageDifficultLockBuffIdOpenLevel(self.StageId, buffId)
-    return openLevel and openLevel ~= 0 and selectDifficult <= openLevel or false
+function XUiBabelTowerChildChallenge:FilterChoosedChallengeList()
+    local dataChanged = self:DealDiffRealatedData()
+    if dataChanged then
+        self:ReportChallengeChoice()
+        self:RefreshSelectChoiceList()
+        self:UpdateCurChallengeScore(self.ChoosedChallengeList)
+    end
 end

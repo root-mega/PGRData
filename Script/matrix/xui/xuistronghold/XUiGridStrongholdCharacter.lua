@@ -5,6 +5,10 @@ local CsXTextManagerGetText = CsXTextManagerGetText
 local XUiGridStrongholdCharacter = XClass(nil, "XUiGridStrongholdCharacter")
 
 function XUiGridStrongholdCharacter:Ctor(ui)
+    ---@type XCharacterAgency
+    local ag = XMVCA:GetAgency(ModuleId.XCharacter)
+    self.CharacterAgency = ag
+
     self.GameObject = ui.gameObject
     self.Transform = ui.transform
 
@@ -20,12 +24,34 @@ function XUiGridStrongholdCharacter:Refresh(characterId, groupId, teamId, teamLi
     self.TeamList = teamList
     self.PlayerId = playerId
 
+    self.TxtPlayerName.gameObject:SetActiveEx(IsNumberValid(playerId))
+    self:UpdateBaseInfo()
     if XRobotManager.CheckIsRobotId(characterId) then
         self:UpdateRobot()
     elseif IsNumberValid(playerId) then
         self:UpdateAssistant()
     else
         self:UpdateCharacter()
+    end
+end
+
+function XUiGridStrongholdCharacter:UpdateBaseInfo()
+    -- 独域
+    self.PanelUniframe.gameObject:SetActiveEx(self.CharacterAgency:GetIsIsomer(self.CharacterId))
+
+    -- 初始品质
+    self.PanelInitQuality.gameObject:SetActiveEx(true)
+    local initQuality = self.CharacterAgency:GetCharacterInitialQuality(self.CharacterId)
+    local icon = self.CharacterAgency:GetModelCharacterQualityIcon(initQuality).IconCharacterInit
+    self.ImgInitQuality:SetSprite(icon)
+
+    -- 相同构造体
+    if self.PanelSameRole then
+        local curTeam = self.TeamList[self.TeamId]
+        local pos = curTeam:GetSameCharacterPos(self.CharacterId)
+        local inTeamId = XDataCenter.StrongholdManager.GetCharacterInTeamId(self.CharacterId, self.TeamList)
+        local isShowSame = inTeamId ~= self.TeamId and XTool.IsNumberValid(pos)
+        self.PanelSameRole.gameObject:SetActiveEx(isShowSame)
     end
 end
 
@@ -52,7 +78,7 @@ function XUiGridStrongholdCharacter:UpdateRobot()
     end
 
     if self.RImgHeadIcon then
-        local head = XDataCenter.CharacterManager.GetCharSmallHeadIcon(characterId, true)
+        local head = self.CharacterAgency:GetCharSmallHeadIcon(characterId, true)
         self.RImgHeadIcon:SetRawImage(head)
     end
 
@@ -132,7 +158,7 @@ function XUiGridStrongholdCharacter:UpdateAssistant()
 
     if self.RImgHeadIcon then
         local headInfo = character.CharacterHeadInfo or {}
-        local head = XDataCenter.CharacterManager.GetCharSmallHeadIcon(characterId, true, headInfo.HeadFashionId, headInfo.HeadFashionType)
+        local head = self.CharacterAgency:GetCharSmallHeadIcon(characterId, true, headInfo.HeadFashionId, headInfo.HeadFashionType)
         self.RImgHeadIcon:SetRawImage(head)
     end
 
@@ -172,7 +198,7 @@ function XUiGridStrongholdCharacter:UpdateAssistant()
     end
 
     if self.PanelTry then
-        self.PanelTry.gameObject:SetActiveEx(true)
+        self.PanelTry.gameObject:SetActiveEx(false)
     end
 
     if self.PanelRecommend then
@@ -187,7 +213,7 @@ function XUiGridStrongholdCharacter:UpdateCharacter()
     local teamList = self.TeamList
     local groupId = self.GroupId
     local characterId = self.CharacterId
-    local character = XDataCenter.CharacterManager.GetCharacter(characterId)
+    local character = self.CharacterAgency:GetCharacter(characterId)
 
     if self.PanelCharElement then
         local detailConfig = XCharacterConfigs.GetCharDetailTemplate(characterId)
@@ -205,7 +231,7 @@ function XUiGridStrongholdCharacter:UpdateCharacter()
     end
 
     if self.RImgHeadIcon then
-        self.RImgHeadIcon:SetRawImage(XDataCenter.CharacterManager.GetCharSmallHeadIcon(characterId))
+        self.RImgHeadIcon:SetRawImage(self.CharacterAgency:GetCharSmallHeadIcon(characterId))
     end
 
     if self.TxtLevel then
@@ -214,7 +240,7 @@ function XUiGridStrongholdCharacter:UpdateCharacter()
 
     if self.PanelFight then
         self.PanelFight.gameObject:SetActiveEx(true)
-        local ability = XDataCenter.CharacterManager.GetCharacterAbilityById(characterId)
+        local ability = self.CharacterAgency:GetCharacterAbilityById(characterId)
         self.TxtFight.text = mathFloor(ability)
     end
 

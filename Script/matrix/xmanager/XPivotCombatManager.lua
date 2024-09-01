@@ -73,6 +73,10 @@ XPivotCombatManagerCreator = function()
         if not XTool.IsNumberValid(_RegionDifficult) then
             return
         end
+        --置空
+        _CenterRegion = {}
+        _SecondaryRegion = {}
+        _RegionId2Region = {}
         local regions = XPivotCombatConfigs.GetCurRegionConfigs()
         for regionId, config in pairs(regions[_RegionDifficult] or {}) do
             local regionItem = XPivotCombatRegionItem.New(regionId)
@@ -641,6 +645,24 @@ XPivotCombatManagerCreator = function()
         return _LockCharacterIdDic
     end
     
+    --==============================
+     ---@desc 检查角色是否被锁定
+     ---@stageId 关卡Id 
+     ---@characterId 角色Id
+     ---@return boolean
+    --==============================
+    function XPivotCombatManager.CheckCharacterLocked(stageId, characterId)
+        if not XTool.IsNumberValid(stageId) 
+                or not XTool.IsNumberValid(characterId) then
+            return false
+        end
+        local stage = XDataCenter.PivotCombatManager.GetStage(stageId)
+        if not stage or stage:CanUseLockedRole() then
+            return false
+        end
+        return _LockCharacterIdDic[characterId] and true or false
+    end
+    
     --===========================================================================
      ---@desc 界面处理通用事件
     --===========================================================================
@@ -866,7 +888,7 @@ XPivotCombatManagerCreator = function()
             end
         end
     end
-
+    
     --===========================================================================
      ---@desc 战斗前的检查与数据准备
     --===========================================================================
@@ -877,21 +899,36 @@ XPivotCombatManagerCreator = function()
         preFight.StageId = stage.StageId
         preFight.IsHasAssist = isAssist and true or false
         preFight.ChallengeCount = challengeCount or 1
-        local team = _TeamDict[teamId]
-        if not team then
-            team = XTeam.New(teamId)
-            _TeamDict[teamId] = team
-        end
-        local teamData = team:GetEntityIds()
-        for teamIndex, characterId in pairs(teamData) do
-            if XRobotManager.CheckIsRobotId(characterId) then
-                preFight.RobotIds[teamIndex] = characterId
-            else
-                preFight.CardIds[teamIndex] = characterId
+        
+        local robotIds = stage.RobotId
+        if robotIds and #robotIds > 0 then
+            for i, id in ipairs(preFight.RobotIds) do
+                local robotId = robotIds[i]
+                if robotId and robotId > 0 then
+                    preFight.CaptainPos = i
+                    preFight.FirstFightPos = i
+                    preFight.RobotIds[i] = robotId
+                else
+                    preFight.RobotIds[i] = 0
+                end
             end
+        else
+            local team = _TeamDict[teamId]
+            if not team then
+                team = XTeam.New(teamId)
+                _TeamDict[teamId] = team
+            end
+            local teamData = team:GetEntityIds()
+            for teamIndex, characterId in pairs(teamData) do
+                if XRobotManager.CheckIsRobotId(characterId) then
+                    preFight.RobotIds[teamIndex] = characterId
+                else
+                    preFight.CardIds[teamIndex] = characterId
+                end
+            end
+            preFight.CaptainPos = team:GetCaptainPos()
+            preFight.FirstFightPos = team:GetFirstFightPos()
         end
-        preFight.CaptainPos = team:GetCaptainPos()
-        preFight.FirstFightPos = team:GetFirstFightPos()
         return preFight
     end
     
@@ -1054,6 +1091,14 @@ XPivotCombatManagerCreator = function()
         else
             XDataCenter.FubenManager.ShowReward(winData)
         end
+    end
+    
+    --==============================
+     ---@desc 新副本界面进度
+     ---@return string
+    --==============================
+    function XPivotCombatManager.GetProgressTips()
+        return XPivotCombatManager.GetActivityProgress()
     end
     
     --endregion

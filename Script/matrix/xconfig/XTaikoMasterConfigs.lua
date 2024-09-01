@@ -288,3 +288,7 @@ function XTaikoMasterConfigs.GetCharacterIdByNpcId(npcId)
     end
     return false
 end
+
+function XTaikoMasterConfigs.GetAllStage()
+    return GetScoreTab()
+end 

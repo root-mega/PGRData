@@ -28,6 +28,10 @@ end
 --显示奖励
 --================
 function XUiRpgTowerStageRewardsPanel:ShowRewards(rewardId)
+    if rewardId <= 0 then
+        return
+    end
+
     local rewards = XRewardManager.GetRewardList(rewardId) or XRewardManager.GetRewardListNotCount(rewardId)
     if rewards then
         for i, item in ipairs(rewards) do

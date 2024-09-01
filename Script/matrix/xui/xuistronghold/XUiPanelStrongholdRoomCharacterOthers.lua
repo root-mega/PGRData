@@ -201,7 +201,8 @@ function XUiPanelStrongholdRoomCharacterOthers:UpdateEquips()
         else
             local resonanceCount = #equip.ResonanceInfo
             self.WearingAwarenessGrids[i].GameObject:SetActiveEx(true)
-            self.WearingAwarenessGrids[i]:Refresh(equip.TemplateId, equip.Breakthrough, i, false, equip.Level, resonanceCount)
+            local curCharacterId = XDataCenter.StrongholdManager.GetAssistantPlayerCharacterId(playerId)
+            self.WearingAwarenessGrids[i]:Refresh(equip.TemplateId, equip.Breakthrough, i, false, equip.Level, resonanceCount, equip.AwakeSlotList, assistantInfo.AwarenessSetPositions, equip.ResonanceInfo, curCharacterId)
         end
     end
 

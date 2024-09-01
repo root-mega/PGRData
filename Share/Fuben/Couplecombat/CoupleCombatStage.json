@@ -1,0 +1,2972 @@
+[
+    {
+        "Id": 30162402,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. There is no special mechanism in this stage",
+            "3. Deployed characters are locked in this stage upon clear. Reset to unlock them",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            null,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            110004.0,
+            33062.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161101,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. There is no special mechanism in this stage",
+            "3. Deployed characters are locked in this stage upon clear. Reset to unlock them",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            null,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            110004.0,
+            33062.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161102,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, all your members will take True DMG equal to 2% of max HP every second",
+            "3. Recommend bringing Omniframes with the \"Health Recovery\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            4.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            33101.0,
+            32042.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161103,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, DMG taken by enemies increases by 100% when they are stunned and 50% when not",
+            "3. Recommend bringing Omniframes with the \"Control\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            9.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            32131.0,
+            32043.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161104,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, the enemy has a high-valued Super Armor bar that can slowly recover. When the Super Armor bar exists, DMG taken by the enemy reduces by 80%; when the bar is gone, DMG taken by the enemy increases by 150%. The Super Armor bar refreshes 10s after it is destroyed",
+            "3. Recommend bringing Omniframes with the \"Destroy Super Armor\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            13.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            32101.0,
+            33123.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161105,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, all your members' CRIT DMG increases by 100%, and the DMG dealt to the enemy from behind increases by 100%",
+            "3. Recommend bringing Omniframes with the \"Critical\" and \"Enmity Vortex\" features",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            6.0,
+            12.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            32112.0,
+            110002.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161106,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, the enemy has a special affix Rigid Body. The affix is destroyed when the enemy is hit 100 times, causing the enemy to lose 20% of max HP. The affix Rigid Body refreshes 10s after being destroyed",
+            "3. Recommend bringing Omniframes with the \"High Frequency Attack\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            2.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            110001.0,
+            110003.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161107,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, there is a dying device on the field which you can heal. When the device's HP is full, your units will get 300% Extra DMG bonus",
+            "3. Recommend bringing Omniframes with the \"Health Recovery\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            4.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            32071.0,
+            32082.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161108,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, the enemies will obtain the corresponding mark when they receive elemental DMG. While the mark exists, dealing damage of a different element will remove the mark and deal True Damage equal to 2% of the enemy's max HP",
+            "3. Recommend bringing Omniframes with the \"Elemental Damage\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            1.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            32072.0,
+            32083.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161109,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, you will gain special enhance effect when obtaining the buff effect provided by Support Omniframes. Each level will have the character's Extra DMG bonus increased by 10% for 10s. Buff duration will be refreshed when the buff stacks",
+            "3. Recommend bringing Omniframes with the \"Enhance\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            11.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            32073.0,
+            110005.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161110,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, the enemy will trigger a special skill every minute, dealing huge damage to the enemy and you at the same time in 10s",
+            "3. Recommend bringing Omniframes with the \"Health Recovery\" and \"DMG Reduction\" features",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            4.0,
+            8.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            32031.0,
+            110006.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161121,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, all your members will take True DMG equal to 4% of max HP every second",
+            "3. Recommend bringing Omniframes with the \"Health Recovery\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            4.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            32032.0,
+            110009.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161122,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, the enemies will obtain the corresponding mark when they receive elemental DMG. While the mark exists, dealing damage of a different element will remove the mark and deal True Damage equal to 1% of the enemy's max HP",
+            "3. Recommend bringing Omniframes with the \"Elemental Damage\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            1.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            32033.0,
+            110010.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161123,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, DMG taken by enemies increases by 100% when they are stunned and 50% when not",
+            "3. Recommend bringing Omniframes with the \"Control\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            9.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            32011.0,
+            110011.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161124,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, the enemy has a special affix Rigid Body that refreshes every 10 sec. The affix is destroyed when the enemy is hit 100 times, causing the enemy to lose 20% of max HP. The affix Rigid Body refreshes 5s after being destroyed",
+            "3. Recommend bringing Omniframes with the \"High Frequency Attack\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            2.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            32012.0,
+            110012.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161125,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, the enemy will not actively move. When it is forced to move, it will take True DMG equal to a percentage of its max HP that scales with the displacement",
+            "3. Recommend bringing Omniframes with the \"Pull\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            7.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            32013.0,
+            110013.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161126,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, all your members' CRIT DMG increases by 150%, the DMG dealt to the enemy from behind increases by 150%, and the DMG dealt to the enemy from other directions reduces greatly",
+            "3. Recommend bringing Omniframes with the \"Critical\" and \"Enmity Vortex\" features",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            6.0,
+            12.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            110007.0,
+            51096.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161127,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, the enemy will trigger a special skill every minute, dealing huge damage to the enemy and you at the same time in 10s",
+            "3. Recommend bringing Omniframes with the \"Health Recovery\" and \"DMG Reduction\" features",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            4.0,
+            8.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            110008.0,
+            32001.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161128,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, when all your members have shields, your attacks will consume 50% of the current shields and deal True DMG equal to the consumed value x100. This effect triggers every other second",
+            "3. Recommend bringing Omniframes with the \"Shield\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            10.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            33001.0,
+            32143.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161129,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, there is a dying device on the field which you can heal. When the device's HP is full, your units will get 500% Extra DMG bonus.",
+            "3. Recommend bringing Omniframes with the \"Health Recovery\" feature",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            4.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            33032.0,
+            32021.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161130,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. All characters are deployed simultaneously",
+            "2. In this stage, the enemy's ATK and DMG Reduction are very high. It has  one attack move only, and when this attack hits or is blocked, its DMG Reduction will reduce by 10% (Cannot be triggered during dodge)",
+            "3. Recommend bringing Omniframes with the \"Health Recovery\" and \"DMG Reduction\" features",
+            "4. Deployed characters are locked upon clear. Reset to unlock them",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            4.0,
+            8.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            33033.0,
+            32022.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161131,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Boss will enter a <color=#0e70bd>5-second Weak status</color> <color=#0e70bd>every 30s</color>, during which time the boss will <color=#0e70bd>receive 20% more damage</color>.",
+            "2. Use <color=#0e70bd>Sudden Change Burst (Offense Reinforcement I)</color> to deal damage to a Weak boss.",
+            "3. Recommended: <color=#0e70bd>Attacker</color> Omniframes and Omniframes that can deal <color=#0e70bd>Burst</color> damage",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            3.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "1",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161132,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Boss <color=#0e70bd>gain 10% ATK every 10s</color>. This effect can be stacked up to 20 times.",
+            "2. Use the <color=#0e70bd>Sudden Change Burst (Offense Reinforcement I)</color> to finish the battle asap.",
+            "3. Recommended: <color=#0e70bd>Attacker</color> Omniframes and Omniframes that can deal <color=#0e70bd>Burst</color> or <color=#0e70bd>CRIT</color> damage",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            3.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            772605.0,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "2A",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161133,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies have a <color=#0e70bd>Enhanced Rigid Body</color>, which will be removed after <color=#0e70bd>100 attacks</color> taken. Upon losing the Enhanced Rigid Body, the enemies will lose 20% of Max HP. A Rigid Body Affix will <color=#0e70bd>restore 10s</color> after being removed.",
+            "2. Use <color=#0e70bd>Corrupting Mark (Offense Reinforcement II)</color> to restore HP and multiple-hit attacks to defeat the opponent.",
+            "3. Recommended: <color=#0e70bd>Attacker</color> Omniframes and Omniframes that can deal <color=#0e70bd>High Frequency Attacks</color>",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            2.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            772606.0,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "3A",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161134,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Clear the stage to unlock <color=#0e70bd>Corrupting Mark (Offense Reinforcement II)</color>.",
+            "2.<color=#0e70bd>Revive with half-full HP</color> if there are still monsters in the stage <color=#0e70bd>15s after an enemy dies</color>.",
+            "3. Use Tank Omniframes to <color=#0e70bd>pull enemies</color> and then use <color=#0e70bd>Sudden Change Burst (Attacker Reinforcement I)</color> to kill them directly.",
+            "4. Recommended: <color=#0e70bd>Attacker</color> Omniframes and <color=#0e70bd>Tank</color> Omniframes respectively",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            15.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "2B",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161135,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Clear the stage to unlock <color=#0e70bd>Corrupting Mark (Advance Reinforcement II)</color>.",
+            "2. Your characters keep losing HP with the HP reduction speed increasing once <color=#0e70bd>every 25s</color>. The HP reduction speed can be reset upon the boss' HP dropping to <color=#0e70bd>70%/40%/10%</color>.",
+            "3. Recommended to use the <color=#0e70bd>Corrupting Mark (Offense Reinforcement II)</color> to keep HP and finish the battle asap.",
+            "4. Recommended: <color=#0e70bd>Attacker</color> Omniframes",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            712002.0,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "3B",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161136,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies <color=#0e70bd>gain 10% ATK every 10s</color>. This effect can be stacked up to 20 times.",
+            "2. <color=#0e70bd>After 50s</color>, enemies' attacks will also inflict the Bleed effect that <color=#0e70bd>reduce 3% HP every second</color>.",
+            "3. Recommended to use the <color=#0e70bd>Corrupting Mark (Offense Reinforcement II)</color> to keep HP and finish the battle asap.",
+            "4. This is a <color=#0e70bd>Special Dispatch Zone</color> stage. <color=#0e70bd>Uniframes</color> are recommended.",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            18.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            772607.0,
+            772605.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "4",
+        "IsLastOne": 1.0
+    },
+    {
+        "Id": 30161137,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1.<color=#0e70bd>Revive with half-full HP</color> if there are still monsters in the stage <color=#0e70bd>15s after an enemy dies</color>.",
+            "2. According to the number of revivals, add <color=#0e70bd>Black Hole</color> and <color=#0e70bd>Berserk</color> respectively.",
+            "3. Use Tank Omniframes to <color=#0e70bd>pull enemies</color> and then use the recommended <color=#0e70bd>Corrupting Mark (Attacker Reinforcement II)</color> to keep HP and finish the battle.",
+            "4. Recommended: <color=#0e70bd>Attacker</color> Omniframes and <color=#0e70bd>Tank</color> Omniframes respectively",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            15.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            760411.0,
+            110211.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161138,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies inflict <color=#0e70bd>Bleed</color> on the hatred target every 25s.",
+            "2. Enable <color=#0e70bd>Weakening Core (Defense Reinforcement I)</color> to resist damage.",
+            "3. Recommended: <color=#0e70bd>Tank</color> Omniframes and Omniframes with a <color=#0e70bd>shield</color>",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            10.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            772607.0,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "1",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161139,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies have high-value Super Armor bar and receive less damage with the presence of the Super Armor bar. They will <color=#0e70bd>receive significantly more damage after the Super Armor bar disappears</color>. The Super Armor bar <color=#0e70bd> will be refreshed 10s after it disappears</color>.",
+            "2. Enable <color=#0e70bd>Weakening Core (Defense Reinforcement I)</color> to resist damage.",
+            "3. Recommended: <color=#0e70bd>Tank</color> Omniframes and Omniframes with <color=#0e70bd>DMG Reduction</color>",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            8.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "2A",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161140,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Clear the stage to unlock <color=#0e70bd>True Space (Defense Reinforcement II)</color>.",
+            "2. Switches links once every 20s. When in a <color=#0e70bd>blue link</color>, the character <color=#0e70bd>gains 20% ATK</color>.",
+            "3. Use Tank Constructs to <color=#0e70bd>fix the enemies' positions</color> and deal <color=#0e70bd>ranged damage</color> to them.",
+            "4. Recommended: <color=#0e70bd>Tank</color> Omniframes and <color=#0e70bd>Attacker</color> Omniframes that can deal <color=#0e70bd>damage</color>",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            17.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "3A",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161141,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies will <color=#0e70bd>burst for 5s every 20s</color>. And every time an enemy attacks, they deal additional True DMG equal to 10% HP. This effect will <color=#0e70bd>be interrupted when the enemy receive True DMG</color> during a burst.",
+            "2. Enable <color=#0e70bd>True Space (Defense Reinforcement II)</color> at the right time to interrupt a burst.",
+            "3. Recommended: <color=#0e70bd>Tank</color> Omniframes and <color=#0e70bd>Attacker</color> Omniframes respectively",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            14.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "2B",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161142,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies cast a skill to the current target every 20 seconds. If there is a <color=#0e70bd>red circle, stay away</color> from teammates. If there is a <color=#0e70bd>green circle, stay close</color> to teammates. Failing to do this will deal massive single damage to your members.",
+            "2. Enable <color=#0e70bd>Weakening Core (Defense Reinforcement I)</color> to resist damage.",
+            "3. Recommended: <color=#0e70bd>Tank</color> Omniframes, <color=#0e70bd>Support</color> Omniframes, and <color=#0e70bd>DMG Reduction</color> Omniframes",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            16.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161143,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Switches links once <color=#0e70bd>every 40s</color> and inflicts <color=#0e70bd>Bleed</color> on the hatred target. When in a <color=#0e70bd>blue link</color>, the character <color=#0e70bd>gains 20% ATK</color>. And when in a <color=#0e70bd>red link</color>, the character <color=#0e70bd>loses 80% ATK</color>.",
+            "2. Bleed: Deals True DMG equal to <color=#0e70bd>40% of Max HP</color> every second for <color=#0e70bd>3s</color>",
+            "3. Use Tank Constructs to <color=#0e70bd>fix the enemies' positions</color> and deal <color=#0e70bd>ranged damage</color> to them.",
+            "4. Recommended: <color=#0e70bd>Tank</color> Omniframes and <color=#0e70bd>Attacker</color> Omniframes that can deal <color=#0e70bd>ranged damage</color>",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            17.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            772607.0,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "3B",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161144,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies will <color=#0e70bd>burst for 10s every 20s</color>. And every time an enemy attacks, they deal additional True DMG equal to 10% HP. This effect will <color=#0e70bd>be interrupted when the enemy receive True DMG</color> during a burst.",
+            "2. Enable <color=#0e70bd>True Space (Defense Reinforcement II)</color> at the right time to interrupt a burst.",
+            "3. Recommended: <color=#0e70bd>Tank</color> Omniframes and <color=#0e70bd>Support</color> Omniframes respectively",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            16.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            760412.0,
+            110222.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "4",
+        "IsLastOne": 1.0
+    },
+    {
+        "Id": 30161145,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>At the beginning of the battle</color>, inflicts <color=#0e70bd>Grave Wounds</color> on the character you control. And inflicts <color=#0e70bd>Grave Wounds</color> on the same character every <color=#0e70bd>20s</color>.",
+            "2. Grave Wounds: <color=#0e70bd>This will be triggered when HP drops below 90%</color>. After that, the character affected by this will receive increasing periodical damage. Restore the character's HP back to <color=#0e70bd>90% or above to remove the effect</color>.",
+            "3. Enable <color=#0e70bd>Emergency Repair (Assist Reinforcement I)</color> at the right time to restore full HP.",
+            "4. Recommended: <color=#0e70bd>Support</color> Omniframes and any other Omniframes",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            772609.0,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "2A",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161146,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Clear the stage to unlock <color=#0e70bd>Overload Recharge (Assist Reinforcement II)</color>.",
+            "2. Enemies deal <color=#0e70bd>full-screen massive damage</color> every 25s.",
+            "3. Enable <color=#0e70bd>Emergency Repair (Assist Reinforcement I)</color> at the right time to restore full HP.",
+            "4. Recommended: <color=#0e70bd>Support</color> Omniframes and <color=#0e70bd>Attacker</color> Omniframes respectively",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            14.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "2B",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161147,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies' attacks also inflict <color=#0e70bd>Bleed</color> and reduce 1% of Max HP every second for 5s. Meanwhile, the <color=#0e70bd>True DMG the enemies received double</color>.",
+            "2. Enable <color=#0e70bd>Overload Recharge (Assist Reinforcement II)</color> to heal and deal True DMG.",
+            "3. Recommended: <color=#0e70bd>Support</color> Omniframes and any other Omniframes",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            772607.0,
+            712002.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "3A",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161148,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Cross Thunder will be triggered</color> every <color=#0e70bd>15s</color>. Remember to watch out.",
+            "2. Enable <color=#0e70bd>Emergency Repair (Assist Reinforcement I)</color> to restore full HP.",
+            "3. Recommended: <color=#0e70bd>Support</color> Omniframes and <color=#0e70bd>Tank</color> Omniframes",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            15.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "3B",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161149,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies reduce all your units to <color=#0e70bd>1 HP</color> <color=#0e70bd>every 30s</color> and then deal two wide-range attacks.",
+            "2. Enable <color=#0e70bd>Emergency Repair (Assist Reinforcement I)</color> at the right time to avoid being seckilled by the boss.",
+            "3. Recommended: <color=#0e70bd>Support</color> Omniframes and <color=#0e70bd>Tank</color> Omniframes",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            15.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel1.png",
+        "IndexText": "1",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161150,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Cross Thunder will be triggered twice</color> every <color=#0e70bd>15s</color>. Remember to watch out.",
+            "2. Enable <color=#0e70bd>Emergency Repair (Assist Reinforcement I)</color> to restore full HP.",
+            "3. Recommended: <color=#0e70bd>Support</color> Omniframes and <color=#0e70bd>Tank</color> Omniframes",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            15.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "4",
+        "IsLastOne": 1.0
+    },
+    {
+        "Id": 30161151,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies' attacks also inflict <color=#0e70bd>Bleed</color> and reduce <color=#0e70bd>5% of Max HP</color> every second for 5s. Meanwhile, the <color=#0e70bd>True DMG the enemies received double</color>.",
+            "2. Enable <color=#0e70bd>Overload Recharge (Assist Reinforcement II)</color> to avoid <color=#0e70bd>Cold Trail</color> and <color=#0e70bd>deal True DMG</color> to defeat the opponent.",
+            "3. Recommended: <color=#0e70bd>Support</color> Omniframes and any other Omniframes",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            780601.0,
+            760353.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161152,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies <color=#0e70bd>gain 10% ATK every 8s</color>. This effect can be stacked up to 20 times.",
+            "2. All Assault stacks will be removed and start to accumulate again upon enemies' HP dropping to <color=#0e70bd>66%</color> and <color=#0e70bd>33%</color> respectively.",
+            "3. Use the <color=#0e70bd>Corrupting Mark (Offense Reinforcement II)</color> to keep HP.",
+            "4. Recommended: <color=#0e70bd>Attacker</color> Omniframes and Omniframes that can deal <color=#0e70bd>Burst</color> damage",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            3.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            772605.0,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "1",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161153,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Switches links once every <color=#0e70bd>20s</color>. When in a <color=#0e70bd>blue link</color>, the character <color=#0e70bd>gains 50% ATK</color>. And when in a <color=#0e70bd>red link</color>, the character <color=#0e70bd>loses 50% ATK</color>.",
+            "2. Use the <color=#0e70bd>Corrupting Mark (Offense Reinforcement II)</color> to keep HP.",
+            "3. Recommended: <color=#0e70bd>Tank</color> Omniframes and <color=#0e70bd>Attacker</color> Omniframes",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            17.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "2",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161154,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies' attacks also inflict <color=#0e70bd>Bleed</color> and reduce 2% of Max HP every second for 5s. Meanwhile, the <color=#0e70bd>True DMG the enemies received double</color>.",
+            "2. The character will receive a <color=#0e70bd>5-second Null Heal</color> effect every <color=#0e70bd>20s</color>.",
+            "3. Enable <color=#0e70bd>Overload Recharge (Assist Reinforcement II)</color> to heal and deal True DMG.",
+            "4. Recommended: <color=#0e70bd>Support</color> Omniframes and any other Omniframes",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            772607.0,
+            712002.0,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "3",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161155,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Upon the death of the <color=#0e70bd>first enemy</color>, all the remaining enemies will <color=#0e70bd>restore to full HP</color> and gain <color=#0e70bd>Berserk 3</color> and <color=#0e70bd>Assault 3</color>.",
+            "2. Upon the death of the <color=#0e70bd>second enemy</color>, all the remaining enemies will <color=#0e70bd>restore to full HP</color> and gain <color=#0e70bd>Berserk 3</color>, <color=#0e70bd>Assault 3</color>, <color=#0e70bd>Lightning Shield 3</color>, and <color=#0e70bd>Radiation 3</color>.",
+            "3. Use Tank Omniframes to <color=#0e70bd>pull enemies</color> and then use the <color=#0e70bd>Corrupting Mark (Attacker Reinforcement II)</color> to keep HP and kill them.",
+            "4. Recommended: <color=#0e70bd>Attacker</color> Omniframes and <color=#0e70bd>Tank</color> Omniframes respectively",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            15.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "4",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161156,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies <color=#0e70bd>gain 10% ATK every 7s</color>. This effect can be stacked up to 20 times.",
+            "2. <color=#0e70bd>After 35s</color>, enemies' attacks will also inflict the Bleed effect that <color=#0e70bd>reduce 3% HP every second</color>.",
+            "3. Recommended to use the <color=#0e70bd>Corrupting Mark (Offense Reinforcement II)</color> to keep HP and finish the battle asap.",
+            "4. This is a <color=#0e70bd>Special Dispatch Zone</color> stage. It provides 20% ATK bonus to <color=#0e70bd>Vanguard</color> Omniframes.",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            18.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            772605.0,
+            763325.0,
+            772607.0
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "5",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161157,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>At the beginning of the battle</color>, inflicts <color=#0e70bd>Grave Wounds</color> on the character you control. And inflicts <color=#0e70bd>Grave Wounds</color> on the same character every <color=#0e70bd>15s</color>.",
+            "2. Grave Wounds: <color=#0e70bd>This will be triggered when HP drops below 90%</color>. After that, the character affected by this will receive increasing periodical damage. Restore the character's HP back to <color=#0e70bd>90% or above to remove the effect</color>.",
+            "3. Enable <color=#0e70bd>Emergency Repair (Assist Reinforcement I)</color> to restore full HP.",
+            "4. Recommended: <color=#0e70bd>Support</color> Omniframes and any other Omniframes",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            772609.0,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "6",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161158,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Cross Thunder will be triggered 3 times</color> every <color=#0e70bd>12s</color>. Remember to watch out.",
+            "2. Enable <color=#0e70bd>Emergency Repair (Assist Reinforcement I)</color> to restore full HP.",
+            "3. Recommended: <color=#0e70bd>Support</color> Omniframes and <color=#0e70bd>Tank</color> Omniframes",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            15.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "7",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161159,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies have a <color=#0e70bd>Enhanced Rigid Body</color>, which will be removed after <color=#0e70bd>200 attacks</color> taken. Upon losing the Enhanced Rigid Body, an enemy will lose 10% of Max HP. And upon the removal of a Rigid Body Affix, explosive damage will be done to the surroundings once. The Rigid Body will <color=#0e70bd>restore in 10s</color>.",
+            "2. Use <color=#0e70bd>Corrupting Mark (Offense Reinforcement II)</color> to restore HP and multiple-hit attacks to defeat the opponent.",
+            "3. Recommended: <color=#0e70bd>Attacker</color> Omniframes and Omniframes that can deal <color=#0e70bd>High Frequency Attacks</color>",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            2.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            772606.0,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "8",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161160,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. The character deals 150% more CRIT DMG. Enemies receive <color=#0e70bd>150% more damage from behind</color> and 50% less damage from other directions.",
+            "2. Use <color=#0e70bd>Corrupting Mark (Offense Reinforcement II)</color> to restore HP and multiple-hit attacks to defeat the opponent.",
+            "3. Recommended: <color=#0e70bd>Tank</color> Omniframes and <color=#0e70bd>Attacker</color> Omniframes that can deal <color=#0e70bd>CRIT</color> damage",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            15.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "9",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30161161,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Switches links once <color=#0e70bd>every 20s</color> and inflicts <color=#0e70bd>Bleed</color> on the hatred target. When in a <color=#0e70bd>blue link</color>, the character <color=#0e70bd>gains 20% ATK</color>. And when in a <color=#0e70bd>red link</color>, the character <color=#0e70bd>loses 80% ATK</color>.",
+            "2. Bleed: Deals True DMG equal to <color=#0e70bd>40% of Max HP</color> every second for <color=#0e70bd>3s</color>",
+            "3. Use Reinforcement Skills and characters wisely",
+            "4. Recommended: <color=#0e70bd>Tank</color> Omniframes and <color=#0e70bd>Attacker</color> Omniframes that can deal <color=#0e70bd>ranged damage</color>",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            17.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            772607.0,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/CoupleCombatLevel2.png",
+        "IndexText": "10",
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162404,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Sand Storm</color>: Blows the player in a certain direction. Gain immunity to this effect with the Extreme Super Armor granted by <color=#0e70bd>Attacker or Vanguard class synergy skills</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162405,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Still Trap</color>: A Still Trap will be summoned to a character and stun a character. It will trigger an explosion <color=#0e70bd>12s</color> later and deal <color=#0e70bd>seckill-level True DMG</color> to the stunned character (fixed). If the <color=#0e70bd>stunned character is not the one you control</color>, it cannot use synergy skills. <color=#0e70bd>Approach the character to remove the Still Trap</color> to dispel the stunned effect and avoid damage.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162406,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Earthquake</color>: Triggers an earthquake and generates 1 earthquake area every <color=#0e70bd>6s</color> at a random location. Each earthquake area will generate earthquake waves once every <color=#0e70bd>2s</color> and deal damage to player character(s) in it.",
+            "2. Interact with the <color=#0e70bd>Earthcrust Stabilizer(s)</color> in the scene to <color=#0e70bd>clear the earthquake areas on the field and stop the earthquake</color>.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162407,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Sand Storm</color>: Blows the player in a certain direction. Gain immunity to this effect with the Extreme Super Armor granted by <color=#0e70bd>Attacker or Vanguard class synergy skills</color>.",
+            "2. <color=#0e70bd>Still Trap</color>: A Still Trap will be summoned to a character and stun a character. It will trigger an explosion <color=#0e70bd>12s</color> later and deal <color=#0e70bd>seckill-level True DMG</color> to the stunned character (fixed). If the <color=#0e70bd>stunned character is not the one you control</color>, it cannot use synergy skills. <color=#0e70bd>Approach the character to remove the Still Trap</color> to dispel the stunned effect and avoid damage.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162408,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Sand Storm</color>: Blows the player in a certain direction. Gain immunity to this effect with the Extreme Super Armor granted by <color=#0e70bd>Attacker or Vanguard class synergy skills</color>.",
+            "2. <color=#0e70bd>Earthquake</color>: Triggers an earthquake and generates 1 earthquake area every <color=#0e70bd>6s</color> at a random location. Each earthquake area will generate earthquake waves once every <color=#0e70bd>2s</color> and deal damage to player character(s) in it.",
+            "3. Interact with the <color=#0e70bd>Earthcrust Stabilizer(s)</color> in the scene to <color=#0e70bd>clear the earthquake areas on the field and stop the earthquake</color>.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162409,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Sand Storm</color>: Blows the player in a certain direction. Gain immunity to this effect with the Extreme Super Armor granted by <color=#0e70bd>Attacker or Vanguard class synergy skills</color>.",
+            "2. <color=#0e70bd>Still Trap</color>: A Still Trap will be summoned to a character and stun a character. It will trigger an explosion <color=#0e70bd>12s</color> later and deal <color=#0e70bd>seckill-level True DMG</color> to the stunned character (fixed). If the <color=#0e70bd>stunned character is not the one you control</color>, it cannot use synergy skills. <color=#0e70bd>Approach the character to remove the Still Trap</color> to dispel the stunned effect and avoid damage.",
+            "3. <color=#0e70bd>Earthquake</color>: Triggers an earthquake and generates 1 earthquake area every <color=#0e70bd>6s</color> at a random location. Each earthquake area will generate earthquake waves once every <color=#0e70bd>2s</color> and deal damage to player character(s) in it.",
+            "4. Interact with the Earthcrust Stabilizer(s) in the scene to clear the earthquake areas on the field and stop the earthquake.",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162410,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Ultralimit Combustion</color>: Deals damage equal to <color=#0e70bd>30% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162411,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Blazing Eruption</color>: Deals damage equal to <color=#0e70bd>160% max HP per second</color> to all player characters for <color=#0e70bd>3s</color>.",
+            "2. Interact with the <color=#0e70bd>Shield Generator(s)</color> in the scene to gain a Shield that provides <color=#0e70bd>99% DMG Reduction</color> to take less damage from Blazing Eruption.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162412,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Wrench Impact</color>: Summons 2 Repairers. Each Repairer will deal minor damage and inflict <color=#0e70bd>20% Vulnerability</color> on player character(s) <color=#0e70bd>every 15s</color>. Use <color=#0e70bd>Uniframe Finishing Move</color> to eliminate them as fast as possible.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            18.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162413,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Ultralimit Combustion</color>: Deals damage equal to <color=#0e70bd>30% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            "2. <color=#0e70bd>Blazing Eruption</color>: Deals damage equal to <color=#0e70bd>160% max HP per second</color> to all player characters for <color=#0e70bd>3s</color>.",
+            "3. Interact with the <color=#0e70bd>Shield Generator(s)</color> in the scene to gain a Shield that provides <color=#0e70bd>99% DMG Reduction</color> to take less damage from Blazing Eruption.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162414,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Ultralimit Combustion</color>: Deals damage equal to <color=#0e70bd>30% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            "2. <color=#0e70bd>Wrench Impact</color>: Summons 2 Repairers. Each Repairer will deal minor damage and inflict <color=#0e70bd>20% Vulnerability</color> on player character(s) <color=#0e70bd>every 15s</color>. Use <color=#0e70bd>Uniframe Finishing Move</color> to eliminate them as fast as possible.",
+            "3. The Vulnerable effect and the DMG Reduction of Tank class synergy skills can exist at the same time, so please avoid take too much damage when in the Vulnerable status.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            18.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162415,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Ultralimit Combustion</color>: Deals damage equal to <color=#0e70bd>30% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            "2. <color=#0e70bd>Wrench Impact</color>: Summons 2 Repairers. Each Repairer will deal minor damage and inflict <color=#0e70bd>20% Vulnerability</color> on player character(s) <color=#0e70bd>every 15s</color>. Use <color=#0e70bd>Uniframe Finishing Move</color> to eliminate them as fast as possible.",
+            "3. <color=#0e70bd>Blazing Eruption</color>: Deals damage equal to <color=#0e70bd>160% max HP per second</color> to all player characters for <color=#0e70bd>3s</color>.",
+            "4. Interact with the Shield Generator(s) in the scene to gain a Shield that provides 99% DMG Reduction to take less damage from Blazing Eruption.",
+            "5. The Vulnerable effect, the DMG Reduction of Tank class synergy skills, and the DMG Reduction of Shields generated by Shield Generators can exist at the same time, so please avoid taking too much damage when in the Vulnerable status.",
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            18.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162416,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Constraint Force</color>: Slows down the player. Recover the speed by casting <color=#0e70bd>Support or Amplifier class synergy skills</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162417,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Floating Icicles</color>: Deals <color=#0e70bd>sharable</color> massive True DMG surrounding one character (fixed). Keep both characters in the blue warning circle to share the damage.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162418,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Roche Limit</color>: Forms a line between two characters. The line will deal <color=#0e70bd>massive True DMG</color> to the player <color=#0e70bd>5s</color> later (fixed). The characters can <color=#0e70bd>go</color> farther from each other to break the line and avoid the damage.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162419,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Constraint Force</color>: Slows down the player. Recover the speed by casting <color=#0e70bd>Support or Amplifier class synergy skills</color>.",
+            "2. <color=#0e70bd>Floating Icicles</color>: Deals <color=#0e70bd>sharable</color> massive True DMG surrounding one character (fixed). Keep both characters in the blue warning circle to share the damage.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162420,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Constraint Force</color>: Slows down the player. Recover the speed by casting <color=#0e70bd>Support or Amplifier class synergy skills</color>.",
+            "2. <color=#0e70bd>Roche Limit</color>: Forms a line between two characters. The line will deal <color=#0e70bd>massive True DMG</color> to the player <color=#0e70bd>5s</color> later (fixed). The characters can <color=#0e70bd>go</color> farther from each other to break the line and avoid the damage.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162421,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Constraint Force</color>: Slows down the player. Recover the speed by casting <color=#0e70bd>Support or Amplifier class synergy skills</color>.",
+            "2. <color=#0e70bd>Floating Icicles</color>: Deals <color=#0e70bd>sharable</color> massive True DMG surrounding one character (fixed). Keep both characters in the blue warning circle to share the damage.",
+            "3. <color=#0e70bd>Roche Limit</color>: Forms a line between two characters. The line will deal <color=#0e70bd>massive True DMG</color> to the player <color=#0e70bd>5s</color> later (fixed). The characters can <color=#0e70bd>go</color> farther from each other to break the line and avoid the damage.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162422,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Sand Storm</color>: Blows the player in a certain direction. Gain immunity to this effect with the Extreme Super Armor granted by <color=#0e70bd>Attacker or Vanguard class synergy skills</color>.",
+            "2. <color=#0e70bd>Still Trap</color>: A Still Trap will be summoned to a character and stun a character. It will trigger an explosion <color=#0e70bd>12s</color> later and deal <color=#0e70bd>seckill-level True DMG</color> to the stunned character (fixed). If the <color=#0e70bd>stunned character is not the one you control</color>, it cannot use synergy skills. <color=#0e70bd>Approach the character to remove the Still Trap</color> to dispel the stunned effect and avoid damage.",
+            "3. <color=#0e70bd>Ultralimit Combustion</color>: Deals damage equal to <color=#0e70bd>60% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            15.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162423,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Wrench Impact</color>: Summons 2 Repairers. Each Repairer will deal minor damage and inflict <color=#0e70bd>20% Vulnerability</color> on player character(s) <color=#0e70bd>every 15s</color>. Use <color=#0e70bd>Uniframe Finishing Move</color> to eliminate them as fast as possible.",
+            "2. <color=#0e70bd>Roche Limit</color>: Forms a line between two characters. The line will deal <color=#0e70bd>massive True DMG</color> to the player <color=#0e70bd>5s</color> later (fixed). The characters can <color=#0e70bd>go</color> farther from each other to break the line and avoid the damage.",
+            "3. <color=#0e70bd>Ultralimit Combustion</color>: Deals damage equal to <color=#0e70bd>60% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            18.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162424,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Constraint Force</color>: Slows down the player. Recover the speed by casting <color=#0e70bd>Support or Amplifier class synergy skills</color>.",
+            "2. <color=#0e70bd>Roche Limit</color>: Forms a line between two characters. The line will deal <color=#0e70bd>massive True DMG</color> to the player <color=#0e70bd>5s</color> later (fixed). The characters can <color=#0e70bd>go</color> farther from each other to break the line and avoid the damage.",
+            "3. <color=#0e70bd>Earthquake</color>: Triggers an earthquake and generates 1 earthquake area every <color=#0e70bd>6s</color> at a random location. Each earthquake area will generate earthquake waves once every <color=#0e70bd>2s</color> and deal damage to player character(s) in it.",
+            "4. Interact with the Earthcrust Stabilizer(s) in the scene to clear the earthquake areas on the field and stop the earthquake.",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162425,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Blazing Eruption</color>: Deals damage equal to <color=#0e70bd>160% max HP per second</color> to all player characters for <color=#0e70bd>3s</color>.",
+            "2. Interact with the <color=#0e70bd>Shield Generator(s)</color> in the scene to gain a Shield that provides <color=#0e70bd>99% DMG Reduction</color> to take less damage from Blazing Eruption.",
+            "3. <color=#0e70bd>Roche Limit</color>: Forms a line between two characters. The line will deal <color=#0e70bd>massive True DMG</color> to the player <color=#0e70bd>5s</color> later (fixed). The characters can <color=#0e70bd>go</color> farther from each other to break the line and avoid the damage.",
+            "4. <color=#0e70bd>Floating Icicles</color>: Deals <color=#0e70bd>sharable</color> massive True DMG surrounding one character (fixed). Keep both characters in the blue warning circle to share the damage.",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162426,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Still Trap</color>: A Still Trap will be summoned to a character and stun a character. It will trigger an explosion <color=#0e70bd>12s</color> later and deal <color=#0e70bd>seckill-level True DMG</color> to the stunned character (fixed). If the <color=#0e70bd>stunned character is not the one you control</color>, it cannot use synergy skills. <color=#0e70bd>Approach the character to remove the Still Trap</color> to dispel the stunned effect and avoid damage.",
+            "2. <color=#0e70bd>Ultralimit Combustion</color>: Deals damage equal to <color=#0e70bd>60% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            "3. <color=#0e70bd>Floating Icicles</color>: Deals <color=#0e70bd>sharable</color> massive True DMG surrounding one character (fixed). Keep both characters in the blue warning circle to share the damage.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162427,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Wrench Impact</color>: Summons 2 Repairers. Each Repairer will deal minor damage and inflict <color=#0e70bd>20% Vulnerability</color> on player character(s) <color=#0e70bd>every 15s</color>. Use <color=#0e70bd>Uniframe Finishing Move</color> to eliminate them as fast as possible.",
+            "1. <color=#0e70bd>Constraint Force</color>: Slows down the player. Recover the speed by casting <color=#0e70bd>Support or Amplifier class synergy skills</color>.",
+            "3. <color=#0e70bd>Blazing Eruption</color>: Deals damage equal to <color=#0e70bd>160% max HP per second</color> to all player characters for <color=#0e70bd>3s</color>.",
+            "4. Interact with the <color=#0e70bd>Shield Generator(s)</color> in the scene to gain a Shield that provides <color=#0e70bd>99% DMG Reduction</color> to take less damage from Blazing Eruption.",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            18.0,
+            16.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162428,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Sand Storm</color>: Blows the player in a certain direction. Gain immunity to this effect with the Extreme Super Armor granted by <color=#0e70bd>Attacker or Vanguard class synergy skills</color>.",
+            "2. <color=#0e70bd>Floating Icicles</color>: Deals <color=#0e70bd>sharable</color> massive True DMG surrounding one character (fixed). Keep both characters in the blue warning circle to share the damage.",
+            "3. <color=#0e70bd>Wrench Impact</color>: Summons 2 Repairers. Each Repairer will deal minor damage and inflict <color=#0e70bd>20% Vulnerability</color> on player character(s) <color=#0e70bd>every 15s</color>. Use <color=#0e70bd>Uniframe Finishing Move</color> to eliminate them as fast as possible.",
+            "4. <color=#0e70bd>Earthquake</color>: Triggers an earthquake and generates 1 earthquake area every <color=#0e70bd>6s</color> at a random location. Each earthquake area will generate earthquake waves once every <color=#0e70bd>2s</color> and deal damage to player character(s) in it.",
+            "5. Interact with the <color=#0e70bd>Earthcrust Stabilizer(s)</color> in the scene to <color=#0e70bd>clear the earthquake areas on the field and stop the earthquake</color>.",
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            18.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162429,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Wrench Impact</color>: Summons 2 Repairers. Each Repairer will deal minor damage and inflict <color=#0e70bd>20% Vulnerability</color> on player character(s) <color=#0e70bd>every 15s</color>. Use <color=#0e70bd>Uniframe Finishing Move</color> to eliminate them as fast as possible.",
+            "2. <color=#0e70bd>Roche Limit</color>: Forms a line between two characters. The line will deal <color=#0e70bd>massive True DMG</color> to the player <color=#0e70bd>5s</color> later (fixed). The characters can <color=#0e70bd>go</color> farther from each other to break the line and avoid the damage.",
+            "3. <color=#0e70bd>Floating Icicles</color>: Deals <color=#0e70bd>sharable</color> massive True DMG surrounding one character (fixed). Keep both characters in the blue warning circle to share the damage.",
+            "4. <color=#0e70bd>Blazing Eruption</color>: Deals damage equal to <color=#0e70bd>160% max HP per second</color> to all player characters for <color=#0e70bd>3s</color>.",
+            "5. Interact with the <color=#0e70bd>Shield Generator(s)</color> in the scene to gain a Shield that provides <color=#0e70bd>99% DMG Reduction</color> to take less damage from Blazing Eruption.",
+            null
+        ],
+        "Feature": [
+            null,
+            18.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162430,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Ultralimit Combustion</color>: Deals damage equal to <color=#0e70bd>60% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            "2. <color=#0e70bd>Ultralimit Combustion</color> will inflict <color=#0e70bd>20% Vulnerability</color> on the player for <color=#0e70bd>8s</color> after dealing its damage. Do not let one character keep taking Ultralimit Combustion damage.",
+            "3. <color=#0e70bd>Blazing Eruption</color>: Deals damage equal to <color=#0e70bd>160% max HP per second</color> to all player characters for <color=#0e70bd>3s</color>.",
+            "4. Interact with the <color=#0e70bd>Shield Generator(s)</color> in the scene to gain a Shield that provides <color=#0e70bd>99% DMG Reduction</color> to take less damage from Blazing Eruption.",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162431,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Sand Storm</color>: Blows the player in a certain direction. Gain immunity to this effect with the Extreme Super Armor granted by <color=#0e70bd>Attacker or Vanguard class synergy skills</color>.",
+            "2. <color=#0e70bd>Ultralimit Combustion</color>: Deals damage equal to <color=#0e70bd>60% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            "3. <color=#0e70bd>Constraint Force</color>: Slows down the player. Recover the speed by casting <color=#0e70bd>Support or Amplifier class synergy skills</color>.",
+            "4. <color=#0e70bd>Roche Limit</color>: Forms a line between two characters. The line will deal <color=#0e70bd>massive True DMG</color> to the player <color=#0e70bd>5s</color> later (fixed). The characters can <color=#0e70bd>go</color> farther from each other to break the line and avoid the damage.",
+            "5. <color=#0e70bd>Blazing Eruption</color>: Deals damage equal to <color=#0e70bd>160% max HP per second</color> to all player characters for <color=#0e70bd>3s</color>.",
+            "6. Interact with the <color=#0e70bd>Shield Generator(s)</color> in the scene to gain a Shield that provides <color=#0e70bd>99% DMG Reduction</color> to take less damage from Blazing Eruption."
+        ],
+        "Feature": [
+            null,
+            15.0,
+            16.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162432,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Floating Icicles</color>: Deals <color=#0e70bd>sharable</color> massive True DMG surrounding one character (fixed). Keep both characters in the blue warning circle to share the damage.",
+            "2. <color=#0e70bd>Still Trap</color>: A Still Trap will be summoned to a character and stun a character. It will trigger an explosion <color=#0e70bd>12s</color> later and deal <color=#0e70bd>seckill-level True DMG</color> to the stunned character (fixed). If the <color=#0e70bd>stunned character is not the one you control</color>, it cannot use synergy skills. <color=#0e70bd>Approach the character to remove the Still Trap</color> to dispel the stunned effect and avoid damage.",
+            "3. When triggered, <color=#0e70bd>Floating Icicles</color> and <color=#0e70bd>Still Trap</color> will trigger <color=#0e70bd>Cross Thunder 2 times</color>. Watch out.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162433,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Switches links once every <color=#0e70bd>15s</color>. When in a <color=#0e70bd>blue link</color>, the character <color=#0e70bd>gains ATK</color>. And when in a <color=#0e70bd>red link</color>, the character <color=#0e70bd>loses ATK</color>.",
+            "2. Boss will enter a <color=#0e70bd>5-second Weak status</color> <color=#0e70bd>every 30s</color>, during which time the boss will <color=#0e70bd>receive 20% more damage</color>.",
+            "3. <color=#0e70bd>Roche Limit</color>: Forms a line between two characters. The line will deal <color=#0e70bd>massive True DMG</color> to the player <color=#0e70bd>5s</color> later (fixed). The characters can <color=#0e70bd>go</color> farther from each other to break the line and avoid the damage.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            3.0,
+            17.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162434,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Dying Moment</color>: Reduces all player characters' HP to 1. Use <color=#0e70bd>Support: Restoration</color> to fully restore their HP.",
+            "2. <color=#0e70bd>Constraint Force</color>: Slows down the player. Recover the speed by casting <color=#0e70bd>Support or Amplifier class synergy skills</color>.",
+            "3. <color=#0e70bd>Roche Limit</color>: Forms a line between two characters. The line will deal <color=#0e70bd>massive True DMG</color> to the player <color=#0e70bd>5s</color> later (fixed). The characters can <color=#0e70bd>go</color> farther from each other to break the line and avoid the damage.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162435,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies have a <color=#0e70bd>Enhanced Rigid Body</color>, which will be removed after <color=#0e70bd>100 attacks</color> taken. Upon losing the Enhanced Rigid Body, the enemies will lose 10% of Max HP. A Rigid Body Affix will <color=#0e70bd>restore 10s</color> after being removed.",
+            "2. <color=#0e70bd>Still Trap</color>: A Still Trap will be summoned to a character and stun a character. It will trigger an explosion <color=#0e70bd>12s</color> later and deal <color=#0e70bd>seckill-level True DMG</color> to the stunned character (fixed). If the <color=#0e70bd>stunned character is not the one you control</color>, it cannot use synergy skills. <color=#0e70bd>Approach the character to remove the Still Trap</color> to dispel the stunned effect and avoid damage.",
+            "3. <color=#0e70bd>Ultralimit Combustion</color>: Deals damage equal to <color=#0e70bd>60% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            2.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162436,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies <color=#0e70bd>gain 10% ATK every 8s</color>. This can be stacked up to 20 times. All Assault stacks will be removed and start to accumulate again upon enemies' HP dropping to <color=#0e70bd>66%</color> and <color=#0e70bd>33%</color> respectively.",
+            "2. <color=#0e70bd>Ultralimit Combustion</color>: Deals damage equal to <color=#0e70bd>60% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            "3. <color=#0e70bd>Floating Icicles</color>: Deals <color=#0e70bd>sharable</color> massive True DMG surrounding one character (fixed). Keep both characters in the blue warning circle to share the damage.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            15.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162437,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Wrench Impact</color>: Summons 2 Repairers. Each Repairer will deal minor damage and inflict <color=#0e70bd>20% Vulnerability</color> on player character(s) <color=#0e70bd>every 15s</color>. Use <color=#0e70bd>Uniframe Finishing Move</color> to eliminate them as fast as possible.",
+            "2. <color=#0e70bd>Blazing Eruption</color>: Deals damage equal to <color=#0e70bd>160% max HP per second</color> to all player characters for <color=#0e70bd>3s</color>.",
+            "3. Interact with the <color=#0e70bd>Shield Generator(s)</color> in the scene to gain a Shield that provides <color=#0e70bd>99% DMG Reduction</color> to take less damage from Blazing Eruption.",
+            "4. When triggered, <color=#0e70bd>Wrench Impact</color> and <color=#0e70bd>Blazing Eruption</color> will trigger <color=#0e70bd>Cross Thunder 3 times</color>. Watch out.",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            18.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162438,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Switches links once every <color=#0e70bd>15s</color>. When in a <color=#0e70bd>blue link</color>, the character <color=#0e70bd>gains ATK</color>. And when in a <color=#0e70bd>red link</color>, the character <color=#0e70bd>loses ATK</color>.",
+            "2. <color=#0e70bd>Wrench Impact</color>: Summons 2 Repairers. Each Repairer will deal minor damage and inflict <color=#0e70bd>20% Vulnerability</color> on player character(s) <color=#0e70bd>every 15s</color>. Use <color=#0e70bd>Uniframe Finishing Move</color> to eliminate them as fast as possible.",
+            "3. <color=#0e70bd>Earthquake</color>: Triggers an earthquake and generates 1 earthquake area every <color=#0e70bd>6s</color> at a random location. Each earthquake area will generate earthquake waves once every <color=#0e70bd>2s</color> and deal damage to player character(s) in it.",
+            "4. Interact with the <color=#0e70bd>Earthcrust Stabilizer(s)</color> in the scene to <color=#0e70bd>clear the earthquake areas on the field and stop the earthquake</color>.",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            18.0,
+            17.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162439,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Dying Moment</color>: Reduces all player characters' HP to 1. Use <color=#0e70bd>Support: Restoration</color> to fully restore their HP.",
+            "2. <color=#0e70bd>Blazing Eruption</color>: Deals damage equal to <color=#0e70bd>160% max HP per second</color> to all player characters for <color=#0e70bd>3s</color>.",
+            "3. Interact with the <color=#0e70bd>Shield Generator(s)</color> in the scene to gain a Shield that provides <color=#0e70bd>99% DMG Reduction</color> to take less damage from Blazing Eruption.",
+            "4. <color=#0e70bd>Quick Repair</color>: Summons 2 Repairers. Each Repairer will deal minor damage and inflict <color=#0e70bd>20% Vulnerability</color> on player character(s) <color=#0e70bd>every 15s</color>. Use <color=#0e70bd>Uniframe Finishing Move</color> to eliminate them as fast as possible.",
+            "5. When triggered, <color=#0e70bd>Wrench Impact</color> will trigger <color=#0e70bd>Cross Thunder 3 times</color>. Watch out.",
+            null
+        ],
+        "Feature": [
+            null,
+            18.0,
+            16.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162440,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies have a <color=#0e70bd>Enhanced Rigid Body</color>, which will be removed after <color=#0e70bd>100 attacks</color> taken. Upon losing the Enhanced Rigid Body, the enemies will lose 10% of Max HP. A Rigid Body Affix will <color=#0e70bd>restore 10s</color> after being removed.",
+            "2. <color=#0e70bd>Still Trap</color>: A Still Trap will be summoned to a character and stun a character. It will trigger an explosion <color=#0e70bd>12s</color> later and deal <color=#0e70bd>seckill-level True DMG</color> to the stunned character (fixed). If the <color=#0e70bd>stunned character is not the one you control</color>, it cannot use synergy skills. <color=#0e70bd>Approach the character to remove the Still Trap</color> to dispel the stunned effect and avoid damage.",
+            "3. <color=#0e70bd>Ultralimit Combustion</color>: Deals DMG equal to <color=#0e70bd>60% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            "4. <color=#0e70bd>Floating Icicles</color>: Deals <color=#0e70bd>sharable</color> massive True DMG surrounding one character (fixed). Keep both characters in the blue warning circle to share the damage.",
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            2.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162441,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemies <color=#0e70bd>gain 10% ATK every 8s</color>. This can be stacked up to 20 times. All Assault stacks will be removed and start to accumulate again upon enemies' HP dropping to <color=#0e70bd>66%</color> and <color=#0e70bd>33%</color> respectively.",
+            "2. Switches links once every <color=#0e70bd>15s</color>. When in a <color=#0e70bd>blue link</color>, the character <color=#0e70bd>gains ATK</color>. And when in a <color=#0e70bd>red link</color>, the character <color=#0e70bd>loses ATK</color>.",
+            "3. <color=#0e70bd>Wrench Impact</color>: Summons 2 Repairers. Each Repairer will deal minor damage and inflict <color=#0e70bd>20% Vulnerability</color> on player character(s) <color=#0e70bd>every 15s</color>. Use <color=#0e70bd>Uniframe Finishing Move</color> to eliminate them as fast as possible.",
+            "4. <color=#0e70bd>Ultralimit Combustion</color>: Deals DMG equal to <color=#0e70bd>60% max HP per second</color> to the character the player controls for <color=#0e70bd>3s</color>. Gain DMG Reduction by casting <color=#0e70bd>Tank class synergy skills</color>.",
+            "5. <color=#0e70bd>Roche Limit</color>: Forms a line between two characters. The line will deal <color=#0e70bd>massive True DMG</color> to the player <color=#0e70bd>5s</color> later (fixed). The characters can <color=#0e70bd>go</color> farther from each other to break the line and avoid the damage.",
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            17.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162601,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            null,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162602,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Every 30s, the enemy <color=#0e70bd>gains a shield that lasts 20s</color>. If player character fails to break the shield within 20s, the enemy <color=#0e70bd>will gain 3 stacks of Assault</color>, up to 15 stacks.",
+            "2. If the player character <color=#0e70bd>successfully breaks the shield</color>, the enemy will <color=#0e70bd>take 40% more DMG within 15s%</color> and <color=#0e70bd>lose all the previously gained Assault stacks</color>. At the same time, <color=#0e70bd>the player character will gain 2 sets of random Signal Orbs</color>.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            3.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162603,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Before ally characters <color=#0e70bd>reach 100 combo</color>, their attacks can only deal 1 DMG to the enemy. <color=#0e70bd>Once the combo reaches 100</color>, the damage will return to normal <color=#0e70bd>and increase by a further 100% for every 100 more combo landed</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            2.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162604,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Enemy characters <color=#0e70bd>take 30% less DMG from the front.</color>",
+            "2. Enemy characters <color=#0e70bd>take 50% more DMG from the back.</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            14.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162605,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. The enemy will <color=#0e70bd>switch between forms after taking a certain amount of damage,</color> gaining Melee DMG Reduction and Ranged DMG Reduction in the two forms respectively.",
+            "2. When the enemy has Melee DMG Reduction, <color=#0e70bd>it takes 60% more Ranged DMG</color>. When the enemy has Ranged DMG Reduction, <color=#0e70bd>it takes 60% more Melee DMG</color>.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            17.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162606,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. There are <color=#0e70bd>4 Energy Towers</color> on the field that grant the enemy <color=#0e70bd>HP Recovery and ATK Bonus</color>. Once your characters deal enough DMG, the enemy will destroy<color=#0e70bd> 1 Energy Tower and shut down the others for 10s.</color> They will also <color=#0e70bd>be Stunned for 5s and take 50% more DMG</color>.",
+            "2. When the enemy <color=#0e70bd>takes Lightning DMG</color>, the DMG Gauge accumulates <color=#0e70bd>10 times faster than other Elements</color>.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            1.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162607,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. When an ally has caused excess healing, they will <color=#0e70bd>deal True DMG equal to the excess healing amount x700 to the enemy target</color>. Ally characters in this stage will <color=#0e70bd>lose HP over time</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162608,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Whenever <color=#0e70bd>an ally unit has a shield</color>, <color=#0e70bd>they will gain 30% ATK Bonus</color>. If the shield is lost, <color=#0e70bd>the ATK Bonus will disappear after 10s</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            10.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162609,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. When the HP of an ally character <color=#0e70bd>falls below 70% of their max HP</color>, their <color=#0e70bd>DMG reduces by 50% and movement speed reduces by 20%</color>. Ally characters in this stage will <color=#0e70bd>lose HP continuously over time</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162610,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. The enemy <color=#0e70bd>has DMG Reduction</color>. When the enemy is knocked away, they <color=#0e70bd>will take True DMG continuously while they are airborne</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            9.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162611,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. When the enemy has <color=#0e70bd>received a certain amount of Ice DMG, </color>they will become Frozen. Using <color=#0e70bd>Fire Attacks against Frozen enemy target will deal massive True DMG to them</color>.",
+            "2. When the enemy has <color=#0e70bd>received a certain amount of Fire DMG, </color>they will become Burnt. Using <color=#0e70bd>Ice Attacks against Burning enemy target will deal massive True DMG to them</color>.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            1.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162612,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. A fixed Amplifier will provide ally characters with <color=#0e70bd>30% ATK Bonus</color>. It can also be <color=#0e70bd>healed by ally characters</color>. The enemy will prioritize attacking this device. <color=#0e70bd>If the Amplifier is destroyed, ally characters will take DMG over time</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei2.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162613,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. There are 3 enemy targets on the field, all of them have <color=#0e70bd>three types of buffs</color>. When <color=#0e70bd>any of the enemy target is executed by a Uniframe</color>, <color=#0e70bd>other remaining enemy targets will lose one buff</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            18.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162614,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. The enemy will start a 10s countdown <color=#0e70bd>and deal massive DMG to the current player character on the field at the end of it</color>. If <color=#0e70bd>sufficient damage is dealt to the enemy within 10s, the character will avoid this damage and gain an ATK Bonus instead</color>.",
+            "2. <color=#0e70bd>If the enemy has not received enough damage at the end of the countdown</color>, the player character will take <color=#0e70bd>damage equal to 50% of their max HP</color>.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            3.0,
+            16.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162615,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. <color=#0e70bd>Every 40s, the enemy will become static for 10s</color> and <color=#0e70bd>damage all ally characters for a total of 150% of their max HP over time</color>. While channeling this attack, <color=#0e70bd>the enemy will also take damage equal to 15% of their max HP</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162616,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. There are 4 enemy targets on the field. After one of them is defeated, if <color=#0e70bd>there are still other enemy targets remaining after 30s, this unit will revive with 50% of the original HP left and their Finisher Gauge will also be only half as long</color>.",
+            null,
+            "2. <color=#0e70bd>After a Uniframe executes an enemy, ally characters will gain an ATK Bonus for 10s, and the enemy's revive countdown will also be reset</color>.",
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            18.0,
+            18.0
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162617,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. There are 2 enemy targets on the field. <color=#0e70bd>If one loses all Super Armor, both enemies will take DMG equal to 10% of their max HP, and the target without Super Armor will be Stunned for 10s</color>. The enemy's Super Armor bar will slowly regenerate overtime.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            15.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162618,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. When the enemy unit <color=#0e70bd>deals DMG to an ally unit, 20% of this DMG will be projected to another ally unit</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            16.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162619,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. The enemy <color=#0e70bd>gains Red, Blue and Yellow Orb immunity in chronological order, </color>with a <color=#0e70bd>1 min interval between two buffs</color>. The enemy <color=#0e70bd>takes increased DMG from Basic Attacks and Signature Moves</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            14.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    },
+    {
+        "Id": 30162620,
+        "OpenDay": 0,
+        "Intro": [
+            null,
+            "1. Whenever <color=#0e70bd>an ally unit has dealt Dark DMG to the enemy, a fixed device in the center of the field will charge up</color>. When fully charged, <color=#0e70bd>the device will create a black hole to pull all enemy targets in and increase their Dark DMG taken by 60%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Feature": [
+            null,
+            1.0,
+            null
+        ],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "GridBg": "Assets/Product/Texture/Image/UiCoupleCombat/FenGuangGuanKaNei1.png",
+        "IndexText": null,
+        "IsLastOne": null
+    }
+]

@@ -4,7 +4,8 @@ local type = type
 local pairs = pairs
 local Vector3 = CS.UnityEngine.Vector3
 
---地图格子对象
+---地图格子对象
+---@class XRpgMakerGameCube:XRpgMakerGameObject
 local XRpgMakerGameCube = XClass(XRpgMakerGameObject, "XRpgMakerGameCube")
 
 function XRpgMakerGameCube:Ctor(id, gameObject)

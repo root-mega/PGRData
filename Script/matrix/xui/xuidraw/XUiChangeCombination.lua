@@ -20,9 +20,11 @@ function XUiChangeCombination:SetButtonCallBack()
     self.BtnConfirm.CallBack = function()
         self:OnBtnConfirmClick()
     end
+    --[[
     self.PaneCharacter:GetObject("BtnIconClick").CallBack = function()
         -- self:OnBtnIconClick()
     end
+    ]]
 end
 
 function XUiChangeCombination:OnBtnCloseClick()

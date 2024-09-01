@@ -1,4 +1,5 @@
 -- 猜拳小游戏关卡
+---@class XFingerGuessingStage
 local XFingerGuessingStage = XClass(nil, "XFingerGuessingStage")
 local UNNAMED_STR = "未配置字段"
 local FINGER_NUM_NOT_OPEN_TEXT = "?"
@@ -178,6 +179,14 @@ end
 --==================
 function XFingerGuessingStage:GetLoseTalk()
     return self.Config and self.Config.LoseTalk
+end
+-- 获取开始剧情Id
+function XFingerGuessingStage:GetStartMovieId()
+    return self.Config and self.Config.StartMovieId or ""
+end
+-- 获取结束剧情Id
+function XFingerGuessingStage:GetEndMovieId()
+    return self.Config and self.Config.EndMovieId or ""
 end
 --==================
 --获取游戏总轮数

@@ -98,11 +98,16 @@ end
 function XUiPanelOnLineLoadingDetailItem:UpdateProgress(progress)
     if progress >= 100 then
         self.ImgCompleted.gameObject:SetActiveEx(true)
-        self.TxtPercent.text = "<color=#ffeb04ef>100%</color>"
+        local text = string.format("<color=#%s>100%%</color>", self:GetProgressEndTextColor())
+        self.TxtPercent.text = text
     else
         self.ImgCompleted.gameObject:SetActiveEx(false)
         self.TxtPercent.text = progress .. "%"
     end
+end
+
+function XUiPanelOnLineLoadingDetailItem:GetProgressEndTextColor()
+    return "ffeb04ef"
 end
 
 return XUiPanelOnLineLoadingDetailItem

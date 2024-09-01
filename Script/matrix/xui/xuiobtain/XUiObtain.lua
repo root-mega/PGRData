@@ -87,11 +87,19 @@ function XUiObtain:OnStart(rewardGoodsList, title, closeCb, sureCb, horizontalNo
     self:Layout()
 
     self:CheckIsTimelimitGood(rewardGoodsList)
-    self:PlayAnimation("AniObtain")
+    self:PlayAnimationAniObtain()
 end
 
 function XUiObtain:OnEnable()
     CS.XAudioManager.PlaySound(XSoundManager.UiBasicsMusic.Common_UiObtain)
+    -- 避免弹窗弹得过快，显示ui的动画被打断
+    local animTrans = self.Transform:Find("Animation/AniObtain")
+    if animTrans then
+        local dctor = animTrans:GetComponent("PlayableDirector")
+        if dctor.time <= 0 then
+            dctor:Play()
+        end
+    end
 end
 
 function XUiObtain:Layout()
@@ -146,5 +154,11 @@ end
 
 function XUiObtain:Close()
     self:EmitSignal("Close")
-    self.Super.Close(self)
+    XUiObtain.Super.Close(self)
 end
+
+function XUiObtain:PlayAnimationAniObtain()
+    self:PlayAnimation("AniObtain")
+end
+
+return XUiObtain

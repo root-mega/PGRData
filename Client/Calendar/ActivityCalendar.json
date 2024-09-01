@@ -1,142 +1,317 @@
 [
     {
         "Id": 1,
-        "Name": "Exodus Memoria",
+        "Name": "Derived from Matrix",
         "SortId": 1,
-        "TimeId": 11301,
-        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab41.png",
-        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity41.png",
-        "ActivityDesc": "Requirements: Commandant Lv.40\\n\\nEvent Info:\\n1. There are a total of 5 difficulty levels, all of which are highly challenging with [Lithos] being your formidable enemy.\\n2. All members will be reset upon death during the challenge, making the challenge easier to complete.\\n3. Each stage has its own 3-star clearance conditions. Collectibles will be rewarded once you have earned a total of 3 stars. The more stars you earn, the higher the quality of the collectibles will be.",
+        "TimeId": 20702,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab111.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity111.png",
+        "ActivityDesc": "Event Info: Stop the countdown and escape the illusions. Fasten the bonds of our hearts and arrive at the other side of the end.",
         "FunctionId": null,
         "IsInCalendar": 1,
         "ShowItem": [
+            null,
             50005,
-            102,
-            13019002
+            102.0,
+            null
         ],
-        "SkipId": 11724,
+        "SkipId": 89027,
         "ExchangeTimeId": null,
         "TaskTimeId": null,
-        "FightTimeId": 11301
+        "FightTimeId": 20702.0
     },
     {
         "Id": 2,
-        "Name": "Guild Expedition II",
+        "Name": "Ice Queen Lulu",
         "SortId": 2,
-        "TimeId": 11202,
-        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab42.png",
-        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity42.png",
-        "ActivityDesc": "Requirements:\\nJoin the Command Bureau to participate.\\n\\nInfo:\\n1. Join forces with your Command Bureau members to defeat the final bosses, 2 Shark-speare.\\n2. Take note that the Outposts will be closer to the Base because of Shark-speare.\\n3. Clear all Guard Nodes to commence Operation Dangerous Cliff; meanwhile, Shark-speare's countdown will also begin. When the countdown is up, Shark-speare will attack the Base.\\n4. All rewards can be obtained by completing missions. Make sure to claim and exchange them for items in the shop before the event ends.\\n5. After defeating 2 Shark-speare, you can continue fighting to further enhance your Bureau's final ranking.\\n6. 70 Expedition Supplies will be given every day. You can store up to 210 Expedition Supplies in total.",
+        "TimeId": 20203,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab112.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity112.png",
+        "ActivityDesc": "Requirements: Commandant Lv.40\\nOpening Hours: 2024/08/21 02:00 - 2024/09/19 06:59 (UTC)\\nExchange Time: 2024/08/21 02:00 - 2024/09/22 06:59 (UTC)\\nEvent Info:\\n1. Open a restaurant here with your Constructs. Experience a restaurant like no other. Come and create unforgettable memories with everyone!\\n2. Assign staff to the Prep Station to prepare Ingredients, to Cooking Station to cook them, and to the Service Area to sell the dishes for Ice Cream Coins. Use Mysterious Timers to make the facilities work faster.\\n3. Spend Ice Cream Coins to hire more staff and upgrade the restaurant.\\n4. Spend Ice Cream Coins to unlock more buffs. Apply buffs wisely to maximize your benefits.\\n5. Complete the Daily Missions and Achievement Missions in Ice Queen Lulu to obtain Lulu Vouchers that can be exchanged for Event Construct R&D Tickets, Trade Vouchers, and other items in the Event Shop.",
         "FunctionId": null,
         "IsInCalendar": 1,
         "ShowItem": [
-            50003,
+            null,
+            50005,
+            102.0,
+            11000153.0
+        ],
+        "SkipId": 89008,
+        "ExchangeTimeId": 20203.0,
+        "TaskTimeId": null,
+        "FightTimeId": 20201.0
+    },
+    {
+        "Id": 3,
+        "Name": "Guild Expedition IV",
+        "SortId": 3,
+        "TimeId": 20101,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab113.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity113.png",
+        "ActivityDesc": "Requirements: Join a Command Bureau.\\nEvent Info:\\n1. Join a Command Bureau and clear the stages with other Commandants.\\n2. Enemies found in the Cliff Fortress of the expedition area! Concentrate your firepower to destroy them!\\n3. The final boss Moon Eater will revive after being defeated. Can defeat it repeatedly!\\n4. Beat the final stage and clear Guild Expedition to claim stamps and a lot of tokens.\\n5. Exchange tokens for various rare materials in Guild Expedition Shop.",
+        "FunctionId": null,
+        "IsInCalendar": 1,
+        "ShowItem": [
+            null,
             96004,
-            102
+            102.0,
+            50000.0
         ],
         "SkipId": 85016,
         "ExchangeTimeId": null,
         "TaskTimeId": null,
-        "FightTimeId": 11202
-    },
-    {
-        "Id": 3,
-        "Name": "Midsummer Memento",
-        "SortId": 3,
-        "TimeId": 11102,
-        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab43.png",
-        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity43.png",
-        "ActivityDesc": "Requirements: Commandant Lv.40\\n\\nEvent Info:\\n1. This event requires a total of 3 players to play.\\n2. There are 3 maps available in this event, each with both Cooperation and PVP Mode. Players will be a team in the Cooperation Mode and opponents in the PVP Mode.\\n3. In this event, the closer your character is to the camera, the higher score you will reach. Each mode has its own extra points bonuses.\\n4. Complete the event missions for different rewards and a limited collectible, Sunshiny Memories. Let's make unforgettable memories together!",
-        "FunctionId": null,
-        "IsInCalendar": 1,
-        "ShowItem": [
-            50005,
-            102,
-            13019001
-        ],
-        "SkipId": 11727,
-        "ExchangeTimeId": null,
-        "TaskTimeId": null,
-        "FightTimeId": 11102
+        "FightTimeId": 20101.0
     },
     {
         "Id": 4,
-        "Name": "Slumberland",
+        "Name": "Summer Memoir",
         "SortId": 4,
-        "TimeId": 11905,
-        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab44.png",
-        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity44.png",
-        "ActivityDesc": "New Coating Trial: Omniframe [Liv: Empyrea] Coating: [Dreamcatcher]",
+        "TimeId": 20930,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab114.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity114.png",
+        "ActivityDesc": "Requirements: Commandant Lv.40\\nEvent Info: New story and new Coatings.\\nSpend the summer leisurely in the sound of the waves.",
         "FunctionId": null,
         "IsInCalendar": 1,
         "ShowItem": [
-            3,
-            31104,
-            1
+            null,
+            50005,
+            102.0,
+            null
         ],
-        "SkipId": 20161,
+        "SkipId": 89029,
         "ExchangeTimeId": null,
         "TaskTimeId": null,
-        "FightTimeId": 11905
+        "FightTimeId": 20930.0
     },
     {
         "Id": 5,
-        "Name": "Triumphant Tide",
+        "Name": "Old Lullabies",
         "SortId": 5,
-        "TimeId": 11811,
-        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab45.png",
-        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity45.png",
+        "TimeId": 20421,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab115.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity115.png",
+        "ActivityDesc": "Requirements: Commandant Lv.40\\nEvent Info:\\n1. There are a total of 5 difficulty levels, all of which are highly challenging with [Cthylla] being your formidable enemy.\\n2. All members will be reset once knocked out during the challenge, making the challenge easier to complete.\\n3. Each stage has its own 3-star clearance conditions. Collectibles will be rewarded once you have earned a total of 3 stars. The more stars you earn, the higher the quality of the collectibles will be.",
+        "FunctionId": null,
+        "IsInCalendar": 1,
+        "ShowItem": [
+            null,
+            50005,
+            102.0,
+            13019616.0
+        ],
+        "SkipId": 11724,
+        "ExchangeTimeId": null,
+        "TaskTimeId": null,
+        "FightTimeId": 20421.0
+    },
+    {
+        "Id": 6,
+        "Name": "Babel Tower",
+        "SortId": 6,
+        "TimeId": 20001,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab116.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity116.png",
         "ActivityDesc": "Requirements: Commandant Lv.60\\n\\nEvent Info:\\n1. Babel Tower is a set of high-difficulty stages.\\n2. Each stage has its own affixes, which will change the way the stage works.\\n3. You can select different strategic targets each stage. They will increase the difficulty of combat.\\n4. You can select affixes for stages. The affixes can aid you in combat.\\n5. The characters you used to complete the stages will be locked and become unavailable in other stages.\\n6. You will earn collectible rewards for joining Babel Tower. Your final strategic level will earn you different resource rewards and improve the collectible's quality.",
         "FunctionId": null,
         "IsInCalendar": 1,
         "ShowItem": [
-            102,
+            null,
             3,
-            29
+            102.0,
+            70002.0
         ],
-        "SkipId": 11424,
+        "SkipId": 20015,
         "ExchangeTimeId": null,
-        "TaskTimeId": 11811.0,
-        "FightTimeId": 11812
+        "TaskTimeId": null,
+        "FightTimeId": 20001.0
     },
     {
-        "Id": 6,
-        "Name": "Starry Conversations",
-        "SortId": 6,
-        "TimeId": 11701,
-        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab46.png",
-        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity46.png",
-        "ActivityDesc": "Requirements: Commandant Lv.40\\n\\nEvent Info:\\n1. Gain Astro-Mystery Boxes by playing poker guessing in Starry Conversations and completing missions.\\n2. On the Character Story screen in Starry Conversations, you can gift different characters Astro-Mystery Boxes to unlock and view their Double Seventh Festival story.\\n3. The hint function has been added to poker guessing. Now you can use it to find out whether the next card is higher or lower.",
+        "Id": 7,
+        "Name": "Midsummer Rewind",
+        "SortId": 7,
+        "TimeId": 20301,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab117.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity117.png",
+        "ActivityDesc": "Requirements: Commandant Lv.52\\n\\nEvent Info:\\n\\n1. This event requires a total of 3 players to play.\\n2. There are 5 maps in this event, which will be available one by one over time.\\n3. In this event, the closer your character is to the camera, the higher score you will reach. Extra points will be granted when all players are of the same faction and enter the picture together.\\n4. Complete the event missions for different rewards. Let's make unforgettable memories together!",
         "FunctionId": null,
         "IsInCalendar": 1,
         "ShowItem": [
+            null,
             50005,
-            102,
-            30013
+            102.0,
+            13019617.0
+        ],
+        "SkipId": 89025,
+        "ExchangeTimeId": null,
+        "TaskTimeId": null,
+        "FightTimeId": 20301.0
+    },
+    {
+        "Id": 8,
+        "Name": "Monochrome Corridor",
+        "SortId": 8,
+        "TimeId": 20601,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab118.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity118.png",
+        "ActivityDesc": "Event Info:\\n1. Complete event missions to obtain [Dodecahedron Dice].\\n2. Spend [Dodecahedron Dice] to unlock puzzle pieces.\\n3. Put puzzle pieces in the right positions to unlock area rewards.",
+        "FunctionId": null,
+        "IsInCalendar": 1,
+        "ShowItem": [
+            null,
+            3,
+            102.0,
+            40110.0
+        ],
+        "SkipId": 20170,
+        "ExchangeTimeId": null,
+        "TaskTimeId": null,
+        "FightTimeId": 20601.0
+    },
+    {
+        "Id": 9,
+        "Name": "Lingering Stars",
+        "SortId": 9,
+        "TimeId": 20940,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab119.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity119.png",
+        "ActivityDesc": "Event Info:\\nPlay poker guessing to win commemorative coins! Invite your companions to a trip to the Shopping Street.",
+        "FunctionId": null,
+        "IsInCalendar": 1,
+        "ShowItem": [
+            null,
+            50005,
+            102.0,
+            null
         ],
         "SkipId": 11761,
         "ExchangeTimeId": null,
         "TaskTimeId": null,
-        "FightTimeId": 11701
+        "FightTimeId": 20940.0
     },
     {
-        "Id": 7,
-        "Name": "A Covenant of Glass",
-        "SortId": 7,
-        "TimeId": 11101,
-        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab47.png",
-        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity47.png",
-        "ActivityDesc": "Event Info: Complete event missions to obtain [Crystal-Heart Plush].",
+        "Id": 10,
+        "Name": "New Year Lottery (purchase)",
+        "SortId": 10,
+        "TimeId": 2160206,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiActivityBaseNewYearLuckTab.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiActivityBaseNewYearLuck.png",
+        "ActivityDesc": "Instructions: Complete event missions to obtain [New Year Token] (purchase period).",
         "FunctionId": null,
         "IsInCalendar": 1,
         "ShowItem": [
-            3,
-            102,
-            60002
+            null,
+            50005,
+            50003.0,
+            29.0
         ],
-        "SkipId": 20154,
+        "SkipId": 20112,
         "ExchangeTimeId": null,
         "TaskTimeId": null,
-        "FightTimeId": 11101
+        "FightTimeId": 2160206.0
+    },
+    {
+        "Id": 11,
+        "Name": "New Year Lottery (redeem rewards)",
+        "SortId": 11,
+        "TimeId": 2160205,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiActivityBaseNewYearLuckTab.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiActivityBaseNewYearLuck.png",
+        "ActivityDesc": "Instructions: Redeem your lottery rewards!",
+        "FunctionId": null,
+        "IsInCalendar": 1,
+        "ShowItem": [
+            null,
+            50005,
+            50003.0,
+            29.0
+        ],
+        "SkipId": 20112,
+        "ExchangeTimeId": null,
+        "TaskTimeId": null,
+        "FightTimeId": 2160205.0
+    },
+    {
+        "Id": 12,
+        "Name": "Fortune of Spring",
+        "SortId": 12,
+        "TimeId": 2160225,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab22.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity22.png",
+        "ActivityDesc": "Requirements: Commandant Lv.40.\\n\\nEvent Info:\\n1. During the event, the event mission [Fortune of Spring] will be available for a limited time.\\n2. The first clear of each stage will grant a 1st Clear Reward!\\n3. Let's have fun together, Commandants!",
+        "FunctionId": null,
+        "IsInCalendar": 1,
+        "ShowItem": [
+            null,
+            50009,
+            102.0,
+            90015.0
+        ],
+        "SkipId": 83010,
+        "ExchangeTimeId": null,
+        "TaskTimeId": null,
+        "FightTimeId": 2160225.0
+    },
+    {
+        "Id": 13,
+        "Name": "White Wishes",
+        "SortId": 13,
+        "TimeId": 2160244,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab28.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity28.png",
+        "ActivityDesc": "Requirements: Commandant lv.40\\n\\n[Event Info]:\\n1. During the event, the [White Wishes] event mission will be available for a limited time.\\n2. Participate in the story with other Gray Ravens for an unexpected journey!",
+        "FunctionId": null,
+        "IsInCalendar": 1,
+        "ShowItem": [
+            null,
+            3,
+            31204.0,
+            31104.0
+        ],
+        "SkipId": 20133,
+        "ExchangeTimeId": null,
+        "TaskTimeId": null,
+        "FightTimeId": 2160244.0
+    },
+    {
+        "Id": 14,
+        "Name": "Love Letters",
+        "SortId": 5,
+        "TimeId": 2160247,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab33.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity33.png",
+        "ActivityDesc": "\u203bExchange gifts to express your true feelings and create beautiful memories on this special day.\\n\\nEvent Info:\\n1. During the event, you can get special gift item [Radiant Comradery] from event mails or by buying the Purchase Supply Pack.\\n2. On the [Members - Communication] interface, send special gifts to members to trigger 520 Comms and receive gift mails from the corresponding members.\\n3. Each character's 520 Comm can only be triggered once.\\n\u2014For example, send a special gift to [Liv: Lux] after sending one to [Liv: Eclipse] will not trigger a Comm again.\\n4. Gift mails from the characters contain special item [Voice of Thoughts]. Collect it to unlock and upgrade the corresponding collectibles.",
+        "FunctionId": null,
+        "IsInCalendar": 1,
+        "ShowItem": [
+            null,
+            40802,
+            null,
+            null
+        ],
+        "SkipId": 20146,
+        "ExchangeTimeId": null,
+        "TaskTimeId": null,
+        "FightTimeId": null
+    },
+    {
+        "Id": 15,
+        "Name": "Dumplings and Dragons",
+        "SortId": 14,
+        "TimeId": 2160284,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab35.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity35.png",
+        "ActivityDesc": "Requirements: Commandant lv.40\\n\\nEvent Info:\\n1. During the event, the [Dumplings and Dragons] event mission will be available for a limited time.\\n2. Participate in the story and search for the fabled Realm of Dragons.",
+        "FunctionId": null,
+        "IsInCalendar": 1,
+        "ShowItem": [
+            null,
+            50009,
+            40114.0,
+            40113.0
+        ],
+        "SkipId": 20147,
+        "ExchangeTimeId": null,
+        "TaskTimeId": null,
+        "FightTimeId": 216028.0
     }
 ]

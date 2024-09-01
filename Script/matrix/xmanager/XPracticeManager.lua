@@ -1,5 +1,7 @@
+local XExFubenCollegeStudyManager = require("XEntity/XFuben/XExFubenCollegeStudyManager")
+
 XPracticeManagerCreator = function()
-    local XPracticeManager = {}
+    local XPracticeManager = XExFubenCollegeStudyManager.New(XFubenConfigs.ChapterType.Practice)
     local PracticeChapterInfos = {}
     local PracticeStageInfo = {}
     local IsChallengeWin = false    --战斗结束后是否胜利
@@ -451,7 +453,7 @@ XPracticeManagerCreator = function()
     -- 是否显示提示
     function XPracticeManager.IsShowTeachDialogHintTip(characterId)
         --只在选人界面显示提示框（目前包含：通用选人界面，诺曼底登录选人界面）
-        if not XLuaUiManager.IsUiShow("UiStrongholdRoomCharacter") and not XLuaUiManager.IsUiShow("UiBattleRoomRoleDetail") then
+        if not XLuaUiManager.IsUiShow("UiStrongholdRoomCharacterV2P6") and not XLuaUiManager.IsUiShow("UiBattleRoomRoleDetail") then
             return false
         end
         if not characterId then
@@ -500,9 +502,10 @@ XPracticeManagerCreator = function()
     end
     
     -- 显示每日提示
+    local isShowTips = false
     function XPracticeManager.ShowTeachDialogHintTip(characterId, cancelCallBack, confirmCallBack)
-        --如果已经显示弹窗，则不显示多次
-        if XLuaUiManager.IsUiShow("UiCueMark") then 
+        --如果已经显示弹窗，则不显示多次(不用XLuaUiManager.IsUiShow, 避免出现其他系统弹提示）
+        if isShowTips then 
             return 
         end
         local title     = CS.XTextManager.GetText("CelicaTechTipsTitle")
@@ -513,7 +516,17 @@ XPracticeManagerCreator = function()
             Status      = status,
             IsNeedClose = true,
         }
-        XUiManager.DialogHintTip(title, content, "", cancelCallBack, confirmCallBack, hintInfo)
+        local closeCb = function()
+            isShowTips = false
+            if cancelCallBack then cancelCallBack() end
+        end
+        
+        local sureCb = function()
+            isShowTips = false
+            if confirmCallBack then confirmCallBack() end
+        end
+        isShowTips = true
+        XUiManager.DialogHintTip(title, content, "", closeCb, sureCb, hintInfo)
     end
 
     -- 带显示每日提示的编队回调
@@ -661,6 +674,15 @@ XPracticeManagerCreator = function()
     end
     
     --endregion
+
+    ------------------副本入口扩展 start-------------------------
+    function XPracticeManager:ExOpenMainUi()
+        if XFunctionManager.DetectionFunction(self:ExGetFunctionNameType()) then
+            XLuaUiManager.Open("UiFubenPractice")
+        end
+    end
+    
+    ------------------副本入口扩展 end-------------------------
 
     XPracticeManager.Init()
     return XPracticeManager

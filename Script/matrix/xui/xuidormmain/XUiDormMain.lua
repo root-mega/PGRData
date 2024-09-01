@@ -1,10 +1,14 @@
 local XUiDormMain = XLuaUiManager.Register(XLuaUi, "UiDormMain")
 local XUiDormMainItem = require("XUi/XUiDormMain/XUiDormMainItem")
+local XUiPanelTerminalEntranceTips = require("XUi/XUiDormQuest/XUiPanelTerminalEntranceTips")
 local TextManager = CS.XTextManager
 
 local DormDrawGroudId
 local White = "#ffffff"
 local Blue = "#34AFF8"
+
+local MIN_MOVE_Y_DISTANCE = CS.XGame.ClientConfig:GetInt("UiGridDormSceneMinY")
+local MIN_MOVE_TARGET_DISTANCE = CS.XGame.ClientConfig:GetInt("UiGridDormSceneTargetY")
 
 function XUiDormMain:OnAwake()
     self.DormItems = {}
@@ -12,7 +16,7 @@ function XUiDormMain:OnAwake()
     DormDrawGroudId = CS.XGame.ClientConfig:GetInt("DormDrawGroudId")
     self.DisplaySetType = XDormConfig.VisitDisplaySetType
     self.DormActiveState = XDormConfig.DormActiveState
-    self.SceneId = XDormConfig.SenceType.One
+    self.HelpCourseKey = "Dorm"
     XTool.InitUiObject(self)
     self:InitFun()
     self:InitEnter()
@@ -23,8 +27,9 @@ function XUiDormMain:InitFun()
     self.DormActiveRespCB = function() self:SetDormMainItem() end
     self.DormCharEventCB = function(dormId) self:CharEventChange(dormId) end
     self.OnBtnTaskTipsClickCb = function() self:OnBtnTaskTipsClick() end
-    self:BindHelpBtn(self.BtnHelp, "Dorm")
-    self.BtnTemplate.CallBack = function() self:OnBtnTemplateClick() end
+    self:BindHelpBtn(self.BtnHelp, self.HelpCourseKey, nil, XDormConfig.MarkDormCourseGuide)
+    self.BtnVisit.CallBack = function() self:OnBtnVisitClick() end
+
 end
 
 function XUiDormMain:InitEnter()
@@ -34,12 +39,19 @@ function XUiDormMain:InitEnter()
     self:RegisterClickEvent(self.BtnShop, function() self:OpenShopUI() end)
     self:RegisterClickEvent(self.BtnBuild, function() self:OpenBuildUI() end)
     self:RegisterClickEvent(self.BtnWareHouse, function() self:OpenWareHpuseUI() end)
+    self:RegisterClickEvent(self.BtnHandbook, function() self:OpenFieldGuideUI() end)
     self.BtnWork:SetName(TextManager.GetText("DormWorkText"))
     self.BtnPerson:SetName(TextManager.GetText("DormPersonText"))
     self.BtnTask:SetName(TextManager.GetText("DormTaskText"))
     self.BtnShop:SetName(TextManager.GetText("DormShopText"))
     self.BtnWareHouse:SetName(TextManager.GetText("DormWareHouseText"))
     self.BtnBuild:SetName(TextManager.GetText("DormBuidText"))
+    self.BtnEntrust:SetName(TextManager.GetText("DormEntrustText"))
+end
+
+-- 图鉴
+function XUiDormMain:OpenFieldGuideUI()
+    XLuaUiManager.Open("UiDormFieldGuide")
 end
 
 -- 跳到仓库
@@ -50,6 +62,10 @@ end
 
 -- 跳到建造
 function XUiDormMain:OpenBuildUI()
+    if XDataCenter.FurnitureManager.CheckFurnitureSlopLimit() then
+        XLuaUiManager.Open("UiFurnitureCreateDetail")
+        return
+    end
     XLuaUiManager.Open("UiFurnitureBuild")
     self.IsStatic = true
 end
@@ -62,7 +78,11 @@ end
 
 -- 跳到商店
 function XUiDormMain:OpenShopUI()
-    XLuaUiManager.Open("UiShop", XShopManager.ShopType.Dorm)
+    if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.ShopCommon) then
+        return
+    end
+    local shopId = self.IsShowReward and XDataCenter.DormQuestManager.GetShopId() or nil
+    XLuaUiManager.Open("UiShop", XShopManager.ShopType.Dorm, nil, shopId)
     self.IsStatic = true
 end
 
@@ -110,6 +130,10 @@ function XUiDormMain:OnBtnTemplateClick()
     XLuaUiManager.Open("UiDormTemplate")
 end
 
+function XUiDormMain:OnBtnVisitClick()
+    XLuaUiManager.Open("UiDormVisit", nil, XDormConfig.VisitTabTypeCfg.MyFriend)
+end
+
 function XUiDormMain:OnOpenTask(tab)
     XLuaUiManager.Open("UiDormTask", tab)
     self.IsStatic = true
@@ -142,7 +166,7 @@ end
 
 -- 设置人员list
 function XUiDormMain:SetPersonList()
-    XLuaUiManager.Open("UiDormPerson", self.SceneId)
+    XLuaUiManager.Open("UiDormPerson", XDormConfig.PersonType.Staff, self.SceneId)
     self.IsStatic = true
 end
 
@@ -166,6 +190,10 @@ end
 
 function XUiDormMain:OnStart()
     XLuaUiManager.Close("UiLoading")
+    ---@type XUiPanelTerminalEntranceTips
+    self.TerminalEntranceTip = XUiPanelTerminalEntranceTips.New(self.DormTeamLeisure, self)
+
+    self.BtnGroup:SelectIndex(XDormConfig.SceneType.One)
 end
 
 function XUiDormMain:CreateDormMainItems()
@@ -199,7 +227,8 @@ function XUiDormMain:OnEnable()
     self:OnPlayAnimation()
     XDataCenter.DormManager.StartDormRedTimer()
     self.BtnWork:ShowReddot(XDataCenter.DormManager.DormWorkRedFun())
-    self.BtnBuild:ShowReddot(XDataCenter.FurnitureManager.HasCollectableFurniture())
+    --self.BtnBuild:ShowReddot(XDataCenter.FurnitureManager.HasCollectableFurniture())
+    self.BtnEntrust:ShowReddot(XDataCenter.DormQuestManager.CheckDormEntrustRedPoint())
     local redPointTypes = XRedPointConditions.Types
     XRedPointManager.AddRedPointEvent(self.BtnTask.ReddotObj, self.RefreshTaskTabRedDot, self, { redPointTypes.CONDITION_DORM_MAIN_TASK_RED })
     XRedPointManager.AddRedPointEvent(self.BtnBuild.ReddotObj, self.OnCheckBuildFurniture, self, { redPointTypes.CONDITION_FURNITURE_CREATE })
@@ -224,6 +253,21 @@ function XUiDormMain:OnEnable()
         self.CurTaskData = nil
         self.PanelTask.gameObject:SetActiveEx(false)
     end
+    self.TerminalEntranceTip:Refresh()
+    self.BtnShop:ShowTag(false)
+
+    if self:CheckShopTipLocal() then
+        --商店购买提示
+        XDataCenter.DormQuestManager.CheckPopupShopTip(function(isShow)
+            self.IsShowReward = false
+            if not isShow then
+                return
+            end
+            self:OnShowShopTip()
+        end)
+    end
+    
+    self:CheckOpenHelp()
 end
 
 function XUiDormMain:RefreshTaskTabRedDot(count)
@@ -235,30 +279,30 @@ function XUiDormMain:OnCheckBuildFurniture(count)
 end
 
 function XUiDormMain:OnPlayAnimation()
-    local delay = XDormConfig.DormAnimationMoveTime
-    if self.IsStatic then
-        self.IsStatic = false
-        delay = XDormConfig.DormAnimationStaicTime
-    end
-
-    self:InitSpcaeBtn()
-    if delay > 0 then
-        self.IsFirstAnimation = true
-        self.SafeAreaContentPane.gameObject:SetActiveEx(false)
-        self.DormMainLookTimer = XScheduleManager.ScheduleOnce(function()
-            self.SafeAreaContentPane.gameObject:SetActiveEx(true)
-            self:PlayAnimation("AnimStartEnable")
-            self:PlayAnimation("BgEnable")
-            self:PlayAnimation("LeftTapGroupEnable")
-            self:SetDormMainItem()
-            XScheduleManager.UnSchedule(self.DormMainLookTimer)
-        end, delay)
-    else
+    --local delay = XDormConfig.DormAnimationMoveTime
+    --if self.IsStatic then
+    --    self.IsStatic = false
+    --    delay = XDormConfig.DormAnimationStaicTime
+    --end
+    self:InitSpaceBtn()
+    self.IsFirstAnimation = true
+    --if delay > 0 then
+    --    self.IsFirstAnimation = true
+    --    self.SafeAreaContentPane.gameObject:SetActiveEx(false)
+    --    self.DormMainLookTimer = XScheduleManager.ScheduleOnce(function()
+    --        self.SafeAreaContentPane.gameObject:SetActiveEx(true)
+    --        self:PlayAnimation("AnimStartEnable")
+    --        self:PlayAnimation("BgEnable")
+    --        self:PlayAnimation("LeftTapGroupEnable")
+    --        self:SetDormMainItem()
+    --        XScheduleManager.UnSchedule(self.DormMainLookTimer)
+    --    end, delay)
+    --else
         self:SetDormMainItem()
         self:PlayAnimation("AnimStartEnable")
         self:PlayAnimation("BgEnable")
         self:PlayAnimation("LeftTapGroupEnable")
-    end
+    --end
 end
 
 function XUiDormMain:SetDormMainItem()
@@ -280,11 +324,12 @@ function XUiDormMain:OnDisable()
         v:SetEvenIconState(false)
     end
     XDataCenter.DormManager.StopDormRedTimer()
+    self.TerminalEntranceTip:OnDisable()
 end
 
 function XUiDormMain:OnDestroy()
     XHomeSceneManager.LeaveScene()
-    XEventManager.DispatchEvent(XEventId.EVENT_DORM_HIDE_COMPONET)
+    XEventManager.DispatchEvent(XEventId.EVENT_DORM_HIDE_COMPONENT)
 end
 
 function XUiDormMain:InitUI()
@@ -302,18 +347,17 @@ function XUiDormMain:InitUI()
 end
 
 function XUiDormMain:InitBtnTabsGroup()
-    self.TabGroup = {}
-    local index = 1
-    while true do
-        if self["BtnTab" .. index] then
-            self.TabGroup[index] = self["BtnTab" .. index]
-            local num = index
-            self["BtnTab" .. index].CallBack = function() self:ChangeSceneOnBtnTabClick(num) end
-        else
-            break
-        end
-        index = index + 1
-    end
+    local tab = {
+        self.BtnTab1,
+        self.BtnTab2,
+        self.BtnTab3,
+        self.BtnTab4,
+    }
+
+    self.BtnGroup:Init(tab, function(tabIndex) self:ChangeSceneOnBtnTabClick(tabIndex) end)
+    self.TabList = tab
+    ---@type UnityEngine.RectTransform
+    self.GroupRectTransform = self.BtnGroup:GetComponent("RectTransform")
 end
 
 function XUiDormMain:InitPanelSceneGroup()
@@ -332,12 +376,11 @@ end
 function XUiDormMain:AddListener()
     self:RegisterClickEvent(self.BtnMainUi, self.OnBtnMainUIClick)
     self:RegisterClickEvent(self.BtnBack, self.OnBtnReturnClick)
+    self:RegisterClickEvent(self.BtnEntrust, self.OnBtnEntrustClick)
 end
 
 function XUiDormMain:OnBtnMainUIClick()
-    XDataCenter.DormManager.RequestDormitoryExit()
-    XEventManager.DispatchEvent(XEventId.EVENT_DORM_CLOSE_COMPONET)
-    XLuaUiManager.RunMain()
+    XDataCenter.DormManager.ExitDormitoryBackToMain()
 end
 
 function XUiDormMain:OnBtnReturnClick()
@@ -346,44 +389,40 @@ function XUiDormMain:OnBtnReturnClick()
     self:Close()
 end
 
--- 处理空间站选择
---function XUiDormMain:OnBtnTab1Click()
-    --self:ChangeSceneOnBtnTabClick(XDormConfig.SenceType.One)
---end
-
---function XUiDormMain:OnBtnTab2Click()
-    --self:ChangeSceneOnBtnTabClick(XDormConfig.SenceType.Two)
---end
-
---function XUiDormMain:OnBtnTab3Click()
-    --self:ChangeSceneOnBtnTabClick(XDormConfig.SenceType.Three)
---end
+function XUiDormMain:OnBtnEntrustClick()
+    if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.DormQuest) then
+        return
+    end
+    local dict = {}
+    dict["button"] = XGlobalVar.BtnDorm.BtnUiDormBtnEntrust
+    CS.XRecord.Record(dict, "200010", "Dorm")
+    XLuaUiManager.Open("UiDormTerminalSystem")
+    self.IsStatic = true
+end
 
 function XUiDormMain:ChangeSceneOnBtnTabClick(index)
     if self.SceneId == index then
-        self:SelectOneBtnTab(index)
         return
     end
+    --local grid = self.TabList[index]
+    --local diffY = grid.transform.localPosition.y + self.GroupRectTransform.localPosition.y
+    --if diffY > MIN_MOVE_Y_DISTANCE then
+    --    local tarPosY = MIN_MOVE_TARGET_DISTANCE - grid.transform.localPosition.y
+    --    local tarPos = self.GroupRectTransform.localPosition
+    --    tarPos.y = tarPosY 
+    --    XLuaUiManager.SetMask(true)
+    --    XUiHelper.DoMove(self.GroupRectTransform, tarPos, XDataCenter.FubenMainLineManager.UiGridChapterMoveDuration, XUiHelper.EaseType.Sin, function()
+    --        XLuaUiManager.SetMask(false)
+    --    end)
+    --end
     self.SceneId = index
     self:HideAllPanelScene()
-    self:SelectOneBtnTab(self.SceneId)
     XHomeSceneManager.ChangeSceneView(self.SceneId, function()
             self:OpenOnePanelScene(self.SceneId)
             self:OnPlayAnimation()
         end)
 end
---==================
---选中一个左侧页签(XX号基地)
---@param index:页签序号
---==================
-function XUiDormMain:SelectOneBtnTab(index)
-    if not index then index = self.SceneId end
-    if not index then index = XDormConfig.SenceType.One end
-    for i, btn in pairs(self.TabGroup) do
-        local isSelect = i == index
-        btn:SetButtonState(isSelect and CS.UiButtonState.Select or CS.UiButtonState.Normal)
-    end
-end
+
 --==================
 --隐藏所有PanelScene
 --==================
@@ -398,7 +437,7 @@ end
 --==================
 function XUiDormMain:OpenOnePanelScene(index)
     if not index then index = self.SceneId end
-    if not index then index = XDormConfig.SenceType.One end
+    if not index then index = XDormConfig.SceneType.One end
     for i, scene in pairs(self.PanelSceneGroup) do
         local isSelect = i == index
         scene.gameObject:SetActiveEx(isSelect)
@@ -407,10 +446,81 @@ end
 --==================
 --初始化左侧页签及PanelScene状态
 --==================
-function XUiDormMain:InitSpcaeBtn()
+function XUiDormMain:InitSpaceBtn()
     if self.IsFirstAnimation then
         return
     end
     self:OpenOnePanelScene()
-    self:SelectOneBtnTab()
+end
+
+function XUiDormMain:OnShowShopTip()
+    --等待100ms, 避免跳转到子界面时不可见
+    XScheduleManager.ScheduleOnce(function()
+        local obj = self.GameObject
+        if XTool.UObjIsNil(obj) or not obj.activeInHierarchy then
+            return
+        end
+
+        if not self:CheckShopTipLocal() then
+            return
+        end
+        
+        self.IsShowReward = true
+        local grid = XUiGridCommon.New(self, self.GridReward)
+        grid:Refresh(XDataCenter.DormQuestManager.GetShowFragmentId())
+        self.BtnShop:ShowTag(true)
+        self:MarkShopTipLocal()
+    end, 100)
+    
+end 
+
+function XUiDormMain:CheckShopTipLocal()
+    local key = XDormConfig.GetDormShopTipLocalKey()
+    --已有数据
+    if XSaveTool.GetData(key) then
+        return false
+    end
+    
+    return true
+end
+
+function XUiDormMain:MarkShopTipLocal()
+    local key = XDormConfig.GetDormShopTipLocalKey()
+    if XSaveTool.GetData(key) then
+        return
+    end
+    
+    XSaveTool.SaveData(key, true)
+end
+
+function XUiDormMain:CheckOpenHelp()
+    if XLuaUiManager.IsUiShow("UiHelp") then
+        return
+    end
+    
+    --已经触发引导
+    if not XDataCenter.GuideManager.CheckIsGuide(XDormConfig.DormCourseGuideId) then
+        return
+    end
+    
+    local configJumpIndex = XDormConfig.DormCourseJumpIndex
+    local key = XDormConfig.GetDormCourseGuideLocalKey(configJumpIndex)
+    --已有数据
+    if XSaveTool.GetData(key) then
+        return
+    end
+    
+    XLuaUiManager.SetMask(true)
+    local count = XHelpCourseConfig.GetImageAssetCount(self.HelpCourseKey) or 0
+    local index = math.min(configJumpIndex, count)
+    XScheduleManager.ScheduleOnce(function()
+        XLuaUiManager.SetMask(false)
+        if XTool.UObjIsNil(self.GameObject) then
+            return
+        end
+        XUiManager.ShowHelpTip(self.HelpCourseKey, function()
+            XSaveTool.SaveData(key, true)
+        end, index - 1)
+    end, 700)
+    
 end

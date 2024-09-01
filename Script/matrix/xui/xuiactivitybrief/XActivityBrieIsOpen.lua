@@ -49,9 +49,9 @@ XActivityBrieIsOpen.IsOpenFunc = {
     [XActivityBriefConfigs.ActivityGroupId.Partner] = "Partner", --伙伴系统
     [XActivityBriefConfigs.ActivityGroupId.MoeWar] = "MoeWar", --萌战
     [XActivityBriefConfigs.ActivityGroupId.PetCard] = "PetCard", --宠物抽卡
-	[XActivityBriefConfigs.ActivityGroupId.PetTrial] = "PetTrial", --新宠物活动
+    [XActivityBriefConfigs.ActivityGroupId.PetTrial] = "PetTrial", --新宠物活动
     [XActivityBriefConfigs.ActivityGroupId.PokerGuessing] = "PokerGuessing", --翻牌拼大小
-    [XActivityBriefConfigs.ActivityGroupId.Hack] = "Hack",  --骇客玩法
+    [XActivityBriefConfigs.ActivityGroupId.Hack] = "Hack", --骇客玩法
     [XActivityBriefConfigs.ActivityGroupId.RpgMaker] = "RpgMaker", --端午活动
     [XActivityBriefConfigs.ActivityGroupId.Reform] = "Reform", --改造玩法
     [XActivityBriefConfigs.ActivityGroupId.CoupleCombat] = "CoupleCombat", --双人同行
@@ -72,18 +72,20 @@ XActivityBrieIsOpen.IsOpenFunc = {
     [XActivityBriefConfigs.ActivityGroupId.FubenShortStory] = "FubenShortStory", --故事集
     [XActivityBriefConfigs.ActivityGroupId.TaikoMaster] = "TaikoMaster", --音游小游戏
     [XActivityBriefConfigs.ActivityGroupId.MultiDim] = "MultiDim", --多维挑战
+    [XActivityBriefConfigs.ActivityGroupId.GuildBoss] = "GuildBoss", --拟真围剿
+    [XActivityBriefConfigs.ActivityGroupId.TwoSideTower] = "TwoSideTower", --正逆塔
 }
 
 function XActivityBrieIsOpen.Get(activityGroupId, ...)
     local groupConfig = XActivityBriefConfigs.GetActivityGroupConfig(activityGroupId)
-    local beginTime,endTime = XFunctionManager.GetTimeByTimeId(groupConfig.TimeId)
+    local beginTime, endTime = XFunctionManager.GetTimeByTimeId(groupConfig.TimeId)
     local skipConfig = XFunctionConfig.GetSkipFuncCfg(groupConfig.SkipId)
     local isOpen = skipConfig.FunctionalId and XFunctionManager.JudgeCanOpen(skipConfig.FunctionalId)
     if groupConfig.TimeId and groupConfig.TimeId > 0 then
         local inTime, timeStr, openTimeTipsStr = XActivityBrieIsOpen.RefreshAcitivityTime(beginTime, endTime, endTime)
         return inTime and isOpen, (not isOpen) and XFunctionManager.GetFunctionOpenCondition(skipConfig.FunctionalId) or openTimeTipsStr, timeStr
     elseif groupConfig.TimeId == -1 then
-        return isOpen,  XFunctionManager.GetFunctionOpenCondition(skipConfig.FunctionalId), ""
+        return isOpen, XFunctionManager.GetFunctionOpenCondition(skipConfig.FunctionalId), ""
     end
     local funcName = XActivityBrieIsOpen.IsOpenFunc[activityGroupId]
     if funcName then
@@ -282,7 +284,7 @@ function XActivityBrieIsOpen.Extra(args)
     local config = XActivityBriefConfigs.GetActivityGroupConfig(args.activityGroupId)
     local skipList = XFunctionConfig.GetSkipList(config.SkipId)
     local chapterId = skipList.CustomParams[1]
-    local specialTip =  CsXTextManagerGetText("ActivityBriefExtraNotInTime")
+    local specialTip = CsXTextManagerGetText("ActivityBriefExtraNotInTime")
     local checkResult, checkDesription = XDataCenter.ExtraChapterManager.CheckCanGoTo(chapterId, nil, specialTip)
 
     if checkResult then
@@ -366,7 +368,6 @@ function XActivityBrieIsOpen.RougueLike()
         return false, openTimeTipsStr, timeStr
     end
 end
-
 
 function XActivityBrieIsOpen.MaintainerAction()
     local ret, msg = XDataCenter.MaintainerActionManager.CheckIsOpen()
@@ -547,33 +548,33 @@ function XActivityBrieIsOpen.Partner()
 end
 
 function XActivityBrieIsOpen.MoeWar()
-	local beginTime = XDataCenter.MoeWarManager.GetActivityStartTime()
-	local endTime = XDataCenter.MoeWarManager.GetActivityEndTime()
-	local fightEndTime = endTime
-	local inTime, timeStr, openTimeTipsStr = XActivityBrieIsOpen.RefreshAcitivityTime(beginTime, fightEndTime, endTime)
+    local beginTime = XDataCenter.MoeWarManager.GetActivityStartTime()
+    local endTime = XDataCenter.MoeWarManager.GetActivityEndTime()
+    local fightEndTime = endTime
+    local inTime, timeStr, openTimeTipsStr = XActivityBrieIsOpen.RefreshAcitivityTime(beginTime, fightEndTime, endTime)
 
-	if inTime then
-		local functionId = XFunctionManager.FunctionName.MoeWar
-		local isOpen = XFunctionManager.JudgeCanOpen(functionId)
-		return isOpen, XFunctionManager.GetFunctionOpenCondition(functionId), timeStr
-	else
-		return false, openTimeTipsStr, timeStr
-	end
+    if inTime then
+        local functionId = XFunctionManager.FunctionName.MoeWar
+        local isOpen = XFunctionManager.JudgeCanOpen(functionId)
+        return isOpen, XFunctionManager.GetFunctionOpenCondition(functionId), timeStr
+    else
+        return false, openTimeTipsStr, timeStr
+    end
 end
 
 function XActivityBrieIsOpen.PetCard()
-	local functionId = XFunctionManager.FunctionName.Partner
-	local isOpen = XFunctionManager.JudgeCanOpen(functionId)
+    local functionId = XFunctionManager.FunctionName.Partner
+    local isOpen = XFunctionManager.JudgeCanOpen(functionId)
     local config = XActivityBriefConfigs.GetActivityGroupConfig(XActivityBriefConfigs.ActivityGroupId.PetCard)
     local skipId = config.SkipId
     local skipConfig = XFunctionConfig.GetSkipList(skipId)
     if skipConfig then
         local isInTime = XFunctionManager.CheckSkipInDuration(skipId)
         if not isInTime then
-            return isInTime,CSXTextManagerGetText("ActivityBriefNotOpenTips",skipConfig.StartTime)
+            return isInTime, CSXTextManagerGetText("ActivityBriefNotOpenTips", skipConfig.StartTime)
         end
     end
-	return isOpen, XFunctionManager.GetFunctionOpenCondition(functionId), ""
+    return isOpen, XFunctionManager.GetFunctionOpenCondition(functionId), ""
 end
 
 function XActivityBrieIsOpen.PetTrial()
@@ -629,7 +630,7 @@ function XActivityBrieIsOpen.Hack()
 end
 
 function XActivityBrieIsOpen.RpgMaker()
-    local beginTime,endTime = XDataCenter.RpgMakerGameManager.GetActivityTime()
+    local beginTime, endTime = XDataCenter.RpgMakerGameManager.GetActivityTime()
     local fightEndTime = endTime
     local inTime, timeStr, openTimeTipsStr = XActivityBrieIsOpen.RefreshAcitivityTime(beginTime, fightEndTime, endTime)
 
@@ -642,19 +643,21 @@ function XActivityBrieIsOpen.RpgMaker()
     end
 end
 
+--todo by zlb
 function XActivityBrieIsOpen.Reform()
-    local beginTime = XDataCenter.ReformActivityManager.GetActivityStartTime()
-    local endTime = XDataCenter.ReformActivityManager.GetActivityEndTime()
-    local fightEndTime = endTime
-    local inTime, timeStr, openTimeTipsStr = XActivityBrieIsOpen.RefreshAcitivityTime(beginTime, fightEndTime, endTime)
-
-    if inTime then
-        local functionId = XFunctionManager.FunctionName.Reform
-        local isOpen = XFunctionManager.JudgeCanOpen(functionId)
-        return isOpen, XFunctionManager.GetFunctionOpenCondition(functionId), timeStr
-    else
-        return false, openTimeTipsStr, timeStr
-    end
+    --local beginTime = XDataCenter.Reform2ndManager.GetActivityStartTime()
+    --local endTime = XDataCenter.ReformActivityManager.GetActivityEndTime()
+    --local fightEndTime = endTime
+    --local inTime, timeStr, openTimeTipsStr = XActivityBrieIsOpen.RefreshAcitivityTime(beginTime, fightEndTime, endTime)
+    --
+    --if inTime then
+    --    local functionId = XFunctionManager.FunctionName.Reform
+    --    local isOpen = XFunctionManager.JudgeCanOpen(functionId)
+    --    return isOpen, XFunctionManager.GetFunctionOpenCondition(functionId), timeStr
+    --else
+    --    return false, openTimeTipsStr, timeStr
+    --end
+    return true, "", ""
 end
 
 function XActivityBrieIsOpen.CoupleCombat()
@@ -878,7 +881,7 @@ end
 
 function XActivityBrieIsOpen.PivotCombat()
     local functionId = XFunctionManager.FunctionName.PivotCombat
-    local beginTime,endTime = XPivotCombatConfigs.GetTotalTime()
+    local beginTime, endTime = XPivotCombatConfigs.GetTotalTime()
     local inTime, timeStr, openTimeTipsStr = XActivityBrieIsOpen.RefreshAcitivityTime(beginTime, endTime, endTime)
 
     if inTime then
@@ -935,7 +938,35 @@ function XActivityBrieIsOpen.MultiDim()
     end
 end
 
+--v1.29拟真围剿
+function XActivityBrieIsOpen.GuildBoss()
+    local timeId = XDataCenter.ActivityBriefManager.GetBtnTimeId(XActivityBriefConfigs.ActivityGroupId.GuildBoss)
+    local beginTime = XFunctionManager.GetStartTimeByTimeId(timeId) or 0
+    local endTime = XFunctionManager.GetEndTimeByTimeId(timeId) or 0
+    return XActivityBrieIsOpen.CheckInOpen(beginTime, endTime, XFunctionManager.FunctionName.GuildBoss)
+end
+
+--v1.29正逆塔
+function XActivityBrieIsOpen.TwoSideTower()
+    local beginTime = XDataCenter.TwoSideTowerManager.GetStartTime()
+    local endTime = XDataCenter.TaikoMasterManager.GetEndTime()
+    return XActivityBrieIsOpen.CheckInOpen(beginTime, endTime, XFunctionManager.FunctionName.TaikoMaster)
+end
+
 --@endregion
+
+function XActivityBrieIsOpen.CheckInOpen(beginTime, endTime, functionId)
+    local fightEndTime = endTime
+    local inTime, timeStr, openTimeTipsStr = XActivityBrieIsOpen.RefreshAcitivityTime(beginTime, fightEndTime, endTime)
+
+    if inTime then
+        local isOpen = XFunctionManager.JudgeCanOpen(functionId)
+        return isOpen, XFunctionManager.GetFunctionOpenCondition(functionId), timeStr
+    else
+        return false, openTimeTipsStr, timeStr
+    end
+end
+
 function XActivityBrieIsOpen.RefreshAcitivityTime(beginTime, fightEndTime, endTime)
     local inTime, timeStr, aheadTime = false, "", false
 
@@ -963,6 +994,11 @@ function XActivityBrieIsOpen.RefreshAcitivityTime(beginTime, fightEndTime, endTi
 end
 
 function XActivityBrieIsOpen.GetTimeStr(beginTime, endTime)
+    -- v2.3要求加点格式化文本
+    --local m = TimestampToGameDateTimeString(beginTime, "MM")
+    --local d = TimestampToGameDateTimeString(beginTime, "dd")
+    --local beginTimeStr = CSXTextManagerGetText("ActivityBriefRichTime", m, d)
+    -- v2.4又不要了
     local beginTimeStr = TimestampToGameDateTimeString(beginTime, TimeFormat)
     if endTime then
         local endTimeStr = TimestampToGameDateTimeString(endTime, TimeFormat)

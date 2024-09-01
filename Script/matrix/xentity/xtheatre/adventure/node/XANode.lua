@@ -79,26 +79,6 @@ function XANode:Trigger(callback)
     end)
 end
 
--- function XANode:GetTitle()
---     return self.NodeConfig.Title
--- end
-
--- function XANode:GetTitleContent()
---     return self.NodeConfig.TitleContent
--- end
-
--- function XANode:GetRoleIcon()
---     return self.NodeConfig.RoleIcon
--- end
-
--- function XANode:GetRoleName()
---     return self.NodeConfig.RoleName
--- end
-
--- function XANode:GetRoleContent()
---     return self.NodeConfig.RoleContent
--- end
-
 function XANode:GetNodeTypeIcon()
     return XTheatreConfigs.GetNodeTypeIcon(self.NodeType)
 end

@@ -12,6 +12,7 @@ local TABLE_PARTNER_SKILLINFO = "Client/Partner/PartnerSkillInfo.tab"
 local TABLE_PARTNER_MODEL = "Client/Partner/PartnerModel.tab"
 local TABLE_PARTNER_MODELCONTROL = "Client/Partner/PartnerModelControl.tab"
 local TABLE_PARTNER_ITEM_SKIP = "Client/Partner/PartnerItemSkipId.tab"
+local TABLE_PARTNER_UI_EFFECT = "Client/Partner/PartnerUiEffect.tab"
 
 local PartnerTemplateCfg = {}
 local PartnerBreakthroughCfg = {}
@@ -24,6 +25,7 @@ local PartnerSkillInfoCfg = {}
 local PartnerModelCfg = {}
 local PartnerModelControlCfg = {}
 local PartnerItemSkipIdCfg = {}
+local PartnerUiEffectCfg = nil
 
 local PartnerBreakthroughDic = {}
 local PartnerQualityDic = {}
@@ -33,6 +35,7 @@ local PartnerMainSkillGroupDic = {}
 local PartnerPassiveSkillGroupDic = {}
 local LevelUpTemplates = {}
 local PartnerModelControlDic = {}
+local PartnerUiEffectDic = nil
 
 XPartnerConfigs.SkillType = {
     MainSkill = 1,
@@ -121,6 +124,13 @@ XPartnerConfigs.QualityString = {
     [4] = "SS",
     [5] = "SSS",
     [6] = "SSS+",
+}
+
+XPartnerConfigs.PriorityTabType = {
+    Level = 1,
+    Quality = 2,
+    Skill = 3,
+    Story = 4,
 }
 
 local PartnerBreakThroughIcon = {
@@ -293,6 +303,10 @@ function XPartnerConfigs.GetPartnerTemplateIcon(id)
     return XPartnerConfigs.GetPartnerTemplateById(id).Icon
 end
 
+function XPartnerConfigs.GetPartnerTemplateLiHuiPath(id)
+    return XPartnerConfigs.GetPartnerTemplateById(id).LiHuiPath
+end
+
 function XPartnerConfigs.GetPartnerTemplateQuality(id)
     return XPartnerConfigs.GetPartnerTemplateById(id).InitQuality
 end
@@ -443,6 +457,9 @@ function XPartnerConfigs.GetPartnerModelControlsByModel(model)
     return PartnerModelControlDic[model]
 end
 
+---@param id number 辅助机Id
+---@alias XPartnerModelConfig { CToSAnime:string, CToSEffect:string, CToSVoice:number, CombatBornAnime:string, CombatBornAnime:string, CombatModel:string, Id:number, Name:string, SToCAnime:string, SToCVoice:number, StandbyBornAnime:string, StandbyModel:string }
+---@return XPartnerModelConfig 辅助机配置
 function XPartnerConfigs.GetPartnerModelById(id)
     if not PartnerModelCfg[id] then
         XLog.Error("id is not exist in "..TABLE_PARTNER_MODEL.." id = " .. id)
@@ -490,18 +507,6 @@ function XPartnerConfigs.GetPartnerModelSToCVoice(id)
     return XPartnerConfigs.GetPartnerModelById(id).SToCVoice
 end
 
----
---- 获取'id'伙伴的 待机->战斗 变形特效
-function XPartnerConfigs.GetPartnerModelSToCEffect(id)
-    return XPartnerConfigs.GetPartnerModelById(id).SToCEffect
-end
-
----
---- 获取'id'伙伴的 待机->战斗 出生特效
-function XPartnerConfigs.GetPartnerModelCombatBornEffect(id)
-    return XPartnerConfigs.GetPartnerModelById(id).CombatBornEffect
-end
-
 function XPartnerConfigs.GetPartnerLevelUpTemplateByIdAndLevel(id,level)
     if not LevelUpTemplates[id] then
         XLog.Error("id is not exist in "..TABLE_PARTNER_LEVELUP_PATH.." id = " .. id)
@@ -521,3 +526,105 @@ function XPartnerConfigs.GetPartnerItemSkipById(id)
     end
     return PartnerItemSkipIdCfg[id]
 end
+
+--region PartnerUiEffect相关
+---@class ModeTypeEnum
+---@field StandbyModel string
+---@field CombatModel string
+local ModeTypeEnum = enum({
+    StandbyModel = "StandbyModel",
+    CombatModel = "CombatModel"
+})
+
+---@class EffectTypeEnum
+---@field Disappear string
+---@field Appear string
+---@field Loop string
+local EffectTypeEnum = enum({
+    Disappear = "Disappear",
+    Appear = "Appear",
+    Loop = "Loop"
+})
+
+---@class EffectParentNameEnum
+---@field ModelOnEffect string
+---@field ModelOffEffect string
+---@field ModelLoopEffect string
+local EffectParentNameEnum = enum({
+    ModelOnEffect = "ModelOnEffect",
+    ModelOffEffect = "ModelOffEffect",
+    ModelLoopEffect = "ModelLoopEffect"
+})
+
+local function GetPartnerUiEffectCfgs()
+    if not PartnerUiEffectCfg then
+        PartnerUiEffectCfg = XTableManager.ReadByIntKey(TABLE_PARTNER_UI_EFFECT, XTable.XTablePartnerUiEffect, "Id")
+    end
+    
+    return PartnerUiEffectCfg
+end
+
+local function GetPartnerUiEffectDic()
+    if not PartnerUiEffectDic then
+        PartnerUiEffectDic = {}
+        local configs = GetPartnerUiEffectCfgs()
+
+        for _, config in pairs(configs) do
+            local modelId = nil
+            local effectRoot = {
+                BoneRootName = config.EffectRootName,
+                EffectPath = config.EffectPath
+            }
+
+            if config.ModelType == ModeTypeEnum.StandbyModel then
+                modelId = PartnerModelCfg[config.PartnerId].StandbyModel
+            elseif config.ModelType == ModeTypeEnum.CombatModel then
+                modelId = PartnerModelCfg[config.PartnerId].CombatModel
+            end
+            
+            PartnerUiEffectDic[modelId] = PartnerUiEffectDic[modelId] or {}
+
+            if config.EffectType == EffectTypeEnum.Disappear then
+                PartnerUiEffectDic[modelId][EffectParentNameEnum.ModelOffEffect] = effectRoot
+            elseif config.EffectType == EffectTypeEnum.Appear then
+                PartnerUiEffectDic[modelId][EffectParentNameEnum.ModelOnEffect] = effectRoot
+            elseif config.EffectType == EffectTypeEnum.Loop then
+                PartnerUiEffectDic[modelId][EffectParentNameEnum.ModelLoopEffect] = effectRoot
+            end
+        end
+    end
+    
+    return PartnerUiEffectDic
+end
+
+---@type EffectParentNameEnum
+XPartnerConfigs.EffectParentName = EffectParentNameEnum
+
+---获取辅助机特效
+---@param modelName string 辅助机模型(来自【PartnerModel.tab】StandbyModel/CombatModel字段)
+---@param effectType string XPartnerConfigs.EffectParentName枚举  
+---@alias XEffectData { BoneRootName:string, EffectPath:string[] }
+---@return XEffectData
+function XPartnerConfigs.GetPartnerUiEffect(modelName, effectType)
+    local partnerUiEffectDic = GetPartnerUiEffectDic()
+
+    if not partnerUiEffectDic then
+        XLog.Error("PartnerUiEffectDic为空！请检查配置表PartnerUiEffect.tab是否为空。（配置表路径：" .. TABLE_PARTNER_UI_EFFECT .. ")")
+        return
+    end
+    
+    local effectTypeDic = partnerUiEffectDic[modelName]
+
+    if not effectTypeDic then
+        return
+    end
+    
+    local effectData = effectTypeDic[effectType]
+
+    if not effectData then
+        return
+    end
+    
+    return effectData
+end
+--endregion

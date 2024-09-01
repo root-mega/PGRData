@@ -1,0 +1,662 @@
+[
+    {
+        "Id": 1001,
+        "FunctionName": "DoNieRoleDeath",
+        "Params": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1002,
+        "FunctionName": "DoOpenChildUi",
+        "Params": [
+            null,
+            "UiFightRollingNum",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1003,
+        "FunctionName": "DoCloseChildUi",
+        "Params": [
+            null,
+            "UiFightRollingNum",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1004,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightRollingNum",
+            "SetActive",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1005,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightRollingNum",
+            "AddTotalCount",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1006,
+        "FunctionName": "DoOpenChildUi",
+        "Params": [
+            null,
+            "UiFightNewspaper",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 2001,
+        "FunctionName": "DoOpenChildUi",
+        "Params": [
+            null,
+            "UiFightMovieBagua",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 2002,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightMovieBagua",
+            "Init",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 2003,
+        "FunctionName": "DoCloseChildUi",
+        "Params": [
+            null,
+            "UiFightMovieBagua",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 3001,
+        "FunctionName": "HideClientScene",
+        "Params": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 3002,
+        "FunctionName": "HideClientFightUi",
+        "Params": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 3005,
+        "FunctionName": "HideClientSceneEx",
+        "Params": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4001,
+        "FunctionName": "DoOpenChildUi",
+        "Params": [
+            null,
+            "UiFightCerberus",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4002,
+        "FunctionName": "DoCloseChildUi",
+        "Params": [
+            null,
+            "UiFightCerberus",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4003,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightCerberus",
+            "SetBarValue",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4004,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightCerberus",
+            "SetBarMaxValue",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4005,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightCerberus",
+            "SetCount",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5001,
+        "FunctionName": "DoOpenChildUi",
+        "Params": [
+            null,
+            "UiFightPivotCombat",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5002,
+        "FunctionName": "DoCloseChildUi",
+        "Params": [
+            null,
+            "UiFightPivotCombat",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5003,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightPivotCombat",
+            "AddScore",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5004,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightPivotCombat",
+            "SetFillAmount",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5005,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightPivotCombat",
+            "SetTimeBarLength",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5006,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightPivotCombat",
+            "SetMultiSlashTimes",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5007,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightPivotCombat",
+            "SetMultiSlashDotsActive",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6001,
+        "FunctionName": "DoOpenChildUi",
+        "Params": [
+            null,
+            "UiFightNuoketiMap",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6002,
+        "FunctionName": "DoCloseChildUi",
+        "Params": [
+            null,
+            "UiFightNuoketiMap",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 8001,
+        "FunctionName": "DoOpenChildUi",
+        "Params": [
+            null,
+            "UiFightBangbiSkill",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 8002,
+        "FunctionName": "DoCloseChildUi",
+        "Params": [
+            null,
+            "UiFightBangbiSkill",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 8003,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightBangbiSkill",
+            "SetCanActive",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 8004,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightBangbiSkill",
+            "SetActived",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 8005,
+        "FunctionName": "DoOpenChildUi",
+        "Params": [
+            null,
+            "UiFightBangbiPaper",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 9001,
+        "FunctionName": "DoOpenChildUi",
+        "Params": [
+            null,
+            "UiFightBrilliantwalk",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 9002,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightBrilliantwalk",
+            "DestroyTips",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 9003,
+        "FunctionName": "DoChildUiFunctionEx",
+        "Params": [
+            null,
+            "UiFightBrilliantwalk",
+            "SetModPercent",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 9004,
+        "FunctionName": "DoChildUiFunctionEx",
+        "Params": [
+            null,
+            "UiFightBrilliantwalk",
+            "SetModIsUnlock",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 9005,
+        "FunctionName": "DoChildUiFunctionEx",
+        "Params": [
+            null,
+            "UiFightBrilliantwalk",
+            "SetIcon",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 9006,
+        "FunctionName": "DoCloseChildUi",
+        "Params": [
+            null,
+            "UiFightBrilliantwalk",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10001,
+        "FunctionName": "DoOpenChildUi",
+        "Params": [
+            null,
+            "UiFightMaze",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10002,
+        "FunctionName": "DoCloseChildUi",
+        "Params": [
+            null,
+            "UiFightMaze",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10003,
+        "FunctionName": "DoChildUiFunction",
+        "Params": [
+            null,
+            "UiFightMaze",
+            "SetProcess",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10011,
+        "FunctionName": "DoOpenChildUi",
+        "Params": [
+            null,
+            "UiFightMap",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10012,
+        "FunctionName": "DoCloseChildUi",
+        "Params": [
+            null,
+            "UiFightMap",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10021,
+        "FunctionName": "DoOpenChildUi",
+        "Params": [
+            null,
+            "UiFightCommonImage",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10022,
+        "FunctionName": "DoCloseChildUi",
+        "Params": [
+            null,
+            "UiFightCommonImage",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    }
+]

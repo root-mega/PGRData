@@ -8,6 +8,10 @@ function XUiPanelQualitySkillGrid:Ctor(ui)
     self.Transform = ui.transform
 
     XTool.InitUiObject(self)
+    --绑定跳转技能Ui
+    self.Btn.CallBack = function()
+        self.RootUi:OnBtnSkillClick(XCharacterConfigs.GetCharSkillQualityApartSkillId(self.SkillData))
+    end
 end
 
 function XUiPanelQualitySkillGrid:Init(parent, rootUi)

@@ -1,5 +1,6 @@
 --查看玩家信息管理器
 XPlayerInfoManagerCreator = function()
+    ---@class XPlayerInfoManager
     local XPlayerInfoManager = {}
 
     local GET_PLAYER_INFO_INTERVAL = 120
@@ -197,6 +198,7 @@ XPlayerInfoManagerCreator = function()
                     , PartnerData = res.PartnerData
                     , WeaponFashionId = res.WeaponFashionId
                     , AssignChapterRecords = res.AssignChapterRecords
+                    , AwarenessSetPositions = res.AwarenessSetPositions
                     , IsSelfData = playerId == XPlayer.Id } -- 设置是否为属于玩家和非玩家（好友）标志
                 cache[playerId][dataType.CharacterInfo][characterId] = characterInofo
                 cacheTime[playerId][dataType.CharacterInfo][characterId] = XTime.GetServerNowTimestamp()

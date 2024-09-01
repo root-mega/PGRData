@@ -87,7 +87,7 @@ end
 
 function XUiDoomsdayTask:UpdateTasks()
     self.TaskList = XDataCenter.DoomsdayManager.GetGroupTasksByIndex(self.SelectIndex)
-
+    XDataCenter.TaskManager.SortTaskList(self.TaskList)
     self.DynamicTable:SetDataSource(self.TaskList)
     self.DynamicTable:ReloadDataSync()
 

@@ -12,13 +12,33 @@ function XUiPanelVoiceSet:Ctor(ui)
 end
 
 function XUiPanelVoiceSet:InitUi()
+    local XUiBtnDownload = require("XUi/XUiDlcDownload/XUiBtnDownload")
+    local beforeCb = handler(self, self.OnCheckDownloadBefore)
+    self.OnRefreshJpTog = function(needDownload) 
+        self:RefreshCvTog(self.TogRiwen, needDownload)
+    end
+    self.OnRefreshHkTog = function(needDownload)
+        self:RefreshCvTog(self.TogXiangGang, needDownload)
+    end
+    self.OnRefreshEnTog = function(needDownload)
+        self:RefreshCvTog(self.TogEnglish, needDownload)
+    end
+    ---@type XUiBtnDownload
+    self.GirdBtnDownloadJp = XUiBtnDownload.New(self.BtnDownloadJP, beforeCb)
+    ---@type XUiBtnDownload
+    self.GirdBtnDownloadHk = XUiBtnDownload.New(self.BtnDownloadHK, beforeCb)
+    ---@type XUiBtnDownload
+    self.GridBtnDownloadEn = XUiBtnDownload.New(self.BtnDownloadEN, beforeCb)
+    self.GirdBtnDownloadJp:Init(XDlcConfig.EntryType.CharacterVoice, 0, nil, handler(self, self.OnDownloadComplete))
+    self.GirdBtnDownloadHk:Init(XDlcConfig.EntryType.CharacterVoice, 0, nil, handler(self, self.OnDownloadComplete))
+    self.GridBtnDownloadEn:Init(XDlcConfig.EntryType.CharacterVoice, 0, nil, handler(self, self.OnDownloadComplete))
+
+    -- self.BtnDownloadCN.gameObject:SetActiveEx(false)
+
     if not XDataCenter.UiPcManager.IsPc() and self.PanelMute then
         self.PanelMute.gameObject:SetActiveEx(false)
-    elseif XDataCenter.UiPcManager.IsPc() and self.PanelMute then
-        self.PanelMute.gameObject:SetActiveEx(true)
-        self.TogMute.isOn = CS.XSettingHelper.MuteInBackground
-        self.Mute = CS.XSettingHelper.MuteInBackground
     end
+    self.TogMute.isOn = CS.XStandaloneSettingHelper.MuteInBackground
 end
 
 function XUiPanelVoiceSet:AddListener()
@@ -26,7 +46,14 @@ function XUiPanelVoiceSet:AddListener()
     XUiHelper.RegisterClickEvent(self, self.TogRiwen, self.OnLanguageClick)
     XUiHelper.RegisterClickEvent(self, self.TogZhongWen, self.OnLanguageClick)
     XUiHelper.RegisterClickEvent(self, self.TogXiangGang, self.OnLanguageClick)
+    if self.TogEnglish then
+        XUiHelper.RegisterClickEvent(self, self.TogEnglish, self.OnLanguageClick)
+    end
     XUiHelper.RegisterClickEvent(self, self.TogControl, self.OnTogControlClick)
+    XUiHelper.RegisterClickEvent(self, self.TogMute, self.OnTogMuteClick)
+    
+    XUiHelper.RegisterClickEvent(self, self.FashionVoiceGuan, self.OnTogFashionVoiceClick)
+    XUiHelper.RegisterClickEvent(self, self.FashionVoiceKai, self.OnTogFashionVoiceClick)
 
     if self.TogEnglish then
         XUiHelper.RegisterClickEvent(self, self.TogEnglish, self.OnLanguageClick)
@@ -58,6 +85,15 @@ function XUiPanelVoiceSet:OnLanguageClick()
     CS.XAudioManager.CvType = self.NewCvType
 end
 
+function XUiPanelVoiceSet:OnTogFashionVoiceClick()
+    if (self.FashionVoiceGuan.isOn) then
+        self.NewIsOpenFashionVoice = 0
+    elseif (self.FashionVoiceKai.isOn) then
+        self.NewIsOpenFashionVoice = 1
+    end
+    CS.XAudioManager.IsOpenFashionVoice = self.NewIsOpenFashionVoice
+end
+
 function XUiPanelVoiceSet:OnTogControlClick()
     self:SetTogControl(self.TogControl.isOn)
     if (self.TogControl.isOn) then
@@ -66,6 +102,11 @@ function XUiPanelVoiceSet:OnTogControlClick()
         self.NewControl = 2
     end
     self:SetVolume()
+end
+
+function XUiPanelVoiceSet:OnTogMuteClick()
+    self.Mute = self.TogMute.isOn
+    self.IsDirty = true
 end
 
 function XUiPanelVoiceSet:SetTogControl(IsOn)
@@ -84,16 +125,7 @@ function XUiPanelVoiceSet:OnSliDownloadValueChanged()
 
 end
 
-function XUiPanelVoiceSet:OnTogMuteClick()
-    self.Mute = self.TogMute.isOn
-    self.IsDirty = true
-end
-
 function XUiPanelVoiceSet:OnBtnCanDownClick()
-
-end
-
-function XUiPanelVoiceSet:OnBtnDownloadClick()
 
 end
 
@@ -122,14 +154,13 @@ function XUiPanelVoiceSet:InitPanelData()
     self.SoundVolume = CS.XAudioManager.SoundVolume
     self.CvVolume = CS.XAudioManager.CvVolume
     self.Control = CS.XAudioManager.Control
+    self.IsOpenFashionVoice = CS.XAudioManager.IsOpenFashionVoice
     self.NewCvType = self.CvType
     self.NewCvVolume = self.CvVolume
     self.NewMusicVolume = self.MusicVolume
     self.NewSoundVolume = self.SoundVolume
     self.NewControl = self.Control
-    self.Yuyan = self.Transform:Find("Yuyanshez")
-    self.TogXiangGang = self.Yuyan:Find("Array/TGroup/TogXiangGang")
-
+    self.NewIsOpenFashionVoice = self.IsOpenFashionVoice
     self.TogXiangGang.gameObject:SetActiveEx(false)
 end
 
@@ -140,7 +171,15 @@ function XUiPanelVoiceSet:ResetPanelData()
     self.NewMusicVolume = CS.XAudioManager.MusicVolume
     self.NewSoundVolume = CS.XAudioManager.SoundVolume
     self.NewControl = CS.XAudioManager.Control
-    self.Mute = false
+    self.NewIsOpenFashionVoice = CS.XAudioManager.IsOpenFashionVoice
+    self:ResetMute()
+end
+
+function XUiPanelVoiceSet:ResetMute()
+    if XDataCenter.UiPcManager.IsPc() and self.PanelMute then
+        self.TogMute.isOn = false
+        CS.XStandaloneSettingHelper.MuteInBackground = self.TogMute.isOn
+    end
 end
 
 function XUiPanelVoiceSet:SetPanel()
@@ -151,16 +190,23 @@ function XUiPanelVoiceSet:SetPanel()
     self.SliSound.value = self.NewSoundVolume
     self.SliCv.value = self.NewCvVolume
 
-    if (self.NewCvType == 1) then
-        self.TogRiwen.isOn = true
-    elseif (self.NewCvType == 2) then
-        self.TogZhongWen.isOn = true
-    elseif (self.NewCvType == 3) then
-        self.TogXiangGang.isOn = true
-    elseif (self.NewCvType == 4) then
-        self.TogEnglish.isOn = true
+    local isJP, isCN, isHk, isEN = self.NewCvType == 1, self.NewCvType == 2, self.NewCvType == 3, self.NewCvType == 4
+    self.TogRiwen.isOn = isJP
+    self.TogZhongWen.isOn = isCN
+    self.TogXiangGang.isOn = isHk
+    if self.TogEnglish then
+        self.TogEnglish.isOn = isEN
     end
-    self.TogMute.isOn = self.Mute
+    
+    self.FashionVoiceKai.isOn = self.NewIsOpenFashionVoice == 1
+    self.FashionVoiceGuan.isOn = self.NewIsOpenFashionVoice ~= 1
+    
+    self.GirdBtnDownloadHk:RefreshView(self.OnRefreshHkTog)
+    self.GirdBtnDownloadJp:RefreshView(self.OnRefreshJpTog)
+    self.GridBtnDownloadEn:RefreshView(self.OnRefreshEnTog)
+    if self.TogMute then
+        self.TogMute.isOn = self.Mute
+    end
 end
 
 function XUiPanelVoiceSet:SetVolume()
@@ -181,7 +227,12 @@ end
 function XUiPanelVoiceSet:ShowPanel()
     self.IsShow = true
     self.GameObject:SetActive(true)
-    self.Transform:Find("Yuyanbao").gameObject:SetActive(false)
+    
+    local yuYanBaoObject = self.Transform:Find("Yuyanbao")
+
+    if yuYanBaoObject then
+        yuYanBaoObject.gameObject:SetActive(false)
+    end
 
     self:InitPanelData()
     self:SetPanel()
@@ -225,6 +276,9 @@ function XUiPanelVoiceSet:CheckDataIsChange()
     if (self.NewControl ~= self.Control) then
         return true
     end
+    if (self.NewIsOpenFashionVoice ~= self.IsOpenFashionVoice) then
+        return true
+    end
 
     return false
 end
@@ -237,8 +291,18 @@ function XUiPanelVoiceSet:SaveChange()
     self.SoundVolume = self.NewSoundVolume
     self.CvVolume = self.NewCvVolume
     self.Control = self.NewControl
+    self.IsOpenFashionVoice = self.NewIsOpenFashionVoice
     CS.XSettingHelper.MuteInBackground = self.Mute
     self:SaveAudioManagerData()
+    
+    local dict = {}
+    dict["music_volume"] = math.floor(self.MusicVolume * 100)
+    dict["sound_volume"] = math.floor(self.SoundVolume * 100)
+    dict["cv_volume"] = math.floor(self.CvVolume * 100)
+    dict["cv_type"] = self.CvType
+    dict["control"] = self.Control == 1
+    dict["is_open_fashion_voice"] = self.IsOpenFashionVoice == 1
+    XDataCenter.SetManager.SystemSettingBuriedPoint(dict)
 end
 
 function XUiPanelVoiceSet:CancelChange()
@@ -248,8 +312,7 @@ function XUiPanelVoiceSet:CancelChange()
     self.NewMusicVolume = self.MusicVolume
     self.NewSoundVolume = self.SoundVolume
     self.NewControl = self.Control
-    self.Mute = CS.XSettingHelper.MuteInBackground
-    self.TogMute.isOn = self.Mute
+    self.NewIsOpenFashionVoice = self.IsOpenFashionVoice
     self:SetVolume()
     self:SaveAudioManagerData()
 end
@@ -261,6 +324,7 @@ function XUiPanelVoiceSet:SaveAudioManagerData()
     XAManager.SoundVolume = self.NewSoundVolume
     XAManager.CvVolume = self.NewCvVolume
     XAManager.Control = self.NewControl
+    XAManager.IsOpenFashionVoice = self.NewIsOpenFashionVoice
     XAManager.SaveChange()
 end
 
@@ -286,4 +350,36 @@ function XUiPanelVoiceSet:ChangeObjsTansparent(alpha)
     self.ImgYinliangON.color = self.MyColor
     self.ImgYinliangOFF.color = self.MyColor
     self.ImgYinliangFill.color = self.MyColor
+end
+
+function XUiPanelVoiceSet:OnDownloadComplete()
+    if XTool.UObjIsNil(self.GameObject) then
+        return
+    end
+    self.GirdBtnDownloadJp:RefreshView(self.OnRefreshJpTog)
+    self.GirdBtnDownloadHk:RefreshView(self.OnRefreshHkTog)
+    self.GridBtnDownloadEn:RefreshView(self.OnRefreshEnTog)
+end 
+
+function XUiPanelVoiceSet:OnCheckDownloadBefore()
+    local isRunning = CS.XFight.IsRunning
+    if isRunning then
+        XUiManager.TipText("DlcDownloadVoiceTipInFight")
+        return false
+    end
+    return true
+end
+
+--- ˢ��Cv���͵ĵ�ѡ����ʽ
+---@param toggle UnityEngine.UI.Toggle
+---@param needDownload boolean �Ƿ���Ҫ�ְ�����
+--------------------------
+function XUiPanelVoiceSet:RefreshCvTog(toggle, needDownload)
+    if XTool.UObjIsNil(toggle) or XTool.UObjIsNil(self.GameObject) then
+        return
+    end
+    if not toggle.targetGraphic then
+        return
+    end
+    toggle.targetGraphic.gameObject:SetActiveEx(not needDownload)
 end

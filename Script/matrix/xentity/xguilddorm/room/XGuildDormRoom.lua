@@ -1,8 +1,11 @@
 local XGuildDormRoleFSMFactory = require("XEntity/XGuildDorm/Role/FSM/XGuildDormRoleFSMFactory")
 local XGuildDormBaseSceneObj = require("XEntity/XGuildDorm/Base/XGuildDormBaseSceneObj")
+---@class XGuildDormRoom : XGuildDormBaseSceneObj
 local XGuildDormRoom = XClass(XGuildDormBaseSceneObj, "XGuildDormRoom")
 local XRoomBuild = require("XEntity/XGuildDorm/Room/XGuildDormRoomBuild")
 local XGuildDormRole = require("XEntity/XGuildDorm/Role/XGuildDormRole")
+local XGDComponentManager = require("XEntity/XGuildDorm/Base/XGDComponentManager")
+
 --===========
 --获取房间建筑管理控件
 --===========
@@ -33,6 +36,12 @@ end
 --===========
 function XGuildDormRoom:GetCharacterRoot()
     return self.RoomBuild and self.RoomBuild.CharacterRoot
+end
+--===========
+--获取房间npc交互生成根节点
+--===========
+function XGuildDormRoom:GetNpcInteractRoot()
+    return self.RoomBuild and self.RoomBuild.NpcInteractRoot
 end
 --===========
 --获取房间模型家具生成根节点
@@ -66,10 +75,11 @@ end
 function XGuildDormRoom:GetInteractInfoByFurnitureId(id)
     local furniture = self:GetFurnitureById(id)
     if not furniture then return {} end
-    return furniture:GetInteractInfoList()[1]
+    return furniture:GetInteractInfoList()
 end
-
+---@param roomData XGuildDormRoomData
 function XGuildDormRoom:Ctor(roomData)
+    ---@type XGuildDormRole[]
     self.Roles = {}
     self.PlayerId2RoleDic = {}
     -- 同步到服务器的时间
@@ -78,11 +88,19 @@ function XGuildDormRoom:Ctor(roomData)
     self.RunTime = 0
     self.GuildDormManager = XDataCenter.GuildDormManager
     self.IsInit = false
+    ---@type XGuildDormRoomBuild
     self.RoomBuild = XRoomBuild.New(roomData)
     self.Running = nil
     self.IsShow = false
+    -- 组件 XGDComponet
+    self.GDComponentManager = XGDComponentManager.New()
 end
 
+function XGuildDormRoom:GetId()
+    return self:GetRoomData().Id
+end
+
+---@param role XGuildDormRole
 function XGuildDormRoom:AddRole(role)
     local playerId = role:GetPlayerId()
     if self:GetRoleByPlayerId(playerId) then
@@ -93,14 +111,34 @@ function XGuildDormRoom:AddRole(role)
     self.PlayerId2RoleDic[playerId] = role
 end
 
+---@return XGuildDormRole[]
 function XGuildDormRoom:GetRoles()
     return self.Roles
+end
+
+function XGuildDormRoom:GetFurnitureDic()
+    return self.RoomBuild:GetRoomData():GetAllFurnitures()
+end
+
+function XGuildDormRoom:GetNpcs(withRL)
+    local npcManagerCom = self.GDComponentManager:GetComponent("XGDNpcManagerComponent")
+    return npcManagerCom:GetNpcs(withRL)
+end
+
+function XGuildDormRoom:GetNpc(npcId)
+    local npcManagerCom = self.GDComponentManager:GetComponent("XGDNpcManagerComponent")
+    return npcManagerCom:GetNpc(npcId)
 end
 
 function XGuildDormRoom:GetIsInit()
     return self.IsInit
 end
 
+function XGuildDormRoom:SetIsInit(value)
+    self.IsInit = value
+end
+
+---@return XGuildDormRole
 function XGuildDormRoom:GetRoleByPlayerId(value)
     return self.PlayerId2RoleDic[value]
 end
@@ -127,8 +165,14 @@ function XGuildDormRoom:UpdateRolesPosition()
         playerData = playerDataDic[role:GetPlayerId()]
         if playerData then
             if not role:GetIsInteracting() then
-                role:GetRLRole():UpdateTransform(playerData.Position.X
-                    , playerData.Position.Y, playerData.Position.Angle)
+                if not role:CheckIsSelfPlayer() then
+                    role:GetRLRole():UpdateTransform(playerData.Position.X
+                        , playerData.Position.Y
+                        , playerData.Position.Z
+                        , playerData.Position.Angle)
+                else
+                    role:SyncToServer()
+                end
             end
         else
             self:DeleteRole(role:GetPlayerId())
@@ -157,6 +201,7 @@ function XGuildDormRoom:CreateRoles(playerDatas, containerGo)
     end
     -- 创建运行中
     local XGuildDormRunning = require("XEntity/XGuildDorm/XGuildDormRunning")
+    ---@type XGuildDormRunning
     self.Running = XGuildDormRunning.New(self:GetGameObject())
     self.Running:SetData(self)
 end
@@ -171,9 +216,11 @@ function XGuildDormRoom:CreateRole(playerData, containerGo)
     local XGDSyncToServerComponent = require("XEntity/XGuildDorm/Components/XGDSyncToServerComponent")
     local XGDInteractCheckComponent = require("XEntity/XGuildDorm/Components/XGDInteractCheckComponent")
     local XGDFurnitureInteractComponent = require("XEntity/XGuildDorm/Components/XGDFurnitureInteractComponent")
+    local XGDNpcInteractComponent = require("XEntity/XGuildDorm/Components/XGDNpcInteractComponent")
     local XGDSyncToClientComponent = require("XEntity/XGuildDorm/Components/XGDSyncToClientComponent")
     local XGDActionPlayComponent = require("XEntity/XGuildDorm/Components/XGDActionPlayComponent")
     -- 创建角色数据
+    ---@type XGuildDormRole
     local role = XGuildDormRole.New(playerData.CharacterId)
     -- 更新数据
     role:UpdateWithServerData(playerData)
@@ -182,7 +229,7 @@ function XGuildDormRoom:CreateRole(playerData, containerGo)
     -- 加载角色模型
     rlRole:LoadModel(containerGo)
     -- 出生
-    rlRole:Born(playerData.Position.X, playerData.Position.Y
+    rlRole:Born(playerData.Position.X, playerData.Position.Y, playerData.Position.Z
         , playerData.Position.Angle, self:GetIsShow())
     self:AddRole(role)
     if XPlayer.Id == playerData.PlayerId then
@@ -193,6 +240,7 @@ function XGuildDormRoom:CreateRole(playerData, containerGo)
         role:AddComponent(XGDSyncToServerComponent.New(role, self))
         role:AddComponent(XGDInteractCheckComponent.New(role, self))
         role:AddComponent(XGDFurnitureInteractComponent.New(role))
+        role:AddComponent(XGDNpcInteractComponent.New(role, self))
         role:AddComponent(XGDActionPlayComponent.New(role))
         -- 设置摄像机跟随角色
         rlRole:UpdateCameraFollow()
@@ -206,7 +254,10 @@ function XGuildDormRoom:CreateRole(playerData, containerGo)
         if furnitureData then 
             role:BeginInteract(furnitureData.Id, true)
         end
+        rlRole:SetTransparent(XDataCenter.GuildDormManager.GetHideOtherPlayers() and 0 or 1)
     end
+    rlRole:UpdateCurrentStepCueId(self:GetWalkCueId())
+    XEventManager.DispatchEvent(XEventId.EVENT_GUILD_DORM_ENTITY_ENTER, role)
     XEventManager.DispatchEvent(XEventId.EVENT_GUILD_DORM_PLAYER_ENTER, role)
     return role
 end
@@ -223,16 +274,27 @@ function XGuildDormRoom:DeleteRole(playerId)
     end
     self.PlayerId2RoleDic[playerId] = nil
     XEventManager.DispatchEvent(XEventId.EVENT_GUILD_DORM_PLAYER_EXIT, playerId)
+    XEventManager.DispatchEvent(XEventId.EVENT_GUILD_DORM_ENTITY_EXIT, playerId)
 end
 
 function XGuildDormRoom:Init()
     self.IsInit = true
+    -- 增加npc管理组件
+    local XGDNpcManagerComponent = require("XEntity/XGuildDorm/Components/XGDNpcManagerComponent")
+    self.GDComponentManager:AddComponent(XGDNpcManagerComponent.New())
+    -- 增加透明管理组件
+    local XGDNpcRenderingComponent = require("XEntity/XGuildDorm/Components/XGDNpcRenderingComponent")
+    self.GDComponentManager:AddComponent(XGDNpcRenderingComponent.New())
 end
 
 function XGuildDormRoom:Update(dt)
     self.RunTime = self.RunTime + dt
+    self.GDComponentManager:Update(dt)
     for _, role in ipairs(self.Roles) do
         role:Update(dt)
+    end
+    for _, furniture in pairs(self:GetFurnitureDic()) do
+        furniture:Update(dt)
     end
 end
 
@@ -287,6 +349,7 @@ function XGuildDormRoom:DisposeWithoutGo()
     self.PlayerId2RoleDic = {}
     self.IsInit = false
     self.RunTime = 0
+    self.GDComponentManager:Dispose()
     XGuildDormRoleFSMFactory.Dispose()
 end
 
@@ -324,8 +387,17 @@ end
 function XGuildDormRoom:SetIsShow(value)
     if self.IsShow == value then return end
     self.IsShow = value
+    ---@param role XGuildDormRole
     for _, role in pairs(self.Roles) do
-        role.RLGuildDormRole:SetMeshRenderersIsEnable(value)
+        role:GetRLRole():SetMeshRenderersIsEnable(value)
+        if not role:CheckIsSelfPlayer() then
+            role:GetRLRole():SetTransparent(XDataCenter.GuildDormManager.GetHideOtherPlayers() and 0 or 1)
+        end
+    end
+    for _, com in ipairs(self.GDComponentManager:GetComponents()) do
+        if com.CheckRoomIsShow then
+            com:CheckRoomIsShow(value)
+        end
     end
 end
 --============
@@ -347,6 +419,99 @@ function XGuildDormRoom:SetRolesMeshRendererIsEnable(value)
     for _, role in ipairs(self.Roles) do
         role:GetRLRole():SetMeshRenderersIsEnable(value)
     end
+end
+
+-- 播放镜头切换 （已废弃）
+function XGuildDormRoom:PlayCameraSwitchAnim(targetTrans, finishedCb)
+    -- 获取原先镜头
+    local camera = XDataCenter.GuildDormManager.SceneManager.GetCurrentScene():GetCamera()
+    local cameraController = XDataCenter.GuildDormManager.SceneManager.GetCurrentScene():GetCameraController()
+    -- 获取切换主镜头，设置相同位置，旋转，大小
+    local switchMainCamera = self.RoomBuild:GetSwitchMainCamera()
+    local orginCamera = self.RoomBuild:GetSwitchCameraByName("NearCamera1")
+    local targetCamera = self.RoomBuild:GetSwitchCameraByName("NearCamera2")
+    -- 获取指定名称的镜头，设置相同偏移，隐藏原镜头
+    orginCamera.transform.position = camera.transform.position
+    orginCamera.transform.rotation = camera.transform.rotation
+    orginCamera.transform.localScale = camera.transform.localScale
+    orginCamera.m_Lens = CS.Cinemachine.LensSettings.FromCamera(camera)
+    -- 设置目标镜头的位置信息
+    targetCamera.transform.position = targetTrans.position
+    targetCamera.transform.rotation = targetTrans.rotation
+    -- 设置禁用相关
+    cameraController.enabled = false
+    switchMainCamera.enabled = true
+    orginCamera.gameObject:SetActiveEx(true)
+    XScheduleManager.ScheduleOnce(function()
+        targetCamera.gameObject:SetActiveEx(true)
+        local time = XCameraHelper.GetBlendTime(switchMainCamera, 0)
+        XScheduleManager.ScheduleOnce(finishedCb, math.ceil(time * 1000))
+    end, 1)
+end
+
+-- 恢复镜头控制 （已废弃）
+function XGuildDormRoom:ResetCameraController(finishedCb)
+    -- 获取切换主镜头
+    local camera = XDataCenter.GuildDormManager.SceneManager.GetCurrentScene():GetCamera()
+    local cameraController = XDataCenter.GuildDormManager.SceneManager.GetCurrentScene():GetCameraController()
+    local switchMainCamera = self.RoomBuild:GetSwitchMainCamera()
+    local orginCamera = self.RoomBuild:GetSwitchCameraByName("NearCamera1")
+    local targetCamera = self.RoomBuild:GetSwitchCameraByName("NearCamera2")
+    targetCamera.gameObject:SetActiveEx(false)
+    local time = XCameraHelper.GetBlendTime(switchMainCamera, 1)
+    XScheduleManager.ScheduleOnce(function()
+        switchMainCamera.enabled = false
+        cameraController.enabled = true
+        if finishedCb then finishedCb() end
+    end, math.ceil(time * 1000))
+end
+
+function XGuildDormRoom:DestroyNpc(npc)
+    local npcManagerCom = self.GDComponentManager:GetComponent("XGDNpcManagerComponent")
+    npcManagerCom:DestroyNpc(npc)
+end
+
+function XGuildDormRoom:GetSpecialUiEntities()
+    local result = {}
+    for _, v in pairs(self:GetFurnitureDic()) do
+        if #v:GetSpecialUiNames() > 0 then
+            table.insert(result, v)
+        end
+    end
+    return result
+end
+
+-- 更新家具随机奖励
+function XGuildDormRoom:UpdateFurnitureRandomReward()
+    local remaindCount = XDataCenter.GuildDormManager.GetRemaindRewardCount()
+    local furnitures = {}
+    for _, v in pairs(self:GetFurnitureDic()) do
+        if v:CheckIsAllocatedReward() then
+            remaindCount = remaindCount - 1
+        else
+            if v:CheckIsGetReward() then
+                table.insert(furnitures, v)
+            end
+        end
+    end
+    remaindCount = math.max(remaindCount, 0)
+    if #furnitures <= 0 then return end
+    local index = nil
+    while remaindCount > 0 do
+        index = XTool.Random(1, #furnitures)
+        furnitures[index]:SetIsAllocatedReward(true)
+        remaindCount = remaindCount - 1
+        table.remove(furnitures, index)
+        if #furnitures <= 0 then return end
+    end
+end
+
+function XGuildDormRoom:GetWalkCueId()
+    return XDataCenter.GuildDormManager.GetThemeCfg().StepCueId
+end
+
+function XGuildDormRoom:GetCurrentThemeId()
+    return XDataCenter.GuildDormManager.GetThemeCfg().Id
 end
 
 return XGuildDormRoom

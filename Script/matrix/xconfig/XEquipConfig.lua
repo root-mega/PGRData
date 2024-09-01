@@ -1,4 +1,6 @@
 local tableInsert = table.insert
+local Pairs = pairs
+local StringFormat = string.format
 
 XEquipConfig = XEquipConfig or {}
 
@@ -13,6 +15,8 @@ XEquipConfig.DEFAULT_SUIT_ID = {                -- 用来显示全部套装数�
 }
 XEquipConfig.CAN_NOT_AUTO_EAT_STAR = 5          -- 大于等于该星级的装备不会被当做默认狗粮选中
 XEquipConfig.AWAKE_SKILL_COUNT = 2              -- 觉醒技能数量
+XEquipConfig.OVERRUN_ADD_SUIT_CNT = 2           -- 超限增加意识数量
+XEquipConfig.OVERRUN_BLIND_SUIT_MIN_QUALITY = 6 -- 超限绑定意识的最低品质
 
 --武器类型
 XEquipConfig.EquipType = {
@@ -125,12 +129,13 @@ XEquipConfig.EquipDetailBtnTabIndex = {
     Detail = 1,
     Strengthen = 2,
     Resonance = 3,
+    Overclocking = 4,
+    Overrun = 5,
 }
 
---武器超频界面页签状态
+--武器超频界面页签状态 V2.0版本后超频共振只需要晶币
 XEquipConfig.EquipAwakeTabIndex = {
-    Material = 1,
-    CrystalMoney = 2,
+    CrystalMoney = 2, --晶币
 }
 
 -- 共鸣后武器显示延时时间
@@ -140,6 +145,12 @@ XEquipConfig.WeaponResonanceShowDelay = CS.XGame.ClientConfig:GetInt("WeaponReso
 XEquipConfig.DecomposeRewardOverLimitTip = {
     [XEquipConfig.Classify.Weapon] = CS.XTextManager.GetText("WeaponBoxWillBeFull"),
     [XEquipConfig.Classify.Awareness] = CS.XTextManager.GetText("WaferBoxWillBeFull"),
+}
+
+-- 武器超限解锁类型
+XEquipConfig.WeaponOverrunUnlockType = {
+    Suit = 1,                      -- 意识套装
+    AttrEffect = 2,                -- 属性效果
 }
 
 local EquipBreakThroughIcon = {
@@ -183,6 +194,7 @@ local TABLE_EQUIP_RESONANCE_CONSUME_ITEM_PATH = "Share/Equip/EquipResonanceUseIt
 local TABLE_WEAPON_SKILL_PATH = "Share/Equip/WeaponSkill.tab"
 local TABLE_WEAPON_SKILL_POOL_PATH = "Share/Equip/WeaponSkillPool.tab"
 local TABLE_EQUIP_AWAKE_PATH = "Share/Equip/EquipAwake.tab"
+local TABLE_WEAPON_OVERRUN_PATH = "Share/Equip/WeaponOverrun.tab"
 local TABLE_EQUIP_RES_PATH = "Client/Equip/EquipRes.tab"
 local TABLE_EQUIP_MODEL_PATH = "Client/Equip/EquipModel.tab"
 local TABLE_EQUIP_MODEL_TRANSFORM_PATH = "Client/Equip/EquipModelTransform.tab"
@@ -190,6 +202,9 @@ local TABLE_EQUIP_SKIPID_PATH = "Client/Equip/EquipSkipId.tab"
 local TABLE_EQUIP_ANIM_PATH = "Client/Equip/EquipAnim.tab"
 local TABLE_EQUIP_MODEL_SHOW_PATH = "Client/Equip/EquipModelShow.tab"
 local TABLE_EQUIP_RES_BY_FOOL_PATH = "Client/Equip/EquipResByFool.tab"
+local TABLE_EQUIP_SIGNBOARD_PATH = "Client/Equip/EquipSignboard.tab"
+local TABLE_WEAPON_DEREGULATE_UI = "Client/Equip/WeaponDeregulateUI.tab"
+local TABLE_EQUIP_ANIM_RESET = "Client/Equip/EquipAnimReset.tab"
 
 local MAX_WEAPON_COUNT                      -- 武器拥有最大数量
 local MAX_AWARENESS_COUNT                   -- 意识拥有最大数量
@@ -198,7 +213,6 @@ local EQUIP_RECYCLE_ITEM_PERCENT             -- 回收获得道具数量百分�
 local MIN_RESONANCE_BIND_STAR               -- 只有6星以上的意识才可以共鸣出绑定角色的技能
 local MIN_AWAKE_STAR                        -- 最低可觉醒星数
 
-local EquipTemplates = {}                       -- 装备配置
 local EquipBreakthroughTemplate = {}            -- 突破配置
 local EquipResonanceTemplate = {}               -- 共鸣配置
 local EquipResonanceConsumeItemTemplates = {}   -- 共鸣消耗物品配置
@@ -211,19 +225,28 @@ local EatEquipCostTemplate = {}                 -- 装备强化消耗配置
 local EquipResTemplates = {}                    -- 装备资源配置
 local EquipModelTemplates = {}                  -- 武器模型配置
 local EquipModelTransformTemplates = {}          -- 武器模型UI偏移配置
-local EquipSkipIdTemplates = {}                 -- 装备来源跳转ID配置
+local EquipEatSkipIdTemplates = {}                 -- 装备升级材料来源跳转ID配置
+local EquipSkipIdTemplates = {}                 -- 装备升级材料来源跳转ID配置
 local EquipAwakeTemplate = {}                   -- 觉醒配置
 local EquipAnimTemplates = {}                   -- 动画配置
 local EquipModelShowTemplate = {}                   -- 控制武器模型显示
 local EquipResByFoolTemplate = {}               -- 愚人节装备资源替换配置
+local WeaponOverrunTemplate = {}                -- 武器超限配置
+local WeaponDeregulateUITemplate = {}           -- 武器超限的UI配置
 
 local EquipBorderDic = {}                   -- 装备边界属性构造字典
 local EquipDecomposeDic = {}
-local SuitIdToEquipTemplateIdsDic = {}      -- 套装Id索引的装备Id字典
+local SuitIdToEquipTemplateIdsDic = {}      -- 套装Id索引的装备Id字典 --这个是根据装备位置为key存储的
+local SuitIdToEquipTemplateIdsList = {}     -- 套装Id索引的装备Id数组 --这个是有序数组
 local SuitSitesDic = {}                     -- 套装产出部位字典
+local WeaponOverrunDic = {}                 -- 武器超限字典
+
+local EquipSignboardCfg = nil                -- 绑定武器到动作、皮肤配置
+local EquipSignboardDic = nil                -- 绑定武器到动作、皮肤字典
+local EquipAnimResetDic = {}                 -- 武器动画重置
 
 --记录超频界面的页签状态
-local EquipAwakeTabIndex = XEquipConfig.EquipAwakeTabIndex.Material
+local EquipAwakeTabIndex = XEquipConfig.EquipAwakeTabIndex.CrystalMoney
 
 local CompareBreakthrough = function(templateId, breakthrough)
     local template = EquipBorderDic[templateId]
@@ -304,19 +327,38 @@ local InitEquipSkipIdConfig = function()
     local tab = XTableManager.ReadByIntKey(TABLE_EQUIP_SKIPID_PATH, XTable.XTableEquipSkipId, "Id")
     for id, config in pairs(tab) do
         local eatType = config.EatType
-        EquipSkipIdTemplates[eatType] = EquipSkipIdTemplates[eatType] or {}
+        EquipEatSkipIdTemplates[eatType] = EquipEatSkipIdTemplates[eatType] or {}
 
         local site = config.Site
         if not site then
             XLog.ErrorTableDataNotFound("InitEquipSkipIdConfig", "配置表中Site字段", TABLE_EQUIP_SKIPID_PATH, "id", tostring(id))
         end
-        EquipSkipIdTemplates[eatType][site] = config
+        --装备来源
+        if XTool.IsNumberValid(config.EquipType) then
+            EquipSkipIdTemplates[config.EquipType] = config
+        else --装备升级材料来源
+            EquipEatSkipIdTemplates[eatType][site] = config
+        end
+       
     end
 end
 
 local InitEquipSuitConfig = function()
     EquipSuitTemplate = XTableManager.ReadByIntKey(TABLE_EQUIP_SUIT_PATH, XTable.XTableEquipSuit, "Id")
     EquipSuitEffectTemplate = XTableManager.ReadByIntKey(TABLE_EQUIP_SUIT_EFFECT_PATH, XTable.XTableEquipSuitEffect, "Id")
+end
+
+local InitWeaponDeregulateConfig = function()
+    WeaponOverrunTemplate = XTableManager.ReadByIntKey(TABLE_WEAPON_OVERRUN_PATH, XTable.XTableWeaponOverrun, "Id")
+    for _, cfg in ipairs(WeaponOverrunTemplate) do
+        local weaponId = cfg.WeaponId
+        local cfgs = WeaponOverrunDic[weaponId]
+        if not cfgs then 
+            cfgs = {}
+            WeaponOverrunDic[weaponId] = cfgs
+        end
+        table.insert(cfgs, cfg)
+    end
 end
 
 function XEquipConfig.Init()
@@ -327,15 +369,18 @@ function XEquipConfig.Init()
     MIN_RESONANCE_BIND_STAR = CS.XGame.Config:GetInt("MinResonanceBindStar")
     MIN_AWAKE_STAR = CS.XGame.Config:GetInt("MinEquipAwakeStar")
 
-    EquipTemplates = CS.XNpcManager.EquipTemplateTable
     EquipResTemplates = XTableManager.ReadByIntKey(TABLE_EQUIP_RES_PATH, XTable.XTableEquipRes, "Id")
     EquipAwakeTemplate = XTableManager.ReadByIntKey(TABLE_EQUIP_AWAKE_PATH, XTable.XTableEquipAwake, "Id")
-    XTool.LoopMap(EquipTemplates, function(id, equipCfg)
+    local equipTemplates = XEquipConfig.GetEquipTemplates()
+    XTool.LoopMap(equipTemplates, function(id, equipCfg)
         EquipBorderDic[id] = {}
         local suitId = equipCfg.SuitId
         if suitId and suitId > 0 then
             SuitIdToEquipTemplateIdsDic[suitId] = SuitIdToEquipTemplateIdsDic[suitId] or {}
-            tableInsert(SuitIdToEquipTemplateIdsDic[suitId], id)
+            SuitIdToEquipTemplateIdsDic[suitId][equipCfg.Site] = id
+
+            SuitIdToEquipTemplateIdsList[suitId] = SuitIdToEquipTemplateIdsList[suitId] or {}
+            tableInsert(SuitIdToEquipTemplateIdsList[suitId], id)
 
             SuitSitesDic[suitId] = SuitSitesDic[suitId] or {}
             SuitSitesDic[suitId][equipCfg.Site] = true
@@ -348,6 +393,7 @@ function XEquipConfig.Init()
     InitWeaponSkillPoolConfig()
     InitEquipModelTransformConfig()
     InitEquipSkipIdConfig()
+    InitWeaponDeregulateConfig()
 
     CheckEquipBorderConfig()
 
@@ -359,6 +405,7 @@ function XEquipConfig.Init()
     EquipAnimTemplates = XTableManager.ReadByStringKey(TABLE_EQUIP_ANIM_PATH, XTable.XTableEquipAnim, "ModelId")
     EquipModelShowTemplate = XTableManager.ReadByStringKey(TABLE_EQUIP_MODEL_SHOW_PATH, XTable.XTableEquipModelShow, "Id")
     EquipResByFoolTemplate = XTableManager.ReadByIntKey(TABLE_EQUIP_RES_BY_FOOL_PATH, XTable.XTableEquipResByFool, "Id")
+    WeaponDeregulateUITemplate = XTableManager.ReadByIntKey(TABLE_WEAPON_DEREGULATE_UI, XTable.XTableWeaponDeregulateUI, "Lv")
 
     local decomposetab = XTableManager.ReadByIntKey(TABLE_EQUIP_DECOMPOSE_PATH, XTable.XTableEquipDecompose, "Id")
     for _, v in pairs(decomposetab) do
@@ -368,6 +415,11 @@ function XEquipConfig.Init()
     local eatCostTab = XTableManager.ReadByIntKey(TABLE_EAT_EQUIP_COST_PATH, XTable.XTableEatEquipCost, "Id")
     for _, v in pairs(eatCostTab) do
         EatEquipCostTemplate[v.Site .. v.Star] = v.UseMoney
+    end
+
+    local animResetTab = XTableManager.ReadByIntKey(TABLE_EQUIP_ANIM_RESET, XTable.XTableEquipAnimReset, "Id")
+    for _, v in pairs(animResetTab) do
+        EquipAnimResetDic[v.CharacterModel] = true
     end
 end
 
@@ -400,29 +452,17 @@ function XEquipConfig.GetMinAwakeStar()
 end
 
 function XEquipConfig.GetEquipCfg(templateId)
-    local equipCfg = nil
-
-    if EquipTemplates:ContainsKey(templateId) then
-        equipCfg = EquipTemplates[templateId]
-    end
-
-    if not equipCfg then
-        XLog.ErrorTableDataNotFound("XEquipConfig.GetEquipCfg", "equipCfg", TABLE_EQUIP_PATH, "templateId", tostring(templateId))
-        return
-    end
-
-    return equipCfg
+    return XMVCA:GetAgency(ModuleId.XEquip):GetConfigEquip(templateId)
 end
 
 --todo 道具很多地方没有检查ID类型就调用了，临时处理下
 function XEquipConfig.CheckTemplateIdIsEquip(templateId)
-    local equipCfg = nil
-
-    if EquipTemplates:ContainsKey(templateId) then
-        equipCfg = EquipTemplates[templateId]
+    if not templateId then
+        return false
     end
 
-    return templateId and equipCfg
+    local equipTemplates = XEquipConfig.GetEquipTemplates()
+    return equipTemplates[templateId] ~= nil
 end
 
 function XEquipConfig.GetEatEquipCostMoney(site, star)
@@ -733,6 +773,11 @@ function XEquipConfig.GetEquipTemplateIdsBySuitId(suitId)
     return SuitIdToEquipTemplateIdsDic[suitId] or {}
 end
 
+--这个是获取数组的
+function XEquipConfig.GetEquipTemplateIdsListBySuitId(suitId)
+    return SuitIdToEquipTemplateIdsList[suitId] or {}
+end
+
 function XEquipConfig.GetSuitSites(suitId)
     return SuitSitesDic[suitId] or {}
 end
@@ -861,10 +906,19 @@ function XEquipConfig.GetWeaponSkillPoolSkillIds(poolId, characterId)
     return skillIds
 end
 
-function XEquipConfig.GetEquipSkipIdTemplate(eatType, site)
-    local template = EquipSkipIdTemplates[eatType][site]
+function XEquipConfig.GetEquipEatSkipIdTemplate(eatType, site)
+    local template = EquipEatSkipIdTemplates[eatType][site]
     if not template then
-        XLog.ErrorTableDataNotFound("XEquipConfig.GetEquipSkipIdTemplate", "site", TABLE_WEAPON_SKILL_POOL_PATH, "eatType", tostring(eatType))
+        XLog.ErrorTableDataNotFound("XEquipConfig.GetEquipEatSkipIdTemplate", "site", TABLE_WEAPON_SKILL_POOL_PATH, "eatType", tostring(eatType))
+        return
+    end
+    return template
+end
+
+function XEquipConfig.GetEquipSkipIdTemplate(equipType)
+    local template = EquipSkipIdTemplates[equipType]
+    if not template then
+        XLog.ErrorTableDataNotFound("XEquipConfig.GetEquipSkipIdTemplate", "Config", TABLE_WEAPON_SKILL_POOL_PATH, "eatType", tostring(equipType))
         return
     end
     return template
@@ -903,7 +957,7 @@ function XEquipConfig.GetNeedFirstShow(templateId)
 end
 
 function XEquipConfig.GetEquipTemplates()
-    return EquipTemplates
+    return XMVCA:GetAgency(ModuleId.XEquip):GetConfigEquip()
 end
 
 function XEquipConfig.GetEquipAwakeCfg(templateId)
@@ -958,10 +1012,6 @@ function XEquipConfig.GetEquipAwakeTabIndex()
     return EquipAwakeTabIndex
 end
 
-function XEquipConfig.SetEquipAwakeTabIndex(equipAwakeTabIndex)
-    EquipAwakeTabIndex = equipAwakeTabIndex
-end
-
 function XEquipConfig.GetEquipModelShowHideNodeName(modelId, UiName)
     for _, cfg in pairs(EquipModelShowTemplate) do
         if cfg.ModelId == modelId and cfg.UiName == UiName then
@@ -992,3 +1042,350 @@ function XEquipConfig.GetFoolWeaponResonanceModelId(case, templateId, resonanceC
     return modelId or template.ModelTransId[case]
 end
 ------------愚人节装备替换相关 end----------------
+
+--region-------------------------武器指定状态机相关-----------------------------------
+---@class _EquipSignboardActiveEnum
+---@field Character number
+---@field Fashion number
+local _EquipSignboardAllActiveEnum = enum({
+    Character = 1,
+    Fashion = 1,
+})
+
+local function GetEquipSignboardCfgs()
+    if EquipSignboardCfg == nil then
+        EquipSignboardCfg = XTableManager.ReadByIntKey(TABLE_EQUIP_SIGNBOARD_PATH, XTable.XTableEquipSignboard, "Id")
+    end
+
+    return EquipSignboardCfg
+end
+
+--[[
+=======================================================================================
+当EquipSignboar表ChaIsAllActive字段为1时
+EquipSignboardDic = {
+    [characterId] = {
+        ChaIsAllActive = true,
+        EquipModelIndex = config.EquipModelIndex
+    },
+}
+否则
+    当EquipSignboar表FashionId字段为空时
+        当EquipSignboar表FashIsAllActive为1时
+        EquipSignboardDic = {
+            [characterId] = {
+                ChaIsAllActive = false,
+                AllFashion = true,
+                FashIsAllActive = true,
+                EquipModelIndex = config.EquipModelIndex
+            },
+        }
+        否则
+            当EquipSignboar表ActionId字段为空时
+            EquipSignboardDic = {
+                [characterId] = {
+                    ChaIsAllActive = false,
+                    AllFashion = true,
+                    FashIsAllActive = false,
+                    AllAction = true,
+                    EquipModelIndex = config.EquipModelIndex
+                },
+            }
+            否则
+            EquipSignboardDic = {
+                [characterId] = {
+                    ChaIsAllActive = false,
+                    AllFashion = true,
+                    FashIsAllActive = false,
+                    AllAction = false,
+                    ActionIdDic = {
+                        [actionId] = config.EquipModelIndex,
+                    }
+                },
+            }
+    否则
+        当EquipSignboar表FashIsAllActive为1时
+        EquipSignboardDic = {
+            [characterId] = {
+                ChaIsAllActive = false,
+                AllFashion = false,
+                FashionIdDic = {
+                    [fashionId] = {
+                        FashIsAllActive = true,
+                        EquipModelIndex = config.EquipModelIndex
+                    },
+                }
+            },
+        }
+        否则
+            当EquipSignboar表ActionId字段为空时
+            EquipSignboardDic = {
+                [characterId] = {
+                    ChaIsAllActive = false,
+                    AllFashion = false,
+                    FashionIdDic = {
+                        [fashionId] = {
+                            FashIsAllActive = false,
+                            AllAction = true,
+                            EquipModelIndex = config.EquipModelIndex
+                        },
+                    }
+                }
+            }
+            否则
+            EquipSignboardDic = {
+                [characterId] = {
+                    ChaIsAllActive = false,
+                    AllFashion = false,
+                    FashionIdDic = {
+                        [fashionId] = {
+                            FashIsAllActive = false,
+                            AllAction = false,
+                            ActionIdDic = {
+                                [actionId] = config.EquipModelIndex,
+                            }
+                        },
+                    }
+                }
+            }
+=======================================================================================
+]]
+
+local function GetEquipSignboardDic()
+    if EquipSignboardDic == nil then
+        local configs = GetEquipSignboardCfgs()
+
+        EquipSignboardDic = {}
+
+        for id, config in Pairs(configs) do
+            local equipModelIndex = config.EquipModelIndex
+            local characterId = config.CharacterId
+            local fashionId = config.FashionId
+            local actionId = config.ActionId
+            
+            if not equipModelIndex then
+                XLog.Error(StringFormat("EquipSignboard表的EquipModelIndex字段为空！Id:%d, 路径:%s", id, TABLE_EQUIP_SIGNBOARD_PATH))
+                EquipSignboardDic = {}
+
+                return EquipSignboardDic
+            end
+            EquipSignboardDic[characterId] = EquipSignboardDic[characterId] or {}
+
+            if config.ChaIsAllActive and config.ChaIsAllActive == _EquipSignboardAllActiveEnum.Character then
+                if not characterId then
+                    XLog.Error(StringFormat("EquipSignboard表CharacterId为空！Id:%d, 路径:%s", id, TABLE_EQUIP_SIGNBOARD_PATH))
+                    EquipSignboardDic = {}
+
+                    return EquipSignboardDic
+                end
+
+                EquipSignboardDic[characterId].ChaIsAllActive = true
+                EquipSignboardDic[characterId].EquipModelIndex = equipModelIndex
+            else
+                EquipSignboardDic[characterId].ChaIsAllActive = false
+
+                if not fashionId or fashionId == 0 then
+                    EquipSignboardDic[characterId].AllFashion = true
+
+                    if EquipSignboardDic[characterId].FashionIdDic then
+                        EquipSignboardDic[characterId].FashionIdDic = nil
+                        XLog.Error(StringFormat("EquipSignboard表CharacterId(%d)配置全部涂装开启武器，会覆盖当前CharacterId的其它涂装配置！Id:%d, 路径:%s", characterId, id, TABLE_EQUIP_SIGNBOARD_PATH))
+                    end
+
+                    if config.FashIsAllActive and config.FashIsAllActive == _EquipSignboardAllActiveEnum.Fashion then
+                        EquipSignboardDic[characterId].FashIsAllActive = true
+                        EquipSignboardDic[characterId].EquipModelIndex = equipModelIndex
+                    else
+                        EquipSignboardDic[characterId].FashIsAllActive = false
+
+                        if not actionId or actionId == 0 then
+                            EquipSignboardDic[characterId].AllAction = true
+                            EquipSignboardDic[characterId].EquipModelIndex = equipModelIndex
+                        else
+                            EquipSignboardDic[characterId].ActionIdDic = EquipSignboardDic[characterId].ActionIdDic or {}
+                            EquipSignboardDic[characterId].ActionIdDic[actionId] = equipModelIndex
+                        end
+                    end
+                else
+                    EquipSignboardDic[characterId].AllFashion = false
+                    EquipSignboardDic[characterId].FashionIdDic = EquipSignboardDic[characterId].FashionIdDic or {}
+                    EquipSignboardDic[characterId].FashionIdDic[fashionId] = EquipSignboardDic[characterId].FashionIdDic[fashionId] or {}
+
+                    if config.FashIsAllActive and config.FashIsAllActive == _EquipSignboardAllActiveEnum.Fashion then
+                        EquipSignboardDic[characterId].FashionIdDic[fashionId].FashIsAllActive = true
+                        EquipSignboardDic[characterId].FashionIdDic[fashionId].EquipModelIndex = equipModelIndex
+                    else
+                        EquipSignboardDic[characterId].FashionIdDic[fashionId].FashIsAllActive = false
+
+                        if not actionId or actionId == 0 then
+                            EquipSignboardDic[characterId].FashionIdDic[fashionId].AllAction = true
+                            EquipSignboardDic[characterId].FashionIdDic[fashionId].EquipModelIndex = equipModelIndex
+
+                            if EquipSignboardDic[characterId].FashionIdDic[fashionId].ActionIdDic then
+                                EquipSignboardDic[characterId].FashionIdDic[fashionId].ActionIdDic = nil
+                                XLog.Error(StringFormat("EquipSignboard表CharacterId(%d)配置全部动作开启武器，会覆盖当前CharacterId的其它动作配置！Id:%d, 路径:%s", characterId, id, TABLE_EQUIP_SIGNBOARD_PATH))
+                            end
+                        else
+                            EquipSignboardDic[characterId].FashionIdDic[fashionId].AllAction = false
+                            EquipSignboardDic[characterId].FashionIdDic[fashionId].ActionIdDic = EquipSignboardDic[characterId].FashionIdDic[fashionId].ActionIdDic or {}
+                            EquipSignboardDic[characterId].FashionIdDic[fashionId].ActionIdDic[actionId] = equipModelIndex
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    return EquipSignboardDic
+end
+
+function XEquipConfig.GetEquipAnimControllerBySignboard(characterId, fashionId, actionId)
+    if not characterId then
+        return
+    end
+
+    local equipSignboardDic = GetEquipSignboardDic()
+    local equipCharacterSignboard = equipSignboardDic[characterId]
+
+    if not equipCharacterSignboard then
+        return
+    end
+
+    if equipCharacterSignboard.ChaIsAllActive then
+        return equipCharacterSignboard.EquipModelIndex
+    end
+
+    if equipCharacterSignboard.AllFashion then
+        if equipCharacterSignboard.FashIsAllActive then
+            return EquipSignboardDic[characterId].EquipModelIndex
+        else
+            if equipCharacterSignboard.AllAction then
+                return EquipSignboardDic[characterId].EquipModelIndex
+            else
+                if not actionId then
+                    return
+                end
+
+                return EquipSignboardDic[characterId].ActionIdDic[actionId]
+            end
+        end
+    end
+
+    if not fashionId then
+        return
+    end
+
+    local equipFashionSignboard = equipCharacterSignboard.FashionIdDic[fashionId]
+
+    if not equipFashionSignboard then
+        return
+    end
+
+    if equipFashionSignboard.FashIsAllActive then
+        return equipFashionSignboard.EquipModelIndex
+    end
+
+    if equipFashionSignboard.AllAction then
+        return equipFashionSignboard.EquipModelIndex
+    end
+
+    if not actionId then
+        return
+    end
+
+    local equipActionSignboard = equipFashionSignboard.ActionIdDic[actionId]
+
+    if not equipActionSignboard then
+        return
+    end
+
+    return equipActionSignboard
+end
+
+function XEquipConfig.CheckHasLoadEquipBySignboard(characterId, fashionId, actionId)
+    return XEquipConfig.GetEquipAnimControllerBySignboard(characterId, fashionId, actionId) ~= nil
+end
+--endregion
+
+------------武器超限相关 begin----------------
+
+-- 获取武器的超限配置
+function XEquipConfig.GetWeaponOverrunCfgsByTemplateId(templateId)
+    local cfgs = WeaponOverrunDic[templateId]
+    return cfgs
+end
+
+-- 获取武器超限ui配置
+function XEquipConfig.GetWeaponDeregulateUICfg(templateId)
+    return WeaponDeregulateUITemplate[templateId]
+end
+
+-- 获取武器超限意识绑定的配置表
+function XEquipConfig.GetWeaponOverrunSuitCfgByTemplateId(templateId)
+    for _, cfg in ipairs(WeaponOverrunDic[templateId] or {}) do
+        if cfg.OverrunType == XEquipConfig.WeaponOverrunUnlockType.Suit then
+            return cfg
+        end
+    end
+    return nil
+end
+
+-- 装备是否可超限
+function XEquipConfig.CanOverrunByTemplateId(templateId)
+    local cfgs = WeaponOverrunDic[templateId]
+    local canDeregulate = cfgs and #cfgs > 0
+    return canDeregulate
+end
+
+-- 获取意识套装列表
+-- isType0 = true 时，只获装备类型为0的意识套装，即不包括意识强化素材
+function XEquipConfig.GetSuitIdListByCharacterType(charType, minQuality, isFilterType0, isOverrun)
+    minQuality = minQuality or 0
+    local suitIdList = {}
+    for _, suit in pairs(EquipSuitTemplate) do
+        local equipIds = SuitIdToEquipTemplateIdsDic[suit.Id]
+        if equipIds and #equipIds > 0 then
+            local equipId = equipIds[1]
+            local equipCfg = XEquipConfig.GetEquipCfg(equipId)
+            local isShow = equipCfg.Quality >= minQuality
+                       and (charType == XEquipConfig.UserType.All or XEquipConfig.GetEquipCharacterType(equipId) == charType) 
+                       and ((isFilterType0 and equipCfg.Type == 0) or not isFilterType0)
+                       and ((isOverrun and equipCfg.OverrunNoShow ~= 1) or not isOverrun)
+            if isShow then
+                table.insert(suitIdList, suit.Id)
+            end
+        end
+    end
+
+    return suitIdList
+end
+
+-- 获取意识套装的品质
+function XEquipConfig.GetSuitQuality(suitId)
+    local equipIds = XEquipConfig.GetEquipTemplateIdsBySuitId(suitId)
+    if equipIds and #equipIds > 0 then
+        local equipCfg = XEquipConfig.GetEquipCfg(equipIds[1])
+        return equipCfg.Quality
+    end
+    
+    return 0
+end
+
+-- 获取意识套装的适配角色类型
+function XEquipConfig.GetSuitCharacterType(suitId)
+    local equipIds = XEquipConfig.GetEquipTemplateIdsBySuitId(suitId)
+    if equipIds and #equipIds > 0 then
+        local equipCfg = XEquipConfig.GetEquipCfg(equipIds[1])
+        return equipCfg.CharacterType
+    end
+    
+    return 0
+end
+------------武器超限相关 end----------------
+
+function XEquipConfig.GetEquipAnimIsReset(modelId)
+    if XTool.IsTableEmpty(EquipAnimResetDic) then
+        return false
+    end
+    return EquipAnimResetDic[modelId] or false
+end

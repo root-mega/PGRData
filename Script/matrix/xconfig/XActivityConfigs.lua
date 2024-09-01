@@ -23,6 +23,7 @@ XActivityConfigs.ActivityType = {
     ConsumeReward = 8, -- 累消奖励
     ScratchTicket = 9, -- 普通刮刮乐
     ScratchTicketGolden = 10, -- 黄金刮刮乐
+    BackFlowLink = 11, -- 回流问卷
 }
 
 -- 活动背景类型

@@ -41,6 +41,7 @@ function XUiSignGridDay:OnBtnCardClick()
     XDataCenter.AutoWindowManager.StopAutoWindow()
     XDataCenter.PurchaseManager.OpenYKPackageBuyUi()
     -- XLuaUiManager.Open("UiPurchase", XPurchaseConfigs.TabsConfig.YK, false)
+    XUiHelper.OpenMonthlyCardEn()
 end
 
 ---
@@ -139,18 +140,49 @@ function XUiSignGridDay:SetCardInfo()
     local isOverdue, canClickYk = XDataCenter.SignInManager.JudgeYKInSignOverdue(self.Config.SignId, self.Config.Round, self.Config.Day, remainDay)
     local isToday, _ = XDataCenter.SignInManager.JudgeTodayGet(self.Config.SignId, self.Config.Round, self.Config.Day)
     if isOverdue then
-        self.PanelEnable.gameObject:SetActiveEx(false)
-        self.PanelDisable.gameObject:SetActiveEx(true)
-        self.BtnCard.gameObject:SetActiveEx(canClickYk and not isToday)
-        self.PanelDisable.transform.parent.gameObject:SetActiveEx(not isAlreadyGet or isToday)
+        self:SetPanelEnableActive(true)
+        self:SetPanelEnableActive(false)
+        self:SetPanelDisableActive(true)
+        self:SetBtnCardActive(canClickYk and not isToday)
+        self:SetPanelDisableParentActive(not isAlreadyGet or isToday)
         return
     end
 
-    
-    self.PanelEnable.gameObject:SetActiveEx(true)
-    self.PanelDisable.gameObject:SetActiveEx(false)
-    self.BtnCard.gameObject:SetActiveEx(true)
-    self.PanelDisable.transform.parent.gameObject:SetActiveEx(not isAlreadyGet or isToday)
+    self:SetPanelEnableActive(true)
+    self:SetPanelDisableActive(false)
+    self:SetBtnCardActive(true)
+    self:SetPanelDisableParentActive(not isAlreadyGet or isToday)
+end
+
+function XUiSignGridDay:SetPanelEnableActive(isActive)
+    if self.PanelEnable then
+        self.PanelEnable.gameObject:SetActiveEx(isActive)
+    end
+end
+
+function XUiSignGridDay:SetPanelDisableActive(isActive)
+    if self.PanelDisable then
+        self.PanelDisable.gameObject:SetActiveEx(isActive)
+    end
+end
+
+function XUiSignGridDay:SetBtnCardActive(isActive)
+    if self.BtnCard then
+        self.BtnCard.gameObject:SetActiveEx(isActive)
+    end
+end
+
+function XUiSignGridDay:SetPanelDisableActive(isActive)
+    if self.PanelDisable then
+        self.PanelDisable.gameObject:SetActiveEx(isActive)
+    end
+end
+
+function XUiSignGridDay:SetPanelDisableParentActive(isActive)
+    local parent = self.PanelDisable and self.PanelDisable.transform.parent
+    if parent then
+        parent.gameObject:SetActiveEx(isActive)
+    end
 end
 
 -- 领取月卡
@@ -225,9 +257,9 @@ end
 function XUiSignGridDay:SetNoReward()
     self:SetEffectActive(false)
     if self.BtnCard then
-        self.PanelEnable.gameObject:SetActiveEx(false)
-        self.PanelDisable.gameObject:SetActiveEx(true)
-        self.BtnCard.gameObject:SetActiveEx(true)
+        self:SetPanelEnableActive(false)
+        self:SetPanelDisableActive(true)
+        self:SetBtnCardActive(true)
     end
     XEventManager.DispatchEvent(XEventId.EVENT_SING_IN_OPEN_BTN, true)
 end

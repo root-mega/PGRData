@@ -144,6 +144,8 @@ function XUiLoadingOption:OnBtnConfirmClick()
         self.ChangedFlag = false
     end
 
+    -- 打开自定义加载开关
+    XDataCenter.LoadingManager.SetCustomLoadingState(XSetConfigs.LoadingType.Custom)
     XUiManager.TipText("SetAppearanceSuccess")
 end
 

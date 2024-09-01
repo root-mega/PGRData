@@ -16,6 +16,7 @@ local Default = {
     _SubRuneId = 0, --子符文Id
     _TeamMemberDic = {}, --上阵成员信息
     _PluginDic = {}, --插件信息
+    _ElementId = 0, --队伍属性
 }
 
 local XStrongholdTeam = XClass(nil, "XStrongholdTeam")
@@ -33,8 +34,12 @@ function XStrongholdTeam:Init(id)
         end
     end
 
-    self._Id = id
+    self:SetId(id)
     self:InitPlugins()
+end
+
+function XStrongholdTeam:SetId(id)
+    self._Id = id
 end
 
 function XStrongholdTeam:GetId()
@@ -352,10 +357,12 @@ function XStrongholdTeam:KickOutOtherMembers()
     end
 end
 
---剔除已经失效的援助角色
-function XStrongholdTeam:KickOutInvalidMembers()
+--剔除已经失效的援助角色和试玩角色
+function XStrongholdTeam:KickOutInvalidMembers(canUseRobotIdDic)
     for _, member in pairs(self._TeamMemberDic) do
         if not member:CheckValid() then
+            member:ResetCharacters()
+        elseif (canUseRobotIdDic) and (member:IsRobot() and not canUseRobotIdDic[member:GetRobotId()]) then
             member:ResetCharacters()
         end
     end
@@ -438,8 +445,7 @@ end
 
 --是否装备符文
 function XStrongholdTeam:HasRune()
-    return XTool.IsNumberValid(self._RuneId)
-    and XTool.IsNumberValid(self._SubRuneId)
+    return XDataCenter.StrongholdManager.IsCurActivityRune(self._RuneId) or XDataCenter.StrongholdManager.IsCurActivityRune(self._SubRuneId)
 end
 
 --是否装备该符文大类
@@ -460,6 +466,14 @@ function XStrongholdTeam:GetRuneColor()
     local runeId = self._RuneId
     if not XTool.IsNumberValid(runeId) then return "" end
     return XStrongholdConfigs.GetRuneColor(runeId)
+end
+
+function XStrongholdTeam:SetElementId(element)
+    self._ElementId = element
+end
+
+function XStrongholdTeam:GetElementId()
+    return self._ElementId
 end
 
 return XStrongholdTeam

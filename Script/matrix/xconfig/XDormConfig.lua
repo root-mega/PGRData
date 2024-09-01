@@ -19,17 +19,23 @@ XDormConfig.CharacterLikeType = {
 -- 仓库Toggle
 XDormConfig.DORM_BAG_PANEL_INDEX = {
     FURNITURE = 1, -- 家具
-    CHARACTER = 2, -- 构造体
-    DRAFT = 3, -- 图纸
+    DRAFT = 2, -- 图纸
+    CHARACTER = 3, -- 构造体
+}
+
+-- 装修Toggle
+XDormConfig.ReformPanelIndex = {
+    Template    = 1, --模板
+    Furniture   = 2, --家具
 }
 
 -- 仓库住户Toggle
 XDormConfig.DORM_CHAR_INDEX = {
     CHARACTER = 1, -- 构造体
     EMNEY = 2, -- 侵蚀体
-    -- HUMAN = 3, -- 人类
-    INFESTOR = 3, -- 授格者
-    NIER = 4, -- 联动
+    HUMAN = 3, -- 人类
+    INFESTOR = 4, -- 授格者
+    NIER = 5, -- 联动
 }
 
 -- 跳转类型
@@ -105,14 +111,16 @@ XDormConfig.RecoveryType = {
 }
 
 XDormConfig.DormSecondEnter = {
-    Task = 1, -- 任务
-    Des = 2, -- 描述
-    WareHouse = 3, --仓库
-    ReName = 4, --改名
-    FieldGuilde = 5, --图鉴
-    Build = 6, --建造
-    Shop = 7, --商店
-    Person = 8, --人员
+    Task            = 1, --任务
+    Des             = 2, --描述
+    WareHouse       = 3, --仓库
+    ReName          = 4, --改名
+    FieldGuilde     = 5, --图鉴
+    Build           = 6, --建造
+    Shop            = 7, --商店
+    Person          = 8, --人员
+    Template        = 9, --模板
+    Reset           = 10, --重置
 }
 
 XDormConfig.DormAttDesIndex = {
@@ -143,11 +151,21 @@ XDormConfig.DormCharGender = {
 }
 
 -- 宿舍空间站枚举
-XDormConfig.SenceType = {
-    One = 1,
-    Two = 2,
-    Three = 3,
+XDormConfig.SceneType = {
+    One     = 1,
+    Two     = 2,
+    Three   = 3,
+    Four    = 4,
 }
+
+XDormConfig.PersonType = {
+    Staff  = 1, --入住情况
+    Detail = 2, --员工详情
+}
+
+--- 宿舍图文教程引导Id
+XDormConfig.DormCourseGuideId = 52701
+
 
 XDormConfig.DORM_VITALITY_MAX_VALUE = math.floor(CS.XGame.Config:GetInt("DormVitalityMaxValue") / 100)
 XDormConfig.DORM_MOOD_MAX_VALUE = math.floor(CS.XGame.Config:GetInt("DormMoodMaxValue") / 100)
@@ -169,6 +187,10 @@ XDormConfig.CaptureAngleY = CS.XGame.ClientConfig:GetFloat("DormTemplateCaptureA
 XDormConfig.CaptureDistance = CS.XGame.ClientConfig:GetFloat("DormTemplateCaptureDistance")
 XDormConfig.ProvisionalMaXCount = CS.XGame.ClientConfig:GetInt("DormProvisionalMaxCount")
 XDormConfig.ShareName = CS.XGame.ClientConfig:GetString("DormTemplateShareName")
+XDormConfig.LoadThresholdTotal = CS.XGame.ClientConfig:GetInt("DormLoadThresholdTotal")
+XDormConfig.LoadThresholdSingle = CS.XGame.ClientConfig:GetInt("DormLoadThresholdSingle")
+XDormConfig.DormLoadCacheCount = CS.XGame.ClientConfig:GetInt("DormLoadCacheCount")
+XDormConfig.DormCourseJumpIndex = CS.XGame.ClientConfig:GetInt("DormCourseJumpIndex")
 
 local TABLE_DORM_CHARACTER_EVENT_PATH = "Share/Dormitory/Character/DormCharacterEvent.tab"
 local TABLE_DORM_CHARACTER_BEHAVIOR_PATH = "Share/Dormitory/Character/DormCharacterBehavior.tab"
@@ -191,6 +213,8 @@ local TABLE_DORM_GUIDE_TASK_PATH = "Client/Dormitory/DormGuideTask.tab"
 local TABLE_DORM_TEMPLATE_COLLECT_PATH = "Client/Dormitory/DormTemplateCollect.tab"
 local TABLE_DORM_TEMPLATE_GROUP_PATH = "Client/Dormitory/DormTemplateGroup.tab"
 local TABLE_DORM_F2C_RELATION_PATH = "Client/Dormitory/DormF2CBehaviorRelation.tab"
+local TABLE_DORM_SECOND_MENU_PATH = "Client/Dormitory/DormSecondMenu.tab"
+local TABLE_DORM_FURNITURE_RIM_MAT_PATH = "Client/Dormitory/DormFurnitureRimMat.tab"
 
 local CharacterEventTemplate = {}
 local CharacterBehaviorTemplate = {}
@@ -224,6 +248,10 @@ local DormTemplateData = nil  -- 宿舍模板数据
 
 local DormF2CRelationConfig = {}
 local DormF2CRelationDic = {}
+---@type table<number, XTable.XTableDormSecondMenu>
+local DormSecondMenuTemplate = {}
+---@type table<string, XTable.XTableDormFurnitureRimMat>
+local DormFurnitureRimMatTemplate = {}
 -- 初始化构造体恢复表，并排序
 local function InitDormCharacterRecovery()
     local recoverys = XTableManager.ReadByIntKey(TABLE_DORM_CHARACTER_RECOVERY_PATH, XTable.XTableDormCharacterRecovery, "Id")
@@ -281,6 +309,8 @@ function XDormConfig.Init()
     DormTaskGuideCfg = XTableManager.ReadByIntKey(TABLE_DORM_GUIDE_TASK_PATH, XTable.XTableDormGuideTask, "Id")
     DormCharacterRewardCfg = XTableManager.ReadByIntKey(TABLE_CHARACTER_REWARD_PATH, XTable.XTableDormCharacterReward, "Id")
     DormF2CRelationConfig = XTableManager.ReadByIntKey(TABLE_DORM_F2C_RELATION_PATH, XTable.XTableDormF2CBehaviorRelation, "Id")
+    DormSecondMenuTemplate = XTableManager.ReadByIntKey(TABLE_DORM_SECOND_MENU_PATH, XTable.XTableDormSecondMenu, "Id")
+    DormFurnitureRimMatTemplate = XTableManager.ReadByStringKey(TABLE_DORM_FURNITURE_RIM_MAT_PATH, XTable.XTableDormFurnitureRimMat, "Key")
     InitDormCharacterRecovery()
 
     CharacterBehaviorStateIndex = {}
@@ -415,6 +445,7 @@ function XDormConfig.GetDormTemplateIsSwhoById(id)
     return data.IsShow
 end
 
+---@return XTable.XTableDormTemplateCollect[]
 function XDormConfig.GetDormTemplateCollectList()
     local list = {}
     for _, info in pairs(DormTemplateCollectCfg) do
@@ -448,6 +479,16 @@ function XDormConfig.GetDormTemplateSelecIndex(connectId)
         end
     end
     return default
+end
+
+---@return XTable.XTableDormTemplateGroup
+function XDormConfig.GetDormTemplateGroupCfg(groupId)
+    local template = DormTemplateGroupCfg[groupId]
+    if not template then
+        XLog.ErrorTableDataNotFound("XDormConfig.GetDormTemplateGroupCfg", "data", TABLE_DORM_TEMPLATE_GROUP_PATH, "id" ,tostring(groupId))
+        return {}
+    end
+    return template
 end
 
 function XDormConfig.GetDormTemplateCfg(id)
@@ -503,8 +544,8 @@ function XDormConfig.GetDormCharacterType(dormCharIndex)
         return XDormConfig.DormSex.Man, XDormConfig.DormSex.Woman
     elseif dormCharIndex == XDormConfig.DORM_CHAR_INDEX.EMNEY then
         return XDormConfig.DormSex.Infect
-    -- elseif dormCharIndex == XDormConfig.DORM_CHAR_INDEX.HUMAN then
-    --     return XDormConfig.DormSex.Human, XDormConfig.DormSex.Huwoman
+    elseif dormCharIndex == XDormConfig.DORM_CHAR_INDEX.HUMAN then
+        return XDormConfig.DormSex.Human, XDormConfig.DormSex.Huwoman
     elseif dormCharIndex == XDormConfig.DORM_CHAR_INDEX.INFESTOR then
         return XDormConfig.DormSex.InfestorMale, XDormConfig.DormSex.InfestorFemale
     elseif dormCharIndex == XDormConfig.DORM_CHAR_INDEX.NIER then
@@ -562,11 +603,13 @@ end
 function XDormConfig.GetDormSenceVector(dormitoryId)
     local dormitoryConfig = XDormConfig.GetDormitoryCfgById(dormitoryId)
     local v3 = CS.UnityEngine.Vector3.zero
-    if dormitoryConfig.SceneId == XDormConfig.SenceType.One then
+    if dormitoryConfig.SceneId == XDormConfig.SceneType.One then
         v3 = CS.UnityEngine.Vector3(0, -180, 0)
-    elseif dormitoryConfig.SceneId == XDormConfig.SenceType.Two then
+    elseif dormitoryConfig.SceneId == XDormConfig.SceneType.Two then
         v3 = CS.UnityEngine.Vector3(0, -180, 0)
-    elseif dormitoryConfig.SceneId == XDormConfig.SenceType.Three then
+    elseif dormitoryConfig.SceneId == XDormConfig.SceneType.Three then
+        v3 = CS.UnityEngine.Vector3(0, -180, 0)
+    elseif dormitoryConfig.SceneId == XDormConfig.SceneType.Four then
         v3 = CS.UnityEngine.Vector3(0, -180, 0)
     end
 
@@ -580,7 +623,7 @@ function XDormConfig.GetDormitoryNumById(dormitoryId)
 end
 
 -- 获取宿舍空间ID
-function XDormConfig.GetDormitorySenceById(dormitoryId)
+function XDormConfig.GetDormitorySceneById(dormitoryId)
     local dormitoryConfig = XDormConfig.GetDormitoryCfgById(dormitoryId)
     return dormitoryConfig.SceneId
 end
@@ -658,7 +701,10 @@ function XDormConfig.GetCharacterActionState(charId, name)
     return CharacterActionIndex[charId][name]
 end
 
---获取事件
+--- 获取事件
+---@param id number 事件Id
+---@return XTable.XTableDormCharacterEvent
+--------------------------
 function XDormConfig.GetCharacterEventById(id)
     if not CharacterEventTemplate then
         XLog.Error("配置表：" .. TABLE_DORM_CHARACTER_EVENT_PATH .. "读取失败")
@@ -1035,4 +1081,68 @@ function XDormConfig.GetDormF2CBehaviorRelative(furnitureId, characterId, positi
     if not config then return nil end
     if not config[characterId] then return nil end
     return config[characterId][positionId or 1]
+end
+
+--- 宿舍总家具数
+---@param roomDataMap table<number, XHomeRoomData>
+---@return number
+--------------------------
+function XDormConfig.GetDormFurnitureTotal(roomDataMap)
+    local count = 0
+    if XTool.IsTableEmpty(roomDataMap) then
+        return count
+    end
+
+    roomDataMap = roomDataMap or {}
+    for _, roomData in pairs(roomDataMap) do
+        if roomData and roomData.FurnitureCount then
+            count = count + roomData.FurnitureCount
+        end
+    end
+    
+    return count
+end 
+
+---@return XTable.XTableDormSecondMenu[]
+function XDormConfig.GetSecondMenuList()
+    local list = {}
+
+    for id, template in pairs(DormSecondMenuTemplate) do
+        if template.Ignore ~= 1 then
+            table.insert(list, template)
+        end
+    end
+    table.sort(list, function(a, b) 
+        local orderA = a.Order
+        local orderB = b.Order
+
+        if orderA ~= orderB then
+            return orderA < orderB
+        end
+        
+        return a.Id < b.Id
+    end)
+    
+    return list
+end
+
+function XDormConfig.GetFurnitureRimMat()
+    return DormFurnitureRimMatTemplate
+end
+
+function XDormConfig.GetDormShopTipLocalKey()
+    return string.format("DormShopTip_UID:%s_Time:%s", XPlayer.Id, XTime.GetSeverNextRefreshTime())
+end
+
+function XDormConfig.GetDormCourseGuideLocalKey(jumpIndex)
+    return string.format("DormCourseGuide_UID:%s_JumpIndex:%s", XPlayer.Id, jumpIndex)
+end
+
+function XDormConfig.MarkDormCourseGuide()
+    local configJumpIndex = XDormConfig.DormCourseJumpIndex
+    local key = XDormConfig.GetDormCourseGuideLocalKey(configJumpIndex)
+    if XSaveTool.GetData(key) then
+        return
+    end
+    XSaveTool.SaveData(key, true)
 end

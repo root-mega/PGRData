@@ -1,704 +1,2337 @@
 [
     {
         "Id": 1,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Target"
     },
     {
         "Id": 2,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Reserve"
     },
     {
         "Id": 3,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Recharge"
     },
     {
         "Id": 4,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Settings"
     },
     {
         "Id": 5,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Sign-in"
     },
     {
         "Id": 6,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Feedback"
     },
     {
         "Id": 7,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Benefits"
     },
     {
         "Id": 8,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Redeem Code"
     },
     {
         "Id": 101,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Omniframe"
     },
     {
         "Id": 102,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Members - Promote"
     },
     {
         "Id": 103,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Members - Evolve"
     },
     {
         "Id": 104,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Members - Skill"
     },
     {
         "Id": 106,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Members - Uniframe"
     },
     {
         "Id": 201,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Equip"
     },
     {
         "Id": 202,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Equipment - Enhance"
     },
     {
         "Id": 203,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Equipment - Resonance"
     },
     {
         "Id": 204,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Equipment - Quick Enhance"
     },
     {
         "Id": 301,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Warehouse"
     },
     {
         "Id": 401,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Research"
     },
     {
         "Id": 402,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Research - Equipment"
     },
     {
         "Id": 403,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Research - Event"
     },
     {
         "Id": 501,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Mission"
     },
     {
         "Id": 502,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Mission - Story"
     },
     {
         "Id": 503,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Mission - Daily"
     },
     {
         "Id": 504,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Mission - Event"
     },
     {
         "Id": 505,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Mission - Weekly"
     },
     {
         "Id": 601,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Team"
     },
     {
         "Id": 602,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Team - Mark"
     },
     {
         "Id": 603,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Team - Achievement"
     },
     {
         "Id": 701,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Mail"
     },
     {
         "Id": 801,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Friends"
     },
     {
         "Id": 802,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Chat Channel"
     },
     {
         "Id": 901,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Foundations - Floor Equipment"
     },
     {
         "Id": 902,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Dormitory"
     },
     {
         "Id": 1001,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Regular Shop"
     },
     {
         "Id": 1002,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Event Shop"
     },
     {
         "Id": 1201,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Dispatch"
     },
     {
         "Id": 1901,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Guild"
     },
     {
         "Id": 1902,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Guild - Create"
     },
     {
         "Id": 1903,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Guild - Join"
     },
     {
         "Id": 1904,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Guild Boss"
     },
     {
         "Id": 2001,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Support"
     },
     {
         "Id": 10101,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Normal Story"
     },
     {
         "Id": 10102,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Hidden Story"
     },
     {
         "Id": 10103,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Stronghold Mode"
     },
     {
         "Id": 10201,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Mission Challenge"
     },
     {
         "Id": 10202,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Challenge - Lemegeton"
     },
     {
         "Id": 10203,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Challenge - Phantom Pain Cage"
     },
     {
         "Id": 10204,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Challenge - War Zone"
     },
     {
         "Id": 10311,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Challenge - Border Pact"
     },
     {
         "Id": 10300,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Event Info"
     },
     {
         "Id": 10301,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Event Mission"
     },
     {
         "Id": 10302,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Co-op"
     },
     {
         "Id": 10303,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Event [Mass Deterioration]"
     },
     {
         "Id": 10304,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Ultra Hard Stage"
     },
     {
         "Id": 10305,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Trial Area"
     },
     {
         "Id": 10306,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Festival Mission Event"
     },
     {
         "Id": 10307,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Babel Tower"
     },
     {
         "Id": 10308,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Main Story"
     },
     {
         "Id": 10309,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Event Rerun"
     },
     {
         "Id": 10310,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Tower Climb Event"
     },
     {
         "Id": 10312,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Joint Warfare"
     },
     {
         "Id": 10313,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Phalanx"
     },
     {
         "Id": 10314,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Extra Story"
     },
     {
         "Id": 10315,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Autopoiesis Maze"
     },
     {
         "Id": 10316,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Training Stage"
     },
     {
         "Id": 10317,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Training Stage Minigame"
     },
     {
         "Id": 10318,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Virtual Horizon"
     },
     {
         "Id": 10319,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Ghost Festival Minigame"
     },
     {
         "Id": 10323,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Ghost Festival Mission"
     },
     {
         "Id": 10324,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Mini Puzzle"
     },
     {
         "Id": 10325,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "S Construct Tutorial Stage"
     },
     {
         "Id": 10326,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Christmas Minigame"
     },
     {
         "Id": 10327,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "New Year Minigame"
     },
     {
         "Id": 10328,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Couplets Minigame"
     },
     {
         "Id": 10329,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Ro-sham-bo Minigame"
     },
     {
         "Id": 10330,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Simulated Battle"
     },
     {
         "Id": 10331,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Flop Minigame"
     },
     {
         "Id": 10338,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "May Day Scratch-off"
     },
     {
         "Id": 10333,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Poker Guessing"
     },
     {
         "Id": 10334,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Story launch - Venus Skit"
     },
     {
         "Id": 10335,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "MineSweeper"
     },
     {
         "Id": 10336,
         "UiName": [
+            null,
             "UiFubenHack",
             "UiFubenHackSection",
             "UiHackCharInfo",
             "UiHackDevelop",
             "UiHackLevelUpTips",
-            "UiFubenHackDetails"
+            "UiFubenHackDetails",
+            null,
+            null,
+            null,
+            null
         ],
         "Name": "Hacking Mode"
     },
     {
         "Id": 10337,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Modify Mode"
     },
     {
         "Id": 10339,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Unrivaled Massacre"
     },
     {
         "Id": 10401,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Resource Mission"
     },
     {
         "Id": 10402,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Resource - None 1"
     },
     {
         "Id": 10403,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Resource - None 2"
     },
     {
         "Id": 10404,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Resource - None 3"
     },
     {
         "Id": 10406,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Resource - Special Training"
     },
     {
         "Id": 10407,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Resource - Combat Supply"
     },
     {
         "Id": 10408,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Resource - Military Hardware"
     },
     {
         "Id": 10409,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Resource - Logistics Maintenance"
     },
     {
         "Id": 10410,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Resource - Cogs Galore"
     },
     {
         "Id": 10411,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Resource - Battle Exercise"
     },
     {
         "Id": 10412,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Resource - Combat Unit Booster Add-on"
     },
     {
         "Id": 1301,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Bounty Mission"
     },
     {
         "Id": 1400,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Affection"
     },
     {
         "Id": 1401,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Affection - File"
     },
     {
         "Id": 1402,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Affection - Story"
     },
     {
         "Id": 1403,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Affection - Gift"
     },
     {
         "Id": 1404,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Affection - Encounter"
     },
     {
         "Id": 1501,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Customize Control"
     },
     {
         "Id": 1601,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Memory Rescue"
     },
     {
         "Id": 1701,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Interlude"
     },
     {
         "Id": 10405,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Golden Vortex"
     },
     {
         "Id": 105,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Army"
     },
     {
         "Id": 1800,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Celica's Class"
     },
     {
         "Id": 1801,
         "UiName": [
+            null,
             "UiPartnerTeachingBanner",
             "UiPartnerTeachingChapter",
             "UiPartnerTeachingFightDetail",
-            "UiPartnerTeachingStoryDetail"
+            "UiPartnerTeachingStoryDetail",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "Name": "CUB Tutorial"
     },
     {
         "Id": 109001,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Special Training RS-2"
     },
     {
         "Id": 109002,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Special Training RS-3"
     },
     {
         "Id": 109003,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Special Training RS-4"
     },
     {
         "Id": 109101,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Combat Supply AE-2"
     },
     {
         "Id": 109102,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Combat Supply AE-3"
     },
     {
         "Id": 109103,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Combat Supply AE-4"
     },
     {
         "Id": 109201,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Military Hardware AB-2"
     },
     {
         "Id": 109202,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Military Hardware AB-3"
     },
     {
         "Id": 109203,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Military Hardware AB-4"
     },
     {
         "Id": 109301,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Logistics Maintenance LM-2"
     },
     {
         "Id": 109302,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Logistics Maintenance LM-3"
     },
     {
         "Id": 109303,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Logistics Maintenance LM-4"
     },
     {
         "Id": 109401,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Cogs Galore NF-2"
     },
     {
         "Id": 109402,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Cogs Galore NF-3"
     },
     {
         "Id": 109403,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Cogs Galore NF-4"
     },
     {
         "Id": 109501,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Battle Exercise BE-2"
     },
     {
         "Id": 109502,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Battle Exercise BE-3"
     },
     {
         "Id": 109503,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Battle Exercise BE-4"
     },
     {
         "Id": 2100,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Collection"
     },
     {
         "Id": 2101,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Medal List"
     },
     {
         "Id": 2102,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Chatting Nameplate System"
     },
     {
         "Id": 2200,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Codex System"
     },
     {
         "Id": 3000,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Total Recharge"
     },
     {
         "Id": 4000,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Eden II"
     },
     {
         "Id": 4001,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Vote"
     },
     {
         "Id": 8001,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Share Invite Code"
     },
     {
         "Id": 10450,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Resource Shop"
     },
     {
         "Id": 10320,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "World Boss"
     },
     {
         "Id": 10321,
         "UiName": [
+            null,
             "UiRpgTowerMain",
             "UiRpgTowerRoleList",
             "UiRpgTowerSkillDetails",
@@ -707,63 +2340,185 @@
             "UiRpgTowerRoomCharacter",
             "UiRpgTowerSettleWin",
             "UiRpgTowerTask",
-            "UiRpgTowerLevelUp"
+            "UiRpgTowerLevelUp",
+            null
         ],
         "Name": "RPG Mode"
     },
     {
         "Id": 10322,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Honor Rank"
     },
     {
         "Id": 1302,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Operation Guardians"
     },
     {
         "Id": 1303,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Guide"
     },
     {
         "Id": 1304,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Fake Ascension"
     },
     {
         "Id": 1305,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Nier Mission"
     },
     {
         "Id": 1306,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Micawberism Cloisters"
     },
     {
         "Id": 1307,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Chestlefield"
     },
     {
         "Id": 1308,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Festival Mission Event"
     },
     {
         "Id": 2300,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Lv.2 Menu"
     },
     {
         "Id": 2400,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Photo System"
     },
     {
         "Id": 10205,
         "UiName": [
+            null,
             "UiStrongholdMain",
             "UiStrongholdActivityResult",
             "UiStrongholdRewardTip",
@@ -779,27 +2534,87 @@
     },
     {
         "Id": 10206,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Norman Revival Plan Power Station"
     },
     {
         "Id": 5001,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "CUB"
     },
     {
         "Id": 1309,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "White Day Dating Event"
     },
     {
         "Id": 1310,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Eden Festival"
     },
     {
         "Id": 10340,
-        "UiName": [],
+        "UiName": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "Name": "Super Tower Climb"
     }
 ]

@@ -25,7 +25,7 @@ function XUiLifuActivitySingleDetail:Refresh()
     local stageInfo = XDataCenter.FubenManager.GetStageInfo(self.StageId)
     local desc = XUiHelper.ConvertLineBreakSymbol(stageCfg.Description)
     self.TxtActive1.text = desc
-    self.TxtATNums.text = stageCfg.RequireActionPoint
+    self.TxtATNums.text = XDataCenter.FubenManager.GetRequireActionPoint(self.StageId)
     
     local rewardId = 0
     local IsFirst = false

@@ -1,13 +1,14 @@
----
---- 宿舍房间对象
----
+
 local XSceneObject = require("XHome/XSceneObject")
 
+---@class XHomeRoomObj : XSceneObject  宿舍房间对象
+---@field Data XHomeRoomData
 local XHomeRoomObj = XClass(XSceneObject, "XHomeRoomObj")
 
 local ROOM_DEFAULT_SO_PATH = CS.XGame.ClientConfig:GetString("RoomDefaultSoPath")
 local DisplaySetType
 local WallNum = 4
+local NearestCameraWallNum = "1"
 local ROOM_FAR_CLIP_PLANE = 25
 local Bounds = CS.UnityEngine.Bounds
 
@@ -26,6 +27,7 @@ function XHomeRoomObj:Ctor(data, facadeGo)
 
     self.IsSelected = false
     self.IsCanSave = true
+    self.IsFurnitureLoadComplete = false --家具是否全部加载
 
     self.SurfaceRoot = nil
     self.CharacterRoot = nil
@@ -40,6 +42,11 @@ function XHomeRoomObj:Ctor(data, facadeGo)
     self.GroundFurnitureList = {}
     self.WallDithers = {}
     self.CharacterList = {}
+    self.UnOwnFurniture = {}
+    self.TemplateFurnitureMap = {} --使用模板家具批量替换时,模板家具Id索引对应加载的出来的家具数据
+    
+    self.OnShowFurnitureAttrCb = handler(self, self.OnShowFurnitureAttr)
+    self.OnLoadSingleFurnitureCb = handler(self, self.SingleFurnitureLoadComplete)
 end
 
 function XHomeRoomObj:Dispose()
@@ -87,6 +94,9 @@ function XHomeRoomObj:Dispose()
     self.GoInputHandler = nil
     self.RoomMap = nil
     self.InteractList = nil
+    
+    self.IsFurnitureLoading = false
+    self.IsFurnitureLoadComplete = false
 end
 
 function XHomeRoomObj:OnLoadComplete(loadtype)
@@ -160,7 +170,7 @@ function XHomeRoomObj:SetData(data, loadtype)
     self:LoadFurniture()
     self:LoadCharacter()
 
-    self:GenerateRoomMap()
+    --self:GenerateRoomMap()
 end
 
 -- 获取房间数据
@@ -173,7 +183,7 @@ function XHomeRoomObj:GetData()
     roomData:SetRoomUnlock(self.Data:WhetherRoomUnlock())
     roomData:SetRoomName(self.Data:GetRoomName())
     roomData:SetRoomDataType(roomType)
-
+    
     if self.Wall then
         if isTemplate then
             roomData:AddFurniture(self.Wall.Data.Id, self.Wall.Data.CfgId, 0, 0, 0)
@@ -215,36 +225,33 @@ end
 
 -- 设置房间光照信息
 function XHomeRoomObj:SetIllumination()
-    if not self.Ceiling then
+    if not self.IsSelected then
         return
     end
-
-    if not self.Ceiling.Cfg then
+    if not (self.Ceiling and self.Ceiling.Cfg) then
         return
     end
 
     local soPath = self.Ceiling.Cfg.IlluminationSO
-    if not self.Ceiling.Cfg.IlluminationSO or string.len(self.Ceiling.Cfg.IlluminationSO) <= 0 then
-        soPath = ROOM_DEFAULT_SO_PATH
-    end
+    soPath = string.IsNilOrEmpty(soPath) and ROOM_DEFAULT_SO_PATH or soPath
     XHomeSceneManager.SetGlobalIllumSO(soPath)
 end
 
 -- 重置房间摆设,增加参数，重置完再刷数据
 function XHomeRoomObj:RevertRoom()
     self:CleanRoom()
-    self:LoadFurniture()
+    self:LoadFurniture(true)
     self:SetIllumination()
-    self:GenerateRoomMap()
+    --self:GenerateRoomMap()
 end
 
 -- 收起房间家具，增加参数，收起完再刷数据，如果有构造体需要回收利用。
 function XHomeRoomObj:CleanRoom()
-    self:CleanGroudFurinture()
+    self:CleanGroundFurniture()
     self:CleanWallFurniture()
-    CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_CLEANROOM)
+    CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_CLEAN_ROOM)
+    self.IsFurnitureLoadComplete = false
 end
-
 
 function XHomeRoomObj:CleanWallFurniture()
     if self.WallFurnitureList then
@@ -257,7 +264,7 @@ function XHomeRoomObj:CleanWallFurniture()
     self.WallFurnitureList = {}
 end
 
-function XHomeRoomObj:CleanGroudFurinture()
+function XHomeRoomObj:CleanGroundFurniture()
     if self.GroundFurnitureList then
         for _, furniture in pairs(self.GroundFurnitureList) do
             furniture:Storage(false)
@@ -270,65 +277,124 @@ function XHomeRoomObj:CleanCharacter()
     self:SetCharacterExit()
 end
 
--- 加载家具
-function XHomeRoomObj:LoadFurniture()
+--- 加载家具,如果家具数量超过限制,未进入房间时不加载家具
+---@param isEnter boolean 是否进入房间
+--------------------------
+function XHomeRoomObj:LoadFurniture(isEnter, allComplete)
+    --是否加载家具 -> 首次进入加载 | isEnter
+    local isLoadFurniture = XHomeDormManager.CheckLoadFurnitureOnEnter() or isEnter
+    
+    if not isLoadFurniture then
+        return
+    end
     self:RemoveWallDither()
-    local furnitureList = self.Data:GetFurnitureDic()
-    for _, data in pairs(furnitureList) do
-        local furnitureCfg = XFurnitureConfigs.GetFurnitureTemplateById(data.ConfigId)
-        if furnitureCfg then
-            local furnitureData
-            if XDormConfig.IsTemplateRoom(self.CurLoadType) then
-                furnitureData = {
-                    Id = data.Id,
-                    ConfigId = data.ConfigId
-                }
-            else
-                furnitureData = XDataCenter.FurnitureManager.GetFurnitureById(data.Id, self.CurLoadType)
-            end
-            local furniture = XHomeDormManager.CreateFurniture(self.Data.Id, furnitureData, { x = data.GridX, y = data.GridY }, data.RotateAngle)
+    --local furnitureList = self.Data:GetFurnitureDic()
+    local furnitureList = self.Data:GetFurnitureList()
+    local isAsync = self.Data:IsAsyncLoad()
+    
+    local loadCount = self.Data.FurnitureCount
+    
+    local loadCb = function(furniture) 
+        self:SingleFurnitureLoadComplete(furniture)
+        loadCount = loadCount - 1
+        
+        if loadCount <= 0 then
+            self.IsFurnitureLoadComplete = true
+            self:GenerateRoomMap()
+            self:UpdateWallListRender()
+            self:SetIllumination()
 
-            if furniture then
-                if furniture.PlaceType == XFurniturePlaceType.Wall then
-                    --墙体
-                    self:UpdateWallDither(self.Wall, furniture)
-                    if self.Wall then
-                        self.Wall:Storage()
-                    end
-                    self.Wall = furniture
-                elseif furniture.PlaceType == XFurniturePlaceType.Ground then
-                    --地板
-                    if self.Ground then
-                        self.Ground:Storage()
-                    end
-
-                    self.Ground = furniture
-                elseif furniture.PlaceType == XFurniturePlaceType.Ceiling then
-                    --天花板
-                    if self.Ceiling then
-                        self.Ceiling:Storage()
-                    end
-                    self.Ceiling = furniture
-                elseif furniture.PlaceType == XFurniturePlaceType.OnWall then
-                    --墙上家具
-                    local dic = self.WallFurnitureList[tostring(data.RotateAngle)]
-                    if not dic then
-                        dic = {}
-                        self.WallFurnitureList[tostring(data.RotateAngle)] = dic
-                    end
-                    dic[furniture.Data.Id] = furniture
-                else
-                    --地上家具
-                    self.GroundFurnitureList[furniture.Data.Id] = furniture
-                end
-                CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_ONDRAGITEM_CHANGED, false, furniture.Data.Id)
-            end
+            if allComplete then allComplete() end
         end
     end
+    
+    for _, data in pairs(furnitureList) do
+        local furnitureCfg = XFurnitureConfigs.GetFurnitureTemplateById(data.ConfigId)
+        if not furnitureCfg then
+            goto continue
+        end
 
-    self:UpdateWallListRender()
+        local furnitureData
+        if XDormConfig.IsTemplateRoom(self.CurLoadType) then
+            furnitureData = {
+                Id = data.Id,
+                ConfigId = data.ConfigId
+            }
+        else
+            furnitureData = XDataCenter.FurnitureManager.GetFurnitureById(data.Id, self.CurLoadType)
+        end
+        local placeType = XFurnitureConfigs.GetFurniturePlaceType(furnitureCfg.TypeId)
+        local async = isAsync and (placeType == XFurniturePlaceType.OnWall or placeType == XFurniturePlaceType.OnGround)
+        XHomeDormManager.CreateFurniture(self.Data.Id, furnitureData, { x = data.GridX, y = data.GridY }, data.RotateAngle, async, loadCb)
+        ::continue::
+    end
 end
 
+---@param furniture XHomeFurnitureObj
+function XHomeRoomObj:SingleFurnitureLoadComplete(furniture)
+    if not furniture then
+        return
+    end
+    local furnitureType = furniture.PlaceType
+    if furnitureType == XFurniturePlaceType.Wall then  --墙体
+        self:UpdateWallDither(self.Wall, furniture)
+        if self.Wall then
+            self.Wall:Storage()
+        end
+        self.Wall = furniture
+    elseif furnitureType == XFurniturePlaceType.Ground then --地板
+        if self.Ground then
+            self.Ground:Storage()
+        end
+
+        self.Ground = furniture
+    elseif furnitureType == XFurniturePlaceType.Ceiling then --天花板
+        if self.Ceiling then
+            self.Ceiling:Storage()
+        end
+        self.Ceiling = furniture
+    elseif furnitureType == XFurniturePlaceType.OnWall then --墙上家具
+        local dic = self.WallFurnitureList[tostring(furniture.Data.RotateAngle)]
+        if not dic then
+            dic = {}
+            self.WallFurnitureList[tostring(furniture.Data.RotateAngle)] = dic
+        end
+        dic[furniture.Data.Id] = furniture
+    else --地上家具
+        self.GroundFurnitureList[furniture.Data.Id] = furniture
+    end
+
+    CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_ONDRAG_ITEM_CHANGED, false, furniture.Data.Id)
+end
+
+function XHomeRoomObj:UpdateFurnitureData(oldFurnitureIds, newFurnitureIds)
+    local dict = self:GetAllFurnitureObj()
+    --此时房间还未初始化
+    if XTool.IsTableEmpty(dict) then
+        return
+    end
+    for _, id in pairs(oldFurnitureIds) do
+        local obj = dict[id]
+        if obj then
+            self:RemoveFurniture(obj)
+            --self.Data:RemoveFurniture(obj.Data.Id, obj.CfgId)
+        end
+    end
+    local loadCb = handler(self, self.SingleFurnitureLoadComplete)
+    for _, furniture in pairs(newFurnitureIds) do
+        local data = XDataCenter.FurnitureManager.GetFurnitureById(furniture.Id)
+        XHomeDormManager.CreateFurniture(self.Data.Id, data, { x = furniture.X, y = furniture.Y}, furniture.Angle, false, loadCb)
+        --self.Data:AddFurniture(furniture.Id, furniture.ConfigId, furniture.X, furniture.Y, furniture.Angle)
+    end
+    
+    self.IsFurnitureLoadComplete = true
+
+    if self.IsSelected then
+        self:GenerateRoomMap()
+        self:UpdateWallListRender()
+        self:SetIllumination()
+    end
+end
 
 --获取所有家具
 function XHomeRoomObj:GetAllFurnitureConfig()
@@ -361,6 +427,130 @@ function XHomeRoomObj:GetAllFurnitureConfig()
     end
 
     return configs
+end
+
+---@return table<number,XHomeFurnitureObj>
+function XHomeRoomObj:GetAllFurnitureObj()
+    local dict = {}
+    
+    local check = function(furnitureObj)
+        if furnitureObj and not XTool.UObjIsNil(furnitureObj.GameObject) then
+            return true
+        end
+        return false
+    end
+    --天花板
+    if check(self.Ceiling)then
+        dict[self.Ceiling.Data.Id] = self.Ceiling
+    end
+
+    --地板
+    if check(self.Ground) then
+        dict[self.Ground.Data.Id] = self.Ground
+    end
+
+    --墙
+    if check(self.Wall) then
+        dict[self.Wall.Data.Id] = self.Wall
+    end
+
+    --地上家具
+    for _, v in pairs(self.GroundFurnitureList) do
+        if check(v) then
+            dict[v.Data.Id] = v
+        end
+    end
+
+    --挂饰
+    for _, v in pairs(self.WallFurnitureList) do
+        for _, furniture in pairs(v) do
+            if check(furniture) then
+                dict[furniture.Data.Id] = furniture
+            end
+        end
+    end
+    
+    return dict
+end
+
+--适用单次查找，多次查找用上面的 GetAllFurnitureObj
+function XHomeRoomObj:GetFurnitureObjById(furnitureId)
+    local func = function(obj)
+        if not obj or not obj.Data then
+            return false
+        end
+       
+        if obj.Data.Id == furnitureId then
+            return true
+        end
+        return false
+    end
+
+    if func(self.Wall) then
+        return self.Wall
+    end
+
+    if func(self.Ground) then
+        return self.Ground
+    end
+
+    if func(self.Ceiling) then
+        return self.Ceiling
+    end
+
+    for _, furniture in pairs(self.GroundFurnitureList) do
+        if func(furniture) then
+            return furniture
+        end
+    end
+
+    for _, v in pairs(self.WallFurnitureList) do
+        for _, furniture in pairs(v) do
+            if func(furniture) then
+                return furniture
+            end
+        end
+    end
+end
+
+function XHomeRoomObj:CancelSelectRayCast()
+    local cancel = function(obj)
+        if not obj or not obj.RayCastSelected then
+            return
+        end
+        obj:RayCastSelected(false)
+    end
+    cancel(self.Wall)
+    cancel(self.Ground)
+    cancel(self.Ceiling)
+    for _, furniture in pairs(self.GroundFurnitureList) do
+        cancel(furniture)
+    end
+    for _, v in pairs(self.WallFurnitureList) do
+        for _, furniture in pairs(v) do
+            cancel(furniture)
+        end
+    end
+end
+
+function XHomeRoomObj:CancelNotOwnRayCast()
+    local cancel = function(obj)
+        if not obj or not obj.RayCastNotOwn then
+            return
+        end
+        obj:RayCastNotOwn(false)
+    end
+    cancel(self.Wall)
+    cancel(self.Ground)
+    cancel(self.Ceiling)
+    for _, furniture in pairs(self.GroundFurnitureList) do
+        cancel(furniture)
+    end
+    for _, v in pairs(self.WallFurnitureList) do
+        for _, furniture in pairs(v) do
+            cancel(furniture)
+        end
+    end
 end
 
 -- 设置家具交互点Go
@@ -406,6 +596,9 @@ end
 
 -- 更换基础装修
 function XHomeRoomObj:ReplaceSurface(furniture)
+    if not furniture then
+        return
+    end
     if furniture.PlaceType == XFurniturePlaceType.Wall then
         self:RemoveWallDither()
         if self.Wall then
@@ -466,7 +659,7 @@ function XHomeRoomObj:ReplaceSurface(furniture)
         self:SetIllumination()
     end
 
-    CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_ONDRAGITEM_CHANGED, false, furniture.Data.Id)
+    CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_ONDRAG_ITEM_CHANGED, false, furniture.Data.Id)
 end
 
 -- 检测类型数量限制
@@ -581,6 +774,7 @@ function XHomeRoomObj:SetSelected(isSelected, shouldProcessOutside, onFinishEnte
     if isSelected then
         self.GameObject:SetActiveEx(true)
     end
+    
     local cb = function()
         if XTool.UObjIsNil(self.GameObject) then
             return
@@ -595,7 +789,7 @@ function XHomeRoomObj:SetSelected(isSelected, shouldProcessOutside, onFinishEnte
         if not XTool.UObjIsNil(self.FacadeGo) then
             self.FacadeGo.gameObject:SetActiveEx(not isSelected)
         end
-
+        
         if shouldProcessOutside then
             XHomeDormManager.ShowOrHideOutsideRoom(self.Data.Id, not isSelected)
         end
@@ -606,40 +800,76 @@ function XHomeRoomObj:SetSelected(isSelected, shouldProcessOutside, onFinishEnte
     end
 
     if isSelected then
-        -- 设置房间光照信息
-        self:SetIllumination()
-        local func = function()
-            cb()
-            XScheduleManager.ScheduleOnce(function()
-                self:SetCharacterBorn()
-            end, 1)
-            XHomeSceneManager.ChangeView(HomeSceneViewType.RoomView)
-        end
-
-        -- 镜头黑幕界面
-        XLuaUiManager.Open("UiBlackScreen", self.Transform, true, "Room", func)
-        local camera = XHomeSceneManager.GetSceneCamera()
-        if not XTool.UObjIsNil(camera) then
-            camera.farClipPlane = ROOM_FAR_CLIP_PLANE
-        end
-        XEventManager.DispatchEvent(XEventId.EVENT_DORM_ROOM, self.Data.Id)
-        CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_DORM_FURNITURE_ATTR_TAG, handler(self, self.OnShowFurnitureAttr))
-
+        self:OnEnterRoom(cb)
     else
         XScheduleManager.ScheduleOnce(function()
             cb()
         end, 150)
         self:SetCharacterExit()
+        self:CancelSelectRayCast()
+        self:CancelNotOwnRayCast()
 
-        CsXGameEventManager.Instance:RemoveEvent(XEventId.EVENT_DORM_FURNITURE_ATTR_TAG, handler(self, self.OnShowFurnitureAttr))
+        CsXGameEventManager.Instance:RemoveEvent(XEventId.EVENT_DORM_FURNITURE_ATTR_TAG, self.OnShowFurnitureAttrCb)
 
         self:OnHideFurnitureAttr()
-        self:StorageTemplateFurnitrue()
+        self:StorageTemplateFurniture()
     end
 end
 
+function XHomeRoomObj:OnEnterRoom(onEnterCb)
+    local initAsync = false
+    --家具全部加载完成回调
+    local allLoad = function()
+        
+        local camera = XHomeSceneManager.GetSceneCamera()
+        if not XTool.UObjIsNil(camera) then
+            camera.farClipPlane = ROOM_FAR_CLIP_PLANE
+        end
+        
+        --生产角色
+        XScheduleManager.ScheduleOnce(function()
+            self:SetCharacterBorn()
+        end, 1)
+        self:SetIllumination()
+        
+        if onEnterCb then onEnterCb() end
+        
+        initAsync = true
+    end
+    
+    if self.IsFurnitureLoadComplete then
+        allLoad()
+    else
+        self:LoadFurniture(true, function()
+            if initAsync then
+                return
+            end
+            allLoad()
+        end)
+    end
+    -- 墙-地板-天花板 采用同步加载
+    local dither = self.WallDithers[NearestCameraWallNum]
+    if dither then
+        --避免镜头先渲染后隐藏，露馅
+        dither:SetRendererState(false)
+    end
+
+    -- 镜头黑幕界面
+    XHomeSceneManager.SafeOpenBlack(self.Transform, true, "Room", function()
+        XHomeSceneManager.ChangeView(HomeSceneViewType.RoomView)
+        if not initAsync and self.IsFurnitureLoadComplete then
+            allLoad()
+        end
+    end)
+
+    XEventManager.DispatchEvent(XEventId.EVENT_DORM_ROOM, self.Data.Id)
+    CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_DORM_FURNITURE_ATTR_TAG, self.OnShowFurnitureAttrCb)
+    -- 更新缓存
+    XHomeDormManager.UpdateRoomCache(self)
+end
+
 -- 收纳模板宿舍中的家具
-function XHomeRoomObj:StorageTemplateFurnitrue()
+function XHomeRoomObj:StorageTemplateFurniture()
     if not XDormConfig.IsTemplateRoom(self.CurLoadType) then
         return
     end
@@ -670,6 +900,7 @@ function XHomeRoomObj:StorageTemplateFurnitrue()
         end
     end
     self.WallFurnitureList = {}
+    self.IsFurnitureLoadComplete = false
 end
 
 --进入房间角色出生
@@ -692,6 +923,8 @@ function XHomeRoomObj:ResetCharacterList()
 
     for _, data in ipairs(characterList) do
         if data and data.CharacterId then
+            local isSelf = self.Data:IsSelfData()
+            local isWorking = XDataCenter.DormManager.IsWorking(data.CharacterId)
             if (not self.Data:IsSelfData()) or (not XDataCenter.DormManager.IsWorking(data.CharacterId)) then
                 -- 生成角色
                 local charObj = XHomeCharManager.SpawnHomeCharacter(data.CharacterId, self.CharacterRoot)
@@ -790,6 +1023,12 @@ function XHomeRoomObj:Reform(isBegin)
                 furniture:RippleAddChar(char.Transform)
             end
         end
+    end
+end
+
+function XHomeRoomObj:ClearFurnitureAnimation()
+    for _, furniture in pairs(self.GroundFurnitureList) do
+        furniture:DoReleaseAllEffects()
     end
 end
 
@@ -957,13 +1196,11 @@ end
 
 -- 更新dither
 function XHomeRoomObj:UpdateWallDither(lastWall, curWall)
-
     self:RemoveLastWallEffectDither(lastWall)
     if curWall then
         for i = 1, WallNum do
             local ditherKey = tostring(i - 1)
             self.WallDithers[ditherKey] = curWall.Transform:Find(ditherKey):GetComponent(typeof(CS.XRoomWallDither))
-
             local wallEffects = curWall:GetWallEffectsByRot(ditherKey)
             if wallEffects then
                 for j = 1, #wallEffects do
@@ -975,6 +1212,7 @@ function XHomeRoomObj:UpdateWallDither(lastWall, curWall)
                     end
                 end
             end
+
         end
     end
 end
@@ -1071,6 +1309,124 @@ function XHomeRoomObj:CheckColliderIntersectByBounds(colliderSrc, colliderDsc)
     local boundSrc = Bounds(colliderSrc.center + colliderSrc.transform.position, colliderSrc.size)
     local boundDsc = Bounds(colliderDsc.center + colliderDsc.transform.position, colliderDsc.size)
     return boundSrc:Intersects(boundDsc)
+end
+
+--- 批量替换家具
+---@param homeRoomData XHomeRoomData
+--------------------------
+function XHomeRoomObj:ReplaceFurniture(homeRoomData)
+    if not homeRoomData or self.CurLoadType ~= XDormConfig.DormDataType.Self then
+        return
+    end
+    self:CleanRoom()
+    self.UnOwnFurniture = {}
+    self.TemplateFurnitureMap = {}
+    
+    local furnitureDict = homeRoomData:GetFurnitureDic()
+    local roomFurniture = self.Data:GetFurnitureConfigDic()
+    local bagFurniture = XDataCenter.FurnitureManager.GetUnUseFurniture()
+    
+    local map = {}
+    local readMap = {}
+    local exist = false
+    local loadCb = function(furniture)
+        if not furniture then
+            return
+        end
+        furniture:RayCastNotOwn(not exist)
+        self:SingleFurnitureLoadComplete(furniture)
+        if not exist then
+            table.insert(self.UnOwnFurniture, furniture)
+        end
+    end
+    XHomeSceneManager.SafeOpenBlack(self.Transform, true, "Room")
+    for _, data in pairs(furnitureDict) do
+        local template = XFurnitureConfigs.GetFurnitureTemplateById(data.ConfigId)
+        if not template then
+            goto continue
+        end
+        local configId = data.ConfigId
+        if not map[configId] then
+            local list = {}
+            list = appendArray(list, roomFurniture[configId] or {})
+            list = appendArray(list, bagFurniture[configId] or {})
+
+            map[configId] = list
+        end
+        local list = map[configId]
+        local readIndex = readMap[configId] or 1
+        
+        local furnitureData
+        if list[readIndex] then
+            furnitureData = XDataCenter.FurnitureManager.GetFurnitureById(list[readIndex], self.CurLoadType)
+            readIndex = readIndex + 1
+            readMap[configId] = readIndex
+            exist = true
+        else
+            furnitureData = {
+                Id = data.Id,
+                ConfigId = configId
+            }
+            exist = false
+        end
+        self.TemplateFurnitureMap[data.Id] = furnitureData.Id
+        XHomeDormManager.CreateFurniture(self.Data.Id, furnitureData, {x = data.GridX, y = data.GridY }, data.RotateAngle, false, loadCb)
+        ::continue::
+    end
+    
+    self.IsFurnitureLoadComplete = true
+    if self.IsSelected then
+        self:GenerateRoomMap()
+        self:UpdateWallListRender()
+        self:SetIllumination()
+    end
+end
+
+-- 剔除未拥有家具
+function XHomeRoomObj:RejectUnOwn()
+    if XTool.IsTableEmpty(self.UnOwnFurniture) then
+        return
+    end
+    local replaceHandler = handler(self, self.ReplaceSurface)
+    for _, tempFurniture in ipairs(self.UnOwnFurniture) do
+        local furnitureType = tempFurniture.PlaceType
+        if furnitureType == XFurniturePlaceType.Wall then
+            local furniture = self.Data:GetWallFurniture()
+            local furnitureData = XDataCenter.FurnitureManager.GetFurnitureById(furniture.Id, self.CurLoadType)
+            XHomeDormManager.CreateFurniture(self.Data.Id, furnitureData, {x = furniture.GridX, y = furniture.GridY },
+                    furniture.RotateAngle, false, replaceHandler)
+        elseif furnitureType == XFurniturePlaceType.Ceiling then
+            local furniture = self.Data:GetCeillingFurniture()
+            local furnitureData = XDataCenter.FurnitureManager.GetFurnitureById(furniture.Id, self.CurLoadType)
+            XHomeDormManager.CreateFurniture(self.Data.Id, furnitureData, {x = furniture.GridX, y = furniture.GridY },
+                    furniture.RotateAngle, false, replaceHandler)
+        elseif furnitureType == XFurniturePlaceType.Ground then
+            local furniture = self.Data:GetGroundFurniture()
+            local furnitureData = XDataCenter.FurnitureManager.GetFurnitureById(furniture.Id, self.CurLoadType)
+            XHomeDormManager.CreateFurniture(self.Data.Id, furnitureData, {x = furniture.GridX, y = furniture.GridY },
+                    furniture.RotateAngle, false, replaceHandler)
+        elseif furnitureType == XFurniturePlaceType.OnWall then
+            tempFurniture:Storage()
+            if self.WallFurnitureList[tostring(tempFurniture.Data.RotateAngle)] then
+                self.WallFurnitureList[tostring(tempFurniture.Data.RotateAngle)][tempFurniture.Data.Id] = nil
+            end
+        else
+            tempFurniture:Storage()
+            self.GroundFurnitureList[tempFurniture.Data.Id] = nil
+        end
+    end
+
+    self.IsFurnitureLoadComplete = true
+    self.UnOwnFurniture = nil
+    if self.IsSelected then
+        self:GenerateRoomMap()
+        self:UpdateWallListRender()
+        self:SetIllumination()
+    end
+end
+
+function XHomeRoomObj:GetIdByTemplateFurnitureId(templateFurnitureId)
+    return self.TemplateFurnitureMap[templateFurnitureId]
 end
 
 return XHomeRoomObj

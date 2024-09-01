@@ -92,7 +92,11 @@ function XUiSameColorGameBoss:OnAwake()
     -- 当前页面状态
     self.CurrentChildType = XSameColorGameConfigs.UiBossChildPanelType.Main
     -- 资源栏
-    XUiHelper.NewPanelActivityAsset(self.SameColorGameManager.GetAssetItemIds(), self.PanelAsset)
+    local itemIds = self.SameColorGameManager.GetAssetItemIds()
+    XUiHelper.NewPanelActivityAsset(itemIds, self.PanelAsset, nil , function(uiSelf, index)
+        local itemId = itemIds[index]
+        XLuaUiManager.Open("UiSameColorGameSkillDetails", nil, itemId)
+    end)
     self:RegisterUiEvents()
 end
 
@@ -109,10 +113,10 @@ function XUiSameColorGameBoss:OnStart(boss)
     end
     self:UpdateBossModel(self.CurrentBoss)
     self:UpdateRoleModel(self.CurrentRole)
-    -- 检查是否打开初始角色获取界面
-    if self.SameColorGameManager.GetIsFirstOpenRoleObtainUi() then
-        XLuaUiManager.Open("UiSameColorGameObtain", self.RoleManager:GetInitRoles())
-    end
+    -- 检查是否打开初始角色获取界面（三期隐藏不打开）
+    -- if self.SameColorGameManager.GetIsFirstOpenRoleObtainUi() then
+    --     XLuaUiManager.Open("UiSameColorGameObtain", self.RoleManager:GetInitRoles())
+    -- end
     local endTime = self.SameColorGameManager.GetEndTime()
     self:SetAutoCloseInfo(endTime, function(isClose)
         if isClose then
@@ -128,7 +132,7 @@ function XUiSameColorGameBoss:OnEnable()
         self:UpdateChildPanel(self.CurrentChildType)
         self.LastSelectableRole = self.RoleManager:GetRole(lastRoleId)
         self:SetIsSelected(lastRoleId == self.CurrentRole:GetId())
-        -- self:UpdateReadyBtnStatus()
+        self:UpdateReadyBtnStatus()
     else
         self:UpdateChildPanel(self.CurrentChildType)
         self:UpdateReadyBtnStatus()
@@ -148,13 +152,12 @@ function XUiSameColorGameBoss:UpdateCurrentRole(role)
     self:UpdateReadyBtnStatus()
 end
 
-function XUiSameColorGameBoss:SetBtnReadyNormalText(value)
-    self.BtnReady:SetNameByGroup(0, value)
-    self:SetIsSelected(false)
+function XUiSameColorGameBoss:SetBtnChange()
+    self.BtnChange.gameObject:SetActiveEx(true)
 end
 
 function XUiSameColorGameBoss:SetIsSelected(value)
-    self.BtnReady.gameObject:SetActiveEx(not value)
+    self.BtnChange.gameObject:SetActiveEx(not value)
     self.BtnSelected.gameObject:SetActiveEx(value)
     self.BtnSelected:SetDisable(true)
 end
@@ -178,8 +181,10 @@ function XUiSameColorGameBoss:UpdateChildPanel(panelType)
         data.uiParent.gameObject:SetActiveEx(key == panelType)
     end
     local childPanelType = XSameColorGameConfigs.UiBossChildPanelType
-    self.BtnReady.gameObject:SetActiveEx(panelType == childPanelType.Main or panelType == childPanelType.Role)
-    self.BtnShop.gameObject:SetActiveEx(panelType ~= childPanelType.Ready and panelType ~= childPanelType.Boss)
+    self.BtnReady.gameObject:SetActiveEx(panelType == childPanelType.Main)
+    self.BtnChange.gameObject:SetActiveEx(panelType == childPanelType.Role)
+    self.BtnSelected.gameObject:SetActiveEx(panelType == childPanelType.Role)
+    --self.BtnShop.gameObject:SetActiveEx(panelType ~= childPanelType.Ready and panelType ~= childPanelType.Boss)
     -- 加载子面板
     local childPanelData = self.ChildPanelInfoDic[panelType]
     -- 加载panel asset
@@ -209,13 +214,11 @@ function XUiSameColorGameBoss:UpdateChildPanel(panelType)
     if panelType == childPanelType.Role then
         self.LastSelectableRole = self.CurrentRole
         self:SetIsSelected(true)
-        -- self:SetBtnReadyNormalText(XUiHelper.GetText("SameColorGameReadyTip1"))
     end
     if panelType == childPanelType.Main then
         if self.CurrentRole:GetIsLock() then
             self:UpdateCurrentRole(self.LastSelectableRole)
         end
-        self:SetBtnReadyNormalText(XUiHelper.GetText("SameColorGameReadyTip2"))
     end
 end
 
@@ -224,6 +227,7 @@ function XUiSameColorGameBoss:RegisterUiEvents()
     self.BtnBack.CallBack = function() self:OnBtnBackClicked() end
     self.BtnMainUi.CallBack = function() XLuaUiManager.RunMain() end
     self.BtnReady.CallBack = function() self:OnBtnReadyClicked() end
+    self.BtnChange.CallBack = function() self:OnBtnChangeClicked() end
     self.BtnShop.CallBack = function() self:OnBtnShopClicked() end
     self:BindHelpBtn(self.BtnHelp, self.SameColorGameManager.GetHelpId())
 end
@@ -233,18 +237,14 @@ function XUiSameColorGameBoss:OnBtnReadyClicked()
         XUiManager.TipError(XUiHelper.GetText("SCRoleTimeLockTips", self.CurrentRole:GetOpenTimeStr()))
         return
     end
-    if not self.CurrentRole:GetIsReceived() then
-        XUiManager.TipError(XUiHelper.GetText("SCRoleReceivedTips"))
-        return
-    end
-    if self.CurrentChildType == XSameColorGameConfigs.UiBossChildPanelType.Role then
-        if self.CurrentRole == self.LastSelectableRole then
-            return
-        end
-        self:UpdateChildPanel(XSameColorGameConfigs.UiBossChildPanelType.Main)
-        return
-    end
     self:UpdateChildPanel(XSameColorGameConfigs.UiBossChildPanelType.Ready)
+end
+
+function XUiSameColorGameBoss:OnBtnChangeClicked()
+    if self.CurrentRole == self.LastSelectableRole then
+        return
+    end
+    self:UpdateChildPanel(XSameColorGameConfigs.UiBossChildPanelType.Main)
 end
 
 function XUiSameColorGameBoss:OnBtnShopClicked()
@@ -266,6 +266,8 @@ function XUiSameColorGameBoss:UpdateBossModel(boss)
     -- self.UiPanelBossModel:UpdateRoleModel(boss:GetModelId(), nil, XModelManager.MODEL_UINAME.XUiSameColorGameBoss
     --     , nil, true, false)
     self.UiPanelBossModel:UpdateRoleModelWithAutoConfig(boss:GetModelId(), XModelManager.MODEL_UINAME.XUiSameColorGameBoss)
+    -- v1.31 隐藏模型部分节点
+    XDataCenter.SameColorActivityManager.HandleModelHideNode(self.UiPanelBossModel:GetModelInfoByName(boss:GetModelId()), boss:GetBattleModelId())
     self.UiPanelBossModel:ShowRoleModel()
 end
 

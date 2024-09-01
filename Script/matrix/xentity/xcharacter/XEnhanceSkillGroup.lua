@@ -160,6 +160,17 @@ function XEnhanceSkillGroup:GetMaterialCostItemList(skillId, level)--素材
     table.remove(itemlist,1)
     return itemlist
 end
+
+function XEnhanceSkillGroup:GetBaseCostItemV2P6(skillId, level)--螺母
+    local itemlist = self:GetCostItemList(skillId, level)
+    return {itemlist[1]}
+end
+
+function XEnhanceSkillGroup:GetMaterialCostItemListV2P6(skillId, level)--素材、技能点
+    local itemlist = self:GetCostItemList(skillId, level)
+    return {itemlist[2], itemlist[3], itemlist[4]}
+end
+
 --------------------------------技能词条相关----------------------------------
 function XEnhanceSkillGroup:GetSkillEntryConfigList(skillId, level)
     local entryList = {}

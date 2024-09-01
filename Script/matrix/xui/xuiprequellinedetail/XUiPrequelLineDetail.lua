@@ -11,7 +11,6 @@ function XUiPrequelLineDetail:OnAwake()
     self:InitStarPanels()
 
     self.AssetPanel = XUiPanelAsset.New(self, self.PanelAsset, XDataCenter.ItemManager.ItemId.FreeGem, XDataCenter.ItemManager.ItemId.ActionPoint, XDataCenter.ItemManager.ItemId.Coin)
-    self.BtnMask.gameObject:SetActive(false)
 end
 
 function XUiPrequelLineDetail:InitStarPanels()
@@ -108,7 +107,7 @@ function XUiPrequelLineDetail:AutoAddListener()
 end
 -- auto
 function XUiPrequelLineDetail:OnBtnMaskClick()
-    self:PlayAnimation(PANELPREQUELDETAILEND, function()
+    self:PlayAnimationWithMask(PANELPREQUELDETAILEND, function()
         self:OnPrequelDetailClose()
     end)
 end
@@ -174,7 +173,7 @@ function XUiPrequelLineDetail:RefreshDetail(stage)
     self.TxtTitle.text = stageCfg.Name
     self.TxtLevelVal.text = stageCfg.RecomandLevel or 1
     self.TxtDesc.text = stageCfg.Description
-    self.TxtATNums.text = stageCfg.RequireActionPoint
+    self.TxtATNums.text = XDataCenter.FubenManager.GetRequireActionPoint(stageId)
 
     local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
 

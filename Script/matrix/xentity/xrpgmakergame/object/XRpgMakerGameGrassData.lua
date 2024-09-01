@@ -5,7 +5,8 @@ local pairs = pairs
 local Vector3 = CS.UnityEngine.Vector3
 local DieByTrapTime = CS.XGame.ClientConfig:GetInt("RpgMakerGameDieByTrapTime") / 1000  --草埔燃烧缩小动画时长
 
---草圃对象
+---草圃对象
+---@class XRpgMakerGameGrassData:XRpgMakerGameObject
 local XRpgMakerGameGrassData = XClass(XRpgMakerGameObject, "XRpgMakerGameGrassData")
 
 function XRpgMakerGameGrassData:Ctor()
@@ -13,11 +14,25 @@ function XRpgMakerGameGrassData:Ctor()
 end
 
 function XRpgMakerGameGrassData:InitData()
-    local id = self:GetId()
-    local x = XRpgMakerGameConfigs.GetEntityX(id)
-    local y = XRpgMakerGameConfigs.GetEntityY(id)
-    self:UpdatePosition({PositionX = x, PositionY = y})
+    -- local id = self:GetId()
+    -- local x = XRpgMakerGameConfigs.GetEntityX(id)
+    -- local y = XRpgMakerGameConfigs.GetEntityY(id)
+    -- self:UpdatePosition({PositionX = x, PositionY = y})
+    if not XTool.IsTableEmpty(self.MapObjData) then
+        self:InitDataByMapObjData(self.MapObjData)
+    end
     self:SetActive(true)
+end
+
+---@param mapObjData XMapObjectData
+function XRpgMakerGameGrassData:InitDataByMapObjData(mapObjData)
+    self.MapObjData = mapObjData
+    self:UpdatePosition({PositionX = self.MapObjData:GetX(), PositionY = self.MapObjData:GetY()})
+end
+
+---@return XMapObjectData
+function XRpgMakerGameGrassData:GetMapObjData()
+    return self.MapObjData
 end
 
 --燃烧

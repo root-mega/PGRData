@@ -43,7 +43,7 @@ local ApkFileSize = 0
 local APK_TIMEOUT  = 5000 
 -- local IsApkTesting = true -- 调试用
 
---- >>>>>>>>>>>>>>>>>>>>>>>>>> 私有方法 * 声明 >>>>>>>>>>>>>>>>>>>>>>>>>>
+--======= 私有方法 * 声明 =======
 local CheckLaunchModuleUpdate
 local CheckDocUpdate
 local DownloadDlc
@@ -57,7 +57,8 @@ local BeforeDownloadApk
 local StartDownloadApk
 
 local CheckLocalZipFile
---- <<<<<<<<<<<<<<<<<<<<<<<<<< 私有方法 * 声明 <<<<<<<<<<<<<<<<<<<<<<<<<<
+local NeedLaunchTest = CS.XResourceManager.NeedLaunchTest
+---======= 私有方法 * 声明 =======
 
 GetResFileUrl = GetResFileUrl or nil
 
@@ -65,12 +66,13 @@ GetResFileUrl = GetResFileUrl or nil
 ShowStartErrorDialog = function(errorCode, confirmCB, cancelCB, cancelStr)
     CS.XHeroBdcAgent.BdcStartUpError(errorCode)
     confirmCB = confirmCB or CsApplication.Exit
-    CsTool.WaitCoroutine(CsApplication.CoDialog(CsApplication.GetText("Tip"), CsApplication.GetText(errorCode), cancelCB, confirmCB, cancelStr))
+    cancelStr = cancelStr or "Cancel"
+    CsTool.WaitCoroutine(CsApplication.CoDialog(CsApplication.GetText("Tip"), CsApplication.GetText(errorCode), cancelCB, confirmCB, cancelStr, "Confirm"))
 end
 
---- >>>>>>>>>>>>>>>>>>>>>>>>>> 私有方法 * 定义 >>>>>>>>>>>>>>>>>>>>>>>>>>
+--======= 私有方法 * 定义 =======
 CheckLaunchModuleUpdate = function()
-    if not PathModule.IsEditorOrStandalone() or CsApplication.Mode == CS.XMode.Release then
+    if not PathModule.IsEditorOrStandalone() or CsApplication.Mode == CS.XMode.Release or NeedLaunchTest then
         LaunchFileModule = FileModuleCreator()
         LaunchFileModule.Check(RES_FILE_TYPE.LAUNCH_MODULE, PathModule, VersionModule, OnCheckLaunchModuleComplete)
     else
@@ -79,7 +81,7 @@ CheckLaunchModuleUpdate = function()
 end
 
 CheckDocUpdate = function()
-    if not PathModule.IsEditorOrStandalone() or CsApplication.Mode == CS.XMode.Release then
+    if not PathModule.IsEditorOrStandalone() or CsApplication.Mode == CS.XMode.Release or NeedLaunchTest then
         CsLog.Debug("Release 模式运行")
         DocFileModule = FileModuleCreator()
         DocFileModule.Check(RES_FILE_TYPE.MATRIX_FILE, PathModule, VersionModule, InitGame)
@@ -93,24 +95,25 @@ CheckDocUpdate = function()
     end
 end
 
-
-
-
-
-OnCheckLaunchModuleComplete = function(urlTable, needUpdate, hasLocalFiles)
+OnCheckLaunchModuleComplete = function(urlTable, hashTable, needUpdate, hasLocalFiles)
     if not needUpdate or IsReloaded then
-        CheckDocUpdate()
+
         if hasLocalFiles then
             CS.XLaunchManager.SetUrlTable(urlTable)
         end
+        CheckDocUpdate()
         return
     end
 
     CS.XUiManager.Instance:Clear()
-    CS.XResourceManager.Clear()
-    CS.XResourceManager.ClearFileDelegate()
-    CS.XLaunchManager.SetUrlTable(urlTable)
-    CS.XResourceManager.ResolveBundleManifest("launchmanifest")
+    if NeedLaunchTest then
+        print("[LaunchTest] OnCheckLaunchModuleComplete ")
+    else
+        CS.XResourceManager.Clear()
+        CS.XResourceManager.ClearFileDelegate()
+        CS.XLaunchManager.SetUrlTable(urlTable)
+        CS.XResourceManager.ResolveBundleManifest("launchmanifest")
+    end
 
     ShowStartErrorDialog = nil
     CheckUpdate = nil
@@ -120,7 +123,13 @@ OnCheckLaunchModuleComplete = function(urlTable, needUpdate, hasLocalFiles)
 end
 
 
-InitGame = function(urlTable)
+InitGame = function(urlTable, hashTable)
+    -- -- for testing
+    -- CsGameEventManager:Notify(CS.XEventId.EVENT_LAUNCH_START_DOWNLOAD, 100)
+    -- local videoUrl = CS.XResourceManager.GetBundleUrl(CS.XAudioManager.LaunchVideoAsset)
+    -- CsGameEventManager:Notify(CS.XEventId.EVENT_LAUNCH_CG, true, false, videoUrl)
+    -- print("for test launch download.")
+    -- do return end
     urlTable = urlTable or {}
     for k, v in pairs(urlTable) do
         local url = ResFileUrlTable[k]
@@ -157,6 +166,11 @@ InitGame = function(urlTable)
 
         CS.XResourceManager.ResolveBundleManifest("matrixmanifest")
     end
+
+    if not PathModule.IsEditorOrStandalone() or CsApplication.Mode == CS.XMode.Release then
+        CS.XLaunchManager.SetHashTable(hashTable)
+    end
+
     CS.XGame.InitGame()
 end
 --- <<<<<<<<<<<<<<<<<<<<<<<<<< 私有方法 * 定义 <<<<<<<<<<<<<<<<<<<<<<<<<<
@@ -178,7 +192,7 @@ CheckUpdate = function(isReloaded)
     -- 开启Launch模块Ui
     CS.XUiManager.Instance:Open("UiLaunch")
     CS.XRecord.Record("50000", "UiLaunchand")
-
+    
     VersionModule  = require(APP_VERSION_MODULE_NAME)
     if not PathModule.IsEditorOrStandalone() or CsApplication.Mode == CS.XMode.Release then
         CS.XHeroBdcAgent.BdcUpdateGame("201", "1", "0")
@@ -186,8 +200,12 @@ CheckUpdate = function(isReloaded)
 
     if VersionModule.CheckAppUpdate() then
     -- if IsApkTesting or VersionModule.CheckAppUpdate() then
-        local tmpStr = CsStringEx.Format(CsApplication.GetText("UpdateApplication"), CsInfo.Version)
-        CsTool.WaitCoroutine(CsApplication.CoDialog(CsApplication.GetText("Tip"), tmpStr, nil, function()
+    if CS.XUiPc.XUiPcManager.IsPcMode() then
+        CsTool.WaitCoroutine(CsApplication.CoDialog(CsApplication.GetText("Tip"), 
+        CsStringEx.Format(CsApplication.GetText("PCUpdateApplication"), CsInfo.Version), nil, CsApplication.Exit, "Cancel", "Confirm"))
+    else
+        CsTool.WaitCoroutine(CsApplication.CoDialog(CsApplication.GetText("Tip"), CS.XStringEx.Format(CS.XApplication.GetText("UpdateApplication"), CS.XInfo.Version), 
+            nil, function()
             local jumpCB = function()
                 print("[Apk] - Failed to Download Apk.")
                 CsTool.WaitCoroutine(CsApplication.GoToUpdateURL(PathModule.GetAppUpgradeUrl()), nil)
@@ -196,7 +214,8 @@ CheckUpdate = function(isReloaded)
                 BeforeDownloadApk(url)
             end
             TryDownloadApk(downloadCB, jumpCB)
-        end))
+        end, "Cancel", "Confirm"))
+    end
     else
         -- 无需更新，并删除本地下载的Apk
         if CheckDownloadChannel() and IO.File.Exists(ApkSavePath) then
@@ -277,7 +296,7 @@ function CheckLocalZipFile(cb)
                     CS.ZipUtility.UnzipFile(file, documentPath, progressCB, finishCB, overwrite, password)
                 end
                 local text = "检查到本地压缩文件" .. CS.XFileTool.GetFileNameWithoutExtension(file) .. ", 是否进行解压?"
-                CsTool.WaitCoroutine(CsApplication.CoDialog(CsApplication.GetText("Tip"), text, cancelCB, confirmCB))
+                CsTool.WaitCoroutine(CsApplication.CoDialog(CsApplication.GetText("Tip"), text, cancelCB, confirmCB, "Cancel", "Confirm"))
             else
                 print("[Unzip] count <= 0, zipFile: " .. tostring(file))
                 UnzipFile(nextIndex)

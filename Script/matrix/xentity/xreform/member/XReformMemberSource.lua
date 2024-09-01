@@ -25,7 +25,7 @@ function XReformMemberSource:GetId()
 end
 
 function XReformMemberSource:GetScore()
-    return self.Config.SubScore
+    return self.Config.AddScore
 end
 
 function XReformMemberSource:GetMaxTargetScore()
@@ -181,11 +181,6 @@ function XReformMemberSource:UpdateTargetId(targetId)
         memberTarget = self:GetTargetById(self.TargetId)
         memberTarget:UpdateSourceId(self:GetId())
     end
-end
-
-function XReformMemberSource:GetTargetById(id)
-    if id == nil then return nil end
-    return self.TargetDic[id]
 end
 
 function XReformMemberSource:GetTargetById(id)

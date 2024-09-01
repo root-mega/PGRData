@@ -1,4 +1,5 @@
 local XGDFBaseEvent = require("XEntity/XGuildDorm/Furniture/Events/XGDFBaseEvent")
+---@class XGDFCheckGuildWarOpen : XGDFBaseEvent
 local XGDFCheckGuildWarOpen = XClass(XGDFBaseEvent, "XGDFCheckGuildWarOpen")
 
 function XGDFCheckGuildWarOpen:Init()

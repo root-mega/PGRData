@@ -58,5 +58,15 @@
         "Id": 11,
         "Key": "ShieldRequestProtocol",
         "Text": "Feature under maintenance. Unable to use."
+    },
+    {
+        "Id": 12,
+        "Key": "RequestQpsLimited",
+        "Text": "Server busy. Please try again later"
+    },
+    {
+        "Id": 13,
+        "Key": "RequestGameServerCdLimited",
+        "Text": "Action too frequent. Please try again later."
     }
 ]

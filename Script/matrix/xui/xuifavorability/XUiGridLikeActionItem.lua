@@ -74,7 +74,8 @@ function XUiGridLikeActionItem:UpdateLockStatus(isLock)
     self.ActionLock.gameObject:SetActiveEx(isLock)
     if isLock and self.ActionData then
         self.TxtLockTitle.text = self.ActionData.Name
-        self.TxtLock.text = self.ActionData.ConditionDescript
+        -- en1.32 en不需要处理换行空格
+        self.TxtLock.text = self.ActionData.ConditionDescript -- XUiHelper.ConvertSpaceToLineBreak(self.ActionData.ConditionDescript)
     end
 end
 

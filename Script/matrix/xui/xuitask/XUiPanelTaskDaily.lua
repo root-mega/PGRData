@@ -156,12 +156,22 @@ function XUiPanelTaskDaily:GetTasks()
         local receiveCb = function ()
             IsMulting = true
             XLuaUiManager.SetMask(true)
-            XDataCenter.TaskManager.FinishMultiTaskRequest(allAchieveTasks, function(rewardGoodsList)
-                -- 第一次请求返回 必不做弹窗奖励，插入奖励列表 等待refresh 检测同步的任务是否还有未领取
-                for key, reward in pairs(rewardGoodsList) do
-                    table.insert(ShowRewardList, reward)
+            -- XDataCenter.TaskManager.FinishMultiTaskRequest(allAchieveTasks, function(rewardGoodsList)
+            --     -- 第一次请求返回 必不做弹窗奖励，插入奖励列表 等待refresh 检测同步的任务是否还有未领取
+            --     for key, reward in pairs(rewardGoodsList) do
+            --         table.insert(ShowRewardList, reward)
+            --     end
+            -- end)
+            XDataCenter.TaskManager.CloseSyncTasksEvent()
+            XDataCenter.TaskManager.FinishMultiTaskRequest(allAchieveTasks, function (rewardList)
+                local horizontalNormalizedPosition = 0
+                local clCb = function ()
+                    XDataCenter.TaskManager.OpenSyncTasksEvent()
                 end
-            end)
+                XUiManager.OpenUiObtain(rewardList, nil, clCb, nil, horizontalNormalizedPosition)
+                XLuaUiManager.SetMask(false)
+                IsMulting = false
+            end, nil, true)
         end
         finalResultTaskDataList[1] = {ReceiveAll = true, AllAchieveTaskDatas = allAchieveTasks, ReceiveCb = receiveCb}
 
@@ -182,39 +192,40 @@ function XUiPanelTaskDaily:HidePanel()
     self.GameObject:SetActiveEx(false)
 end
 
-function XUiPanelTaskDaily:CheckRefreshLeftNewTask()
-    local tempTasks = self:GetTasks()
-    -- 同步任务刷新 开始检查是否有剩余任务
-    if self.ReceiveAll then --有剩余的未激活任务
-        local leftTasks = tempTasks[1].AllAchieveTaskDatas
-        if leftTasks and next(leftTasks) then
-            XDataCenter.TaskManager.FinishMultiTaskRequest(leftTasks, function(rewardGoodsList)
-                -- 有剩余任务 返回的奖励必不弹窗，插入奖励列表
-                for key, reward in pairs(rewardGoodsList) do
-                    table.insert(ShowRewardList, reward)
-                end
-            end)
-        end
-    elseif not self.ReceiveAll and ShowRewardList and next(ShowRewardList) then
-        -- 没有剩余任务了，弹窗任务奖励
-        local horizontalNormalizedPosition = 0
-        XUiManager.OpenUiObtain(ShowRewardList, nil, nil, nil, horizontalNormalizedPosition)
-        ShowRewardList = {} --刷新奖励列表
-        IsMulting = false
-        XLuaUiManager.SetMask(false)
-    end
+-- function XUiPanelTaskDaily:CheckRefreshLeftNewTask()
+--     local tempTasks = self:GetTasks()
+--     -- 同步任务刷新 开始检查是否有剩余任务
+--     if self.ReceiveAll then --有剩余的未激活任务
+--         local leftTasks = tempTasks[1].AllAchieveTaskDatas
+--         if leftTasks and next(leftTasks) then
+--             XDataCenter.TaskManager.FinishMultiTaskRequest(leftTasks, function(rewardGoodsList)
+--                 -- 有剩余任务 返回的奖励必不弹窗，插入奖励列表
+--                 for key, reward in pairs(rewardGoodsList) do
+--                     table.insert(ShowRewardList, reward)
+--                 end
+--             end)
+--         end
+--     elseif not self.ReceiveAll and ShowRewardList and next(ShowRewardList) then
+--         -- 没有剩余任务了，弹窗任务奖励
+--         local horizontalNormalizedPosition = 0
+--         XUiManager.OpenUiObtain(ShowRewardList, nil, nil, nil, horizontalNormalizedPosition)
+--         ShowRewardList = {} --刷新奖励列表
+--         IsMulting = false
+--         XLuaUiManager.SetMask(false)
+--     end
 
-    return self.ReceiveAll
-end
+--     return self.ReceiveAll
+-- end
 
 function XUiPanelTaskDaily:Refresh(isMulti)
-    if isMulti and self:CheckRefreshLeftNewTask() then
-        return
-    end
+    -- 2.6 取消业务上的循环领取。已经在接口通过传参可以实现循环领取
+    -- if isMulti and self:CheckRefreshLeftNewTask() then
+    --     return
+    -- end
 
-    if IsMulting then  -- 一键领取未结束不刷新列表
-        return
-    end
+    -- if IsMulting then  -- 一键领取未结束不刷新列表
+    --     return
+    -- end
 
     local tasks = self:GetTasks()
     self.DailyTasks = tasks

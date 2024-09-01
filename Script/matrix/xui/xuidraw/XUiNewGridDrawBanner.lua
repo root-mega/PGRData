@@ -1,3 +1,4 @@
+---@class XUiNewGridDrawBanner
 local XUiNewGridDrawBanner = XClass(nil, "XUiNewGridDrawBanner")
 
 function XUiNewGridDrawBanner:Ctor(ui, data, base)
@@ -6,6 +7,7 @@ function XUiNewGridDrawBanner:Ctor(ui, data, base)
     self.Transform = ui.transform
     XTool.InitUiObject(self)
     self.Data = data
+    ---@type XUiNewDrawMain
     self.Base = base
 
     self.BtnSkipList = {}
@@ -97,6 +99,14 @@ function XUiNewGridDrawBanner:TryGetComponent()
         self.RImgName = rImgName:GetComponent("RawImage")
     end
     
+    -- 校准活动
+    local targetBtnDetails = self.Transform:FindTransformWithSplit("SafeAreaContentPane/BtnDetails")
+    self.TargetBtnDetails = targetBtnDetails and targetBtnDetails:GetComponent("XUiButton") or false
+    if self.TargetBtnDetails then
+        self.TargetPanelSwitchA = self.Transform:FindTransformWithSplit("SafeAreaContentPane/PanelSwitchA")
+        self.TargetPanelSwitchS = self.Transform:FindTransformWithSplit("SafeAreaContentPane/PanelSwitchS")
+    end
+    
     -- 隐藏所有的跳转按钮
     local index = 1
     while true do
@@ -123,6 +133,12 @@ function XUiNewGridDrawBanner:SetButtonCallBack()
             self:OnClickBtnRule()
         end
     end
+    -- 校准活动
+    if self.TargetBtnDetails then
+        self.TargetBtnDetails.CallBack = function()
+            self:OnClickBtnTargetRule()
+        end
+    end
 
     -- 添加跳转逻辑并显示跳转按钮
     local skipList = XDrawConfigs.GetDrawSkipList(self.Data.Id)
@@ -132,7 +148,7 @@ function XUiNewGridDrawBanner:SetButtonCallBack()
         end
     end
     if skipList and next(skipList) then
-        for i = 1, #skipList do
+        for i = 2, #skipList do
             if not self.BtnSkipList[i] then
                 XLog.Warning(string.format("XUiNewGridDrawBanner:TryGetComponent()函数警告，DrawGroupId:%s 预制界面的跳转按钮不足，第%s个跳转:%s 与后面配置的跳转无法生效",
                         tostring(self.Data.Id), tostring(i), tostring(skipList[i])))
@@ -157,6 +173,15 @@ function XUiNewGridDrawBanner:OnClickBtnRule()
     local drawInfo = XDataCenter.DrawManager.GetUseDrawInfoByGroupId(self.Data:GetId())
     XLuaUiManager.Open("UiDrawLog",drawInfo,1,function()
         self.BtnDrawRule.interactable = true
+    end)
+end
+
+function XUiNewGridDrawBanner:OnClickBtnTargetRule()
+    self.TargetBtnDetails.interactable = false
+    local drawInfo = XDataCenter.DrawManager.GetUseDrawInfoByGroupId(self.Data:GetId())
+    local data = XDataCenter.DrawManager.GetDrawGroupActivityTargetInfo(drawInfo.GroupId)
+    XLuaUiManager.Open("UiDrawLog",drawInfo,data and 5 or 1,function()
+        self.TargetBtnDetails.interactable = true
     end)
 end
 
@@ -300,13 +325,11 @@ function XUiNewGridDrawBanner:SetTime()
     if beginTimeStr then
         self.TxtTime1.text = XTime.TimestampToGameDateTimeString(beginTimeStr, "MM")
         self.TxtTime3.text = XTime.TimestampToGameDateTimeString(beginTimeStr, "dd")
-        --self.TxtTime8.text = XTime.TimestampToGameDateTimeString(beginTimeStr, "HH") --日服小时读取结束时间不是开始时间
-        --self.TxtTime10.text = XTime.TimestampToGameDateTimeString(beginTimeStr, "mm")
     end
     if endTimeStr then
         self.TxtTime5.text = XTime.TimestampToGameDateTimeString(endTimeStr, "MM")
         self.TxtTime7.text = XTime.TimestampToGameDateTimeString(endTimeStr, "dd")
-        self.TxtTime8.text = XTime.TimestampToGameDateTimeString(endTimeStr, "HH") --日服小时读取结束时间不是开始时间
+        self.TxtTime8.text = XTime.TimestampToGameDateTimeString(endTimeStr, "HH")
         self.TxtTime10.text = XTime.TimestampToGameDateTimeString(endTimeStr, "mm")
     end
 end

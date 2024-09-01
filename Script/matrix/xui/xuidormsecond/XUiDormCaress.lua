@@ -96,6 +96,7 @@ function XUiDormCaress:SetRecoveryInfo(leftCount, recoveryTime)
     local timeString = XUiHelper.GetTime(leftTime, XUiHelper.TimeFormatType.CHALLENGE)
     self.TxtTimeOut.text = CS.XTextManager.GetText("DormFondleRecovey", timeString)
     self:RemoveTimer()--临时处理防止定时器注销失败问题
+    self:RemoveTimer() --临时处理防止定时器Remove失败
     self.TimerId = XScheduleManager.ScheduleForever(function()
         if XTool.UObjIsNil(self.Transform) or not self.GameObject.activeSelf then
             return

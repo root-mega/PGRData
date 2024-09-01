@@ -9,6 +9,8 @@ local SERVER_CONNECT_TIME_KEY = "SERVER_CONNECT_TIME_KEY"
 local RECENT_TIME_PERIOD = 3600 * 24 * 7
 local GetTime = os.time
 
+local CsApplication = CS.XApplication
+
 XServerManager.SERVER_STATE = {
     MAINTAIN = 0, -- 维护
     LOW = 1, -- 畅通
@@ -22,6 +24,9 @@ local SortedList = {}
 local TempServerDic = {}
 local LastServerCheckTime = {}
 local LastServerConnectTime = {}
+
+local ChannelServerList = {}
+local ChannelServerList = {}
 
 local AndroidPayCallList = {}
 local IosPayCallList = {}
@@ -41,6 +46,7 @@ end
 
 XServerManager.Id = nil
 XServerManager.ServerName = nil
+XServerManager.LastServerId = nil
 
 function XServerManager.GetLoginUrl()
     local server = ServerList[XServerManager.Id]
@@ -57,8 +63,35 @@ function XServerManager.GetLoginUrl()
     return server.LoginUrl
 end
 
+function XServerManager.SelectChannelServer(notTip)
+    ServerList = {}
+    local channel = XUserManager.LoginChannel and tostring(XUserManager.LoginChannel) or nil--这里调用获取渠道接口
+    local channelServer = nil
+    if channel and ChannelServerList[channel] then
+        channelServer = ChannelServerList[channel]
+    else
+        XLog.Debug("pc channel is ".. tostring(channel) .. " , select default server")
+        channelServer = ChannelServerList["default"]
+    end
+    if channelServer then
+        channelServer.Id = 1 --渠道服务器列表只有1个
+        ServerList[channelServer.Id] = channelServer
+        CS.XLog.Debug("pc channel is " .. tostring(channelServer.Name))
+    end
+
+    if not ServerList or #ServerList <= 0 then
+        if not notTip then
+            XLog.Error("Get ChannelServerList error. content = " .. CS.XRemoteConfig.ChannelServerListStr)
+        end
+        return
+    end
+
+    XServerManager.SelectServerAndSort()
+end
+
 function XServerManager.Init(cb)
     XServerManager.Id = CS.UnityEngine.PlayerPrefs.GetInt(XPrefs.ServerId, 1)
+    XServerManager.LastServerId = XServerManager.Id
     ServerList = {}
     local i = 1
     local strs = string.Split(CS.XRemoteConfig.ServerListStr, "|")
@@ -98,6 +131,16 @@ function XServerManager.Init(cb)
     if cb then
         cb()
     end
+end
+
+function XServerManager.SelectServerAndSort()
+    if XServerManager.Id and ServerList[XServerManager.Id] then
+        XServerManager.Select(ServerList[XServerManager.Id])
+    else
+        XServerManager.Select(ServerList[1])
+    end
+
+    XServerManager.UpdateSortedServer()
 end
 
 function XServerManager.UpdateSortedServer()
@@ -251,4 +294,27 @@ function XServerManager.TestConnectivity(server, gridCb)
         ServerList[id].State = XServerManager.SERVER_STATE.LOW
         gridCb()
     end)
+end
+
+function XServerManager.SetAndSelectServerByIp(ip)
+    local index = #ServerList + 1
+    for i = 1, #ServerList do
+        local url = ServerList[i].LoginUrl
+        local name = ServerList[i].Name
+        if string.match(url, ip) ~= nil or string.match(name, ip) then
+            index = i
+            break
+        end
+    end
+
+    if index == #ServerList + 1 then
+        local ipValid, ipStr = string.IsIp(ip)
+        if not ipValid then
+            return false
+        end
+        XServerManager.InsertTempServer(ip)
+    end
+
+    XServerManager.Select(ServerList[index])
+    return true
 end

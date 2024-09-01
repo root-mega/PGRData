@@ -7,10 +7,17 @@ XLuaBehaviorManager = {}
 local NodeClassType = {}
 local AgentClassType = {}
 
---注册行为节点
-function XLuaBehaviorManager.RegisterNode(super, classType, nodeType, islua, needUpdate)
+--- 注册行为节点
+---@param super XLuaBehaviorNode 父节点
+---@param classType string 节点类型名
+---@param nodeType number 节点类型
+---@param isLua boolean 是否为Lua节点
+---@param needUpdate boolean 是否需要Update函数
+---@return XLuaBehaviorNode
+--------------------------
+function XLuaBehaviorManager.RegisterNode(super, classType, nodeType, isLua, needUpdate)
     super = XLuaBehaviorNode or super
-    CsXBehaviorManager.Instance:RegisterLuaNodeProxy(classType, nodeType, islua, needUpdate)
+    CsXBehaviorManager.Instance:RegisterLuaNodeProxy(classType, nodeType, isLua, needUpdate)
     local behaviorNode = XClass(super, classType)
     NodeClassType[classType] = behaviorNode
     return behaviorNode
@@ -31,7 +38,11 @@ function XLuaBehaviorManager.NewLuaNodeProxy(className, nodeProxy)
     return obj
 end
 
---注册行为主体
+--- 注册行为主体
+---@param super XLuaBehaviorAgent 父行为
+---@param classType string 类名
+---@return XLuaBehaviorAgent
+--------------------------
 function XLuaBehaviorManager.RegisterAgent(super, classType)
     super = XLuaBehaviorAgent or super
     CsXBehaviorManager.Instance:RegisterLuaAgentProxy(classType)

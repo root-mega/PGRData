@@ -6,7 +6,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadLi1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Li.png",
-        "Description": "After pinging a Yellow Orb, next Red Orb will inflict Blast and deal Fire DMG to a small area."
+        "HeadLine": [
+            null,
+            "Controlling Bullet: <color=#0d70bc>Ping Yellow Orb + Ping Red Orb</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "After pinging a Yellow Orb, the next Red Orb projectile will grant <color=#FF6347>Blast</color>, making Lee's shot explode after hitting the target, dealing Fire DMG to enemies in the area.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1021001,
@@ -15,7 +32,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadluxiya1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR1Luxiya.png",
-        "Description": "Pinging a Red Orb within 4 seconds after any 3-Ping will make Lucia Burst. Lucia then replaces Basic Attacks with Dual Blades."
+        "HeadLine": [
+            null,
+            "Lotus - Dual Blades: <color=#0d70bc>Any 3-Ping + Ping Red Orb</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Lucia: Lotus enters Burst Form when a Red Orb is pinged within 4s after any 3-Ping, replacing Basic Attacks with <color=#FF6347>Dual Blades</color>. Lotus - Dual Blades: Attacks the enemy multiple times, dealing Physical DMG.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1031001,
@@ -24,7 +58,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadLifu1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR1Lifu.png",
-        "Description": "Pinging a Red Orb after any 3-Ping will trigger core lasers to deal 10 times of Physical DMG to a wide area."
+        "HeadLine": [
+            null,
+            "Laser Cluster: <color=#0d70bc>Any 3-Ping + Ping Red Orb</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "After any 3-Ping, the next Red Orb skill will unleash Laser Cluster that deals Physical DMG.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1041002,
@@ -33,7 +84,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadAolisuo1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Bianka.png",
-        "Description": "Core Passive: 1 energy arrow will be stored in the quiver after a 3-Ping. The quiver can store up to 3 arrows. All arrows will be released when performing the next Signature Move and each energy arrow deals * Physical DMG twice."
+        "HeadLine": [
+            null,
+            "Quiver of Mercy: <color=#0d70bc>Any 3-Ping + Tap Signature</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Stores 1 energy arrow in the quiver after every 3-Ping. All arrows will be released when casting the next Signature Move, dealing Extra Physical DMG to the target.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1051001,
@@ -42,7 +110,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadYongyechao1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Yongyechao.png",
-        "Description": "Core Passive: When pinging a Yellow Orb after any 3-Ping, Nanami will use EX - Slash Storm and launch 8 consecutive attacks at surrounding targets, dealing * Physical DMG per attack."
+        "HeadLine": [
+            null,
+            "EX - Slash Storm: <color=#0d70bc>Any 3-Ping + Ping Yellow Orb</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "When pinging a Yellow Orb after any 3-Ping, Nanami: Storm will cast EX - Slash Storm to launch consecutive attacks at nearby enemies, dealing Physical DMG.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1061002,
@@ -51,7 +136,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadShenwei1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Shenwei.png",
-        "Description": "Counterattacks and unleashes sword waves after a successful block, dealing Physical DMG to the enemy."
+        "HeadLine": [
+            null,
+            "Offence-Defense Rhythm: <color=#0d70bc>Any 3-Ping</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Gains Charge points after any 3-Ping. When there are Charge points, Kamui: Bastion's ATK increases. Charge points decrease over time.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1071002,
@@ -60,7 +162,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadKalienina1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Kalienina.png",
-        "Description": "After 3 times of 3-Ping or performing a Signature Move, Karenina will Burst for 3 seconds and the next Basic Attack will become a ranged artillery attack."
+        "HeadLine": [
+            null,
+            "Artillery Tactics: <color=#0d70bc>Three 3-Pings + Tap Basic Attack</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Karenina: Blast enters <color=#FF6347>Burst Form</color> after <color=#FF6347>three</color> 3-Pings or casting a Signature Move, replacing her Basic Attacks with ranged artillery attacks.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1081002,
@@ -69,7 +188,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadDubian1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Dubian.png",
-        "Description": "Enemies will be marked when hit by 3-Ping. When attacking a marked enemy with a 3-Ping, 5 energy clones will be created for 5 seconds and launch attacks. Clones will attack once with each Basic Attack."
+        "HeadLine": [
+            null,
+            "Fleeting Phantom: <color=#0d70bc>Two 3-Pings + Tap Basic Attack</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "The final strike of each 3-Ping marks the target. Releases a shade when the mark reaches <color=#FF6347>2</color> stacks. The shade attacks once with every Basic Attack.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1031002,
@@ -78,7 +214,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadLifu1S.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Lifu.png",
-        "Description": "Attacking a marked enemy with Basic or Red Orb Attacks has a chance to trigger Lightning Lure. When triggered for the 5th time, Ex - Lighting Lure will be used and deal Lightning DMG to enemies and heal the allies in the area."
+        "HeadLine": [
+            null,
+            "Reversed Egretfield: <color=#0d70bc>Ping Reb Orb (chance to trigger)/Ping Blue Orb + Tap Basic Attack (chance to trigger)</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "When Basic Attacks hit marked enemies, there is a chance to trigger <color=#FF6347>Lightning Lure</color> and deal Lightning DMG. Pinging Red Orbs also has a chance to trigger <color=#FF6347>Lightning Lure</color>. After triggering <color=#FF6347>Lightning Lure</color> for <color=#FF6347>4</color> times, the next <color=#FF6347>Lightning Lure</color> will summon <color=#FF6347>Ex - Lightning Lure</color>, dealing Lightning DMG and healing allies in the area.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1021002,
@@ -87,7 +240,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadluxiya1S.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Luxiya.png",
-        "Description": "Marks the enemy with Blue Orb or Yellow Orb skills. Attacking an enemy marked by Lucia has a chance to launch lightning attacks that deal Lightning DMG."
+        "HeadLine": [
+            null,
+            "Lotus - Lightning Dance: <color=#0d70bc>Ping Yellow/Blue Orb + Tap Basic Attack (chance to trigger)</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "<color=#FF6347>Lightning Lure</color>: Attacking a marked enemy has a chance to summon a lightning bolt to strike the target, dealing Lightning DMG.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1061003,
@@ -96,7 +266,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadShenwei1SS.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Shenwei.png",
-        "Description": "Performs a 3-Ping for 10 Energy. Increases Physical and Dark Resistance when in Dark Form."
+        "HeadLine": [
+            null,
+            "Fighting Will: <color=#0d70bc>Any 3-Ping</color>",
+            "Fighting Will: <color=#0d70bc>Dark Form + Passive</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Gains an extra <color=#FF6347>10</color> Energy upon a 3-Ping.",
+            "In <color=#FF6347>Dark Form</color>, Physical Resistance and Dark Resistance increase.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1031003,
@@ -105,7 +292,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadLifu1SS.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Lifu.png",
-        "Description": "Hitting marked enemies has a chance to activate Light Penalty that deals Physical DMG. When Light Penalty is activated for the 5th time or when a 3-Ping, trigger a self-centered area healing effect."
+        "HeadLine": [
+            null,
+            "Goddess Connection System: <color=#0d70bc>Any 3-Ping/After triggering Light Penalty 5 times</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Heals nearby allies after a 3-Ping or triggering <color=#FF6347>Light Penalty</color> 5 times.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1011003,
@@ -114,7 +318,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadLi1SS.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Li.png",
-        "Description": "When pinging a Red Orb after any 3-Ping, summons multiple space bullets to assist in shooting."
+        "HeadLine": [
+            null,
+            "Space Lord: <color=#0d70bc>Any 3-Ping + Ping Red Orb</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "After any 3-Ping, pinging the next Red Orb will fire consecutive shots that strike the target, dealing Physical DMG.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1071003,
@@ -123,7 +344,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadKalienina1SS.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Kalienina.png",
-        "Description": "Gains thermal energy based on the skill level (3% per), and also by using certain skills. All skills become Enhanced when thermal energy is above 50%. Fire DMG increases when in Thermal mode."
+        "HeadLine": [
+            null,
+            "Thermal System: <color=#0d70bc>Any 3-Ping/Cast Signature Move</color>",
+            "Enhanced Form: <color=#0d70bc>Thermal Energy reaches 50%</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Gains Thermal Energy upon entering battle. Thermal Energy can be gained via 3-Pings and Signature Move.",
+            "Enters <color=#FF6347>Enhanced Form</color> once Thermal Energy reaches 50%, gaining Fire DMG Bonus and granting additional effects to Signal Orb skills and Basic Attacks. Thermal Energy decreases over time in <color=#FF6347>Enhanced Form</color>.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1051003,
@@ -132,7 +370,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadYongyechao1SS.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Yongyechao.png",
-        "Description": "Nanami enters Overclocking state after a Signature Move, Basic Attacks will be converted into Overclocking attacks that deal Fire DMG. Fire Resistance of targets hit will be reduced."
+        "HeadLine": [
+            null,
+            "Overclock: <color=#0d70bc>Cast Signature Move + Tap Basic Attack</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Nanami: Pulse enters <color=#FF6347>Overclocking Form</color> after casting Signature Move. In this form, her Basic Attacks deal Fire DMG instead and reduce the Fire Resistance of the targets hit for <color=#FF6347>8</color>s.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1021003,
@@ -141,7 +396,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadLuxiyaaerfa1SS.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Luxiyaaerfa.png",
-        "Description": "Enters Blade Will state when pinging any 3-Ping after a Blue Orb 3-Ping . All Signal Orbs will be converted into Special Orbs and gains 2 Special Orbs additionally. When pinging a Special Orb, unleashes sword wave to attack the target and deal Physical DMG."
+        "HeadLine": [
+            null,
+            "Crimson Abyss - Blade Will: <color=#0d70bc>Blue 3-Ping + Any 3-Ping</color>",
+            "Swordwave: <color=#0d70bc>Blade Will Form + Ping Blade Will Orb</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Any 3-Ping after a Blue 3-Ping causes Alpha to fall back and enter <color=#FF6347>Blade Will Form</color>. All available Signal Orbs will be converted into Blade Will Orbs and Alpha gains <color=#FF6347>2</color> additional <color=#FF6347>Blade Will Orbs</color>. While in the <color=#FF6347>Blade Will Form</color>, Signal Orbs gained by Basic Attacks will be converted into <color=#FF6347>Blade Will Orbs</color>.",
+            "Pinging a <color=#FF6347>Blade Will Orb</color> unleashes Swordwaves, dealing Physical DMG and granting Super Armor during the attack.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1081003,
@@ -150,7 +422,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadDubian1SS.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Dubian.png",
-        "Description": "When pinging a Red Orb after any 3-Ping, transforms into shadow and launches consecutive attacks to deal Dark DMG at the area ahead. When finished, enters enhanced shadow form that allows Basic Attacks to deal additional Dark DMG and Chasing Blade to deal additional Dark DMG. Lasts 5s."
+        "HeadLine": [
+            null,
+            "Cosmic Wave: <color=#0d70bc>Any 3-Ping + Ping Red Orb</color>",
+            "Enhanced Shadow Form: <color=#0d70bc>Enhanced Shadow Form + Tap Basic Attack</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Pinging a Red Orb after any 3-Ping transforms Watanabe into a shadow that launches consecutive attacks in front of him, dealing Dark DMG. Enters <color=#FF6347>Enhanced Shadow Form</color> at the end of the attack.",
+            "In <color=#FF6347>Enhanced Shadow Form</color>, Basic Attacks and <color=#FF6347>Trailblade </color> deal Extra Dark DMG.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1091002,
@@ -159,7 +448,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadAila1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Aila.png",
-        "Description": "When pinging a Blue Orb after any 3-Ping, charges in place to drag the nearby enemies in and gains a shield equal to maximum HP for 7s, then unleashes a heavy strike to the targets ahead that deals Physical DMG. Extra DMG Reduction increases by 70% when charging."
+        "HeadLine": [
+            null,
+            "Vector Cube: <color=#0d70bc>Any 3-Ping + Ping Blue Orb</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "When pinging a Blue Orb after any 3-Ping, charges in place to pull the nearby enemies in and gains Shield before unleashing a heavy strike to the targets ahead, dealing Physical DMG. Extra DMG Reduction increases by <color=#FF6347>70%</color> when charging.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1041003,
@@ -168,7 +474,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadBianka1SS.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Bianka.png",
-        "Description": "Enters into sniping mode when pinging a Blue Orb after a Red Orb 3-Ping. During so, Basic Attack shoots a long-ranged lightning arrow to deal Lightning DMG. Exits sniping mode if 6 lightning arrows are shot or if 6 seconds pass. Dodging in sniping mode will lower the charge time of the next Basic Attack."
+        "HeadLine": [
+            null,
+            "Critical Moment: <color=#0d70bc>Red 3-Ping + Ping Blue Orb</color>",
+            "Lightning Arrow: <color=#0d70bc>Sniping Form + Tap Basic Attack</color>",
+            "Critical Moment: <color=#0d70bc>Sniping Form + Tap Dodge</color>",
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Pinging a Blue Orb after a Red 3-Ping will cause Veritas to enter the <color=#FF6347>Sniping Form</color>.",
+            "While in the <color=#FF6347>Sniping Form</color>, Basic Attacks shoot a long-ranged lightning arrow that deals Lightning DMG. Veritas exits the Sniping Form if <color=#FF6347>6</color> lightning arrows are fired or after <color=#FF6347>6</color>s. Basic Attacks no longer generate Signal Orbs in the <color=#FF6347>Sniping Form</color>.",
+            "Dodging in the <color=#FF6347>Sniping Form</color> will reduce the charge time of the next Basic Attack.",
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1111002,
@@ -177,7 +500,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadSufeiya1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Sufeiya.png",
-        "Description": "On the last combo of Basic Attack, 3-Ping, Signature Move, or QTE, targets will drop an Energy Ball. Picking up an Energy Ball heals friendly members and boosts their Fire DMG. Picking up an Energy Ball earns Sophia Energy and Heat. When Heat reaches a certain level, Sophia's ATK will be increased."
+        "HeadLine": [
+            null,
+            "Field Supplies: <color=#0d70bc>Last hit of Basic Attack/Any 3-Ping/Cast Signature Move/Cast QTE + Pick up Energy Ball</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Sophia: Silverfang drops an Energy Ball after any of the following: the last hit of Basic Attack, dealing damage with a 3-Ping skill, casting Signature Move, or casting QTE. Picking up an Energy Ball heals all the allies within range and grants <color=#FF6347>Fire Tempered</color>, increasing Fire DMG. Whenever an Energy Ball is picked up, Sophia: Silverfang gains Energy and Heat. Her ATK increases based on the current Heat.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1121002,
@@ -186,7 +526,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadKuluomu1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Kuluomu.png",
-        "Description": "Pinging a Blue Orb after any 3-Ping generates a shield proportional to your maximum HP for 4s. When the shield expires or becomes refreshed, it explodes and deals Lightning DMG to nearby targets."
+        "HeadLine": [
+            null,
+            "Arclight Shield: <color=#0d70bc>Any 3-Ping + Ping Blue Orb</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Pinging a Blue Orb after any 3-Ping generates Shield. When Shield expires or is replaced by a new Shield, it explodes and deals Lightning DMG to nearby targets.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1021004,
@@ -195,7 +552,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadR4Luxiya1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR4Luxiya.png",
-        "Description": "Every 3-ping made in the Normal Form generates 50% more Energy and 1 Signature Point. Up to 2 Signature Points can be accumulated. Using Form Switch in the Normal Form will transform Plume into the Arctic Form. Switching with full Energy will re-arrange all the existing Signal Orbs. Ice DMG is increased when in the Arctic Form. A 3-ping grants 1 Signature Point. Final - Halcyonic Blossoms requires 4 Signature Points to cast."
+        "HeadLine": [
+            null,
+            "Hyperborea: <color=#0d70bc>Any 3-Ping</color>",
+            "Hyperborea: <color=#0d70bc>Arctic Form + Any 3-Ping</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "While in the Normal Form, every 3-Ping grants Energy and Signature Point (up to <color=#FF6347>2</color> Points in the Normal Form).",
+            "In <color=#FF6347>Arctic Form</color>, Energy decreases over time. While there is still Energy, Ice DMG increases and every 3-Ping grants <color=#FF6347>1</color> Signature Point (up to <color=#FF6347>4</color> in Arctic Form). When casting the Signature Move, it can still benefit from the Core Passive's DMG Bonus if there is still Energy left.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1131002,
@@ -204,7 +578,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadWeila1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Weila.png",
-        "Description": "Gain overclock points when pinging orbs based on the number of orbs pinged. When you have enough overclock points, tap and hold the basic attack button to unleash Vera's core attack. Tapping basic attack during so will unleash her follow-up core attacks. Core attack deals area Dark DMG and deals Physical DMG to nearby targets. Overclock points are used for core attacks, and will be converted to Energy afterwards."
+        "HeadLine": [
+            null,
+            "Mass Illusion: <color=#0d70bc>Ping any orb</color>",
+            "Mass Illusion: <color=#0d70bc>Sufficient Overclock Points + Press and hold Basic Attack + Tap Basic Attack repeatedly</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Gains bonus Overclock Points from pinging orbs. Automatically restores Overclock Points every second.",
+            "When there are enough Overclock Points, press and hold the Basic Attack button to unleash Vera's core attack. Tap Basic Attack again to make her unleash the follow-up core attack. The core attack deals area Dark DMG and deals bonus Physical DMG to targets in melee range. Casting core attacks will consume Overclock Points and return energy.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1511003,
@@ -213,7 +604,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadKamu1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Kamu.png",
-        "Description": "Any 3-ping in the normal mode will accumulate Madness (up to 3 stacks). Once Camu reaches full Madness, he will gain bonus energy from any 3-ping. When he enters the Berserk mode, he will consume all Madness stacks and gain damage bonus based on the number of Madness stacks consumed."
+        "HeadLine": [
+            null,
+            "Surging Madness: <color=#0d70bc>Any 3-Ping</color>",
+            "Surging Madness: <color=#0d70bc>Berserk Form + Passive activates</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Any 3-Ping in Normal Form will accumulate <color=#FF6347>Madness</color>. Once Camu reaches full <color=#FF6347>Madness</color>, he will gain bonus Energy from any 3-Ping.",
+            "When Camu enters <color=#FF6347>Berserk Form</color>, he will consume all <color=#FF6347>Madness</color> stacks and gain a DMG Bonus in <color=#FF6347>Berserk Form</color>.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1141003,
@@ -222,7 +630,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadLuosaita1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Luosaita.png",
-        "Description": "Rosetta has 3 energy spheres. A sphere will be automatically spent to power up a 3-Ping. 2 spheres (max) will be spent to power up a Signature. After all spheres are spent, you may charge up an area effect railgun blast to deal damage and recover the spheres. You gain 3 spheres after the railgun blast after 8s."
+        "HeadLine": [
+            null,
+            "Rigor Heart: <color=#0d70bc>Has Energy Points + Any 3-Ping</color>",
+            "Rigor Heart: <color=#0d70bc>Has Energy Points + Tap Signature</color>",
+            "Wide-Area Electromagnetic Cannon: <color=#0d70bc>Full Burst Form + Press and hold Basic Attack</color>",
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Rosetta: Rigor has <color=#FF6347>3</color> Energy Points. When performing a 3-Ping, she consumes <color=#FF6347>1</color> Energy Point to enhance the skill and gain Extra DMG Bonus.",
+            "Rosetta: Rigor has <color=#FF6347>3</color> Energy Points. When performing a Signature, she consumes up to <color=#FF6347>2</color> Energy Points to gain Physical DMG Bonus.",
+            "When all Energy Points are used up, Rosetta: Rigor enters <color=#FF6347>Full Burst Form</color>. Press and hold the Basic Attack button in this form to charge and fire the <color=#FF6347>wide-area electromagnetic cannon</color> once the charging reaches maximum, dealing Physical DMG while restoring Energy, and inflicting the target with <color=#FF6347>Lance of Perception</color>. While charging, her Extra DMG Reduction increases. Energy points will be restored after firing the <color=#FF6347>wide-area electromagnetic cannon</color>.",
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1521003,
@@ -231,7 +656,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR2Qu01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Qu.png",
-        "Description": "Pinging orbs or performing a Signature Move will accumulate Sync Rate. When the Sync Rate is at maximum, Signal Orbs are enhanced, and Qu enters the Concentrated Will state once an orb is pinged. Enhanced Signal Orbs can only be pinged individually. When pinged (no Energy granted), costs Sync Rate and triggers a 3-Ping skill and Concentrated Will. The Sync Rate goes down over time in the Concentrated Will state."
+        "HeadLine": [
+            null,
+            "Concentrated Will Form: <color=#0d70bc>Ping any orb</color>",
+            "Concentrated Will Form: <color=#0d70bc>Concentrated Will Form</color>",
+            "Red Concentration: <color=#0d70bc>Concentrated Will Form + Ping Red Orb</color>",
+            "Yellow Concentration: <color=#0d70bc>Concentrated Will Form + Ping Yellow Orb</color>",
+            "Blue Concentration: <color=#0d70bc>Concentrated Will Form + Ping Blue Orb</color>",
+            null
+        ],
+        "Description": [
+            null,
+            "Gains Sync Rate from pinging orbs. When the Sync Rate is at maximum, Signal Orbs are enhanced, and Qu enters the <color=#FF6347>Concentrated Will Form</color> once an orb is pinged.",
+            "In the <color=#FF6347>Concentrated Will Form</color>, Signal Orbs can only be pinged individually. Pinging an orb consumes Sync Rate and triggers the corresponding 3-Ping skill and <color=#FF6347>Concentrated Will</color>, and will consume Sync Rate but generates no energy. In the <color=#FF6347>Concentrated Will Form</color>, Sync Rate goes down over time. Once Sync Rate is empty, the <color=#FF6347>Concentrated Will Form</color> will end and Signal Orbs are no longer enhanced.",
+            "Red Concentration: Bashes the ground to deal Physical DMG.",
+            "Yellow Concentration: Unleashes a shockwave forward to deal Physical DMG.",
+            "Blue Concentration: Releases a whirlwind that follows Qu around, dealing Physical DMG to nearby enemies.",
+            null
+        ]
     },
     {
         "Id": 1161002,
@@ -240,7 +682,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR2Changyu01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Changyu.png",
-        "Description": "Changyu has a special \"Follow-Up\" Orb that normally cannot be pinged or tagged. It will light up for a while upon a 3-Ping. Tap it to perform different follow-up skills based on the color of orbs pinged."
+        "HeadLine": [
+            null,
+            "Follow-Up: <color=#0d70bc>Any 3-Ping + Tap Follow-Up Orb</color>",
+            "Red Orb Follow-Up: <color=#0d70bc>Red Orb 3-Ping + Tap Follow-Up Orb</color>",
+            "Blue Orb Follow-Up: <color=#0d70bc>Blue Orb 3-Ping + Tap Follow-Up Orb</color>",
+            "Yellow Orb Follow-Up: <color=#0d70bc>Yellow Orb 3-Ping + Tap Follow-Up Orb</color>",
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "At the start of battle, gains a grayed-out Follow-Up Orb (cannot be tapped or pinged). The Follow-Up Orb will light up upon a 3-Ping. Tap it to perform different follow-up skills based on the color of orbs pinged.",
+            "Red Orb Follow-Up: Use an overhead kick to deal Ice DMG. Basic Attack after Red Follow-Up starts from the 4th hit.",
+            "Blue Orb Follow-Up: Conjures ice lances from the ground around to deal area Ice DMG and slow the enemies temporarily, leaving a <color=#FF6347>Crystal Ice Mirror</color>.",
+            "Yellow Orb Follow-Up: Leaps backward and conjures ice pieces to pull nearby enemies together. The ice pieces then explode to deal area Ice DMG.",
+            null,
+            null
+        ]
     },
     {
         "Id": 1171003,
@@ -249,7 +708,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR3Luna01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Luna.png",
-        "Description": "The next Orb pinged is regarded 3-Ping after a 3-Ping. Accumulate Annihilation Points and press and hold the basic attack button to enter the Annihilation State, change the basic attack form, and obtain Annihilation Orbs. Ping Annihilation Orbs to gain Energy and cast targeted spikes. Basic Attack consumes Annihilation Points in the Annihilation State, while Signature Move depletes all Annihilation Points. After depleting all Annihilation Points or being swapped out, exit the Annihilation State."
+        "HeadLine": [
+            null,
+            "Singularity: <color=#0d70bc>At least 15 Annihilation Points + Press and hold Basic Attack</color>",
+            "Singularity: <color=#0d70bc>Annihilation Form + Ping Annihilation Orb</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Luna: Laurel gains Annihilation Pts after every 3-Ping. Her next ping will be counted as a 3-Ping. 3-Pings generated by the Matrix will be consumed first. When there are a certain amount of Annihilation Pts, press and hold the Basic Attack button to enter <color=#FF6347>Annihilation Form</color>, deal Dark Area DMG, hide the original Signal Orbs, and gain <color=#FF6347>Annihilation Orbs</color> based on the current Annihilation Pts. When this skill is cast, Luna will become invincible, and QTEs not in cooldown will be activated. In <color=#FF6347>Annihilation Form</color>, entering the Matrix will grant <color=#FF6347>1</color> <color=#FF6347>Annihilation Orb</color>, and performing Basic Attacks will consume Annihilation Pts. When the Annihilation Pts drop to <color=#FF6347>0</color> or when another character is switched in, Luna will exit <color=#FF6347>Annihilation Form</color>. Switching to another character will consume all Annihilation Pts. Exiting <color=#FF6347>Annihilation Form</color> will rearrange the Signal Orbs according to the 3-Ping rules.",
+            "In <color=#FF6347>Annihilation Form</color>, pinging the <color=#FF6347>Annihilation Orb</color> will cast 4 targeted spikes, dealing Dark DMG and granting Energy.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1181003,
@@ -258,7 +734,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR32B01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR32B.png",
-        "Description": "After a Yellow 3-Ping, make another 3-Ping of any color to enter Battle Stance, which causes Basic Attacks, Red Orb, and Yellow Orb skills to launch Swordwaves. Pinging Red Orbs in Battle Stance can also stack Data Correction effect to increase Physical DMG."
+        "HeadLine": [
+            null,
+            "Blade Rend: <color=#0d70bc>Yellow 3-Ping + Any 3-Ping</color>",
+            "Blade Rend: <color=#0d70bc>Battle Stance + Tap Basic Attack/Ping Yellow Orb</color>",
+            "Blade Rend: <color=#0d70bc>Battle Stance + Ping Red Orb</color>",
+            "Blade Rend: <color=#0d70bc>Battle Stance + Ping Blue Orb</color>",
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Any 3-Ping after a Yellow 3-Ping grants 2B <color=#FF6347>Stability</color>. <color=#FF6347>Stability</color> decreases over time (re-triggering does not refresh the duration). While 2B has <color=#FF6347>Stability</color>, she enters <color=#FF6347>Battle Stance</color>. Once 2B exits <color=#FF6347>Battle Stance</color>, all <color=#FF6347>Data Correction</color> stacks will be removed. Obtaining additional stacks or unleashing Signature Move will refresh the duration of <color=#FF6347>Data Correction</color>. While Signature Move is active, <color=#FF6347>Stability</color> will not decrease.",
+            "In <color=#FF6347>Battle Stance</color>, Basic Attacks and Yellow Orbs also launch Swordwaves that deal Physical DMG.",
+            "In <color=#FF6347>Battle Stance</color>, Red Orbs also launch Swordwaves that deal Physical DMG and add <color=#FF6347>Data Correction</color>, granting Physical DMG Bonus.",
+            "In <color=#FF6347>Battle Stance</color>, Blue Orbs can interrupt enemy attacks.",
+            null,
+            null
+        ]
     },
     {
         "Id": 1191003,
@@ -267,7 +760,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR39S01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR39S.png",
-        "Description": "After any 3-ping, an Overclock Indicator in corresponding color will be added to the far right of the Orbs bar. Tap the Overclock Indicator to ping all Signal Orbs of the corresponding color and cast the Core Skill."
+        "HeadLine": [
+            null,
+            "Overclock Strike: <color=#0d70bc>At least 50 Overclock Energy + Any 3-Ping</color>",
+            "Overclock Strike: <color=#0d70bc>Ping Overclock Indicator</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Gains <color=#FF6347>Overclock Energy</color> at the start of the battle. During a 3-Ping, if there is sufficient <color=#FF6347>Overclock Energy</color>, consumes <color=#FF6347>Overclock Energy</color> to generate <color=#FF6347>Overclock Indicator</color> of the corresponding color (up to 1) on the right of the Signal Orb bar. <color=#FF6347>Overclock Energy</color> regenerates over time.",
+            "Tap the <color=#FF6347>Overclock Indicator</color> to consume all orbs of the same color and summon a POD CUB to unleash multiple projectiles that deal Physical DMG (pinging <color=#FF6347>Overclock Indicator</color> is not considered a ping). If the <color=#FF6347>Overclock Indicator</color> effect pings more than 3 Signal Orbs, gains a number of random Signal Orbs equal to the excess number of orbs pinged. When 9S leaves the field, reduces his swap cooldown according to how many times <color=#FF6347>Overclock Indicator</color> has been triggered.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1201003,
@@ -276,7 +786,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR3A201.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3A2.png",
-        "Description": "After any 3-ping, calls upon the POD to launch homing missiles at the enemy in front and obtain POD: Shield. Once POD: Shield is fully charged, A2 is able to cast her Signature Move to activate Berserk Mode."
+        "HeadLine": [
+            null,
+            "Prototype: <color=#0d70bc>Any 3-Ping</color>",
+            "Sliding: <color=#0d70bc>Moving + Press and hold Dodge</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Any 3-Ping grants A2 <color=#FF6347>POD: Shield</color> and summons CUB to launch <color=#FF6347>6</color> seeker missiles toward random targets in front, dealing Physical DMG and granting <color=#FF6347>POD: Shield</color> after hitting enemies. Missiles also <color=#FF6347>Taunt</color> the enemy (while taunted, the target's DEF is reduced. If 2B and 9S are also in the team, this <color=#FF6347>effect is doubled</color>).",
+            "While moving, Press and hold Dodge to cause A2 to begin sliding. Gains <color=#FF6347>POD: Shield</color> after sliding for a period of time. The Dodge Gauge will not recover while sliding, but A2 will emit static to <color=#FF6347>continuously drag</color> nearby enemies.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1211002,
@@ -285,7 +812,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR2Wanshi01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Wanshi.png",
-        "Description": "After any 3-Ping, press Basic Attack within 1s to enter [Tactical Stance], and keep holding the Basic Attack button to maintain this form. Release the Basic Attack button to trigger [Blooming Shot]. The backstep of [Blooming Shot] is able to evade enemy attacks. If this move successfully dodges an attack, the follow-up shot will be enhanced."
+        "HeadLine": [
+            null,
+            "Blooming Shot: <color=#0d70bc>Tactical Stance + Release Basic Attack</color>",
+            "Cold Snap: <color=#0d70bc>Tactical Stance + Release Basic Attack + Successful Dodge</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Releasing the Basic Attack button during <color=#FF6347>Tactical Stance</color> will trigger <color=#FF6347>Blooming Shot</color>, dealing Ice DMG in a straight line.",
+            "The backstep of <color=#FF6347>Blooming Shot</color> is able to evade enemy attacks. If this move successfully dodges an attack, Wanshi will become invincible for a long time during the follow-up sniping shot and deal Ice DMG.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1531003,
@@ -294,7 +838,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR3Sailinna01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Sailinna.png",
-        "Description": "Making a 3-Ping will generate a [Triad] of the same color. The next Orb pinged will generate [Tune] and trigger Chord. Chord with the same color as the [Triad] will trigger [Concerto], dealing Lightning DMG. Chord with a color different to [Triad] will trigger [Solo], increasing own damage."
+        "HeadLine": [
+            null,
+            "Chord: <color=#0d70bc>Any 3-Ping + Ping any orb</color>",
+            "Concerto: <color=#0d70bc>Any 3-Ping + Ping orbs with the same color as the 3-Ping</color>",
+            "Solo: <color=#0d70bc>Any 3-Ping + Ping orbs with a different color as the 3-Ping</color>",
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "A 3-Ping will generate a <color=#FF6347>Triad</color> of the same color, and the next Orb pinged will trigger <color=#FF6347>Chord</color>. Selena gains <color=#FF6347>Tune</color> based on the number of orbs pinged when <color=#FF6347>Chord</color> is triggered.",
+            "If the orbs pinged have the same color as the <color=#FF6347>Triad</color>, applies <color=#FF6347>Concerto</color> on the target, dealing Lightning DMG and reducing the target's Extra DMG Bonus.",
+            "If the color of orbs pinged is different from the <color=#FF6347>Triad</color>, applies <color=#FF6347>Solo</color> on self instead, increasing Extra DMG Bonus.",
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1121003,
@@ -303,7 +864,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR3Kuluomu01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Kuluomu.png",
-        "Description": "Glory gains [Condensed Frost] for a short duration when he makes a 3-Ping while shield capacity is higher than 50%, or when he makes 3-Ping or Basic Attacks while [Frost Spirit] is active. [Condensed Frost] allows Chrome to ignore 1 attack, and slows the attacker instead."
+        "HeadLine": [
+            null,
+            "Frost Origin: <color=#0d70bc>Energy full + Press and hold Basic Attack</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "During battle, Chrome: Glory's HP is compressed to <color=#FF6347>40%</color>, with the remaining <color=#FF6347>60%</color> filled with <color=#FF6347>Glorious Shield</color> that automatically regenerates over time. When he has full Energy, press and hold Basic Attack to empty the <color=#FF6347>Glorious Shield</color> capacity and activate <color=#FF6347>Frost Spirit</color> Form, rearranging all Signal Orbs. All 3-Pings made in this form will gain <color=#FF6347>Condensed Frost</color> without consuming <color=#FF6347>Glorious Shield</color>, but <color=#FF6347>Glorious Shield</color> cannot automatically regenerate while <color=#FF6347>Frost Spirit</color> Form is active. Chrome: Glory creates <color=#FF6347>Eroding Chill</color> around himself, dealing Ice DMG to enemies periodically and inflicting them with <color=#FF6347>Frost Corrosion</color> that reduces their Ice Resistance.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1221002,
@@ -312,7 +890,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR2Twentyone01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Twentyone.png",
-        "Description": "After unleashing four basic attacks, the next Basic Attack will be an Enhanced Attack and form 1 Twilight Matrix. When No. 21 is in mid-air after a 3-Ping, using Dodge will trigger Instant Dodge and form 3 Twilight Matrices. The Co-Bot will unleash Force Wave when No. 21 unleashes an Enhanced Attack, controlling the enemy and detonating all Twilight Matrices. (Twilight Matrices last for 3s)"
+        "HeadLine": [
+            null,
+            "Shadow Prism Attack: <color=#0d70bc>Tap Basic Attack consecutively</color>",
+            "Resonance Pulse: <color=#0d70bc>Co-Bot + Twilight Matrix present</color>",
+            "Instant Dodge: <color=#0d70bc>Control Locked + Tap Dodge</color>",
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "No. 21: XXI's Basic Attack will generate <color=#FF6347>Shadow Prism Energy</color>. Upon reaching a certain level of <color=#FF6347>Shadow Prism Energy</color>, the next Basic Attack will empty all <color=#FF6347>Shadow Prism Energy</color> to cast a <color=#FF6347>Shadow Prism Attack</color> and create <color=#FF6347>1</color> Twilight Matrix on the target's location that deals Dark DMG and knocks the target down. When generated, the Twilight Matrix grants No. 21: XXI Signature Move Energy and Dodge Energy.",
+            "When the Co-Bot's Force Wave destroys a Twilight Matrix, it will trigger a <color=#FF6347>Resonance Pulse</color>, dealing Dark DMG to nearby enemies.",
+            "When No. 21: XXI is control locked (such as when attacked, downed, or in mid-air), press the Dodge button at the cost of extra Dodge Energy to perform Instant Dodge to negate all control-locking states and create <color=#FF6347>1</color> Twilight Matrix on the target's location. Instant Dodge grants No. 21: XXI Super Armor and Shield.",
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1131003,
@@ -321,7 +916,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/RoleCharacter/RoleHeadR3Weila1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Weila.png",
-        "Description": "The next Basic Attack after a 3-Ping grants [Electric Charge]. It can stack up to 3 times. Press and hold the Basic Attack button to perform [Lightning Fall] that deals wide-area Lightning DMG based on the [Electric Charge] consumed and inflicts [Turbulence Interference]."
+        "HeadLine": [
+            null,
+            "Electric Charge: <color=#0d70bc>Cast Spear Lunge</color>",
+            "Lightning Fall: <color=#0d70bc>Electric Charge present + Press and hold Basic Attack</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "<color=#FF6347>Spear Lunge</color> grants 1 <color=#FF6347>Electric Charge</color>, stacking up to 3 times.",
+            "When there is at least 1 <color=#FF6347>Electric Charge</color>, press and hold the Basic Attack button to consume <color=#FF6347>Electric Charge</color> and cast <color=#FF6347>Lightning Fall</color> to pull in a large area of enemies ahead, deal Lightning DMG, and inflict <color=#FF6347>Turbulence Interference</color> (reduces enemies' Lightning Resistance) for 8s. Every additional stack of <color=#FF6347>Electric Charge</color> consumed will double the DMG of <color=#FF6347>Lightning Fall</color>. Gains Super Armor when casting Lightning Fall.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1541003,
@@ -330,7 +942,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR2Luolan01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Luolan.png",
-        "Description": "On the 2nd/3rd/4th Basic Attack, tap the white orb to cast a Combo Attack and gain Deception Points. Where there are enough Deception Points, tap the Signal Orb to cast a skill and gain Energy. The Ping Enhance effect of the Matrix changes to no consumables for the next Signal Orb cast. Gain 1 Incinerating Orb upon casting a Signature Move. Can cast multiple incinerating orbs."
+        "HeadLine": [
+            null,
+            "Art of Deception: <color=#0d70bc>Trigger valid combos</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "The Basic Attack combo DMG ratio is adjusted. Gains <color=#FF6347>Deception Points</color> based on the combo type upon triggering <color=#FF6347>valid combos</color>. Roland's Red/Yellow/Blue Orbs are unlocked when there are a certain amount of <color=#FF6347>Deception Points</color>. Each time the 1st or 2nd hit of a Signal Orb skill is cast, <color=#FF6347>Deception Points</color> will be consumed to generate Energy. The combos of Basic Attacks and Signal Orb skills can be viewed in the description of each skill. <color=#FF6347>Valid combos</color>: The Basic Attack combo launched within 1s after dealing DMG from Basic Attacks. Upon triggering Matrix, the next Signal Orb skill cast does not consume any <color=#FF6347>Deception Points</color> or <color=#FF6347>Trickery Points</color>. Roland cannot gain Signal Orbs from Basic Attacks. When he is switched off battle, he gains <color=#FF6347>Deception Points</color>. Signal Orbs gained from any other source would be directly converted into <color=#FF6347>Deception Points</color> or Energy, prioritizing <color=#FF6347>Deception Points</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1031004,
@@ -339,7 +968,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR4Lifu01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR4Lifu.png",
-        "Description": "Basic Attacks and pinging orbs will accumulate Prayer. When it is full, double tapping the dodge button triggers Divine Prayer, during which you are allowed to ping 2 sets of Signal Orbs. If both sets are of the same color, trigger Purity Oath that deals AOE DMG; otherwise, trigger Chaos Oath that lands dodgeable attacks on both enemies and Liv: Empyrea. The more orbs pinged, the more DMG you will deal. Upon entering Divine Prayer during the Signature Move, you are allowed to ping 3 sets of Signal Orbs of any color."
+        "HeadLine": [
+            null,
+            "Divine Prayer: <color=#0d70bc>Double tap Dodge</color>",
+            "Purity Oath: <color=#0d70bc>Divine Prayer + Same-colored 3-Pings</color>",
+            "Chaos Oath: <color=#0d70bc>Divine Prayer + Different-colored 3-Pings</color>",
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Basic Attacks and pinging orbs accumulate Prayer. When it is full, <color=#FF6347>double tap</color> or <color=#FF6347>press and hold</color> Dodge to trigger <color=#FF6347>Divine Prayer</color> and gain DMG Reduction. While in Divine Prayer, it is allowed to ping 2 sets of orbs. The orbs pinged during the prayer will amplify it and increase the base multiplier. Each time orbs are pinged, triggers <color=#FF6347>Prayer Ripple</color> that deals Fire DMG to enemies, imprisons them, and heals allies. When <color=#FF6347>Core Passive - Ode for Everlight</color> reaches Lv.22, entering <color=#FF6347>Divine Prayer</color> will grant <color=#FF6347>1</color> random Signal Orb, and casting Oaths will restore Dodge Energy.",
+            "If both sets of Signal Orbs are of the same color, triggers <color=#FF6347>Purity Oath</color> that deals area Fire DMG.",
+            "If the two sets of Signal Orbs have different colors, triggers <color=#FF6347>Chaos Oath</color> that pulls enemies in an extremely large area, dealing Fire DMG to them and <color=#FF6347>a small amount of dodgeable DMG to Liv: Empyrea</color>.",
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1531004,
@@ -348,7 +994,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR4Sailinna01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR4Sailinna.png",
-        "Description": "Moving the joystick after a 3-Ping or pinging a Signature Move Special Orb will interrupt the current skill, releasing a skill variant and dealing a large amount of Dark DMG in the direction of the joystick. Also creates a phantom that casts the interrupted skill."
+        "HeadLine": [
+            null,
+            "Reprise: Echo: <color=#0d70bc>Any 3-Ping + Direction button</color>",
+            "Reprise: Twin Stars: <color=#0d70bc>Ping Shooting Star Orb + Direction button</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Upon a 3-Ping, moving the joystick will cause Selena: Capriccio to summon a phantom. The phantom will continue to cast the original skill, and Selena herself will gain Super Armor and cast <color=#FF6347>Reprise: Echo</color> instead.",
+            "When casting a <color=#FF6347>Shooting Star</color>, moving the joystick will cause Selena: Capriccio to cast an additional <color=#FF6347>Reprise: Twin Stars</color>, dealing Dark DMG while summoning a phantom at the original location.",
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1551003,
@@ -357,16 +1020,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR2Pulao01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Pulao.png",
-        "Description": "Consumes 20 Signature Energy to cast Spirit Blade: Dragon Throw, which summons and throws Dragon Axe. While Dragon Axe is on the field, Pulao can press and hold the Signature button to consume 100 Signature Energy and cast Spirit Blade: Falling Stars. Pulao can summon Dragon Axe back to her at any time. Basic Attack/Ping can be used to gain Dragon Force. If Pulao catches Dragon Axe during a Ping and half of the Dragon Force is acquired, Pulao will release the Dragon Force Combo, followed by multiple Basic Attacks."
-    },
-    {
-        "Id": 1051004,
-        "StageId": 30030301,
-        "Title": "Soul of Molten Steel",
-        "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
-        "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR4R4Yongyechao.png",
-        "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR4Yongyechao.png",
-        "Description": "You can tap and hold Dodge or cast Quantum Compression Shot/Flame Bombing for Nanami: Starfarer to start sliding. While this is active, you can cast the above skills with no intervals. Use the Signature and activate Rumbling. While this is active, Nanami: Starfarer has a Pressure slot that goes up to 200. When a Basic Attack hits an enemy, you can tap and hold Basic Attack to activate Bzzz. While this is active, release Basic Attack at different times to trigger Oops! Missed It! or Perfect!. When Pressure is at 200, tap and hold all the way to spend all Pressure and cast Burning Blow. When Oops! Missed It!/Perfect! is cast, gains 80/120 Pressure and 32/48 Signature Energy, respectively. Burning Blow: Recovers 60 Signature Energy, gains the damage multiplier of this Ironsoul Slice's Perfect!, and applies a damage bonus based on the Pressure spent, with the Base DMG increased by 0.25% for every Pressure. This damage is recorded after it has been tallied. Upon casting Gigabyte Star Strike, additionally deals 50% of the recorded damage and then removes the recorded damage."
+        "HeadLine": [
+            null,
+            "Snow Dragon: <color=#0d70bc>Whenever catching Dragon Axe</color>",
+            "Snow Dragon: <color=#0d70bc>Tap Basic Attack + Ping any orb</color>",
+            "Dragon Force Combo: <color=#0d70bc>Ping Yellow Orb + Ping Red Orb</color>",
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Whenever Pulao: Dragontoll catches Dragon Axe, she will throw it again, dealing the same effect as <color=#FF6347>Spirit Blade: Dragon Throw</color>.",
+            "Basic Attacks or pinging orbs will generate <color=#FF6347>Dragon Force</color>.",
+            "If Pulao: Dragontoll catches Dragon Axe when performing her Red/Blue/Yellow Orb skill, consumes <color=#FF6347>Dragon Force</color> to unleash <color=#FF6347>Dragon Force Combo</color>, with which tapping the Basic Attack button repeatedly will perform a follow-up combo that deals Physical DMG. While performing <color=#FF6347>Dragon Force Combo</color> and the follow-up combo, Pulao: Dragontoll gains Super Armor and Extra DMG Reduction.",
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1561003,
@@ -375,7 +1046,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR2Hakama.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Hakama.png",
-        "Description": "Press and hold Dodge to activate and charge Bitterfrost Level. Releasing Dodge when Bitterfrost Level is fully charged to inflict Ice DMG. Releasing Dodge before fully charged will result in no attacks, and Bitterfrost Level will gradually decrease. Getting hit while charging will deduct Dodge Gauge and perform Flash if there is enough Dodge available (1.5s cooldown). Gains Super Armor and increases Extra DMG Reduction by 50% when Bitterfrost Level is activated."
+        "HeadLine": [
+            null,
+            "Bitter Frost: <color=#0d70bc>Press and hold Dodge</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "Press and hold Dodge to activate and charge <color=#FF6347>Bitterfrost Level</color>. Release Dodge when <color=#FF6347>Bitterfrost Level</color> is fully charged to release <color=#FF6347>Bitter Frost</color>, dealing Ice DMG. Releasing Dodge before fully charged will result in no attacks, and <color=#FF6347>Bitterfrost Level</color> will gradually decrease. Getting hit while charging will deduct Dodge Gauge and performs Flash if there is enough Dodge Gauge available. Gains Super Armor and bonus Extra DMG Reduction when <color=#FF6347>Bitterfrost Level</color> is activated.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1071004,
@@ -384,7 +1072,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR4Kalienina1.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR4Kalienina.png",
-        "Description": "Anti-gravity System: When Karenina: Scire has a set of 3-Ping Orbs or Matrix's enhanced orb effect, holding the Basic Attack button will start charging and consume 3-Ping Orbs (up to 2 sets can be consumed), each set granting 20 Anti-gravity Energy. After that, Karenina leaps up into the air with Leap Attack that deals massive Dark DMG (it increases with the number of sets of 3-Ping Orbs consumed if more than 2 sets of 3-Ping Orbs have been consumed) and activates the Anti-gravity status. In this status, tapping the Basic Attack button repeatedly will cast Radiant Whirlwind that deals small Dark DMG, and each Basic Attack will increase Karenina's airborne duration and spin speed. Upon landing, Gravity Overload will be triggered to deduct 20 Anti-gravity Energy in exchange for 10 Energy and deal certain Dark DMG. If Karenina has more than 20 Anti-gravity Energy, she can leap up again until her Anti-gravity Energy becomes insufficient. Radiant Whirlwind will accumulate Kinetic Energy. Casting Starshatter Horizon in the Anti-gravity status will consume all Kinetic Energy to increase its DMG. Ending the Anti-gravity status will empty Kinetic Energy as well. When the Anti-gravity status is activated, Airborne Spin can be cast by consuming double Dodge Gauge to pull and knock back nearby enemies, dealing small Dark DMG and restoring 20 Anti-gravity Energy (can be triggered once per 10s only). If the dodge triggers Matrix, Returning Repulsion will be cast to pull and knock back nearby enemies, dealing higher Dark DMG and restoring 40 Anti-gravity Energy. Anti-gravity Matrix: When Karenina: Scire has at least a set of 3-Ping Orbs, if Matrix is triggered, holding the Basic Attack button will start charging, which will be considered to consume a set of 3-Ping Orbs."
+        "HeadLine": [
+            null,
+            "Leap Attack: <color=#0d70bc>3-Ping available + Press and hold Basic Attack</color>",
+            "Anti-gravity Form: <color=#0d70bc>Cast Leap Attack</color>",
+            "Radiant Whirlwind: <color=#0d70bc>Character is airborne + Tap Basic Attack repeatedly</color>",
+            "Gravity Overload: <color=#0d70bc>Triggered when character lands</color>",
+            "Kinetic Energy: <color=#0d70bc>Automatically accumulated when casting Radiant Whirlwind/Basic Attack speed-up</color>",
+            "Airborne Spin: <color=#0d70bc>Anti-gravity Form + Tap Dodge</color>"
+        ],
+        "Description": [
+            null,
+            "When Karenina: Scire has at least one set of 3-Ping among the current Signal Orbs (up to 8 Signal Orbs), press and hold the Basic Attack button to start charging and consume 3-Pings continuously (up to two sets of 3-Pings), with each set of 3-Ping granting Anti-gravity Energy. When charging, Karenina gains Super Armor and Extra DMG Reduction but cannot dodge. After that, Karenina launches a <color=#FF6347>Leap Attack</color>, jumps up into the air, deals Dark DMG, and enters the Anti-gravity Form. When two sets of 3-Pings are consumed during the charging, the <color=#FF6347>Leap Attack</color> will deal more Base DMG. When Karenina triggers Matrix, press and hold the Basic Attack button to start charging and automatically consume the Matrix's effect (any ping is regarded as a 3-Ping) as a set of 3-Ping.",
+            "Gains Super Armor and Extra DMG Reduction while in the Anti-gravity Form.",
+            "When Karenina: Scire is airborne, keep tapping Basic Attack to cast <color=#FF6347>Radiant Whirlwind</color>, dealing Dark DMG. Each Basic Attack tapped will increase the airborne time and spin speed.",
+            "Upon landing, Karenina: Scire will trigger <color=#FF6347>Gravity Overload</color>, gain Energy, and deal Dark DMG. If there is sufficient Anti-gravity Energy, Karenina: Scire will automatically jump up into the air again at the cost of some Anti-gravity Energy until there is insufficient Anti-gravity Energy, after which she will exit the Anti-gravity Form and all Anti-gravity Energy will be reset.",
+            "Each <color=#FF6347>Radiant Whirlwind</color> cast and Basic Attack speed-up will grant Kinetic Energy. Casting <color=#FF6347>Starshatter Horizon</color> will consume all the Kinetic Energy with each point consumed granting bonus Base DMG.",
+            "When Karenina is in the Anti-gravity Form, tap Dodge to cast <color=#FF6347>Airborne Spin</color> at the cost of double the Dodge Gauge value, pulling and knocking back enemies around Karenina, dealing Dark DMG and restoring Anti-gravity Energy and Energy. Upon a successful dodge, Karenina casts <color=#FF6347>Returning Repulsion</color> to pull and knock back enemies around her, dealing Dark DMG and restoring Dodge Gauge value."
+        ]
     },
     {
         "Id": 1571003,
@@ -393,7 +1098,24 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR2Nuoan01.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Nuoan.png",
-        "Description": "After casting a 3-Ping, tap Basic Attack repeatedly to charge up the Rising Engine. When the tapping stops or goes over a certain period of time, Noan: Arca will perform Gear-Break Combo based on the color of Signal Orbs pinged, and its DMG will depend on the current Gear Level. Triggering a Combo Strike also consumes all Rising Energy charged to increase its DMG dealt. The Rising Energy consumed will be converted into Rotational Speed. The next time Gear-Break Combo is triggered, if the current Rising Energy exceeds Rotational Speed, Gear Level will go up by 1. If Gear-Break Combo is triggered at Gear Lv.3, it will turn into Assault-Rising Combo with an increased Extra DMG Bonus. Rotational Speed and Gear Level will be reset afterward."
+        "HeadLine": [
+            null,
+            "Engine Charge: <color=#0d70bc>Any 3-Ping + Tap Basic Attack repeatedly</color>",
+            "Extreme Combo: <color=#0d70bc>Tap Basic Attack repeatedly to unleash combo</color>",
+            "Strike Rising Attack: <color=#0d70bc>3rd Gear + Unleash combo</color>",
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "After using a 3-Ping, tap Basic Attack repeatedly to charge the Rise Engine. When you stop tapping or after a certain period of time, Noan: Arca will perform <color=#FF6347>Extreme Combo</color> based on the color of Signal Orb used, dealing DMG based on the current <color=#FF6347>Gear Level</color>. Unleashing the combo will consume all <color=#FF6347>Rising Energy</color> and enhance the combo DMG based on the charge progress. The <color=#FF6347>Rising Energy</color> charge progress will then be converted into <color=#FF6347>Target Spin Speed</color>.",
+            "The next time an <color=#FF6347>Extreme Combo</color> is unleashed, if current <color=#FF6347>Rising Energy</color> exceeds <color=#FF6347>Target Spin Speed</color>, <color=#FF6347>Gear Level</color> will increase by 1.",
+            "If <color=#FF6347>Extreme Combo</color> is unleashed at maximum Gear Level, Noan: Arca will launch <color=#FF6347>Strike Rising Attack</color> instead with increased Extra DMG Bonus. <color=#FF6347>Target Spin Speed</color> and <color=#FF6347>Gear Level</color> will be reset to 0 afterward.",
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1041004,
@@ -402,6 +1124,257 @@
         "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
         "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR4Bianka.png",
         "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR4Bianka.png",
-        "Description": "When Bianca: Stigmata enters battle for the first time or Staff Form, a set of Afterglow Orbs will be generated above the Signal Orb bar. Bianca: Stigmata is unable to trigger Matrix via Dodge. When her weapon is in Staff Form, press and hold Dodge to perform Simulated Matrix and activate Luminous Realm. While Luminous Realm is active, pinging Signal Orbs can also consume the Afterglow Orbs that are of the same color and aligned above them, upon which Glowing Lanternlight will be unleashed to deal Physical DMG to enemies within range; pinging Signal Orbs and Afterglow Orbs will both generate Afterglow Points."
+        "HeadLine": [
+            null,
+            "Afterglow Orb: <color=#0d70bc>Upon entering battle or when entering Staff Form</color>",
+            "Simulated Matrix: <color=#0d70bc>Staff Form + Press and hold Dodge to enter Luminous Realm</color>",
+            "Glowing Lanternlight: <color=#0d70bc>Ping Signal Orbs to consume the Afterglow Orbs that are of the same color and aligned above them in Luminous Real</color>",
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "When Bianca: Stigmata enters battle or enters <color=#FF6347>Staff Form</color>, a set of <color=#FF6347>Afterglow Orbs</color> will be generated above the Signal Orb bar.",
+            "Bianca: Stigmata cannot trigger the Matrix by successfully dodging attacks. When the weapon is in the <color=#FF6347>Staff Form</color>, press and hold Dodge to perform <color=#FF6347>Simulated Matrix</color> and activate <color=#FF6347>Luminous Realm</color>.",
+            "While <color=#FF6347>Luminous Realm</color> is active, pinging Signal Orbs can also consume the <color=#FF6347>Afterglow Orbs</color> that are of the same color and aligned above them, upon which <color=#FF6347>Glowing Lanternlight</color> will be unleashed to deal Physical DMG to enemies within range. Pinging Signal Orbs and <color=#FF6347>Afterglow Orbs</color> in the <color=#FF6347>Luminous Realm</color> will both generate <color=#FF6347>Afterglow points</color>.",
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1231002,
+        "StageId": 30030301,
+        "Title": "Puppet Theater",
+        "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
+        "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR2Bangbinata.png",
+        "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Bangbinata.png",
+        "HeadLine": [
+            null,
+            "Strings On Me: <color=#0d70bc>Jete Points + Press and hold Basic Attack</color>",
+            "Solitary Dancer: <color=#0d70bc>Strings On Me + Take Hit/Release Basic Attack</color>",
+            "Pas De Chat: <color=#0d70bc>Solitary Dancer + Ping</color>",
+            "Pas De Chat: <color=#0d70bc>Successful Dodge + Solitary Dancer + Ping</color>",
+            "Pact of Memory: <color=#0d70bc>Solitary Dancer + 3-Ping</color>",
+            null
+        ],
+        "Description": [
+            null,
+            "When <color=#FF6347>Jete Points</color> are greater than <color=#FF6347>0</color>, press and hold Basic Attack to activate <color=#FF6347>Strings On Me</color>, performing Basic Attacks continuously.",
+            "When Bambinata: Vitrum is attacked while <color=#FF6347>Strings On Me</color> is activated, she will consume all <color=#FF6347>Jete Points</color> to automatically dodge the attack and leap into the air, entering the <color=#FF6347>Solitary Dancer</color> Form. When <color=#FF6347>Strings On Me</color> is activated at full <color=#FF6347>Jete Points</color>, release the Basic Attack button to consume all <color=#FF6347>Jete Points</color> and leap up to enter the <color=#FF6347>Solitary Dancer</color> Form. During the leap, Bambinata: Vitrum dodges incoming attacks.",
+            "Consuming Signal Orbs in the <color=#FF6347>Solitary Dancer</color> Form will trigger <color=#FF6347>Pas De Chat</color>, dealing Ice DMG. During <color=#FF6347>Pas De Chat</color>, Bambinata: Vitrum is invincible and pulls the enemies in.",
+            "If Bambinata: Vitrum has entered the <color=#FF6347>Solitary Dancer</color> Form by successfully dodging an attack, pinging Signal Orbs will trigger the more powerful <color=#FF6347>Pas De Chat</color> that deals Ice DMG. During <color=#FF6347>Pas De Chat</color>, Bambinata: Vitrum is invincible and pulls the enemies in.",
+            "Triggering <color=#FF6347>Pas De Chat</color> with a 3-Ping in the <color=#FF6347>Solitary Dancer</color> Form will grant 1 stack of <color=#FF6347>Pact of Memory</color> (up to <color=#FF6347>3</color> stacks), causing Bambinata: Vitrum to forget the color of this 3-Ping and no longer gain orbs of this color. All orbs of this color will be converted to other orbs that have not been forgotten yet. At <color=#FF6347>3</color> stacks of <color=#FF6347>Pact of Memory</color>, all the remaining orbs will be forgotten and Bambinata can no longer gain Signal Orbs. Casting <color=#FF6347>Signature - Stringless Cage</color> will remove all stacks of <color=#FF6347>Pact of Memory</color> and refund the forgotten orbs. For each <color=#FF6347>1</color> stack of <color=#FF6347>Pact of Memory</color>, the Base DMG of <color=#FF6347>Signature - Stringless Cage</color> increases.",
+            null
+        ]
+    },
+    {
+        "Id": 1011004,
+        "StageId": 30030301,
+        "Title": "Dimension Observer",
+        "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
+        "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR4Liang.png",
+        "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR4Liang.png",
+        "HeadLine": [
+            null,
+            "Fate Records",
+            "Realm Travel \u2014 <color=#0d70bc>Full Core Gauge + Press and Hold Basic Attack</color>",
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "All 3-Ping Orbs pinged outside <color=#FF6347>Hypermatrix</color> will be recorded and returned by performing <color=#FF6347>Basic Attack - Retribution</color> in <color=#FF6347>Hypermatrix</color>.",
+            "When the <color=#FF6347>Hypermatrix</color>'s cooldown is over, press and hold to shoot at the front area with the high-power sniper rifle, dealing Fire DMG and opens up the <color=#FF6347>Hypermatrix</color>.",
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1091003,
+        "StageId": 30030301,
+        "Title": "My Heart'll Do My Painting!",
+        "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
+        "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR3Aila01.png",
+        "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Aila.png",
+        "HeadLine": [
+            null,
+            "Converging Expression: <color=#0d70bc>3-Ping</color>",
+            "Color Mix: Clash of Concepts: <color=#0d70bc>Main Color is different from Secondary Color + Press and Hold Basic Attack</color>",
+            "Pure Color: Theme Emphasis: <color=#0d70bc>Main Color is the same as Secondary Color + Press and Hold Basic Attack</color>",
+            "Vibrant Brushstroke: <color=#0d70bc>Painter's Realm + Any Orb Ping</color>",
+            "Hued Splash: <color=#0d70bc>Pure Color: Theme Emphasis/Color Mix: Clash of Concepts</color>",
+            "Art Influence: <color=#0d70bc>Receive Healing</color>"
+        ],
+        "Description": [
+            null,
+            "The <color=#FF6347>Main Color</color> is filled with a Signal Orb color by default. Upon a 3-Ping, Coolant in the 3-Ping color will fill the <color=#FF6347>Secondary Color</color> (max <color=#FF6347>1</color> type of Coolant). Subsequent Coolant will replace the previous Coolant.",
+            "Performs 2 consecutive sweep attacks, dealing Ice DMG and gaining an extra buff. Gains Super Armor in the skill duration.",
+            "Dashes forward before turning around for a sweep attack, dealing Ice DMG and gaining an extra buff. Gains Super Armor in the skill duration.",
+            "Rides the Beam Gunlance and draws a colorful trail, causing an explosion upon hitting the enemy for the first time and dealing Ice DMG to enemies within the area. Gains DMG Reduction and Super Armor in the skill duration.",
+            "Ayla: Kaleido restores <color=#FF6347>15</color> Signature Energy to herself and heals her allies within the area every time she casts <color=#FF6347>Pure Color: Theme Emphasis</color> or <color=#FF6347>Color Mix: Clash of Concepts</color>, storing <color=#FF6347>1</color> <color=#FF6347>\"Backup Paint\"</color> of the <color=#FF6347>Main Color</color> (max <color=#FF6347>3</color>). When <color=#FF6347>Vibrant Brushstroke</color> deals DMG, spends 1 <color=#FF6347>\"Backup Paint\"</color> to gain 1 set of 3-Ping Orbs in the same color as the <color=#FF6347>\"Backup Paint\"</color>.",
+            "Healed allies gain <color=#FF6347>Frost Crystal</color>, which increases Ice DMG."
+        ]
+    },
+    {
+        "Id": 1021005,
+        "StageId": 30030301,
+        "Title": "Path of Anatta",
+        "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
+        "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR5Luxiya.png",
+        "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR5Luxiya.png",
+        "HeadLine": [
+            null,
+            "Formless Confrontation",
+            "Sundered Delusion: <color=#0d70bc>Press and hold Dodge to enter Foresight Charge</color>",
+            "Resolute Blow: <color=#0d70bc>Foresight Charge + Release Dodge</color>",
+            "Aphotic Points: <color=#0d70bc>Gained automatically when casting Signal Orb Skills/Blading Radiance/Resolute Blow</color>",
+            "Unquenchable Flare: <color=#0d70bc>Odachi in Hand + Activate Selfless Stance + Press and Hold Basic Attack</color>",
+            null
+        ],
+        "Description": [
+            null,
+            "When <color=#FF6347>wielding the kodachi</color>, Alpha can only use Blue Orb Skills. Her Basic Attacks will only grant Blue Orbs, which will be arranged in front of other orbs by default. When <color=#FF6347>wielding the odachi</color>, Alpha can only use Red or Yellow Orb Skills. Her Basic Attacks will only grant Red or Yellow Orbs, and Blue Orbs will be randomly converted into Red or Yellow Orbs.",
+            "Press and hold Dodge to enter <color=#FF6347>Foresight Charge</color>, gaining <color=#FF6347>Blade Aura</color> over time. During this time, Lucia: Crimson Weave gets Super Armor and DMG Reduction, is unable to restore the Dodge Gauge, and enters the Parry Stance. Pinging Signal Orbs can also increase <color=#FF6347>Blade Aura</color>.",
+            "Press and hold Dodge to enter <color=#FF6347>Foresight Charge</color>. Afterward, release Dodge to perform a powerful slash and deal Lightning DMG, during which Alpha gains Super Armor and DMG Reduction and is unable to restore the Dodge Gauge. Performing a powerful slash when <color=#FF6347>Blade Aura</color> is full will make Alpha Invincible, clear <color=#FF6347>Blade Aura</color>, activate <color=#FF6347>Selfless Stance</color>, and restore Signature Energy.",
+            "Gains <color=#FF6347>Aphotic Points</color> every time when casting a Signal Orb Skill, <color=#FF6347>Blading Radiance</color>, or <color=#FF6347>Resolute Blow</color>. Casting <color=#FF6347>Unquenchable Flare</color> will consume all <color=#FF6347>Aphotic Points</color> to increase the Base DMG of <color=#FF6347>Unquenchable Flare's</color> <color=#FF6347>Thunderous Bash</color> based on the <color=#FF6347>Aphotic Points</color> consumed.",
+            "When Alpha is <color=#FF6347>holding the odachi</color> with <color=#FF6347>Selfless Stance</color> activated, press and hold Basic Attack to launch <color=#FF6347>Leaping Thrust</color> and jump up to perform <color=#FF6347>Thunderous Bash</color> in midair, dealing Lightning DMG. When casting <color=#FF6347>Unquenchable Flare</color>, Alpha becomes invincible but is unable to cast <color=#FF6347>Signature - Weave: Karmic Inferno</color>.",
+            null
+        ]
+    },
+    {
+        "Id": 1241002,
+        "StageId": 30030301,
+        "Title": "Silk Dance",
+        "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
+        "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR2Hanying.png",
+        "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Hanying.png",
+        "HeadLine": [
+            null,
+            "Spring of Emerald Flow: <color=#0d70bc>Any 3-Ping</color>",
+            "Dance of Emerald Flow: <color=#0d70bc>At least 1 Dancer Point + Tap Dodge</color>",
+            "Ballad of Wilting Bamboos: <color=#0d70bc>Dancer Stance + Ping Red Orb</color>",
+            "Coda of Scattering Butterflies: <color=#0d70bc>Dancer Stance + Ping Yellow Orb</color>",
+            "Verse of Singing Breeze: <color=#0d70bc>Dancer Stance + Ping Blue Orb</color>",
+            null
+        ],
+        "Description": [
+            null,
+            "Hanying gains <color=#FF6347>1</color> <color=#FF6347>Dancer Point</color> after any 3-Ping, up to <color=#FF6347>4</color> Points.",
+            "After spending 1 <color=#FF6347>Dancer Point</color>, Hanying will perform a <color=#FF6347>Choreography</color>, entering <color=#FF6347>Dancer Stance</color>, recovering <color=#FF6347>16</color> Signature Energy, and gaining <color=#FF6347>1</color> stack of <color=#FF6347>Emerald Flow</color>. In <color=#FF6347>Dancer Stance</color>, all Signal Orbs will be converted into <color=#FF6347>Dance Orbs</color> (with color unchanged) that cast <color=#FF6347>Poise of Emerald Flow</color> when pinged, and Hanying can only perform 1-Pings. Hanying gains Super Armor and <color=#FF6347>50%</color> DMG Reduction while casting Poise of Emerald Flow. Each stack of <color=#FF6347>Emerald Flow</color> will increase the Base DMG of <color=#FF6347>Poise of Emerald Flow</color> or <color=#FF6347>Vision of Mountains</color> by <color=#FF6347>20%</color> (max <color=#FF6347>4</color> stacks). Exiting <color=#FF6347>Dancer Stance</color> will reset <color=#FF6347>Emerald Flow</color> to <color=#FF6347>0</color>. Performing 4 consecutive <color=#FF6347>Choreographies</color> will leave behind a healing zone that restores the HP of allies in the area and grants <color=#FF6347>Ultralimit Torque</color>, which increases Physical DMG.",
+            "<color=#FF6347>Poise of Emerald Flow</color> - Red: Swings the fan to deal DMG, exiting <color=#FF6347>Dancer Stance</color> afterward.",
+            "<color=#FF6347>Poise of Emerald Flow</color> - Yellow: Steps on the airborne fan and dashes forward, gathering surrounding enemies and dealing DMG. Exits <color=#FF6347>Dancer Stance</color> afterward.",
+            "<color=#FF6347>Poise of Emerald Flow</color> - Blue: Dances at her location, gathering surrounding enemies and dealing DMG. Exits <color=#FF6347>Dancer Stance</color> afterward.",
+            null
+        ]
+    },
+    {
+        "Id": 1221003,
+        "StageId": 30030301,
+        "Title": "Wolfish Twilight",
+        "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
+        "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR3Twentyone.png",
+        "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Twentyone.png",
+        "HeadLine": [
+            null,
+            "Fledgling Wings: <color=#0d70bc>3-Ping</color>",
+            "Dusk Fluorescence: <color=#0d70bc>3-Ping + Tap Basic Attack</color>",
+            "Forest Predator: <color=#0d70bc>During a 3-Ping + Ping Signal Orb</color>",
+            "Wolfspirit Release: <color=#0d70bc>Press and Hold Basic Attack/Press and Hold Basic Attack and Then Tap Basic Attack Repeatedly</color>",
+            "Critical Arclight",
+            "Sheltering Wolves: <color=#0d70bc>Receive Healing</color>"
+        ],
+        "Description": [
+            null,
+            "No. 21: Feral generates a Shield at the cost of her HP when Casting a 3-Ping Skill. No. 21 gains Super Armor when having Shield.",
+            "After casting a 3-Ping Skill, No. 21 will enter the <color=#FF6347>Predator Stance</color>. Tap Basic Attack in this stance to cast <color=#FF6347>Forceful Pounce</color> to deal Lightning DMG, gain <color=#FF6347>Wolfspirit Points</color>, and restore HP to allies within range. When a <color=#FF6347>purple mark</color> appears, immediately tapping Basic Attack will cast a more powerful <color=#FF6347>Dead-on Pounce</color> and gain more <color=#FF6347>Wolfspirit Points</color>. During <color=#FF6347>Forceful Pounce</color> and <color=#FF6347>Dead-on Pounce</color>, No. 21 will gain Super Armor and DMG Reduction.",
+            "Every time entering the battlefield or casting <color=#FF6347>Signature - Sky-ripping Arcflash</color>, No. 21: Feral will activate <color=#FF6347>Forest Predator</color>, during which extra Signal Orbs can be pinged when casting a 3-Ping Skill to generate a <color=#FF6347>Deceleration Field</color> and add additional Lightning DMG to <color=#FF6347>Dusk Fluorescence</color>. When there is a <color=#FF6347>Deceleration Field</color>, No. 21 will be invincible, the enemies will be slowed down temporarily, and <color=#FF6347>Dusk Fluorescence's purple mark</color> will last until the <color=#FF6347>Deceleration Field</color> is gone. Casting <color=#FF6347>Dusk Fluorescence</color> will deactivate the <color=#FF6347>Deceleration Field</color>. When No. 21 casts <color=#FF6347>Dusk Fluorescence</color> and deals Lightning DMG, the Signal Orbs will be rearranged into 3-Ping sets.",
+            "With max <color=#FF6347>Wolfspirit Points</color>, press and hold Basic Attack to enter <color=#FF6347>Wolfspirit Form</color>. When continuously holding or repeatedly tapping Basic Attack, <color=#FF6347>Growling Wolfspirit</color> will be cast with <color=#FF6347>Wolfspirit Points</color>. It will end with <color=#FF6347>Scratch Reap</color> once all <color=#FF6347>Wolfspirit Points</color> are depleted. <color=#FF6347>Growling Wolfspirit</color> and <color=#FF6347>Scratch Reap</color> will pull targets within range and deal Lightning DMG, granting Signature Energy to No. 21 and restoring HP to her allies within range. No. 21 can adjust her position by dodging with Super Armor and DMG Reduction granted in <color=#FF6347>Wolfspirit Form</color>.",
+            "<color=#FF6347>Wolfspirit Release</color> attacks grant <color=#FF6347>Critical Arclight</color>. Casting <color=#FF6347>Signature - Sky-ripping Arcflash</color> will consume all <color=#FF6347>Critical Arclight</color> and increase <color=#FF6347>Signature - Sky-ripping Arcflash's</color> Base DMG.",
+            "Allies gain <color=#FF6347>Lightning Surge</color> which increases their Lightning DMG after being healed."
+        ]
+    },
+    {
+        "Id": 1251002,
+        "StageId": 30030301,
+        "Title": "Powered Roar",
+        "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
+        "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR2Nuoketi.png",
+        "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Nuoketi.png",
+        "HeadLine": [
+            null,
+            "Impact Nullification: <color=#0d70bc>Tap Dodge</color>",
+            "Heat Blast: <color=#0d70bc>Thunder Burst Form + A Single Orb</color>",
+            "Energy Overload: <color=#0d70bc>Thunder Burst Form + A Single Orb + Ping Overload Orb</color>",
+            "Thunderous Fury: <color=#0d70bc>Thunder Burst Form + Ping Blast Orb</color>",
+            "Thunderclap Strike: <color=#0d70bc>During Thunderous Fury + Press and hold Basic Attack</color>",
+            null
+        ],
+        "Description": [
+            null,
+            "Noctis enters a defense stance and can dodge attacks in this state. Dodging successfully will trigger <color=#FF6347>Arm Block</color>. When performing a precise dodge, Noctis will trigger <color=#FF6347>Perfect Arm Block</color> to counterattack.",
+            "In the <color=#FF6347>Thunder Burst Form</color>, the rightmost single orb will be converted into an <color=#FF6347>Overload Orb</color>. The <color=#FF6347>Overload Orb</color> will be converted into a <color=#FF6347>Blast Orb</color> 2.5s later.",
+            "The <color=#FF6347>Overload Orb</color> will mark a single orb. Pinging the <color=#FF6347>Overload Orb</color> will ping the marked orb as well and cast <color=#FF6347>Thunderous Fury</color> afterward, dealing Lightning DMG.",
+            "Launches a violent attack at the target in front, dealing Lightning DMG.",
+            "Press and hold Basic Attack while casting <color=#FF6347>Thunderous Fury</color> to perform <color=#FF6347>Thunderclap Strike</color>, gaining Super Armor, dealing Lightning DMG, and receiving 1 <color=#FF6347>Engine Point</color>. <color=#FF6347>Engine Points</color> will amplify Base DMG of <color=#FF6347>Skull Crush</color>.",
+            null
+        ]
+    },
+    {
+        "Id": 1261003,
+        "StageId": 30030301,
+        "Title": "Echoing Twins",
+        "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
+        "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR3Yalisha.png",
+        "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Yalisha.png",
+        "HeadLine": [
+            null,
+            "Cipher of Synergy: <color=#0d70bc>Press and hold Basic Attack</color>",
+            "Sinbreaker's Judgment: <color=#0d70bc>Tactical Cipher + Ping Cipher Orbs consecutively</color>",
+            "Majestic Splendor: <color=#0d70bc>In Judgment Zone + Ping Orbs</color>",
+            "Swift Archery: <color=#0d70bc>In Judgment Zone + Tap Dodge</color>",
+            "Judgment Co-Strike: <color=#0d70bc>In Judgment Zone + 90 Splendor Points + Ping One Specific Signal Orb</color>",
+            "Blessing of Fortitude: <color=#0d70bc>Upon receiving Healing</color>"
+        ],
+        "Description": [
+            null,
+            "<color=#FF6347>Cecily</color> fights alongside Echo. Press and hold Basic Attack to make Echo enter <color=#FF6347>Tactical Cipher</color>. In <color=#FF6347>Tactical Cipher</color>, Signal Orbs will be temporarily replaced by <color=#FF6347>Cipher Orbs</color>. Pinging a <color=#FF6347>Cipher Orb</color> will make <color=#FF6347>Cecily</color> fire a swordwave at the enemy, dealing Physical DMG. <color=#FF6347>Cecily</color> will then act based on the color of the <color=#FF6347>Cipher Orbs</color> pinged.",
+            "Upon entering <color=#FF6347>Tactical Cipher</color>, Echo starts charging, during which time <color=#FF6347>Cecily</color> will prevent enemies from attacking her and repel them. Afterward, Echo gains Super Armor for 1.5s and <color=#FF6347>40%</color> DMG Reduction. Cooldown: <color=#FF6347>5</color>s. Keep pinging <color=#FF6347>Cipher Orbs</color> or drag the joystick to keep charging. When orbs are no longer pinged or when the joystick is released, Echo will stop charging and fire a <color=#FF6347>Sinbreaker's Arrow</color>, dealing Physical DMG. Echo can dodge attacks when performing this move. <color=#FF6347>Cecily</color> will then attack in the order of the <color=#FF6347>Cipher Orbs</color> pinged, with each attack consuming one <color=#FF6347>Cipher Orb</color>. After Echo exits the battlefield, <color=#FF6347>Cecily</color> will stay and continue to attack enemies until all <color=#FF6347>Cipher Orbs</color> are consumed.",
+            "Each orb pinged inside <color=#FF6347>Judgment Zone</color> will generate <color=#FF6347>10</color> <color=#FF6347>Splendor Points</color>, max <color=#FF6347>90</color>.",
+            "Tapping Dodge inside <color=#FF6347>Judgment Zone</color> will trigger <color=#FF6347>Swift Archery</color>, dealing Physical DMG.",
+            "At max <color=#FF6347>Splendor Points</color>, pinging a Signal Orb that matches the color of <color=#FF6347>Cipher Orb</color> inside <color=#FF6347>Judgment Zone</color> will trigger a <color=#FF6347>Co-Strike</color>. The first <color=#FF6347>Co-Strike</color> after <color=#FF6347>Judgment Zone</color> is activated will cast <color=#FF6347>Imprisoning Co-Strike</color>. If Echo has <color=#FF6347>Soul Shatter Mark</color>, she can trigger another <color=#FF6347>Co-Strike</color> afterward while the <color=#FF6347>Judgment Zone</color> is still active to cast <color=#FF6347>Soulbreaking Co-Strike</color>.",
+            "Allies are granted <color=#FF6347>Ultralimit Torque</color> which increases their Physical DMG by <color=#FF6347>10%</color> for <color=#FF6347>8</color>s after being healed. The duration resets every time it is triggered."
+        ]
+    },
+    {
+        "Id": 1271003,
+        "StageId": 30030301,
+        "Title": "Seafoam Mirage",
+        "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
+        "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR3Lamiya.png",
+        "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR3Lamiya.png",
+        "HeadLine": [
+            null,
+            "Antinomy",
+            "Wave Illusions",
+            "Drowned Conformation: <color=#0d70bc>Primary Form + Ping Torrent Orb/Tidal Orb</color>",
+            "Dark Flux: <color=#0d70bc>Dark Tide Form + Ping Torrent Orb/Tidal Orb</color>",
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "When Lamia is in <color=#D91414>Primary Form</color>, she can only cast Yellow or Blue Orb skills, and her Basic Attacks only generate Yellow or Blue Orbs. When she is in <color=#D91414>Dark Tide Form</color>, she can only cast Red or Blue Orb skills, and her Basic Attacks only generate Red or Blue Orbs. Yellow Orbs will be randomly converted into Red or Blue Orbs.",
+            "When Lamia casts a 3-Ping skill in <color=#D91414>Primary Form</color>, there is a short window of time in which she can consecutively cast another 3-Ping, <color=#D91414>Torrent Orb</color>, or <color=#D91414>Tidal Orb</color> skill. After Lamia casts a Red Orb skill in <color=#D91414>Dark Tide Form</color>, consecutively pinging Red Orbs allows her to cast the skill again directly during the skill action. After Lamia casts a Blue Orb skill in <color=#D91414>Dark Tide Form</color>, she will start swimming in water, during which she can cast the skill again to rapidly fire water spheres to attack the target.",
+            "When Lamia casts skills through orb pings in <color=#D91414>Primary Form</color>, she will gain <color=#D91414>Fathomless Points</color>. For every <color=#D91414>30</color> <color=#D91414>Fathomless Points</color>, she will gain a <color=#D91414>Torrent Orb</color>. When two <color=#D91414>Torrent Orbs</color> are present, they will merge into a <color=#D91414>Tidal Orb</color>. At full <color=#D91414>Fathomless Points</color>, pinging a <color=#D91414>Torrent Orb</color> or <color=#D91414>Tidal Orb</color> will deplete all <color=#D91414>Fathomless Points</color>. When a <color=#D91414>Torrent Orb</color> is pinged, Lamia will cast <color=#D91414>Crushing Wave</color>, dealing Dark DMG to enemies in front while also dealing a small amount of DMG to herself. When a <color=#D91414>Tidal Orb</color> is pinged, she will cast <color=#D91414>Suffocating Tide</color> to pull in surrounding enemies, then detonate the undercurrents to deal Dark DMG. After casting <color=#D91414>Crushing Wave</color> or <color=#D91414>Suffocating Tide</color>, Lamia gains <color=#D91414>Ocean's Scar</color>. Pinging a <color=#D91414>Torrent Orb</color> will change the weather to <color=#D91414>Downpour</color>. Pinging a <color=#D91414>Tidal Orb</color> or two <color=#D91414>Torrent Orbs</color> will change the weather to <color=#D91414>Storm</color>. Lamia gains Super Armor and DMG Reduction while casting <color=#D91414>Crushing Wave</color> or <color=#D91414>Suffocating Tide</color>.",
+            "When Lamia casts skills through orb pings in <color=#D91414>Dark Tide Form</color>, she will gain <color=#D91414>Fathomless Points</color>. For every <color=#D91414>30</color> <color=#D91414>Fathomless Points</color>, she will gain a <color=#D91414>Torrent Orb</color>. When two <color=#D91414>Torrent Orbs</color> are present, they will merge into a <color=#D91414>Tidal Orb</color>. When <color=#D91414>Torrent Orb</color> and <color=#D91414>Tidal Orb</color> are both present, <color=#D91414>Torrent Orb</color> will be pinged to enhance <color=#D91414>Tidal Orb</color>, turning it into <color=#D91414>Riptide Orb</color>. At full <color=#D91414>Fathomless Points</color>, pinging a <color=#D91414>Torrent Orb</color>, <color=#D91414>Tidal Orb</color>, or <color=#D91414>Riptide Orb</color> will deplete all <color=#D91414>Fathomless Points</color>. When a <color=#D91414>Torrent Orb</color> is pinged, Lamia will cast <color=#D91414>Crushing Torrent</color>, slashing to create powerful airflows, dealing Dark DMG to enemies in front, and entering <color=#D91414>Tidal Form</color>. When a <color=#D91414>Tidal Orb</color> or <color=#D91414>Riptide Orb</color> is pinged, Lamia will cast <color=#D91414>Tidal Vortex</color>, dealing Dark DMG. If Lamia is not in <color=#D91414>Tidal Form</color> when casting <color=#D91414>Tidal Vortex</color>, she will ascend to the highest point to cast <color=#D91414>Tidal Vortex</color> and then exit <color=#D91414>Tidal Form</color>. Lamia gains <color=#D91414>Ocean's Scar</color> after casting <color=#D91414>Crushing Torrent</color> or <color=#D91414>Tidal Vortex</color>. Lamia gains Super Armor and DMG Reduction when casting <color=#D91414>Crushing Torrent</color> or <color=#D91414>Tidal Vortex</color>.",
+            null,
+            null
+        ]
     }
 ]

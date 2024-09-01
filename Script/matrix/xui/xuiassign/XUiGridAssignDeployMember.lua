@@ -177,7 +177,7 @@ function XUiGridAssignDeployMember:OnMemberClick()
                 end
             })
     else
-        XLuaUiManager.Open("UiAssignRoomCharacter", teamCharIdMap, teamSelectPos, cb, teamOrderMap, canQuitCharIdMap, ablityRequire, curTeamOrder, characterLimitType, limitBuffId, self.TeamId)
+        XLuaUiManager.Open("UiAssignRoomCharacter", self.CharacterId, self.TeamId, teamSelectPos, curTeamOrder, self.GroupId, ablityRequire)
     end
 end
 

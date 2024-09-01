@@ -167,6 +167,18 @@ XSoundManager.UiBasicsMusic = {
     RpgMakerGame_TransferDis = 2540, --传送消失音效
     RpgMakerGame_Transfer = 2541, --传送出现音效
     RpgMakerGame_TransferFail = 2542, --传送失败音效
+    RpgMakerGame_BubbleBroken = 2695, --泡泡爆炸音效
+    
+    -- 公会战二期
+    GuildWar_FireToBase = 2630, -- 炮击基地
+    GuildWar_BaseBeHit = 2631,  -- 基地受击
+    
+    -- 魔方BGM
+    SpecialTrainBreakthroughNormal = 32,
+    SpecialTrainBreakthroughHell = 173,
+
+    -- 八卦密码锁音效
+    FightMovieBagua = 2779
 }
 
 local onValueTime = true
@@ -275,4 +287,64 @@ end
 
 function XSoundManager.Stop(cueId)
     CSXAudioManager.Stop(cueId)
+end
+
+function XSoundManager.StopAll()
+    CSXAudioManager.StopAll()
+end
+
+function XSoundManager.StopCurrentBGM()
+    local info = CS.XAudioManager.CurrentMusicAudioInfo1
+    if info and info.IsBgm then
+        CSXAudioManager.StopMusic()
+    end
+
+    if not CSXAudioManager.GetAudioInfoList then
+        return
+    end
+    local infoList = CSXAudioManager.GetAudioInfoList()
+    local bgmList = {}
+    for i = 0, infoList.Count - 1 do
+        local info = infoList[i]
+        if info.IsBgm then
+            bgmList[#bgmList + 1] = info.CueId
+        end
+    end
+    for i = 1, #bgmList do
+        XSoundManager.Stop(bgmList[i])
+    end
+end
+
+---恢复回系统音声设置(用于恢复被滤镜型cri音频调整后的cri音频系统配置)
+function XSoundManager.ResetSystemAudioVolume()
+    local XAManager = CS.XAudioManager
+    local cvVolume = XAManager.CvVolume
+    local musicVolume = XAManager.MusicVolume
+    local soundVolume = XAManager.SoundVolume
+    local control = XAManager.Control
+    if control == 2 then
+        XAManager.ChangeMusicVolume(0)
+        XAManager.ChangeSoundVolume(0)
+        XAManager.ChangeCvVolume(0)
+    else
+        XAManager.ChangeMusicVolume(musicVolume)
+        XAManager.ChangeSoundVolume(soundVolume)
+        XAManager.ChangeCvVolume(cvVolume)
+    end
+end
+
+---查找当前播放的Cue中是否存在指定cueId声效
+---@param cueId integer
+---@return CS.XAudioManager.AudioInfo|nil
+function XSoundManager.CheckHaveCue(cueId)
+    if not CSXAudioManager.GetAudioInfoList then
+        return
+    end
+    local infoList = CSXAudioManager.GetAudioInfoList()
+    for i = 0, infoList.Count - 1 do
+        local info = infoList[i]
+        if info.CueId == cueId then
+            return info
+        end
+    end
 end

@@ -134,5 +134,5 @@ function XUiEquipBreakThrough:AutoAddListener()
 end
 -- auto
 function XUiEquipBreakThrough:OnBtnBreakClick()
-    XDataCenter.EquipManager.Breakthrough(self.EquipId)
+    XMVCA:GetAgency(ModuleId.XEquip):Breakthrough(self.EquipId)
 end

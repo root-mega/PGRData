@@ -21,6 +21,18 @@ XSignBoardEventType = {
     CHANGE = 120, --改变角色
 }
 
+XSignBoardUiShowType = {
+    UiPhotograph = 1,           --拍照界面
+    UiPhotographPortrait = 2,   --拍照界面(竖屏)
+    UiMain = 3,                 --主界面
+    UiFavorabilityNew = 4,      --看板娘界面
+}
+
+XSignBoardUiAnimType = {
+    Normal = 0,
+    Self = 1,
+    None = 2,
+}
 
 local TABLE_SIGNBOARD_FEEDBACK = "Client/Signboard/SignBoardFeedback.tab";
 --总表
@@ -187,3 +199,61 @@ function XSignBoardConfigs.GetSignBoardConfigByFeedback(roleId, conditionId, par
 
     return fitterCfg
 end
+
+-- v1.32 角色特殊动作动画相关
+--================================================================================
+function XSignBoardConfigs.GetSignBoardSceneAnim(signBoardid)
+    local signBoard = XSignBoardConfigs.GetSignBoardConfigById(signBoardid)
+    if not signBoard then
+        return nil
+    end
+    return signBoard.SceneCamAnimPrefab
+end
+
+function XSignBoardConfigs.GetIsUseSelfUiAnim(signBoardid, uiName)
+    local signBoard = XSignBoardConfigs.GetSignBoardConfigById(signBoardid)
+    if not signBoard or XTool.IsTableEmpty(signBoard.IsUseSelfUiAnims) or not uiName then
+        return nil
+    end
+    return signBoard.IsUseSelfUiAnims[XSignBoardUiShowType[uiName]]
+end
+
+-- 判断动作是否有镜头动画
+function XSignBoardConfigs.CheckIsHaveSceneAnim(signBoardid)
+    local signBoard = XSignBoardConfigs.GetSignBoardConfigById(signBoardid)
+    if not signBoard then
+        return false
+    end
+    return not string.IsNilOrEmpty(signBoard.SceneCamAnimPrefab)
+end
+
+-- 判断动作是否播放Ui隐藏动画
+function XSignBoardConfigs.CheckIsShowHideUi(signBoardid)
+    local signBoard = XSignBoardConfigs.GetSignBoardConfigById(signBoardid)
+    if not signBoard then
+        return false
+    end
+    return signBoard.IsShowHideUi
+end
+
+-- 是否使用自己的Ui动画
+function XSignBoardConfigs.CheckIsUseSelfUiAnim(signBoardid, uiName)
+    local signBoard = XSignBoardConfigs.GetIsUseSelfUiAnim(signBoardid, uiName)
+    return signBoard == XSignBoardUiAnimType.Self
+end
+
+-- 是否使用通用的Ui动画
+function XSignBoardConfigs.CheckIsUseNormalUiAnim(signBoardid, uiName)
+    local signBoard = XSignBoardConfigs.GetIsUseSelfUiAnim(signBoardid, uiName)
+    return signBoard == XSignBoardUiAnimType.Normal
+end
+
+-- 是否使用位置和旋转
+function XSignBoardConfigs.CheckIsUseCamPosAndRot(signBoardid)
+    local signBoard = XSignBoardConfigs.GetSignBoardConfigById(signBoardid)
+    if not signBoard then
+        return false
+    end
+    return signBoard.IsUseCamPosAndRot == 1
+end
+--================================================================================

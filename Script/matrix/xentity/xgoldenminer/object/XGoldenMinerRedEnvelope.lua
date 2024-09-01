@@ -4,7 +4,8 @@ local XGoldenMinerBaseObj = require("XEntity/XGoldenMiner/Object/XGoldenMinerBas
 local XGoldenMinerRedEnvelope = XClass(XGoldenMinerBaseObj, "XGoldenMinerRedEnvelope")
 
 function XGoldenMinerRedEnvelope:Ctor()
-    self.RedEnvelopeRandPoolId = XGoldenMinerConfigs.GetRedEnvelopeRandId()
+    self.GroupId = XGoldenMinerConfigs.GetStoneScore(XGoldenMinerRedEnvelope.Super.GetId(self))
+    self.RedEnvelopeRandPoolId = XGoldenMinerConfigs.GetRedEnvelopeRandId(self.GroupId)
 end
 
 function XGoldenMinerRedEnvelope:GetScore()

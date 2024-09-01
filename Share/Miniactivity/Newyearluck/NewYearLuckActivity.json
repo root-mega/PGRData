@@ -1,0 +1,28 @@
+[
+    {
+        "Id": 1,
+        "Name": "New Year Lottery",
+        "BannerBg": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner59.png",
+        "NameEn": "New Year Lottery",
+        "UseItem": 1030,
+        "TimeId": 2160204,
+        "OpenPrizeTimeId": 2160205,
+        "NormalUnlockMax": 6,
+        "SpecialUnlockMax": 3,
+        "NormalTicketPrices": [
+            null,
+            100,
+            200,
+            200,
+            300,
+            300,
+            300
+        ],
+        "SpecialTicketPrices": [
+            null,
+            100,
+            300,
+            500
+        ]
+    }
+]

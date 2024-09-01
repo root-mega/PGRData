@@ -1,0 +1,807 @@
+[
+    {
+        "UiName": "UiMovie",
+        "BtnName": [
+            null,
+            "PanelDialog",
+            "BtnSkip",
+            "BtnAuto",
+            "BtnReview",
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            1.0,
+            1.0,
+            1.0,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            4.0,
+            4.0,
+            4.0,
+            null
+        ],
+        "KeyCode": [
+            null,
+            145,
+            144.0,
+            143.0,
+            142.0,
+            null
+        ]
+    },
+    {
+        "UiName": "UiMovieReview",
+        "BtnName": [
+            null,
+            "BtnClose",
+            null,
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            null,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            null,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            141,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiDialogCanvasDialog",
+        "BtnName": [
+            null,
+            "BtnClose",
+            "BtnConfirm",
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            1.0,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            4.0,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            148,
+            149.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiDialogExitGame",
+        "BtnName": [
+            null,
+            "BtnClose",
+            "BtnConfirm",
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            1.0,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            4.0,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            148,
+            149.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiSystemDialog",
+        "BtnName": [
+            null,
+            "BtnClose",
+            "BtnConfirm",
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            1.0,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            4.0,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            148,
+            149.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiDialog",
+        "BtnName": [
+            null,
+            "BtnClose",
+            "BtnConfirm",
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            1.0,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            4.0,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            148,
+            149.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiVideoPlayer",
+        "BtnName": [
+            null,
+            "BtnAuto",
+            "BtnSkip",
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            1.0,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            3,
+            3.0,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            1,
+            2.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiChatServeMain",
+        "BtnName": [
+            null,
+            "BtnSend",
+            null,
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            null,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            null,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            155,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiGuildDormMain",
+        "BtnName": [
+            null,
+            "up",
+            "down",
+            "left",
+            "right",
+            "BtnChat"
+        ],
+        "ClickType": [
+            null,
+            1,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "OperationType": [
+            null,
+            4,
+            4.0,
+            4.0,
+            4.0,
+            4.0
+        ],
+        "KeyCode": [
+            null,
+            1156,
+            1157.0,
+            1158.0,
+            1159.0,
+            155.0
+        ]
+    },
+    {
+        "UiName": "UiMain",
+        "BtnName": [
+            null,
+            "BtnChat",
+            null,
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            null,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            null,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            155,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiMultiplayerRoom",
+        "BtnName": [
+            null,
+            "BtnChat",
+            null,
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            null,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            null,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            155,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiMentorMain",
+        "BtnName": [
+            null,
+            "BtnChat",
+            null,
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            null,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            null,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            155,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiGuildBuild",
+        "BtnName": [
+            null,
+            "BtnCancel",
+            "BtnConfirm",
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            1.0,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            4.0,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            148,
+            149.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiGuildMain",
+        "BtnName": [
+            null,
+            "BtnChat",
+            null,
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            null,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            null,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            155,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiFightQuartet",
+        "BtnName": [
+            null,
+            "Up",
+            "Down",
+            "Left",
+            "Right",
+            null
+        ],
+        "ClickType": [
+            null,
+            2,
+            2.0,
+            2.0,
+            2.0,
+            null
+        ],
+        "OperationType": [
+            null,
+            1,
+            1.0,
+            1.0,
+            1.0,
+            null
+        ],
+        "KeyCode": [
+            null,
+            128,
+            129.0,
+            130.0,
+            131.0,
+            null
+        ]
+    },
+    {
+        "UiName": "UiMultiplayerRoomCute",
+        "BtnName": [
+            null,
+            "BtnChat",
+            null,
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            null,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            null,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            155,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiGoldenMinerBattle",
+        "BtnName": [
+            null,
+            "BtnStop",
+            "BtneExit",
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            1.0,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            5,
+            5.0,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            141,
+            9.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiGoldenMinerDialog",
+        "BtnName": [
+            null,
+            "BtnClose",
+            "BtnConfirm",
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            1.0,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            4.0,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            148,
+            149.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiSet",
+        "BtnName": [
+            null,
+            "BtnRestart",
+            null,
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            null,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            null,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            142,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiBattleRoleRoom",
+        "BtnName": [
+            null,
+            "BtnEnterFight",
+            null,
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            null,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            null,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            149,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiPlanetFightMain",
+        "BtnName": [
+            null,
+            "BtnAuto02",
+            "BtnSkip",
+            "BtnAuto",
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            1.0,
+            1.0,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            4.0,
+            4.0,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            143,
+            144.0,
+            143.0,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiPlanetBattleMain",
+        "BtnName": [
+            null,
+            "BtnExit",
+            null,
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            null,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            null,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            141,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "UiName": "UiPlanetMovie",
+        "BtnName": [
+            null,
+            "BtnSkip",
+            null,
+            null,
+            null,
+            null
+        ],
+        "ClickType": [
+            null,
+            1,
+            null,
+            null,
+            null,
+            null
+        ],
+        "OperationType": [
+            null,
+            4,
+            null,
+            null,
+            null,
+            null
+        ],
+        "KeyCode": [
+            null,
+            144,
+            null,
+            null,
+            null,
+            null
+        ]
+    }
+]

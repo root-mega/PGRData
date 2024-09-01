@@ -18,6 +18,7 @@ local METHOD_NAME = {
     ChangeCommunication = "ChangeCommunicationRequest",
     ChangeAppearance = "SetAppearanceRequest",          -- 设置展示信息
     GetDormitoryList = "DormitoryListRequest",          -- 得到宿舍列表
+    ChangePcSelectMoneyCardIdRequest = "ChangePcSelectMoneyCardIdRequest",
 }
 
 local NextChangeNameTime
@@ -53,6 +54,21 @@ local function New()
         })
 end
 
+PlayerData.PcOtherPlatformMoneyCardCount = 0
+
+local function UpdatePcOtherPlatformMoneyCardCount()
+    XDataCenter.ItemManager.GetPcOtherPlatformMoneyCardCount(function(cardId, count)
+        -- 还需要更新选择的Id
+        if cardId == 8 then
+            PlayerData.PcSelectMoneyCardId = 10
+        elseif cardId == 10 then
+            PlayerData.PcSelectMoneyCardId = 8
+        end
+
+        PlayerData.PcOtherPlatformMoneyCardCount = count;
+    end)
+end
+
 function Player.Init(playerData)
     PlayerData = playerData
     if PlayerData.Marks then
@@ -66,6 +82,11 @@ function Player.Init(playerData)
     CS.Movie.XMovieManager.Instance.PlayerName = PlayerData.Name
     Player.IsFirstOpenHonor = XSaveTool.GetData(OPEN_HONOR_LEVEL)
     TempDormitoryList = {}
+    -- 国服PC端在初始化Playe数据时, 需要同时获取另一个平台的移动端虹卡, 用以后续判断IOS/ANDROID端虹卡是否能够继续够买
+    -- 海外PC端如果有自己的PC端虹卡, 需要做其他处理, 如增加一个调用XDataCenter.UiPcManager.IsOverSea()
+    if XDataCenter.UiPcManager.IsPc() then
+        UpdatePcOtherPlatformMoneyCardCount()
+    end
 end
 
 function Getter.GetterExp()
@@ -152,6 +173,12 @@ end
 -- 看板娘Id
 function Player.SetDisplayCharId(charId)
     PlayerData.DisplayCharId = charId
+end
+
+-- 助理队列
+function Player.SetDisplayCharIdList(displayCharIdList)
+    PlayerData.DisplayCharIdList = displayCharIdList
+    XEventManager.DispatchEvent(XEventId.EVENT_FAVORABILITY_ASSISTLIST_CHANGE)
 end
 
 function Player.AddMark(id)
@@ -245,7 +272,7 @@ end
 
 --检查生日剧情是否解锁
 function Player.CheckStoryIsUnlock(chapterId)
-    return PlayerData.BirthdayInfo and PlayerData.BirthdayInfo.UnLockCg[chapterId]
+    return PlayerData.BirthdayInfo and PlayerData.BirthdayInfo.UnLockCg and PlayerData.BirthdayInfo.UnLockCg[chapterId]
 end
 
 --播放生日剧情动画
@@ -256,6 +283,10 @@ function Player.PlayBirthdayStory()
         return true
     end
     return false
+end
+
+function Player.GetPcSelectMoneyCardId()
+    return PlayerData.PcSelectMoneyCardId
 end
 
 --@region XRpc
@@ -334,6 +365,10 @@ end
 XRpc.NotifyActivenessStatus = function(data)
     PlayerData.DailyActivenessRewardStatus = data.DailyActivenessRewardStatus
     PlayerData.WeeklyActivenessRewardStatus = data.WeeklyActivenessRewardStatus
+end
+
+XRpc.NotifyPcSelectMoneyCardId = function(data)
+    -- TODO 后续和服务端核对 删除该协议
 end
 
 --@region 玩家升级
@@ -572,6 +607,22 @@ function Player.ChangeMedal(id, cb)
         end)
 end
 
+function Player.ChangePcSelectMoneyCardId()
+    XNetwork.Call(METHOD_NAME.ChangePcSelectMoneyCardIdRequest, nil, function(response)
+        if not response or response.Code ~= 0 then
+            XUiManager.TipError("切换虹卡失败");
+        end
+        -- 切换成功同时更新界面虹卡平台状况
+        PlayerData.PcSelectMoneyCardId = response.MoneyCard
+        PlayerData.PcOtherPlatformMoneyCardCount = XDataCenter.ItemManager.GetCount(XDataCenter.ItemManager.ItemId.HongKa)
+        XDataCenter.ItemManager.SetItemCount(XDataCenter.ItemManager.ItemId.HongKa, response.Count)
+        XEventManager.DispatchEvent(XEventId.EVENT_ONPCSELECT_MONEYCARD_CHANGED, response.MoneyCard)
+    end) 
+end
+
+function Player.GetPcOtherPlatformMoneyCardCount()
+    return PlayerData.PcOtherPlatformMoneyCardCount
+end
 
 function Player.IsMedalUnlock(medalId)
     if not PlayerData.UnlockedMedalInfos then return false end

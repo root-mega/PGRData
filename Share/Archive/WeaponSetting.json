@@ -328,8 +328,8 @@
         "EquipId": 2026003,
         "Order": 2,
         "Type": 1,
-        "Title": "Data II",
-        "Text": "Its power as a weapon is nothing to write home about, but it is much sought after for its attractive appearance.",
+        "Title": "\u60c5\u58312",
+        "Text": "\u6b66\u5668\u3068\u3057\u3066\u306e\u8a55\u4fa1\u306f\u4e26\u3060\u304c\u3001\u305d\u306e\u51c4\u8276\u306a\u5916\u898b\u304b\u3089\u30b3\u30ec\u30af\u30b7\u30e7\u30f3\u3068\u3057\u3066\u306e\u4fa1\u5024\u306f\u9ad8\u3044\u3002",
         "Condition": 810002
     },
     {
@@ -691,6 +691,15 @@
         "Title": "Story",
         "Text": "Comes out good as new even if you chuck it inside a thunderstorm. (Tested) Bianca can be rest assured that her weapon will never break down again.\\n\u2014Weapon Designer I",
         "Condition": 810004
+    },
+    {
+        "Id": 204600311,
+        "EquipId": 2046003,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "The cutting-edge design used in this longbow enables its string to withstand high-intensity, repeated pulling. During rapid firing, one can even hear faint echoes of the stars in the phantom of its bowstring. Those who struggle from suffering and injustice often call out for hope and justice. If Utopia truly exists, Astraea will be its answer to them.",
+        "Condition": 810000
     },
     {
         "Id": 205300111,
@@ -1242,15 +1251,6 @@
         "Condition": 810000
     },
     {
-        "Id": 208600121,
-        "EquipId": 2086001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Those who have been cut by Soul Ripper will have their blood drained rapidly as if their souls were ripped out... A weird record by \"I\", again.\\n\u2014Weapon Designer N",
-        "Condition": 810000
-    },
-    {
         "Id": 208600211,
         "EquipId": 2086002,
         "Order": 1,
@@ -1377,15 +1377,6 @@
         "Condition": 810000
     },
     {
-        "Id": 209600321,
-        "EquipId": 2096003,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Its perfection is a silent mockery after going beyond the creator, but Haicma, who achieved this, is imitating the concept of 'love.' Boring. \u2014Magician",
-        "Condition": 810004
-    },
-    {
         "Id": 210400111,
         "EquipId": 2104001,
         "Order": 1,
@@ -1467,30 +1458,12 @@
         "Condition": 810000
     },
     {
-        "Id": 211400121,
-        "EquipId": 2114001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "They told me cost mattered a lot, and I finally understood it a long time after taking over that military weapon project... \u2014 Weapon Designer Z",
-        "Condition": 810000
-    },
-    {
         "Id": 211500111,
         "EquipId": 2115001,
         "Order": 1,
         "Type": 1,
         "Title": "Data",
         "Text": "A special Rail Spear designed specifically for Task Force Constructs. The warhead of its cannon has a built-in shock field that breaks armor apart from inside.",
-        "Condition": 810000
-    },
-    {
-        "Id": 211500121,
-        "EquipId": 2115001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "I'll be honest. We only received the all-clear for the shock module's safety test when this thing was already delivered in batches. \u2014 Weapon Designer Z",
         "Condition": 810000
     },
     {
@@ -1503,30 +1476,12 @@
         "Condition": 810000
     },
     {
-        "Id": 211600121,
-        "EquipId": 2116001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Remember that deadly thing brought by the Science Council? Yep, I had it installed on this prototype. I mean, why not? \u2014 Weapon Designer N",
-        "Condition": 810004
-    },
-    {
         "Id": 214400111,
         "EquipId": 2144001,
         "Order": 1,
         "Type": 1,
         "Title": "Data",
         "Text": "These standard gauntlets have been optimized for their melee user's body features. A boost mode is activated for increased striking force once they come into contact with the target physically.",
-        "Condition": 810000
-    },
-    {
-        "Id": 214400121,
-        "EquipId": 2144001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Regarding the irreversible damage in joints and frame caused by the power boost device... What? Asimov cut four times with a file, then it was fixed?! \u2014Weapon Designer L",
         "Condition": 810000
     },
     {
@@ -1539,15 +1494,6 @@
         "Condition": 810000
     },
     {
-        "Id": 214500121,
-        "EquipId": 2145001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "I said these things were still in the test stage! You can borrow them, but we won't take responsibility if anything happens! \u2014Weapon Designer H",
-        "Condition": 810000
-    },
-    {
         "Id": 214600111,
         "EquipId": 2146001,
         "Order": 1,
@@ -1557,30 +1503,12 @@
         "Condition": 810000
     },
     {
-        "Id": 214600121,
-        "EquipId": 2146001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Press the button three times, turn the bolt clockwise twenty-six and a half circles, chant the chief engineer's name three times, then inject the lubricating oil... How the heck did that even work?! \u2014Weapon Designer Y",
-        "Condition": 810004
-    },
-    {
         "Id": 213400111,
         "EquipId": 2134001,
         "Order": 1,
         "Type": 1,
         "Title": "Data",
         "Text": "The blade of this quaint and well-crafted spear sends a chill up people's spines, keeping them away even when it is only placed on a rack.",
-        "Condition": 810000
-    },
-    {
-        "Id": 213400121,
-        "EquipId": 2134001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "The experience we learned from manufacturing this model can be used as reference when developing long weapons in future... Wait, what? Why did they terminate the subsequent development? \u2014Weapon Designer H",
         "Condition": 810000
     },
     {
@@ -1593,15 +1521,6 @@
         "Condition": 810000
     },
     {
-        "Id": 213500121,
-        "EquipId": 2135001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "We are the Association of Art, why did you ask us to manufacture a weapon? ...Look at this beautiful piece of art! Please, allow me to give it a try! \u2014Ayla",
-        "Condition": 810000
-    },
-    {
         "Id": 213600111,
         "EquipId": 2136001,
         "Order": 1,
@@ -1611,30 +1530,12 @@
         "Condition": 810000
     },
     {
-        "Id": 213600121,
-        "EquipId": 2136001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "No, we never had the capability to 'craft' this weapon. All we did was to 'restore' it to the form it was supposed to be. \u2014Allen",
-        "Condition": 810004
-    },
-    {
         "Id": 217400111,
         "EquipId": 2174001,
         "Order": 1,
         "Type": 1,
         "Title": "Data",
         "Text": "The outdated and rudimentary structure makes Genesis look fragile and weak, but it can still play a role in term of amplification on bioic animals after countless years.",
-        "Condition": 810000
-    },
-    {
-        "Id": 217400121,
-        "EquipId": 2174001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "I didn't expect to see the amplifier of that era. Its designer Karash was a sensational genius, but such a genius didn't participate in Arcadia action. It's really sad.\u2014Z, a weapon designer",
         "Condition": 810000
     },
     {
@@ -1935,30 +1836,12 @@
         "Condition": 810000
     },
     {
-        "Id": 220400121,
-        "EquipId": 2204001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Romance! Yes, that's romance! Loading a gun onto a blade, making it a weapon suitable for a variety of medium to close combat sounds romantic!\u2014Weapon designer I",
-        "Condition": 810000
-    },
-    {
         "Id": 220500111,
         "EquipId": 2205001,
         "Order": 1,
         "Type": 1,
         "Title": "Data",
         "Text": "The Gunblade, a weapon left over from the Operation Acadia, has the craftsmanship that has long been lost. And now, Babylonia can only carry out simple maintenance to keep it running normally. Kara Type I Gunblade has more excellent research value than application, and provides an excellent data templet for developing other subsequent gunblades in Babylonia.",
-        "Condition": 810000
-    },
-    {
-        "Id": 220500121,
-        "EquipId": 2205001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "How exactly did Kalash convert the muzzle jet kinetic energy into the energy to drive the gunblade? If his research data hadn't been lost during the Great Evacuation, we wouldn't have been so slow in developing the gunblade.\u2014Weapon Designer Z",
         "Condition": 810000
     },
     {
@@ -2007,15 +1890,6 @@
         "Condition": 810000
     },
     {
-        "Id": 221500121,
-        "EquipId": 2215001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Cool boy, doubled than any other weapon in the Lab!\u2014\u2014Weapon Designer L",
-        "Condition": 810000
-    },
-    {
         "Id": 221600111,
         "EquipId": 2216001,
         "Order": 1,
@@ -2025,30 +1899,12 @@
         "Condition": 810000
     },
     {
-        "Id": 221600121,
-        "EquipId": 2216001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Hey, you're here. How is your experience on that externally-linked Co-Bot 2.0?\\n\"Snore.\"\\n\"Just send the data report to my terminal.\"\\n\"Snore.\"\\n\"...Sorry?\"\\n\"...His designation is 'Snore'.\"\\nNo. 21 repeats somberly. The researchers of the Science Research Department One cannot help but rename the cutting-edge weapon.\\n\"Snore, what a cute name! It suits you!\"\\n\"L-Leonie, why would you pinch the cheek of a Cerberus...\"\\n\"What? Is something wrong? She's a lamb.\"\\n\"Yeah, but she's looking at you like she wants to kill you.\"\\n\"That's just you misunderstanding the girl. Now, I have to go, for\u2014I want Snore to be able to stay with you sooner.\"",
-        "Condition": 810004
-    },
-    {
         "Id": 223400111,
         "EquipId": 2234001,
         "Order": 1,
         "Type": 1,
         "Title": "Data",
         "Text": "One of the prototype weapons developed by the Science Council. The reason they decided to design a weapon as garish as a banner spear is not clear. On second thought, this might be why the banner spear has not been mass produced.",
-        "Condition": 810000
-    },
-    {
-        "Id": 223400121,
-        "EquipId": 2234001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Is this your plan of improvement for the spear weapon? \"You were the one who said it needs to be more noticeable!\" \"I meant we should make its power level more noticeable!\" \u2014Conversation between weapon designers",
         "Condition": 810000
     },
     {
@@ -2259,30 +2115,12 @@
         "Condition": 810000
     },
     {
-        "Id": 226400121,
-        "EquipId": 2264001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Who ordered the weapon? It weighs more than twice as heavy as a standard one! \"It's Pulao.\" \"Oh, I see. Then never mind.\" \u2014 A conversation between Fuxi Crew members",
-        "Condition": 810000
-    },
-    {
         "Id": 226500111,
         "EquipId": 2265001,
         "Order": 1,
         "Type": 1,
         "Title": "Data",
         "Text": "A weapon with an unconventional straight blade design. In order to increase its overall stability, the designer has added extra metal rivets to the blade.",
-        "Condition": 810000
-    },
-    {
-        "Id": 226500121,
-        "EquipId": 2265001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Will this slow down the weapon when we spin it? \"Then just use more strength.\" \u2014 A conversation between Fuxi Crew members",
         "Condition": 810000
     },
     {
@@ -2313,30 +2151,12 @@
         "Condition": 810000
     },
     {
-        "Id": 227400121,
-        "EquipId": 2274001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "The delivery is fast, but it looks like something is missing. Let's see if we can add something cooler later.\u2014Nanami's Journal",
-        "Condition": 810000
-    },
-    {
         "Id": 227500111,
         "EquipId": 2275001,
         "Order": 1,
         "Type": 1,
         "Title": "Data",
         "Text": "The modified chain component has an upward-pointing blade top and enhanced sawblade, making the saw even thicker. The personalized coating has been improved at the user's urging, as \"making it cool\" is the ultimate goal.",
-        "Condition": 810000
-    },
-    {
-        "Id": 227500121,
-        "EquipId": 2275001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Uncle designer finally agreed to make Nanami's number bigger. Why is it so hard to change the color of the chain blade? Why the color red? Just travel around in the universe and you'll see how beautiful the color is.\u2014Nanami's Journal",
         "Condition": 810000
     },
     {
@@ -2349,30 +2169,12 @@
         "Condition": 810000
     },
     {
-        "Id": 227600121,
-        "EquipId": 2276001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "The ultimate evolution of the weapon is done! Only this form matches Power and\u2014Nanami's intelligence!\u2014Nanami's Journal",
-        "Condition": 810004
-    },
-    {
         "Id": 228400111,
         "EquipId": 2284001,
         "Order": 1,
         "Type": 1,
         "Title": "Data",
         "Text": "A strange weapon modified from engineering equipment primarily used to explore new methods in weapon development. Long-ranged firepower has been added to make up for its lack of power at close range.",
-        "Condition": 810000
-    },
-    {
-        "Id": 228400121,
-        "EquipId": 2284001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "Just use this to smash a Corrupted right on the head! \"It says it's okay.\" Researchers in a weapons R&D laboratory are arguing about leaving what they want to say as its conception.",
         "Condition": 810000
     },
     {
@@ -2475,15 +2277,6 @@
         "Condition": 810000
     },
     {
-        "Id": 230400121,
-        "EquipId": 2304001,
-        "Order": 1,
-        "Type": 2,
-        "Title": "Story",
-        "Text": "A pitch black sword... I know there's a black sword well known for pairing with a white sword. How about we name this sword after it? Its name is Elu*******. says a designer of Kurono, who happens to also be a Golden-Age anime freak.",
-        "Condition": 810000
-    },
-    {
         "Id": 230500111,
         "EquipId": 2305001,
         "Order": 1,
@@ -2517,6 +2310,321 @@
         "Type": 2,
         "Title": "Story",
         "Text": "Hecate is known as the goddess of witches and witchcraft, but she also guides people. She'd be sure to fulfill the wishes of those who offer their prayers.",
+        "Condition": 810004
+    },
+    {
+        "Id": 231400111,
+        "EquipId": 2314001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "A sword doesn't have a heart. It only needs to be wielded by its wielder... Is it not?",
+        "Condition": 810000
+    },
+    {
+        "Id": 231500111,
+        "EquipId": 2315001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "A composite weapon with a transformation blade. Created by adopting the newest molecular dynamics technology, its silver blade has a much more lethal curvature and emits a faint blue glow.",
+        "Condition": 810000
+    },
+    {
+        "Id": 231500121,
+        "EquipId": 2315001,
+        "Order": 1,
+        "Type": 2,
+        "Title": "Story",
+        "Text": "As if a meteor tears open the night sky, its blade is so sharp that it can cut through anything in its attack range. In fact, its sharpness is dangerous enough to even damage its wielder, but its wielder and her mistress seem unconcerned about it.",
+        "Condition": 810000
+    },
+    {
+        "Id": 231600111,
+        "EquipId": 2316001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "A new-generation special-grade weapon created by Babylonia. While its weight has been further reduced, the argon gas vacuum condensation technology has brought the durability and sharpness of its blade to a level that ordinary metals are impossible to achieve. Repeated hammering and heating also cause its blade to emit a dark blue glow. When wielded, its wielder seems to be controlled by invisible strings to deliver silent death.",
+        "Condition": 810000
+    },
+    {
+        "Id": 231600121,
+        "EquipId": 2316001,
+        "Order": 1,
+        "Type": 2,
+        "Title": "Story",
+        "Text": "Over the boundary between dawn and dusk, time and again, the girl awakes from cycles of memories, fearlessly wielding her sharp blades to destroy the rusty cogs in the clock. Even though her resistance goes unknown, with the hands on the clock moving silently, the girl's voice has already reached the one bonded to her.",
+        "Condition": 810004
+    },
+    {
+        "Id": 232400111,
+        "EquipId": 2324001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "This prototype of Composite Armaments can satisfy the user's needs in close, medium and long range firepower based on the battle situation. The materials used in the relatively more fragile transforming mechanism have all been electro-magnetic processed to ensure a reliable and smooth transition between different forms.",
+        "Condition": 810000
+    },
+    {
+        "Id": 232500111,
+        "EquipId": 2325001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "This set of Composite Armaments has been specially approved by Babylonia's Military Weapon Development Center to use an experimental \u03b4-ray core as its energy supply. This is the first time a \u03b4-ray of this scale is deployed on a weapon, so its user must have the ability to master the pace between the \u03b4 core's energy output and instant cooldown.",
+        "Condition": 810000
+    },
+    {
+        "Id": 232600111,
+        "EquipId": 2326001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "Mankind needs a hope that can confront this dark era. Cosmos Industries, Weapon Development Center and the user Lee himself have discussed many times to calibrate his specialized frame and its exclusive equipment. After installing an additional tactical AI, this weapon has been pushed to its limit in all aspects. \"There's no need to compromise to the environment; I won't allow any mistake to happen.\"",
+        "Condition": 810000
+    },
+    {
+        "Id": 232600121,
+        "EquipId": 2326001,
+        "Order": 1,
+        "Type": 2,
+        "Title": "Story",
+        "Text": "The focus now is no longer whether we can embrace the envisioned future or not. Even if mankind has taken a wrong path, someone needs to break through the confinement of dimensions to reverse the course. This key is a desperate effort. Regardless of the outcome, it must be able to help him cross that door.",
+        "Condition": 810004
+    },
+    {
+        "Id": 233400111,
+        "EquipId": 2334001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "It was originally designed to be a multipurpose painting tool, but after a range of features were added for convenience's sake, it achieved an unexpectedly high score in the Science Council's weapon testing session.",
+        "Condition": 810000
+    },
+    {
+        "Id": 233500111,
+        "EquipId": 2335001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "To accommodate the WGAA's newest frame's specifications, this Beam Gunlance has been modified for the finest adjustments on each parameter. As strongly required by Ayla, it also retains a painting function, which makes it one of Ayla's favorite paintbrushes.",
+        "Condition": 810000
+    },
+    {
+        "Id": 233600111,
+        "EquipId": 2336001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "A Beam Gunlance made exclusively for Ayla after undergoing a meticulous final adjustment. It is, in fact, her dream weapon as it absorbs different suggestions and inspirations from many Constructs, which means it is a work involving all her friends.",
+        "Condition": 810000
+    },
+    {
+        "Id": 233600121,
+        "EquipId": 2336001,
+        "Order": 1,
+        "Type": 2,
+        "Title": "Story",
+        "Text": "One day, she is going to cross the sea of clouds and wander on the river of stars with her yet-to-fulfill wish.",
+        "Condition": 810004
+    },
+    {
+        "Id": 234400111,
+        "EquipId": 2344001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "A custom weapon made of an odachi and a kodachi. It merges a nimble style with beast-like sharpness.",
+        "Condition": 810000
+    },
+    {
+        "Id": 234500111,
+        "EquipId": 2345001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "Infused with the power of Ascension-Network, this legendary blade has the power to cleave through thunder. It strikes like red lightning, obliterating all enemies in its path.",
+        "Condition": 810000
+    },
+    {
+        "Id": 234600111,
+        "EquipId": 2346001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "Forged from an unknown material, this daisho is meant for sole wielders. When drawn, the stored energy gets unleashed, piercing the darkness like the first light of dawn.",
+        "Condition": 810000
+    },
+    {
+        "Id": 234600121,
+        "EquipId": 2346001,
+        "Order": 1,
+        "Type": 2,
+        "Title": "Story",
+        "Text": "Winter approaches with the moon riding high. The sword slices through the swirling night wind, illuminating a scarlet trail in the profound darkness. Catching a glimpse of the first light signaling night's end, the girl changes her course, dashing toward the dawn she has chosen.",
+        "Condition": 810004
+    },
+    {
+        "Id": 235400111,
+        "EquipId": 2354001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "Modified with the technologies of Church of Machina, this fan still possesses the essence of Kowloong with golden threads and santalwood bones.",
+        "Condition": 810000
+    },
+    {
+        "Id": 235400121,
+        "EquipId": 2354001,
+        "Order": 1,
+        "Type": 2,
+        "Title": "Story",
+        "Text": "The original design comes from a fan used by Hanying during her dances. Zavier reinforced it with new materials and came up with this weapon.",
+        "Condition": 810000
+    },
+    {
+        "Id": 235500111,
+        "EquipId": 2355001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "Special decorations were added to this fan according to the user's needs, making it look more like a dance prop than a weapon. The fan gives a radiant brilliance when waved, but its power should never be underestimated on the battlefield.",
+        "Condition": 810000
+    },
+    {
+        "Id": 235600111,
+        "EquipId": 2356001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "The special metal used to forge its blades allows it to not only inflict cuts that are deadlier than originally expected on its enemies but also to radiate dazzling light when wielded. After the design draft was completed, Pulao secretly added a flower to the fan's main rib.",
+        "Condition": 810000
+    },
+    {
+        "Id": 235600121,
+        "EquipId": 2356001,
+        "Order": 1,
+        "Type": 2,
+        "Title": "Story",
+        "Text": "When rains and winds have stopped, only a solitary lamp shines under the full moon. The girl gazes toward the lights of the bustling city under the mountain as she folds her fan away and sits back. Despite the passage of time, the moon is always there, shining upon the days of the past and people of the present.",
+        "Condition": 810004
+    },
+    {
+        "Id": 236400111,
+        "EquipId": 2364001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "The design of these edged weapons is based on the claws of predatory animals. Very few Constructs can adapt to using them in battle as they significantly deviate from the typical human battle mindset.",
+        "Condition": 810000
+    },
+    {
+        "Id": 236500111,
+        "EquipId": 2365001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "These blades are designed exclusively for No. 21's wild, untamed combat style. The three reinforced energy claws can easily tear through any obstacles.",
+        "Condition": 810000
+    },
+    {
+        "Id": 236500121,
+        "EquipId": 2365001,
+        "Order": 1,
+        "Type": 2,
+        "Title": "Story",
+        "Text": "It sounds like trio music when it tears the enemies apart! \u2014Kurono Weapon Designer",
+        "Condition": 810000
+    },
+    {
+        "Id": 236600111,
+        "EquipId": 2366001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "When swung, these Claw Blades would make a sharp, piercing howl as if there is a ferocious beast inside. The blades reflect a chilling light, resembling a lone wolf sharpening its claws in the shattered moonlight.",
+        "Condition": 810000
+    },
+    {
+        "Id": 237400111,
+        "EquipId": 2374001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "Forged from a special alloy, this robotic arm's supersolid layer assembly allows it to withstand high temperatures and pressures. It is a perfect answer to those who question the performance of Construct weapons.",
+        "Condition": 810000
+    },
+    {
+        "Id": 237500111,
+        "EquipId": 2375001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "This robotic arm has adopted a red and black color scheme with a streamlined frame. As requested by its user, additional vents and rectifier have been added to maximize its performance.",
+        "Condition": 810000
+    },
+    {
+        "Id": 237600111,
+        "EquipId": 2376001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "As the ultimate fusion of engineering and violence, this weapon is Noctis' favorite. The fermions that flow inside the arm are creating non-stop annihilation on a micro level. Even when it is stationary, the roaring noise deep inside the crimson core still longs for explosion and destruction. Noctis himself does not care about any of those features\u2014he is happy as long as the weapon is powerful enough.",
+        "Condition": 810000
+    },
+    {
+        "Id": 238400111,
+        "EquipId": 2384001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "Inspired by coastal reefs, this weapon's irregular blade makes its attacks unpredictable. Very few can handle this weapon well.",
+        "Condition": 810000
+    },
+    {
+        "Id": 238400121,
+        "EquipId": 2384001,
+        "Order": 1,
+        "Type": 2,
+        "Title": "Story",
+        "Text": "Her world used to be very small, consisting of only foam and plastic airbags surrounded by cardboards.",
+        "Condition": 810000
+    },
+    {
+        "Id": 238500111,
+        "EquipId": 2385001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "Amidst dark clouds and storm, the weapon cuts through the rain to reveal its true look. The silver-coated blade may appear to be slim, but no one would doubt its elegance and lethality.",
+        "Condition": 810000
+    },
+    {
+        "Id": 238500121,
+        "EquipId": 2385001,
+        "Order": 1,
+        "Type": 2,
+        "Title": "Story",
+        "Text": "The daughter of the sea gazes into the distance, where land, sand, and soil would be. There will be grass growing after a rain, and wind passing through the valley. \"It must be different from the sea breeze,\" she thinks.",
+        "Condition": 810000
+    },
+    {
+        "Id": 238600111,
+        "EquipId": 2386001,
+        "Order": 1,
+        "Type": 1,
+        "Title": "Data",
+        "Text": "Back in Atlantis, Lamia read some books that mentioned the weapon used by the God of the Seas\u2014a trident. Those who possess this trident will have the power to rule the sea, and can even bring the dead in the sea back to life. But legends are just legends after all; Lamia only picked up a broken weapon from the sea and modified it into the current form with the power of Punishing.",
+        "Condition": 810000
+    },
+    {
+        "Id": 238600121,
+        "EquipId": 2386001,
+        "Order": 1,
+        "Type": 2,
+        "Title": "Story",
+        "Text": "The days of the past feel like a dream. She cherishes those dreams, and they stay with her.",
         "Condition": 810004
     }
 ]

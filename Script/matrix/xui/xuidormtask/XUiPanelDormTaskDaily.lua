@@ -99,14 +99,9 @@ end
 
 function XUiPanelDormTaskDaily:ShowPanel()
     self:StartSchedule()
-    self:UpdateActiveness()
     self.GameObject:SetActive(true)
 
-    local tasks = XDataCenter.TaskManager.GetDormTaskDailyListData()
-    self.DailyTasks = tasks
-    self.PanelNoneDailyTask.gameObject:SetActive(#self.DailyTasks <= 0)
-    self.DynamicTable:SetDataSource(tasks)
-    self.DynamicTable:ReloadDataASync()
+    self:Refresh()
 end
 
 function XUiPanelDormTaskDaily:HidePanel()
@@ -116,7 +111,7 @@ end
 
 function XUiPanelDormTaskDaily:Refresh()
     self:UpdateActiveness()
-    local tasks = XDataCenter.TaskManager.GetDormTaskDailyListData()
+    local tasks = XDataCenter.TaskManager.GetDormDailyTasksAllReceiveData()
     self.DailyTasks = tasks
     self.PanelNoneDailyTask.gameObject:SetActive(#self.DailyTasks <= 0)
     self.DynamicTable:SetDataSource(tasks)

@@ -1,3 +1,4 @@
+---@class XUiBattleRoleRoomDefaultProxy
 local XUiBattleRoleRoomDefaultProxy = XClass(nil, "XUiBattleRoleRoomDefaultProxy")
 
 -- PS : 加上这个主要为了兼容旧编队界面逻辑带来的写法
@@ -17,7 +18,7 @@ function XUiBattleRoleRoomDefaultProxy:GetCharacterViewModelByEntityId(id)
             entity = XDataCenter.CharacterManager.GetCharacter(id)
         end
         if entity == nil then
-            XLog.Error(string.format("找不到id%s的角色", id))
+            XLog.Warning(string.format("找不到id%s的角色", id))
             return
         end
         return entity:GetCharacterViewModel()
@@ -36,11 +37,14 @@ end
 -- 获取实体战力，如有特殊战力计算公式，可重写
 -- return : number 战力
 function XUiBattleRoleRoomDefaultProxy:GetRoleAbility(entityId)
-    local viewModel = self:GetCharacterViewModelByEntityId(entityId)
-    if viewModel then
-        return viewModel:GetAbility()
-    end
-    return 0
+    -- local viewModel = self:GetCharacterViewModelByEntityId(entityId)
+    -- if viewModel then
+    --     return viewModel:GetAbility()
+    -- end
+    -- return 0
+    ---@type XCharacterAgency
+    local ag = XMVCA:GetAgency(ModuleId.XCharacter)
+    return ag:GetCharacterHaveRobotAbilityById(entityId)
 end
 
 -- 根据实体Id获取伙伴实体
@@ -153,6 +157,12 @@ end
 function XUiBattleRoleRoomDefaultProxy:CreateCustomTipGo(panel)
 end
 
+-- 过滤预设队伍实体Id
+-- teamData : 旧系统的队伍数据
+function XUiBattleRoleRoomDefaultProxy:FilterPresetTeamEntitiyIds(teamData)
+    return teamData
+end
+
 --######################## AOP ########################
 
 function XUiBattleRoleRoomDefaultProxy:AOPOnStartBefore(rootUi)
@@ -185,6 +195,27 @@ end
 
 function XUiBattleRoleRoomDefaultProxy:CheckIsCanDrag()
     return true
+end
+
+function XUiBattleRoleRoomDefaultProxy:AOPHideCharacterLimits()
+    return false
+end
+
+function XUiBattleRoleRoomDefaultProxy:ClearErrorTeamEntityId(...)
+    XEntityHelper.ClearErrorTeamEntityId(...)
+end
+
+function XUiBattleRoleRoomDefaultProxy:AOPGoPartnerCarry()
+    return false
+end
+
+-- 该界面是否启用q版模型 默认用愚人节检测
+function XUiBattleRoleRoomDefaultProxy:CheckUseCuteModel()
+    return XDataCenter.AprilFoolDayManager.IsInCuteModelTime()
+end
+
+function XUiBattleRoleRoomDefaultProxy:AOPOnClickFight()
+    return false
 end
 
 return XUiBattleRoleRoomDefaultProxy

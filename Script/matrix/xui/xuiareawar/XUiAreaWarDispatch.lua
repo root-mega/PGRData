@@ -5,6 +5,7 @@ local XUiAreaWarDispatch = XLuaUiManager.Register(XLuaUi, "UiAreaWarDispatch")
 function XUiAreaWarDispatch:OnAwake()
     self.Grid128.gameObject:SetActiveEx(false)
     self.GridCondition.gameObject:SetActiveEx(false)
+    self.PanelCondition.gameObject:SetActiveEx(false)
     self:AutoAddListener()
 end
 
@@ -26,13 +27,11 @@ function XUiAreaWarDispatch:OnEnable()
         self.IsEnd = true
         return
     end
-
     self:UpdateTeam()
-    self:UpdateView()
 end
 
 function XUiAreaWarDispatch:OnDestroy()
-    XDataCenter.AreaWarManager.ClearDispatchTeam()
+    XDataCenter.AreaWarManager.SaveTeam()
 end
 
 function XUiAreaWarDispatch:OnGetEvents()
@@ -74,8 +73,15 @@ function XUiAreaWarDispatch:InitView()
     local icon = XDataCenter.AreaWarManager.GetActionPointItemIcon()
     self.RImgCost:SetRawImage(icon)
 
-    --派遣奖励（基础）
-    local rewardItems = XAreaWarConfigs.GetBlockDetachBasicRewardItems(blockId)
+    
+    --根据不同时期，获取不同的奖励配置
+    local rewardItems = {}
+    if XDataCenter.AreaWarManager.IsRepeatChallengeTime() then
+        rewardItems=XAreaWarConfigs.GetBlockDetachWhippingPeriodRewardItems(blockId)
+    else
+        rewardItems = XAreaWarConfigs.GetBlockDetachBasicRewardItems(blockId)
+    end
+    
     for index, item in ipairs(rewardItems) do
         local grid = self.RewardGrids[index]
         if not grid then
@@ -83,7 +89,6 @@ function XUiAreaWarDispatch:InitView()
             grid = XUiGridCommon.New(self, go)
             self.RewardGrids[index] = grid
         end
-
         grid:Refresh(item)
         grid.GameObject:SetActiveEx(true)
     end
@@ -115,56 +120,8 @@ function XUiAreaWarDispatch:UpdateTeam()
         end
 
         grid.BtnJoin1.CallBack = function()
-            XLuaUiManager.Open("UiBattleRoomRoleDetail", self.BlockId, self.Team, pos, XUiAreaWarBattleRoomRoleDetail)
+            self:OnBtnJoinClick(pos)
         end
-    end
-end
-
-function XUiAreaWarDispatch:UpdateView()
-    self.IsConditionAllReach = true
-
-    local blockId = self.BlockId
-    local entityIds = self.Team:GetEntityIds()
-    local conditionIdCheckDic = XAreaWarConfigs.GetDispatchCharacterCondtionIdCheckDic(entityIds)
-
-    --派遣条件
-    local conditions = XDataCenter.AreaWarManager.GetDispatchConditions(blockId)
-    for index, conditionId in ipairs(conditions) do
-        local grid = self.ConditionGrids[index]
-        if not grid then
-            local go = index == 1 and self.GridCondition or CSObjectInstantiate(self.GridCondition, self.PanelList)
-            grid = XTool.InitUiObjectByUi({}, go)
-            self.ConditionGrids[index] = grid
-        end
-
-        --条件满足状态
-        local isReach = conditionIdCheckDic[conditionId]
-        grid.Normal.gameObject:SetActiveEx(not isReach)
-        grid.Reach.gameObject:SetActiveEx(isReach)
-        if not isReach then
-            self.IsConditionAllReach = false
-        end
-
-        --派遣奖励（额外,只展示奖励物品的第一个）
-        local extraRewards = XAreaWarConfigs.GetBlockDetachDetachExtraRewardItems(blockId, index)
-        local item = extraRewards[1]
-        local itemId, count = item.TemplateId, item.Count
-        local icon = XItemConfigs.GetItemIconById(itemId)
-        grid.RImgIcon:SetRawImage(icon)
-        grid.RImgIcon2:SetRawImage(icon)
-        grid.TxtNumber.text = "+" .. count
-        grid.TxtNumber2.text = "+" .. count
-
-        --条件描述
-        local conditionDesc = XAreaWarConfigs.GetDispatchConditionDesc(conditionId)
-        conditionDesc = CsXTextManagerGetText("AreaWarDisapatchCondition", index, conditionDesc)
-        grid.TxtCondition.text = conditionDesc
-        grid.TxtCondition2.text = conditionDesc
-
-        grid.GameObject:SetActiveEx(true)
-    end
-    for index = #conditions + 1, #self.ConditionGrids do
-        self.ConditionGrids[index].GameObject:SetActiveEx(false)
     end
 end
 
@@ -184,6 +141,12 @@ function XUiAreaWarDispatch:OnClickBtnDispatch()
         return
     end
 
+    --是否满足3人
+    if not self.Team:GetIsFullMember() then
+        XUiManager.TipCode(XCode.AreaWarDetachCountError)
+        return
+    end
+
     local callFunc = function()
         local characterIds, robotIds = self.Team:SpiltCharacterAndRobotIds()
         XDataCenter.AreaWarManager.AreaWarDetachRequest(
@@ -192,19 +155,17 @@ function XUiAreaWarDispatch:OnClickBtnDispatch()
             robotIds,
             function(rewardGoodsList)
                 if not XTool.IsTableEmpty(rewardGoodsList) then
+                    self:Close()
                     XUiManager.OpenUiObtain(rewardGoodsList)
                 end
             end
         )
-        self:Close()
     end
-
-    --检查条件是否全部满足
-    if self.IsConditionAllReach then
-        callFunc()
-    else
-        local title = CsXTextManagerGetText("AreaWarDisapatchConfirmTitle")
-        local content = CsXTextManagerGetText("AreaWarDisapatchConfirmContent")
-        XUiManager.DialogTip(title, content, XUiManager.DialogType.Normal, nil, callFunc)
-    end
+    callFunc()
 end
+
+function XUiAreaWarDispatch:OnBtnJoinClick(pos)
+    local stageId = XAreaWarConfigs.GetBlockStageId(self.BlockId)
+    XLuaUiManager.Open("UiBattleRoomRoleDetail", stageId, self.Team, pos, XUiAreaWarBattleRoomRoleDetail)
+end
+

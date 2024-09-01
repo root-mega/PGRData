@@ -63,8 +63,8 @@ function XUiEquipResonanceSkill:UpdateResonanceSkill(pos)
     local characterId = self.RootUi.CharacterId
     local forceShowBindCharacter = self.RootUi.ForceShowBindCharacter
 
-    local btnAwake = self["BtnAwake" .. pos]
-    local btnAwakeDetail = self["BtnAwakeDetail" .. pos]
+    -- local btnAwake = self["BtnAwake" .. pos]
+    -- local btnAwakeDetail = self["BtnAwakeDetail" .. pos]
     if XDataCenter.EquipManager.CheckEquipPosResonanced(equipId, pos) then
         if not self.GridResonanceSkills[pos] then
             local item = CS.UnityEngine.Object.Instantiate(self.GridResonanceSkill)
@@ -81,15 +81,15 @@ function XUiEquipResonanceSkill:UpdateResonanceSkill(pos)
         and XDataCenter.EquipManager.CheckEquipStarCanAwake(equipId)
         and XDataCenter.EquipManager.IsAwareness(equipId) then
             if not XDataCenter.EquipManager.IsEquipPosAwaken(equipId, pos) then
-                btnAwake:SetDisable(not XDataCenter.EquipManager.CheckEquipCanAwake(equipId))
-                btnAwake.gameObject:SetActiveEx(true)
-                btnAwakeDetail.gameObject:SetActiveEx(false)
+                -- btnAwake:SetDisable(not XDataCenter.EquipManager.CheckEquipCanAwake(equipId))
+                -- btnAwake.gameObject:SetActiveEx(true)
+                -- btnAwakeDetail.gameObject:SetActiveEx(false)
             else
-                btnAwake.gameObject:SetActiveEx(false)
-                btnAwakeDetail.gameObject:SetActiveEx(true)
+                -- btnAwake.gameObject:SetActiveEx(false)
+                -- btnAwakeDetail.gameObject:SetActiveEx(true)
             end
         else
-            btnAwake.gameObject:SetActiveEx(false)
+            -- btnAwake.gameObject:SetActiveEx(false)
         end
     else
         if self.GridResonanceSkills[pos] then
@@ -97,8 +97,8 @@ function XUiEquipResonanceSkill:UpdateResonanceSkill(pos)
         end
         self["PanelNoSkill" .. pos].gameObject:SetActiveEx(true)
         self["BtnRepeatResonance" .. pos].gameObject:SetActiveEx(false)
-        btnAwake.gameObject:SetActiveEx(false)
-        btnAwakeDetail.gameObject:SetActiveEx(false)
+        -- btnAwake.gameObject:SetActiveEx(false)
+        -- btnAwakeDetail.gameObject:SetActiveEx(false)
     end
     self["BtnResonance" .. pos].transform:SetAsLastSibling()
 end
@@ -110,9 +110,9 @@ function XUiEquipResonanceSkill:AutoAddListener()
     self:RegisterClickEvent(self.BtnRepeatResonance1, self.OnBtnResonance1Click)
     self:RegisterClickEvent(self.BtnRepeatResonance2, self.OnBtnResonance2Click)
     self:RegisterClickEvent(self.BtnRepeatResonance3, self.OnBtnResonance3Click)
-    self:RegisterClickEvent(self.BtnAwake1, self.OnBtnAwake1Click)
-    self:RegisterClickEvent(self.BtnAwake2, self.OnBtnAwake2Click)
-    self:RegisterClickEvent(self.BtnAwake3, self.OnBtnAwake3Click)
+    -- self:RegisterClickEvent(self.BtnAwake1, self.OnBtnAwake1Click)
+    -- self:RegisterClickEvent(self.BtnAwake2, self.OnBtnAwake2Click)
+    -- self:RegisterClickEvent(self.BtnAwake3, self.OnBtnAwake3Click)
     self:RegisterClickEvent(self.BtnAwakeDetail1, self.OnBtnAwakeDetail1Click)
     self:RegisterClickEvent(self.BtnAwakeDetail2, self.OnBtnAwakeDetail2Click)
     self:RegisterClickEvent(self.BtnAwakeDetail3, self.OnBtnAwakeDetail3Click)

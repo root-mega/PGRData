@@ -48,11 +48,6 @@ function XUiPanelQualitySkillDynamic:OnDynamicTableEvent(event, index, grid)
             isNext = before and not isLight
         end
         grid:Refresh(self.SkillData[index], isLight, isNext)
-
-        --绑定跳转技能Ui
-        self.RootUi:RegisterClickEvent(grid.Btn, function ()
-            self.RootUi:OnBtnSkillClick(XCharacterConfigs.GetCharSkillQualityApartSkillId(self.SkillData[index]))
-        end)
     end
 end
 

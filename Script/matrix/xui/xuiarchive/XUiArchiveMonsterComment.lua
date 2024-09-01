@@ -11,6 +11,11 @@ function XUiArchiveMonsterComment:OnEnable()
     self.EvaluateData = self.Base.CurEvaluateData
     self:SetPaneBaseInfo()
     self:SetPanelTag()
+
+end
+
+function XUiArchiveMonsterComment:OnDisable()
+
 end
 
 function XUiArchiveMonsterComment:OnStart(base)

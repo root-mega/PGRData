@@ -2,6 +2,8 @@ local XBabelTowerTeamData = require("XEntity/XBabelTower/XBabelTowerTeamData")
 
 local tableInsert = table.insert
 
+---@class XBabelTowerStageData
+---@field TeamDatas table<number, XBabelTowerTeamData>
 local XBabelTowerStageData = XClass(nil, "XBabelTowerStageData")
 
 local Default = {
@@ -86,6 +88,9 @@ function XBabelTowerStageData:GetTotalUsedCharacterIds(paramTeamId)
             local characterIds = teamData:GetCharacterIds()
             for _, characterId in pairs(characterIds) do
                 if characterId > 0 then
+                    if XEntityHelper.GetIsRobot(characterId) then
+                        characterId = XRobotManager.GetCharacterId(characterId)
+                    end
                     totalCharacterIds[characterId] = characterId
                 end
             end

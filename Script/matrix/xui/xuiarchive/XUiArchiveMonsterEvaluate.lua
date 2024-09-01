@@ -11,6 +11,11 @@ function XUiArchiveMonsterEvaluate:OnEnable()
     self:SetPaneBaseInfo()
     self:SetData()
     self:SetPanelTag()
+
+end
+
+function XUiArchiveMonsterEvaluate:OnDisable()
+
 end
 
 function XUiArchiveMonsterEvaluate:OnStart(base, callBack)

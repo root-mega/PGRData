@@ -6,6 +6,7 @@ function XUiFubenYuanXiaoMedalTips:OnStart()
     self:RegisterButtonClick()
     self:InitDynamicTable()
     self:SetupDynamicTable()
+    self:BindExitBtns(self.BtnClose)
 
     -- 开启自动关闭检查
     local endTime = XDataCenter.FubenSpecialTrainManager.GetActivityEndTime()

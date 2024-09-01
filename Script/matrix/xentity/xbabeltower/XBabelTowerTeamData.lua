@@ -1,3 +1,4 @@
+---@class XBabelTowerTeamData
 local XBabelTowerTeamData = XClass(nil, "XBabelTowerTeamData")
 
 local Default = {
@@ -36,7 +37,7 @@ function XBabelTowerTeamData:UpdateData(data)
     self.CurScore = data.CurScore
     self.MaxScore = data.MaxScore or 0
     self.IsReset = data.IsReset
-    self:UpdateCharacter(data.TeamList)
+    self:UpdateCharacter(data.TeamList, data.TeamRobotList)
     self.IsSyn = true
     self.StageLevel = data.StageLevel and data.StageLevel ~= 0 and data.StageLevel or XFubenBabelTowerConfigs.Difficult.Easy
     self.CaptainPos = data.CaptainPos and data.CaptainPos ~= 0 and data.CaptainPos or XFubenBabelTowerConfigs.LEADER_POSITION
@@ -50,14 +51,16 @@ function XBabelTowerTeamData:UpdateData(data)
     end
 end
 
-function XBabelTowerTeamData:UpdateCharacter(teamList)
-    self.CharacterIds = {}
-    for _, charId in ipairs(teamList) do
-        table.insert(self.CharacterIds, charId)
+function XBabelTowerTeamData:UpdateCharacter(teamList, teamRobotList)
+    self.CharacterIds = { 0, 0, 0 }
+    for i, charId in pairs(teamList or {}) do
+        if XTool.IsNumberValid(charId) then
+            self.CharacterIds[i] = charId
+        end
     end
-    if #self.CharacterIds < TeamMaxCount then
-        for i = #self.CharacterIds + 1, TeamMaxCount do
-            table.insert(self.CharacterIds, 0)
+    for i, robotId in pairs(teamRobotList or {}) do
+        if XTool.IsNumberValid(robotId) then
+            self.CharacterIds[i] = robotId
         end
     end
 end

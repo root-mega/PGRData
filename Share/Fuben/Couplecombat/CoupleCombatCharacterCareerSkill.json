@@ -1,0 +1,47 @@
+[
+    {
+        "Id": 1,
+        "Type": [
+            null,
+            1,
+            4.0
+        ],
+        "Name": "ATK Boost: Stimulation",
+        "EnName": "Excitation",
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "Description": "When a teammate makes a <color=#6495ED>Red Orb 3-Ping</color> and <color=#6495ED>triggers Matrix behind the target</color>, all ally characters will gain <color=#6495ED>30% DMG Bonus for 10s</color>.",
+        "FightEventId": 2250088,
+        "Condition": null,
+        "IconLv": "Assets/Product/Texture/Atlas/UiCoupleCombat/UiCoupleCombatIcon1.png"
+    },
+    {
+        "Id": 2,
+        "Type": [
+            null,
+            2,
+            null
+        ],
+        "Name": "DEF Boost: Accretion",
+        "EnName": "Accretion",
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "Description": "When a teammate makes a <color=#6495ED>Yellow Orb 3-Ping</color> and <color=#6495ED>triggers Matrix behind the target</color>, all ally characters will gain <color=#6495ED>a shield that absorbs DMG equal to 30% of their max HP and provides 80% DMG Reduction for 10s</color>.",
+        "FightEventId": 2250089,
+        "Condition": null,
+        "IconLv": "Assets/Product/Texture/Atlas/UiCoupleCombat/UiCoupleCombatIcon1.png"
+    },
+    {
+        "Id": 3,
+        "Type": [
+            null,
+            3,
+            5.0
+        ],
+        "Name": "Healing Enhancement: Diffraction",
+        "EnName": "Diffraction",
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+        "Description": "When a teammate makes a <color=#6495ED>Blue Orb 3-Ping</color> and <color=#6495ED>triggers Matrix behind the target</color>, all ally characters will <color=#6495ED>recover 25% of their max HP per second over 6s</color>.",
+        "FightEventId": 2250090,
+        "Condition": null,
+        "IconLv": "Assets/Product/Texture/Atlas/UiCoupleCombat/UiCoupleCombatIcon1.png"
+    }
+]

@@ -73,12 +73,12 @@ function XUiPanelDownloadSet:SetupView()
         --XLog.Debug("k:"..k)
         --XLog.Debug("v:"..v.Title)
         
-        
-        if index == self.curIdx then
+        local isCurrent = index == self.curIdx
+        if isCurrent then
             local selectItem = self:GetOneItem(selectIndex,self.selectList,self.PanelSelect)
             selectItem.Transform:SetSiblingIndex(index-1)
             selectItem.GameObject:SetActiveEx(true)
-            selectItem:Setup(dlcItemData, index)
+            selectItem:Setup(dlcItemData, index, isCurrent)
 
             selectIndex = selectIndex+1
         else
@@ -86,7 +86,7 @@ function XUiPanelDownloadSet:SetupView()
             normalItem.Transform:SetSiblingIndex(index-1)
             
             normalItem.GameObject:SetActiveEx(true)
-            normalItem:Setup(dlcItemData, index)
+            normalItem:Setup(dlcItemData, index, isCurrent)
             normalIndex = normalIndex+1
         end
 

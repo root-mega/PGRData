@@ -12,6 +12,9 @@ function XUiFestivalStageItem:SetNormalStage()
     if not self.IsLock then
         self.RImgFightActiveNor:SetRawImage(self.FStage:GetIcon())
     end
+    if self.ImgStoryNor then
+        self.ImgStoryNor:SetRawImage(self.FStage:GetStoryIcon())
+    end
     self.TxtStageOrder.text = self.FStage:GetOrderName()
     -- SetLockStage
     self.PanelStageLock.gameObject:SetActiveEx(self.IsLock)
@@ -45,11 +48,12 @@ function XUiFestivalStageItem:UpdateNode(festivalId, stageId)
     self:SetPassStage()
     local isEgg = self.FStage:GetIsEggStage()
     self.ImgStageOrder.gameObject:SetActiveEx(not isEgg)
-    self.ImgStageHide.gameObject:SetActiveEx(isEgg)
+    if self.ImgStageHide then
+        self.ImgStageHide.gameObject:SetActiveEx(isEgg)
+    end
     if self.ImgHideLine then
         self.ImgHideLine.gameObject:SetActiveEx(isEgg)
     end
-
 end
 
 function XUiFestivalStageItem:OnBtnStageClick()

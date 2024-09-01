@@ -351,9 +351,11 @@ function XUiGridStage:SetNormalStage(stageInfo, nextStageInfo, stageCfg, stageId
         end
 
     elseif stageType == XFubenConfigs.STAGETYPE_FIGHT or stageType == XFubenConfigs.STAGETYPE_FIGHTEGG or stageType == XFubenConfigs.STAGETYPE_COMMON then
-        if stageInfo.Unlock then
+        local isUnlock = self:CheckCurrentStageUnlock(stageCfg, stageInfo)
+        if isUnlock then
             self:SetStageActive()
-            if (not (nextStageInfo and nextStageInfo.Unlock or stageInfo.Passed)) and not IsEgg then
+            local isShowEffect = self:CheckCurrentStageEffect(stageCfg, stageInfo, nextStageInfo)
+            if isShowEffect and not IsEgg then
                 if not self.IsMainLineExplore then
                     self:SetComponentActive("PanelEffect", true, true)
                 end
@@ -368,19 +370,17 @@ function XUiGridStage:SetNormalStage(stageInfo, nextStageInfo, stageCfg, stageId
         if XDataCenter.BfrtManager.CheckStageTypeIsBfrt(stageId) then
             stagePassed = XDataCenter.BfrtManager.IsGroupPassedByStageId(stageId)
             self:SetComponentActive("PanelKill", stagePassed, true)
+            if stagePassed then --海外修改#127004
+                self:SetComponentActive("PanelEffect", false, true)
+            end
         else
-            stagePassed = stageInfo.Passed
+            stagePassed = self:CheckCurrentStagePassed(stageCfg, stageInfo)
             if chapter or self.IsOnZhouMu then
                 self:SetComponentActive("PanelKill", stagePassed, true)
             end
         end
         if stageInfo.Type == XDataCenter.FubenManager.StageType.ActivtityBranch then
             self:SetComponentActive("PanelKill", stagePassed, true)
-        elseif stageInfo.Type == XDataCenter.FubenManager.StageType.RepeatChallenge then
-            -- 复刷关拦截已结束章节
-            local isFinished = XDataCenter.FubenRepeatChallengeManager.IsStageFinished(stageId)
-            self:SetComponentActive("PanelStageClose", isFinished, true)
-            self:SetComponentActive("PanelKill", stagePassed and not isFinished, true)
         elseif stageInfo.Type == XDataCenter.FubenManager.StageType.ActivityBossSingle then
             self:SetComponentActive("PanelKill", XDataCenter.FubenActivityBossSingleManager.IsChallengePassedByStageId(stageId), true)
             if not XDataCenter.FubenActivityBossSingleManager.IsChallengeUnlockByStageId(stageId) then
@@ -400,6 +400,12 @@ function XUiGridStage:SetNormalStage(stageInfo, nextStageInfo, stageCfg, stageId
 
         --战力警告
         self:UpdateFightControl()
+
+        --关卡进度
+        local clearEventId = stageCfg.ClearEventId or {}
+        if not XTool.IsTableEmpty(clearEventId) then
+            self:SetComponentActive("PanelProgress", true, nil, stageId)
+        end
     end
 
     if not IsEgg then
@@ -453,7 +459,8 @@ function XUiGridStage:SetStageTypePanelActive(isActive)
             self:SetComponentActive("PanelStars", false)
         else
             local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
-            if self.IsOnZhouMu then
+            local isFalseStage = XDataCenter.FubenMainLineManager.CheckFalseStageByStageId(stageId)
+            if self.IsOnZhouMu or isFalseStage then
                 self:SetComponentActive("PanelStars", false)
             else
                 self:SetComponentActive("PanelStars", true, nil, stageInfo.StarsMap, self.RootUi.StarColor, self.RootUi.StarDisColor)
@@ -552,6 +559,42 @@ function XUiGridStage:SetStageLock()
     self:SetComponentActive("PanelRewardTips", false)
     self:SetComponentActive("PanelEffect", false)
     self:SetStageTypePanelActive(false)
+end
+
+function XUiGridStage:CheckCurrentStageUnlock(stageCfg, stageInfo)
+    -- 关卡是否解锁
+    local isUnlock = stageInfo.Unlock
+    -- 是否存在解锁事件Id
+    local isUnlockEventId = true
+    local unlockEventId = stageCfg.UnlockEventId or {}
+    if not XTool.IsTableEmpty(unlockEventId) then
+        isUnlockEventId = XDataCenter.FubenManager.GetUnlockHideStageById(stageCfg.StageId)
+    end
+    return isUnlock and isUnlockEventId
+end
+
+function XUiGridStage:CheckCurrentStageEffect(stageCfg, stageInfo, nextStageInfo)
+    -- 是否显示特效
+    local isShowEffect = not (nextStageInfo and nextStageInfo.Unlock or stageInfo.Passed)
+    -- 是否存在完成事件Id
+    local isClearEventId = false
+    local clearEventId = stageCfg.ClearEventId or {}
+    if not XTool.IsTableEmpty(clearEventId) then
+        isClearEventId = not XDataCenter.FubenMainLineManager.CheckStageClearEventIdPassed(stageCfg.StageId)
+    end
+    return isShowEffect or isClearEventId
+end
+
+function XUiGridStage:CheckCurrentStagePassed(stageCfg, stageInfo)
+    -- 关卡是否通关
+    local isPassed = stageInfo.Passed
+    -- 是否存在完成事件Id
+    local isClearEventId = true
+    local clearEventId = stageCfg.ClearEventId or {}
+    if not XTool.IsTableEmpty(clearEventId) then
+        isClearEventId = XDataCenter.FubenMainLineManager.CheckStageClearEventIdPassed(stageCfg.StageId)
+    end
+    return isPassed and isClearEventId
 end
 
 return XUiGridStage

@@ -7,7 +7,7 @@ end
 
 function XUiGridNode:SetData(node, count)
     self.ImgIcon:SetSprite(node:GetIcon())
-    if node:GetIsInfectNode() then
+    if node:GetIsLastNode()then
         self.TxtNodeName.text = node:GetName(false)
     else
         self.TxtNodeName.text = node:GetName()

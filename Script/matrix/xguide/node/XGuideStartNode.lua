@@ -10,7 +10,7 @@ function XGuideStartNode:OnEnter()
         self.Node.Status = CsNodeStatus.SUCCESS
         CS.XGuideEventPass.IsFightGuide = false
 
-        CsXGameEventManager.Instance:Notify(XEventId.EVENT_GUIDE_START)
+        CsXGameEventManager.Instance:Notify(XEventId.EVENT_GUIDE_START, self.GuideId)
     end)
 end
 

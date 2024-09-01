@@ -62,7 +62,7 @@ function XUiFubenYuanXiaoFight:InitPlayerData()
                 data.Rank = roleCustomData[1] --名次
                 data.Round = roleCustomData[2] --回合数
                 data.Score = player.Score --奖杯数
-                data.StageScore = player.StageScore --关卡积分
+                data.StageScore = player.StageScore or 0 --关卡积分
             end
             self.ResultPlayer[player.PlayerId] = data
         end
@@ -98,11 +98,12 @@ function XUiFubenYuanXiaoFight:InitPlayerData()
             end
             table.insert(scoreMvpTable,{ Rank = v.Rank, Mvp = k })
         end
-
-        if stageScoreMvpValue == -1 or v.StageScore >= stageScoreMvpValue then
-            if v.StageScore > stageScoreMvpValue then
+        
+        local stageScore = v.StageScore or 0
+        if stageScoreMvpValue == -1 or stageScore >= stageScoreMvpValue then
+            if stageScore > stageScoreMvpValue then
                 stageScoreMvpTable = {}
-                stageScoreMvpValue = v.StageScore
+                stageScoreMvpValue = stageScore
             end
             table.insert(stageScoreMvpTable,{ Rank = v.Rank, Mvp = k })
         end
@@ -111,6 +112,12 @@ function XUiFubenYuanXiaoFight:InitPlayerData()
     if self.Proxy then
         self.Proxy:RankMvp(self, rankMvp, roundMvpTable, scoreMvpTable, stageScoreMvpTable)
     else
+        --region 元宵2023
+        rankMvp = {}
+        roundMvpTable = {}
+        --scoreMvpTable = {}
+        stageScoreMvpTable = {}
+        --endregion 元宵2023
         self:RankMvp(rankMvp, roundMvpTable, scoreMvpTable, stageScoreMvpTable)
     end
 end
@@ -299,6 +306,11 @@ end
 --跳过奖杯结算界面
 function XUiFubenYuanXiaoFight:OnSkipRankScoreClose()
     if self.IsPanelMedalEnable then --正在播放动画PanelMedalEnable
+        return
+    end
+    if not self.CurInfo then
+        self:StopProgressAnimation()
+        self.CurrentClickState = ClickState.Close
         return
     end
 

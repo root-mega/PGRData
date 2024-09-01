@@ -87,6 +87,10 @@ function XUiPanelAccountSet:OnBindResult(success, msg)
             self.BindState.appleBind = 1
             XUserManager.SetUserType(self.CurBindType)
             XHgSdkManager.OnBindTaskFinished()
+        elseif self.CurBindType == XHgSdkManager.UserType.Google then
+            self.BindState.googleBind = 1
+            XUserManager.SetUserType(self.CurBindType)
+            XHgSdkManager.OnBindTaskFinished()
         elseif self.CurBindType == XHgSdkManager.UserType.Suid then
             XUserManager.SetPasswordStatus(1)
         end
@@ -131,6 +135,18 @@ function XUiPanelAccountSet:SetPanelData()
     self.GoogleBinded.gameObject:SetActiveEx(self.BindState.googleBind == 1)
     self.TwitterBinded.gameObject:SetActiveEx(self.BindState.twitterBind == 1)
     self.AppleBinded.gameObject:SetActiveEx(self.BindState.appleBind == 1)
+    if self.BindState.twitterNickName then
+        self.TwitterInfoText.text = self.BindState.twitterNickName
+    end
+    if self.BindState.lineNickName then
+        self.LineInfoText.text = self.BindState.lineNickName
+    end
+    if self.BindState.googlePlayNickName then
+        self.GoogleInfoText.text = self.BindState.googlePlayNickName
+    end
+    if self.BindState.emailNickName then
+        self.MailInfoText.text = self.BindState.emailNickName
+    end
 end
 
 function XUiPanelAccountSet:ShowPanel()

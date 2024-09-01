@@ -1,0 +1,93 @@
+[
+    {
+        "Rank": 1,
+        "Type": 1,
+        "Name": "C",
+        "MinValue": 0,
+        "MaxValue": 500,
+        "ReduceScorePerSecond": 4,
+        "ReduceScoreWhenBeDamaged": 0,
+        "ExecuteScore": 500,
+        "KeepScoreSecondWhenUpgrade": 0,
+        "BackgroundImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringC.png",
+        "FillBarImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringC1.png"
+    },
+    {
+        "Rank": 2,
+        "Type": 1,
+        "Name": "B",
+        "MinValue": 500,
+        "MaxValue": 1250,
+        "ReduceScorePerSecond": 20,
+        "ReduceScoreWhenBeDamaged": 0,
+        "ExecuteScore": 750,
+        "KeepScoreSecondWhenUpgrade": 5,
+        "BackgroundImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringB.png",
+        "FillBarImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringB1.png"
+    },
+    {
+        "Rank": 3,
+        "Type": 1,
+        "Name": "A",
+        "MinValue": 1250,
+        "MaxValue": 2500,
+        "ReduceScorePerSecond": 40,
+        "ReduceScoreWhenBeDamaged": 0,
+        "ExecuteScore": 1250,
+        "KeepScoreSecondWhenUpgrade": 5,
+        "BackgroundImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringA.png",
+        "FillBarImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringA1.png"
+    },
+    {
+        "Rank": 4,
+        "Type": 2,
+        "Name": "S",
+        "MinValue": 2500,
+        "MaxValue": 5000,
+        "ReduceScorePerSecond": 80,
+        "ReduceScoreWhenBeDamaged": 0,
+        "ExecuteScore": 2500,
+        "KeepScoreSecondWhenUpgrade": 5,
+        "BackgroundImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringS.png",
+        "FillBarImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringS1.png"
+    },
+    {
+        "Rank": 5,
+        "Type": 3,
+        "Name": "SS",
+        "MinValue": 5000,
+        "MaxValue": 7700,
+        "ReduceScorePerSecond": 80,
+        "ReduceScoreWhenBeDamaged": 0,
+        "ExecuteScore": 2700,
+        "KeepScoreSecondWhenUpgrade": 5,
+        "BackgroundImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringSS.png",
+        "FillBarImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringSS1.png"
+    },
+    {
+        "Rank": 6,
+        "Type": 3,
+        "Name": "SSS",
+        "MinValue": 7700,
+        "MaxValue": 10900,
+        "ReduceScorePerSecond": 140,
+        "ReduceScoreWhenBeDamaged": 0,
+        "ExecuteScore": 3200,
+        "KeepScoreSecondWhenUpgrade": 5,
+        "BackgroundImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringSSS.png",
+        "FillBarImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringSSS1.png"
+    },
+    {
+        "Rank": 7,
+        "Type": 3,
+        "Name": "SSS+ ",
+        "MinValue": 10900,
+        "MaxValue": 16900,
+        "ReduceScorePerSecond": 350,
+        "ReduceScoreWhenBeDamaged": 0,
+        "ExecuteScore": 6000,
+        "KeepScoreSecondWhenUpgrade": 5,
+        "BackgroundImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringSSSPlus.png",
+        "FillBarImage": "Assets/Product/Texture/Image/UiFight/UiFighDynamicScoringSSSPlus1.png"
+    }
+]

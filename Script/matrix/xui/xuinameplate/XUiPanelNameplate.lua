@@ -53,15 +53,17 @@ function XUiPanelNameplate:UpdateDataById(id)
     end
 
     -- 特效
-    local res = XMedalConfigs.GetNameplateEffectRes(id)
+    local lp = self.Effect:GetComponent("XUiLoadPrefab")   
+    local currInstatiePrefabUrl = lp and lp.PrefabAssetUrl or nil
+    local res = XMedalConfigs.GetNameplateEffectRes(id) 
+    
     if res then
         self.Effect.gameObject:SetActiveEx(true)
         self.EffectGo = self.Effect:LoadPrefab(res)
         self.EffectGo.gameObject:SetActiveEx(true)
         self.Enablenim.gameObject:SetActiveEx(true)
 
-        if res ~= self.LastRes then -- 防止重复Init
-            self.LastRes = res
+        if not XTool.UObjIsNil(self.EffectGo) and res ~= currInstatiePrefabUrl then -- 防止重复Init
             XScheduleManager.ScheduleOnce(function() 
                 self.Effect:GetComponent("XUiEffectLayer"):Init()   -- 延时初始化，因为自动初始化过早，render还未加载出来
             end, 50)

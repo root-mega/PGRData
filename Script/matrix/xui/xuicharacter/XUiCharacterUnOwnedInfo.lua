@@ -81,7 +81,7 @@ function XUiCharacterUnOwnedInfo:OnBtnUnlockClick()
         XLuaUiManager.Open("UiUnlockShow", characterId, function()
             local title = CSXTextManagerGetText("CharacterUnlockNewCharacter")
             local content = XCharacterConfigs.GetCharacterFullNameStr(characterId)
-            XLuaUiManager.Open("UiLeftPopupTip", title, content)
+            XUiManager.PopupLeftTip(title, content)
             CS.XAudioManager.PlaySound(XSoundManager.UiBasicsMusic.UiCharacter_UnlockEnd)
         end)
     end

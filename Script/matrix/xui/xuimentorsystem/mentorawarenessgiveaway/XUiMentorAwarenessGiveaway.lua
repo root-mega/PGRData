@@ -149,7 +149,7 @@ function XUiMentorAwarenessGiveaway:InitScrollPanel()
         self:UpdateDrdSuitValue(suitId)
     end
 
-    self.EquipScroll = XUiPanelEquipScroll.New(self, self.PanelEquipScroll, equipTouchCb)
+    self.EquipScroll = XUiPanelEquipScroll.New(self.PanelEquipScroll, self, equipTouchCb)
     self.SuitSimpleScroll = XUiPanelSuitSimpleScroll.New(self, self.PanelSuitSimpleScroll, suitTouchCb)
 end
 
@@ -158,12 +158,12 @@ function XUiMentorAwarenessGiveaway:InitCurEquipGrids()
 
     for index = 1, GIVE_COUNT, 1 do
         local item = CSUnityEngineObjectInstantiate(self.GridCurAwareness)
-        self.CurEquipGirds[index] = XUiGridEquip.New(item, function()
+        self.CurEquipGirds[index] = XUiGridEquip.New(item, self, function()
             local curId = self.SelectedEquipIdList[index]
             if curId then
                 self:OnSelectEquip(curId)
             end
-        end)
+        end, true)
         self.CurEquipGirds[index]:InitRootUi(self)
         self.CurEquipGirds[index].Transform:SetParent(self[string.format("%s%d", "PanelPos", index)], false)
     end

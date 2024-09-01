@@ -1,0 +1,512 @@
+[
+    {
+        "Id": 1,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30001.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Name": "Optimization I",
+        "Desc": "HP +5%",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21133.png"
+    },
+    {
+        "Id": 2,
+        "NeedStrengthenPoint": 16,
+        "Note": "Medium Node",
+        "PointType": 2,
+        "EffectGroupId": 30003.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Name": "Infiltration I",
+        "Desc": "ATK +50",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21011.png"
+    },
+    {
+        "Id": 3,
+        "NeedStrengthenPoint": 24,
+        "Note": "Large Node",
+        "PointType": 3,
+        "EffectGroupId": 30015.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Name": "Synergy I",
+        "Desc": "Shop Discount Slots +1",
+        "Icon": "Assets/Product/Texture/Image/UiBiancaTheatre/BiancaTheatreIconSkill05.png"
+    },
+    {
+        "Id": 4,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30002.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Name": "Convolution I",
+        "Desc": "Starting Processing Units +50",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/Theatre3StrengthenTree001.png"
+    },
+    {
+        "Id": 5,
+        "NeedStrengthenPoint": 16,
+        "Note": "Medium Node",
+        "PointType": 2,
+        "EffectGroupId": 30007.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Name": "Infiltration II",
+        "Desc": "ATK +50",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21011.png"
+    },
+    {
+        "Id": 6,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30004.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            5.0,
+            null,
+            null
+        ],
+        "Name": "Convolution II",
+        "Desc": "Starting Processing Units +50",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/Theatre3StrengthenTree001.png"
+    },
+    {
+        "Id": 7,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30005.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            6.0,
+            null,
+            null
+        ],
+        "Name": "Barrier I",
+        "Desc": "DEF +500",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32021.png"
+    },
+    {
+        "Id": 8,
+        "NeedStrengthenPoint": 16,
+        "Note": "Medium Node",
+        "PointType": 2,
+        "EffectGroupId": 30006.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            7.0,
+            null,
+            null
+        ],
+        "Name": "Topology I",
+        "Desc": "Starting Recruit Energy +1",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/Theatre3StrengthenTree004.png"
+    },
+    {
+        "Id": 9,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30008.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Name": "Reconstruction I",
+        "Desc": "HP +500",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21131.png"
+    },
+    {
+        "Id": 10,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30009.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            9.0,
+            null,
+            null
+        ],
+        "Name": "Barrier II",
+        "Desc": "DEF +500",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32021.png"
+    },
+    {
+        "Id": 11,
+        "NeedStrengthenPoint": 16,
+        "Note": "Medium Node",
+        "PointType": 2,
+        "EffectGroupId": 30010.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            10.0,
+            null,
+            null
+        ],
+        "Name": "Infiltration III",
+        "Desc": "ATK +50",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21011.png"
+    },
+    {
+        "Id": 12,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30011.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            11.0,
+            null,
+            null
+        ],
+        "Name": "Convolution III",
+        "Desc": "Starting Processing Units +50",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/Theatre3StrengthenTree001.png"
+    },
+    {
+        "Id": 13,
+        "NeedStrengthenPoint": 24,
+        "Note": "Large Node",
+        "PointType": 3,
+        "EffectGroupId": 30012.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            12.0,
+            null,
+            null
+        ],
+        "Name": "Imprint I",
+        "Desc": "At the start of the simulation, additionally gains a random Artifact.",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/Theatre3StrengthenTree002.png"
+    },
+    {
+        "Id": 14,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30013.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Name": "Optimization II",
+        "Desc": "HP +5%",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21133.png"
+    },
+    {
+        "Id": 15,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30014.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            14.0,
+            null,
+            null
+        ],
+        "Name": "Confrontation I",
+        "Desc": "ATK +5%",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png"
+    },
+    {
+        "Id": 16,
+        "NeedStrengthenPoint": 16,
+        "Note": "Medium Node",
+        "PointType": 2,
+        "EffectGroupId": 30016.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Name": "Infiltration IV",
+        "Desc": "ATK +50",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21011.png"
+    },
+    {
+        "Id": 17,
+        "NeedStrengthenPoint": 16,
+        "Note": "Medium Node",
+        "PointType": 2,
+        "EffectGroupId": 30018.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            16.0,
+            null,
+            null
+        ],
+        "Name": "Infiltration V",
+        "Desc": "ATK +50",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21011.png"
+    },
+    {
+        "Id": 18,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30019.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            16.0,
+            null,
+            null
+        ],
+        "Name": "Barrier III",
+        "Desc": "DEF +500",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32021.png"
+    },
+    {
+        "Id": 19,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30020.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            18.0,
+            null,
+            null
+        ],
+        "Name": "Reconstruction II",
+        "Desc": "HP +500",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21131.png"
+    },
+    {
+        "Id": 20,
+        "NeedStrengthenPoint": 16,
+        "Note": "Medium Node",
+        "PointType": 2,
+        "EffectGroupId": 30021.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            19.0,
+            null,
+            null
+        ],
+        "Name": "Iteration I",
+        "Desc": "All Elemental DMG +15%",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon1.png"
+    },
+    {
+        "Id": 21,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30022.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            20.0,
+            null,
+            null
+        ],
+        "Name": "Optimization III",
+        "Desc": "HP +5%",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21133.png"
+    },
+    {
+        "Id": 22,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30023.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            21.0,
+            null,
+            null
+        ],
+        "Name": "Convolution IV",
+        "Desc": "Starting Processing Units +50",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/Theatre3StrengthenTree001.png"
+    },
+    {
+        "Id": 23,
+        "NeedStrengthenPoint": 24,
+        "Note": "Large Node",
+        "PointType": 3,
+        "EffectGroupId": null,
+        "Condition": null,
+        "PreId": [
+            null,
+            22.0,
+            null,
+            null
+        ],
+        "Name": "Deployment I",
+        "Desc": "After entering the simulation, the first battle additionally drops a random equipment crate.",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/Theatre3StrengthenTree003.png"
+    },
+    {
+        "Id": 24,
+        "NeedStrengthenPoint": 24,
+        "Note": "Large Node",
+        "PointType": 3,
+        "EffectGroupId": 30017.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            16.0,
+            null,
+            null
+        ],
+        "Name": "Load I",
+        "Desc": "All members' equipment weight carrying limit +1",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/Theatre3StrengthenTree005.png"
+    },
+    {
+        "Id": 25,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30025.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            24.0,
+            null,
+            null
+        ],
+        "Name": "Convolution V",
+        "Desc": "Starting Processing Units +50",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/Theatre3StrengthenTree001.png"
+    },
+    {
+        "Id": 26,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30026.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            25.0,
+            null,
+            null
+        ],
+        "Name": "Overflow I",
+        "Desc": "Extra DMG Bonus +5%",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon13001.png"
+    },
+    {
+        "Id": 27,
+        "NeedStrengthenPoint": 16,
+        "Note": "Medium Node",
+        "PointType": 2,
+        "EffectGroupId": 30027.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Name": "Infiltration VI",
+        "Desc": "ATK +50",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21011.png"
+    },
+    {
+        "Id": 28,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30028.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            27.0,
+            null,
+            null
+        ],
+        "Name": "Convolution VI",
+        "Desc": "Starting Processing Units +50",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/Theatre3StrengthenTree001.png"
+    },
+    {
+        "Id": 29,
+        "NeedStrengthenPoint": 8,
+        "Note": "Small Node",
+        "PointType": 1,
+        "EffectGroupId": 30029.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            28.0,
+            null,
+            null
+        ],
+        "Name": "Reconstruction III",
+        "Desc": "HP +500",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21131.png"
+    },
+    {
+        "Id": 30,
+        "NeedStrengthenPoint": 16,
+        "Note": "Medium Node",
+        "PointType": 2,
+        "EffectGroupId": 30030.0,
+        "Condition": null,
+        "PreId": [
+            null,
+            29.0,
+            null,
+            null
+        ],
+        "Name": "Topology II",
+        "Desc": "Starting Recruit Energy +1",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/Theatre3StrengthenTree004.png"
+    }
+]

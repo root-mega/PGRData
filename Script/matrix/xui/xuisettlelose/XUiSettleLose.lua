@@ -1,6 +1,7 @@
 local XUiSettleLose = XLuaUiManager.Register(XLuaUi, "UiSettleLose")
 
 local GridLoseTip = require("XUi/XUiSettleLose/XUiGridLoseTip")
+local XUiStageSettleSound = require("XUi/XUiSettleWin/XUiStageSettleSound")
 
 function XUiSettleLose:OnAwake()
     self:InitAutoScript()
@@ -9,6 +10,14 @@ end
 
 function XUiSettleLose:OnStart()
     local beginData = XDataCenter.FubenManager.GetFightBeginData()
+    if not beginData then
+        self.TxtPeople.text = ""
+        self.TxtStageName.text = ""
+        self.BtnRestart.gameObject:SetActiveEx(false)
+        self.BtnTongRed.gameObject:SetActiveEx(false)
+        self:SetTips(0)
+        return
+    end
     local count = 0
     for _, v in pairs(beginData.CharList) do
         if v ~= 0 then
@@ -29,7 +38,9 @@ function XUiSettleLose:OnStart()
     self.BtnRestart.gameObject:SetActiveEx(showBtnRestart)
     self.BtnTongRed.gameObject:SetActiveEx(stageInfo.Type == XDataCenter.FubenManager.StageType.BabelTower)
     self:SetTips(stageCfg.SettleLoseTipId)
-    CS.XInputManager.SetCurOperationType(CS.XOperationType.System)
+
+    CS.XInputManager.SetCurOperationType(CS.XOperationType.System)    ---@type XUiStageSettleSound
+    self.UiStageSettleSound = XUiStageSettleSound.New(self, self.StageId, false)
 end
 
 function XUiSettleLose:OnEnable()
@@ -42,11 +53,13 @@ function XUiSettleLose:OnEnable()
                 self:Close()
             end, 0)
     end
+    self.UiStageSettleSound:PlaySettleSound()
 end
 
 function XUiSettleLose:OnDestroy()
     XDataCenter.AntiAddictionManager.EndFightAction()
     XEventManager.DispatchEvent(XEventId.EVENT_FIGHT_FINISH_LOSEUI_CLOSE)
+    self.UiStageSettleSound:StopSettleSound()
 end
 
 ---
@@ -133,6 +146,10 @@ function XUiSettleLose:OnBtnLoseClick()
     end
 
     local beginData = XDataCenter.FubenManager.GetFightBeginData()
+    if not beginData then
+        self:Close()
+        return
+    end
     if XDataCenter.ArenaOnlineManager.JudgeGotoMainWhenFightOver(beginData.StageId) then
         return
     end

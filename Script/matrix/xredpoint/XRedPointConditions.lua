@@ -1,6 +1,6 @@
 XRedPointConditionGroup = require("XRedPoint/XRedPointConditionGroup")
-XRedPointEvent = require("XRedPoint/XRedPointEvent")
 XRedPointListener = require("XRedPoint/XRedPointListener")
+XRedPointEvent = require("XRedPoint/XRedPointEvent")
 XRedPointEventElement = require("XRedPoint/XRedPointEventElement")
 
 XRedPointConditions = XRedPointConditions or {}
@@ -20,6 +20,8 @@ XRedPointConditions.Conditions = {
     CONDITION_FRIEND_CHAT_PRIVATE = "XRedPointConditionFriendChatPrivate", --个人私聊信息
     --邮件红点相关 UiMail-----------------------------------------------
     CONDITION_MAIL_PERSONAL = "XRedPointConditionMailPersonal", --邮件
+    CONDITION_MAIL_FAVORITE = "XRedPointConditionMailFavorite", --收藏角色好感度邮件
+    CONDITION_MAIL_FAVORITE_BOX = "XRedPointConditionMailFavoriteBox", --收藏角色好感度邮件
     --主界面红点相关 UiMain-----------------------------------------------
     CONDITION_MAIN_MEMBER = "XRedPointConditionMainMember", --成员
     CONDITION_MAIN_FRIEND = "XRedPointConditionMainFriend", --好友
@@ -28,11 +30,13 @@ XRedPointConditions.Conditions = {
     CONDITION_MAIN_SET = "XRedPointConditionMainSet", --设置
     CONDITION_MAIN_WEEK = "XRedPointConditionMainWeek", --日历
     CONDITION_MAIN_NEWPLAYER_TASK = "XRedPointConditionMainNewPlayerTask", --新手任务
+    CONDITION_MAIN_NEWBIE_TASK = "XRedPointConditionMainNewbieTask", --新手任务二期
     CONDITION_MAIN_TASK = "XRedPointConditionMainTask", --任务
     CONDITION_MAIN_CHAPTER = "XRedPointConditionMainChapter", --主线副本
     CONDITION_BASEEQUIP = "XRedPointConditionBaseEquip", --基地装备
     CONDITION_MAIN_DISPATCH = "XRedPointConditionMainDispatch", --派遣
     CONDITION_MAIN_SPECIAL_SHOP = "XRedPointConditionMainSpecialShop", -- 特殊商店
+    CONDITION_MAIN_TERMINAL = "XRedPointConditionMainTerminal", --终端
     --玩家红点相关 UiPlayer-----------------------------------------------
     CONDITION_PLAYER_SETNAME = "XRedPointConditionPlayerSetName",
     CONDITION_PLAYER_ACHIEVE = "XRedPointConditionPlayerAchieve", --成就标签
@@ -60,6 +64,8 @@ XRedPointConditions.Conditions = {
     CONDITION_EXTRA_TREASURE = "XRedPointConditionExtraTreasure", -- 是否有外篇收集进度
     CONDITION_SHORT_STORY_TREASURE = "XRedPointConditionShortStoryTreasure", -- 是否有故事集收集进度
     CONDITION_NEWCHARACT_TREASURE = "XRedPointConditionNewCharActTreasure", -- 是否有新角色教学关卡收集进度
+    CONDITION_NEWCHARACT_ISCHALLENGEABLE = "XRedPointConditionNewCharIsChallengeable", --新角色挑战关红点
+    CONDITION_NEWCHARACT_SKIP_TRIAL = "XRedPointConditionNewCharSkinTrial", --新角色皮肤试玩tag
     CONDITION_EXPERIMENT_CHAPTER_REWARD = "XRedPointConditionExperimentChapterReward", -- 试玩关章节是否有未领取奖励
     CONDITION_EXPERIMENT_RED = "XRedPointConditionExperimentRed", -- 副本界面试玩关红点条件
     CONDITION_CELICA_TEACH = "XRedpointConditionCelicaTeach", -- 是否满足赛利卡教学
@@ -89,8 +95,10 @@ XRedPointConditions.Conditions = {
     CONDITION_ACTIVITY_NEW_NOTICES = "XRedPointConditionActivityNewNotices", --活动系统-新公告
     CONDITION_ACTIVITY_NEW_ACTIVITY_NOTICES = "XRedPointConditionActivityNewActivityNotices", --活动系统-新活动公告
     CONDITION_ACTIVITY_NEW_ACTIVITIES_TOGS = "XRedPointConditionActivityNewAcitiviesTogs", --活动系统-新活动的标签按钮红点
+    CONDITION_ACTIVITY_SCLASS_GOT = "XRedPointConditionActivitySClassGot", --活动系统-新S构造体领取
     -- 运营相关
     CONDITION_SUBMENU_NEW_NOTICES = "XRedPointConditionSubMenuNewNotices", -- 主界面二级菜单-新按钮
+    CONDITION_SUBMENU_NEW_SYSTEM = "XRedPointConditionSubMenuNewSystem", -- 主界面二级菜单-新按钮(系统层）
     --单机Boss奖励
     CONDITION_BOSS_SINGLE_REWARD = "XRedPointConditionBossSingleReward", --单机Boss奖励领取
     --充值
@@ -105,6 +113,7 @@ XRedPointConditions.Conditions = {
     CONDITION_FURNITURE_CREATE = "XRedPointConditionFurnitureCreate", --是否有家具可以领取
     CONDITION_DORM_WORK_RED = "XRedPointConditionDormWork", -- 宿舍打工
     CONDITION_DORM_MAIN_TASK_RED = "XRedPointConditionDormMainTaskRed", -- 是否有奖励领取(宿舍主界面)
+    CONDITION_DORM_QUEST_TERMINAL = "XRedPointConditionDormQuestTerminal", -- 宿舍委托终端红点
     --研究红点
     CONDITION_ACTIVITYDRAW_RED = "XRedPointConditionActivityDrawNew", -- 研究活动卡池红点
     --头像红点
@@ -115,7 +124,6 @@ XRedPointConditions.Conditions = {
     CONDITION_ACTIVITY_BRIRF_TASK_FINISHED = "XRedPointConditionActivityBriefTaskFinished", --活动简介任务完成
     --复刷关奖励红点
     CONDITION_REPEAT_CHALLENGE_REWARD = "XRedPointConditionRepeatChallengeReward", --是否有复刷关奖励
-    CONDITION_REPEAT_CHALLENGE_CHAPTER_REWARD = "XRedPointConditionRepeatChallengeChapterReward", --是否有复刷关章节进度奖励
     --图鉴红点相关
     CONDITION_ARCHIVE_WEAPON = "XRedPointConditionArchiveWeapon",
     CONDITION_ARCHIVE_AWARENESS = "XRedPointConditionArchiveAwareness",
@@ -146,6 +154,14 @@ XRedPointConditions.Conditions = {
     CONDITION_REGRESSION = "XRedPointConditionRegression", --回归活动（回归任务等后续任务）
     CONDITION_REGRESSION_TASK_TYPE = "XRedPointConditionRegressionTaskType", --回归活动子类型任务（历程、每日、每天）
     CONDITION_REGRESSION_TASK = "XRedPointConditionRegressionTask", --回归活动任务（历程、每日、每天、进度奖励）
+    --回归3期活动
+    CONDITION_REGRESSION3_ALL = "XRedPointConditionRegression3All", --活动入口
+    CONDITION_REGRESSION3_SIGN = "XRedPointConditionRegression3Sign", --签到
+    CONDITION_REGRESSION3_PASSPORT = "XRedPointConditionRegression3Passport", --战令
+    CONDITION_REGRESSION3_TASK = "XRedPointConditionRegression3Task", --任务
+    CONDITION_REGRESSION3_ACTIVITY = "XRedPointConditionRegression3Activity", --新活动
+    CONDITION_REGRESSION3_SHOP = "XRedPointConditionRegression3Shop", --商店
+    CONDITION_REGRESSION3_MAIN = "XRedPointConditionRegression3Main", --主界面
     -- 公会相关红点
     CONDITION_GUILD_MEMBER = "XRedPointConditionGuildMember", --公会成员相关红点
     CONDITION_GUILD_INFO = "XRedPointConditionGuildInformation", --公会主界面信息红点
@@ -153,6 +169,8 @@ XRedPointConditions.Conditions = {
     CONDITION_GUILD_ACTIVEGIFT = "XRedPointConditionGuildActiveGift", --公会活跃度礼包红点
     CONDITION_GUILD_CHALLENGE = "XRedPointConditionGuildChallenge", --公会挑战红点
     CONDITION_GUILD_NEWS = "XRedPointConditionUnGuildNews", --未加入公会收到消息红点
+    CONDITION_GUILD_SIGN_REWARD = "XRedPointGuildDormSignReward", --公会签到奖励
+    CONDITION_GUILD_DORM_BGM = "XRedPointConditionGuildDormBgm", --工会Bgm红点
     -- 工会boss相关红点
     CONDITION_GUILDBOSS_BOSSHP = "XRedPointConditionGuildBossHp", --有工会bosshp宝箱可以领取
     CONDITION_GUILDBOSS_SCORE = "XRedPointConditionGuildBossScore", --有工会boss积分宝箱可以领取
@@ -216,7 +234,8 @@ XRedPointConditions.Conditions = {
     CONDITION_NIER_CHARACTER_RED = "XRedPointConditionNieRCharacterRed",
     -- 特训关三期红点显示
     CONDITION_SPECIALTRAIN_RED = "XRedPointConditionSpecialTrain",
-    CONDITION_SPECIALTRAINPOINT_RED = "XRedPointConditionSpecialTrainPoint",
+    CONDITION_SPECIALTRAINPOINT_RED = "XRedPointConditionSpecialTrainPointAndTask",
+    CONDITION_SPECIALTRAINMAP_RED="XRedPointConditionSpecialTrainNewMap",
     --师徒系统相关红点
     CONDITION_MENTOR_APPLY_RED = "XRedPointConditionMentorApplyRed", --申请列表红点
     CONDITION_MENTOR_REWARD_RED = "XRedPointConditionMentorRewardRed", --奖励红点
@@ -290,9 +309,12 @@ XRedPointConditions.Conditions = {
     CONDITION_INVERTCARDGAME_TOG = "XRedPointConditionInvertCardGameTog", -- 翻牌小游戏左侧标签红点
     --扫雷小游戏
     CONDITION_MINSWEEPING_RED = "XRedPointConditionMineSweepingRed",
-     --门票剩余时有关卡未通关
+    --门票剩余时有关卡未通关
     -- 系列涂装剧情活动
+    CONDITION_FASHION_STORY_ENTRANCE="XRedPointConditionFashionStoryEntrance", --关卡入口蓝点
     CONDITION_FASHION_STORY_HAVE_STAGE = "XRedPointConditionFashionStoryHaveStage", -- 有关卡尚未通关
+    CONDITION_FASHION_STORY_TASK="XRedPointConditionFashionStoryTask", --有任务待领取
+    CONDITION_FASHION_STORY_NEWCHAPTER_UNLOCK="XRedPointConditionFashionStoryNewChapterUnLock", --有待查看的新解锁章节
     --杀戮空间
     XRedPointConditionKillZoneActivity = "XRedPointConditionKillZoneActivity", --入口红点
     XRedPointConditionKillZoneNewChapter = "XRedPointConditionKillZoneNewChapter", --有新章节可挑战
@@ -300,7 +322,7 @@ XRedPointConditions.Conditions = {
     XRedPointConditionKillZoneStarReward = "XRedPointConditionKillZoneStarReward", --星级奖励可领取
     XRedPointConditionKillZoneDailyStarReward = "XRedPointConditionKillZoneDailyStarReward", --每日星级奖励可领取
     XRedPointConditionKillZonePluginOperate = "XRedPointConditionKillZonePluginOperate", --插件待操作
-    --2021端午活动
+    --推箱子解密
     CONDITION_RPG_MAKER_GAME_RED = "XRedPointConditionRpgMakerGame",
     --战斗通行证
     CONDITION_PASSPORT_RED = "XRedPointConditionPassport", --入口红点
@@ -314,10 +336,12 @@ XRedPointConditions.Conditions = {
     CONDITION_SUPERTOWER_ROLE_INDULT = "XRedPointConditionSTRoleInDult", -- 超级爬塔角色特典红点
     --三消
     CONDITION_SAMECOLOR_TASK = "XRedPointConditionSCTask",
+    CONDITION_SAMECOLOR_IS_CHALLENGE = "XRedPointConditionSCIsChallenge",
     --超丽芙预热活动
     CONDITION_LIV_WARM_ACTIVITY_REWARD = "XRedPointConditionLivWarmActivityReward", --消消乐奖励可领取
     CONDITION_LIV_WARM_ACTIVITY_CAN_CHALLENGE = "XRedPointConditionLivWarmActivityCanChallenge",
      --消消乐有代币可使用且存在尚未通关的关卡
+    CONDITION_LIV_WARM_ACTIVITY_SUMMARY = "XRedPointConditionLivWarmActivitySummary", --奖励可领取+有代币且有未完成的关卡
     CONDITION_LIV_WARM_SOUNDS_ACTIVITY_CAN_CHALLENGE = "XRedPointConditionLivWarmSoundsNewStage", --音频解密尚未通关的关卡
     CONDITION_LIV_WARM_SOUNDS_ACTIVITY_REWARD = "XRedPointConditionLivWarmSoundsTaskAward", --音频解密奖励领取
     CONDITION_LIV_WARM_ACTIVITY = "XRedPointConditionLivWarmActivity", --消消乐活动红点汇总
@@ -327,6 +351,7 @@ XRedPointConditions.Conditions = {
     CONDITION_LIV_WARM_RACE_REWARD = "XRedPointConditionLivWarmRaceReward", --奖励可领取
     --全服决战
     XRedPointConditionAreaWarActivity = "XRedPointConditionAreaWarActivity", --活动入口
+    XRedPointConditionAreaWarActivityTag = "AreaWar/XRedPointConditionAreaWarActivityTag", --活动入口Tag
     XRedPointConditionAreaWarTask = "XRedPointConditionAreaWarTask", --任务奖励
     XRedPointConditionAreaWarHangUpReward = "XRedPointConditionAreaWarHangUpReward", --挂机收益
     XRedPointConditionAreaWarSpecialRoleReward = "XRedPointConditionAreaWarSpecialRoleReward", --特攻角色奖励
@@ -351,9 +376,15 @@ XRedPointConditions.Conditions = {
     CONDITION_MAVERICK_PATTERN = "XRedPointConditionMaverickPattern",
     CONDITION_MAVERICK_CHARACTER = "XRedPointConditionMaverickCharacter",
     CONDITION_MAVERICK_CHARACTER_MAIN = "XRedPointConditionMaverickCharacterMain",
+    --异构阵线2.0
+    CONDITION_MAVERICK2 = "XRedPointConditionMaverick2",
     --肉鸽玩法
     CONDITION_THEATRE_ALL_RED_POINT = "XRedPointConditionTheatreAllRedPoint", -- 所有红点
     CONDITION_THEATRE_TASK_REWARD_RED_POINT = "XRedPointConditionTheatreTaskRewardRedPoint", --有可领取的任务奖励
+    --肉鸽2.0
+    CONDITION_BIANCATHEATRE_ALL_RED_POINT = "XRedPointConditionBiancaTheatreAllRedPoint", -- 所有红点
+    CONDITION_BIANCATHEATRE_TASK_REWARD_RED_POINT = "XRedPointConditionBiancaTheatreTaskReward", --有可领取的任务奖励
+    CONDITION_BIANCATHEATRE_ACHIEVEMENT_RED_POINT = "XRedPointConditionBiancaTheatreAchievement", --有可领取的成就奖励
     --末日生存
     XRedPointConditionDoomsdayActivity = "XRedPointConditionDoomsdayActivity", --活动入口
     XRedPointConditionDoomsdayTask = "XRedPointConditionDoomsdayTask", --任务奖励
@@ -362,7 +393,8 @@ XRedPointConditions.Conditions = {
     CONDITION_PIVOTCOMBAT_TASK_REWARD_RED_POINT = "XRedPointConditionPivotCombatTaskRewardRedPoint", --有可领取的任务奖励
     CONDITION_PIVOTCOMBAT_NEW_AREA_OPEN_RED_POINT = "XRedPointConditionPivotCombatNewAreaOpenRedPoint", --新区域开放
     --大逃杀
-    XRedPointConditionEscapeTask = "XRedPointConditionEscapeTask", --任务奖励
+    XRedPointConditionEscapeTask = "XEscape/XRedPointConditionEscapeTask", --任务奖励
+    CONDITION_ESCAPE_ACTIVITY_CHALLENGE = "XEscape/XRedPointConditionEscapeActivityChallenge", --任务奖励
     
     --元旦奖券小游戏
     CONDITION_NEW_YEAR_LUCK_RULE_RED = "XRedPointConditionNewYearLuckRuleRed",  --开奖规则红点
@@ -372,7 +404,10 @@ XRedPointConditions.Conditions = {
     CONDITION_BODYCOMBINEGAME_UNLOCKED_STAGE = "XRedPointBodyCombineGameUnlockedStage", -- 有新关卡可解锁
     CONDITION_BODYCOMBINEGAME_UNFINISHALL = "XRedPointBodyCombineGameUnFinishAll", --是否完成全部关卡
     --公会战
+    CONDITION_GUILDWAR_Main = "XRedPointConditionGuildWarMain", -- 公会战
     CONDITION_GUILDWAR_TASK = "XRedPointConditionGuildWarTaskRed", -- 公会战任务红点
+    CONDITION_GUILDWAR_SUPPLY = "XRedPointConditionGuildWarSupply", -- 领取补给
+    CONDITION_GUILDWAR_ASSISTANT = "XRedPointConditionGuildWarAssistant",  -- 提供支援角色
 
     --动作塔防
     CONDITION_DOUBLE_TOWERS = "XRedPointConditionDoubleTowers",
@@ -391,17 +426,81 @@ XRedPointConditions.Conditions = {
     --白情活动
     CONDITION_ACTIVITY_WHITE_VALENTINE = "XRedPointConditionActivityWhiteValentine",
     --节日活动
+    CONDITION_ACTIVITY_FESTIVAL_MAIN = "XRedPointConditionActivityFestivalMain", -- 活动入口
     CONDITION_ACTIVITY_FESTIVAL = "XRedPointConditionActivityFestival",
+    CONDITION_ACTIVITY_DRAGON_BOAT_FESTIVAL = "XRedPointConditionActivityDragonBoatFestival", -- 端午节活动
     --音游
     CONDITION_ACTIVITY_TAIKO_MASTER = "XRedPointConditionActivityTaikoMaster",
     CONDITION_ACTIVITY_TAIKO_MASTER_CD_UNLOCK = "XRedPointConditionActivityTaikoMasterCdUnlock",
     CONDITION_ACTIVITY_TAIKO_MASTER_TASK = "XRedPointConditionActivityTaikoMasterTask",
     -- 多维挑战
     CONDITION_MULTI_DIM_FIRST_REWARD = "XRedPointConditionMultiDimFirstReward",
+    --正逆塔
+    CONDITION_TWO_SIDE_TOWER_TASK = "XRedPointTwoSideTowerTask",
+    CONDITION_TWO_SIDE_TOWER_NEW_CHAPTER = "XRedPointTwoSideTowerNewChapter",
+    --装备目标
+    CONDITION_EQUIP_GUIDE_CAN_EQUIP = "XRedPointEquipGuideCanEquip", --有装备可以装备
+    CONDITION_EQUIP_GUIDE_HAS_STRONGER_WEAPON = "XRedPointEquipGuideHasStrongerWeapon", --武器升强提醒
+    -- v1.30 考级红点
+    CONDITION_COURSE_BANNER = "XRedPointConditionCourseBanner",   -- 海报红点
+    CONDITION_COURSE_LESSON_TOG = "XRedPointConditionCourseLessonTog",   -- 课程页签红点
+    CONDITION_COURSE_EXAM_TOG = "XRedPointConditionCourseExamTog",   -- 考级页签红点
+    CONDITION_DRAW_FREE_TAG = "XRedPointDrawFreeTag", --主界面免费抽卡tag
+    -- 夏日签到
+    CONDITION_SUMMER_SIGNIN_ACTIVITY = "XRedPointConditionSummerSignInActivity", -- 活动入口
+    -- 大秘境
+    CONDITION_RIFT_ENTRANCE = "XRedPointConditionRiftEntrance", -- 活动入口
+    CONDITION_RIFT_ATTRIBUTE = "XRedPointConditionRiftAttribute", -- 属性加点界面入口
+    -- 调色板战争
+    CONDITION_COLORTABLE_ENTRANCE = "XRedPointConditionColorTableEntrance", -- 活动入口
+
+    --涂装投票
+    CONDITION_SKIN_VOTE_ENTRANCE = "XRedPointConditionSkinVoteEntrance", -- 活动入口
+    --光辉同行-----------------------------------------------
+    CONDITION_BRILLIANTWALK_ENTRANCE = "XRedPointConditionBrilliantWalk", -- 活动入口
+    CONDITION_BRILLIANTWALK_REWARD = "XRedPointConditionBrilliantWalkTask", --任务奖励变动
+    CONDITION_BRILLIANTWALK_PLUGIN = "XRedPointConditionBrilliantWalkPlugin", --插件解锁状态变动
+    --海外
     CONDITION_NEWYEARDIVINING_NOTGET = "XRedPointConditionNewYearDiviningNotGet",
     --日服老虎机活动红点
     CONDITION_SLOTMACHINE_RED = "XRedPointConditionSlotMachine",
     CONDITION_SLOTMACHINE_REDL = "XRedPointConditionSlotMachineL",
+    --餐厅
+    CONDITION_RESTAURANT_ENTRANCE = "XRedPointConditionRestaurantEntrance", --活动入口
+    -- 本我回廊（角色塔）
+    CONDITION_CHARACTER_TOWER_ENTRANCE = "XRedPointConditionCharacterTowerEntrance", -- 活动入口
+    --DLC分包下载
+    CONDITION_SUB_PACKAGE_DOWNLOAD_ENTRANCE = "XRedPointConditionSubpackageDownloadEntrance", --分包下载入口
+    --道具收藏
+    CONDITION_ITEM_COLLECTION_ENTRANCE = "XRedPointConditionItemCollectionEntrance", -- 道具收藏入口
+    --情人节活动2023
+    CONDITION_MAZE = "XRedPointConditionMaze", -- 情人节活动2023
+    --情人节活动2023 第一次打开
+    CONDITION_MAZE_FIRST_TIME = "XRedPointConditionMazeFirstTime", -- 情人节活动2023
+    -- bvb
+    CONDITION_MONSTER_COMBAT_ACTIVITY = "XRedPointConditionMonsterCombatActivity", -- 活动入口
+    CONDITION_MONSTER_COMBAT_NEW_CHAPTER = "XRedPointConditionMonsterCombatNewChapter", -- 新章节
+    -- 行星环游记
+    CONDITION_PLANET_RUNNING_ACTIVITY = "XPlanetRunning/XRedPointConditionPlanetRunningActivity", -- 活动入口
+    CONDITION_PLANET_RUNNING_REWARD = "XPlanetRunning/XRedPointConditionPlanetRunningReward", -- 奖励
+    CONDITION_PLANET_RUNNING_NEW_CHAPTER = "XPlanetRunning/XRedPointConditionPlanetRunningNewChapter", -- 新章节
+    -- 老虎机活动红点
+    CONDITION_SLOT_MACHINE_RED = "XRedPointConditionSlotMachine",
+    -- 场景切换
+    CONDITION_SCENE_SETTING='XRedPointConditionUiSceneSetting',
+    -- 新活动周历
+    CONDITION_NEW_ACTIVITY_CALENDAR_RED = "XRedPointConditionNewActivityCalendarRed", -- 活动入口
+    --超难关剧情
+    CONDITION_ACTIVITY_BOSS_SINGLE_NEW="XRedPointActivityBossSingleStoryNew", --超难关新解锁剧情
+    --超限连战
+    CONDITION_TRANSFINITE = "XTransfinite/XRedPointTransfinite", -- 有奖励
+    --黄金矿工
+    CONDITION_GOLDEN_MINER_REWARD = "XGoldenMiner/XRedPointConditionGoldenMinerReward", -- 有奖励
+    --大转盘
+    CONDITION_TURNTABLE_SUMMARY = "XRedPointConditionTurntableSummary",
+    CONDITION_TURNTABLE_TASK = "XRedPointConditionTurntableTask",       --有任务奖励
+    CONDITION_TURNTABLE_REWARD = "XRedPointConditionTurntableReward",   --有累计奖励
+    CONDITION_TURNTABLE_TIMES = "XRedPointConditionTurntableTimes",     --还剩72h结束时有抽奖次数
 }
 --注册所有条件
 function XRedPointConditions.RegisterAllConditions()

@@ -18,7 +18,7 @@ local TakeState = {
     Change = 3,
 }
 
-function XUiPartnerCarry:OnStart(characterId,IsCanSkipProperty)
+function XUiPartnerCarry:OnStart(characterId,IsCanSkipProperty, closeCallback)
     self.CurCarrierId = characterId
     self.AssetPanel = XUiPanelAsset.New(self, self.PanelAsset, XDataCenter.ItemManager.ItemId.FreeGem, XDataCenter.ItemManager.ItemId.ActionPoint, XDataCenter.ItemManager.ItemId.Coin)
     self:SetButtonCallBack()
@@ -27,6 +27,7 @@ function XUiPartnerCarry:OnStart(characterId,IsCanSkipProperty)
     self.MainSkillGrid = {}
     self.PassiveSkillGrid = {}
     self.IsCanSkipProperty = IsCanSkipProperty
+    self.CloseCallback = closeCallback
 end
 
 function XUiPartnerCarry:OnDestroy()
@@ -42,6 +43,10 @@ end
 function XUiPartnerCarry:OnDisable()
     XEventManager.RemoveEventListener(XEventId.EVENT_PARTNER_CARRY, self.ShowHint, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_PARTNER_SKILLCHANGE, self.UpdatePanel, self)
+    if self.CloseCallback then
+        self.CloseCallback()
+        self.CloseCallback = nil
+    end
 end
 
 function XUiPartnerCarry:SetButtonCallBack()

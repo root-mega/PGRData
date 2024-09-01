@@ -240,3 +240,11 @@ function XUiGuildGift:GetGridCount()
     if not self.LastSelectGrid then return end
     return self.LastSelectGrid.Gift.ItemCount
 end
+
+function XUiGuildGift:OnEnable()
+
+end
+
+function XUiGuildGift:OnDisable()
+
+end

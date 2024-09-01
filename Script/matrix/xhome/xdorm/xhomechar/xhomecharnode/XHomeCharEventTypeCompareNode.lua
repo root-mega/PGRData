@@ -16,8 +16,12 @@ end
 
 
 function XHomeCharEventTypeCompareNode:OnEnter()
-    local result = self.AgentProxy:CheckEventCompleted(self.EventType, function()
-        self.Node.Status = CsNodeStatus.SUCCESS
+    local result = self.AgentProxy:CheckEventCompleted(self.EventType, function(isFailed)
+        if not isFailed then
+            self.Node.Status = CsNodeStatus.SUCCESS
+        else
+            self.Node.Status = CsNodeStatus.FAILED
+        end
     end)
 
     if not result then

@@ -1,0 +1,26 @@
+[
+    {
+        "Id": 25,
+        "TriggerId": 1,
+        "VCameraName": "MHWCam1",
+        "DollyTrackId": 24,
+        "BlendIn": 1,
+        "BlendOut": 1,
+        "Position": "0, 0, 0",
+        "EulerAngles": "0,-90,0",
+        "Priority": 100,
+        "AllClient": 1
+    },
+    {
+        "Id": 27,
+        "TriggerId": 1,
+        "VCameraName": "MHWCam0",
+        "DollyTrackId": 26,
+        "BlendIn": 1,
+        "BlendOut": 1,
+        "Position": "0, 0, 0",
+        "EulerAngles": "0,-90,0",
+        "Priority": 100,
+        "AllClient": 1
+    }
+]

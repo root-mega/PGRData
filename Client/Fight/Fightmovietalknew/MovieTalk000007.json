@@ -1,0 +1,1807 @@
+[
+    {
+        "Id": 1,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "ZWH",
+        "Text": "Roguelike 3.0 Karenina Idol Stage",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/HanyingNormal01.png",
+        "Name": "Person on the Left",
+        "Text": "This Is a Dialogue 1",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/HanyingNormal01.png",
+        "Name": "<color=#7FFF00>Person on the Left</color>",
+        "Text": "<color=#7FFF00>This Is a Dialogue 1 (Portrait Reversed)</color>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            1.0
+        ]
+    },
+    {
+        "Id": 12,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/HanyingNormal01.png",
+        "Name": "<size=30>Person on the Left</size>",
+        "Text": "<size=30>This Is a Dialogue 1 (Start Playalone)</size>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            1.0,
+            null
+        ]
+    },
+    {
+        "Id": 13,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/HanyingNormal01.png",
+        "Name": "Person on the Left",
+        "Text": "This Is a Dialogue 1 (Portrait Reversed, Start Playalone)",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "Id": 14,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/BiancaTheatreShashibierNormal01.png",
+        "Name": "Person on the Right",
+        "Text": "This Is a Dialogue 2",
+        "Duration": null,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/BiancaTheatreShashibierNormal01.png",
+        "Name": "Person on the Right",
+        "Text": "This Is a Dialogue 2 (Portrait Reversed)",
+        "Duration": null,
+        "Params": [
+            null,
+            1.0,
+            null,
+            1.0
+        ]
+    },
+    {
+        "Id": 16,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V250ylsNormal03.png",
+        "Name": "Insert a Person on the Left",
+        "Text": "This Is a Dialogue 3 (Start Playalone)",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            1.0,
+            null
+        ]
+    },
+    {
+        "Id": 17,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V250ylsNormal02.png",
+        "Name": "Insert a Person on the Right",
+        "Text": "This Is a Dialogue 4 (Start Playalone)",
+        "Duration": null,
+        "Params": [
+            null,
+            1.0,
+            1.0,
+            null
+        ]
+    },
+    {
+        "Id": 20,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal01.png",
+        "Name": null,
+        "Text": "<color=#7FFF00>Upper Left Dialogue 1</color>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 21,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal02.png",
+        "Name": null,
+        "Text": "<size=30>Upper Left Dialogue 2</size>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 22,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal03.png",
+        "Name": null,
+        "Text": "Upper Left Dialogue 3 (1s)",
+        "Duration": 1.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 23,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal04.png",
+        "Name": null,
+        "Text": "Upper Left Dialogue 4 (3s)",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "<color=#7FFF00>Cutscene 1</color>",
+        "Text": "<color=#7FFF00>This Is a Dialogue 1</color>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 31,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": null,
+        "Text": "<size=30>This Is a Dialogue 2</size>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 32,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Cutscene 3",
+        "Text": "This Is a Dialogue 3 (3s)",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 40,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "<color=#7FFF00>Online Dialogue A</color>",
+        "Text": "<color=#7FFF00>Online Dialogue 123</color>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 41,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": null,
+        "Text": "Online Dialogue 234 (3s)",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 42,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Online Dialogue With Only Names",
+        "Text": null,
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 50,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal01.png",
+        "Name": "<color=#7FFF00>Custom Chat Box</color>",
+        "Text": "<size=30>Custom Chat Box 1</size>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 51,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal02.png",
+        "Name": "<size=15>Custom Chat Box</size>",
+        "Text": "<color=#7FFF00>Custom Chat Box 2</color>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 52,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal03.png",
+        "Name": "Custom Chat Box",
+        "Text": "Custom Chat Box 3 (3s)",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 53,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal03.png",
+        "Name": "Roguelike 3.0",
+        "Text": "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 100,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90030.png",
+        "Name": "Wrench",
+        "Text": "<size=40><color=#7FFF00>Rex - Q - Star Slashing Demon Sword - Wrench Boy</color></size> coming onto the stage, heehee! You little brat, I'll break you down into jingling parts!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 101,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90030.png",
+        "Name": "King Wrench XIV",
+        "Text": "Get ready to have your ass kicked all the way back to Star of Life!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 111,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90030.png",
+        "Name": "King Wrench XIV",
+        "Text": "What a good fight! Oh, it's already six-thirty? Gotta run!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 121,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90030.png",
+        "Name": "King Wrench XIV",
+        "Text": "Fell down already even before I released my true power? Hello, Star of Life? We need first aid here...",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 200,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/Mo1KuroMd000001.png",
+        "Name": "Kuroro",
+        "Text": "Kuku? Ku... kukukukuku!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 201,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90030.png",
+        "Name": "Kuroro",
+        "Text": "Don't hit me kuku!!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 300,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/TieqiuTheatre305.png",
+        "Name": "Eye of Horus",
+        "Text": "Mirror disguise failed. Switch to combat mode.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 301,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/TifaTheatre303.png",
+        "Name": "Sisyphus",
+        "Text": "Even a great man would make mistakes. You won't always be this lucky.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 302,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/TifaTheatre303.png",
+        "Name": "Sisyphus",
+        "Text": "Boring. Just stay in the mist.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 303,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/BalaswordNomal.png",
+        "Name": "Sword of the Brave",
+        "Text": "Borrowing courage from the weak will not make you any stronger.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 304,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/BalaswordNomal.png",
+        "Name": "Sword of the Brave",
+        "Text": "Embrace your demise, you reckless weak.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 305,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/Tongyonggouzaoti01Nomal02.png",
+        "Name": "Tracker",
+        "Text": "Prey detected! Prey detected! Destroy!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 306,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V250sytNormal01.png",
+        "Name": "Gate Keeper",
+        "Text": "Losers, are you the one who stole from me?",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 307,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/MajiyaweiliTheatre302.png",
+        "Name": "Mirror Image of Wisdom",
+        "Text": "Wisdom is the source of virtues.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 308,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/MajiyaweiliTheatre302.png",
+        "Name": "Mirror Image of Wisdom",
+        "Text": "All sins come from ignorance.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 309,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/MajiyaweiliTheatre302.png",
+        "Name": "Mirror Image of Wisdom",
+        "Text": "Rude intruder, atone here!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 310,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/AnboliyaTheatre301.png",
+        "Name": "Mirror Image of Authority",
+        "Text": "Defeat me and prove your competence.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 311,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/AnboliyaTheatre301.png",
+        "Name": "Mirror Image of Authority",
+        "Text": "Defeat me and prove you are worthy of that treasure.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 312,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/AnboliyaTheatre301.png",
+        "Name": "Mirror Image of Authority",
+        "Text": "Defeating me is out of your capability.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 313,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V230bossTheatre304.png",
+        "Name": "Mirror Image of Power",
+        "Text": "I shall bestow three prophecies on you.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 314,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V230bossTheatre304.png",
+        "Name": "Mirror Image of Power",
+        "Text": "Failure, destruction, regrets.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 315,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V230bossTheatre304.png",
+        "Name": "Mirror Image of Power",
+        "Text": "Take these curses.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 316,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V210llsNormal02.png",
+        "Name": "Mirror Image of Lust",
+        "Text": "Trying to get away? Impossible.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 317,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V210llsNormal02.png",
+        "Name": "Mirror Image of Lust",
+        "Text": "Dance with me and kiss despair.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 318,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V210llsNormal02.png",
+        "Name": "Mirror Image of Lust",
+        "Text": "You shall fall here, Lost Soul.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 500,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90030.png",
+        "Name": "Karenina Coating Stage",
+        "Text": "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 501,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Good afternoon, dear guests. Welcome to Constellia's first Paradise Festival Store Support Event! I'm Cathy, and I'll be your guide for this event.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 502,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "This event is a small-scale fair designed based on the records from the Golden Age. We've taken inspiration from various activities that people of different ages and backgrounds used to participate in during that time.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 503,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Play three simple mini-games at the venue and collect Cathy's Special\u2606Stamps to win a big prize. Would you two like to team up and join the fun?",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 504,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Collecting stamps, huh? That actually sounds interesting. You must be itching to play it, Commandant. Well, I suppose I can join you for a round or two.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 505,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Com\u2014man\u2014dant? Where are you going?!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 506,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "The guide has been really kind to us. It's so... so rude of you to walk away like that!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 507,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "You've successfully signed up. The stamp card will be sent to your terminals. If you don't receive it, please remember to check your spam folder.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 508,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Welcome to the first stage: everyone's favorite mind-game session. We have four wanted Kuroros, looking like strange white cubes, that have escaped into the hall. Your mission is to apprehend all of them, and if you complete it within 60 seconds, there's a bonus reward waiting for you.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 509,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Isn't this just hide-and-seek? Must be a piece of cake for you, right, Commandant?",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 510,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Congratulations, you've completed the challenge within the time limit. Let's proceed to the next stage.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 511,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "The four arrested Kuroros gave the following statements, and only one Kuroro told a lie. Which one is the real culprit?",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 512,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Sorry, you didn't complete the challenge within the time limit. Let's proceed to the next stage.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 513,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "The four arrested Kuroros gave the following statements, and only one Kuroro told a lie. Which one is the real culprit?",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 514,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Congratulations, the answer is correct. Stage cleared. Please turn on your terminal and receive the e-stamp.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 515,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Sorry, the answer is incorrect, but don't feel discouraged. Stage cleared. Please turn on your terminal and receive the e-stamp.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 516,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Here is the second stage: the all-time favorite photo-shooting session! We've got some rules for you to read, inspired by the Golden Age's million-plus hits, \"Share it with Your Partner: One Hundred Tips for Taking Couple Pictures\".",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 517,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Geez... So much to pay attention to! Good positioning, lighting, and even photo-editing skills... Talk about a hassle just for some photos.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 518,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Wait, it's all about couple... Forget it! Since you've said that... I guess we can...",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 519,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Please head to the designated photo-shooting location. Feel free to contact me if you need to change the ambiance.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 520,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Is this... all right then?",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 521,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Are you ready to wrap up the photo-shooting session? Note: The system suggests that female Constructs try poses with reference to Golden Age idols, which is speculated to increase favoritism among companions by 48.9%.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 522,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Hm... Up to you, Commandant...",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 523,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Commandant... C-close your eyes! I'll do a quick research. Give me some time to practice...",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 524,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Alright... Huh? Did all the idols in the Golden Age have to strike such embarrassing poses?",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 525,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Phew... Alright, it's done! This kind of challenge is too easy for me!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 526,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Hm... Let's wrap things up here and move on to the next stage.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 527,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Stage cleared. Please turn on your terminal and receive the e-stamp.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 528,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "And now, it's time for the third stage: the ever-popular monster-beating session! You'll have a friendly exhibition match with our staff.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 529,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "This exhibition match will be live-streamed to other halls. Please give me a second. I'll set up the venue for you and call over the staff.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 530,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Welcome to watch the 78th exhibition match of the day!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 531,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "On the red team, we have the captain of the Babylonia Engineering Force: Neon Dynamite \u2606 Karenina!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 532,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Why does this mechanoid look so much like that Hetero-Creature on the moon from before...",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 533,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "On the blue team, we have the most advanced mechanoid joining us, generously lending a hand from the Moon Hall next door\u2014Mechanoid Variant.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 534,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster93361.png",
+        "Name": "Mechanoid Variant",
+        "Text": "Warning: Existing logs of the same opponents inflicting lethal destruction. Suggestion: Avoid conflict.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 535,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "3\u20142\u20141\u2014 Start!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 536,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Congratulations, you've completed all three stages! Please turn on your terminal and receive the third e-stamp.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 537,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Guide Cathy",
+        "Text": "Please note that a special prize worth ten million Cogs has been sent to your terminal to reward your outstanding performance.",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 538,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "A prize worth ten million Cogs? Let me see... What? A ten million Cog voucher if I buy thirty million Cogs worth of ice cream?",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 539,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Em... Well... Thank you, Commandant... I like it a lot...",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 540,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V260klnnNormal03.png",
+        "Name": "Karenina",
+        "Text": "Not too bad... Let's not waste more time here and head to the next hall!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 550,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleMonster/RoleMonster90710.png",
+        "Name": "Bit-Part 1",
+        "Text": "[Cathy]: Don't forget to follow us!",
+        "Duration": 4.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 551,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyongjianyingNomal01.png",
+        "Name": "Bit-Part 2",
+        "Text": "[Anonymous Viewer] gifted Cog*100",
+        "Duration": 4.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 552,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/JiaoguanNormal01.png",
+        "Name": "Bit-Part 3",
+        "Text": "[Anonymous Viewer]: Incredible performance!",
+        "Duration": 4.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 554,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyongjianyingNomal01.png",
+        "Name": "Bit-Part 4",
+        "Text": "[Anonymous Viewer] shared the stream.",
+        "Duration": 4.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 555,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/JiaoguanNormal01.png",
+        "Name": "Bit-Part 5",
+        "Text": "[Anonymous Viewer] liked the stream.",
+        "Duration": 4.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 556,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyongjianyingNomal01.png",
+        "Name": "Bit-Part 5",
+        "Text": "[Anonymous Viewer]: kawaii girl",
+        "Duration": 4.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    }
+]

@@ -102,6 +102,14 @@ XAutoWindowManagerCreator = function()
                 goto continue
             end
 
+            -- 对回归活动特殊处理
+            if v.FunctionType == XAutoWindowConfigs.AutoFunctionType.Regression3rd then
+                if XDataCenter.Regression3rdManager.CheckOpenAutoWindow() then
+                    table.insert(AutoWindowList, v)
+                end
+                goto continue
+            end
+
             local openTime = XFunctionManager.GetStartTimeByTimeId(v.TimeId)
             if not XFunctionManager.CheckInTimeByTimeId(v.TimeId) then
                 goto continue
@@ -119,6 +127,21 @@ XAutoWindowManagerCreator = function()
                     goto continue
                 end
                 XDataCenter.SignInManager.SetNotifySign(false)
+            end
+
+            if v.FunctionType == XAutoWindowConfigs.AutoFunctionType.SClassConstructNovice then
+                local paramId = XFunctionConfig.GetParamId(v.SkipId)
+                local subConfigId = XSignInConfigs.GetWelfareConfig(paramId).SubConfigId
+                local signInData = XDataCenter.SignInManager.GetSignInData(subConfigId)
+                if not signInData or (signInData and signInData.Got) then
+                    goto continue
+                end
+            end
+
+            if v.FunctionType == XAutoWindowConfigs.AutoFunctionType.SummerSignIn then
+                if not XDataCenter.SummerSignInManager.CheckIsNeedAutoWindow() then
+                    goto continue
+                end
             end
 
             if not CheckAutoType(v.AutoType, v.AutoCount, v.Id, openTime) then

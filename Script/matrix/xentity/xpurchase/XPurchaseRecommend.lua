@@ -1,3 +1,4 @@
+---@class XPurchaseRecommend
 local XPurchaseRecommend = XClass(nil, "XPurchaseRecommend")
 
 function XPurchaseRecommend:Ctor(id)
@@ -71,10 +72,12 @@ function XPurchaseRecommend:GetIsInTime()
     if endTime > 0 and nowTime >= endTime then
         return false
     end
+    --[[
     -- 配好礼包Id但一个礼包数据都找不到
     if #self:GetPurchasePackageIdList() and XTool.IsTableEmpty(self:GetPurchasePackage()) then
         return false
     end
+    ]]
     return true
 end
 
@@ -99,16 +102,25 @@ function XPurchaseRecommend:GetSkipSteps()
     -- 优化前判空逻辑过渡
     if not XTool.IsTableEmpty(self.Config.SkipSteps) then return self.Config.SkipSteps end
     local skipSteps = {}
-    if self.Config.UiType then
+
+    -- 配置SkipId跳转
+    if self.Config.SkipType == XPurchaseConfigs.RecommendSkipType.SkipId and self.Config.SkipId then
+        skipSteps[1] = self.Config.SkipType
+        skipSteps[2] = self.Config.SkipId
+        return skipSteps
+
+    -- 默认礼包内跳转
+    elseif self.Config.UiType then
         local tabsCfg = XPurchaseConfigs.GetGroupConfigType()
         local index = 1
         for step1, tab in pairs(tabsCfg)do
             local childs = tab.Childs
             for step2, uiTypes in pairs(childs)do
                 if uiTypes.UiType == self.Config.UiType then
-                    skipSteps[1] = step1
-                    skipSteps[2] = step2
-                    break
+                    skipSteps[1] = XPurchaseConfigs.RecommendSkipType.Lb
+                    skipSteps[2] = step1
+                    skipSteps[3] = step2
+                    return skipSteps
                 end
             end
         end

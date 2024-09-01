@@ -1,3 +1,4 @@
+---@class XUiReportGrid
 local XUiReportGrid = XClass(nil, "XUiReportGrid")
 
 function XUiReportGrid:Ctor(ui)

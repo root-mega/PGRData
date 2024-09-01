@@ -22,7 +22,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk01Hit"
+            null,
+            "FxR3LuosaitaAtk01Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -32,9 +34,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -50,9 +70,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110501021.0,
         "Magic": [
-            110501.0
+            null,
+            110501.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -62,7 +93,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -76,7 +107,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110501022.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050203,
@@ -101,7 +135,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk02Hit"
+            null,
+            "FxR3LuosaitaAtk02Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -111,9 +147,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -129,10 +183,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110502031.0,
         "Magic": [
+            null,
             110502.0,
-            110507.0
+            110507.0,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.5,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -156,7 +220,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050302,
@@ -181,7 +248,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk03Hit"
+            null,
+            "FxR3LuosaitaAtk03Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -191,9 +260,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -209,9 +296,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110503021.0,
         "Magic": [
-            110503.0
+            null,
+            110503.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.5,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -221,7 +319,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -235,7 +333,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110503022.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050303,
@@ -260,7 +361,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk03Hit"
+            null,
+            "FxR3LuosaitaAtk03Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -270,9 +373,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -288,9 +409,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110503031.0,
         "Magic": [
-            110503.0
+            null,
+            110503.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.5,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -300,7 +432,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -314,7 +446,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110503032.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050402,
@@ -339,7 +474,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk04Hit01"
+            null,
+            "FxR3LuosaitaAtk04Hit01",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -349,9 +486,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -367,9 +522,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110504021.0,
         "Magic": [
-            110504.0
+            null,
+            110504.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -379,7 +545,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -393,7 +559,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050501,
@@ -418,7 +587,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk05Hit"
+            null,
+            "FxR3LuosaitaAtk05Hit",
+            null
         ],
         "DamageInterval": 0.15,
         "StartJoint": null,
@@ -428,9 +599,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -446,9 +635,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110505011.0,
         "Magic": [
-            110505.0
+            null,
+            110505.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -458,7 +658,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -472,7 +672,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110505012.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050601,
@@ -497,7 +700,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk0601Hit"
+            null,
+            "FxR3LuosaitaAtk0601Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -507,9 +712,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -525,9 +748,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110506011.0,
         "Magic": [
-            110506.0
+            null,
+            110506.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -537,7 +771,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -551,7 +785,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110506012.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050602,
@@ -576,7 +813,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk0602Hit"
+            null,
+            "FxR3LuosaitaAtk0602Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -586,9 +825,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -604,11 +861,19 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110506021.0,
         "Magic": [
+            null,
             110506.0,
-            110508.0
+            110508.0,
+            null,
+            null,
+            null
         ],
         "MagicLauncherNpc": [
-            110508.0
+            null,
+            110508.0,
+            null,
+            null,
+            null
         ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
@@ -619,7 +884,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -633,7 +898,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050702,
@@ -658,7 +926,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk11Hit"
+            null,
+            "FxR3LuosaitaAtk11Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -668,9 +938,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -686,9 +974,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110507021.0,
         "Magic": [
-            110511.0
+            null,
+            110511.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -698,7 +997,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -712,7 +1011,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050703,
@@ -737,7 +1039,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk11Hit"
+            null,
+            "FxR3LuosaitaAtk11Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -747,9 +1051,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -765,9 +1087,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110507031.0,
         "Magic": [
-            110511.0
+            null,
+            110511.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -777,7 +1110,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -791,7 +1124,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050704,
@@ -816,7 +1152,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk11Hit"
+            null,
+            "FxR3LuosaitaAtk11Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -826,9 +1164,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -844,9 +1200,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110507041.0,
         "Magic": [
-            110511.0
+            null,
+            110511.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -856,7 +1223,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -870,7 +1237,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050802,
@@ -895,7 +1265,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk11Hit"
+            null,
+            "FxR3LuosaitaAtk11Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -905,9 +1277,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -923,9 +1313,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110508021.0,
         "Magic": [
-            110512.0
+            null,
+            110512.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -935,7 +1336,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -949,7 +1350,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050803,
@@ -974,7 +1378,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk11Hit"
+            null,
+            "FxR3LuosaitaAtk11Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -984,9 +1390,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1002,9 +1426,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110508031.0,
         "Magic": [
-            110512.0
+            null,
+            110512.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -1014,7 +1449,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -1028,7 +1463,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050804,
@@ -1053,7 +1491,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk11Hit"
+            null,
+            "FxR3LuosaitaAtk11Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -1063,9 +1503,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1081,9 +1539,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110508041.0,
         "Magic": [
-            110512.0
+            null,
+            110512.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -1093,7 +1562,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -1107,7 +1576,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050902,
@@ -1132,7 +1604,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk11Hit"
+            null,
+            "FxR3LuosaitaAtk11Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -1142,9 +1616,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1160,9 +1652,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110509021.0,
         "Magic": [
-            110513.0
+            null,
+            110513.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -1172,7 +1675,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -1186,7 +1689,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050903,
@@ -1211,7 +1717,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk11Hit"
+            null,
+            "FxR3LuosaitaAtk11Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -1221,9 +1729,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1239,9 +1765,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110509031.0,
         "Magic": [
-            110513.0
+            null,
+            110513.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -1251,7 +1788,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -1265,7 +1802,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11050904,
@@ -1290,7 +1830,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk11Hit"
+            null,
+            "FxR3LuosaitaAtk11Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -1300,9 +1842,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1318,9 +1878,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110509041.0,
         "Magic": [
-            110513.0
+            null,
+            110513.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -1330,7 +1901,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -1344,7 +1915,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051002,
@@ -1369,7 +1943,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -1379,9 +1955,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1397,9 +1991,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110510021.0,
         "Magic": [
-            110521.0
+            null,
+            110521.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -1409,7 +2014,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -1423,7 +2028,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110510022.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051004,
@@ -1448,7 +2056,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -1458,9 +2068,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1476,9 +2104,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110510041.0,
         "Magic": [
-            110525.0
+            null,
+            110525.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -1488,7 +2127,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -1502,7 +2141,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051005,
@@ -1527,7 +2169,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -1537,9 +2181,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1555,9 +2217,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110510051.0,
         "Magic": [
-            110525.0
+            null,
+            110525.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -1567,7 +2240,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -1581,7 +2254,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051006,
@@ -1606,7 +2282,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -1616,9 +2294,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1634,9 +2330,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110510061.0,
         "Magic": [
-            110525.0
+            null,
+            110525.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -1646,7 +2353,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -1660,7 +2367,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051007,
@@ -1684,7 +2394,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -1693,9 +2407,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1711,9 +2443,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110529.0
+            null,
+            110529.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -1737,7 +2480,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051008,
@@ -1761,7 +2507,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -1770,9 +2520,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1788,9 +2556,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110529.0
+            null,
+            110529.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -1814,7 +2593,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051102,
@@ -1839,7 +2621,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -1849,9 +2633,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1867,9 +2669,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110511021.0,
         "Magic": [
-            110522.0
+            null,
+            110522.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -1879,7 +2692,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -1893,7 +2706,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110511022.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051104,
@@ -1918,7 +2734,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -1928,9 +2746,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -1946,9 +2782,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110511041.0,
         "Magic": [
-            110526.0
+            null,
+            110526.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -1958,7 +2805,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -1972,7 +2819,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051105,
@@ -1997,7 +2847,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -2007,9 +2859,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2025,9 +2895,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110511051.0,
         "Magic": [
-            110526.0
+            null,
+            110526.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -2037,7 +2918,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -2051,7 +2932,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051106,
@@ -2076,7 +2960,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -2086,9 +2972,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2104,9 +3008,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110511061.0,
         "Magic": [
-            110526.0
+            null,
+            110526.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -2116,7 +3031,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -2130,7 +3045,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051107,
@@ -2154,7 +3072,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -2163,9 +3085,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2181,9 +3121,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110529.0
+            null,
+            110529.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -2207,7 +3158,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051108,
@@ -2231,7 +3185,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -2240,9 +3198,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2258,9 +3234,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110529.0
+            null,
+            110529.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -2284,7 +3271,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051202,
@@ -2309,7 +3299,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -2319,9 +3311,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2337,9 +3347,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110512021.0,
         "Magic": [
-            110523.0
+            null,
+            110523.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -2349,7 +3370,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -2363,7 +3384,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110512022.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051204,
@@ -2388,7 +3412,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -2398,9 +3424,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2416,9 +3460,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110512041.0,
         "Magic": [
-            110527.0
+            null,
+            110527.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -2428,7 +3483,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -2442,7 +3497,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051205,
@@ -2467,7 +3525,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -2477,9 +3537,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2495,9 +3573,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110512051.0,
         "Magic": [
-            110527.0
+            null,
+            110527.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -2507,7 +3596,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -2521,7 +3610,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051206,
@@ -2546,7 +3638,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -2556,9 +3650,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2574,9 +3686,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110512061.0,
         "Magic": [
-            110527.0
+            null,
+            110527.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -2586,7 +3709,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -2600,7 +3723,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051207,
@@ -2624,7 +3750,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -2633,9 +3763,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2651,9 +3799,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110529.0
+            null,
+            110529.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -2677,7 +3836,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051208,
@@ -2701,7 +3863,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -2710,9 +3876,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2728,9 +3912,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110529.0
+            null,
+            110529.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -2754,7 +3949,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051304,
@@ -2779,7 +3977,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk3101Hit"
+            null,
+            "FxR3LuosaitaAtk3101Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -2789,9 +3989,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2807,10 +4025,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110513041.0,
         "Magic": [
+            null,
             110531.0,
-            110508.0
+            110508.0,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -2820,7 +4048,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -2834,7 +4062,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110513042.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051305,
@@ -2859,7 +4090,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk3102Hit"
+            null,
+            "FxR3LuosaitaAtk3102Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -2869,9 +4102,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2887,9 +4138,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110513051.0,
         "Magic": [
-            110531.0
+            null,
+            110531.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -2899,7 +4161,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -2913,7 +4175,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110513052.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051404,
@@ -2938,7 +4203,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk3101Hit"
+            null,
+            "FxR3LuosaitaAtk3101Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -2948,9 +4215,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -2966,10 +4251,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110514041.0,
         "Magic": [
+            null,
             110532.0,
-            110508.0
+            110508.0,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -2979,7 +4274,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -2993,7 +4288,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110514042.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051405,
@@ -3018,7 +4316,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk3102Hit"
+            null,
+            "FxR3LuosaitaAtk3102Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -3028,9 +4328,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3046,9 +4364,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110514051.0,
         "Magic": [
-            110532.0
+            null,
+            110532.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -3058,7 +4387,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -3072,7 +4401,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110514052.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051504,
@@ -3097,7 +4429,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk3101Hit"
+            null,
+            "FxR3LuosaitaAtk3101Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -3107,9 +4441,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3125,10 +4477,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110515041.0,
         "Magic": [
+            null,
             110533.0,
-            110508.0
+            110508.0,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -3138,7 +4500,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -3152,7 +4514,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110515042.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051505,
@@ -3177,7 +4542,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk3102Hit"
+            null,
+            "FxR3LuosaitaAtk3102Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -3187,9 +4554,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3205,9 +4590,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110515051.0,
         "Magic": [
-            110533.0
+            null,
+            110533.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -3217,7 +4613,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -3231,7 +4627,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110515052.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051604,
@@ -3256,7 +4655,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaQteHit"
+            null,
+            "FxR3LuosaitaQteHit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -3266,9 +4667,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3284,9 +4703,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110516041.0,
         "Magic": [
-            110562.0
+            null,
+            110562.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -3296,7 +4726,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -3310,7 +4740,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051605,
@@ -3335,7 +4768,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaQteHit"
+            null,
+            "FxR3LuosaitaQteHit",
+            null
         ],
         "DamageInterval": 0.05,
         "StartJoint": null,
@@ -3345,9 +4780,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3363,9 +4816,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110516051.0,
         "Magic": [
-            110562.0
+            null,
+            110562.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -3375,7 +4839,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -3389,7 +4853,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051607,
@@ -3413,7 +4880,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -3422,9 +4893,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3440,9 +4929,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            100316.0
+            null,
+            100316.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -3466,7 +4966,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051909,
@@ -3490,7 +4993,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -3499,9 +5006,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3517,9 +5042,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            100316.0
+            null,
+            100316.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -3543,7 +5079,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051910,
@@ -3567,7 +5106,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": null,
@@ -3576,9 +5119,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3594,9 +5155,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110566.0
+            null,
+            110566.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -3620,7 +5192,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051911,
@@ -3644,7 +5219,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.15,
         "StartJoint": null,
         "Effect": null,
@@ -3653,9 +5232,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3671,9 +5268,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110550.0
+            null,
+            110550.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -3697,7 +5305,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11051912,
@@ -3721,7 +5332,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": null,
@@ -3730,9 +5345,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3748,9 +5381,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110519121.0,
         "Magic": [
-            110551.0
+            null,
+            110551.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -3760,7 +5404,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -3774,7 +5418,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11052402,
@@ -3799,7 +5446,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -3809,9 +5458,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3827,9 +5494,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110524021.0,
         "Magic": [
-            110523.0
+            null,
+            110523.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -3839,7 +5517,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -3853,7 +5531,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110524022.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11052404,
@@ -3878,7 +5559,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -3888,9 +5571,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3906,9 +5607,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110524041.0,
         "Magic": [
-            110527.0
+            null,
+            110527.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -3918,7 +5630,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -3932,7 +5644,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11052405,
@@ -3957,7 +5672,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -3967,9 +5684,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -3985,9 +5720,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110524051.0,
         "Magic": [
-            110527.0
+            null,
+            110527.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -3997,7 +5743,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -4011,7 +5757,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11052406,
@@ -4036,7 +5785,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -4046,9 +5797,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -4064,9 +5833,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110524061.0,
         "Magic": [
-            110527.0
+            null,
+            110527.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -4076,7 +5856,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -4090,7 +5870,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11052407,
@@ -4114,7 +5897,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -4123,9 +5910,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -4141,9 +5946,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110529.0
+            null,
+            110529.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -4167,7 +5983,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11052408,
@@ -4191,7 +6010,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -4200,9 +6023,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -4218,9 +6059,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110529.0
+            null,
+            110529.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -4244,7 +6096,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11052502,
@@ -4269,7 +6124,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk01Hit"
+            null,
+            "FxR3LuosaitaAtk01Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -4279,9 +6136,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -4297,9 +6172,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110525021.0,
         "Magic": [
-            110501.0
+            null,
+            110501.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -4309,7 +6195,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -4323,7 +6209,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110525022.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11052903,
@@ -4348,7 +6237,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk44Hit"
+            null,
+            "FxR3LuosaitaAtk44Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -4358,9 +6249,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -4376,9 +6285,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110529031.0,
         "Magic": [
-            110535.0
+            null,
+            110535.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -4388,7 +6308,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -4402,7 +6322,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053004,
@@ -4427,7 +6350,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk44Hit"
+            null,
+            "FxR3LuosaitaAtk44Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -4437,9 +6362,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -4455,9 +6398,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110530041.0,
         "Magic": [
-            110536.0
+            null,
+            110536.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -4467,7 +6421,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -4481,7 +6435,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053102,
@@ -4506,7 +6463,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk11Hit"
+            null,
+            "FxR3LuosaitaAtk11Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -4516,9 +6475,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -4534,9 +6511,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110531021.0,
         "Magic": [
-            110514.0
+            null,
+            110514.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -4546,7 +6534,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -4560,7 +6548,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053103,
@@ -4585,7 +6576,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk11Hit"
+            null,
+            "FxR3LuosaitaAtk11Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -4595,9 +6588,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -4613,9 +6624,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110531031.0,
         "Magic": [
-            110514.0
+            null,
+            110514.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -4625,7 +6647,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -4639,7 +6661,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053104,
@@ -4664,7 +6689,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk11Hit"
+            null,
+            "FxR3LuosaitaAtk11Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -4674,9 +6701,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -4692,9 +6737,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110531041.0,
         "Magic": [
-            110514.0
+            null,
+            110514.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -4704,7 +6760,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -4718,7 +6774,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053202,
@@ -4743,7 +6802,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -4753,9 +6814,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -4771,9 +6850,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110532021.0,
         "Magic": [
-            110524.0
+            null,
+            110524.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -4783,7 +6873,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -4797,7 +6887,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110532022.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053204,
@@ -4822,7 +6915,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -4832,9 +6927,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -4850,9 +6963,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110532041.0,
         "Magic": [
-            110528.0
+            null,
+            110528.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -4862,7 +6986,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -4876,7 +7000,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053205,
@@ -4901,7 +7028,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -4911,9 +7040,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -4929,9 +7076,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110532051.0,
         "Magic": [
-            110528.0
+            null,
+            110528.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -4941,7 +7099,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -4955,7 +7113,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053206,
@@ -4980,7 +7141,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -4990,9 +7153,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -5008,9 +7189,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110532061.0,
         "Magic": [
-            110528.0
+            null,
+            110528.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -5020,7 +7212,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -5034,7 +7226,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053207,
@@ -5058,7 +7253,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -5067,9 +7266,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -5085,9 +7302,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110529.0
+            null,
+            110529.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -5111,7 +7339,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053208,
@@ -5135,7 +7366,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -5144,9 +7379,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -5162,9 +7415,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110529.0
+            null,
+            110529.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -5188,7 +7452,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053304,
@@ -5213,7 +7480,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk3101Hit"
+            null,
+            "FxR3LuosaitaAtk3101Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -5223,9 +7492,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -5241,10 +7528,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110533041.0,
         "Magic": [
+            null,
             110534.0,
-            110508.0
+            110508.0,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -5254,7 +7551,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -5268,7 +7565,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110533042.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053305,
@@ -5293,7 +7593,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk3102Hit"
+            null,
+            "FxR3LuosaitaAtk3102Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -5303,9 +7605,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -5321,9 +7641,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110533051.0,
         "Magic": [
-            110534.0
+            null,
+            110534.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -5333,7 +7664,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -5347,7 +7678,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110533052.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053404,
@@ -5372,7 +7706,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk44Hit"
+            null,
+            "FxR3LuosaitaAtk44Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -5382,9 +7718,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -5400,9 +7754,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110534041.0,
         "Magic": [
-            110537.0
+            null,
+            110537.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -5412,7 +7777,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -5426,7 +7791,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053417,
@@ -5450,7 +7818,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -5459,9 +7831,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": 0.0,
@@ -5477,9 +7867,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            118531.0
+            null,
+            118531.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -5503,7 +7904,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053419,
@@ -5527,7 +7931,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -5536,9 +7944,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -5554,9 +7980,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            118531.0
+            null,
+            118531.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -5580,7 +8017,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053420,
@@ -5604,7 +8044,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -5613,9 +8057,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -5631,9 +8093,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            118531.0
+            null,
+            118531.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -5657,7 +8130,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053421,
@@ -5681,7 +8157,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -5690,9 +8170,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -5708,9 +8206,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            118531.0
+            null,
+            118531.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -5734,7 +8243,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053422,
@@ -5758,7 +8270,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -5767,9 +8283,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -5785,9 +8319,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            118531.0
+            null,
+            118531.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -5811,7 +8356,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053502,
@@ -5836,7 +8384,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -5846,9 +8396,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -5864,9 +8432,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110535021.0,
         "Magic": [
-            110524.0
+            null,
+            110524.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.2,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -5876,7 +8455,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -5890,7 +8469,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": 110535022.0,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053504,
@@ -5915,7 +8497,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -5925,9 +8509,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -5943,9 +8545,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110535041.0,
         "Magic": [
-            110528.0
+            null,
+            110528.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -5955,7 +8568,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -5969,7 +8582,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053505,
@@ -5994,7 +8610,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -6004,9 +8622,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6022,9 +8658,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110535051.0,
         "Magic": [
-            110528.0
+            null,
+            110528.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -6034,7 +8681,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -6048,7 +8695,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053506,
@@ -6073,7 +8723,9 @@
         "HitCount": -1,
         "RepeatDamage": 1.0,
         "HitEffect": [
-            "FxR3LuosaitaAtk21Hit"
+            null,
+            "FxR3LuosaitaAtk21Hit",
+            null
         ],
         "DamageInterval": 0.1,
         "StartJoint": null,
@@ -6083,9 +8735,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6101,9 +8771,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110535061.0,
         "Magic": [
-            110528.0
+            null,
+            110528.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 1.3,
         "HitOnJoint": null,
         "ResizeEffect": null,
@@ -6113,7 +8794,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -6127,7 +8808,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053507,
@@ -6151,7 +8835,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -6160,9 +8848,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6178,9 +8884,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110529.0
+            null,
+            110529.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -6204,7 +8921,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053508,
@@ -6228,7 +8948,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -6237,9 +8961,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6255,9 +8997,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            110529.0
+            null,
+            110529.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -6281,7 +9034,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053603,
@@ -6306,7 +9062,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk44Hit"
+            null,
+            "FxR3LuosaitaAtk44Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -6316,9 +9074,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6334,9 +9110,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110536031.0,
         "Magic": [
-            110535.0
+            null,
+            110535.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -6346,7 +9133,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -6360,7 +9147,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053605,
@@ -6384,7 +9174,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": "FxR3WeilaAtk4101",
@@ -6393,9 +9187,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6410,8 +9222,21 @@
         "HitShakeDuration": 0.0,
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
-        "Magic": [],
-        "MagicLauncherNpc": [],
+        "Magic": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": 1.0,
@@ -6435,7 +9260,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053606,
@@ -6459,7 +9287,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": "FxR3WeilaAtk4101Dian",
@@ -6468,9 +9300,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6485,8 +9335,21 @@
         "HitShakeDuration": 0.0,
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
-        "Magic": [],
-        "MagicLauncherNpc": [],
+        "Magic": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": 1.0,
@@ -6510,7 +9373,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053607,
@@ -6534,7 +9400,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": "FxR3WeilaAtk4102",
@@ -6543,9 +9413,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6560,8 +9448,21 @@
         "HitShakeDuration": 0.0,
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
-        "Magic": [],
-        "MagicLauncherNpc": [],
+        "Magic": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": 1.0,
@@ -6585,7 +9486,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053608,
@@ -6609,7 +9513,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": "FxR3LuosaitaAtk52Dilie",
@@ -6618,9 +9526,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6635,8 +9561,21 @@
         "HitShakeDuration": 0.2,
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
-        "Magic": [],
-        "MagicLauncherNpc": [],
+        "Magic": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -6660,7 +9599,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053610,
@@ -6684,7 +9626,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": null,
@@ -6693,9 +9639,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6711,9 +9675,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            118538.0
+            null,
+            118538.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -6737,7 +9712,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053703,
@@ -6762,7 +9740,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk44Hit"
+            null,
+            "FxR3LuosaitaAtk44Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -6772,9 +9752,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6790,9 +9788,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110537031.0,
         "Magic": [
-            110536.0
+            null,
+            110536.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -6802,7 +9811,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -6816,7 +9825,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053708,
@@ -6840,7 +9852,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": "FxR3WeilaAtk4101",
@@ -6849,9 +9865,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6866,8 +9900,21 @@
         "HitShakeDuration": 0.0,
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
-        "Magic": [],
-        "MagicLauncherNpc": [],
+        "Magic": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": 1.0,
@@ -6891,7 +9938,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053709,
@@ -6915,7 +9965,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": "FxR3WeilaAtk4101Dian",
@@ -6924,9 +9978,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -6941,8 +10013,21 @@
         "HitShakeDuration": 0.0,
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
-        "Magic": [],
-        "MagicLauncherNpc": [],
+        "Magic": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": 1.0,
@@ -6966,7 +10051,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053710,
@@ -6990,7 +10078,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": "FxR3WeilaAtk4102",
@@ -6999,9 +10091,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -7016,8 +10126,21 @@
         "HitShakeDuration": 0.0,
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
-        "Magic": [],
-        "MagicLauncherNpc": [],
+        "Magic": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": 1.0,
@@ -7041,7 +10164,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053711,
@@ -7065,7 +10191,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": "FxR3LuosaitaAtk52Dilie",
@@ -7074,9 +10204,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -7091,8 +10239,21 @@
         "HitShakeDuration": 0.2,
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
-        "Magic": [],
-        "MagicLauncherNpc": [],
+        "Magic": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -7116,7 +10277,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053713,
@@ -7140,7 +10304,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": null,
@@ -7149,9 +10317,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -7167,9 +10353,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            118538.0
+            null,
+            118538.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -7193,7 +10390,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053803,
@@ -7218,7 +10418,9 @@
         "HitCount": -1,
         "RepeatDamage": null,
         "HitEffect": [
-            "FxR3LuosaitaAtk44Hit"
+            null,
+            "FxR3LuosaitaAtk44Hit",
+            null
         ],
         "DamageInterval": null,
         "StartJoint": null,
@@ -7228,9 +10430,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -7246,9 +10466,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": 110538031.0,
         "Magic": [
-            110537.0
+            null,
+            110537.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -7258,7 +10489,7 @@
         "DeathWithNpc": null,
         "ActiveDelayTime": null,
         "ExplodeOnFloor": null,
-        "DodgeLimitMark": 0,
+        "DodgeLimitMark": 1,
         "HitEffectUseMissileDirection": 1,
         "IgnoreNpcTimeScale": null,
         "ScaleTimeOnHit": null,
@@ -7272,7 +10503,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053809,
@@ -7296,7 +10530,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": "FxR3LuosaitaAtk53Dilie",
@@ -7305,9 +10543,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -7322,8 +10578,21 @@
         "HitShakeDuration": 0.2,
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
-        "Magic": [],
-        "MagicLauncherNpc": [],
+        "Magic": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -7347,7 +10616,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053810,
@@ -7371,7 +10643,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": "FxR3WeilaAtk4101",
@@ -7380,9 +10656,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -7397,8 +10691,21 @@
         "HitShakeDuration": 0.0,
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
-        "Magic": [],
-        "MagicLauncherNpc": [],
+        "Magic": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": 1.0,
@@ -7422,7 +10729,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053811,
@@ -7446,7 +10756,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": "FxR3WeilaAtk4101Dian",
@@ -7455,9 +10769,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -7472,8 +10804,21 @@
         "HitShakeDuration": 0.0,
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
-        "Magic": [],
-        "MagicLauncherNpc": [],
+        "Magic": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": 1.0,
@@ -7497,7 +10842,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053812,
@@ -7521,7 +10869,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": "FxR3WeilaAtk4102",
@@ -7530,9 +10882,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -7547,8 +10917,21 @@
         "HitShakeDuration": 0.0,
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
-        "Magic": [],
-        "MagicLauncherNpc": [],
+        "Magic": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": 1.0,
@@ -7572,7 +10955,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053814,
@@ -7596,7 +10982,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": null,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": null,
         "StartJoint": null,
         "Effect": null,
@@ -7605,9 +10995,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -7623,9 +11031,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            118541.0
+            null,
+            118541.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -7649,7 +11068,10 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     },
     {
         "Id": 11053815,
@@ -7673,7 +11095,11 @@
         "ExplosionOnCollideObstacle": null,
         "HitCount": -1,
         "RepeatDamage": 1.0,
-        "HitEffect": [],
+        "HitEffect": [
+            null,
+            null,
+            null
+        ],
         "DamageInterval": 0.05,
         "StartJoint": null,
         "Effect": null,
@@ -7682,9 +11108,27 @@
         "DamageRange": null,
         "ExplosionEffect": null,
         "LineType": 1,
-        "LineParams": [],
+        "LineParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleFunction": null,
-        "ScaleParams": [],
+        "ScaleParams": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "ScaleType": null,
         "BornPosition": 0,
         "ChildDelay": null,
@@ -7700,9 +11144,20 @@
         "HitShakeIntensity": 0.1,
         "BeHitState": null,
         "Magic": [
-            118531.0
+            null,
+            118531.0,
+            null,
+            null,
+            null,
+            null
         ],
-        "MagicLauncherNpc": [],
+        "MagicLauncherNpc": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "EffectHeight": 0.0,
         "HitOnJoint": "HitCase",
         "ResizeEffect": null,
@@ -7726,6 +11181,9 @@
         "BuffFilter": null,
         "NpcHitCount": null,
         "ShakeMagic": null,
-        "CollideMissileType": null
+        "CollideMissileType": null,
+        "FollowHeightJoint": null,
+        "BindLauncherFrame": null,
+        "BindSkillFrame": null
     }
 ]

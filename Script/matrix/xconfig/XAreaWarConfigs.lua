@@ -90,84 +90,21 @@ function XAreaWarConfigs.GetActivityName(activityId)
     return config.Name or ""
 end
 -----------------活动相关 end-------------------
------------------区域相关 begin-------------------
-local TABLE_AREA_PATH = "Client/AreaWar/AreaWarArea.tab"
 
-local AreaConfig = {}
 
-XAreaWarConfigs.Difficult = {
-    Normal = 1,
-    Hard = 2
-}
 
-local function InitAreaConfig()
-    AreaConfig = XTableManager.ReadByIntKey(TABLE_AREA_PATH, XTable.XTableAreaWarArea, "Id")
-end
+--region   ------------------区块 start-------------------
 
-local function GetAreaConfig(areaId)
-    local config = AreaConfig[areaId]
-    if not config then
-        XLog.Error("XAreaWarConfigs GetAreaConfig error:配置不存在, areaId:" .. areaId .. ",path: " .. TABLE_AREA_PATH)
-        return
-    end
-    return config
-end
-
-function XAreaWarConfigs.GetAllAreaIds()
-    local areaIds = {}
-    for areaId in ipairs(AreaConfig) do
-        tableInsert(areaIds, areaId)
-    end
-    return areaIds
-end
-
-function XAreaWarConfigs.GetAreaUnlockBlockId(areaId)
-    local config = GetAreaConfig(areaId)
-    return config.UnlockBlockId
-end
-
-function XAreaWarConfigs.GetAreaName(areaId)
-    local config = GetAreaConfig(areaId)
-    return config.Name
-end
-
-function XAreaWarConfigs.GetAreaBlockIds(areaId)
-    local blockIds = {}
-    local config = GetAreaConfig(areaId)
-    for _, blockId in ipairs(config.BlockId) do
-        if XTool.IsNumberValid(blockId) then
-            tableInsert(blockIds, blockId)
-        end
-    end
-    return blockIds
-end
-
---获取指定区块所属区域Id
-function XAreaWarConfigs.GetBlockAreaId(blockId)
-    for areaId, config in pairs(AreaConfig) do
-        for _, inBlockId in pairs(config.BlockId) do
-            if inBlockId == blockId then
-                return areaId
-            end
-        end
-    end
-    return 0
-end
-
---获取指定区域内世界Boss的Ui类型（不同区域使用不同的UI）
-function XAreaWarConfigs.GetAreaWorldBossUiType(areaId)
-    local config = GetAreaConfig(areaId)
-    return config.WorldBossUiType
-end
------------------区域相关 end-------------------
 -----------------区块相关 begin-------------------
 local TABLE_BLOCK_PATH = "Share/AreaWar/AreaWarBlock.tab"
 local TABLE_BLOCK_SHOW_TYPE_PATH = "Client/AreaWar/AreaWarBlockShowType.tab"
 local TABLE_WORLD_BOSS_UI_PATH = "Client/AreaWar/AreaWarWorldBossUi.tab"
 
+---@type table<number, XTable.XTableAreaWarBlock>
 local BlockConfig = {}
 local BlockShowTypeConfig = {}
 local WorldBossUiConfig = {}
+
 
 --区块类型
 XAreaWarConfigs.BlockType = {
@@ -201,6 +138,8 @@ local function InitBlockConfig()
     BlockShowTypeConfig =
         XTableManager.ReadByIntKey(TABLE_BLOCK_SHOW_TYPE_PATH, XTable.XTableAreaWarBlockShowType, "Id")
     WorldBossUiConfig = XTableManager.ReadByIntKey(TABLE_WORLD_BOSS_UI_PATH, XTable.XTableAreaWarWorldBossUi, "Id")
+
+    
 end
 
 local function GetBlockConfig(blockId)
@@ -317,8 +256,10 @@ end
 
 --活动开启后多少秒区块开启
 function XAreaWarConfigs.GetBlockOpenSeconds(blockId)
-    local config = GetBlockConfig(blockId)
-    return config.OpenHour * 3600
+    local chapterId = XAreaWarConfigs.GetBlockChapterId(blockId)
+    local timeOfNow = XTime.GetServerNowTimestamp()
+    local timeOfBgn = XFunctionManager.GetStartTimeByTimeId(XAreaWarConfigs.GetChapterTimeId(chapterId))
+    return math.max(timeOfBgn - timeOfNow, 0)
 end
 
 --世界Boss在区块开放后一天几点开启/关闭
@@ -365,6 +306,27 @@ function XAreaWarConfigs.GetBlockDetachBasicRewardItems(blockId)
     return XRewardManager.MergeAndSortRewardGoodsList(rewardItems)
 end
 
+--派遣鞭尸期奖励
+function XAreaWarConfigs.GetBlockDetachWhippingPeriodRewardItems(blockId)
+    local rewardItems = {}
+    local config = GetBlockConfig(blockId)
+    local rewardId = config.DetachRepeatChallengeRewardId
+    if XTool.IsNumberValid(rewardId) then
+        rewardItems = XRewardManager.GetRewardList(rewardId)
+    end
+    return XRewardManager.MergeAndSortRewardGoodsList(rewardItems)
+end
+
+function XAreaWarConfigs.GetBlockRepeatChallengeRewardItems(blockId)
+    local rewardItems = {}
+    local config = GetBlockConfig(blockId)
+    local rewardId = config.RepeatChallengeRewardId
+    if XTool.IsNumberValid(rewardId) then
+        rewardItems = XRewardManager.GetRewardList(rewardId)
+    end
+    return XRewardManager.MergeAndSortRewardGoodsList(rewardItems)
+end
+
 --派遣满足条件额外奖励
 function XAreaWarConfigs.GetBlockDetachDetachExtraRewardItems(blockId, index)
     local rewardItems = {}
@@ -374,6 +336,16 @@ function XAreaWarConfigs.GetBlockDetachDetachExtraRewardItems(blockId, index)
         rewardItems = XRewardManager.GetRewardList(rewardId)
     end
     return XRewardManager.MergeAndSortRewardGoodsList(rewardItems)
+end
+
+function XAreaWarConfigs.GetPreBlockIds(blockId)
+    local cfg = GetBlockConfig(blockId)
+    return cfg and cfg.PreBlockId or {}
+end
+
+function XAreaWarConfigs.GetBlockChapterId(blockId)
+    local cfg = GetBlockConfig(blockId)
+    return cfg.ChapterId
 end
 
 function XAreaWarConfigs.GetAllBlockShowTypes()
@@ -411,6 +383,10 @@ end
 --获取区块类型为常规区块（角色特攻）时对应的特攻角色小头像图标
 function XAreaWarConfigs.GetRoleBlockIcon(blockId)
     local roleId = XAreaWarConfigs.GetUnlockSpecialRoleIdByBlockId(blockId)
+    if not XTool.IsNumberValid(roleId) then
+        XLog.Error("获取角色头像失败, 请检查配置: AreaWarBlock.tab与AreaWarSpecialRole.tab BlockId = " .. tostring(blockId))
+        return
+    end
     return XAreaWarConfigs.GetBlockSpecialRoleIcon(roleId)
 end
 
@@ -462,87 +438,226 @@ end
 
 --获取世界Boss区块Ui名称
 function XAreaWarConfigs.GetBlockWorldBossUiName(blockId)
-    local areaId = XAreaWarConfigs.GetBlockAreaId(blockId)
-    local uiType = XAreaWarConfigs.GetAreaWorldBossUiType(areaId)
+    local chapterId = XAreaWarConfigs.GetBlockChapterId(blockId)
+    local uiType = XAreaWarConfigs.GetChapterWorldBossUiType(chapterId)
     return XAreaWarConfigs.GetWorldBossUiName(uiType)
 end
 
 --获取世界Boss区块排行榜
 function XAreaWarConfigs.GetBlockWorldBossRankTitle(blockId)
-    local areaId = XAreaWarConfigs.GetBlockAreaId(blockId)
-    local uiType = XAreaWarConfigs.GetAreaWorldBossUiType(areaId)
+    local chapterId = XAreaWarConfigs.GetBlockChapterId(blockId)
+    local uiType = XAreaWarConfigs.GetChapterWorldBossUiType(chapterId)
     return XAreaWarConfigs.GetWorldBossRankTitle(uiType)
 end
------------------区块相关 end-------------------
------------------派遣相关 begin-------------------
-local TABLE_DISPATCH_CHARACTER_PATH = "Share/AreaWar/AreaWarDetachRole.tab"
-local TABLE_DISPATCH_CONDITION_PATH = "Share/AreaWar/AreaWarDetachCondition.tab"
 
-local DispatchCharacterConfig = {}
-local DispatchConditionConfig = {}
+--endregion------------------区块 finish------------------
+
+--region   ------------------章节 start-------------------
+
+local TABLE_CHAPTER_PATH = "Share/AreaWar/AreaWarChapter.tab"
+local TABLE_PLATE_PATH = "Client/AreaWar/AreaWarPlate.tab"
+
+---@type table<number, XTable.XTableAreaWarChapter>
+local ChapterTemplate = {}
+local ChapterIds
+local ChapterId2BlockIds
+local BlockId2PlateId
+
+---@type table<number, XTableAreaWarPlate>
+local PlateTemplate = {}
+
+local function InitChapterConfig()
+    ChapterTemplate = XTableManager.ReadByIntKey(TABLE_CHAPTER_PATH, XTable.XTableAreaWarChapter, "Id")
+    PlateTemplate = XTableManager.ReadByIntKey(TABLE_PLATE_PATH, XTable.XTableAreaWarPlate, "Id")
+
+    BlockId2PlateId = {}
+    for id, template in pairs(PlateTemplate) do
+        for _, blockId in pairs(template.BlockId) do
+            BlockId2PlateId[blockId] = id
+        end
+    end
+end
+
+local function GetChapterTemplate(chapterId)
+    local template = ChapterTemplate[chapterId]
+    if not template then
+        XLog.ErrorTableDataNotFound("XAreaWarConfigs->GetChapterTemplate",
+                "AreaWarChapter", TABLE_CHAPTER_PATH, "Id", tostring(chapterId))
+        return {}
+    end
+
+    return template
+end
+
+local function InitChapterId2BlockIds()
+    ChapterId2BlockIds = {}
+    for id, template in pairs(BlockConfig) do
+        local chapterId = template.ChapterId
+        if not ChapterId2BlockIds[chapterId] then
+            ChapterId2BlockIds[chapterId] = {}
+        end
+        table.insert(ChapterId2BlockIds[chapterId], id)
+    end
+
+    local sortId = function(a, b) 
+        return a < b
+    end
+    
+    for id in pairs(ChapterId2BlockIds) do
+        table.sort(ChapterId2BlockIds[id], sortId)
+    end
+end
+
+local function InitChapterIds()
+    ChapterIds = {}
+    ChapterTemplate = ChapterTemplate or {}
+    for id in pairs(ChapterTemplate) do
+        tableInsert(ChapterIds, id)
+    end
+end
+
+local function GetPlateTemplate(plateId) 
+    local template = PlateTemplate[plateId]
+    if not template then
+        XLog.ErrorTableDataNotFound("XAreaWarConfigs->GetPlateTemplate",
+                "AreaWarPlate", TABLE_PLATE_PATH, "Id", tostring(plateId))
+        return {}
+    end
+    return template
+end
+
+--获取章节下的所有BlockId
+function XAreaWarConfigs.GetBlockIdsByChapterId(chapterId)
+    if not ChapterId2BlockIds then
+        InitChapterId2BlockIds()
+    end
+    if not XTool.IsNumberValid(chapterId) then
+        return {}
+    end
+    return ChapterId2BlockIds[chapterId] or {}
+end
+
+function XAreaWarConfigs.GetFirstBlockIdInChapter(chapterId)
+    local blockIds = XAreaWarConfigs.GetBlockIdsByChapterId(chapterId)
+    return blockIds and blockIds[1] or 0
+end
+
+function XAreaWarConfigs.GetChapterIds()
+    if not ChapterIds then
+        InitChapterIds()
+    end
+    return ChapterIds
+end
+
+function XAreaWarConfigs.GetChapterTimeId(chapterId)
+    local template = GetChapterTemplate(chapterId)
+    return template.TimeId or 0
+end
+
+function XAreaWarConfigs.CheckChapterInTime(chapterId, defaultOpen)
+    local timeId = XAreaWarConfigs.GetChapterTimeId(chapterId)
+    return XFunctionManager.CheckInTimeByTimeId(timeId, defaultOpen)
+end
+
+function XAreaWarConfigs.GetChapterName(chapterId)
+    local template = GetChapterTemplate(chapterId)
+    return template.ChapterName
+end
+
+function XAreaWarConfigs.GetChapterWorldBossUiType(chapterId)
+    local template = GetChapterTemplate(chapterId)
+    return template.WorldBossUiType
+end
+
+function XAreaWarConfigs.GetUnlockBlockIds(plateId)
+    local template = GetPlateTemplate(plateId)
+    return template.UnlockBlockId or {}
+end
+
+function XAreaWarConfigs.GetContainBlockIds(plateId)
+    local template = GetPlateTemplate(plateId)
+    return template.BlockId or {}
+end
+
+function XAreaWarConfigs.GetPlateIdByBlockId(blockId)
+    return BlockId2PlateId[blockId]
+end
+
+--endregion------------------章节 finish------------------
+
+-----------------派遣相关 begin-------------------
+--local TABLE_DISPATCH_CHARACTER_PATH = "Share/AreaWar/AreaWarDetachRole.tab"
+--local TABLE_DISPATCH_CONDITION_PATH = "Share/AreaWar/AreaWarDetachCondition.tab"
+
+--local DispatchCharacterConfig = {}
+--local DispatchConditionConfig = {}
 
 local function InitDispatchConfig()
-    DispatchCharacterConfig =
-        XTableManager.ReadByIntKey(TABLE_DISPATCH_CHARACTER_PATH, XTable.XTableAreaWarDetachRole, "Id")
-    DispatchConditionConfig =
-        XTableManager.ReadByIntKey(TABLE_DISPATCH_CONDITION_PATH, XTable.XTableAreaWarDetachCondition, "Id")
+    --DispatchCharacterConfig =
+    --    XTableManager.ReadByIntKey(TABLE_DISPATCH_CHARACTER_PATH, XTable.XTableAreaWarDetachRole, "Id")
+    --DispatchConditionConfig =
+    --    XTableManager.ReadByIntKey(TABLE_DISPATCH_CONDITION_PATH, XTable.XTableAreaWarDetachCondition, "Id")
 end
 
-local function GetDispatchCharacterConfig(characterId)
-    local config = DispatchCharacterConfig[characterId]
-    if not config then
-        XLog.Error(
-            "XAreaWarConfigs GetDispatchCharacterConfig error:配置不存在, characterId:" ..
-                characterId .. ",path: " .. TABLE_DISPATCH_CHARACTER_PATH
-        )
-        return
-    end
-    return config
-end
+--local function GetDispatchCharacterConfig(characterId)
+--    local config = DispatchCharacterConfig[characterId]
+--    if not config then
+--        XLog.Error(
+--            "XAreaWarConfigs GetDispatchCharacterConfig error:配置不存在, characterId:" ..
+--                characterId .. ",path: " .. TABLE_DISPATCH_CHARACTER_PATH
+--        )
+--        return
+--    end
+--    return config
+--end
 
-local function GetDispatchConditionConfig(conditionId)
-    local config = DispatchConditionConfig[conditionId]
-    if not config then
-        XLog.Error(
-            "XAreaWarConfigs GetDispatchConditionConfig error:配置不存在, conditionId:" ..
-                conditionId .. ",path: " .. TABLE_DISPATCH_CONDITION_PATH
-        )
-        return
-    end
-    return config
-end
+--local function GetDispatchConditionConfig(conditionId)
+--    local config = DispatchConditionConfig[conditionId]
+--    if not config then
+--        XLog.Error(
+--            "XAreaWarConfigs GetDispatchConditionConfig error:配置不存在, conditionId:" ..
+--                conditionId .. ",path: " .. TABLE_DISPATCH_CONDITION_PATH
+--        )
+--        return
+--    end
+--    return config
+--end
 
 --获取指定派遣成员/机器人Id列表对应满足的所有条件检查表
 function XAreaWarConfigs.GetDispatchCharacterCondtionIdCheckDic(entityIds)
     local conditionIdCheckDic = {}
-    for _, entityId in pairs(entityIds or {}) do
-        local characterId = XEntityHelper.GetCharacterIdByEntityId(entityId)
-        if XTool.IsNumberValid(characterId) then
-            local config = GetDispatchCharacterConfig(characterId)
-            for _, conditionId in pairs(config.DetachCondition) do
-                conditionIdCheckDic[conditionId] = conditionId
-            end
-        end
-    end
+    --2.5 版本去除角色条件判断
+    --for _, entityId in pairs(entityIds or {}) do
+    --    local characterId = XEntityHelper.GetCharacterIdByEntityId(entityId)
+    --    if XTool.IsNumberValid(characterId) then
+    --        local config = GetDispatchCharacterConfig(characterId)
+    --        for _, conditionId in pairs(config.DetachCondition) do
+    --            conditionIdCheckDic[conditionId] = conditionId
+    --        end
+    --    end
+    --end
     return conditionIdCheckDic
 end
 
 --获取指定派遣成员/机器人Id列表对应满足的所有条件检查表
 function XAreaWarConfigs.GetDispatchCharacterCondtionIds(entityId)
     local conditionIds = {}
-    local characterId = XEntityHelper.GetCharacterIdByEntityId(entityId)
-    if XTool.IsNumberValid(characterId) then
-        local config = GetDispatchCharacterConfig(characterId)
-        for _, conditionId in ipairs(config.DetachCondition) do
-            tableInsert(conditionIds, conditionId)
-        end
-    end
+    --2.5 版本去除角色条件判断
+    --local characterId = XEntityHelper.GetCharacterIdByEntityId(entityId)
+    --if XTool.IsNumberValid(characterId) then
+    --    local config = GetDispatchCharacterConfig(characterId)
+    --    for _, conditionId in ipairs(config.DetachCondition) do
+    --        tableInsert(conditionIds, conditionId)
+    --    end
+    --end
     return conditionIds
 end
 
 function XAreaWarConfigs.GetDispatchConditionDesc(conditionId)
-    local config = GetDispatchConditionConfig(conditionId)
-    return config.Desc
+    --2.5 版本去除角色条件判断
+    --local config = GetDispatchConditionConfig(conditionId)
+    --return config.Desc
+    return ""
 end
 -----------------派遣相关 end-------------------
 -----------------BUFF相关 begin-------------------
@@ -710,9 +825,9 @@ function XAreaWarConfigs.GetSpecialRoleRewardLastUnlockCount(rewardId)
 end
 
 --获取指定区域所有特攻角色Id
-function XAreaWarConfigs.GetAreaSpecialRoleIds(areaId)
+function XAreaWarConfigs.GetChapterSpecialRoleIds(chapterId)
     local roleIds = {}
-    local blockIds = XAreaWarConfigs.GetAreaBlockIds(areaId)
+    local blockIds = XAreaWarConfigs.GetBlockIdsByChapterId(chapterId)
     for _, blockId in ipairs(blockIds) do
         local roleId = XAreaWarConfigs.GetUnlockSpecialRoleIdByBlockId(blockId)
         if XTool.IsNumberValid(roleId) then
@@ -854,13 +969,269 @@ function XAreaWarConfigs.GetMaxPfLevel()
     return #PurificationLevelConfig
 end
 -----------------净化加成/插件相关 end-------------------
+
+--region   ------------------客户端配置 start-------------------
+local ClientConfigTemplate = {}
+local TABLE_CLIENT_CONFIG_PATH = "Client/AreaWar/AreaWarClientConfig.tab"
+
+local function InitClientConfig() 
+    ClientConfigTemplate = XTableManager.ReadByStringKey(TABLE_CLIENT_CONFIG_PATH, XTable.XTableAreaWarClientConfig, "Key")
+end
+
+---@return XTable.XTableAreaWarClientConfig
+local function GetClientConfig(key) 
+    local template = ClientConfigTemplate[key]
+    if not template then
+        XLog.ErrorTableDataNotFound("XAreaWarConfigs->GetClientConfig", 
+                "AreaWarClientConfig", TABLE_CLIENT_CONFIG_PATH, "Key", key)
+        return
+    end
+    
+    return template
+end
+
+function XAreaWarConfigs.GetCameraMinAndMaxDistance()
+    local template = GetClientConfig("CameraDistance")
+    if not template then
+        return 0, 0
+    end
+    return tonumber(template.Values[1]), tonumber(template.Values[2])
+end
+
+function XAreaWarConfigs.GetPrefabPath()
+    local template = GetClientConfig("PrefabPath")
+    return template.Values[1]
+end
+
+function XAreaWarConfigs.GetCameraZoomSpeed()
+    local template = GetClientConfig("CameraZoomSpeed")
+    return tonumber(template.Values[1])
+end
+
+function XAreaWarConfigs.GetArticleLockTips()
+    local template = GetClientConfig("ArticleTips")
+    return template.Values[1]
+end
+
+function XAreaWarConfigs.GetArticleAuthorAndTimeTips()
+    local template = GetClientConfig("ArticleTips")
+    return template.Values[2]
+end
+
+
+function XAreaWarConfigs.GetArticleLikeBoundary()
+    local template = GetClientConfig("ArticleLikeCountBoundary")
+    return tonumber(template.Values[1])
+end
+
+function XAreaWarConfigs.GetArticleGroupLockTip()
+    local template = GetClientConfig("ArticleGroupTip")
+    return template.Values[1]
+end
+
+function XAreaWarConfigs.GetArticleLikeBoundaryUnit()
+    local template = GetClientConfig("ArticleLikeCountBoundary")
+    return template.Values[2]
+end
+
+function XAreaWarConfigs.GetEndTimeTip(index)
+    local template = GetClientConfig("EndTimeTips")
+    return template.Values[index]
+end
+
+function XAreaWarConfigs.GetRewardData()
+    local list = {}
+    local template = GetClientConfig("GiftsRewardIds")
+    for _, value in ipairs(template.Values) do
+        local data = string.Split(value, "|")
+        tableInsert(list, {
+            Id = tonumber(data[1]),
+            Count = tonumber(data[2])
+        })
+    end
+    return list
+end
+
+function XAreaWarConfigs.GetFirstPlayStoryId()
+    local template = GetClientConfig("FirstPlayStoryId")
+    return template.Values[1]
+end
+
+function XAreaWarConfigs.GetUnlockAnimationInfo()
+    local template = GetClientConfig("UnlockAnimationInfo")
+    local type = tonumber(template.Values[1]) or CS.XAnimationType.PingPongAndDiffusion
+    local duration =  tonumber(template.Values[2]) or 6
+    local offsetY = tonumber(template.Values[3]) or 0.82
+    local maxDistance = tonumber(template.Values[4]) or 10
+    
+    return type, duration, offsetY, maxDistance
+end
+
+function XAreaWarConfigs.GetIdleAnimationInfo()
+    local template = GetClientConfig("IdleAnimationInfo")
+    local type = tonumber(template.Values[1]) or CS.XAnimationType.PingPong
+    local duration =  tonumber(template.Values[2]) or 5
+    local offsetY = tonumber(template.Values[3]) or 0.82
+
+    return type, duration, offsetY
+end
+
+function XAreaWarConfigs.GetPlateLiftUpInfo()
+    local template = GetClientConfig("PlateLiftUpInfo")
+    local offsetY = tonumber(template.Values[1]) or -3
+    local duration = tonumber(template.Values[2]) or 0.8
+    
+    return offsetY, duration
+end
+
+function XAreaWarConfigs.GetCameraSmallDisRatio()
+    local template = GetClientConfig("CameraSmallDisRatio")
+    return template and tonumber(template.Values[1]) or 0.4
+end
+
+function XAreaWarConfigs.GetStageDetailFightTip(isRepeatChallenge)
+    local index = isRepeatChallenge and 2 or 1
+    local template = GetClientConfig("StageDetailFightTip")
+    return template and template.Values[index]or ""
+end
+--endregion------------------客户端配置 finish------------------
+
+--region   ------------------全服战况 start-------------------
+local ArticleGroupTemplate = {}
+local ArticleTemplate = {}
+local ArticleGroupMap
+
+local TABLE_ARTICLE_GROUP_PATH = "Share/AreaWar/AreaWarArticleGroup.tab"
+local TABLE_ARTICLE_PATH = "Share/AreaWar/AreaWarArticle.tab"
+
+local function InitWarLogConfig()
+    ArticleGroupTemplate = XTableManager.ReadByIntKey(TABLE_ARTICLE_GROUP_PATH, XTable.XTableAreaWarArticleGroup, "Id")
+    ArticleTemplate = XTableManager.ReadByIntKey(TABLE_ARTICLE_PATH, XTable.XTableAreaWarArticle, "Id")
+end
+
+local function GetArticleGroupTemplate(groupId) 
+    local template = ArticleGroupTemplate[groupId]
+    if not template then
+        XLog.ErrorTableDataNotFound("XAreaWarConfigs->GetArticleGroupTemplate", 
+                "AreaWarArticleGroup", TABLE_ARTICLE_GROUP_PATH, "Id", tostring(groupId))
+        return {}
+    end
+    
+    return template
+end
+
+---@return XTable.XTableAreaWarArticle
+local function GetArticleTemplate(id)
+    local template = ArticleTemplate[id]
+    if not template then
+        XLog.ErrorTableDataNotFound("XAreaWarConfigs->GetArticleTemplate", 
+                "AreaWarArticle", TABLE_ARTICLE_PATH, "Id", tostring(id))
+        return {}
+    end
+
+    return template
+end
+
+local function CompareId(a, b) 
+    return a < b
+end
+
+local function ComparePriority(a, b)
+    local pA = XAreaWarConfigs.GetArticlePriority(a)
+    local pB = XAreaWarConfigs.GetArticlePriority(b)
+    if pA ~= pB then
+        return pA <pB
+    end
+    
+    return CompareId(a, b)
+end
+
+function XAreaWarConfigs.GetArticleGroupList()
+    local list = {}
+    for id in pairs(ArticleGroupTemplate) do
+        tableInsert(list, id)
+    end
+    
+    tableSort(list, CompareId)
+    
+    return list
+end
+
+function XAreaWarConfigs.GetArticleGroupMap()
+    if ArticleGroupMap then
+        return ArticleGroupMap
+    end
+    local map = {}
+    for id, template in pairs(ArticleTemplate) do
+        local groupId = template.GroupId
+        if not map[groupId] then
+            map[groupId] = {}
+        end
+        tableInsert(map[groupId], id)
+    end
+    for _, list in pairs(map) do
+        tableSort(list, ComparePriority)
+    end
+    ArticleGroupMap = map
+    return map
+end
+
+function XAreaWarConfigs.GetArticleGroupName(groupId)
+    local template = GetArticleGroupTemplate(groupId)
+    return template and template.Name or ""
+end
+
+function XAreaWarConfigs.GetArticleTitle(id)
+    local template = GetArticleTemplate(id)
+    return template and template.Title or ""
+end
+
+function XAreaWarConfigs.GetArticleContent(id)
+    local template = GetArticleTemplate(id)
+    local content = template and template.Content or ""
+    return XUiHelper.ReplaceTextNewLine(content)
+end
+
+function XAreaWarConfigs.GetArticleGroupId(id)
+    local template = GetArticleTemplate(id)
+    return template.GroupId
+end
+
+function XAreaWarConfigs.GetArticleUnlockBlockIdAndProgress(id)
+    local template = GetArticleTemplate(id)
+    return template.UnlockBlockId, template.UnlockBlockProgress
+end
+
+function XAreaWarConfigs.GetArticleAuthor(id)
+    local template = GetArticleTemplate(id)
+    return template.Author
+end
+
+function XAreaWarConfigs.GetArticleStoryId(id)
+    local template = GetArticleTemplate(id)
+    return template.StoryId
+end
+
+function XAreaWarConfigs.GetArticleBackground(id)
+    local template = GetArticleTemplate(id)
+    return template.Background
+end
+
+function XAreaWarConfigs.GetArticlePriority(id)
+    local template = GetArticleTemplate(id)
+    return template.Priority
+end
+
+--endregion------------------全服战况 finish------------------
 function XAreaWarConfigs.Init()
     InitActivityConfig()
-    InitAreaConfig()
     InitBlockConfig()
+    InitChapterConfig()
     InitBuffConfig()
     InitSpecialRoleConfig()
     InitHangUpConfig()
     InitPurificationConfig()
     InitDispatchConfig()
+    InitClientConfig()
+    InitWarLogConfig()
 end

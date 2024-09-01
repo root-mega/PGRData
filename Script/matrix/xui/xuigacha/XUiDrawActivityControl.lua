@@ -82,8 +82,8 @@ function XUiDrawActivityControl:OnDraw(gachaCount)
         end
         return
     end
-    local dtCount = XDataCenter.GachaManager.GetMaxCountOfAll() - XDataCenter.GachaManager.GetCurCountOfAll()
-    if dtCount < gachaCount and not XDataCenter.GachaManager.GetIsInfinite() then
+    local dtCount = XDataCenter.GachaManager.GetMaxCountOfAll(self.GachaCfg.Id) - XDataCenter.GachaManager.GetCurCountOfAll(self.GachaCfg.Id)
+    if dtCount < gachaCount and not XDataCenter.GachaManager.GetIsInfinite(self.GachaCfg.Id) then
         XUiManager.TipMsg(CS.XTextManager.GetText("GachaIsNotEnough"))
         return
     end

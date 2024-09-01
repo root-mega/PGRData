@@ -1,3 +1,20 @@
+--######################## XUiReformChildPanel ########################
+local XUiReformChildPanel = XClass(nil, "XUiReformChildPanel")
+
+function XUiReformChildPanel:Ctor(ui)
+    XUiHelper.InitUiClass(self, ui)
+    self.RootUi = nil
+end
+
+function XUiReformChildPanel:SetData(rootUi)
+    self.RootUi = rootUi
+end
+
+function XUiReformChildPanel:Refresh(currentEntityId)
+    self.TxtScore.text = self.RootUi.MemberGroup:GetRoleScoreByCharacterId(
+        self.RootUi:GetCharacterViewModelByEntityId(currentEntityId):GetId())
+end
+
 --######################## XUiReformBattleRoomRoleDetail ########################
 local XUiBattleRoomRoleDetailDefaultProxy = require("XUi/XUiNewRoomSingle/XUiBattleRoomRoleDetailDefaultProxy")
 local XUiReformBattleRoomRoleDetail = XClass(XUiBattleRoomRoleDetailDefaultProxy, "XUiReformBattleRoomRoleDetail")
@@ -64,11 +81,17 @@ function XUiReformBattleRoomRoleDetail:SortEntitiesWithTeam(team, entities, sort
         local _, posA = team:GetEntityIdIsInTeam(entityA:GetId())
         local _, posB = team:GetEntityIdIsInTeam(entityB:GetId())
         local teamWeightA = posA ~= -1 and (10 - posA) * 1000000000 or 0
-        local teamWeightB = posB ~= -1 and (10 - posB) * 1000000000 or 0
-        local abilityA = entityA:GetCharacterViewModel():GetAbility() * 10
-        local abilityB = entityB:GetCharacterViewModel():GetAbility() * 10
-        local weightA = teamWeightA + abilityA + entityA:GetId() / 1000
-        local weightB = teamWeightB + abilityB + entityB:GetId() / 1000
+        local teamWeightB = posB ~= -1 and (10 - posB) * 1000000000 or 0 
+        -- local abilityA = entityA:GetCharacterViewModel():GetAbility() * 10
+        -- local abilityB = entityB:GetCharacterViewModel():GetAbility() * 10
+        local viewModelA = self:GetCharacterViewModelByEntityId(entityA:GetId())
+        local viewModelB = self:GetCharacterViewModelByEntityId(entityB:GetId())
+        local scoreA = self.MemberGroup:GetRoleScoreByCharacterId(viewModelA:GetId()) * 1000
+        local scoreB = self.MemberGroup:GetRoleScoreByCharacterId(viewModelB:GetId()) * 1000
+        local weightA = teamWeightA + scoreA + viewModelA:GetId() / 1000
+        local weightB = teamWeightB + scoreB + viewModelB:GetId() / 1000
+        if XRobotManager.CheckIsRobotId(entityA:GetId()) then weightA = weightA - 1 end
+        if XRobotManager.CheckIsRobotId(entityB:GetId()) then weightB = weightB - 1 end
         return weightA > weightB
     end)
     return entities
@@ -88,20 +111,33 @@ function XUiReformBattleRoomRoleDetail:AOPOnStartBefore(rootUi)
     rootUi.BtnGroupCharacterType.gameObject:SetActiveEx(false)
 end
 
--- function XUiReformBattleRoomRoleDetail:GetChildPanelData()
---     if self.ChildPanelData == nil then
---         self.ChildPanelData = {
---             assetPath = "Assets/Product/Ui/Prefab/UiReformBtnEquipment.prefab", --XUiConfigs.GetComponentUrl("UiSuperTowerBattleRoomRoleDetail"),
---             proxy = UiReformBtnEquipment,
---             proxyArgs = { "StageId" }
---         }
---     end
---     return self.ChildPanelData
--- end
+function XUiReformBattleRoomRoleDetail:GetRoleDynamicGrid(rootUi)
+    return rootUi.GridCharacterReform
+end
 
--- function XUiReformBattleRoomRoleDetail:GetGridProxy()
---     return XUiReformRoleGrid
--- end
+function XUiReformBattleRoomRoleDetail:AOPOnDynamicTableEventAfter(rootUi, event, index, grid)
+    local entity = rootUi.DynamicTable.DataSource[index]
+    if event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_ATINDEX then
+        grid.TxtReformScore.text = self.MemberGroup:GetRoleScoreByCharacterId(
+            self:GetCharacterViewModelByEntityId(entity:GetId()):GetId())
+    end
+end
+
+-- 获取子面板数据，主要用来增加编队界面自身玩法信息，就不用污染通用的预制体
+--[[
+    return : {
+        assetPath : 资源路径
+        proxy : 子面板代理
+        proxyArgs : 子面板SetData传入的参数列表
+    }
+]]
+function XUiReformBattleRoomRoleDetail:GetChildPanelData()
+    return {
+        assetPath = XUiConfigs.GetComponentUrl("PanelReformBattleRoomDetail"),
+        proxy = XUiReformChildPanel,
+        proxyArgs = { self },
+    }
+end
 
 --######################## 私有方法 ########################
 

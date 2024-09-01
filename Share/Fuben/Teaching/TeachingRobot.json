@@ -3,13 +3,23 @@
         "StageId": 30160503,
         "DescDetail": "Siren calls the Red Tide every 15s, during which its ATK is greatly improved but gains Vulnerable.",
         "ShowFightEventIds": [
+            null,
             110274,
             110267.0,
             110271.0,
-            110270.0
+            110270.0,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9083
+            null,
+            9083,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -17,14 +27,23 @@
         "StageId": 30160502,
         "DescDetail": "Siren calls the Red Tide every 15s, during which its ATK is greatly improved but gains Vulnerable.",
         "ShowFightEventIds": [
+            null,
             110280,
             110273.0,
             110267.0,
             110271.0,
-            110270.0
+            110270.0,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9083
+            null,
+            9083,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -32,6 +51,7 @@
         "StageId": 30160501,
         "DescDetail": "Siren calls the Red Tide every 15s, during which its ATK is greatly improved but gains Vulnerable\\n180s later, Siren goes Berserk.",
         "ShowFightEventIds": [
+            null,
             110280,
             110266.0,
             110273.0,
@@ -42,7 +62,12 @@
             110277.0
         ],
         "RobotId": [
-            9083
+            null,
+            9083,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -50,6 +75,7 @@
         "StageId": 30160500,
         "DescDetail": "Siren calls the Red Tide every 15s, during which its ATK is greatly improved but gains Vulnerable\\n180s later, Siren goes Berserk.",
         "ShowFightEventIds": [
+            null,
             110281,
             110279.0,
             110272.0,
@@ -60,7 +86,12 @@
             110278.0
         ],
         "RobotId": [
-            9083
+            null,
+            9083,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -68,10 +99,23 @@
         "StageId": 30160504,
         "DescDetail": "Voodoo summons 4 Medic Bots every 15s and enters Invincible state. Destroy all Medic Bots to paralyze Voodoo for 10s, in which its Lightning DMG received increases.",
         "ShowFightEventIds": [
-            760015
+            null,
+            760015,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9089
+            null,
+            9089,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -79,11 +123,23 @@
         "StageId": 30160505,
         "DescDetail": "Voodoo receives a special boost, increasing its tendency to attack while decreasing its DMG received. This boost is lost when it receives DMG over 40000 in one hit. Regenerates after 15s.",
         "ShowFightEventIds": [
+            null,
             760015,
-            845057.0
+            845057.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9089
+            null,
+            9089,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -91,14 +147,23 @@
         "StageId": 30160507,
         "DescDetail": "Pterygota Queen becomes weak to random colored orbs every 30s (the weakness lasts 15s). If she takes a high amount of damage during this time, she will be immobilized and vulnerable (the damage threshold increases with each trigger, up to 4 times).",
         "ShowFightEventIds": [
+            null,
             780693,
             780694.0,
             780695.0,
             780696.0,
-            780697.0
+            780697.0,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9094
+            null,
+            9094,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -106,14 +171,23 @@
         "StageId": 30160506,
         "DescDetail": "Gabriel becomes weak to random colored orbs every 30s (the weakness lasts 15s), losing 60% of resistance to the particular color.",
         "ShowFightEventIds": [
+            null,
             780693,
             780694.0,
             780695.0,
             780698.0,
-            780699.0
+            780699.0,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9094
+            null,
+            9094,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -121,12 +195,23 @@
         "StageId": 30160508,
         "DescDetail": "Monsters have a shield equal to 10% of Max HP and deal 10% more damage. The shield will be refreshed every 15s. Break the shield and the monster will lose 30% DMG Reduction. And a new shield will appear 15s later.",
         "ShowFightEventIds": [
+            null,
             780003,
             780313.0,
-            780263.0
+            780263.0,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9099
+            null,
+            9099,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -134,11 +219,23 @@
         "StageId": 30160509,
         "DescDetail": "Riot will summon Terrapods after switching forms. Eliminate all Terrapods to bring Riot to the ground in advance and end the Laser Rain.",
         "ShowFightEventIds": [
+            null,
             780003,
-            110213.0
+            110213.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9099
+            null,
+            9099,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -146,10 +243,23 @@
         "StageId": 30160510,
         "DescDetail": "Avoid Acid Ant attacks",
         "ShowFightEventIds": [
-            780033
+            null,
+            780033,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9104
+            null,
+            9104,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -157,12 +267,23 @@
         "StageId": 30160511,
         "DescDetail": "Enemies' weak points will be refreshed in a random direction. Break the weak points in the direction to deal massive True DMG to them.",
         "ShowFightEventIds": [
+            null,
             780033,
             746057.0,
-            110213.0
+            110213.0,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9104
+            null,
+            9104,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -170,12 +291,23 @@
         "StageId": 30160512,
         "DescDetail": "Enemies will have 4 weak points that disappear in 4.5s and refresh 2s after that. Destroy all weak points to reduce the enemies' DMG Immunity by 20% for 20s. Characters will bleed if they stay on the battlefield for too long.",
         "ShowFightEventIds": [
+            null,
             780033,
             746074.0,
-            746072.0
+            746072.0,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9104
+            null,
+            9104,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -183,10 +315,23 @@
         "StageId": 30160513,
         "DescDetail": "Defeat the Treants and the Faries",
         "ShowFightEventIds": [
-            780043
+            null,
+            780043,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            2215
+            null,
+            2215,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -194,10 +339,23 @@
         "StageId": 30160514,
         "DescDetail": "Pulao will gain 20% Extra DMG Bonus for every Dragon Force Combo she casts. The effect lasts for 20s and can be stacked up to 10 times.",
         "ShowFightEventIds": [
-            780043
+            null,
+            780043,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            2215
+            null,
+            2215,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -205,10 +363,23 @@
         "StageId": 30160515,
         "DescDetail": "Challenge Heaven Breaker, Demon Bane, and God Slayer respectively. (Use Uniframes and Speed Attacks wisely to fast reduce the enemy's Finisher Gauge value and defeat the enemy when the gauge is empty.)",
         "ShowFightEventIds": [
-            780043
+            null,
+            780043,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            2215
+            null,
+            2215,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": null
     },
@@ -216,10 +387,23 @@
         "StageId": 30160516,
         "DescDetail": "The enemy gains high Ice, Lightning, and Dark Resistances but loses a significant amount of Fire Resistance. Maybe things will be different if you use Nanami?",
         "ShowFightEventIds": [
-            780693
+            null,
+            780693,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            2218
+            null,
+            2218,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 1.0
     },
@@ -227,10 +411,23 @@
         "StageId": 30160517,
         "DescDetail": "After Starfarer casts the Signature Move, triggering \"Oops! Missed it!\" by pressing and holding Basic Attack will grant 20% Extra DMG Bonus, whereas each triggering \"Perfect!\" will grant 40% Extra DMG Bonus. The effect can be stacked up to 200% and lasts 10s. The duration will refresh whenever it is triggered.",
         "ShowFightEventIds": [
-            780693
+            null,
+            780693,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            2218
+            null,
+            2218,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 1.0
     },
@@ -238,10 +435,23 @@
         "StageId": 30160518,
         "DescDetail": "Every time when a team member enters the field, gains a set of random Signal Orbs and 50% Basic Attack Fire DMG Bonus for 10s.",
         "ShowFightEventIds": [
-            780693
+            null,
+            780693,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            2218
+            null,
+            2218,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 1.0
     },
@@ -249,10 +459,23 @@
         "StageId": 30160519,
         "DescDetail": "Defeat Gear and Wheel of Fortune",
         "ShowFightEventIds": [
-            780023
+            null,
+            780023,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            2222
+            null,
+            2222,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 2.0
     },
@@ -260,10 +483,23 @@
         "StageId": 30160520,
         "DescDetail": "Upon eliminating an enemy, Haicma deals 100% more Ice DMG for 20s and restores 30 Energy. The duration will refresh whenever it is triggered.",
         "ShowFightEventIds": [
-            780023
+            null,
+            780023,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            2222
+            null,
+            2222,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 2.0
     },
@@ -271,10 +507,23 @@
         "StageId": 30160521,
         "DescDetail": "Upon triggering a Speed Attack Skill, Haicma fully restores Dodge Gauge value and gains a set of Signal Orbs of a random color.",
         "ShowFightEventIds": [
-            780023
+            null,
+            780023,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            2222
+            null,
+            2222,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 2.0
     },
@@ -282,10 +531,23 @@
         "StageId": 30160522,
         "DescDetail": "After casting a Yellow Orb skill, gain 1 Blue Orb. After casting a Blue Orb skill, gain 1 Yellow Orb",
         "ShowFightEventIds": [
-            780033
+            null,
+            780033,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            2229
+            null,
+            2229,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 1.0
     },
@@ -293,10 +555,23 @@
         "StageId": 30160523,
         "DescDetail": "After casting [Radiant Whirlwind], your next [Radiant Whirlwind] deals 10% increased DMG for 10s (max 10 stacks)",
         "ShowFightEventIds": [
-            780033
+            null,
+            780033,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            2229
+            null,
+            2229,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 1.0
     },
@@ -304,10 +579,23 @@
         "StageId": 30160524,
         "DescDetail": "After a 3-Ping, Basic Attack's Extra DMG Bonus increases by 100% for 3s",
         "ShowFightEventIds": [
-            780033
+            null,
+            780033,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            2229
+            null,
+            2229,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 1.0
     },
@@ -315,10 +603,23 @@
         "StageId": 30160525,
         "DescDetail": "Defeat Ronin IV",
         "ShowFightEventIds": [
-            780013
+            null,
+            780013,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9115
+            null,
+            9115,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 2.0
     },
@@ -326,10 +627,23 @@
         "StageId": 30160526,
         "DescDetail": "Noan gains 3-Ping Orbs of a random color every time his Gear Level goes up.",
         "ShowFightEventIds": [
-            780013
+            null,
+            780013,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9115
+            null,
+            9115,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 2.0
     },
@@ -337,10 +651,23 @@
         "StageId": 30160527,
         "DescDetail": "Every time a Combo Strike is triggered at Gear Lv.3, Noan will deal 30% (up to 300%) more DMG.",
         "ShowFightEventIds": [
-            780013
+            null,
+            780013,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9115
+            null,
+            9115,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 2.0
     },
@@ -348,10 +675,23 @@
         "StageId": 30160528,
         "DescDetail": "Defeat the enemy!",
         "ShowFightEventIds": [
-            780043
+            null,
+            780043,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9120
+            null,
+            9120,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 1.0
     },
@@ -359,21 +699,695 @@
         "StageId": 30160529,
         "DescDetail": "Stigmata gains a set of 3-Ping Orbs when Afterglow Orbs are consumed in Luminous Realm or the Phase II Signature Move is cast.",
         "ShowFightEventIds": [
-            780043
+            null,
+            780043,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9120
+            null,
+            9120,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 1.0
     },
     {
         "StageId": 30160530,
-        "DescDetail": "Upon casting Illuminated Abyss, Stigmata deals more DMG. No stack limit. No time limit.",
+        "DescDetail": "Upon casting Illuminated Abyss, Stigmata's Extra DMG increases. This effect is permanent and can stack infinitely.",
         "ShowFightEventIds": [
-            780043
+            null,
+            780043,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "RobotId": [
-            9120
+            null,
+            9120,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160531,
+        "DescDetail": "Defeat the enemy!",
+        "ShowFightEventIds": [
+            null,
+            110274,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            9132,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160532,
+        "DescDetail": "A <color=#FF6347>successful dodge</color> during Solitary Dancer will grant a set of 3-Ping Orbs.",
+        "ShowFightEventIds": [
+            null,
+            110274,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            9132,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160533,
+        "DescDetail": "A <color=#FF6347>successful dodge</color> during Solitary Dancer will grant a set of 3-Ping Orbs.",
+        "ShowFightEventIds": [
+            null,
+            110274,
+            760221.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            9132,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160534,
+        "DescDetail": "Defeat the enemy!",
+        "ShowFightEventIds": [
+            null,
+            780693,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            2241,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160535,
+        "DescDetail": "Enemies have a shield equal to 10% of Max HP and deal 10% more damage. The shield will be refreshed every 15s. Break the shield and the enemy will lose 30% DMG Reduction. And a new shield will appear 15s later.",
+        "ShowFightEventIds": [
+            null,
+            780003,
+            780313.0,
+            780263.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            2241,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160536,
+        "DescDetail": "Lee: Hyperreal's Extra DMG increases when he triggers Collapsing Realm at maximum Sight Points. This effect is permanent and can stack infinitely.",
+        "ShowFightEventIds": [
+            null,
+            780693,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            2241,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160537,
+        "DescDetail": "Defeat the enemy!",
+        "ShowFightEventIds": [
+            null,
+            780023,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            9147,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160538,
+        "DescDetail": "After Kaleido activates <color=#FF6347>Color Rendering</color>, the enemy gains weaknesses in 4 directions. Triggering these weaknesses with Vibrant Brushstroke will make <color=#FF6347>the entire team</color> deal Extra DMG.",
+        "ShowFightEventIds": [
+            null,
+            780023,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            9147,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160539,
+        "DescDetail": "When Kaleido activates <color=#FF6347>Color Rendering</color>, if the DMG Bonuses of both <color=#FF6347>Color Mix: Clash of Concepts and Pure Color: Theme Emphasis</color> are present, <color=#FF6347>Finishing Touch and Vibrant Brushstroke</color> will gain bonus buffs (stackable).",
+        "ShowFightEventIds": [
+            null,
+            780023,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            9147,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160540,
+        "DescDetail": "Defeat the enemy!",
+        "ShowFightEventIds": [
+            null,
+            780013,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            9161,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160541,
+        "DescDetail": "Receives a 10% Extra DMG Bonus after Crimson Weave casts <color=#FF6347>Resolute Blow</color> at <color=#FF6347>full Blade Aura</color>",
+        "ShowFightEventIds": [
+            null,
+            780013,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            9161,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160542,
+        "DescDetail": "1. <color=#FF6347>When casting Unquenchable Flare with full Aphotic Points</color>, <color=#FF6347>Crimson Weave's </color> Extra DMG Bonus permanently increases by 20%.\\n2. When <color=#FF6347>Crimson Abyss</color> unleashes swordwaves, the Base DMG of <color=#FF6347>Crimson Weave</color>'s swordwaves increase by 500%.",
+        "ShowFightEventIds": [
+            null,
+            780013,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            9161,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160543,
+        "DescDetail": "Defeat the enemy!",
+        "ShowFightEventIds": [
+            null,
+            780043,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            127101,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160544,
+        "DescDetail": "1. Triggering <color=#FF6347>Dance of Emerald Flow</color> (Dodge after a 3-Ping) will also grant all members 25% DMG Bonus.\\n2. <color=#FF6347>Kowloong</color> teammates gain 100% Extra DMG Bonus.",
+        "ShowFightEventIds": [
+            null,
+            780043,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            127101,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160545,
+        "DescDetail": "1. For every <color=#FF6347>4 Dancer Points</color> consumed, the entire team gets 200% DMG Bonus for <color=#FF6347>15s</color>.\\n2. <color=#FF6347>Kowloong</color> teammates gain 100% Extra DMG Bonus.",
+        "ShowFightEventIds": [
+            null,
+            780043,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            127101,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160546,
+        "DescDetail": "Defeat the enemy!",
+        "ShowFightEventIds": [
+            null,
+            780013,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            9172,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160547,
+        "DescDetail": "1. Feral gains two random Signal Orbs of the same color when <color=#FF6347>Forceful Pounce or Dead-on Pounce</color> is triggered.\\n2. Feral <color=#FF6347>gains 10% Extra DMG Bonus when Dead-on Pounce is triggered.</color> This effect can stack infinitely.",
+        "ShowFightEventIds": [
+            null,
+            780013,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            9172,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160548,
+        "DescDetail": "1. Feral gains a set of 3-Ping Orbs when <color=#FF6347>Dead-on Pounce</color> is triggered.\\n2. Feral <color=#FF6347>gains 20% Extra DMG Bonus when she casts Signature at maximum Critical Arclight.</color> This effect can stack infinitely.",
+        "ShowFightEventIds": [
+            null,
+            780013,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            9172,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160549,
+        "DescDetail": "Defeat the enemy!",
+        "ShowFightEventIds": [
+            null,
+            780013,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            127420,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160550,
+        "DescDetail": "1. Noctis gains 1 set of 3-Ping Orbs when Arm Block or Perfect Arm Block is triggered.\\n2. Noctis gains 20% ATK Bonus permanently each time when he casts Lightning Smash, Lightning Punch, and Lightning Sweep.",
+        "ShowFightEventIds": [
+            null,
+            780013,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            127420,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160551,
+        "DescDetail": "1. Noctis gains 2 Signal Orbs of different colors every second when he charges up Basic Attacks.\\n2. When Noctis casts a Signature at 3 stacks of Engine Points, he will gain 80% ATK Bonus permanently.",
+        "ShowFightEventIds": [
+            null,
+            780013,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            127420,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160552,
+        "DescDetail": "Defeat the enemy!",
+        "ShowFightEventIds": [
+            null,
+            780043,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            127617,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160553,
+        "DescDetail": "1. Echo gains 20% Extra DMG Bonus each time she enters Judgment Zone.\\n2. Echo gains a set of random 3-Ping Orbs each time she casts Swift Archery.",
+        "ShowFightEventIds": [
+            null,
+            780043,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            127617,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160554,
+        "DescDetail": "1. Triggering Imprisoning Co-Strike will permanently increase Echo's Extra DMG by 20%.\\n2. Upon entering Judgment Zone, Echo gains 2 sets of 3-Ping Orbs.",
+        "ShowFightEventIds": [
+            null,
+            780043,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            127617,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160555,
+        "DescDetail": "Defeat the enemy!",
+        "ShowFightEventIds": [
+            null,
+            780033,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            2249,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160556,
+        "DescDetail": "1. Pinging a Torrent Orb returns 1 set of 3-Ping Orbs; Pinging a Tidal Orb returns 2 sets of 3-Ping Orbs; Pinging a Riptide Orb returns 3 sets of 3-Ping Orbs.\\n2. Whenever a Torrent Orb, Tidal Orb, or Riptide Orb is pinged, Lamia gains a 20% Extra DMG Bonus.",
+        "ShowFightEventIds": [
+            null,
+            780033,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            2249,
+            null,
+            null,
+            null,
+            null
+        ],
+        "CharacterType": 1.0
+    },
+    {
+        "StageId": 30160557,
+        "DescDetail": "1. After gaining a Torrent Orb, Tidal Orb, or Riptide Orb, Lamia immediately gains 2 sets of 3-Ping Orbs.\\n2. Whenever Lamia switches forms, she gains a 50% Extra DMG Bonus.",
+        "ShowFightEventIds": [
+            null,
+            780033,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotId": [
+            null,
+            2249,
+            null,
+            null,
+            null,
+            null
         ],
         "CharacterType": 1.0
     }

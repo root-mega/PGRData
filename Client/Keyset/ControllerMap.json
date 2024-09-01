@@ -1,0 +1,974 @@
+[
+    {
+        "Id": 1,
+        "Type": 1,
+        "OperationKey": null,
+        "Title": "Movement Settings",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 2,
+        "Type": 2,
+        "OperationKey": 128.0,
+        "Title": "Character Movement: Forward",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 3,
+        "Type": 2,
+        "OperationKey": 129.0,
+        "Title": "Character Movement: Backward",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4,
+        "Type": 2,
+        "OperationKey": 130.0,
+        "Title": "Character Movement: Left",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5,
+        "Type": 2,
+        "OperationKey": 131.0,
+        "Title": "Character Movement: Right",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6,
+        "Type": 1,
+        "OperationKey": null,
+        "Title": "Camera Settings",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 7,
+        "Type": 3,
+        "OperationKey": null,
+        "Title": "Camera Angle Sensitivity",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 8,
+        "Type": 2,
+        "OperationKey": 132.0,
+        "Title": "Camera Movement: Up",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 9,
+        "Type": 2,
+        "OperationKey": 133.0,
+        "Title": "Camera Movement: Down",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10,
+        "Type": 2,
+        "OperationKey": 134.0,
+        "Title": "Camera Movement: Left",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11,
+        "Type": 2,
+        "OperationKey": 135.0,
+        "Title": "Camera Movement: Right",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12,
+        "Type": 2,
+        "OperationKey": 139.0,
+        "Title": "Restore to Default",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13,
+        "Type": 2,
+        "OperationKey": 140.0,
+        "Title": "Switch Camera Mode",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            3.0,
+            null
+        ]
+    },
+    {
+        "Id": 14,
+        "Type": 1,
+        "OperationKey": null,
+        "Title": "Combat Settings",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15,
+        "Type": 2,
+        "OperationKey": 15.0,
+        "Title": "Attack",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 16,
+        "Type": 2,
+        "OperationKey": 16.0,
+        "Title": "Dodge",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 17,
+        "Type": 2,
+        "OperationKey": 136.0,
+        "Title": "Attack (rapid fire)",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 18,
+        "Type": 2,
+        "OperationKey": 17.0,
+        "Title": "Signature Move",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 19,
+        "Type": 2,
+        "OperationKey": 20.0,
+        "Title": "Switch (QTE) 1",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20,
+        "Type": 2,
+        "OperationKey": 21.0,
+        "Title": "Switch (QTE) 2",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 21,
+        "Type": 2,
+        "OperationKey": 23.0,
+        "Title": "CUB Skill",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 22,
+        "Type": 2,
+        "OperationKey": 137.0,
+        "Title": "Lock-On",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 23,
+        "Type": 2,
+        "OperationKey": 138.0,
+        "Title": "Cancel Lock-On",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 24,
+        "Type": 1,
+        "OperationKey": null,
+        "Title": "Skill Orb Settings",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 25,
+        "Type": 2,
+        "OperationKey": 1.0,
+        "Title": "Skill Orb 1",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 26,
+        "Type": 2,
+        "OperationKey": 2.0,
+        "Title": "Skill Orb 2",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 27,
+        "Type": 2,
+        "OperationKey": 3.0,
+        "Title": "Skill Orb 3",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 28,
+        "Type": 2,
+        "OperationKey": 4.0,
+        "Title": "Skill Orb 4",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 29,
+        "Type": 2,
+        "OperationKey": 5.0,
+        "Title": "Skill Orb 5",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30,
+        "Type": 2,
+        "OperationKey": 6.0,
+        "Title": "Skill Orb 6",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 31,
+        "Type": 2,
+        "OperationKey": 7.0,
+        "Title": "Skill Orb 7",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 32,
+        "Type": 2,
+        "OperationKey": 8.0,
+        "Title": "Skill Orb 8",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 33,
+        "Type": 1,
+        "OperationKey": null,
+        "Title": "Other Settings",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 34,
+        "Type": 2,
+        "OperationKey": 18.0,
+        "Title": "Interact",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 35,
+        "Type": 2,
+        "OperationKey": 28.0,
+        "Title": "Continue",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 36,
+        "Type": 2,
+        "OperationKey": 29.0,
+        "Title": "Skip",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 37,
+        "Type": 2,
+        "OperationKey": 81.0,
+        "Title": "Skip Intro",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 38,
+        "Type": 2,
+        "OperationKey": 141.0,
+        "Title": "Pause",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 39,
+        "Type": 2,
+        "OperationKey": 240.0,
+        "Title": "Special Interaction 1",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 40,
+        "Type": 2,
+        "OperationKey": 241.0,
+        "Title": "Special Interaction 2",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 41,
+        "Type": 2,
+        "OperationKey": 242.0,
+        "Title": "Special Interaction 3",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 42,
+        "Type": 2,
+        "OperationKey": 243.0,
+        "Title": "Special Interaction 4",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 43,
+        "Type": 2,
+        "OperationKey": 244.0,
+        "Title": "Special Interaction 5",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 44,
+        "Type": 2,
+        "OperationKey": 245.0,
+        "Title": "Special Interaction 6",
+        "OperationType": 1,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 45,
+        "Type": 1,
+        "OperationKey": null,
+        "Title": "Special Gameplay Settings",
+        "OperationType": 2,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 46,
+        "Type": 2,
+        "OperationKey": 1.0,
+        "Title": "Button 1",
+        "OperationType": 2,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 47,
+        "Type": 2,
+        "OperationKey": 2.0,
+        "Title": "Button 2",
+        "OperationType": 2,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 48,
+        "Type": 2,
+        "OperationKey": 3.0,
+        "Title": "Button 3",
+        "OperationType": 2,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 49,
+        "Type": 2,
+        "OperationKey": 4.0,
+        "Title": "Button 4",
+        "OperationType": 2,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 50,
+        "Type": 2,
+        "OperationKey": 5.0,
+        "Title": "Button 5",
+        "OperationType": 2,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 51,
+        "Type": 2,
+        "OperationKey": 6.0,
+        "Title": "Button 6",
+        "OperationType": 2,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 52,
+        "Type": 1,
+        "OperationKey": null,
+        "Title": "Video Settings",
+        "OperationType": 3,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 53,
+        "Type": 2,
+        "OperationKey": 1.0,
+        "Title": "Pause/Play",
+        "OperationType": 3,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 54,
+        "Type": 2,
+        "OperationKey": 2.0,
+        "Title": "Skip",
+        "OperationType": 3,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 55,
+        "Type": 1,
+        "OperationKey": null,
+        "Title": "Story Settings",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 56,
+        "Type": 2,
+        "OperationKey": 142.0,
+        "Title": "Review",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 57,
+        "Type": 2,
+        "OperationKey": 143.0,
+        "Title": "Auto",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 58,
+        "Type": 2,
+        "OperationKey": 144.0,
+        "Title": "Skip",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 59,
+        "Type": 2,
+        "OperationKey": 145.0,
+        "Title": "Next",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 60,
+        "Type": 2,
+        "OperationKey": 146.0,
+        "Title": "Review Interface Scroll Up",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 61,
+        "Type": 2,
+        "OperationKey": 147.0,
+        "Title": "Review Interface Scroll Down",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 62,
+        "Type": 1,
+        "OperationKey": null,
+        "Title": "Menu Settings",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 63,
+        "Type": 2,
+        "OperationKey": 141.0,
+        "Title": "Back/Quit",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            3.0,
+            null
+        ]
+    },
+    {
+        "Id": 64,
+        "Type": 2,
+        "OperationKey": 149.0,
+        "Title": "Confirm",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 65,
+        "Type": 2,
+        "OperationKey": 148.0,
+        "Title": "Cancel",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            3.0,
+            null
+        ]
+    },
+    {
+        "Id": 66,
+        "Type": 2,
+        "OperationKey": 148.0,
+        "Title": "Back/Cancel/Quit",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            1.0,
+            2.0
+        ]
+    },
+    {
+        "Id": 67,
+        "Type": 2,
+        "OperationKey": 155.0,
+        "Title": "Send Messages",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            3.0,
+            null
+        ]
+    },
+    {
+        "Id": 68,
+        "Type": 2,
+        "OperationKey": 151.0,
+        "Title": "Home",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 69,
+        "Type": 1,
+        "OperationKey": null,
+        "Title": "New Command Bureau Settings",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 70,
+        "Type": 2,
+        "OperationKey": 1156.0,
+        "Title": "Character Movement: Forward",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 71,
+        "Type": 2,
+        "OperationKey": 1157.0,
+        "Title": "Character Movement: Backward",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 72,
+        "Type": 2,
+        "OperationKey": 1158.0,
+        "Title": "Character Movement: Left",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 73,
+        "Type": 2,
+        "OperationKey": 1159.0,
+        "Title": "Character Movement: Right",
+        "OperationType": 4,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 74,
+        "Type": 2,
+        "OperationKey": 1.0,
+        "Title": "Launch Grappling Hook",
+        "OperationType": 5,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 75,
+        "Type": 2,
+        "OperationKey": 2.0,
+        "Title": "Hook Left Swing",
+        "OperationType": 5,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 76,
+        "Type": 2,
+        "OperationKey": 3.0,
+        "Title": "Hook Right Swing",
+        "OperationType": 5,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 77,
+        "Type": 2,
+        "OperationKey": 4.0,
+        "Title": "Item Hotkey 1",
+        "OperationType": 5,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 78,
+        "Type": 2,
+        "OperationKey": 5.0,
+        "Title": "Item Hotkey 2",
+        "OperationType": 5,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 79,
+        "Type": 2,
+        "OperationKey": 6.0,
+        "Title": "Item Hotkey 3",
+        "OperationType": 5,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 80,
+        "Type": 2,
+        "OperationKey": 7.0,
+        "Title": "Item Hotkey 4",
+        "OperationType": 5,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 81,
+        "Type": 2,
+        "OperationKey": 8.0,
+        "Title": "Item Hotkey 5",
+        "OperationType": 5,
+        "KeySetTypes": [
+            null,
+            null,
+            null
+        ]
+    }
+]

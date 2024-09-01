@@ -1,0 +1,158 @@
+[
+    {
+        "Id": 101,
+        "Process": 0,
+        "AndOr": 0,
+        "Repeat": 0,
+        "Conditions": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ConditionParameters": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Events": [
+            null,
+            201.0
+        ],
+        "EventsParameters": [
+            null,
+            "0|1"
+        ]
+    },
+    {
+        "Id": 102,
+        "Process": 0,
+        "AndOr": 0,
+        "Repeat": 0,
+        "Conditions": [
+            null,
+            201.0,
+            null,
+            null
+        ],
+        "ConditionParameters": [
+            null,
+            "1|0|1",
+            null,
+            null
+        ],
+        "Events": [
+            null,
+            401.0
+        ],
+        "EventsParameters": [
+            null,
+            "0"
+        ]
+    },
+    {
+        "Id": 103,
+        "Process": 0,
+        "AndOr": 0,
+        "Repeat": 0,
+        "Conditions": [
+            null,
+            401.0,
+            null,
+            null
+        ],
+        "ConditionParameters": [
+            null,
+            "0",
+            null,
+            null
+        ],
+        "Events": [
+            null,
+            301.0
+        ],
+        "EventsParameters": [
+            null,
+            "0|1"
+        ]
+    },
+    {
+        "Id": 104,
+        "Process": 0,
+        "AndOr": 0,
+        "Repeat": 0,
+        "Conditions": [
+            null,
+            301.0,
+            null,
+            null
+        ],
+        "ConditionParameters": [
+            null,
+            "1|50000",
+            null,
+            null
+        ],
+        "Events": [
+            null,
+            402.0
+        ],
+        "EventsParameters": [
+            null,
+            "0"
+        ]
+    },
+    {
+        "Id": 105,
+        "Process": 0,
+        "AndOr": 0,
+        "Repeat": 0,
+        "Conditions": [
+            null,
+            401.0,
+            null,
+            null
+        ],
+        "ConditionParameters": [
+            null,
+            "1",
+            null,
+            null
+        ],
+        "Events": [
+            null,
+            403.0
+        ],
+        "EventsParameters": [
+            null,
+            "0"
+        ]
+    },
+    {
+        "Id": 106,
+        "Process": 0,
+        "AndOr": 0,
+        "Repeat": 0,
+        "Conditions": [
+            null,
+            401.0,
+            402.0,
+            403.0
+        ],
+        "ConditionParameters": [
+            null,
+            "1",
+            1.0,
+            1.0
+        ],
+        "Events": [
+            null,
+            null
+        ],
+        "EventsParameters": [
+            null,
+            null
+        ]
+    }
+]

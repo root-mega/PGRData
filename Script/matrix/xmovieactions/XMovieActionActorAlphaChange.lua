@@ -25,7 +25,6 @@ function XMovieActionActorAlphaChange:OnRunning()
         self.UiRoot.RImgBg3.color = newColor
         self.UiRoot.RImgBg3:DOFade(self.EndAlpha, self.Duration)
     end
-    
 end
 
 return XMovieActionActorAlphaChange

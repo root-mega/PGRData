@@ -257,7 +257,7 @@ function XRpgTowerCharacter:GetRoleListSkill()
     local skillData = XRobotManager.GetRobotSkillLevelDic(self:GetRobotId(), true)
     self.RoleListSkill = {}
     local removeNo = {
-        [17] = true,
+        [16] = true, -- 普通技能
         [18] = true,
         [21] = true,
         [22] = true,
@@ -379,7 +379,8 @@ end
 --获取角色天赋类型名称
 --================
 function XRpgTowerCharacter:GetCharaTalentTypeName()
-    return XRpgTowerConfig.GetTalentTypeNameById(self.TalentType)
+    -- return XRpgTowerConfig.GetTalentTypeNameById(self.TalentType)
+    return XRpgTowerConfig.GetTalentTypeConfigByCharacterId(self:GetId(), self.TalentType).Name
 end
 --[[
 ================

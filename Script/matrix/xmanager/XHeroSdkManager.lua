@@ -70,7 +70,7 @@ function XHeroSdkManager.Logout(cb)
     end
 end
 
-function XHeroSdkManager.OnLoginSuccess(uid, username, token)
+function XHeroSdkManager.OnLoginSuccess(uid, username, token, loginChannel)
     if IsSdkLogined and XUserManager.UserId ~= uid then
         XLog.Error("重复的登陆成功回调 user_id1:" .. tostring(XUserManager.UserId) .. ", user_id2:" .. tostring(uid))
         HasSdkLoginError = true
@@ -82,6 +82,7 @@ function XHeroSdkManager.OnLoginSuccess(uid, username, token)
     XUserManager.SetUserId(uid)
     XUserManager.SetUserName(username)
     XUserManager.SetToken(token)
+    XUserManager.SetLoginChannel(loginChannel)
 
     local info = XRecordUserInfo()
     info.UserId = XUserManager.GetUniqueUserId()
@@ -164,7 +165,12 @@ end
 local GetRoleInfo = function()
     local roleInfo = HeroRoleInfo()
     roleInfo.Id = XPlayer.Id
-    roleInfo.ServerId = XServerManager.Id
+    if XUserManager.IsKuroSdk() then 
+        -- 库洛母包需要有正确的区服ID，下面那个else获取的是服务器列表索引值，其实是错的
+        roleInfo.ServerId = CS.XHeroBdcAgent.ServerId
+    else 
+        roleInfo.ServerId = XServerManager.Id
+    end
     roleInfo.ServerName = XServerManager.ServerName
     roleInfo.Name = XPlayer.Name
     roleInfo.Level = XPlayer.Level
@@ -212,6 +218,7 @@ local GetOrderInfo = function(cpOrderId, goodsId, extraParams,productKey)
     if XUserManager.IsKuroSdk() and template then
         orderInfo.Price = template.Amount
         orderInfo.GoodsName = template.Name
+        orderInfo.GoodsDesc = template.Desc
     end
     -- if productInfo.GoodsName and #productInfo.GoodsName > 0 then
     --     orderInfo.GoodsName = productInfo.GoodsName

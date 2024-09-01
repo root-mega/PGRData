@@ -108,7 +108,7 @@ function XUiPanelShop:UpdateTimeInfo()
     local leftTime = timeInfo.RefreshLeftTime
     if leftTime and leftTime > 0 then
         refreshFunc = function()
-            local dataTime = XUiHelper.GetTime(leftTime, XUiHelper.TimeFormatType.SHOP)
+            local dataTime = XUiHelper.GetTime(leftTime, XUiHelper.TimeFormatType.SHOP_REFRESH)
             self.TxtRefreshTime.text = CSXTextManagerGetText("ShopAutoRefresh") .. dataTime
             leftTime = leftTime - 1
 
@@ -121,7 +121,7 @@ function XUiPanelShop:UpdateTimeInfo()
     local closedLeftTime = timeInfo.ClosedLeftTime
     if closedLeftTime and closedLeftTime > 0 then
         closedFunc = function()
-            local dataTime = XUiHelper.GetTime(closedLeftTime, XUiHelper.TimeFormatType.SHOP)
+            local dataTime = XUiHelper.GetTime(closedLeftTime, XUiHelper.TimeFormatType.SHOP_REFRESH)
             self.TxtLeftTime.text = CSXTextManagerGetText("ActiveTime", dataTime)
             closedLeftTime = closedLeftTime - 1
 

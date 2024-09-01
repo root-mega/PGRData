@@ -1,6 +1,6 @@
 local ToInt32 = CS.System.Convert.ToInt32
 local XInputManager = CS.XInputManager
-local XCursorHelper = CS.XPc.XCursorHelper
+local XJoystickCursorHelper = CS.XPc.XJoystickCursorHelper
 local CSUnityEngineObjectInstantiate = CS.UnityEngine.Object.Instantiate
 local XUiBtnKeyItem = require("XUi/XUiSet/ChildItem/XUiBtnKeyItem")
 local XUiNotCustomKeyItem = require("XUi/XUiSet/ChildItem/XUiNotCustomKeyItem")
@@ -136,7 +136,7 @@ function XUiPanelFightSetPc:ResetToDefault()
             XInputManager.DefaultKeysSetting(self:GetCurOperationType(), self:GetCurKeySetType())
             XInputManager.DefaultCameraMoveSensitivitySetting(self:GetCurKeySetType())
             self.SliderCameraMoveSensitivityPc.value = self:GetCameraMoveSensitivity()
-            XCursorHelper.SetDefaultSensitivity()
+            XJoystickCursorHelper.SetDefaultSensitivity()
             self.CursorMoveSensitivity.value = self:GetCursorMoveSensitivity()
             self:InitControllerPanel(true)
         end)
@@ -369,26 +369,26 @@ end
 
 function XUiPanelFightSetPc:CheckDataIsChange()
     local changed = self.Super.CheckDataIsChange(self)
-    changed = XCursorHelper.IsCursorSensitivityChanged() or changed
+    changed = XJoystickCursorHelper.IsCursorSensitivityChanged() or changed
     return changed;
 end
 
 function XUiPanelFightSetPc:SaveChange()
     self.Super.SaveChange(self);
-    XCursorHelper.SaveSensitivityChange();
+    XJoystickCursorHelper.SaveSensitivityChange();
 end
 
 function XUiPanelFightSetPc:CancelChange()
     self.Super.CancelChange(self);
-    XCursorHelper.RevertSensitivity();
+    XJoystickCursorHelper.RevertSensitivity();
 end
 
 function XUiPanelFightSetPc:SetCursorMoveSensitivity(value)
-    XCursorHelper.PreSetCursorMoveSensitivity(value)
+    XJoystickCursorHelper.PreSetCursorMoveSensitivity(value)
 end
 
 function XUiPanelFightSetPc:GetCursorMoveSensitivity()
-    return XCursorHelper.CursorMoveSensitivity
+    return XJoystickCursorHelper.CursorMoveSensitivity
 end
 
 return XUiPanelFightSetPc

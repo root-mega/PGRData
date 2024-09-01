@@ -210,7 +210,7 @@ function XUiArchiveAwareness:UpdateCollection()
     local isGetFunc = XDataCenter.ArchiveManager.IsAwarenessGet
     for _, groupData in ipairs(self.FirstHierarchyFilterDataList) do
         suitId = groupData.Id
-        awarenessIdList = XEquipConfig.GetEquipTemplateIdsBySuitId(suitId)
+        awarenessIdList = XEquipConfig.GetEquipTemplateIdsListBySuitId(suitId)
         sumNum = sumNum + #awarenessIdList
         for _, templateId in ipairs(awarenessIdList) do
             if isGetFunc(templateId) then

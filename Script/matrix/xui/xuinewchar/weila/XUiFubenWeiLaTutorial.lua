@@ -13,9 +13,8 @@ function XUiFunbenWeiLaTutorial:OnAwake()
 end
 
 function XUiFunbenWeiLaTutorial:OnStart(actId)
-    --XLuaUiManager.SetMask(true)
-    --self:PlayAnimation("AnimSwitch", function()
-    --    XLuaUiManager.SetMask(false)
+    --self:PlayAnimationWithMask("AnimEnable1", function()
+    --    self:PlayAnimation("Loop",nil,nil,CS.UnityEngine.Playables.DirectorWrapMode.Loop)
     --end)
 
     self.Id = actId
@@ -136,9 +135,7 @@ function XUiFunbenWeiLaTutorial:InitAutoScript()
     self.BtnCultivate.CallBack = function() self:OnBtnCultivateClick() end
     self.BtnObtain.CallBack = function() self:OnBtnObtainClick() end
     self.BtnSkin.CallBack = function() self:OnBtnSkinClick() end
-    if self.BtnResearch then
-        self.BtnResearch.CallBack = function() self:OnBtnResearchClick() end
-    end
+    self.BtnResearch.CallBack = function() self:OnBtnResearchClick() end
 end
 
 function XUiFunbenWeiLaTutorial:OnBtnBackClick()
@@ -184,7 +181,7 @@ function XUiFunbenWeiLaTutorial:OnBtnCultivateClick()
 end
 
 function XUiFunbenWeiLaTutorial:OnBtnObtainClick()
-    XFunctionManager.SkipInterface(self.ActivityCfg.SkipIdDraw)
+    XFunctionManager.SkipInterface(self.ActivityCfg.SkipGet)
 end
 
 function XUiFunbenWeiLaTutorial:OnBtnSkinClick()

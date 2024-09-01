@@ -1,6 +1,10 @@
 XUiPanelGradeUpgrade = XClass(nil, "XUiPanelGradeUpgrade")
 
 function XUiPanelGradeUpgrade:Ctor(ui, rootUi, parent)
+    ---@type XCharacterAgency
+    local ag = XMVCA:GetAgency(ModuleId.XCharacter)
+    self.CharacterAgency = ag
+    
     self.RootUi = rootUi
     self.Parent = parent
     self.GameObject = ui.gameObject
@@ -36,6 +40,8 @@ function XUiPanelGradeUpgrade:AutoInitUi()
     self.TxtName = self.Transform:Find("BgImage/RImgCharacterIcon/TxtName"):GetComponent("Text")
     self.BtnDarkBg = self.Transform:Find("BtnDarkBg"):GetComponent("Button")
     self.PanelCharAttack = self.Transform:Find("BgImage/Properties/PanelCharAttack")
+    self.TxtOldBattlePower = self.Transform:FindTransform("TxtOldBattlePower"):GetComponent("Text")
+    self.TxtCurBattlePower = self.Transform:FindTransform("TxtCurBattlePower"):GetComponent("Text")
     self.TxtOldAttack = self.Transform:Find("BgImage/Properties/PanelCharAttack/TxtOldAttack"):GetComponent("Text")
     self.TxtCurAttack = self.Transform:Find("BgImage/Properties/PanelCharAttack/TxtCurAttack"):GetComponent("Text")
     self.PanelCharLife = self.Transform:Find("BgImage/Properties/PanelCharLife")
@@ -113,6 +119,7 @@ function XUiPanelGradeUpgrade:HideLevelInfo()
 end
 
 function XUiPanelGradeUpgrade:OldCharUpgradeInfo(character)
+    self.TxtOldBattlePower.text = self.CharacterAgency:GetCharacterHaveRobotAbilityById(character.Id)
     self.TxtOldAttack.text = XMath.ToMinInt(FixToDouble(character.Attribs[XNpcAttribType.AttackNormal]) or 0)
     self.TxtOldLife.text = XMath.ToMinInt(FixToDouble(character.Attribs[XNpcAttribType.Life]) or 0)
     self.TxtOldDefense.text = XMath.ToMinInt(FixToDouble(character.Attribs[XNpcAttribType.DefenseNormal]) or 0)
@@ -121,6 +128,7 @@ function XUiPanelGradeUpgrade:OldCharUpgradeInfo(character)
 end
 
 function XUiPanelGradeUpgrade:CurCharUpgradeInfo(character)
+    self.TxtCurBattlePower.text = self.CharacterAgency:GetCharacterHaveRobotAbilityById(character.Id)
     self.TxtCurAttack.text = XMath.ToMinInt(FixToDouble(character.Attribs[XNpcAttribType.AttackNormal]) or 0)
     self.TxtCurLife.text = XMath.ToMinInt(FixToDouble(character.Attribs[XNpcAttribType.Life]) or 0)
     self.TxtCurDefense.text = XMath.ToMinInt(FixToDouble(character.Attribs[XNpcAttribType.DefenseNormal]) or 0)

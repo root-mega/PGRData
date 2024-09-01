@@ -10,7 +10,7 @@ end
 function XUiEquipResonanceSkillPreview:OnStart(params)
     self.RootUi = params.rootUi
     self.Params = params
-    self.SelectSkillInfo = params.selectSkillInfo
+    self.LastSelectSkillInfo = params.selectSkillInfo
 
     self.BtnEnter:SetDisable(true, false)
     self.BtnCancel.gameObject:SetActiveEx(self.Params.isNeedSelectSkill)
@@ -22,9 +22,14 @@ function XUiEquipResonanceSkillPreview:OnStart(params)
 end
 
 function XUiEquipResonanceSkillPreview:UpdateCharacterName()
-    local charConfig = XCharacterConfigs.GetCharacterTemplate(self.RootUi.SelectCharacterId)
-    self.TxtCharacterName.text = charConfig.Name
-    self.TxtCharacterNameOther.text = charConfig.TradeName
+    if self.RootUi.SelectCharacterId then
+        local charConfig = XCharacterConfigs.GetCharacterTemplate(self.RootUi.SelectCharacterId)
+        self.TxtCharacterName.text = charConfig.Name
+        self.TxtCharacterNameOther.text = charConfig.TradeName
+    else
+        self.TxtCharacterName.text = ""
+        self.TxtCharacterNameOther.text = ""
+    end
 end
 
 --@region Update PreviewScroll Item
@@ -55,7 +60,7 @@ function XUiEquipResonanceSkillPreview:UpdateSkillPreviewScroll()
         self.ResonanceSkillGrids[skillIndex]:Refresh({
             equipId = equipId,
             skillInfo = skillInfo,
-            selectSkillInfo = self.SelectSkillInfo,
+            selectSkillInfo = self.LastSelectSkillInfo,
             selectCharacterId = self.RootUi.SelectCharacterId,
             pos = self.Params.pos
         })
@@ -64,7 +69,7 @@ end
 
 function XUiEquipResonanceSkillPreview:GetPreSkillInfoList(equipId)
     local equipId = self.RootUi.EquipId
-    local list = XDataCenter.EquipManager.GetResonancePreSkillInfoList(equipId, self.RootUi.SelectCharacterId, self.RootUi.Pos)
+    local list = self._Control:GetResonancePreviewSkillInfoList(equipId, self.RootUi.SelectCharacterId, self.RootUi.Pos)
     local equip = XDataCenter.EquipManager.GetEquip(equipId)
     
     if equip.ResonanceInfo then

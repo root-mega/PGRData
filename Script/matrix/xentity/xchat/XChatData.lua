@@ -1,4 +1,5 @@
 --从服务器接收的格式
+---@class XChatData 聊天数据
 XChatData = XClass(nil, "XChatData")
 
 local Default = {
@@ -95,7 +96,7 @@ function XChatData:GetRoomMsgContent()
 
     if contentId == RoomMsgContentId.FrinedInvite then
         -- 普通联机
-        if MultipleRoomType.Normal == roomType or MultipleRoomType.ArenaOnline == roomType then
+        if MultipleRoomType.Normal == roomType or MultipleRoomType.ArenaOnline == roomType or MultipleRoomType.FubenPhoto == roomType then
             local playerName
             if playerId == XPlayer.Id then
                 playerName = XPlayer.Name
@@ -136,6 +137,19 @@ function XChatData:GetRoomMsgContent()
 
             local inviteWords = CS.XTextManager.GetText("OnlineInviteLink", string.format("%s|%s|%s|%s", roomId, tostring(stageId), tostring(roomType), tostring(stageLevel)))
             return CS.XTextManager.GetText("OnlineInviteFriend", playerName, activityName, inviteWords)
+        end
+        -- Dlc
+        if MultipleRoomType.DlcHunt == roomType then
+            local worldId = stageId
+            local playerName
+            if playerId == XPlayer.Id then
+                playerName = XPlayer.Name
+            else
+                playerName = XDataCenter.SocialManager.GetPlayerRemark(playerId, "")
+            end
+            local stageName = XDlcHuntWorldConfig.GetWorldName(worldId)
+            local inviteWords = CS.XTextManager.GetText("OnlineInviteLink", string.format("%s|%s|%s|%s", roomId, tostring(worldId), tostring(roomType), tostring(stageLevel)))
+            return CS.XTextManager.GetText("OnlineInviteFriend", playerName, stageName, inviteWords)
         end
     end
 
@@ -226,4 +240,6 @@ MultipleRoomType = {
     UnionKill = 2,
     ArenaOnline = 3,
     MultiDimOnline = 4,
+    DlcHunt = 5,
+    FubenPhoto=6,
 }

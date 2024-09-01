@@ -1,43 +1,19 @@
 local XRLGuildDormRole = require("XEntity/XGuildDorm/Role/XRLGuildDormRole")
 local XGDMoveComponent = require("XEntity/XGuildDorm/Components/XGDMoveComponent")
 local XGuildDormRoleFSMFactory = require("XEntity/XGuildDorm/Role/FSM/XGuildDormRoleFSMFactory")
-local XGuildDormRole = XClass(nil, "XGuildDormRole")
+local XGDComponentManager = require("XEntity/XGuildDorm/Base/XGDComponentManager")
+local XGuildDormBaseRole = require("XEntity/XGuildDorm/Role/XGuildDormBaseRole")
+---@class XGuildDormRole : XGuildDormBaseRole
+local XGuildDormRole = XClass(XGuildDormBaseRole, "XGuildDormRole")
 
 function XGuildDormRole:Ctor(id)
-    self.Id = id
     self.PlayerId = nil
-    -- 角色表现数据
-    self.RLGuildDormRole = nil
     -- 服务器数据
     self.ServerData = nil
-    -- 组件 XGDComponet
-    self.Componets = nil
-    self.ComponetDic = nil
-    -- 行为代理
-    self.Agent = nil
-    -- 移动代理
-    self.MoveAgent = nil
-    -- 状态机 XHomeCharFSM
-    self.StateMachine = nil
-    -- 当前交互状态
-    self.InteractStatus = XGuildDormConfig.InteractStatus.End
-    -- 当前交互信息
-    self.CurrentInteractInfo = nil
     self.PlayActionId = -1
     self.SyncState = XGuildDormConfig.SyncState.None
     -- 上一次结束交互的时间
     self.LastEndInteractTime = 0
-    self:_InitDefaultComponets()
-end
-
-function XGuildDormRole:Dispose()
-    self.ComponetDic = nil
-    self.Componets = nil
-    self.Agent = nil
-    self.MoveAgent = nil
-    self.StateMachine = nil
-    self.CurrentInteractInfo = nil
-    self.RLGuildDormRole:Dispose()
 end
 
 function XGuildDormRole:UpdateWithServerData(data) 
@@ -66,7 +42,7 @@ function XGuildDormRole:UpdateRoleId(roleId)
     local rlRole = self:GetRLRole()
     rlRole:UpdateRoleId(roleId)
     -- 更新组件的依赖
-    for _, com in ipairs(self.Componets) do
+    for _, com in ipairs(self.GDComponentManager:GetComponents()) do
         if com.UpdateRoleDependence then
             com.UpdateRoleDependence(com)
         end
@@ -78,49 +54,11 @@ function XGuildDormRole:UpdateRoleId(roleId)
         rlRole:DisableColliders()
     end
     rlRole:GetGameObject():LoadPrefab(XGuildDormConfig.GetSwitchRoleEffect())
-end
-
-function XGuildDormRole:GetId()
-    return self.Id
+    rlRole:UpdateCurrentStepCueId(XDataCenter.GuildDormManager.GetCurrentRoom():GetWalkCueId())
 end
 
 function XGuildDormRole:GetPlayerId()
     return self.PlayerId    
-end
-
-function XGuildDormRole:GetRLRole()
-    if self.RLGuildDormRole == nil then 
-        self.RLGuildDormRole = XRLGuildDormRole.New(self.Id)
-    end
-    return self.RLGuildDormRole
-end
-
-function XGuildDormRole:GetAgent()
-    if self.Agent == nil then
-        local gameObject = self:GetRLRole():GetGameObject()
-        if XTool.UObjIsNil(gameObject) then return end
-        self.Agent = gameObject:GetComponent(typeof(CS.BehaviorTree.XAgent))
-        if XTool.UObjIsNil(self.Agent) then
-            self.Agent = gameObject:AddComponent(typeof(CS.BehaviorTree.XAgent))
-            self.Agent.ProxyType = "XGuildDormCharAgent"
-            self.Agent:InitProxy()
-            self.Agent.Proxy.LuaAgentProxy:SetRole(self)
-        end 
-    end   
-    return self.Agent
-end 
-
-function XGuildDormRole:GetMoveAgent() 
-    if self.MoveAgent == nil then
-        local gameObject = self:GetRLRole():GetGameObject()
-        self.MoveAgent = CS.XNavMeshUtility.AddMoveAgent(gameObject)
-        self.MoveAgent.Radius = 0.35
-        self.MoveAgent.IsObstacle = false
-        self.MoveAgent.IsIgnoreCollide = true
-        self.MoveAgent.CeilSize = 0.3
-        self.MoveAgent.Speed = XGuildDormConfig.GetRoleMoveSpeed()
-    end
-    return self.MoveAgent
 end
 
 function XGuildDormRole:GetCurrentMoveDirection()
@@ -130,15 +68,6 @@ end
 function XGuildDormRole:GetCurrentMoveDirectionIsZero()
     local x, y = self:GetCurrentMoveDirection()
     return (x == 0 and y == 0) 
-end
-
-function XGuildDormRole:GetIsInteracting()
-    return self.InteractStatus == XGuildDormConfig.InteractStatus.Begin
-        or self.InteractStatus == XGuildDormConfig.InteractStatus.Playing
-end
-
-function XGuildDormRole:GetInteractStatus()
-    return self.InteractStatus
 end
 
 function XGuildDormRole:UpdateInteractStatus(value)
@@ -168,62 +97,6 @@ function XGuildDormRole:GetIsOverLastEndInteractTime()
         >= XGuildDormConfig.GetInteractIntervalTime()
 end
 
-function XGuildDormRole:EnableCharacterController(value)
-    if self:GetRLRole():GetCharacterController() == nil then
-        return
-    end
-    self:GetRLRole():GetCharacterController().enabled = value
-end
-
-function XGuildDormRole:GetCurrentInteractInfo()
-    return self.CurrentInteractInfo
-end
-
-function XGuildDormRole:UpdateCurrentInteractInfo(value)
-    self.CurrentInteractInfo = value
-end
-
-function XGuildDormRole:AddComponent(compoent, pos)
-    if pos == nil then 
-        table.insert(self.Componets, compoent)
-    else
-        table.insert(self.Componets, pos, compoent)
-    end
-    self.ComponetDic[compoent.__cname] = compoent
-    compoent:Init()
-end
-
-function XGuildDormRole:GetComponent(className)
-    return self.ComponetDic[className]
-end
-
-function XGuildDormRole:PlayBehavior(id)
-    self:GetAgent():PlayBehavior(id)
-end
-
-function XGuildDormRole:PlayBehaviorByType(behaviorType)
-    self:PlayBehavior(self:GetBehaviorIdByType(behaviorType))
-end
-
-function XGuildDormRole:GetBehaviorIdByType(behaviorType)
-    local behaviorId = XGuildDormConfig.GetRoleBehaviorIdByState(self.Id, behaviorType)
-    if not behaviorId then
-        XLog.Error("获取角色行为树失败，角色id=".. tostring(self.Id) .. ", state=" .. tostring(behaviorType))
-        return
-    end
-    return behaviorId
-end
-
-function XGuildDormRole:Update(dt)
-    for _, component in ipairs(self.Componets) do
-        if component.Update then
-            if component:CheckCanUpdate(dt) then
-                component:Update(dt)
-            end
-        end
-    end
-end
-
 local MoveWallState = {
     BEGIN = 0,
     MOVING = 1,
@@ -235,29 +108,6 @@ function XGuildDormRole:SyncToServer()
     local transform = self:GetRLRole():GetTransform()
     local isZeroDirection = self:GetCurrentMoveDirectionIsZero()
     self.SyncState = XDataCenter.GuildDormManager.GetGuildDormNetwork():GetCsNetwork():SyncToServer(transform, isZeroDirection, self.SyncState)
-end
-
-function XGuildDormRole:ChangeStateMachine(state, isForce)
-    if not XGuildDormRoleFSMFactory.CheckHasState(state) then
-        XLog.Error("guild dorm role 切换不存在的状态", state)
-        return
-    end
-    if self.StateMachine and self.StateMachine.name == state and not isForce then
-        return
-    end
-    if self.StateMachine then
-        self.StateMachine:Exit()
-    end
-    self.StateMachine = XGuildDormRoleFSMFactory.New(state, self)
-    self.StateMachine:Enter()
-    self.StateMachine:Execute()
-end
-
-function XGuildDormRole:CheckIsInStateMachine(state)
-    if self.StateMachine and self.StateMachine.name == state then
-        return true
-    end
-    return false
 end
 
 function XGuildDormRole:StopPlayAction()
@@ -282,6 +132,12 @@ function XGuildDormRole:BeginInteract(id, isDirectInteract)
     self:GetAgent():SetVarDicByKey("IsDirectInteract", isDirectInteract)
 end
 
+function XGuildDormRole:BeginNpcInteract(interactInfo)
+    local com = self:GetComponent("XGDNpcInteractComponent")
+    if com == nil then return end
+    com:BeginInteract(interactInfo, false)
+end
+
 function XGuildDormRole:StopInteract()
     CsXGameEventManager.Instance:Notify(XEventId.EVENT_DORM_INTERACT_STOP
         , self:GetPlayerId())
@@ -301,14 +157,16 @@ function XGuildDormRole:CheckIsSelfPlayer()
     return self.PlayerId == XPlayer.Id
 end
 
---######################## 私有方法 ########################
+function XGuildDormRole:GetEntityId()
+    return self.PlayerId
+end
 
--- 初始化默认的components
-function XGuildDormRole:_InitDefaultComponets()
-    self.Componets = nil
-    self.Componets = {}
-    self.ComponetDic = nil
-    self.ComponetDic = {}
+function XGuildDormRole:GetName()
+    return XDataCenter.GuildDormManager.GetPlayerName(self.PlayerId)
+end
+
+function XGuildDormRole:GetTriangleType()
+    return XGuildDormConfig.TriangleType.Player
 end
 
 return XGuildDormRole

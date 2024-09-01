@@ -40,7 +40,7 @@ end
 
 function XUiMentorAwarenessPopup:UpdateUsingPanel()
     if not self.UsingEquipGrid then
-        self.UsingEquipGrid = XUiGridEquip.New(self.GridEquipUsing)
+        self.UsingEquipGrid = XUiGridEquip.New(self.GridEquipUsing, self, nil, true)
         self.UsingEquipGrid:InitRootUi(self)
     end
     self.UsingEquipGrid:Refresh(self.EquipId)

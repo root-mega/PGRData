@@ -1,13 +1,91 @@
 [
     {
         "Id": 1,
-        "Name": "Solo Battle",
+        "CharacterId": 1041003,
+        "TalentType": 1,
+        "Name": "Ranger",
+        "TalentDes": "High mobility and simplified Core Attack.",
         "Icon": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerIconSingle.png",
         "BattleRoomBg": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerTagDi.png"
     },
     {
         "Id": 2,
-        "Name": "Swap Battle",
+        "CharacterId": 1041003,
+        "TalentType": 2,
+        "Name": "Raging Thunder",
+        "TalentDes": "Deals a bonus Signature and leaves Lightning Field enhancement.",
+        "Icon": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerIconRotations.png",
+        "BattleRoomBg": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerTagDiTwo.png"
+    },
+    {
+        "Id": 3,
+        "CharacterId": 1531004,
+        "TalentType": 1,
+        "Name": "Famed Concertmaster",
+        "TalentDes": "Enhances Signatures and Shooting Star Orb attacks.",
+        "Icon": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerIconSingle.png",
+        "BattleRoomBg": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerTagDi.png"
+    },
+    {
+        "Id": 4,
+        "CharacterId": 1531004,
+        "TalentType": 2,
+        "Name": "Hermit",
+        "TalentDes": "Will still assist in the battle after leaving the battlefield.",
+        "Icon": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerIconRotations.png",
+        "BattleRoomBg": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerTagDiTwo.png"
+    },
+    {
+        "Id": 5,
+        "CharacterId": 1231002,
+        "TalentType": 1,
+        "Name": "Time-space Contract",
+        "TalentDes": "Dodges efficiently and triggers Matrix frequently.",
+        "Icon": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerIconSingle.png",
+        "BattleRoomBg": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerTagDi.png"
+    },
+    {
+        "Id": 6,
+        "CharacterId": 1231002,
+        "TalentType": 2,
+        "Name": "Crystal-Heart Plush",
+        "TalentDes": "Grants immediate massive damage upon switch.",
+        "Icon": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerIconRotations.png",
+        "BattleRoomBg": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerTagDiTwo.png"
+    },
+    {
+        "Id": 7,
+        "CharacterId": 1221002,
+        "TalentType": 1,
+        "Name": "Buddy",
+        "TalentDes": "High-speed combos will grant various enhancements.",
+        "Icon": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerIconSingle.png",
+        "BattleRoomBg": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerTagDi.png"
+    },
+    {
+        "Id": 8,
+        "CharacterId": 1221002,
+        "TalentType": 2,
+        "Name": "Boom\uff01",
+        "TalentDes": "Noctis will offer some... help?",
+        "Icon": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerIconRotations.png",
+        "BattleRoomBg": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerTagDiTwo.png"
+    },
+    {
+        "Id": 9,
+        "CharacterId": 1031002,
+        "TalentType": 1,
+        "Name": "Divine Judgment",
+        "TalentDes": "Able to control the enemy easily.",
+        "Icon": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerIconSingle.png",
+        "BattleRoomBg": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerTagDi.png"
+    },
+    {
+        "Id": 10,
+        "CharacterId": 1031002,
+        "TalentType": 2,
+        "Name": "Area Energy Supply",
+        "TalentDes": "Provides support for allies when on standby.",
         "Icon": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerIconRotations.png",
         "BattleRoomBg": "Assets/Product/Texture/Atlas/UiRpgTower/UiRpgTowerTagDiTwo.png"
     }

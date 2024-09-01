@@ -114,6 +114,7 @@ end
 function XUiFubenMaintaineraction:UsedCard(targetNodeId)
     self.BelowPanel:GetNewCard()
     self.IntermediatePanel:MovePlayerById(XPlayer.Id,targetNodeId,function ()
+            XLuaUiManager.SetMask(false)
             self:CheckEvent(targetNodeId, true, function ()
                     self:UpdatePanel()
                 end)

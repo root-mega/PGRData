@@ -80,7 +80,7 @@ function XUiRoleDeployPanel:UpdateSlot()
         --角色带有默认插件
         slotGrid:Refresh(plugIdList[i])
         slotGrid.GameObject:SetActiveEx(true)
-        if self.CurSelectSlotIndex == -1 and i == 1then
+        if self.CurSelectSlotIndex == -1 and i == 1 then
             self:UpdateSlotSelect(slotGrid)
         end
     end
@@ -141,7 +141,6 @@ function XUiRoleDeployPanel:OnBtnSwitchClick()
         if signalCode ~= XSignalCode.SUCCESS then return end
         self:Refresh()
     end)
-    
 end
 
 return XUiRoleDeployPanel

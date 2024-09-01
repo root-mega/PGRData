@@ -10,7 +10,7 @@ function XUiGridPartnerShowMainSkillOption:Ctor(ui)
     XTool.InitUiObject(self)
     self:RegisterUiEvents()
     -- 默认隐藏选择按钮
-    local showBtnSelect = self.Normal.gameObject:FindGameObject("BtnSelect")
+    local showBtnSelect = self.Normal.gameObject:FindGameObject("BtnSelect2")
     if showBtnSelect then
         showBtnSelect:SetActiveEx(false)
     end

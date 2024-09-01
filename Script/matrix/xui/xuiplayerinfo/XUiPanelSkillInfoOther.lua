@@ -1,3 +1,4 @@
+-- V1.29 角色技能优化 该类不在使用 具体使用在 UiSkillDetailsOther
 XUiPanelSkillInfoOther = XClass(nil, "XUiPanelSkillInfoOther")
 
 local MAX_SUB_SKILL_GRID_COUNT = 6

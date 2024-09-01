@@ -1,5 +1,6 @@
 local XUiGridChapter = require("XUi/XUiFubenMainLineChapter/XUiGridChapter")
 local XUiGridExploreChapter = require("XUi/XUiFubenMainLineChapter/XUiGridExploreChapter")
+local XUiPanelStoryJump = require("XUi/XUiFubenMainLineChapter/XUiPanelStoryJump")
 
 local XUiFubenMainLineChapter = XLuaUiManager.Register(XLuaUi, "UiFubenMainLineChapter")
 
@@ -73,6 +74,7 @@ function XUiFubenMainLineChapter:OnStart(chapter, stageId, hideDiffTog)
     self:SetupBountyTask()
 
     self:InitPanelBottom()
+    self:InitPanelStoryJump()
 end
 
 function XUiFubenMainLineChapter:OnEnable()
@@ -88,6 +90,10 @@ function XUiFubenMainLineChapter:OnEnable()
         end
     end
 
+    -- 检查主线副本活动(如果没有隐藏章节和(异变章节、异变未解锁） 直接隐藏toggle)
+    local isActivePanelTop = XDataCenter.FubenMainLineManager.CheckActivePanelTopDifficult(self.Chapter.OrderId)
+    self.PanelTopDifficult.gameObject:SetActiveEx(isActivePanelTop)
+
     self:UpdateDifficultToggles()
     self:OnOpenInit()
     self:UpdateCurChapter(self.Chapter)
@@ -95,6 +101,14 @@ function XUiFubenMainLineChapter:OnEnable()
     self:SetupBountyTask()
 
     self:GoToLastPassStage()
+    
+    -- 检测是否有缓存的奖励信息
+    local teleportRewardCache = XDataCenter.FubenMainLineManager.GetTeleportRewardCache(self.Chapter.ChapterId)
+    if not XTool.IsTableEmpty(teleportRewardCache) then
+        XLuaUiManager.Open("UiFubenTip", teleportRewardCache, XFubenConfigs.ChapterType.MainLine)
+        -- 清理缓存
+        XDataCenter.FubenMainLineManager.RemoveTeleportRewardCache(self.Chapter.ChapterId)
+    end
 end
 
 function XUiFubenMainLineChapter:OnDisable()
@@ -130,6 +144,11 @@ function XUiFubenMainLineChapter:InitPanelBottom()
 
     self.PanelExploreBottom.BtnNormalJump.gameObject:SetActiveEx(false)
     self.PanelExploreBottom.BtnHardlJump.gameObject:SetActiveEx(false)
+end
+
+function XUiFubenMainLineChapter:InitPanelStoryJump()
+    ---@type XUiPanelStoryJump
+    self.PanelStoryJump = XUiPanelStoryJump.New(self.PanelStoryJumpBottom, self)
 end
 
 function XUiFubenMainLineChapter:GoToLastPassStage()
@@ -197,7 +216,14 @@ function XUiFubenMainLineChapter:EnterFight(stage)
         XLuaUiManager.Open("UiBfrtDeploy", groupId)
     else
         if XTool.USENEWBATTLEROOM then
-            XLuaUiManager.Open("UiBattleRoleRoom", stage.StageId)
+            local team = nil
+            local proxy = nil
+            if stage.HideAction == 1 then
+                team = XDataCenter.TeamManager.GetXTeamByStageId(stage.StageId)
+                team:UpdateEntityIds(XTool.Clone(stage.RobotId))
+                proxy = require("XUi/XUiFubenShortStory/BattleRole/XUiShortStoryBattleRoleRoom")
+            end
+            XLuaUiManager.Open("UiBattleRoleRoom", stage.StageId, team, proxy)
         else
             XLuaUiManager.Open("UiNewRoomSingle", stage.StageId)
         end
@@ -234,15 +260,10 @@ function XUiFubenMainLineChapter:AutoInitUi()
     self.GridTreasureGrade = self.Transform:Find("SafeAreaContentPane/PanelTreasure/PanelReward/PanelTreasureGrade/Viewport/PanelGradeContent/GridTreasureGrade")
     self.Scrollbar = self.Transform:Find("SafeAreaContentPane/PanelTreasure/PanelReward/PanelTreasureGrade/Scrollbar"):GetComponent("Scrollbar")
     self.PanelMainlineChapter = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter")
-    self.PanelTop = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTop")
-    self.BtnBack = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTop/BtnBack"):GetComponent("Button")
-    self.BtnMainUi = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTop/BtnMainUi"):GetComponent("Button")
     self.PanelChapterName = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelChapterName")
     self.TxtChapter = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelChapterName/TxtChapter"):GetComponent("Text")
     self.TxtChapterName = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelChapterName/TxtChapterName"):GetComponent("Text")
     self.Text_1 = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelInfo/PanelActivityTime/Text_1"):GetComponent("Text")
-    self.TextBack = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTop/BtnBack/TextBack"):GetComponent("Text")
-    self.TextMainUi = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTop/BtnMainUi/TextMainUi"):GetComponent("Text")
     self.PanelTopDifficult = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTopDifficult")
     self.BtnNormal = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTopDifficult/BtnNormal"):GetComponent("Button")
     self.PanelNormalOn = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTopDifficult/BtnNormal/PanelNormalOn")
@@ -250,6 +271,9 @@ function XUiFubenMainLineChapter:AutoInitUi()
     self.BtnHard = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTopDifficult/BtnHard"):GetComponent("Button")
     self.PanelHardOn = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTopDifficult/BtnHard/PanelHardOn")
     self.PanelHardOff = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTopDifficult/BtnHard/PanelHardOff")
+    self.BtnVt = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTopDifficult/BtnVt"):GetComponent("Button")
+    self.PanelVtOn = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTopDifficult/BtnVt/PanelVtOn")
+    self.PanelVtOff = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelTopDifficult/BtnVt/PanelVtOff")
     self.PanelMoney = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelMoney")
     self.PanelMoenyGroup = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelMoney/PanelMoenyGroup")
     self.PanelBountyTask = self.Transform:Find("SafeAreaContentPane/PanelMainlineChapter/PanelMoney/PanelMoenyGroup/PanelBountyTask")
@@ -282,6 +306,9 @@ function XUiFubenMainLineChapter:AutoAddListener()
     end
     self.BtnHard.CallBack = function()
         self:OnBtnHardClick(true)
+    end
+    self.BtnVt.CallBack = function()
+        self:OnBtnVtClick(false)
     end
     self.BtnSwitch1MultipleWeeks.CallBack = function()
         self:OnBtnSwitch1MultipleWeeksClick()
@@ -384,7 +411,8 @@ function XUiFubenMainLineChapter:OnBtnHardClick(IsAutoMove)
             end
             
             -- 检查困难这个章节解锁
-            if not chapterInfo or not chapterInfo.IsOpen then
+            -- if not chapterInfo or not chapterInfo.IsOpen then
+            if XDataCenter.FubenMainLineManager:ExGetChapterIsLockAndLockTip(chapterInfo.ChapterMainId, XDataCenter.FubenManager.DifficultHard) then
                 local chapterId = XDataCenter.FubenMainLineManager.GetChapterIdByChapterMain(chapterInfo.ChapterMainId, XDataCenter.FubenManager.DifficultHard)
                 local isOpen, desc = XDataCenter.FubenMainLineManager.CheckOpenCondition(chapterId)
                 if not isOpen then
@@ -405,6 +433,19 @@ function XUiFubenMainLineChapter:OnBtnHardClick(IsAutoMove)
         self:UpdateDifficultToggles(true)
     end
     return true
+end
+
+function XUiFubenMainLineChapter:OnBtnVtClick(IsAutoMove)
+    if self.IsShowDifficultPanel then
+        if self.CurDiff ~= XDataCenter.FubenManager.DifficultVariations then
+            self.CurDiff = XDataCenter.FubenManager.DifficultVariations
+            XDataCenter.FubenMainLineManager.SetCurDifficult(self.CurDiff)
+            self:RefreshForChangeDiff(IsAutoMove)
+        end
+        self:UpdateDifficultToggles()
+    else
+        self:UpdateDifficultToggles(true)
+    end
 end
 
 -- 点击切换到周目模式
@@ -482,8 +523,11 @@ function XUiFubenMainLineChapter:UpdateDifficultToggles(showAll)
         elseif self.CurDiff == XDataCenter.FubenManager.DifficultHard then
             self:SetBtnTogleActive(false, true, false)
             self.BtnHard.transform:SetAsFirstSibling()
-        else
+        elseif self.CurDiff == XDataCenter.FubenManager.DifficultVariations then
             self:SetBtnTogleActive(false, false, true)
+            self.BtnVt.transform:SetAsFirstSibling()
+        else
+            self:SetBtnTogleActive(false, false, false)
         end
         self.BtnCloseDifficult.gameObject:SetActiveEx(false)
     end
@@ -499,6 +543,7 @@ function XUiFubenMainLineChapter:UpdateDifficultToggles(showAll)
     end
     self.TxtNormalProgress.text = XDataCenter.FubenMainLineManager.GetProgressByChapterId(chapterIds[1])
     self.TxtHardProgress.text = XDataCenter.FubenMainLineManager.GetProgressByChapterId(chapterIds[2])
+    self.TxtVtProgress.text = XDataCenter.FubenMainLineManager.GetProgressByChapterId(chapterIds[3])
     -- 抢先体验活动倒计时
     self:UpdateActivityTime()
 end
@@ -509,16 +554,59 @@ function XUiFubenMainLineChapter:UpdateChapterTxt()
     self.TxtChapterName.text = self.Chapter.ChapterEn
 end
 
-function XUiFubenMainLineChapter:SetBtnTogleActive(isNormal, isHard)
+function XUiFubenMainLineChapter:SetBtnTogleActive(isNormal, isHard, isVt)
     self.BtnNormal.gameObject:SetActiveEx(isNormal)
-
     self.BtnHard.gameObject:SetActiveEx(isHard)
+    self.BtnVt.gameObject:SetActiveEx(isVt)
+    if isNormal then
+        local chapterInfo = XDataCenter.FubenMainLineManager.GetChapterInfoForOrderId(XDataCenter.FubenManager.DifficultNormal, self.Chapter.OrderId)
+        local normalOpen = chapterInfo and chapterInfo.Unlock or false
+        self.PanelNormalOn.gameObject:SetActiveEx(normalOpen)
+        self.PanelNormalOff.gameObject:SetActiveEx(not normalOpen) 
+    end
     if isHard then
-        local hardOpen = XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.FubenDifficulty)
         local chapterInfo = XDataCenter.FubenMainLineManager.GetChapterInfoForOrderId(XDataCenter.FubenManager.DifficultHard, self.Chapter.OrderId)
-        hardOpen = hardOpen and chapterInfo and chapterInfo.IsOpen
-        self.PanelHardOn.gameObject:SetActiveEx(hardOpen)
-        self.PanelHardOff.gameObject:SetActiveEx(not hardOpen)
+        if not chapterInfo then
+            self.BtnHard.gameObject:SetActiveEx(false)
+        else
+            local hardOpen = chapterInfo and chapterInfo.Unlock or false
+            self.PanelHardOn.gameObject:SetActiveEx(hardOpen)
+            self.PanelHardOff.gameObject:SetActiveEx(not hardOpen)
+        end
+    end
+    if isVt then
+        local chapterInfo = XDataCenter.FubenMainLineManager.GetChapterInfoForOrderId(XDataCenter.FubenManager.DifficultVariations, self.Chapter.OrderId)
+        local normalOpen = chapterInfo and chapterInfo.Unlock or false
+        self.BtnVt.gameObject:SetActiveEx(normalOpen)
+    end
+    -- 刷新蓝点
+    -- 普通剧情下
+    if self.CurDiff == XDataCenter.FubenManager.DifficultNormal then
+        local chapterList = XDataCenter.FubenMainLineManager.GetChapterList(XDataCenter.FubenManager.DifficultHard)
+        local hardChapter = XDataCenter.FubenMainLineManager.GetChapterCfg(chapterList[self.Chapter.OrderId])
+        if hardChapter then
+            local viewModel = XDataCenter.FubenManagerEx.GetMainLineManager():ExGetChapterViewModelById(self.MainChapterId, XDataCenter.FubenManager.DifficultHard, self.Chapter.OrderId)
+            local isUnFinAndUnEnter = XDataCenter.FubenManagerEx.CheckHideChapterRedPoint(viewModel) --v1.30 新入口红点规则，未完成隐藏且没点击过
+            local hardRed = XRedPointConditionChapterReward.Check(hardChapter.ChapterId) or isUnFinAndUnEnter
+
+            self.BtnNormal:ShowReddot(not isHard and hardRed)
+            self.BtnHard:ShowReddot(hardRed) 
+        else
+            self.BtnHard:ShowReddot(false)
+            self.BtnNormal:ShowReddot(false)
+        end
+    -- 隐藏模式下
+    elseif self.CurDiff == XDataCenter.FubenManager.DifficultHard then
+        local chapterList = XDataCenter.FubenMainLineManager.GetChapterList(XDataCenter.FubenManager.DifficultNormal)
+        local normalChapter = XDataCenter.FubenMainLineManager.GetChapterCfg(chapterList[self.Chapter.OrderId])
+        if normalChapter then
+            local normalRed = XRedPointConditionChapterReward.Check(normalChapter.ChapterId)
+            self.BtnHard:ShowReddot(not isNormal and normalRed)
+            self.BtnNormal:ShowReddot(normalRed)
+        else
+            self.BtnNormal:ShowReddot(false)
+            self.BtnHard:ShowReddot(false)
+        end
     end
 end
 
@@ -541,9 +629,9 @@ function XUiFubenMainLineChapter:RefreshForChangeDiff(IsAutoMove)
 end
 
 function XUiFubenMainLineChapter:SetPanelBottomActive(isActive)
-
+    local isVariations = self.CurDiff == XDataCenter.FubenManager.DifficultVariations
     local panelParent = self.IsExploreMod and self.ExPanel or self.NorPanel
-    self.PanelBottom.gameObject:SetActiveEx(isActive)
+    self.PanelBottom.gameObject:SetActiveEx(isActive and not isVariations)
     self.PanelExploreBottom.GameObject:SetActiveEx(isActive and self.IsExploreMod)
     self.PanelBottom.transform:SetParent(panelParent, false)
     self.PanelBottom.transform.localPosition = CS.UnityEngine.Vector3.zero
@@ -560,6 +648,10 @@ function XUiFubenMainLineChapter:UpdateCurChapter(chapter)
     if not chapter then
         return
     end
+
+    -- 不判断是不是隐藏关卡了，都存，因为只有隐藏关在取 v1.30 新隐藏关红点规则
+    XDataCenter.FubenManagerEx.SaveHideChapterIsOpen(chapter.ChapterId)
+
     self.Chapter = chapter
     self.IsExploreMod = XDataCenter.FubenMainLineManager.CheckChapterTypeIsExplore(self.Chapter)
 
@@ -639,8 +731,8 @@ function XUiFubenMainLineChapter:UpdateCurChapter(chapter)
                                 local _, color = CS.UnityEngine.ColorUtility.TryParseHtmlString(colorSixTeen) 
                                 self.TxtStarNum.color = color
                                 self.TxtDesc.color = color
-                                self.TextBack.color = color
-                                self.TextMainUi.color = color
+                                self.BtnBack:SetColor(color)
+                                self.BtnMainUi:SetColor(color)
                             end
                         end
                         CS.XAudioManager.PlaySound(XSoundManager.UiBasicsMusic.UiActivityBranch_SwitchBg)
@@ -708,8 +800,8 @@ function XUiFubenMainLineChapter:UpdateCurChapter(chapter)
                 local _, color = CS.UnityEngine.ColorUtility.TryParseHtmlString(colorSixteen)
                 self.TxtStarNum.color = color
                 self.TxtDesc.color = color
-                self.TextBack.color = color
-                self.TextMainUi.color = color
+                self.BtnBack:SetColor(color)
+                self.BtnMainUi:SetColor(color)
             end
         end
     end
@@ -724,6 +816,9 @@ function XUiFubenMainLineChapter:UpdateCurChapter(chapter)
     self:UpdateExploreBottom()
     self:SetPanelBottomActive(true)
     self:UpdateFubenExploreItem()
+    if not self:CheckIsBfrtType() then
+        self.PanelStoryJump:Refresh(self.Chapter.ChapterId, XFubenConfigs.ChapterType.MainLine)
+    end
 end
 
 function XUiFubenMainLineChapter:UpdateExploreBottom()
@@ -931,7 +1026,9 @@ function XUiFubenMainLineChapter:UpdateChapterStars()
     local received = true
 
     self.PanelBfrtTask.gameObject:SetActiveEx(false)
-    self.PanelDesc.gameObject:SetActiveEx(true)
+    
+    local isVariations = self.CurDiff == XDataCenter.FubenManager.DifficultVariations
+    self.PanelDesc.gameObject:SetActiveEx(not isVariations)
 
     if self.IsOnZhouMu then
         -- 周目奖励
@@ -948,7 +1045,7 @@ function XUiFubenMainLineChapter:UpdateChapterStars()
         curStars, totalStars = XDataCenter.FubenMainLineManager.GetChapterStars(self.Chapter.ChapterId)
         local chapterTemplate = XDataCenter.FubenMainLineManager.GetChapterCfg(self.Chapter.ChapterId)
 
-        for _, v in pairs(chapterTemplate.TreasureId) do
+        for _, v in pairs(chapterTemplate.TreasureId or {}) do
             if not XDataCenter.FubenMainLineManager.IsTreasureGet(v) then
                 received = false
                 break
@@ -1016,6 +1113,14 @@ function XUiFubenMainLineChapter:OnBtnTreasureBgClick()
             self:UpdateChapterStars()
         end
     end))
+end
+
+function XUiFubenMainLineChapter:PcClose()
+    if self.PanelTreasure.gameObject.activeSelf then
+        self:OnBtnTreasureBgClick()
+        return
+    end
+    self:Close()
 end
 
 -- 初始化 treasure grade grid panel，填充数据

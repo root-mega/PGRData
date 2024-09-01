@@ -1,0 +1,2137 @@
+[
+    {
+        "Id": 101,
+        "EquipName": "Leeuwenhoek I",
+        "AttType": 1,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 1,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20011.0,
+        "EffectDesc": "\u00b7 On a critical hit, Physical DMG <color=#4a70b9>+10%</color>, stacking up to <color=#4a70b9>30%</color> for <color=#4a70b9>15</color>s (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 On a critical hit, grants Physical DMG Bonus.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Physical",
+            "DMG Increase"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ELiewenhukeI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 102,
+        "EquipName": "Leeuwenhoek II",
+        "AttType": 1,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 1,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20012.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, inflicts Physical DMG equal to <color=#4a70b9>720%</color> of ATK, with a <color=#4a70b9>1</color>s cooldown.",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage, inflicts additional Physical DMG. ",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Physical",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ELiewenhukeI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 103,
+        "EquipName": "Leeuwenhoek III",
+        "AttType": 1,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 1,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20013.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, Enemy Physical RES <color=#4a70b9>-30%</color> for <color=#4a70b9>15</color> (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage, reduces Enemy Physical RES.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Physical",
+            "RES Reduction"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ELiewenhukeI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 201,
+        "EquipName": "Shakespeare I",
+        "AttType": 2,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 2,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20021.0,
+        "EffectDesc": "\u00b7 Upon dealing damage through a 3-Ping, Fire DMG <color=#4a70b9>+10%</color>, stacking up to <color=#4a70b9>30%</color> for <color=#4a70b9>15</color>s (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage through a 3-Ping, grants Fire DMG Bonus.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Fire",
+            "DMG Increase"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EShashibiyaI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 202,
+        "EquipName": "Shakespeare II",
+        "AttType": 2,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 2,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20022.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, inflicts Fire DMG equal to <color=#4a70b9>720%</color> of ATK, with a <color=#4a70b9>1</color>s cooldown.",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage, inflicts additional Fire DMG. ",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Fire",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EShashibiyaI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 203,
+        "EquipName": "Shakespeare III",
+        "AttType": 2,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 2,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20023.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, Enemy Fire RES <color=#4a70b9>-30%</color> for <color=#4a70b9>15</color> (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage, reduces Enemy Fire RES. ",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Fire",
+            "RES Reduction"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EShashibiyaI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 301,
+        "EquipName": "Heisen I",
+        "AttType": 3,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 3,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20031.0,
+        "EffectDesc": "\u00b7 After pressing and holding Attack over <color=#4a70b9>3</color>s, Lightning DMG <color=#4a70b9>+30%</color> for <color=#4a70b9>15</color>s (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Pressing and holding Attack grants Lightning DMG Bonus.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Lightning",
+            "DMG Increase"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EHaisenbaoI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 302,
+        "EquipName": "Heisen II",
+        "AttType": 3,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 3,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20032.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, inflicts Lightning DMG equal to <color=#4a70b9>720%</color> of ATK, with a 1s cooldown.",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage, inflicts additional Lightning DMG. ",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Lightning",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EHaisenbaoI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 303,
+        "EquipName": "Heisen III",
+        "AttType": 3,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 3,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20033.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, Enemy Lightning RES <color=#4a70b9>-30%</color> for <color=#4a70b9>15</color> (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage, reduces Enemy Lightning RES. ",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Lightning",
+            "RES Reduction"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EHaisenbaoI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 401,
+        "EquipName": "Chen Jiyuan I",
+        "AttType": 4,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 4,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20041.0,
+        "EffectDesc": "\u00b7 When casting Signature Move, Ice DMG <color=#4a70b9>+30%</color> for <color=#4a70b9>15</color>s (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Casting Signature Move grants Ice DMG Bonus. ",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Ice",
+            "DMG Increase"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EZuwenyuanI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 402,
+        "EquipName": "Chen Jiyuan II",
+        "AttType": 4,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 4,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20042.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, inflicts Ice DMG equal to <color=#4a70b9>720%</color> of ATK, with a <color=#4a70b9>1</color>s cooldown.",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage, inflicts additional Ice DMG. ",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Ice",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EZuwenyuanI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 403,
+        "EquipName": "Chen Jiyuan III",
+        "AttType": 4,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 4,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20043.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, Enemy Ice RES <color=#4a70b9>-30%</color> for <color=#4a70b9>15</color> (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage, reduces Enemy Ice RES. ",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Ice",
+            "RES Reduction"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EZuwenyuanI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 501,
+        "EquipName": "Flamel I",
+        "AttType": 5,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 5,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20051.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, Dark DMG <color=#4a70b9>+10%</color>, stacking up to <color=#4a70b9>30%</color> for <color=#4a70b9>15</color>s (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage, grants Dark DMG Bonus. ",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Dark",
+            "DMG Increase"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ELemeiI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 502,
+        "EquipName": "Flamel II",
+        "AttType": 5,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 5,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20052.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, inflicts Dark DMG equal to <color=#4a70b9>720%</color> of ATK, with a <color=#4a70b9>1</color>s cooldown.",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage, inflicts additional Dark DMG. ",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Dark",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ELemeiI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 503,
+        "EquipName": "Flamel III",
+        "AttType": 5,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 5,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20053.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, Enemy Dark RES <color=#4a70b9>-30%</color> for <color=#4a70b9>15</color> (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage, reduces Enemy Dark RES. ",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Dark",
+            "RES Reduction"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ELemeiI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 601,
+        "EquipName": "Diesel I",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 6,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20061.0,
+        "EffectDesc": "\u00b7 Upon a 3-Ping, shuffles Signal Orbs, with a <color=#4a70b9>2</color>s cooldown.",
+        "SimpleEffectDesc": "\u00b7 Upon a 3-Ping, shuffles Signal Orbs, with a <color=#4a70b9>2</color>s cooldown.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Signal Orb",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EDiseerI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 602,
+        "EquipName": "Diesel II",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 6,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20062.0,
+        "EffectDesc": "\u00b7 For every <color=#4a70b9>1</color> Signal Orb pinged, grants Extra DMG Bonus <color=#4a70b9>+10%</color>, stacking up to <color=#4a70b9>300%</color> for <color=#4a70b9>10</color>s (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Pinging Signal Orbs grants Extra DMG Bonus.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Signal Orb",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EDiseerI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 603,
+        "EquipName": "Diesel III",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 6,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20063.0,
+        "EffectDesc": "\u00b7 When there are less than <color=#4a70b9>8</color> Signal Orbs, replenish them to <color=#4a70b9>8</color>, with a <color=#4a70b9>12</color>s cooldown.",
+        "SimpleEffectDesc": "\u00b7 Automatically replenishes when low on Signal Orbs, with a <color=#4a70b9>12</color>s cooldown.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Signal Orb",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EDiseerI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 701,
+        "EquipName": "Boone I",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 7,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20071.0,
+        "EffectDesc": "\u00b7 Signature Move Energy Cost <color=#4a70b9>-20%</color>.",
+        "SimpleEffectDesc": "\u00b7 Reduces Signature Move Energy Cost.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Signature",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EBuenI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 702,
+        "EquipName": "Boone II",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 7,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20072.0,
+        "EffectDesc": "\u00b7 Whenever casting Signature Move, subsequent Signature DMG <color=#4a70b9>+40%</color>, stacking up to <color=#4a70b9>200%</color>.",
+        "SimpleEffectDesc": "\u00b7 Casting Signature Move grants stackable Signature DMG Bonus.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Signature",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EBuenI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 703,
+        "EquipName": "Boone III",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 7,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20073.0,
+        "EffectDesc": "\u00b7 When a battle starts, grants full Signature Energy.",
+        "SimpleEffectDesc": "\u00b7 When a battle starts, grants full Signature Energy.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Signature",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EBuenI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 801,
+        "EquipName": "Turing I",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 8,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20081.0,
+        "EffectDesc": "\u00b7 When Basic Attack deals damage, inflicts <color=#4a70b9>1</color> stack of [Wound] on the enemy, with a <color=#4a70b9>0.5</color>s cooldown.",
+        "SimpleEffectDesc": "\u00b7 Basic Attacks inflict [Wound] on the enemy.",
+        "TraitName": [
+            null,
+            "Wound"
+        ],
+        "TraitDesc": [
+            null,
+            "\u00b7 Upon taking Basic Attack DMG, inflicts Elemental DMG equal to the Wound stack x<color=#4a70b9>200%</color> (same element as the bearer's), with a <color=#4a70b9>4</color>s cooldown.\\n\u00b7 Wound can stack up to <color=#4a70b9>20</color> times for <color=#4a70b9>10</color>s (refreshes when obtained repeatedly)."
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Basic Attack",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ETulingI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 802,
+        "EquipName": "Turing II",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 8,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20082.0,
+        "EffectDesc": "\u00b7 Basic Attack DMG <color=#4a70b9>+50%</color>, and each stack of [Wound] grants an additional <color=#4a70b9>4%</color> DMG Bonus (based on the highest number of stacks on an enemy).",
+        "SimpleEffectDesc": "\u00b7 Increases Basic Attack DMG and grants additional DMG Bonus based on the number of [Wound] stacks.",
+        "TraitName": [
+            null,
+            "Wound"
+        ],
+        "TraitDesc": [
+            null,
+            "\u00b7 Upon taking Basic Attack DMG, inflicts Elemental DMG equal to the Wound stack x<color=#4a70b9>200%</color> (same element as the bearer's), with a <color=#4a70b9>4</color>s cooldown.\\n\u00b7 Wound can stack up to <color=#4a70b9>20</color> times for <color=#4a70b9>10</color>s (refreshes when obtained repeatedly)."
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Basic Attack",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ETulingI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 803,
+        "EquipName": "Turing III",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 8,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20083.0,
+        "EffectDesc": "\u00b7 Every <color=#4a70b9>1</color>s, increases the next Basic Attack Final DMG by <color=#4a70b9>200%+5%</color> x[Wound] Stack (based on the highest number of stacks on an enemy).",
+        "SimpleEffectDesc": "\u00b7 Periodically boosts Basic Attack Final DMG based on [Wound] Stack.",
+        "TraitName": [
+            null,
+            "Wound"
+        ],
+        "TraitDesc": [
+            null,
+            "\u00b7 Upon taking Basic Attack DMG, inflicts Elemental DMG equal to the Wound stack x<color=#4a70b9>200%</color> (same element as the bearer's), with a <color=#4a70b9>4</color>s cooldown.\\n\u00b7 Wound can stack up to <color=#4a70b9>20</color> times for <color=#4a70b9>10</color>s (refreshes when obtained repeatedly)."
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Basic Attack",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ETulingI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 901,
+        "EquipName": "Charlotte I",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 9,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20091.0,
+        "EffectDesc": "\u00b7 For every <color=#4a70b9>20</color> combo hits, CRIT Rate <color=#4a70b9>+10%</color>, stacking up to <color=#4a70b9>100%</color> for <color=#4a70b9>10</color>s (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Grants CRIT Rate Bonus based on combo hits.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Combo",
+            "CRIT Rate"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EXialuodiI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 902,
+        "EquipName": "Charlotte II",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 9,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20092.0,
+        "EffectDesc": "\u00b7 For every <color=#4a70b9>20</color> combo hits, CRIT DMG <color=#4a70b9>+30%</color>, stacking up to <color=#4a70b9>120%</color> for <color=#4a70b9>8</color>s (each stack's duration is calculated independently).",
+        "SimpleEffectDesc": "\u00b7 Grants CRIT DMG Bonus based on combo hits.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Combo",
+            "CRIT DMG"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EXialuodiI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 903,
+        "EquipName": "Charlotte III",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 9,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20093.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, inflicts True DMG equal to Combo Count x<color=#4a70b9>1000</color> <color=#4a70b9>1</color> time, with a <color=#4a70b9>1</color>s cooldown.",
+        "SimpleEffectDesc": "\u00b7 Periodically inflicts True DMG based on Combo Count.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Combo",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EXialuodiI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1001,
+        "EquipName": "Samantha I",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 10,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20101.0,
+        "EffectDesc": "\u00b7 When a battle ends, [Processing Units] gained <color=#4a70b9>+40%</color>.",
+        "SimpleEffectDesc": "\u00b7 Grants more [Processing Units] when a battle ends.",
+        "TraitName": [
+            null,
+            "Processing Unit"
+        ],
+        "TraitDesc": [
+            null,
+            "\u00b7 A token used in the simulation for [Battle Reboots] or to purchase items at [Sharksco]."
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Processing Unit",
+            "Additional Gain"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ESamandaI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1002,
+        "EquipName": "Samantha II",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 10,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20102.0,
+        "EffectDesc": "\u00b7 For every <color=#4a70b9>100</color> [Processing Units] owned, Extra DMG Bonus <color=#4a70b9>+10%</color>.",
+        "SimpleEffectDesc": "\u00b7 The more [Processing Units] owned, the greater the Extra DMG Bonus.",
+        "TraitName": [
+            null,
+            "Processing Unit"
+        ],
+        "TraitDesc": [
+            null,
+            "\u00b7 A token used in the simulation for [Battle Reboots] or to purchase items at [Sharksco]."
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Processing Unit",
+            "DMG Increase"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ESamandaI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1003,
+        "EquipName": "Samantha III",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 10,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20103.0,
+        "EffectDesc": "\u00b7 For every <color=#4a70b9>100</color> [Processing Units] owned, Max HP <color=#4a70b9>+3%</color>.",
+        "SimpleEffectDesc": "\u00b7 The more [Processing Units] owned, the greater the Max HP Bonus.",
+        "TraitName": [
+            null,
+            "Processing Unit"
+        ],
+        "TraitDesc": [
+            null,
+            "\u00b7 A token used in the simulation for [Battle Reboots] or to purchase items at [Sharksco]."
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Processing Unit",
+            "HP"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ESamandaI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1101,
+        "EquipName": "Fran I",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 11,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20111.0,
+        "EffectDesc": "\u00b7 DMG Reduction <color=#4a70b9>+20%</color>.\\n\u00b7 Upon taking damage, this Bonus <color=#4a70b9>+10%</color>, stacking up to <color=#4a70b9>40%</color>. This additional effect lasts <color=#4a70b9>10</color>s (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Grants DMG Reduction Bonus and an additional stackable boost upon taking damage.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Take Hit",
+            "DMG Reduction"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EFulanI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1102,
+        "EquipName": "Fran II",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 11,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20112.0,
+        "EffectDesc": "\u00b7 Extra DMG Bonus <color=#4a70b9>+20%</color>.\\n\u00b7 Upon taking damage, this Bonus <color=#4a70b9>+20%</color>, stacking up to <color=#4a70b9>60%</color>. This additional effect lasts <color=#4a70b9>10</color>s (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Grants Extra DMG Bonus and an additional stackable boost upon taking damage.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Take Hit",
+            "DMG Increase"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EFulanI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1103,
+        "EquipName": "Fran III",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 11,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20113.0,
+        "EffectDesc": "\u00b7 Deals Elemental DMG equal to <color=#4a70b9>200%</color> of ATK to nearby enemies per second (same element as the bearer's).\\n\u00b7 Upon taking damage, this multiplier <color=#4a70b9>+200%</color>, stacking up to <color=#4a70b9>1200%</color>. This additional effect lasts <color=#4a70b9>10</color>s (refreshes when obtained repeatedly).",
+        "SimpleEffectDesc": "\u00b7 Deals Elemental DMG to nearby enemies periodically and grants an additional stackable DMG boost upon taking damage.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Take Hit",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EFulanI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1201,
+        "EquipName": "Tifa I",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 12,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20121.0,
+        "EffectDesc": "\u00b7 Upon entering Matrix, consumes <color=#b73a3a>10%</color> of Max HP to deal Elemental DMG equal to <color=#4a70b9>(consumed HP x10)%</color> of ATK to all enemies on the field (same element as the bearer's).\\n\u00b7 When HP is at <color=#b73a3a>1</color> or less, no longer consumes HP but still deals damage.",
+        "SimpleEffectDesc": "\u00b7 In Matrix, consumes HP to deal Elemental DMG to all enemies.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Bloodburn",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ETifaI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1202,
+        "EquipName": "Tifa II",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 12,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20122.0,
+        "EffectDesc": "\u00b7 Upon a 3-Ping, consumes <color=#b73a3a>2%</color> of Max HP to deal Elemental DMG equal to <color=#4a70b9>(consumed HP x10)%</color> of ATK to all enemies on the field (same element as the bearer's).\\n\u00b7 When HP is at <color=#b73a3a>1</color> or less, no longer consumes HP but still deals damage.",
+        "SimpleEffectDesc": "\u00b7 Upon a 3-Ping, consumes HP to deal Elemental DMG to all enemies.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Bloodburn",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ETifaI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1203,
+        "EquipName": "Tifa III",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 12,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20123.0,
+        "EffectDesc": "\u00b7 When casting Signature Move, consumes <color=#b73a3a>30%</color> of Max HP to deal Elemental DMG equal to <color=#4a70b9>(consumed HP x10)%</color> of ATK to all enemies on the field (same element as the bearer's).\\n\u00b7 When HP is at <color=#b73a3a>1</color> or less, no longer consumes HP but still deals damage.",
+        "SimpleEffectDesc": "\u00b7 When casting Signature Move, consumes HP to deal damage to all enemies.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Bloodburn",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ETifaI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1301,
+        "EquipName": "Seraphine I",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 13,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20131.0,
+        "EffectDesc": "\u00b7 Upon being healed, deals True DMG equal to <color=#4a70b9>2800%</color> of healing received to the locked-on enemy.",
+        "SimpleEffectDesc": "\u00b7 Upon being healed, deals True DMG to the enemy.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Heal",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EFanniI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1302,
+        "EquipName": "Seraphine II",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 13,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20132.0,
+        "EffectDesc": "\u00b7 The bearer's Healing effect <color=#4a70b9>+100%</color>.",
+        "SimpleEffectDesc": "\u00b7 Significantly enhances Healing effect.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Healing Efficiency",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EFanniI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1303,
+        "EquipName": "Seraphine III",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 13,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20133.0,
+        "EffectDesc": "\u00b7 Recovers <color=#4a70b9>10%</color> of max HP per second.",
+        "SimpleEffectDesc": "\u00b7 Recovers a small amount of HP per second.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Heal",
+            "Auto-Recover"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EFanniI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1501,
+        "EquipName": "Voltaire I",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 15,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20151.0,
+        "EffectDesc": "\u00b7 When a battle ends, Max HP <color=#4a70b9>+300</color> (permanently stackable within one run).",
+        "SimpleEffectDesc": "\u00b7 When a battle ends, permanently increases Max HP in one run.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Growth",
+            "HP"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EFuertaiI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1502,
+        "EquipName": "Voltaire II",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 15,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20152.0,
+        "EffectDesc": "\u00b7 When a battle ends, ATK <color=#4a70b9>+200</color> (permanently stackable within one run).",
+        "SimpleEffectDesc": "\u00b7 When a battle ends, permanently increases ATK in one run.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Growth",
+            "Attack"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EFuertaiI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1503,
+        "EquipName": "Voltaire III",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 15,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20153.0,
+        "EffectDesc": "\u00b7 When a battle ends, [Processing Units] gained <color=#4a70b9>+10</color> (permanently stackable within one run).",
+        "SimpleEffectDesc": "\u00b7 When a battle ends, the number of [Processing Units] gained permanently increases.",
+        "TraitName": [
+            null,
+            "Processing Unit"
+        ],
+        "TraitDesc": [
+            null,
+            "\u00b7 A token used in the simulation for [Battle Reboots] or to purchase items at [Sharksco]."
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Growth",
+            "Processing Unit"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EFuertaiI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1601,
+        "EquipName": "Signa I",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 16,
+        "GlobalFightEventIds": [
+            null,
+            2251061.0
+        ],
+        "EffectGroupId": null,
+        "EffectDesc": "\u00b7 Upon enemy entrance, inflicts <color=#4a70b9>10</color> stacks of [Poison].",
+        "SimpleEffectDesc": "\u00b7 Upon enemy entrance, inflicts [Poison].",
+        "TraitName": [
+            null,
+            "Poison"
+        ],
+        "TraitDesc": [
+            null,
+            "\u00b7 When poisoned, receives True DMG equal to <color=#4a70b9>600%</color> of the bearer's ATK, stacking up to <color=#4a70b9>30</color> times for <color=#4a70b9>5</color>s (refreshes when obtained repeatedly, with each stack's DMG calculated independently)."
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "DMG Over Time",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EXigenaI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1602,
+        "EquipName": "Signa II",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 16,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20162.0,
+        "EffectDesc": "\u00b7 In Matrix, creates a poisonous circle centered around the bearer, lasting <color=#4a70b9>5</color>s. All enemies within the circle gain <color=#4a70b9>1</color> stack of [Poison] per second.",
+        "SimpleEffectDesc": "\u00b7 Creates a poisonous circle in Matrix and periodically inflicts [Poison] on all enemies within the circle in the duration.",
+        "TraitName": [
+            null,
+            "Poison"
+        ],
+        "TraitDesc": [
+            null,
+            "\u00b7 When poisoned, receives True DMG equal to <color=#4a70b9>600%</color> of the bearer's ATK, stacking up to <color=#4a70b9>30</color> times for <color=#4a70b9>5</color>s (refreshes when obtained repeatedly, with each stack's DMG calculated independently)."
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "DMG Over Time",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EXigenaI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 1603,
+        "EquipName": "Signa III",
+        "AttType": 0,
+        "UseType": 1,
+        "PosType": 3,
+        "Level": 1,
+        "SuitId": 16,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20163.0,
+        "EffectDesc": "\u00b7 Upon dealing damage, inflicts <color=#4a70b9>1</color> stack of [Poison] on the enemy, with a <color=#4a70b9>0.5</color>s cooldown.",
+        "SimpleEffectDesc": "\u00b7 Upon dealing damage, inflicts [Poison] on the enemy.",
+        "TraitName": [
+            null,
+            "Poison"
+        ],
+        "TraitDesc": [
+            null,
+            "\u00b7 When poisoned, receives True DMG equal to <color=#4a70b9>600%</color> of the bearer's ATK, stacking up to <color=#4a70b9>30</color> times for <color=#4a70b9>5</color>s (refreshes when obtained repeatedly, with each stack's DMG calculated independently)."
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "DMG Over Time",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EXigenaI03001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5001,
+        "EquipName": "Aline I",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 50,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20171.0,
+        "EffectDesc": "\u00b7 Upon dealing damage (QTE included), Enemy Extra DMG Reduction <color=#4a70b9>-50%</color> for <color=#4a70b9>8</color>s.",
+        "SimpleEffectDesc": "\u00b7 After dealing damage, significantly reduces the enemy's Extra DMG Reduction for a certain duration.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "QTE",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EYileinuoyaI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5002,
+        "EquipName": "Aline II",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 50,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20172.0,
+        "EffectDesc": "\u00b7 Upon QTE entrance, triggers Matrix and another character's QTE, with an <color=#4a70b9>8</color>s cooldown.",
+        "SimpleEffectDesc": "\u00b7 Upon QTE entrance, triggers Matrix and another character's QTE, with an <color=#4a70b9>8</color>s cooldown.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "QTE",
+            "Matrix"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EYileinuoyaI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5101,
+        "EquipName": "Richelieu I",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 51,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20181.0,
+        "EffectDesc": "\u00b7 Upon healing, grants the target Extra DMG Bonus <color=#4a70b9>+60%</color> for <color=#4a70b9>8</color>s.",
+        "SimpleEffectDesc": "\u00b7 Upon healing, grants the target a significant Extra DMG Bonus for a short period.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Heal",
+            "DMG Increase"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ELisailiuI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5102,
+        "EquipName": "Richelieu II",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 51,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20182.0,
+        "EffectDesc": "\u00b7 Upon healing, grants the target <color=#4a70b9>1</color> random set of <color=#4a70b9>3</color>-Ping Orbs and <color=#4a70b9>500</color> Dodge Gauge, with a <color=#4a70b9>3</color>s cooldown.",
+        "SimpleEffectDesc": "\u00b7 Upon healing, grants the target <color=#4a70b9>3</color>-Ping Orbs and Dodge Gauge, with a <color=#4a70b9>3</color>s cooldown.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Signal Orb",
+            "Dodge Gauge"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/ELisailiuI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5201,
+        "EquipName": "Ike I",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 52,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20191.0,
+        "EffectDesc": "\u00b7 When switched into battle, grants <color=#4a70b9>100%</color> Signature Energy and clears all Signature Energy owned after <color=#4a70b9>10</color>s.",
+        "SimpleEffectDesc": "\u00b7 When switched into battle, grants a large amount of Signature Energy and clears it after a certain period.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Switch",
+            "Signature Energy"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EAikeI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5202,
+        "EquipName": "Ike II",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 52,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20192.0,
+        "EffectDesc": "\u00b7 When switched into battle, Extra DMG Bonus <color=#4a70b9>+100%</color> and grants <color=#4a70b9>5</color> sets of <color=#4a70b9>3</color>-Ping Orbs, lasting <color=#4a70b9>10</color>s before this effect is removed.",
+        "SimpleEffectDesc": "\u00b7 When switched into battle, grants a significant Extra DMG Bonus and multiple sets of Signal Orbs, removed after a certain duration.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Switch",
+            "DMG Increase"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EAikeI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5301,
+        "EquipName": "Aife I",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 53,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20201.0,
+        "EffectDesc": "\u00b7 When casting Signature Move, grants standby characters Signature Energy equal to <color=#4a70b9>50%</color> of the bearer's consumed amount.",
+        "SimpleEffectDesc": "\u00b7 When casting Signature Move, grants standby characters Signature Energy equal to <color=#4a70b9>50%</color> of the bearer's consumed amount.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Standby Buff",
+            "Signature Energy"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EAifuI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5302,
+        "EquipName": "Aife II",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 53,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20202.0,
+        "EffectDesc": "\u00b7 Upon entering and leaving the field, triggers Matrix.",
+        "SimpleEffectDesc": "\u00b7 Upon entering and leaving the field, triggers Matrix.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Switch",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EAifuI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5401,
+        "EquipName": "Elizabeth I",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 54,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20211.0,
+        "EffectDesc": "\u00b7 On standby, increases ATK and HP by <color=#4a70b9>50%</color> of the bearer's stats for characters on the field.",
+        "SimpleEffectDesc": "\u00b7 On standby, grants ATK and HP Bonuses to characters on the field based on the bearer's stats.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "On-field Buff",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EYilishabaiI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5402,
+        "EquipName": "Elizabeth II",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 54,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20212.0,
+        "EffectDesc": "\u00b7 On standby, transfers <color=#4a70b9>50%</color> of the damage taken by characters on the field to the bearer, disabled when the bearer's HP falls below <color=#b73a3a>20%</color>.",
+        "SimpleEffectDesc": "\u00b7 On standby, transfers a portion of the damage taken on the field to the bearer.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "DMG Transfer",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EYilishabaiI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5501,
+        "EquipName": "Unimate I",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 55,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20221.0,
+        "EffectDesc": "\u00b7 For every <color=#4a70b9>1</color> character of a unique class in the team, all members' ATK and HP <color=#4a70b9>+30%</color>, stacking up to <color=#4a70b9>60%</color>.",
+        "SimpleEffectDesc": "\u00b7 The more varied classes in the team, the greater the boost to all members' ATK and HP.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Class Buff",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EYounimeiteI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5502,
+        "EquipName": "Unimate II",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 55,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20222.0,
+        "EffectDesc": "\u00b7 For every <color=#4a70b9>1</color> character of a unique class in the team, all members gain <color=#4a70b9>2</color> Signature Energy per second, stacking up to <color=#4a70b9>4</color> per second.",
+        "SimpleEffectDesc": "\u00b7 The more varied classes in the team, the more Signature Energy all members gain per second.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Class Buff",
+            null
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EYounimeiteI02001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5601,
+        "EquipName": "Alice I",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 56,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20231.0,
+        "EffectDesc": "\u00b7 Upon entering the field (QTE included), consumes <color=#b73a3a>45%</color> of Max HP to deal Elemental DMG equal to <color=#4a70b9>(consumed HP x4)%</color> of ATK to all enemies on the field (same element as the bearer's, not effective with insufficient HP).\\n\u00b7 On standby, recovers <color=#4a70b9>10%</color> of Max HP per second.",
+        "SimpleEffectDesc": "\u00b7 Upon entering the field (QTE included), consumes HP to deal Elemental DMG to all enemies on the field.\\n\u00b7 On standby, recovers HP over time.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Bloodburn",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EAliceI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5602,
+        "EquipName": "Alice II",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 56,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20232.0,
+        "EffectDesc": "\u00b7 Upon entering the field (QTE included), consumes <color=#b73a3a>45%</color> of Max HP to deal Elemental DMG equal to <color=#4a70b9>(consumed HP x4)%</color> of ATK to all enemies on the field (same element as the bearer's, not effective with insufficient HP).\\n\u00b7 On standby, recovers <color=#4a70b9>10%</color> of Max HP per second.",
+        "SimpleEffectDesc": "\u00b7 Upon entering the field (QTE included), consumes HP to deal Elemental DMG to all enemies on the field.\\n\u00b7 On standby, recovers HP over time.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Bloodburn",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EAliceI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5701,
+        "EquipName": "Gloria I",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 1,
+        "Level": 1,
+        "SuitId": 57,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20241.0,
+        "EffectDesc": "\u00b7 On standby, for every <color=#b73a3a>7</color> Signal Orbs pinged on the field, grants <color=#4a70b9>1</color> Missile Support that deals Elemental DMG equal to <color=#4a70b9>777%</color> of the bearer's ATK (same element as the bearer's).",
+        "SimpleEffectDesc": "\u00b7 On standby, grants Missile Support upon a certain number of orbs pinged on the field.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251097
+        ],
+        "BaseAttDesc": [
+            null,
+            "Support",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EGeluodaI01001Sp.png",
+        "StoryDesc": null
+    },
+    {
+        "Id": 5702,
+        "EquipName": "Gloria II",
+        "AttType": 0,
+        "UseType": 2,
+        "PosType": 2,
+        "Level": 1,
+        "SuitId": 57,
+        "GlobalFightEventIds": [
+            null,
+            null
+        ],
+        "EffectGroupId": 20242.0,
+        "EffectDesc": "\u00b7 On standby, for every <color=#b73a3a>70</color> Signature Energy consumed on the field, grants <color=#4a70b9>1</color> Missile Support that deals Elemental DMG equal to <color=#4a70b9>777%</color> of the bearer's ATK (same element as the bearer's).",
+        "SimpleEffectDesc": "\u00b7 On standby, grants Missile Support upon a certain amount of Signature Energy consumed on the field.",
+        "TraitName": [
+            null,
+            null
+        ],
+        "TraitDesc": [
+            null,
+            null
+        ],
+        "BaseAttFightEventIds": [
+            null,
+            2251098
+        ],
+        "BaseAttDesc": [
+            null,
+            "Support",
+            "Collateral Damage"
+        ],
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/EGeluodaI02001Sp.png",
+        "StoryDesc": null
+    }
+]

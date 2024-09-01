@@ -1,0 +1,834 @@
+[
+    {
+        "Id": 1,
+        "StageId": 30060103,
+        "Name": "Sister",
+        "Desc": "Constructs have gone missing in this area. Investigate the site.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney02.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead02.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40000,
+        "RandomWeightList": [
+            0,
+            0,
+            275,
+            275
+        ]
+    },
+    {
+        "Id": 2,
+        "StageId": 30060203,
+        "Name": "Firefighter",
+        "Desc": "Powerful Firefighter detected. Neutralize target.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney11.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead11.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40001,
+        "RandomWeightList": [
+            0,
+            0,
+            275,
+            275
+        ]
+    },
+    {
+        "Id": 3,
+        "StageId": 30060302,
+        "Name": "Nozzle",
+        "Desc": "Corrupted are gathering around an inactive Nozzle. Investigate the area.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney01.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead01.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 2,
+        "TextColor": "<color=#a16dff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2x.png",
+        "RewardId": 40002,
+        "RandomWeightList": [
+            0,
+            268,
+            268,
+            268
+        ]
+    },
+    {
+        "Id": 4,
+        "StageId": 30060303,
+        "Name": "Nozzle",
+        "Desc": "Corrupted are gathering around an inactive Nozzle. Investigate the area.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney01.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead01.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40003,
+        "RandomWeightList": [
+            0,
+            165,
+            275,
+            275
+        ]
+    },
+    {
+        "Id": 5,
+        "StageId": 30060402,
+        "Name": "Musashi IX",
+        "Desc": "Uninfected Musashi IX detected. Recover it before the Corrupted can get to it.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney07.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead07.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 2,
+        "TextColor": "<color=#a16dff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2x.png",
+        "RewardId": 40004,
+        "RandomWeightList": [
+            0,
+            268,
+            268,
+            268
+        ]
+    },
+    {
+        "Id": 6,
+        "StageId": 30060403,
+        "Name": "Musashi IX",
+        "Desc": "Uninfected Musashi IX detected. Recover it before the Corrupted can get to it.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney07.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead07.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40005,
+        "RandomWeightList": [
+            0,
+            165,
+            275,
+            275
+        ]
+    },
+    {
+        "Id": 7,
+        "StageId": 30060601,
+        "Name": "Royal guard",
+        "Desc": "Large numbers of Royal Guards have appeared. Neutralize them.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney05.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead05.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 1,
+        "TextColor": "<color=#60c1ff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1x.png",
+        "RewardId": 40006,
+        "RandomWeightList": [
+            503,
+            503,
+            503,
+            503
+        ]
+    },
+    {
+        "Id": 8,
+        "StageId": 30060602,
+        "Name": "Royal guard",
+        "Desc": "Large numbers of Royal Guards have appeared. Neutralize them.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney05.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead05.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 2,
+        "TextColor": "<color=#a16dff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2x.png",
+        "RewardId": 40007,
+        "RandomWeightList": [
+            335,
+            268,
+            268,
+            268
+        ]
+    },
+    {
+        "Id": 9,
+        "StageId": 30060603,
+        "Name": "Royal guard",
+        "Desc": "Large numbers of Royal Guards have appeared. Neutralize them.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney05.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead05.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40008,
+        "RandomWeightList": [
+            413,
+            165,
+            275,
+            275
+        ]
+    },
+    {
+        "Id": 10,
+        "StageId": 30061101,
+        "Name": "Ronin IV",
+        "Desc": "A Ronin IV has appeared, seeking the thrill of a duel to the death. Neutralize it.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney04.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead04.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 1,
+        "TextColor": "<color=#60c1ff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1x.png",
+        "RewardId": 40009,
+        "RandomWeightList": [
+            503,
+            503,
+            503,
+            503
+        ]
+    },
+    {
+        "Id": 11,
+        "StageId": 30061102,
+        "Name": "Ronin IV",
+        "Desc": "A Ronin IV has appeared, seeking the thrill of a duel to the death. Neutralize it.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney04.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead04.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 2,
+        "TextColor": "<color=#a16dff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2x.png",
+        "RewardId": 40010,
+        "RandomWeightList": [
+            335,
+            268,
+            268,
+            268
+        ]
+    },
+    {
+        "Id": 12,
+        "StageId": 30061103,
+        "Name": "Ronin IV",
+        "Desc": "A Ronin IV has appeared, seeking the thrill of a duel to the death. Neutralize it.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney04.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead04.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40011,
+        "RandomWeightList": [
+            413,
+            165,
+            275,
+            275
+        ]
+    },
+    {
+        "Id": 13,
+        "StageId": 30060901,
+        "Name": "Envoy",
+        "Desc": "High concentration of Punishing detected. Investigate the target area.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney03.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead03.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 1,
+        "TextColor": "<color=#60c1ff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1x.png",
+        "RewardId": 40012,
+        "RandomWeightList": [
+            503,
+            503,
+            503,
+            503
+        ]
+    },
+    {
+        "Id": 14,
+        "StageId": 30060902,
+        "Name": "Envoy",
+        "Desc": "High concentration of Punishing Virus detected. Investigate the target area.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney03.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead03.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 2,
+        "TextColor": "<color=#a16dff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2x.png",
+        "RewardId": 40013,
+        "RandomWeightList": [
+            335,
+            268,
+            268,
+            268
+        ]
+    },
+    {
+        "Id": 15,
+        "StageId": 30060903,
+        "Name": "Envoy",
+        "Desc": "High concentration of Punishing Virus detected. Investigate the target area.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney03.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead03.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40014,
+        "RandomWeightList": [
+            413,
+            165,
+            275,
+            275
+        ]
+    },
+    {
+        "Id": 16,
+        "StageId": 30061201,
+        "Name": "Musashi VI",
+        "Desc": "The roaming Musashi VI presents a hidden threat. Neutralize it.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney06.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead06.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 1,
+        "TextColor": "<color=#60c1ff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1x.png",
+        "RewardId": 40015,
+        "RandomWeightList": [
+            503,
+            503,
+            503,
+            503
+        ]
+    },
+    {
+        "Id": 17,
+        "StageId": 30061202,
+        "Name": "Musashi VI",
+        "Desc": "The roaming Musashi VI presents a hidden threat. Neutralize it.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney06.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead06.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 2,
+        "TextColor": "<color=#a16dff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2x.png",
+        "RewardId": 40016,
+        "RandomWeightList": [
+            335,
+            268,
+            268,
+            268
+        ]
+    },
+    {
+        "Id": 18,
+        "StageId": 30061203,
+        "Name": "Musashi VI",
+        "Desc": "The roaming Musashi VI presents a hidden threat. Neutralize it.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney06.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead06.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40017,
+        "RandomWeightList": [
+            413,
+            165,
+            275,
+            275
+        ]
+    },
+    {
+        "Id": 19,
+        "StageId": 30061301,
+        "Name": "Acid Ant",
+        "Desc": "The Engineering Force's progress has been delayed by the Acid Ant. Eliminate it.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney08.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead08.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 1,
+        "TextColor": "<color=#60c1ff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1x.png",
+        "RewardId": 40018,
+        "RandomWeightList": [
+            503,
+            503,
+            503,
+            503
+        ]
+    },
+    {
+        "Id": 20,
+        "StageId": 30061302,
+        "Name": "Acid Ant",
+        "Desc": "The Engineering Force's progress has been delayed by the Acid Ant. Eliminate it.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney08.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead08.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 2,
+        "TextColor": "<color=#a16dff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2x.png",
+        "RewardId": 40019,
+        "RandomWeightList": [
+            335,
+            268,
+            268,
+            268
+        ]
+    },
+    {
+        "Id": 21,
+        "StageId": 30061303,
+        "Name": "Acid Ant",
+        "Desc": "The Engineering Force's progress has been delayed by the Acid Ant. Eliminate it.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney08.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead08.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40020,
+        "RandomWeightList": [
+            413,
+            165,
+            275,
+            275
+        ]
+    },
+    {
+        "Id": 22,
+        "StageId": 30060502,
+        "Name": "Terrapod",
+        "Desc": "Corrupted have appeared. Defeat them using the Terrapod.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney13.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead13.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 2,
+        "TextColor": "<color=#a16dff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2x.png",
+        "RewardId": 40021,
+        "RandomWeightList": [
+            335,
+            268,
+            268,
+            268
+        ]
+    },
+    {
+        "Id": 23,
+        "StageId": 30060503,
+        "Name": "Terrapod",
+        "Desc": "Corrupted have appeared. Defeat them using the Terrapod.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney13.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead13.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40022,
+        "RandomWeightList": [
+            413,
+            165,
+            275,
+            275
+        ]
+    },
+    {
+        "Id": 24,
+        "StageId": 30060801,
+        "Name": "Missionary",
+        "Desc": "Corrupted are gathering around a Missionary. Defeat them.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney16.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead16.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 1,
+        "TextColor": "<color=#60c1ff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1x.png",
+        "RewardId": 40023,
+        "RandomWeightList": [
+            503,
+            503,
+            503,
+            503
+        ]
+    },
+    {
+        "Id": 25,
+        "StageId": 30060802,
+        "Name": "Missionary",
+        "Desc": "Corrupted are gathering around a Missionary. Defeat them.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney16.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead16.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 2,
+        "TextColor": "<color=#a16dff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2x.png",
+        "RewardId": 40024,
+        "RandomWeightList": [
+            335,
+            268,
+            268,
+            268
+        ]
+    },
+    {
+        "Id": 26,
+        "StageId": 30060803,
+        "Name": "Missionary",
+        "Desc": "Corrupted are gathering around a Missionary. Defeat them.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney16.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead16.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40025,
+        "RandomWeightList": [
+            413,
+            165,
+            275,
+            275
+        ]
+    },
+    {
+        "Id": 27,
+        "StageId": 30061001,
+        "Name": "Bio-Bull",
+        "Desc": "Mech Corrupted are here for unknown reasons. Investigate their goal.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney15.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead15.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 1,
+        "TextColor": "<color=#60c1ff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1x.png",
+        "RewardId": 40026,
+        "RandomWeightList": [
+            503,
+            503,
+            503,
+            503
+        ]
+    },
+    {
+        "Id": 28,
+        "StageId": 30061002,
+        "Name": "Bio-Bull",
+        "Desc": "Mech Corrupted are here for unknown reasons. Investigate their goal.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney15.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead15.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 2,
+        "TextColor": "<color=#a16dff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2x.png",
+        "RewardId": 40027,
+        "RandomWeightList": [
+            335,
+            268,
+            268,
+            268
+        ]
+    },
+    {
+        "Id": 29,
+        "StageId": 30061003,
+        "Name": "Bio-Bull",
+        "Desc": "Mech Corrupted are here for unknown reasons. Investigate their goal.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney15.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead15.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40028,
+        "RandomWeightList": [
+            413,
+            165,
+            275,
+            275
+        ]
+    },
+    {
+        "Id": 30,
+        "StageId": 30060701,
+        "Name": "Deconstructor",
+        "Desc": "Deconstructors have appeared. Neutralize them.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney14.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead14.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 1,
+        "TextColor": "<color=#60c1ff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality1x.png",
+        "RewardId": 40029,
+        "RandomWeightList": [
+            503,
+            503,
+            503,
+            503
+        ]
+    },
+    {
+        "Id": 31,
+        "StageId": 30060702,
+        "Name": "Deconstructor",
+        "Desc": "Deconstructors have appeared. Neutralize them.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney14.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead14.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 2,
+        "TextColor": "<color=#a16dff>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality2x.png",
+        "RewardId": 40030,
+        "RandomWeightList": [
+            335,
+            268,
+            268,
+            268
+        ]
+    },
+    {
+        "Id": 32,
+        "StageId": 30060703,
+        "Name": "Deconstructor",
+        "Desc": "Deconstructors have appeared. Neutralize them.",
+        "SmallRoleIcon": "Assets/Product/Texture/Image/Role/RoleHeadMoney14.png",
+        "RoleIcon": "Assets/Product/Texture/Image/UiMoneyRoleHead/UiMoneyRoleHead14.png",
+        "StageIcon": "Assets/Product/Texture/Image/IconType/IconTypeMoney.png",
+        "EnterAnimation": [
+            null,
+            "FightTipsBegan1",
+            "FightTipsBegan2",
+            "FightTipsBegan3"
+        ],
+        "DifficultLevel": 3,
+        "TextColor": "<color=#ffaa50>%s</color>",
+        "DifficultLevelIcon": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3.png",
+        "DifficultLevelIconX": "Assets/Product/Texture/Atlas/UiMoneyRewardTask/MoneyTaskIconQuality3x.png",
+        "RewardId": 40031,
+        "RandomWeightList": [
+            413,
+            165,
+            275,
+            275
+        ]
+    }
+]

@@ -54,10 +54,12 @@ end
 
 local InitSkillGroupTypeToSkillIdsMap = function()
     for k, v in pairs(CoupleCombatCharacterCareerSkill) do
-        if not SkillGroupTypeToSkillIdsMap[v.Type] then
-            SkillGroupTypeToSkillIdsMap[v.Type] = {}
+        for _, type in ipairs(v.Type) do
+            if not SkillGroupTypeToSkillIdsMap[type] then
+                SkillGroupTypeToSkillIdsMap[type] = {}
+            end
+            table.insert(SkillGroupTypeToSkillIdsMap[type], v.Id)
         end
-        table.insert(SkillGroupTypeToSkillIdsMap[v.Type], v.Id)
     end
 end
 
@@ -138,6 +140,11 @@ end
 function XFubenCoupleCombatConfig.GetChapterName(id)
     local config = GetCoupleCombatChapterConfig(id)
     return config.Name
+end
+
+function XFubenCoupleCombatConfig.GetChapterNameIcon(id)
+    local config = GetCoupleCombatChapterConfig(id)
+    return config.NameIcon
 end
 
 function XFubenCoupleCombatConfig.GetChapterIcon(id)
@@ -309,6 +316,12 @@ function XFubenCoupleCombatConfig.GetCharacterCareerSkillGroupDescription(type)
     local config = GetCoupleCombatCharacterCareerSkillGroupConfig(type)
     local desc = config.Description or ""
     return string.gsub(desc, "\\n", "\n")
+end
+
+--能适用该技能的职业
+function XFubenCoupleCombatConfig.GetCharacterCareerSkillGroupBelongCareers(type)
+    local config = GetCoupleCombatCharacterCareerSkillGroupConfig(type)
+    return config.BelongCareers
 end
 
 function XFubenCoupleCombatConfig.GetCharacterCareerSkillIds(type)

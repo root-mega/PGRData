@@ -35,30 +35,28 @@ end
 
 function XUiGridFashionShop:SetButtonCallback()
     self.BtnCondition.CallBack = function()
-        self:OnBtnConditionClick()
+        self:OnBtnBuyClick()
     end
     self.BtnBuy.CallBack = function()
         self:OnBtnBuyClick()
     end
 end
--- auto
-function XUiGridFashionShop:OnBtnConditionClick()
-    if self.ConditionDesc then
-        XUiManager.TipError(self.ConditionDesc)
-    end
-end
 
 function XUiGridFashionShop:OnBtnBuyClick()
-    if self.IsSellOut then
-        XUiManager.TipText("ShopItemSellOut")
-        return
-    end
     if self.IsShopOnSaleLock then
         XUiManager.TipError(self.ShopOnSaleLockDecs)
         return
     end
     local buyData = {}
-    buyData.IsHave = false
+    if XWeaponFashionConfigs.IsWeaponFashion(self.Id) then 
+        --v1.31武器时装
+        self.IsHaveFashion = XDataCenter.WeaponFashionManager.CheckHasFashion(self.Id) and
+            not XDataCenter.WeaponFashionManager.IsFashionTimeLimit(self.Id)
+    else
+        --v1.28-采购优化-记录是否当前皮肤是否已拥有
+        self.IsHaveFashion = XRewardManager.CheckRewardGoodsListIsOwnWithAll({XGoodsCommonManager.GetGoodsShowParamsByTemplateId(self.Id)})
+    end
+    buyData.IsHave = self.IsHaveFashion
     buyData.ItemIcon = self.ItemIcon
     buyData.ItemCount = self.NeedCount
     buyData.GiftRewardId = self.GiftRewardId
@@ -128,8 +126,7 @@ function XUiGridFashionShop:OnBtnBuyClick()
         end
     end
 
-    local isShowFashionIconWithoutGift = true
-    XLuaUiManager.Open("UiFashionDetail", self.Id, self.IsWeaponFashion, buyData, isShowFashionIconWithoutGift)
+    XLuaUiManager.Open("UiFashionDetail", self.Id, self.IsWeaponFashion, buyData)
 end
 
 function XUiGridFashionShop:UpdateData(data)
@@ -173,7 +170,6 @@ end
 function XUiGridFashionShop:RefreshCondition()
     if not self.BtnCondition then return end
     self.BtnCondition.gameObject:SetActiveEx(false)
-    self.ConditionDesc = nil
     local conditionIds = self.Data.ConditionIds
     if not conditionIds or #conditionIds <= 0 then return end
 
@@ -182,7 +178,6 @@ function XUiGridFashionShop:RefreshCondition()
         if not ret then
             self.BtnCondition.gameObject:SetActiveEx(true)
             self.ImgSellOut.gameObject:SetActiveEx(false)
-            self.ConditionDesc = desc
             self.ConditionText.text = desc
             return
         end

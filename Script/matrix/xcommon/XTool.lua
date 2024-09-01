@@ -153,12 +153,30 @@ local NumberText = {
     [10] = CS.XTextManager.GetText("Ten")
 }
 
+local RomanNumberText = {
+    [0] = "",
+    [1] = CS.XTextManager.GetText("RomanOne"),
+    [2] = CS.XTextManager.GetText("RomanTwo"),
+    [3] = CS.XTextManager.GetText("RomanThree"),
+    [4] = CS.XTextManager.GetText("RomanFour"),
+    [5] = CS.XTextManager.GetText("RomanFive"),
+    [6] = CS.XTextManager.GetText("RomanSix"),
+    [7] = CS.XTextManager.GetText("RomanSeven"),
+    [8] = CS.XTextManager.GetText("RomanEight"),
+    [9] = CS.XTextManager.GetText("RomanNine"),
+    [10] = CS.XTextManager.GetText("RomanTen")
+}
+
 XTool.ParseNumberString = function(num)
     return NumberText[mathModf(num / 10)] .. NumberText[num % 10]
 end
 
 XTool.ConvertNumberString = function(num)
     return NumberText[num] or ""
+end
+
+XTool.ConvertRomanNumberString = function(num)
+    return RomanNumberText[num] or ""
 end
 
 XTool.MatchEmoji = function(text)
@@ -480,6 +498,73 @@ function XTool.GetRandomNumbers(limit, count)
     return result
 end
 
+--- 根据随机种子打乱数组
+---@param array table 需要打乱的数组
+---@param randomseed number 随机种子
+---@return table
+--------------------------
+function XTool.RandomArray(array, randomseed)
+    if #array < 0 then
+        XLog.Warning("XTool.RandomArray: random array error: array is empty or not an array", array)
+        return {}
+    end
+    local result = {}
+    --不对原数据产生变化
+    local tmpArray = XTool.Clone(array)
+    math.randomseed(randomseed)
+    
+    local count = #tmpArray
+    while count > 0 do
+        local idx = math.random(1, count)
+        if tmpArray[idx] then
+            tableInsert(result, tmpArray[idx])
+            table.remove(tmpArray, idx)
+        end
+        count = #tmpArray
+    end
+    
+    return result
+end
+
+--- 计算数组内的每个数占总数的百分比，且总和保持100%
+---@param array number[]
+---@param decimals number 保留几位小数
+---@return number[]
+--------------------------
+function XTool.CalArrayPercent(array, decimals)
+    local result = {}
+    if XTool.IsTableEmpty(array) then
+        return result
+    end
+    decimals = math.max(decimals, 0)
+    local decimal = 10 ^ decimals
+    local hundred = 100
+    
+    local function addArray(arr, from, to)
+        arr = arr or {}
+        from = from or 1
+        to = to or #arr
+        
+        local total = 0
+        for i = from, to do
+            total = total + arr[i]
+        end
+        return total
+    end
+
+    for idx, value in ipairs(array) do
+        local leftTotal = addArray(array, idx)
+        --四舍五入
+        local percent = leftTotal <= 0 and 0.0 or math.floor(value / leftTotal * hundred * decimal + 0.5) / decimal
+        if decimals == 0 then
+            percent = math.floor(percent)
+        end
+        hundred = hundred - percent
+        result[idx] = percent
+    end
+    return result
+end
+
 XTool.ResetInitSchedule = function()
     XTool.__InitSchedule = nil
 end
@@ -611,6 +696,9 @@ end
 
 --字符串转为Vector3 格式为 x|y|z
 XTool.ConvertStringToVector3 = function(str)
+    if string.IsNilOrEmpty(str) then
+        return CS.UnityEngine.Vector3.zero
+    end
     local values = string.Split(str,"|")
     local x = 0
     local y = 0
@@ -653,3 +741,52 @@ XTool.LoopSplitStr = function(content, splitStr, splitLen)
     result = result .. splitStr ..  XTool.LoopSplitStr(remaind, splitStr, splitLen)
     return result
 end
+
+-- 按位运算获取关卡星级标记
+-- @stageFlags: 按位的星级标记
+-- @starsCount: 星级最大数，默认是3
+XTool.GetStageStarsFlag = function (stageFlags, starsCount)
+    local count = 0
+    local map = {}
+    if not XTool.IsNumberValid(stageFlags) then
+        return count, map
+    end
+
+    local flag = 1
+    for i = 1, not XTool.IsNumberValid(starsCount) and 3 or starsCount do
+        count = count + (stageFlags & flag > 0 and 1 or 0)
+        map[i] = (stageFlags & flag) > 0
+        flag = flag << 1
+    end
+    return count, map
+end
+
+-- 创建匿名proxy
+XTool.CreateBattleRoomDetailProxy = function(customFunction)
+    local XUiBattleRoomRoleDetailDefaultProxy = require("XUi/XUiNewRoomSingle/XUiBattleRoomRoleDetailDefaultProxy")
+    local proxy = CreateAnonClassInstance(customFunction or {}, XUiBattleRoomRoleDetailDefaultProxy)
+    return proxy
+end
+
+---获得贝塞尔曲线点
+---@param time number 0到1的值，0获取曲线的起点，1获得曲线的终点
+---@param startPoint UnityEngine.Vector3 曲线的起始位置
+---@param center UnityEngine.Vector3 决定曲线形状的控制点
+---@param endPoint UnityEngine.Vector3 曲线的终点
+function XTool.GetBezierPoint(time, startPoint, center, endPoint)
+    return (1 - time) * (1 - time) * startPoint + 2 * time * (1 - time) * center + time * time * endPoint
+end
+
+function XTool.StrToTable(str)
+    local fn, err = load("return " .. str)
+    if fn then
+        return fn()
+    else
+        XLog.Error(err)
+        return nil
+    end
+end
+
+function XTool.SortIdTable(idTable, isDescend)
+    table.sort(idTable, function(a, b) return isDescend and a > b or a < b end)
+end 

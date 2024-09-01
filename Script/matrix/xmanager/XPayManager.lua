@@ -71,7 +71,7 @@ XPayManagerCreator = function()
         CurrentPayIds[currentId] = nil
         --XLog.Error("清空缓存此时的缓存数据是：")
         for k, _ in pairs(CurrentPayIds) do
-            XLog.Error(tostring(k))
+            XLog.Debug(tostring(k))
         end
         --XLog.Error("--------------------------------------------")
     end

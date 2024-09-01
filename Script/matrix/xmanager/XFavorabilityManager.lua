@@ -12,6 +12,9 @@ XFavorabilityManagerCreator = function()
 
     -- 播放语音结束进行回调时，是否调用StopCvContent，语音正常播放结束时调用，查看动作打断语音时不调用
     local DontStopCvContent
+    
+    local SkillCvTimeLimit = CS.XGame.ClientConfig:GetFloat("CharacterSkillLevelUpCvTimeLimit")
+    local LastPlaySkillCvTime = 0
 
     -- [战斗参数达到target, 后端还不能正确计算出战斗参数，暂时返回false]
     UnlockRewardFunc[XFavorabilityConfigs.RewardUnlockType.FightAbility] = function()
@@ -96,22 +99,22 @@ XFavorabilityManagerCreator = function()
 
         --CV
         local allVoice = XFavorabilityConfigs.GetCharacterVoice()
-        for id, v in pairs(allVoice) do
-            local trustLv = XFavorabilityManager.GetCurrCharacterFavorabilityLevel(id)
-            for _, var in ipairs(v) do
-                if var.UnlockLv <= trustLv then
-                    XFavorabilityManager.OnUnlockCharacterVoice(id, var.Id)
+        for characterId, characterVoice in pairs(allVoice) do
+            local trustLv = XFavorabilityManager.GetCurrCharacterFavorabilityLevel(characterId)
+            for _, voice in ipairs(characterVoice) do
+                if XFavorabilityManager.CheckCharacterVoiceUnlock(voice,trustLv) then
+                    XFavorabilityManager.OnUnlockCharacterVoice(characterId, voice.Id)
                 end
             end
         end
 
         --动作
         local allAction = XFavorabilityConfigs.GetCharacterAction()
-        for id, v in pairs(allAction) do
-            local trustLv = XFavorabilityManager.GetCurrCharacterFavorabilityLevel(id)
-            for _, var in ipairs(v) do
-                if var.UnlockLv <= trustLv then
-                    XFavorabilityManager.OnUnlockCharacterAction(id, var.Id)
+        for characterId, characterAction in pairs(allAction) do
+            local trustLv = XFavorabilityManager.GetCurrCharacterFavorabilityLevel(characterId)
+            for _, action in ipairs(characterAction) do
+                if XFavorabilityManager.CheckCharacterActionUnlock(action,trustLv) then
+                    XFavorabilityManager.OnUnlockCharacterAction(characterId, action.Id)
                 end
             end
         end
@@ -138,7 +141,11 @@ XFavorabilityManagerCreator = function()
         end)
 
         XEventManager.AddEventListener(XEventId.EVENT_CHARACTER_SKILL_UP, function(characterId)
-            XDataCenter.FavorabilityManager.PlayCvByType(characterId, XFavorabilityConfigs.SoundEventType.SkillUp)
+            XFavorabilityManager.PlayCharacterSkillUpOrUnlockCv(characterId)
+        end)
+        
+        XEventManager.AddEventListener(XEventId.EVENT_CHARACTER_SKILL_UNLOCK, function(characterId)
+            XFavorabilityManager.PlayCharacterSkillUpOrUnlockCv(characterId)
         end)
 
         XEventManager.AddEventListener(XEventId.EVENT_EQUIP_PUTON_WEAPON_NOTYFY, function(characterId)
@@ -160,6 +167,19 @@ XFavorabilityManagerCreator = function()
 
     function XFavorabilityManager.GetFavorabilityColorWorld(trustLv, name)
         return XFavorabilityConfigs.GetWordsWithColor(trustLv, name)
+    end
+    
+    function XFavorabilityManager.ResetLastPlaySkillCvTime()
+        LastPlaySkillCvTime = 0
+    end
+    
+    function XFavorabilityManager.PlayCharacterSkillUpOrUnlockCv(characterId)
+        local now = XTime.GetServerNowTimestamp()
+        if now - LastPlaySkillCvTime < SkillCvTimeLimit then
+            return
+        end
+        LastPlaySkillCvTime = now
+        XDataCenter.FavorabilityManager.PlayCvByType(characterId, XFavorabilityConfigs.SoundEventType.SkillUp)
     end
 
     -- [获得好感度面板信息]
@@ -296,15 +316,26 @@ XFavorabilityManagerCreator = function()
         local characterData = XDataCenter.CharacterManager.GetCharacter(characterId)
         if characterData == nil then return false end
         local trustLv = characterData.TrustLv or 1
-        local voiceUnlockLvs = XFavorabilityConfigs.GetCharacterVoiceUnlockLvsById(characterId)
-        if voiceUnlockLvs and voiceUnlockLvs[Id] then
-            return trustLv >= voiceUnlockLvs[Id]
+        -- voiceDatas 只含有 UnlockLv 和 UnlockCondition
+        local voiceDatas = XFavorabilityConfigs.GetCharacterVoiceUnlockLvsById(characterId)
+        if voiceDatas and voiceDatas[Id] then
+            return XFavorabilityManager.CheckCharacterVoiceUnlock(voiceDatas[Id],trustLv)
         end
         return false
     end
 
     -- [动作是否解锁]
     function XFavorabilityManager.IsActionUnlock(characterId, Id)
+        local characterData = XDataCenter.CharacterManager.GetCharacter(characterId)
+        if characterData == nil then return false end
+        local trustLv = characterData.TrustLv or 1
+        local actionDatas = XFavorabilityConfigs.GetCharacterActionUnlockLvsById(characterId)
+        if actionDatas and actionDatas[Id] then
+            if not XFavorabilityManager.CheckCharacterActionUnlock(actionDatas[Id],trustLv) then
+                return false
+            end
+        end
+
         local favorabilityDatas = XFavorabilityManager.GetCharacterFavorabilityDatasById(characterId)
         if favorabilityDatas == nil or favorabilityDatas.UnlockAction == nil then return false end
         return favorabilityDatas.UnlockAction[Id]
@@ -315,9 +346,10 @@ XFavorabilityManagerCreator = function()
         local characterData = XDataCenter.CharacterManager.GetCharacter(characterId)
         if characterData == nil then return false end
         local trustLv = characterData.TrustLv or 1
-        local actionUnlockLvs = XFavorabilityConfigs.GetCharacterActionUnlockLvsById(characterId)
-        if actionUnlockLvs and actionUnlockLvs[Id] then
-            return trustLv >= actionUnlockLvs[Id]
+        -- actionDatas 只含有 UnlockLv 和 UnlockCondition
+        local actionDatas = XFavorabilityConfigs.GetCharacterActionUnlockLvsById(characterId)
+        if actionDatas and actionDatas[Id] then
+            return XFavorabilityManager.CheckCharacterActionUnlock(actionDatas[Id],trustLv)
         end
         return false
     end
@@ -506,7 +538,68 @@ XFavorabilityManagerCreator = function()
             characterFavorabilityDatas.UnlockAction[actionId] = true
         end
     end
+    
+    -- [检查语音是否满足解锁条件]
+    function XFavorabilityManager.CheckCharacterVoiceUnlock(voiceData, trustLv)
+        return voiceData.UnlockLv <= trustLv and (voiceData.UnlockCondition == 0 or XConditionManager.CheckCondition(voiceData.UnlockCondition,voiceData.CharacterId))
+    end
 
+    -- [检查动作是否满足解锁条件]
+    function XFavorabilityManager.CheckCharacterActionUnlock(actionData, trustLv)
+        -- return actionData.UnlockLv <= trustLv and (actionData.UnlockCondition == 0 or XConditionManager.CheckCondition(actionData.UnlockCondition,actionData.CharacterId))
+        local isUnlock = true
+        for k, conditionId in pairs(actionData.UnlockCondition) do
+           if not XConditionManager.CheckCondition(conditionId, actionData.CharacterId) then
+               isUnlock = false
+               break
+           end
+        end
+        return actionData.UnlockLv <= trustLv and isUnlock
+    end
+
+    -- [试穿][检查动作是否满足解锁条件]
+    --- func desc
+    ---@param fashionId 试穿的时装id
+    function XFavorabilityManager.CheckTryCharacterActionUnlock(actionData, trustLv, tryFashionId, trySceneId)
+        if not tryFashionId then
+            return false
+        end
+
+        local isUnlock = true
+        for k, conditionId in pairs(actionData.UnlockCondition) do
+            if not XConditionManager.CheckCondition(conditionId, actionData.CharacterId, tryFashionId, trySceneId) then
+                isUnlock = false
+                break
+            end
+        end
+        return actionData.UnlockLv <= trustLv and isUnlock
+    end
+    
+    -- [使用SignBoardActionId判断动作是否满足解锁条件]
+    function XFavorabilityManager.CheckCharacterActionUnlockBySignBoardActionId(signBoardActionId)
+        local actionData = XFavorabilityConfigs.GetCharacterActionBySignBoardActionId(signBoardActionId)
+        --若动作本身跟好感度系统没有关联 则直接播放
+        if actionData == nil then return true end 
+        local characterId = actionData.CharacterId
+        local characterData = XDataCenter.CharacterManager.GetCharacter(characterId)
+        local trustLv = 1
+        if characterData then
+            trustLv = characterData.TrustLv or 1
+        end
+        return XDataCenter.FavorabilityManager.CheckCharacterActionUnlock(actionData, trustLv) , actionData.ConditionDescript
+    end
+
+    -- [传入一段SignBoardAction数据(XSignBoardConfigs中获取)，输出其中已经解锁的数据]
+    function XFavorabilityManager.FilterSignBoardActionsByFavorabilityUnlock(signBoardActionDatas)
+        local unlockActions = {}
+        for _,v in ipairs(signBoardActionDatas) do
+            if XFavorabilityManager.CheckCharacterActionUnlockBySignBoardActionId(v.Id) then
+                table.insert(unlockActions,v)
+            end
+        end
+        return unlockActions
+    end
+    
     -- [发送礼物]
     function XFavorabilityManager.OnSendCharacterGift(args, cb)
         local gitfs = {}
@@ -608,7 +701,7 @@ XFavorabilityManagerCreator = function()
 
         for _, voice in pairs(voices) do
             local isVoiceUnlock = favorabilityDatas.UnlockVoice[voice.Id]
-            local canVoiceUnlock = trustLv >= voice.UnlockLv
+            local canVoiceUnlock = XFavorabilityManager.CheckCharacterVoiceUnlock(voice,trustLv)
             if (not isVoiceUnlock) and canVoiceUnlock then
                 return true
             end
@@ -629,7 +722,7 @@ XFavorabilityManagerCreator = function()
 
         for _, action in pairs(actions) do
             local isActionUnlock = favorabilityDatas.UnlockAction[action.Id]
-            local canVoiceUnlock = trustLv >= action.UnlockLv
+            local canVoiceUnlock = XFavorabilityManager.CheckCharacterActionUnlock(action,trustLv)
             if (not isActionUnlock) and canVoiceUnlock then
                 return true
             end
@@ -677,7 +770,8 @@ XFavorabilityManagerCreator = function()
     function XFavorabilityManager.PlayCvByType(characterId, soundType)
         if not characterId or characterId == 0 then return end
 
-        local voices = XFavorabilityConfigs.GetCharacterVoiceById(characterId)
+        --local voices = XFavorabilityConfigs.GetCharacterVoiceById(characterId)
+        local voices = XFavorabilityConfigs.GetCharacterVoiceUnlockLvsById(characterId)
         if not voices then
             XLog.Error("角色Id为"..characterId.."的好感语音找不到")
             return

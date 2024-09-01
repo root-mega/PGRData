@@ -1,0 +1,1542 @@
+[
+    {
+        "Id": 1,
+        "StageLibId": 401,
+        "StageId": 30062357,
+        "GridIndex": 1,
+        "GridName": "DG-00",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 0,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": 1.0,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "No environmental effects in the area.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "Uniframe Mechanism Tutorial Stage",
+            null
+        ]
+    },
+    {
+        "Id": 2,
+        "StageLibId": 401,
+        "StageId": 30062429,
+        "GridIndex": 2,
+        "GridName": "DG-01",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color><color=#0F70BC> decrease the target's Lightning Resistance by 40%</color>.<color=#0F70BC>reduce target's Dark Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>,  <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 3,
+        "StageLibId": 401,
+        "StageId": 30062430,
+        "GridIndex": 3,
+        "GridName": "DG-02",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color><color=#0F70BC> decrease the target's Lightning Resistance by 40%</color>.<color=#0F70BC>reduce target's Dark Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 4,
+        "StageLibId": 401,
+        "StageId": 30062431,
+        "GridIndex": 4,
+        "GridName": "DG-03",
+        "GridIcon": "Assets/Product/Texture/Image/UiPivotCombat/UiPivotCombatBtnShadow.png",
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 1,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color><color=#0F70BC> decrease the target's Lightning Resistance by 40%</color>.<color=#0F70BC>reduce target's Dark Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 5,
+        "StageLibId": 402,
+        "StageId": 30062432,
+        "GridIndex": 1,
+        "GridName": "FC-01",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761193.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color><color=#0F70BC> the target's Physical Resistance will be decreased by 40%</color> for <color=#0F70BC>8s</color>.<color=#0F70BC>reduce target's Ice Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>When a Uniframe</color> attacks <color=#0F70BC>targets that they have frozen</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 200% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 6,
+        "StageLibId": 402,
+        "StageId": 30062433,
+        "GridIndex": 2,
+        "GridName": "FC-02",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761193.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color><color=#0F70BC> the target's Physical Resistance will be decreased by 40%</color> for <color=#0F70BC>8s</color>.<color=#0F70BC>reduce target's Ice Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>When a Uniframe</color> attacks <color=#0F70BC>targets that they have frozen</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 200% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 7,
+        "StageLibId": 402,
+        "StageId": 30062434,
+        "GridIndex": 3,
+        "GridName": "FC-03",
+        "GridIcon": "Assets/Product/Texture/Image/UiPivotCombat/UiPivotCombatBtnIce.png",
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 1,
+        "AffixIds": [
+            null,
+            761193.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color><color=#0F70BC> the target's Physical Resistance will be decreased by 40%</color> for <color=#0F70BC>8s</color>.<color=#0F70BC>reduce target's Ice Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>When a Uniframe</color> attacks <color=#0F70BC>targets that they have frozen</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 200% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 8,
+        "StageLibId": 403,
+        "StageId": 30062435,
+        "GridIndex": 1,
+        "GridName": "FR-01",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761191.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Fire Resistance by 40%</color> for <color=#0F70BC>8s</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "Upon continuously pinging <color=#0F70BC>Signal Orbs of the same color twice</color>, <color=#0F70BC>the Finisher Gauge will decrease 100% faster</color> for <color=#0F70BC>3s</color> (does not apply to Speed Attacks and Parries).",
+            null
+        ]
+    },
+    {
+        "Id": 9,
+        "StageLibId": 403,
+        "StageId": 30062436,
+        "GridIndex": 2,
+        "GridName": "FR-02",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761191.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Fire Resistance by 40%</color> for <color=#0F70BC>8s</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "Upon continuously pinging <color=#0F70BC>Signal Orbs of the same color twice</color>, <color=#0F70BC>the Finisher Gauge will decrease 100% faster</color> for <color=#0F70BC>3s</color> (does not apply to Speed Attacks and Parries).",
+            null
+        ]
+    },
+    {
+        "Id": 10,
+        "StageLibId": 403,
+        "StageId": 30062437,
+        "GridIndex": 3,
+        "GridName": "FR-03",
+        "GridIcon": "Assets/Product/Texture/Image/UiPivotCombat/UiPivotCombatBtnfire.png",
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 1,
+        "AffixIds": [
+            null,
+            761191.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Fire Resistance by 40%</color> for <color=#0F70BC>8s</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "Upon continuously pinging <color=#0F70BC>Signal Orbs of the same color twice</color>, <color=#0F70BC>the Finisher Gauge will decrease 100% faster</color> for <color=#0F70BC>3s</color> (does not apply to Speed Attacks and Parries).",
+            null
+        ]
+    },
+    {
+        "Id": 11,
+        "StageLibId": 404,
+        "StageId": 30062469,
+        "GridIndex": 1,
+        "GridName": "EC-00",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 0,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": 1.0,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "No environmental effects in the area.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "Uniframe Mechanism Tutorial Stage",
+            null
+        ]
+    },
+    {
+        "Id": 12,
+        "StageLibId": 404,
+        "StageId": 30062438,
+        "GridIndex": 1,
+        "GridName": "EC-01",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761192.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Dark Resistance by 40%</color> for <color=#0F70BC>10s</color>. <color=#0F70BC>reduce target's Lightning Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> deals <color=#0F70BC>Lightning DMG</color>, <color=#0F70BC>within the next 3s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 13,
+        "StageLibId": 404,
+        "StageId": 30062439,
+        "GridIndex": 2,
+        "GridName": "EC-02",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761192.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Dark Resistance by 40%</color> for <color=#0F70BC>10s</color>. <color=#0F70BC>reduce target's Lightning Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> deals <color=#0F70BC>Lightning DMG</color>, <color=#0F70BC>within the next 3s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 14,
+        "StageLibId": 404,
+        "StageId": 30062440,
+        "GridIndex": 3,
+        "GridName": "EC-03",
+        "GridIcon": "Assets/Product/Texture/Image/UiPivotCombat/UiPivotCombatBtnThunder.png",
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 1,
+        "AffixIds": [
+            null,
+            761192.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Ice Resistance by 40%</color> for <color=#0F70BC>10s</color>. <color=#0F70BC>reduce target's Lightning Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> deals <color=#0F70BC>Lightning DMG</color>, <color=#0F70BC>within the next 3s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 15,
+        "StageLibId": 405,
+        "StageId": 30062441,
+        "GridIndex": 1,
+        "GridName": "PL-01",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761190.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Ice Resistance by 40%</color> for <color=#0F70BC>10s</color>. <color=#0F70BC>reduce target's Physical Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color>'s 3-Ping deals <color=#0F70BC>CRIT DMG</color>, <color=#0F70BC>within the next 8s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 16,
+        "StageLibId": 405,
+        "StageId": 30062442,
+        "GridIndex": 2,
+        "GridName": "PL-02",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761190.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Ice Resistance by 40%</color> for <color=#0F70BC>10s</color>. <color=#0F70BC>reduce target's Physical Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color>'s 3-Ping deals <color=#0F70BC>CRIT DMG</color>, <color=#0F70BC>within the next 8s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 17,
+        "StageLibId": 405,
+        "StageId": 30062443,
+        "GridIndex": 3,
+        "GridName": "PL-03",
+        "GridIcon": "Assets/Product/Texture/Image/UiPivotCombat/UiPivotCombatBtnPhysical.png",
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 1,
+        "AffixIds": [
+            null,
+            761190.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color>'s 3-Ping deals <color=#0F70BC>CRIT DMG</color>, <color=#0F70BC>within the next 8s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 18,
+        "StageLibId": 406,
+        "StageId": 30062444,
+        "GridIndex": 1,
+        "GridName": "DG-01",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>decrease the target's Lightning Resistance by 40%</color>.<color=#0F70BC>reduce target's Dark Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 19,
+        "StageLibId": 406,
+        "StageId": 30062445,
+        "GridIndex": 2,
+        "GridName": "DG-02",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>decrease the target's Lightning Resistance by 40%</color>.<color=#0F70BC>reduce target's Dark Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 20,
+        "StageLibId": 406,
+        "StageId": 30062446,
+        "GridIndex": 3,
+        "GridName": "DG-03",
+        "GridIcon": "Assets/Product/Texture/Image/UiPivotCombat/UiPivotCombatBtnShadow.png",
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 1,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>decrease the target's Lightning Resistance by 40%</color>.<color=#0F70BC>reduce target's Dark Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 21,
+        "StageLibId": 407,
+        "StageId": 30062358,
+        "GridIndex": 1,
+        "GridName": "DG-00",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 0,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": 1.0,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "No environmental effects in the area.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "Uniframe Mechanism Tutorial Stage",
+            null
+        ]
+    },
+    {
+        "Id": 22,
+        "StageLibId": 407,
+        "StageId": 30062447,
+        "GridIndex": 2,
+        "GridName": "DG-01",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color><color=#0F70BC>the target's Physical Resistance will be decreased by 40%</color> for <color=#0F70BC>8s</color>.<color=#0F70BC>reduce target's Dark Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 23,
+        "StageLibId": 407,
+        "StageId": 30062448,
+        "GridIndex": 3,
+        "GridName": "DG-02",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>the target's Physical Resistance will be decreased by 40%</color> for <color=#0F70BC>8s</color>.<color=#0F70BC>reduce target's Dark Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 24,
+        "StageLibId": 407,
+        "StageId": 30062449,
+        "GridIndex": 4,
+        "GridName": "DG-03",
+        "GridIcon": "Assets/Product/Texture/Image/UiPivotCombat/UiPivotCombatBtnShadow.png",
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 1,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Fire Resistance by 40%</color> for <color=#0F70BC>8s</color>. <color=#0F70BC>reduce target's Dark Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 25,
+        "StageLibId": 408,
+        "StageId": 30062450,
+        "GridIndex": 1,
+        "GridName": "FC-01",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761193.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Fire Resistance by 40%</color> for <color=#0F70BC>8s</color>. <color=#0F70BC>reduce target's Ice Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>When a Uniframe</color> attacks <color=#0F70BC>targets that they have frozen</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 200% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 26,
+        "StageLibId": 408,
+        "StageId": 30062451,
+        "GridIndex": 2,
+        "GridName": "FC-02",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761193.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Fire Resistance by 40%</color> for <color=#0F70BC>8s</color>. <color=#0F70BC>reduce target's Ice Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>When a Uniframe</color> attacks <color=#0F70BC>targets that they have frozen</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 200% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 27,
+        "StageLibId": 408,
+        "StageId": 30062452,
+        "GridIndex": 3,
+        "GridName": "FC-03",
+        "GridIcon": "Assets/Product/Texture/Image/UiPivotCombat/UiPivotCombatBtnIce.png",
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 1,
+        "AffixIds": [
+            null,
+            761193.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Dark Resistance by 40%</color> for <color=#0F70BC>10s</color>. <color=#0F70BC>reduce target's Ice Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>When a Uniframe</color> attacks <color=#0F70BC>targets that they have frozen</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 200% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 28,
+        "StageLibId": 409,
+        "StageId": 30062453,
+        "GridIndex": 1,
+        "GridName": "FR-01",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761191.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Dark Resistance by 40%</color> for <color=#0F70BC>10s</color>. <color=#0F70BC>reduce target's Fire Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>same-colored Signal Orbs 2 times in a row</color>, <color=#0F70BC>within the next 10s</color>,<color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 29,
+        "StageLibId": 409,
+        "StageId": 30062454,
+        "GridIndex": 2,
+        "GridName": "FR-02",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761191.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Dark Resistance by 40%</color> for <color=#0F70BC>10s</color>. <color=#0F70BC>reduce target's Fire Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>same-colored Signal Orbs 2 times in a row</color>, <color=#0F70BC>within the next 10s</color>,<color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 30,
+        "StageLibId": 409,
+        "StageId": 30062455,
+        "GridIndex": 3,
+        "GridName": "FR-03",
+        "GridIcon": "Assets/Product/Texture/Image/UiPivotCombat/UiPivotCombatBtnfire.png",
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 1,
+        "AffixIds": [
+            null,
+            761191.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Ice Resistance by 40%</color> for <color=#0F70BC>10s</color>. <color=#0F70BC>reduce target's Fire Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>same-colored Signal Orbs 2 times in a row</color>, <color=#0F70BC>within the next 10s</color>,<color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 31,
+        "StageLibId": 410,
+        "StageId": 30062470,
+        "GridIndex": 1,
+        "GridName": "EC-00",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 0,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": 1.0,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "No environmental effects in the area.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "Uniframe Mechanism Tutorial Stage",
+            null
+        ]
+    },
+    {
+        "Id": 32,
+        "StageLibId": 410,
+        "StageId": 30062456,
+        "GridIndex": 2,
+        "GridName": "EC-01",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761192.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "When the <color=#0F70BC>Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>Uniframes</color> dealing DMG will <color=#0F70BC>additionally</color> <color=#0F70BC>Uniframes</color> will <color=#0F70BC>decrease the target's Ice Resistance by 40%</color> for <color=#0F70BC>10s</color>. <color=#0F70BC>reduce target's Lightning Resistance by 40%</color>.",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> deals <color=#0F70BC>Lightning DMG</color>, <color=#0F70BC>within the next 3s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 33,
+        "StageLibId": 410,
+        "StageId": 30062457,
+        "GridIndex": 3,
+        "GridName": "EC-02",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761192.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> deals <color=#0F70BC>Lightning DMG</color>, <color=#0F70BC>within the next 3s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 34,
+        "StageLibId": 410,
+        "StageId": 30062458,
+        "GridIndex": 4,
+        "GridName": "EC-03",
+        "GridIcon": "Assets/Product/Texture/Image/UiPivotCombat/UiPivotCombatBtnThunder.png",
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 1,
+        "AffixIds": [
+            null,
+            761192.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> deals <color=#0F70BC>Lightning DMG</color>, <color=#0F70BC>within the next 3s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 35,
+        "StageLibId": 411,
+        "StageId": 30062459,
+        "GridIndex": 1,
+        "GridName": "PL-01",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761190.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color>'s 3-Ping deals <color=#0F70BC>CRIT DMG</color>, <color=#0F70BC>within the next 8s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 36,
+        "StageLibId": 411,
+        "StageId": 30062460,
+        "GridIndex": 2,
+        "GridName": "PL-02",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761190.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color>'s 3-Ping deals <color=#0F70BC>CRIT DMG</color>, <color=#0F70BC>within the next 8s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 37,
+        "StageLibId": 411,
+        "StageId": 30062461,
+        "GridIndex": 3,
+        "GridName": "PL-03",
+        "GridIcon": "Assets/Product/Texture/Image/UiPivotCombat/UiPivotCombatBtnPhysical.png",
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 1,
+        "AffixIds": [
+            null,
+            761190.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color>'s 3-Ping deals <color=#0F70BC>CRIT DMG</color>, <color=#0F70BC>within the next 8s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 38,
+        "StageLibId": 412,
+        "StageId": 30062462,
+        "GridIndex": 1,
+        "GridName": "DG-01",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 39,
+        "StageLibId": 412,
+        "StageId": 30062463,
+        "GridIndex": 2,
+        "GridName": "DG-02",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 40,
+        "StageLibId": 412,
+        "StageId": 30062464,
+        "GridIndex": 3,
+        "GridName": "DG-03",
+        "GridIcon": "Assets/Product/Texture/Image/UiPivotCombat/UiPivotCombatBtnShadow.png",
+        "SupplyEnergyLevelReward": 1,
+        "IsScoreStage": 0,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 1,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null
+        ]
+    },
+    {
+        "Id": 41,
+        "StageLibId": 4001,
+        "StageId": 30062465,
+        "GridIndex": 1,
+        "GridName": "DG-CR",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 0,
+        "IsScoreStage": 1,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null
+        ]
+    },
+    {
+        "Id": 42,
+        "StageLibId": 4002,
+        "StageId": 30062466,
+        "GridIndex": 1,
+        "GridName": "DG-CR",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 0,
+        "IsScoreStage": 1,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761194.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color> pings <color=#0F70BC>2 different colors of Signal Orbs</color>, <color=#0F70BC>within the next 10s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null
+        ]
+    },
+    {
+        "Id": 43,
+        "StageLibId": 4011,
+        "StageId": 30062467,
+        "GridIndex": 1,
+        "GridName": "PL-CR",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 0,
+        "IsScoreStage": 1,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761190.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color>'s 3-Ping deals <color=#0F70BC>CRIT DMG</color>, <color=#0F70BC>within the next 8s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null
+        ]
+    },
+    {
+        "Id": 44,
+        "StageLibId": 4012,
+        "StageId": 30062468,
+        "GridIndex": 1,
+        "GridName": "PL-CR",
+        "GridIcon": null,
+        "SupplyEnergyLevelReward": 0,
+        "IsScoreStage": 1,
+        "MutexLockCharacter": null,
+        "IsLockCharacterStage": 0,
+        "AffixIds": [
+            null,
+            761190.0,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Tips": [
+            null,
+            "<color=#0F70BC>After a Uniframe</color>'s 3-Ping deals <color=#0F70BC>CRIT DMG</color>, <color=#0F70BC>within the next 8s</color>, <color=#0F70BC>their attacks reduce the opponent's Finisher Gauge 100% faster </color>(no bonus for Speed Attack and Parry).",
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Efficiency": [
+            null,
+            "<color=#0F70BC>When the Dynamic Rating</color> reaches <color=#0F70BC>B</color> or above, <color=#0F70BC>the Uniframe's</color> DMG will <color=#0F70BC>additionally</color>",
+            null
+        ]
+    }
+]

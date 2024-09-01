@@ -141,3 +141,8 @@ function XWeaponFashionConfigs.GetWeaponFashionResTemplatesInTime()
 
     return weaponFashionResTemplateDic
 end
+
+function XWeaponFashionConfigs.IsWeaponFashion(fashionId)
+    local tab = WeaponFashionTemplates[fashionId]
+    return tab ~= nil
+end

@@ -71,6 +71,8 @@ end
 
 function XUiStrongholdPower:UpdateElectric()
     local useElectric = XDataCenter.StrongholdManager.GetTotalUseElectricEnergy()
+    local maxElectricEnergy = XDataCenter.StrongholdManager.GetMaxElectricEnergy()
+    local extraElectricEnergy = XDataCenter.StrongholdManager.GetExtraElectricEnergy()
     local totalElectric = XDataCenter.StrongholdManager.GetTotalElectricEnergy()
 
     local isUp = useElectric <= totalElectric
@@ -85,7 +87,7 @@ function XUiStrongholdPower:UpdateElectric()
     self.TxtNumberZheng.text = useElectric .. "/" .. totalElectric
     self.TxtNumberFu.text = useElectric .. "/" .. totalElectric
     self.TxtYiyong.text = CsXTextManagerGetText("StrongholdUseElectricDes", useElectric)
-    self.TxtZong.text = CsXTextManagerGetText("StrongholdTotalElectricDes", totalElectric)
+    self.TxtZong.text = CsXTextManagerGetText("StrongholdTotalElectricDes", maxElectricEnergy, extraElectricEnergy)
 
     self.ImgJinduZheng.fillAmount = totalElectric ~= 0 and (totalElectric - useElectric) / totalElectric or 0
 

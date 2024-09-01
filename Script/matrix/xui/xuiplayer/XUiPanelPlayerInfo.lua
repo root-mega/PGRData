@@ -330,16 +330,17 @@ end
 
 function XUiPanelPlayerInfo:OnBtnFeedbackClick()
     if FeedBackUrl and FeedBackUrl ~= "" then
-        --local playerName = CSNetWebRequest.EscapeURL(XPlayer.Name)
-        --local playerId = CSNetWebRequest.EscapeURL(tostring(XPlayer.Id))
-        --local documentVersion = CSNetWebRequest.EscapeURL(tostring(CS.XRemoteConfig.DocumentVersion))
-        --local os = CSNetWebRequest.EscapeURL(tostring(CS.UnityEngine.SystemInfo.operatingSystem))
-        --local device = CSNetWebRequest.EscapeURL(tostring(CS.UnityEngine.SystemInfo.deviceModel))
-        --local resStr = "%s?playerName=%s&playerId=%s&type=%s&os=%s&documentVersion=%s"
-        --local targetUrl = string.format(resStr, FeedBackUrl, playerName, playerId, device, os, documentVersion)
-        --targetUrl = string.gsub(targetUrl, "+", ".")
-        --XLog.Debug(targetUrl)
-        local targetUrl = FeedBackUrl
+        local playerName = CSNetWebRequest.EscapeURL(XPlayer.Name)
+        local playerId = CSNetWebRequest.EscapeURL(tostring(XPlayer.Id))
+        local documentVersion = CSNetWebRequest.EscapeURL(tostring(CS.XRemoteConfig.DocumentVersion))
+        local os = CSNetWebRequest.EscapeURL(tostring(CS.UnityEngine.SystemInfo.operatingSystem))
+        local device = CSNetWebRequest.EscapeURL(tostring(CS.UnityEngine.SystemInfo.deviceModel))
+        local serverId = CS.XHeroBdcAgent.ServerId
+        local resStr = "%s?source=%s&game_id=%s&language=%s&channel_id=%s&channel_name=%s"
+        local temp = string.format("playerName:%sldevice:%s", playerName, device)
+        local targetUrl = string.format(resStr, FeedBackUrl, "url", "G143", "ja", playerId, temp)
+        targetUrl = string.gsub(targetUrl, "+", ".")
+        XLog.Debug(targetUrl)
         CS.UnityEngine.Application.OpenURL(targetUrl)
     end
 end

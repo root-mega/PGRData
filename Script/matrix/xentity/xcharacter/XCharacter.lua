@@ -19,6 +19,7 @@ local Default = {
     TrustExp = 0,
     Type = 0, -- 职业类型
     NpcId = 0,
+    LiberateAureoleId = 0, -- 超解环颜色
     Attribs = {},
     __SkillGroupDatas = {},
     __EnhanceSkillGroupPosDic = {},
@@ -36,6 +37,10 @@ end
 
 function XCharacter:Ctor(data)
     -- XCharacterViewModel
+    ---@type XCharacterAgency
+    local ag = XMVCA:GetAgency(ModuleId.XCharacter)
+    self.CharacterAgency = ag
+
     self.CharacterViewModel = nil
     self.UpdatedData = nil
     for key, value in pairs(Default) do
@@ -47,13 +52,6 @@ function XCharacter:Ctor(data)
     end
 
     XEventManager.AddEventListener(XEventId.EVENT_LOGIN_DATA_LOAD_COMPLETE, self.RefreshAttribsByEvent, self)
-    XEventManager.AddEventListener(XEventId.EVENT_EQUIP_PUTON_NOTYFY, self.RefreshAttribsByEvent, self)
-    XEventManager.AddEventListener(XEventId.EVENT_EQUIPLIST_TAKEOFF_NOTYFY, self.RefreshAttribsByEvent, self)
-    XEventManager.AddEventListener(XEventId.EVENT_EQUIP_STRENGTHEN_NOTYFY, self.RefreshAttribsByEvent, self)
-    XEventManager.AddEventListener(XEventId.EVENT_EQUIP_BREAKTHROUGH_NOTYFY, self.RefreshAttribsByEvent, self)
-    XEventManager.AddEventListener(XEventId.EVENT_EQUIP_RESONANCE_NOTYFY, self.RefreshAttribsByEvent, self)
-    XEventManager.AddEventListener(XEventId.EVENT_EQUIP_RESONANCE_ACK_NOTYFY, self.RefreshAttribsByEvent, self)
-    XEventManager.AddEventListener(XEventId.EVENT_EQUIP_AWAKE_NOTYFY, self.RefreshAttribsByEvent, self)
     XEventManager.AddEventListener(XEventId.EVENT_BASE_EQUIP_DATA_CHANGE_NOTIFY, self.RefreshAttribsByEvent, self)
     XEventManager.AddEventListener(XEventId.EVENT_REFRESH_CHRACTER_ABLIITY, self.RefreshAbility, self)
     XEventManager.AddEventListener(XEventId.EVENT_PARTNER_ABLITYCHANGE, self.RefreshAbility, self)
@@ -63,13 +61,6 @@ end
 
 function XCharacter:RemoveEventListeners()
     XEventManager.RemoveEventListener(XEventId.EVENT_LOGIN_DATA_LOAD_COMPLETE, self.RefreshAttribsByEvent, self)
-    XEventManager.RemoveEventListener(XEventId.EVENT_EQUIP_PUTON_NOTYFY, self.RefreshAttribsByEvent, self)
-    XEventManager.RemoveEventListener(XEventId.EVENT_EQUIPLIST_TAKEOFF_NOTYFY, self.RefreshAttribsByEvent, self)
-    XEventManager.RemoveEventListener(XEventId.EVENT_EQUIP_STRENGTHEN_NOTYFY, self.RefreshAttribsByEvent, self)
-    XEventManager.RemoveEventListener(XEventId.EVENT_EQUIP_BREAKTHROUGH_NOTYFY, self.RefreshAttribsByEvent, self)
-    XEventManager.RemoveEventListener(XEventId.EVENT_EQUIP_RESONANCE_NOTYFY, self.RefreshAttribsByEvent, self)
-    XEventManager.RemoveEventListener(XEventId.EVENT_EQUIP_RESONANCE_ACK_NOTYFY, self.RefreshAttribsByEvent, self)
-    XEventManager.RemoveEventListener(XEventId.EVENT_EQUIP_AWAKE_NOTYFY, self.RefreshAttribsByEvent, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_BASE_EQUIP_DATA_CHANGE_NOTIFY, self.RefreshAttribsByEvent, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_REFRESH_CHRACTER_ABLIITY, self.RefreshAbility, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_PARTNER_ABLITYCHANGE, self.RefreshAbility, self)
@@ -153,7 +144,7 @@ function XCharacter:IsSkillUsing(skillId)
 end
 
 function XCharacter:RefreshAttribs(ignoreChangeAbility)
-    local attribs = XDataCenter.CharacterManager.GetCharacterAttribs(self)
+    local attribs = self.CharacterAgency:GetCharacterAttribs(self)
     if attribs then
         self.Attribs = attribs
     end
@@ -172,7 +163,7 @@ function XCharacter:GetAttributes()
 end
 
 function XCharacter:RefreshAbility()
-    self.Ability = XDataCenter.CharacterManager.GetCharacterAbility(self)
+    self.Ability = self.CharacterAgency:GetCharacterAbility(self)
 end
 
 function XCharacter:ChangeNpcId()

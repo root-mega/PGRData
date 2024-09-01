@@ -8,6 +8,7 @@ local XWeaponViewModel = require("XEntity/XEquip/XWeaponViewModel")
 local XAwarenessViewModel = require("XEntity/XEquip/XAwarenessViewModel")
 local XPartner = require("XEntity/XPartner/XPartner")
 local XPartnerMainSkillGroup = require("XEntity/XPartner/XPartnerMainSkillGroup")
+---@class XRobot
 local XRobot = XClass(nil, "XRobot")
 
 local Default = {
@@ -407,6 +408,25 @@ function XRobot:GetSkillLevelDic(forDisplay)
         skillLevelDic[skillData.Id] = skillData.Level
     end
     return skillLevelDic
+end
+
+---机器人单独技能等级
+---于v2.4添加,由于升阶拆分更改了核心被动技能等级robot表又只有一个字段控制所有技能
+---导致个别玩法机器人SS品质配1级技能却没有升阶拆分的技能,因此添加了字段单独配置某个技能的等级供其他玩法使用
+---目前用到:肉鸽1期
+function XRobot:GetAfterSpSkillLevel(skillId)
+    local robotId = self.Id
+    local config = XRobotManager.GetRobotTemplate(robotId)
+    local skillList = config.SpSkillIds
+    local skillLevelList = config.SpSkillLevels
+    if XTool.IsTableEmpty(skillList) or XTool.IsTableEmpty(skillLevelList) then
+        return false
+    end
+    local index = table.indexof(skillList, skillId)
+    if index then
+        return XCharacterConfigs.ClampSubSkillLeveByLevel(skillId, skillLevelList[index])
+    end
+    return false
 end
 
 function XRobot:GetPartner()

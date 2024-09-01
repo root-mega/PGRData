@@ -234,6 +234,17 @@ function XUiArchiveMonsterDetail:UpdateModel(index)
                 XLog.Error("HideNodeName Is Wrong :" .. node)
             end
         end
+
+        -- 材质控制器，怪物皮肤
+        if XTool.IsNumberValid(transDatas.ScriptPartId) then
+            local t = self.RoleModelPanel.Transform:GetChild(0):GetComponent(typeof(CS.XCharSkinDisplay))
+            if not XTool.UObjIsNil(t) then
+                t:Revert(transDatas.ScriptPartId)
+                t:ToState(transDatas.ScriptPartId, 1)
+            else
+                XLog.Error("配置了材质参数但是找不到脚本 CS.XCharSkinDisplay, transDatas.ScriptPartId:" .. transDatas.ScriptPartId)
+            end
+        end
     end
 
     if effectDatas then

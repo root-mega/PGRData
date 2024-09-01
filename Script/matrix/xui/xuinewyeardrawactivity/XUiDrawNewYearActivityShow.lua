@@ -142,8 +142,8 @@ function XUiDrawNewYearActivityShow:ShowResult()
     else
         quality = XTypeManager.GetQualityById(id)
     end
-    local showTable = XDataCenter.DrawManager.GetDrawNewYearShow(Type)
-    local skipEffect = string.gsub(showTable.PanelGachaOpenUp[quality], ".prefab", "Skip.prefab")
+    --local showTable = XDataCenter.DrawManager.GetDrawNewYearShow(Type)
+    local skipEffect = string.format("Assets/Product/Effect/Prefab/FxUi/FxUiDrawCard/FxUiPanelOpenUp0%sSkip.prefab",quality)
     self.CurPanelOpenUpEffect = self.PanelOpenUp:LoadPrefab(skipEffect)
     self.CurPanelOpenUpEffect.gameObject.name = skipEffect
     self.CurPanelOpenUpEffect.gameObject:SetActiveEx(true)

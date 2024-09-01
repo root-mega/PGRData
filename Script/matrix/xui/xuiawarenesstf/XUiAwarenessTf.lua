@@ -338,7 +338,7 @@ function XUiAwarenessTf:UpdateBagItem()
         if not self.AwarenessTfBagList[i] then
             local tempGo = CS.UnityEngine.Object.Instantiate(self.GridAwarenessTfSelect.gameObject)
             tempGo.transform:SetParent(self.PanelContent, false)
-            self.AwarenessTfBagList[i] = XUiGridEquip.New(tempGo, clickCb, self)
+            self.AwarenessTfBagList[i] = XUiGridEquip.New(tempGo, self, clickCb, true)
         end
         self.AwarenessTfBagList[i]:Refresh(self.EquipIds[i])
         self.AwarenessTfBagList[i].GameObject:SetActive(true)
@@ -457,7 +457,7 @@ function XUiAwarenessTf:UpdateMaterialGrid()
     end
     for i = 1, MAX_MATERIAL_SLOT do
         if not self.MaterialGrid[i] then
-            self.MaterialGrid[i] = XUiGridEquip.New(self["GridMaterial" .. i], clickCb, self)
+            self.MaterialGrid[i] = XUiGridEquip.New(self["GridMaterial" .. i], self, clickCb, true)
         end
         if self.CurMaterialEquipId[i] > 0 then
             self.MaterialGrid[i]:Refresh(self.CurMaterialEquipId[i])

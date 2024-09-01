@@ -4,7 +4,8 @@ local type = type
 local pairs = pairs
 local Vector3 = CS.UnityEngine.Vector3
 
---钢板对象
+---钢板对象
+---@class XRpgMakerGameSteelData:XRpgMakerGameObject
 local XRpgMakerGameSteelData = XClass(XRpgMakerGameObject, "XRpgMakerGameSteelData")
 
 function XRpgMakerGameSteelData:Ctor(id, gameObject)
@@ -13,11 +14,25 @@ function XRpgMakerGameSteelData:Ctor(id, gameObject)
 end
 
 function XRpgMakerGameSteelData:InitData()
-    local id = self:GetId()
-    local x = XRpgMakerGameConfigs.GetEntityX(id)
-    local y = XRpgMakerGameConfigs.GetEntityY(id)
-    self:UpdatePosition({PositionX = x, PositionY = y})
+    -- local id = self:GetId()
+    -- local x = XRpgMakerGameConfigs.GetEntityX(id)
+    -- local y = XRpgMakerGameConfigs.GetEntityY(id)
+    -- self:UpdatePosition({PositionX = x, PositionY = y})
+    if not XTool.IsTableEmpty(self.MapObjData) then
+        self:InitDataByMapObjData(self.MapObjData)
+    end
     self:SetStatus(XRpgMakerGameConfigs.XRpgMakerGameSteelBrokenType.Init)
+end
+
+---@param mapObjData XMapObjectData
+function XRpgMakerGameSteelData:InitDataByMapObjData(mapObjData)
+    self.MapObjData = mapObjData
+    self:UpdatePosition({PositionX = self.MapObjData:GetX(), PositionY = self.MapObjData:GetY()})
+end
+
+---@return XMapObjectData
+function XRpgMakerGameSteelData:GetMapObjData()
+    return self.MapObjData
 end
 
 --0正常，1破损

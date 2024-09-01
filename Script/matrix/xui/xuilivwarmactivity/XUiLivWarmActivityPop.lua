@@ -20,7 +20,6 @@ function XUiLivWarmActivityPop:OnAwake()
     self.PhasesRewardGridRects = {}
     self.GridMine.gameObject:SetActiveEx(false)
     self.RewardTmp.gameObject:SetActiveEx(false)
-    self.TxtClearLevel.gameObject:SetActiveEx(false)
 
     self:InitLoseIcon()
     self:InitPanelSpecialTool()
@@ -101,7 +100,7 @@ function XUiLivWarmActivityPop:UpdateLoseText()
     local itemId = XLivWarmActivityConfigs.GetLivWarmActivityItemId()
     local useItemCount = XLivWarmActivityConfigs.GetLivWarmActivityUseItemCount()
     local itemCount = XDataCenter.ItemManager.GetCount(itemId)
-    local color = itemCount < useItemCount and "#fb0000" or "#34aff8"
+    local color = itemCount < useItemCount and "#fb0000" or "#cc84d5"
     local isMaxItemUseCount = self:GetCurUseItemData()
     useItemCount = isMaxItemUseCount and 0 or useItemCount      --达到消耗上限显示0
     self.LoseText.text = CSXTextManagerGetText("LivWarmActivityUseItemCountText", color, useItemCount)
@@ -125,6 +124,10 @@ function XUiLivWarmActivityPop:UpdatePanelClearance()
     end
 
     self.PanelClearance.gameObject:SetActiveEx(true)
+
+    local stageId = self:GetStageId()
+    self.TxtClearLevel.text = XLivWarmActivityConfigs.GetLivWarmActivityStageClientCgText(stageId)
+    self.ImageCg:SetRawImage(XLivWarmActivityConfigs.GetLivWarmActivityStageClientCgPic(stageId))
 end
 
 function XUiLivWarmActivityPop:UpdateChapterGroupState()
@@ -174,8 +177,8 @@ function XUiLivWarmActivityPop:UpdatePhasesRewardGrid(isPlayPercentAnima)
         grid:SetRewardGridRectAnchoredPosition3D(adjustPosition)
     end
 
-    for i = #rewardProgressList + 1, #self.PhasesRewardGrids do
-        self.PhasesRewardGrids[i].GameObject:SetActiveEx(false)
+    for i, grid in ipairs(self.PhasesRewardGrids) do
+        grid.GameObject:SetActiveEx(i <= #rewardIdList)
     end
 
     self:UpdatePanelPhasesReward(isPlayPercentAnima)
@@ -458,7 +461,7 @@ function XUiLivWarmActivityPop:StartPlayMoveActionTimer(stageId, newRow, oldRow,
 
                 if isWin then
                     XUiManager.TipText("LivWarmActivityClearStage")
-                    self:PlayAnimation("WinEnable")
+                    --self:PlayAnimation("WinEnable") 美术说不用播了
                 end
             end
         end

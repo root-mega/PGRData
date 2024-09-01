@@ -6,7 +6,7 @@ function XUiFubenDailyShop:OnAwake()
     self:InitDynamicTable()
 end
 
-function XUiFubenDailyShop:OnStart(shopId)
+function XUiFubenDailyShop:OnStart(shopId, defaultSuitId)
     self.ShopId = shopId
 
     self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelActivityAsset, true)
@@ -25,17 +25,32 @@ function XUiFubenDailyShop:OnStart(shopId)
     if isShopAvailable then
         self.AssetActivityPanel:Refresh(XShopManager.GetShopShowIdList(shopId))
         local suitId = next(self.SuitShopItemDic)
-        if SuitIdRecordCache > 0 then
-            local exist = false
+        
+        local existFunc = function(id)
+            if not XTool.IsNumberValid(id) then
+                return false
+            end
             for k, _ in pairs(self.SuitShopItemDic) do
-                if k == SuitIdRecordCache then
-                    exist = true
-                    break
+                if k == id then
+                    return true
                 end
             end
-            self:SelectPage(exist and SuitIdRecordCache or suitId)
+            return false
+        end
+        
+        if XTool.IsNumberValid(defaultSuitId) then
+            local exist = existFunc(defaultSuitId)
+            local tmpSuitId = defaultSuitId
+            if not exist then
+                local tips =  XUiHelper.GetText("TypeWafer")
+                XUiManager.TipMsg(XUiHelper.GetText("EquipGuideShopNoEquipTip", tips))
+                exist = existFunc(SuitIdRecordCache)
+                tmpSuitId = exist and SuitIdRecordCache or suitId
+            end
+            self:SelectPage(tmpSuitId)
         else
-            self:SelectPage(suitId)
+            local tmpSuitId = existFunc(SuitIdRecordCache) and SuitIdRecordCache or suitId
+            self:SelectPage(tmpSuitId)
         end
     end
 

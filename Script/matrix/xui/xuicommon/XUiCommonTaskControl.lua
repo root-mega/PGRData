@@ -22,6 +22,10 @@ function XUiCommonTaskControl:GetBtnRedConditionTypes()
     return {}
 end
 
+function XUiCommonTaskControl:OnDataSourceChanged()
+    -- do nothing
+end
+
 --######################## 实现的接口 END ########################
 
 function XUiCommonTaskControl:OnAwake()
@@ -83,6 +87,7 @@ function XUiCommonTaskControl:RefreshTaskList(taskType)
     self.CurrentTasks = self:GetTaskDataByTabIndex(taskType)
     self.DynamicTable:SetDataSource(self.CurrentTasks)
     self.DynamicTable:ReloadDataSync(1)
+    self:OnDataSourceChanged()
     if self.AnimQieHuan then self.AnimQieHuan:Play() end
 end
 

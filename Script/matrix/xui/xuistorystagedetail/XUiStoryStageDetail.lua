@@ -11,7 +11,13 @@ end
 
 function XUiStoryStageDetail:OnEnable()
     self:Refresh()
+
 end
+
+function XUiStoryStageDetail:OnDisable()
+
+end
+
 
 function XUiStoryStageDetail:Refresh()
     local stageCfg = self.RootUi.Stage

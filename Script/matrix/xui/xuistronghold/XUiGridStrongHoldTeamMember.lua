@@ -68,7 +68,7 @@ end
 
 function XUiGridStrongHoldTeamMember:OnMemberClick()
     local cb = function()
-        XLuaUiManager.Open("UiStrongholdRoomCharacter", self.TeamList, self.TeamId, self.MemberIndex, self.GroupId, self.Pos)
+        XLuaUiManager.Open("UiStrongholdRoomCharacterV2P6", self.TeamList, self.TeamId, self.MemberIndex, self.GroupId, self.Pos)
     end
 
     if XDataCenter.StrongholdManager.CheckAssitantListWaitInit() then

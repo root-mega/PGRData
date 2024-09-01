@@ -1,0 +1,332 @@
+[
+    {
+        "Id": 1,
+        "Name": "Recompiled Code - Signal",
+        "Type": 1,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1001,
+        "Desc": "<color=#3aa4e2>For every 10s</color> remaining, the Extra DMG Bonus of 3-Pings <color=#3aa4e2>increases by 30%</color> (up to 10 stacks).",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip01.png"
+    },
+    {
+        "Id": 2,
+        "Name": "Recompiled Code - Signature",
+        "Type": 1,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1002,
+        "Desc": "<color=#3aa4e2>For every 10s</color> remaining, the Extra DMG Bonus of Signature Move <color=#3aa4e2>increases by 20%</color> (up to 10 stacks).",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip02.png"
+    },
+    {
+        "Id": 3,
+        "Name": "Recompiled Code - Enhancement",
+        "Type": 1,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1003,
+        "Desc": "<color=#3aa4e2>For every 10s</color> remaining, Extra DMG Bonus <color=#3aa4e2>increases by 10%</color> (up to 10 stacks).",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip03.png"
+    },
+    {
+        "Id": 4,
+        "Name": "Recompiled Code - Cascade",
+        "Type": 1,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1004,
+        "Desc": "<color=#3aa4e2>For every 10s</color> remaining, Basic Attacks recover orbs <color=#3aa4e2>40% faster</color> (up to 10 stacks).",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip04.png"
+    },
+    {
+        "Id": 5,
+        "Name": "Recompiled Code - Energy",
+        "Type": 1,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1005,
+        "Desc": "<color=#3aa4e2>For every 10s</color> remaining, the amount of Signature Energy generated <color=#3aa4e2>increases by 20%</color> (up to 10 stacks).",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip05.png"
+    },
+    {
+        "Id": 6,
+        "Name": "Recompiled Code - Frail",
+        "Type": 1,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1006,
+        "Desc": "<color=#3aa4e2>For every 10s</color> remaining, enemy's Extra DMG Reduction <color=#3aa4e2>decreases by 5%</color> (up to 10 stacks).",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip06.png"
+    },
+    {
+        "Id": 7,
+        "Name": "Recompiled Code - Synergy",
+        "Type": 1,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1007,
+        "Desc": "<color=#3aa4e2>For every 10s</color> remaining, the cooldown of QTE <color=#3aa4e2>decreases by 0.5s</color> (up to 10 stacks).",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip07.png"
+    },
+    {
+        "Id": 8,
+        "Name": "Recompiled Code - Switch",
+        "Type": 1,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1008,
+        "Desc": "<color=#3aa4e2>For every 10s</color> remaining, the cooldown of switching members <color=#3aa4e2>decreases by 0.5s</color> (up to 10 stacks).",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip08.png"
+    },
+    {
+        "Id": 9,
+        "Name": "Overclock Acceleration - Signal",
+        "Type": 2,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1009,
+        "Desc": "Time <color=#bc3e3e>flows 20% faster</color>. The Extra DMG Bonus of 3-Pings <color=#3aa4e2>increases by 350%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip09.png"
+    },
+    {
+        "Id": 10,
+        "Name": "Overclock Acceleration - Signature",
+        "Type": 2,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1010,
+        "Desc": "Time <color=#bc3e3e>flows 20% faster</color>. The Extra DMG Bonus of Signature Move <color=#3aa4e2>increases by 175%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip10.png"
+    },
+    {
+        "Id": 11,
+        "Name": "Overclock Acceleration - Enhancement",
+        "Type": 2,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1011,
+        "Desc": "Time <color=#bc3e3e>flows 20% faster</color>. Extra DMG Bonus <color=#3aa4e2>increases by 70%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip11.png"
+    },
+    {
+        "Id": 12,
+        "Name": "Overclock Acceleration - Synergy",
+        "Type": 2,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1012,
+        "Desc": "Time <color=#bc3e3e>flows 20% faster</color>. The cooldown of QTE <color=#3aa4e2>decreases by 3s</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip12.png"
+    },
+    {
+        "Id": 13,
+        "Name": "Overclock Acceleration - Switch",
+        "Type": 2,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1013,
+        "Desc": "Time <color=#bc3e3e>flows 20% faster</color>. The cooldown of switching members <color=#3aa4e2>decreases by 6s</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip13.png"
+    },
+    {
+        "Id": 14,
+        "Name": "Overclock Acceleration - Resonance",
+        "Type": 2,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1014,
+        "Desc": "Time <color=#bc3e3e>flows 20% faster</color>. The cooldown of switching members/QTE <color=#3aa4e2>decreases by 2s</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip14.png"
+    },
+    {
+        "Id": 15,
+        "Name": "Overclock Acceleration - Cascade",
+        "Type": 2,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1015,
+        "Desc": "Time <color=#bc3e3e>flows 20% faster</color>. Basic Attacks recover orbs <color=#3aa4e2>250% faster</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip15.png"
+    },
+    {
+        "Id": 16,
+        "Name": "Overclock Acceleration - Energy",
+        "Type": 2,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1016,
+        "Desc": "Time <color=#bc3e3e>flows 20% faster</color>. The amount of Signature Energy generated <color=#3aa4e2>increases by 50%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip16.png"
+    },
+    {
+        "Id": 17,
+        "Name": "Overclock Acceleration - Frail",
+        "Type": 2,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1017,
+        "Desc": "Time <color=#bc3e3e>flows 20% faster</color>. Enemy's Extra DMG Reduction <color=#3aa4e2>decreases by 25%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip17.png"
+    },
+    {
+        "Id": 18,
+        "Name": "Time Contamination - Signal",
+        "Type": 3,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1018,
+        "Desc": "3-Pings remove <color=#bc3e3e>1s</color> of remaining time but has its Extra DMG Bonus <color=#3aa4e2>increased by 350%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip18.png"
+    },
+    {
+        "Id": 19,
+        "Name": "Time Contamination - Signature",
+        "Type": 3,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1019,
+        "Desc": "Signature Move removes <color=#bc3e3e>3s</color> of remaining time, but has its Extra DMG Bonus <color=#3aa4e2>increased by 170%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip19.png"
+    },
+    {
+        "Id": 20,
+        "Name": "Time Contamination - Synergy",
+        "Type": 3,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1020,
+        "Desc": "QTE removes <color=#bc3e3e>1s</color> of remaining time but increases Extra DMG Bonus by <color=#3aa4e2>30%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip20.png"
+    },
+    {
+        "Id": 21,
+        "Name": "Time Contamination - Switch",
+        "Type": 3,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1021,
+        "Desc": "Switching characters removes <color=#bc3e3e>3s</color> of remaining time but increases Extra DMG Bonus by <color=#3aa4e2>30%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip21.png"
+    },
+    {
+        "Id": 22,
+        "Name": "Data Cache - Signal",
+        "Type": 4,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1022,
+        "Desc": "3-Pings increase remaining time by <color=#3aa4e2>1s</color> but has its Extra DMG Bonus <color=#bc3e3e>reduced by 50%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip22.png"
+    },
+    {
+        "Id": 23,
+        "Name": "Data Cache - Signature",
+        "Type": 4,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1023,
+        "Desc": "Signature Move increases remaining time by <color=#3aa4e2>3s</color> but has its Extra DMG Bonus <color=#bc3e3e>reduced by 25%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip23.png"
+    },
+    {
+        "Id": 24,
+        "Name": "Data Cache - Synergy",
+        "Type": 4,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1024,
+        "Desc": "QTE increases remaining time by <color=#3aa4e2>1s</color> but reduces Extra DMG Bonus by <color=#bc3e3e>15%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip24.png"
+    },
+    {
+        "Id": 25,
+        "Name": "Data Cache - Switch",
+        "Type": 4,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1025,
+        "Desc": "Switching characters increases remaining time by <color=#3aa4e2>3s</color> but reduces Extra DMG Bonus by <color=#bc3e3e>15%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip25.png"
+    },
+    {
+        "Id": 26,
+        "Name": "Computation Overload - Signal",
+        "Type": 5,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1026,
+        "Desc": "Extra DMG Bonus of 3-Pings <color=#3aa4e2>increases by 300%</color>. For <color=#bc3e3e>every 10s</color> remaining, <color=#bc3e3e>this bonus decreases by 15%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip26.png"
+    },
+    {
+        "Id": 27,
+        "Name": "Computation Overload - Signature",
+        "Type": 5,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1027,
+        "Desc": "Signature Move's Extra DMG Bonus <color=#3aa4e2>increases by 200%</color>. For <color=#bc3e3e>every 10s</color> remaining, <color=#bc3e3e>this bonus decreases by 10%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip27.png"
+    },
+    {
+        "Id": 28,
+        "Name": "Computation Overload - Enhancement",
+        "Type": 5,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1028,
+        "Desc": "Extra DMG Bonus <color=#3aa4e2>increases by 100%</color>. For <color=#bc3e3e>every 10s</color> remaining, <color=#bc3e3e>this bonus decreases by 5%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip28.png"
+    },
+    {
+        "Id": 29,
+        "Name": "Computation Overload - Switch",
+        "Type": 5,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1029,
+        "Desc": "The cooldown of switching character <color=#3aa4e2>decreases by 8s</color>. For <color=#bc3e3e>every 10s</color> remaining, <color=#bc3e3e>this cooldown increases by 0.4s</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip29.png"
+    },
+    {
+        "Id": 30,
+        "Name": "Computation Overload - Synergy",
+        "Type": 5,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1030,
+        "Desc": "The cooldown of QTE <color=#3aa4e2>decreases by 8s</color>.  For <color=#bc3e3e>every 10s</color> remaining, <color=#bc3e3e>this cooldown increases by 0.4s</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip30.png"
+    },
+    {
+        "Id": 31,
+        "Name": "Computation Overload - Cascade",
+        "Type": 5,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1031,
+        "Desc": "Get 1 extra set of 3-Ping Orbs <color=#3aa4e2>every 3s</color>. <color=#bc3e3e>For every 10s</color> remaining, this <color=#bc3e3e>interval increases by 1s</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip31.png"
+    },
+    {
+        "Id": 32,
+        "Name": "Shard Optimization - Enhancement",
+        "Type": 6,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1032,
+        "Desc": "Extra DMG Bonus <color=#3aa4e2>increases by 10%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip32.png"
+    },
+    {
+        "Id": 33,
+        "Name": "Shard Optimization - Expansion",
+        "Type": 6,
+        "Quality": 5,
+        "UnlockConditionId": 0,
+        "EffectGroupId": 1033,
+        "Desc": "Remaining time <color=#3aa4e2>increases by 60s</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiEscape/UiEscapeEquip34.png"
+    }
+]

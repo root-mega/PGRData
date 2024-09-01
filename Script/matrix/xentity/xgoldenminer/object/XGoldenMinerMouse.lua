@@ -27,29 +27,6 @@ function XGoldenMinerMouse:InitObj()
     self.RunSkeletonAnima = XUiHelper.TryGetComponent(self.Transform, "Run", "SkeletonGraphic")
 end
 
-function XGoldenMinerMouse:Init(mapId, rectSize, originParent)
-    XGoldenMinerMouse.Super.Init(self, mapId, rectSize, originParent)
-
-    self.Scale = self.Transform.localScale.x
-    local stoneId = self:GetId()
-    local startMoveDirection = XGoldenMinerConfigs.GetStoneStartMoveDirection(stoneId)
-    self.CurMoveDirection = startMoveDirection
-    self.Transform.localScale = Vector3(self.Scale * startMoveDirection, self.Scale, self.Scale)
-    self.PosY = self.Transform.localPosition.y
-    self.MoveSpeed = XGoldenMinerConfigs.GetStoneMoveSpeed(stoneId)
-    self.MoveRange = XGoldenMinerConfigs.GetStoneMoveRange(stoneId)
-
-    --左右方向能移动到的最大位置
-    local posX = self.Transform.localPosition.x
-    local range = XGoldenMinerConfigs.GetStoneMoveRange(stoneId)
-    self.MoveMinPosX = posX - range
-    self.MoveMaxPosX = posX + range
-
-    self:InitCarryItem(stoneId)
-
-    self:SetAnimaState(AnimaState.Run)
-end
-
 --初始化鼬鼠携带物品
 function XGoldenMinerMouse:InitCarryItem(stoneId)
     local carryStoneId = XGoldenMinerConfigs.GetStoneCarryStoneId(stoneId)
@@ -64,6 +41,20 @@ function XGoldenMinerMouse:LoadCarryItem(stoneId)
     self:LoadResource(self.RunCarryItemParent, prefab)
     self:LoadResource(self.GrabCarryItemParent, prefab)
     self.CurCarryStoneId = stoneId
+    -- 携带物可能是红包道具箱
+    if XGoldenMinerConfigs.GetStoneType(self.CurCarryStoneId) ~= XGoldenMinerConfigs.StoneType.RedEnvelope then
+        return
+    end
+    local groupId = XGoldenMinerConfigs.GetStoneScore(self.CurCarryStoneId)
+    self.RedEnvelopeRandPoolId = XGoldenMinerConfigs.GetRedEnvelopeRandId(groupId)
+end
+
+-- 若携带物是红包道具箱时获取道具接口
+function XGoldenMinerMouse:GetItemId()
+    if not XTool.IsNumberValid(self.RedEnvelopeRandPoolId) then
+        return
+    end
+    return XGoldenMinerConfigs.GetRedEnvelopeItemId(self.RedEnvelopeRandPoolId)
 end
 
 function XGoldenMinerMouse:OnTriggerEnter(collider)
@@ -79,9 +70,11 @@ function XGoldenMinerMouse:SetObjToTriggerParent(triggerObjs)
     XGoldenMinerMouse.Super.SetObjToTriggerParent(self, triggerObjs)
 end
 
-local _MoveX
+-- 移动相关
+--=======================================================================
+
 function XGoldenMinerMouse:Move(deltaTime)
-    if XTool.UObjIsNil(self.GameObject) then
+    if XTool.UObjIsNil(self.GameObject) or not XTool.IsNumberValid(self.MoveType) or not self.GameObject.activeSelf then
         return
     end
 
@@ -94,30 +87,53 @@ function XGoldenMinerMouse:Move(deltaTime)
         self.StopTime = self.StopTime - deltaTime
         return
     end
-
-    _MoveX = self.Transform.localPosition.x + deltaTime * self.CurMoveDirection * self.MoveSpeed
-    if _MoveX < self.MoveMinPosX then
-        _MoveX = self.MoveMinPosX
-        self:ChangeOrientation()
-    elseif _MoveX > self.MoveMaxPosX then
-        _MoveX = self.MoveMaxPosX
-        self:ChangeOrientation()
+    if self.MoveType == XGoldenMinerConfigs.StoneMoveType.Horizontal then
+        self:MoveHorizontal(deltaTime)
+    elseif self.MoveType == XGoldenMinerConfigs.StoneMoveType.Vertical then
+        self:MoveVertical(deltaTime)
+    elseif self.MoveType == XGoldenMinerConfigs.StoneMoveType.Circle then
+        self:MoveCircle(deltaTime)
     end
-
-    self.Transform.localPosition = Vector3(_MoveX, self.PosY, 0)
 end
 
-function XGoldenMinerMouse:CheckRunAnima()
-    if self.RunSkeletonAnima then
-        self.RunSkeletonAnima.timeScale = self.StopTime > 0 and 0 or 1
-    end
+function XGoldenMinerMouse:InitMoveArgs()
+    XGoldenMinerMouse.Super.InitMoveArgs(self)
+
+    local stoneId = self:GetId()
+    local startMoveDirection = XGoldenMinerConfigs.GetStoneStartMoveDirection(stoneId)
+    self.Transform.localScale = Vector3(self.Scale * startMoveDirection, self.Scale, self.Scale)
+    self:InitCarryItem(stoneId)
+    self:SetAnimaState(AnimaState.Run)
+end
+
+-- 圆周运动参数初始化
+function XGoldenMinerMouse:InitCircleMoveArgs()
+    XGoldenMinerMouse.Super.InitCircleMoveArgs(self)
+    self.Transform.localScale = Vector3(self.Scale * (self.MoveSpeed > 0 and 1 or -1), self.Scale, self.Scale)
 end
 
 --改变朝向
 function XGoldenMinerMouse:ChangeOrientation()
     local scale = self.Scale
+    -- 转向时翻面
     self.Transform.localScale = Vector3(self.Transform.localScale.x * -1, scale, scale)
-    self.CurMoveDirection = -self.CurMoveDirection
+    -- 携带物转向不翻面
+    if self.RunCarryItemParent then
+        self.RunCarryItemParent.transform.localScale = Vector3(
+            self.RunCarryItemParent.transform.localScale.x * -1,
+            self.RunCarryItemParent.transform.localScale.y,
+            self.RunCarryItemParent.transform.localScale.z)
+    end
+    
+    XGoldenMinerMouse.Super.ChangeOrientation(self)
+end
+
+--=======================================================================
+
+function XGoldenMinerMouse:CheckRunAnima()
+    if self.RunSkeletonAnima then
+        self.RunSkeletonAnima.timeScale = self.StopTime > 0 and 0 or 1
+    end
 end
 
 function XGoldenMinerMouse:StopMoveTime(time)
@@ -145,7 +161,13 @@ end
 
 function XGoldenMinerMouse:GetCarryStoneScore()
     local carryStoneId = self:GetCurCarryStoneId()
-    return XTool.IsNumberValid(carryStoneId) and XGoldenMinerConfigs.GetStoneScore(carryStoneId) or 0
+    local score = 0
+    if XTool.IsNumberValid(self.RedEnvelopeRandPoolId) then
+        score = XGoldenMinerConfigs.GetRedEnvelopeScore(self.RedEnvelopeRandPoolId) or 0
+    else
+        score = XGoldenMinerConfigs.GetStoneScore(carryStoneId)
+    end
+    return XTool.IsNumberValid(carryStoneId) and score or 0
 end
 
 function XGoldenMinerMouse:RemoveBoomAnima()

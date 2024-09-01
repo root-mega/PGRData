@@ -58,15 +58,34 @@
         "UseShadowMesh": null,
         "ShadowQuadScale": 1,
         "DisableMotionRotation": null,
-        "DeathMagic": [],
-        "RobotBornMagic": [],
+        "DeathMagic": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RobotBornMagic": [
+            null,
+            null
+        ],
         "BornMagic": [
+            null,
             1027,
             100050,
             100051,
-            100074
+            null,
+            100074,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "SkillId": [
+            null,
             102701,
             102702,
             102703,
@@ -146,7 +165,27 @@
             102777,
             102778,
             102779,
-            102780
+            102780,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     }
 ]

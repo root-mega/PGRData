@@ -202,6 +202,17 @@ function XUiGridChallengeBanner:UpdateGrid(chapter)
             end
             XRedPointManager.Check(self.RedPointPracticeId)
         end
+    elseif chapter.Type == XDataCenter.FubenManager.ChapterType.Course then
+        self.RImgChallenge:SetRawImage(chapter.Icon)
+        self.TxtRank.text = ""
+        self.TxtTime.text = ""
+        self.TxtProgress.text = ""
+        self.TxtDes.text = chapter.SimpleDesc
+        local functionNameId = XFunctionManager.FunctionName.Course
+        if not XFunctionManager.JudgeCanOpen(functionNameId) then
+            self.PanelLock.gameObject:SetActiveEx(true)
+            self.TxtLock.text = XFunctionManager.GetFunctionOpenCondition(functionNameId)
+        end
     elseif chapter.Type == XDataCenter.FubenManager.ChapterType.Assign then
         self.RImgChallenge:SetRawImage(chapter.Icon)
         self.TxtRank.text = ""

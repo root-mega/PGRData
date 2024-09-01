@@ -90,7 +90,22 @@ function XUiArenaRank:RefreshSelfInfo()
     self.TxtSelfNickname.text = selfInfo.Name
     self.TxtPoint.text = selfInfo.Point
     self.TxtRank.text = "No." .. rank
-    self.TxtRankRange.text = XArenaConfigs.GetRankRegionText(region)
+
+    if self.PanelPromotion then
+        self.PanelPromotion.gameObject:SetActiveEx(false)
+    end
+    self.TxtRankRange.gameObject:SetActiveEx(true)
+    -- 英雄小队
+    if challengeCfg.ArenaLv == XArenaConfigs.ArenaHeroLv and challengeCfg.DanUpRankCostContributeScore > 0 and
+            region == XArenaPlayerRankRegion.UpRegion and
+            maxContributeScore >= challengeCfg.DanUpRankCostContributeScore then
+        if self.PanelPromotion then
+            self.PanelPromotion.gameObject:SetActiveEx(true)
+        end
+        self.TxtRankRange.gameObject:SetActiveEx(false)
+    else
+        self.TxtRankRange.text = XArenaConfigs.GetRankRegionText(region)
+    end
     XUiPLayerHead.InitPortrait(selfInfo.CurrHeadPortraitId, selfInfo.CurrHeadFrameId, self.Head)
     
     if maxContributeScore >= CS.XGame.Config:GetInt("ArenaProtectContributeScore") then
@@ -150,23 +165,35 @@ function XUiArenaRank:RefreshArenaPlayerRank()
 
     self.SiblingIndex = 1
     local titleIndex = 1
-    local playerIndex = 1
-
+    -- 是否是英雄小队
+    local isHeroTeam = challengeCfg.ArenaLv == XArenaConfigs.ArenaHeroLv and challengeCfg.DanUpRankCostContributeScore > 0
+    
     -- 晋级区
     if challengeCfg.DanUpRank > 0 then
         self:AddTitle(titleIndex, challengeCfg.UpRewardId)
         for _, info in ipairs(rankData.UpList) do
-            self:AddPlayer(playerIndex, info)
-            playerIndex = playerIndex + 1
+            local isShow = true
+            if isHeroTeam then
+                isShow = self:CheckShowPlayer(challengeCfg, info, titleIndex)
+            end
+            if isShow then
+                self:AddPlayer(info)
+            end
         end
     end
 
     -- 保级区
     titleIndex = titleIndex + 1
     self:AddTitle(titleIndex, challengeCfg.KeepRewardId)
+    if isHeroTeam then
+        for _, info in ipairs(rankData.UpList) do
+            if self:CheckShowPlayer(challengeCfg, info, titleIndex) then
+                self:AddPlayer(info)
+            end
+        end
+    end
     for _, info in ipairs(rankData.KeepList) do
-        self:AddPlayer(playerIndex, info)
-        playerIndex = playerIndex + 1
+        self:AddPlayer(info)
     end
 
     -- 降级区
@@ -174,8 +201,7 @@ function XUiArenaRank:RefreshArenaPlayerRank()
         titleIndex = titleIndex + 1
         self:AddTitle(titleIndex, challengeCfg.DownRewardId)
         for _, info in ipairs(rankData.DownList) do
-            self:AddPlayer(playerIndex, info)
-            playerIndex = playerIndex + 1
+            self:AddPlayer(info)
         end
     end
 end
@@ -213,7 +239,7 @@ function XUiArenaRank:AddTitle(rankRegion, rewardId)
         if goodsShowParams.RewardType == XRewardManager.XRewardType.Character then
             XLuaUiManager.Open("UiCharacterDetail", list[1].TemplateId)
         elseif goodsShowParams.RewardType == XRewardManager.XRewardType.Equip then
-            XLuaUiManager.Open("UiEquipDetail", list[1].TemplateId, true)
+            XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipPreview(list[1].TemplateId)
         else
             XLuaUiManager.Open("UiTip", list[1] and list[1] or list[1].TemplateId)
         end
@@ -229,8 +255,8 @@ function XUiArenaRank:AddTitle(rankRegion, rewardId)
     rewardCount.text = rewards[1].Count
 end
 
-function XUiArenaRank:AddPlayer(index, playerInfo)
-    local xUiArenaRankGrid = self.GridPlayerCache[index]
+function XUiArenaRank:AddPlayer(data)
+    local xUiArenaRankGrid = self.GridPlayerCache[data.Rank]
     if not xUiArenaRankGrid then
         local grid = CS.UnityEngine.GameObject.Instantiate(self.GridPlayer.gameObject)
         grid.transform:SetParent(self.PanelContent, false)
@@ -238,9 +264,27 @@ function XUiArenaRank:AddPlayer(index, playerInfo)
         table.insert(self.GridPlayerCache, xUiArenaRankGrid)
     end
 
-    xUiArenaRankGrid:Refresh(index, playerInfo)
+    xUiArenaRankGrid:Refresh(data)
     xUiArenaRankGrid:SetSiblingIndex(self.SiblingIndex - 1)
     self.SiblingIndex = self.SiblingIndex + 1
+end
+
+function XUiArenaRank:CheckShowPlayer(challengeCfg, data, rankRegion)
+    local playerInfo = data.PlayerInfo
+    local contributeScore = playerInfo.ContributeScore or 0
+    if rankRegion == XArenaPlayerRankRegion.UpRegion then
+        if contributeScore >= challengeCfg.DanUpRankCostContributeScore then
+            return true
+        end
+    end
+
+    if rankRegion == XArenaPlayerRankRegion.KeepRegion then
+        if contributeScore < challengeCfg.DanUpRankCostContributeScore then
+            return true
+        end
+    end
+    
+    return false
 end
 
 return XUiArenaRank

@@ -22,7 +22,7 @@ function XUiAutoFightDialog:OnStart(stageId)
     local autoFightCfg = XAutoFightConfig.GetCfg(stageCfg.AutoFightId)
     self.DailyLimit = stageCfg.MaxChallengeNums > 0 and stageCfg.MaxChallengeNums or autoFightCfg.DailyLimit
 
-    local requireAP = stageCfg.RequireActionPoint
+    local requireAP = XDataCenter.FubenManager.GetRequireActionPoint(stageId)
     local apId = XDataCenter.ItemManager.ItemId.ActionPoint
     local apCount = XDataCenter.ItemManager.GetCount(apId)
     local max = mathfloor(apCount / requireAP)

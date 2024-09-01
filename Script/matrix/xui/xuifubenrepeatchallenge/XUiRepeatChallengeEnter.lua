@@ -43,8 +43,8 @@ function XUiRepeatChallengeEnter:ChangeChallengeCount(newCount)
     self.BtnAdd.gameObject:SetActiveEx(canAdd)
     self.ImgCantAdd.gameObject:SetActiveEx(not canAdd)
 
-    local stageCfg = XDataCenter.FubenManager.GetStageCfg(stageId)
-    self.TxtATNums.text = stageCfg.RequireActionPoint * newCount
+    local actionPoint = XDataCenter.FubenManager.GetRequireActionPoint(stageId)
+    self.TxtATNums.text = actionPoint * newCount
 
     local exConsumeId, exConsumeNum = XDataCenter.FubenManager.GetStageExCost(stageId)
     if exConsumeId ~= 0 and exConsumeNum ~= 0 then

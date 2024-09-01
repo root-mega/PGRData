@@ -138,7 +138,7 @@ function XUiSummerStageDetail:UpdateCommon()
     end
     self.TxtTitle.text = self.Chapter.PrefixName .. "-" .. tostring(chapterOrderId) .. self.Stage.Name
     self.TxtDesc.text = self.Stage.Description
-    self.TxtATNums.text = self.Stage.RequireActionPoint
+    self.TxtATNums.text = XDataCenter.FubenManager.GetRequireActionPoint(self.Stage.StageId)
 
     local maxChallengeNum = XDataCenter.FubenManager.GetStageMaxChallengeNums(self.Stage.StageId)
     local buyChallengeCount = XDataCenter.FubenManager.GetStageBuyChallengeCount(self.Stage.StageId)

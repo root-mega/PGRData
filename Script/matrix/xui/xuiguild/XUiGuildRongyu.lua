@@ -4,8 +4,8 @@ local XUiGuildViewMember = require("XUi/XUiGuild/XUiChildView/XUiGuildViewMember
 local XUiGuildMemberHornor = require("XUi/XUiGuild/XUiChildView/XUiGuildMemberHornor")
 
 
-local MemberTypeHornor = 1
-local MemberTypeNormal = 2
+local MemberTypeNormal = 1
+local MemberTypeHornor = 2
 
 function XUiGuildRongyu:OnAwake()
     self.BtnBack.CallBack = function() self:OnBtnBackClick() end
@@ -14,12 +14,14 @@ function XUiGuildRongyu:OnAwake()
     self.AssetPanel = XUiPanelAsset.New(self, self.PanelAsset, XDataCenter.ItemManager.ItemId.FreeGem, XDataCenter.ItemManager.ItemId.ActionPoint, XDataCenter.ItemManager.ItemId.Coin)
     
     self.MemberView = {}
-    self.MemberView[MemberTypeHornor] = XUiGuildMemberHornor.New(self.PanelHornor, self)
     self.MemberView[MemberTypeNormal] = XUiGuildViewMember.New(self.PanelMemberInfo, self)
+    self.MemberView[MemberTypeHornor] = XUiGuildMemberHornor.New(self.PanelHornor, self)
+    self.PanelMemberInfo.gameObject:SetActiveEx(false)
+    self.PanelHornor.gameObject:SetActiveEx(false)
 
     self.MemberTab = {}
-    self.MemberTab[MemberTypeHornor] = self.TogHornor
     self.MemberTab[MemberTypeNormal] = self.TogMember
+    self.MemberTab[MemberTypeHornor] = self.TogHornor
     self.TabPanelGroup:Init(self.MemberTab, function(index) self:OnMemberTabClick(index) end)
 
     XEventManager.AddEventListener(XEventId.EVENT_GUILD_ALLRANKNAME_UPDATE, self.OnMemberInfoSync, self)
@@ -41,9 +43,9 @@ function XUiGuildRongyu:OnDestroy()
 end
 
 function XUiGuildRongyu:OnStart(memberType)
-    self.TabPanelGroup:SelectIndex(memberType or MemberTypeHornor)
-
+    self.TabPanelGroup:SelectIndex(memberType or MemberTypeNormal)
     self:OnMemberCountChanged()
+
 end
 
 function XUiGuildRongyu:OnEnable() -- 解决修改玩家职位返回后不刷新问题（海外）

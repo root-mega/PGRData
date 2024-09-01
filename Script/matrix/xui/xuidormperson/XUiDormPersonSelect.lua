@@ -107,6 +107,7 @@ function XUiDormPersonSelect:AddListener()
     self:RegisterClickEvent(self.BtnClose, self.BtnCancelClick)
     self:RegisterClickEvent(self.BtnConfirm, self.OnBtnConfirmClick)
     self.PutAndRemoveCharacterRespCb = function() self:PutAndRemoveCharacterResp() end
+    
     self.DrdSort.onValueChanged:AddListener(function()
         self.PriorSortType = self.DrdSort.value
         if self.PrePrior == self.PriorSortType then
@@ -158,6 +159,11 @@ function XUiDormPersonSelect:BtnCancelClick()
 
     self.DynamicSelectTable:Clear()
     self.UiRoot:PlayAnimation("SelectDisable")
+    self:Close()
+end
+
+function XUiDormPersonSelect:Close()
+    self:OnDisable()
     self.GameObject:SetActive(false)
 end
 
@@ -214,4 +220,13 @@ function XUiDormPersonSelect:GetTotalSeleCharacter()
 
     return data
 end
+
+function XUiDormPersonSelect:OnEnable()
+    XDataCenter.UiPcManager.OnUiEnable(self, "BtnCancelClick")
+end
+
+function XUiDormPersonSelect:OnDisable()
+    XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
+end
+
 return XUiDormPersonSelect

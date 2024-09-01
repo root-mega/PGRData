@@ -23,8 +23,6 @@ function XUiPanelSetHeadPortrait:Ctor(ui, base)
     self:InitHeadPortraitDynamicTable()
     self:InitHeadFrameDynamicTable()
     self:BtnGroupInit()
-
-
 end
 
 function XUiPanelSetHeadPortrait:InitHeadInfoObj(info, obj)
@@ -349,6 +347,14 @@ function XUiPanelSetHeadPortrait:ShowHeadFrameRedPoint()
 end
 
 function XUiPanelSetHeadPortrait:Release()
+end
+
+function XUiPanelSetHeadPortrait:OnEnable()
+    XDataCenter.UiPcManager.OnUiEnable(self, "OnBtnCancelClick")
+end
+
+function XUiPanelSetHeadPortrait:OnDisable()
+    XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
 end
 
 return XUiPanelSetHeadPortrait

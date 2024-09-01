@@ -1,123 +1,363 @@
+
+local CsVector3 = CS.UnityEngine.Vector3
+local CsQuaternion = CS.UnityEngine.Quaternion
+local NormalPivot = CS.UnityEngine.Vector2(0.5, 0.5)
+
+---@class XUiPanelAreaWarMainBlockList3D
+---@field NearCamera UnityEngine.Camera
+---@field Line UnityEngine.RectTransform
+---@field PanelLine UnityEngine.RectTransform
+---@field PanelStage UnityEngine.RectTransform
+---@field GridBlocks table<number,XUiGridAreaWarBlock>
+---@field BlockScript table<number, XAreaWarBlockArea>
+---@field GameObject UnityEngine.GameObject
+local XUiPanelAreaWarMainBlockList3D = XClass(nil, "XUiPanelAreaWarMainBlockList3D")
 local XUiGridAreaWarBlock = require("XUi/XUiAreaWar/XUiGridAreaWarBlock")
 
-local pairs = pairs
-local tableInsert = table.insert
-local stringFormat = string.format
-local MathfLerp = CS.UnityEngine.Mathf.Lerp
+local PositionRatio = 10000
 
-local BLOCK_GRID_HEIGHT_LOW = CS.XGame.ClientConfig:GetFloat("AreaWarBlock3DGridHeightMin") --场景中区块对应的3D格子最小高度
-local BLOCK_GRID_HEIGHT_HIGH = CS.XGame.ClientConfig:GetFloat("AreaWarBlock3DGridHeightMax") --场景中区块对应的3D格子最大高度
-local BLOCK_GRID_ANIM_TIME = CS.XGame.ClientConfig:GetFloat("AreaWarBlock3DGridAnimTime") --场景中区块对应的3D格子动画时间（s）
 
---区块列表3D的UI
-local XUiPanelAreaWarMainBlockList3D = XClass(nil, "XUiPanelAreaWarMainBlockList3D")
+function XUiPanelAreaWarMainBlockList3D:Ctor(ui, cameraData, blockAreas, clickCb, isNormaCameraCb)
+    XTool.InitUiObjectByUi(self, ui)
+    self.FirstRefresh = true
+    self.LinePivot = self.Line.pivot
+    self.GridBlocks = {}
+    self.GridLines = {}
+    self.LineSize = self.Line.sizeDelta
+    self.ClickCb = clickCb
+    self.ClickBlockCb = handler(self, self.OnClickBlock)
+    self.IsNormaCameraCb = isNormaCameraCb
+    --偏移一个格子的高度
+    self.Offset = nil
+    --用于计算的Vector3 避免重复创建对象
+    self.CalVec3 = CsVector3.zero
+    --相机引用
+    self.NearCamera = cameraData.NearCamera
+    self.FarCamera = cameraData.FarCamera
+    self.NormalVirtual = cameraData.NormalVirtual
+    self.DetailVirtual = cameraData.DetailVirtual
 
-function XUiPanelAreaWarMainBlockList3D:Ctor(ui, grids3D, cameras, clickBlockCb)
-    self.GameObject = ui.gameObject
-    self.Transform = ui.transform
-    self.Grids3D = grids3D
-    self.NearCameras = cameras.StageDetail
-    self.FarCameras = cameras.Normal
-    self.ClickBlockCb = clickBlockCb
-    XTool.InitUiObject(self)
-    self.BlockGrids = {}
-    self.DelayShowLines = {}
-    self.PanelLine = self.Transform:FindTransform("PanelLine")
+    self.IsSmall = false
+    
+    self:InitAngle()
+    self:InitPanel(blockAreas)
+end
 
-    --还原上次相机跟随点位置
-    local pos = XDataCenter.AreaWarManager.GetLastCameraFollowPointPos()
-    if pos then
-        self.CameraFollowPoint.transform.localPosition = pos
-    else
-        local blockIds = XAreaWarConfigs.GetAllBlockIds()
-        self.CameraFollowPoint.transform.localPosition = self:GetGridParent(blockIds[1]).transform.localPosition
+function XUiPanelAreaWarMainBlockList3D:StartTimer()
+    if self.Timer then
+        return
     end
+    self.Timer = XScheduleManager.ScheduleForever(function() 
+        self:Update()
+    end, 200)
+end
+
+function XUiPanelAreaWarMainBlockList3D:StopTimer()
+    if not self.Timer then
+        return
+    end
+    XScheduleManager.UnSchedule(self.Timer)
+    self.Timer = nil
 end
 
 function XUiPanelAreaWarMainBlockList3D:OnDispose()
-    XDataCenter.AreaWarManager.SaveLastCameraFollowPointPos(self.CameraFollowPoint.transform.localPosition)
+    self:StopTimer()
+    XDataCenter.AreaWarManager.SaveLastCameraFollowPointPos(self.CameraFollowPoint.transform.position)
 end
 
-function XUiPanelAreaWarMainBlockList3D:Refresh()
-    local blockIds = XAreaWarConfigs.GetAllBlockIds()
-    for _, blockId in pairs(blockIds) do
-        --不可见区块不做更新
-        --新解锁的3D格子未看见过升起动画的，不做更新，延迟到动画过程更新
-        local checkDic = XDataCenter.AreaWarManager.GetNewUnlockBlockIdDic()
-        if not XDataCenter.AreaWarManager.IsBlockVisible(blockId) or checkDic[blockId] then
-            self:ResetGridHeight(blockId) --初始化3D格子的高度
-            goto CONTINUE
-        end
-
-        self:UpdateBlock(blockId)
-
-        ::CONTINUE::
+function XUiPanelAreaWarMainBlockList3D:Update()
+    if XTool.UObjIsNil(self.GameObject) then
+        return
     end
+
+    if not self.GameObject.activeInHierarchy then
+        return
+    end
+
+    --if not self:CheckNeedUpdate() then
+    --    return
+    --end
+
+    for blockId, grid in pairs(self.GridBlocks) do
+        local visible
+        if self.IsNormaCameraCb() then
+            visible = CS.XUiHelper.IsInView(self.NearCamera, grid.Transform.position, -0.2, 1.2, -0.5, 1.2)
+            if visible then
+                if self.IsSmall then
+                    grid:PlayMiniEnable()
+                else
+                    grid:PlayMiniDisable()
+                end
+            end
+        else
+            visible = blockId == self.FocusDetailBlockId
+        end
+        grid:SetVisible(visible)
+        local blockArea = self.BlockScript[blockId]
+        if blockArea then
+            CS.XUiHelper.WorldPoint2CanvasPoint(self.FarCamera, self.NearCamera, grid.Transform, blockArea:GetCenterPoint(), self.Offset)
+        end
+    end
+
+    --隐藏时也同步位置，是为了连线时位置是准确的
+    --if XTool.UObjIsNil(grid.GameObject) or not grid.GameObject.activeInHierarchy then
+    --    return
+    --end
+end
+
+function XUiPanelAreaWarMainBlockList3D:Refresh(isRepeatChallenge)
+    self.IsRepeatChallenge = isRepeatChallenge
+    --local checkMap = XDataCenter.AreaWarManager.GetNewUnlockBlockIdDic()
+    for _, chapterId in pairs(XAreaWarConfigs.GetChapterIds()) do
+        --章节开放
+        --if XDataCenter.AreaWarManager.IsChapterUnlock(chapterId) then
+        local blockIds = XAreaWarConfigs.GetBlockIdsByChapterId(chapterId)
+        for _ ,blockId in pairs(blockIds) do
+            if XDataCenter.AreaWarManager.IsBlockVisible(blockId) then
+                self:UpdateBlock(blockId)
+            end
+        end
+        --end
+    end
+    
+    --首次刷新
+    if self.FirstRefresh then
+        --还原上次相机位置
+        local pos = XDataCenter.AreaWarManager.GetLastCameraFollowPointPos()
+        if not pos then
+            local allBockIds = XAreaWarConfigs.GetAllBlockIds()
+            pos = self:_GetGridParent(allBockIds[1]).transform.position
+        end
+        self.CameraFollowPoint.transform.position = pos
+
+        self.FirstRefresh = false
+
+        self:StartTimer()
+    end
+end
+
+function XUiPanelAreaWarMainBlockList3D:RefreshNewUnlockBlocks()
+    local checkMap = XDataCenter.AreaWarManager.GetNewUnlockBlockIdDic()
+    for blockId in pairs(checkMap) do
+        self:UpdateBlock(blockId)
+    end
+    
+    XDataCenter.AreaWarManager.SetNewUnlockBlockIdDicCookie(checkMap)
 end
 
 function XUiPanelAreaWarMainBlockList3D:UpdateBlock(blockId)
-    local parent = self:GetGridParent(blockId)
-    if not parent then
-        return
-    end
-    parent.gameObject:SetActiveEx(true)
 
-    --区块信息
-    local grid = self.BlockGrids[blockId]
+    local grid = self.GridBlocks[blockId]
     if not grid then
-        local prefabPath = XAreaWarConfigs.GetBlockShowTypePrefab(blockId)
-        local go = parent:LoadPrefab(prefabPath)
-        local clickCb = handler(self, self.OnClickBlock)
-        grid = XUiGridAreaWarBlock.New(go, clickCb)
-        self.BlockGrids[blockId] = grid
-    end
-    grid:Refresh(blockId)
-    grid.GameObject:SetActiveEx(true)
-
-    --当前区块可显示，寻找前置区块中已净化的，尝试连线
-    local checkDic = XDataCenter.AreaWarManager.GetNewUnlockBlockIdDic()
-    local alternativeList = XAreaWarConfigs.GetBlockPreBlockIdsAlternativeList(blockId)
-    for _, preBlockIds in pairs(alternativeList) do
-        local preBlockId = preBlockIds[1] --只显示并列表中第一个区块的线
-        if XDataCenter.AreaWarManager.IsBlockClear(preBlockId) then
-            if checkDic[preBlockId] then
-                --新解锁区块3D格子的连线延迟到解锁动画播放完毕之后更新
-                tableInsert(
-                    self.DelayShowLines,
-                    {
-                        PreBlockId = preBlockId,
-                        BlockId = blockId
-                    }
-                )
-            else
-                self:TryShowLine(preBlockId, blockId)
+        local block = self.BlockScript[blockId]
+        if not block then
+            XLog.Warning("创建事件区域失败! BlockId = " .. blockId)
+            return
+        end
+        if not self.Offset then
+            --只偏移高度，因为原点在模型底部中心
+            self.Offset = block:GetGridSize()
+            self.Offset.x = 0
+            self.Offset.z = 0
+        end
+        self:SetCalVec3(0, 0, block.RotateY)
+        grid = self:CreateBlockPanel(blockId, block, self.CalVec3)
+        local preBlockIds = XAreaWarConfigs.GetPreBlockIds(blockId)
+        --local isUnlock = XDataCenter.AreaWarManager.IsBlockUnlock(blockId)
+        for _, preBlockId in pairs(preBlockIds) do
+            --preBlockId 类型是string
+            local ids = string.Split(preBlockId, "|")
+            for _, id in pairs(ids) do
+                local numId = tonumber(id)
+                if XDataCenter.AreaWarManager.IsBlockVisible(numId) then
+                --if isUnlock and XDataCenter.AreaWarManager.IsBlockUnlock(numId) then
+                    self:CreateArrowLine(numId, blockId)
+                end
             end
         end
     end
-
-    --场景中区块对应的3D格子状态
-    local grid3D = self:GetGrid3DTransform(blockId)
-    if grid3D then
-        grid3D.localPosition =
-            Vector3(grid3D.transform.localPosition.x, BLOCK_GRID_HEIGHT_HIGH, grid3D.transform.localPosition.z)
-    end
+    
+    grid:Refresh(blockId, self.IsRepeatChallenge)
 end
 
---Fucking Line!
-function XUiPanelAreaWarMainBlockList3D:TryShowLine(startBlockId, endBlockId)
-    local lineName = stringFormat("Line%d_%d", startBlockId, endBlockId)
-    local line = self[lineName]
-    if not line then
+function XUiPanelAreaWarMainBlockList3D:FocusTargetBlock(blockId)
+    local grid = self:_GetGridParent(blockId)
+    if not grid then
         XLog.Error(
-            stringFormat(
-                "XUiPanelAreaWarMainBlockList3D:TryShowLine error: UiAreaWarMain3D上找不到对应的区块连线, 前置区块Id: %d, 当前区块Id: %d",
-                startBlockId,
-                endBlockId
-            )
+                "XUiPanelAreaWarMainBlockList3D:FocusTargetBlock error: grid not exist, blockId: ",
+                blockId
         )
         return
     end
-    line.gameObject:SetActiveEx(true)
+    self.CameraFollowPoint.transform.position = grid.transform.position
+
+    for _, camera in pairs(self.NormalVirtual) do
+        camera.Follow = self.CameraFollowPoint.transform
+    end
+
+    for id, tempGrid in pairs(self.GridBlocks) do
+        tempGrid:SetVisible(true)
+    end
+    
+    self:RefreshLineState(true)
+    self.FocusDetailBlockId = nil
+end
+
+function XUiPanelAreaWarMainBlockList3D:FocusBlockDetail(blockId)
+    local grid = self.GridBlocks[blockId]
+    if not grid then
+        XLog.Error(
+                "XUiPanelAreaWarMainBlockList3D:FocusBlockDetail error: grid not exist, blockId: ",
+                blockId
+        )
+        return
+    end
+
+    for _, camera in pairs(self.DetailVirtual) do
+        camera.Follow = grid.Transform.parent
+    end
+
+    for id, tempGrid in pairs(self.GridBlocks) do
+        tempGrid:SetVisible(id == blockId)
+    end
+    
+    self:RefreshLineState(false)
+    if self.IsSmall then
+        grid:PlayMiniDisable()
+    end
+    grid:PlayNearAnim()
+    self.FocusDetailBlockId = blockId
+end
+
+function XUiPanelAreaWarMainBlockList3D:PlayGridFarAnim(blockId)
+    local grid = self.GridBlocks[blockId]
+    if not grid then
+        XLog.Error("XUiPanelAreaWarMainBlockList3D:PlayGridFarAnim error: grid not exist, blockId: ", blockId)
+        return
+    end
+
+    grid:PlayFarAnim()
+    
+    if self.IsSmall then
+        grid:PlayMiniEnable()
+    end
+end
+
+--- 初始化面板
+---@param blockAreas XAreaWarBlockArea[]
+--------------------------
+function XUiPanelAreaWarMainBlockList3D:InitPanel(blockAreas)
+    local blockMap = {}
+    for i = 0, blockAreas.Length - 1 do
+        local block = blockAreas[i]
+        blockMap[block.Id] = block
+    end
+    self.BlockScript = blockMap
+end
+
+--动态创建线
+function XUiPanelAreaWarMainBlockList3D:CreateArrowLine(startBlockId, endBlockId)
+    if not XTool.IsNumberValid(startBlockId) or not XTool.IsNumberValid(endBlockId) then
+        return
+    end
+    
+    local key = self:_GetLineKey(startBlockId, endBlockId)
+    if self.GridLines[key] then
+        return
+    end
+    
+    local name = self:_GetLineName(startBlockId, endBlockId)
+    ---@type UnityEngine.GameObject
+    local obj = self.PanelLine:FindTransform(name)
+    if obj then
+        self.GridLines[self:_GetLineKey(startBlockId, endBlockId)] = obj
+        return
+    end
+    ---@type UnityEngine.GameObject
+    obj = XUiHelper.Instantiate(self.Line, self.PanelLine)
+    obj.name = name
+
+   self:SetLineTransform(obj, startBlockId, endBlockId)
+    obj.gameObject:SetActiveEx(true)
+    self.GridLines[key] = obj
+end
+
+function XUiPanelAreaWarMainBlockList3D:ResetLinePosition()
+    for key, grid in pairs(self.GridLines) do
+        local startBlockId, endBlockId = self:_GetLineStartAndEndBlockId(key)
+        self:SetLineTransform(grid, startBlockId, endBlockId)
+    end
+end
+
+function XUiPanelAreaWarMainBlockList3D:SetLineTransform(obj, startBlockId, endBlockId)
+    local position, angle, distance = self:CalculateLineWith3DUI(self:_GetGridLinePoint(startBlockId), self:_GetGridLinePoint(endBlockId), self.LinePivot)
+    obj.transform.localPosition = position
+    obj.transform.localRotation = angle
+    local size = self.LineSize
+    size.x = distance
+    obj.transform.sizeDelta = size
+end
+
+--- 动态创建关卡节点
+---@param blockId number
+---@param blockArea XAreaWarBlockArea
+---@param rotation UnityEngine.Vector3
+---@return XUiGridAreaWarBlock
+--------------------------
+function XUiPanelAreaWarMainBlockList3D:CreateBlockPanel(blockId, blockArea, rotation)
+    local name = string.format("Block_%d", blockId)
+    local block = XUiHelper.Instantiate(self.Stage, self.PanelStage)
+    block.name = name
+    block.gameObject:SetActiveEx(true)
+    
+    local prefabPath = XAreaWarConfigs.GetBlockShowTypePrefab(blockId)
+    local go = block.transform:LoadPrefab(prefabPath)
+    local grid = XUiGridAreaWarBlock.New(go, self.ClickBlockCb)
+    CS.XUiHelper.WorldPoint2CanvasPoint(self.FarCamera, self.NearCamera, block.transform, blockArea:GetCenterPoint(), self.Offset)
+    grid:Rotate(CS.UnityEngine.Quaternion.Euler(rotation))
+    self.GridBlocks[blockId] = grid
+    
+    return grid
+end
+
+function XUiPanelAreaWarMainBlockList3D:CheckNeedUpdate()
+    local lastCameraX = self.LastCameraX or 0
+    local lastCameraY = self.LastCameraY or 0
+    local lastCameraZ = self.LastCameraZ or 0
+
+    local curCameraX = math.floor(self.NearCamera.transform.position.x * PositionRatio)
+    local curCameraY = math.floor(self.NearCamera.transform.position.y * PositionRatio)
+    local curCameraZ = math.floor(self.NearCamera.transform.position.z * PositionRatio)
+    if lastCameraX ~= curCameraX or lastCameraY ~= curCameraY or lastCameraZ ~= curCameraZ then
+        self.LastCameraX = curCameraX
+        self.LastCameraY = curCameraY
+        self.LastCameraZ = curCameraZ
+        return true
+    end
+    
+    return false
+end
+
+function XUiPanelAreaWarMainBlockList3D:PlayScaleAnim(isSmall)
+    if self.IsSmall == isSmall then
+        return
+    end
+    self.IsSmall = isSmall
+    for _, grid in pairs(self.GridBlocks) do
+        if self.IsSmall then
+            grid:PlayMiniEnable()
+        else
+            grid:PlayMiniDisable()
+        end
+    end
+end
+
+function XUiPanelAreaWarMainBlockList3D:RefreshLineState(state)
+    self.PanelLine.gameObject:SetActiveEx(state)
+end
+
+function XUiPanelAreaWarMainBlockList3D:RefreshStageState(state)
+    self.PanelStage.gameObject:SetActiveEx(state)
 end
 
 function XUiPanelAreaWarMainBlockList3D:OnClickBlock(blockId)
@@ -126,9 +366,9 @@ function XUiPanelAreaWarMainBlockList3D:OnClickBlock(blockId)
         if XDataCenter.AreaWarManager.GetBlockUnlockLeftTime(blockId) > 0 then
             local openTime = XDataCenter.AreaWarManager.GetBlockUnlockTime(blockId)
             local tipStr =
-                CsXTextManagerGetText(
-                "AreaWarBlockUnlockTime",
-                XTime.TimestampToGameDateTimeString(openTime, "MM/dd  HH:mm")
+            CsXTextManagerGetText(
+                    "AreaWarBlockUnlockTime",
+                    XTime.TimestampToGameDateTimeString(openTime, "MM/dd  HH:mm")
             )
             XUiManager.TipMsg(tipStr)
             return
@@ -139,168 +379,110 @@ function XUiPanelAreaWarMainBlockList3D:OnClickBlock(blockId)
         XUiManager.TipMsg(tipStr)
         return
     end
-
-    self.ClickBlockCb(blockId)
+    if self.ClickCb then self.ClickCb(blockId) end
 end
 
 function XUiPanelAreaWarMainBlockList3D:SetAsBlockChild(transform, blockId)
-    local grid = self.BlockGrids[blockId]
+    local grid = self:_GetGridParent(blockId)
     if not grid then
         XLog.Error("XUiPanelAreaWarMainBlockList3D:SetAsBlockChild error: grid not exist, blockId: ", blockId)
         return
     end
-    transform:SetParent(grid.Transform.parent, false)
+    transform:SetParent(grid.transform, false)
 end
 
---把关卡详情相机跟随目标设至到指定区块
-function XUiPanelAreaWarMainBlockList3D:SetDetailCameraFollowBlock(blockId)
-    local grid = self.BlockGrids[blockId]
+function XUiPanelAreaWarMainBlockList3D:GetBlockWorldPoint(blockId)
+    local grid = self:_GetGridParent(blockId)
     if not grid then
-        XLog.Error(
-            "XUiPanelAreaWarMainBlockList3D:SetDetailCameraFollowBlock error: grid not exist, blockId: ",
-            blockId
-        )
-        return
+        XLog.Error("XUiPanelAreaWarMainBlockList3D:GetBlockWorldPoint error: grid not exist, blockId: ", blockId)
+        return CsVector3.zero
     end
-    for _, camera in pairs(self.NearCameras) do
-        camera.Follow = grid.Transform
-    end
-
-    --隐藏其他区块
-    for inBlockId, grid in pairs(self.BlockGrids) do
-        grid.Transform.parent.gameObject:SetActiveEx(blockId == inBlockId)
-    end
-    self.PanelLine.gameObject:SetActiveEx(false)
-
-    --播放格子的近景动画
-    grid:PlayNearAnim()
+    return grid.transform.position
 end
 
---播放格子的远景动画
-function XUiPanelAreaWarMainBlockList3D:PlayGridFarAnim(blockId)
-    local grid = self.BlockGrids[blockId]
+---@return UnityEngine.Vector3
+function XUiPanelAreaWarMainBlockList3D:_GetGridLinePoint(blockId)
+    local grid = self.GridBlocks[blockId]
+    if not grid or XTool.UObjIsNil(grid.GameObject) then
+        return CsVector3.zero
+    end
+    return grid:GetLinePoint()
+end
+
+function XUiPanelAreaWarMainBlockList3D:_GetLineKey(startBlockId, endBlockId)
+    return startBlockId * 1000 + endBlockId
+end
+
+function XUiPanelAreaWarMainBlockList3D:_GetLineStartAndEndBlockId(key)
+    local endBlockId = key % 1000
+    local startBlockId = math.floor(key / 1000)
+    
+    return startBlockId, endBlockId
+end
+
+function XUiPanelAreaWarMainBlockList3D:_GetLineName(startBlockId, endBlockId)
+    return string.format("Line_%d_To_%d", startBlockId, endBlockId)
+end
+
+function XUiPanelAreaWarMainBlockList3D:_GetGridParent(blockId)
+    local grid = self.GridBlocks[blockId]
     if not grid then
-        XLog.Error("XUiPanelAreaWarMainBlockList3D:PlayGridFarAnim error: grid not exist, blockId: ", blockId)
         return
     end
-    grid:PlayFarAnim()
+    return grid.Transform.parent
 end
 
---把远景相机跟随目标设至到指定区块（用于控制相机拖拽）
-function XUiPanelAreaWarMainBlockList3D:SetNormalCameraFollowBlock(blockId)
-    local grid = self.BlockGrids[blockId]
-    if not grid then
-        XLog.Error(
-            "XUiPanelAreaWarMainBlockList3D:SetNormalCameraFollowBlock error: grid not exist, blockId: ",
-            blockId
-        )
-        return
+--- 根据起始点，结束点计算线的长度，位置，旋转信息
+---@param startPoint UnityEngine.Vector3
+---@param endPoint UnityEngine.Vector3
+---@param pivot UnityEngine.Vector2
+---@return UnityEngine.Vector3, UnityEngine.Quaternion, number
+--------------------------
+function XUiPanelAreaWarMainBlockList3D:CalculateLineWith3DUI(startPoint, endPoint, pivot)
+    pivot = pivot or NormalPivot
+    local offset = endPoint - startPoint
+    local width = offset.magnitude
+    --local height = endPoint.y - startPoint.y
+    local position = (startPoint + endPoint) / 2
+    position.x = position.x + (0.5 - pivot.x) * width
+    position.y = position.y + (0.5 - pivot.y)
+    
+    self:SetCalVec3(offset.x, offset.y, 0)
+    local angleZ = CsVector3.Angle(CsVector3.right, self.CalVec3)
+    self:SetCalVec3(offset.x, 0, offset.z)
+    local angleY = CsVector3.Angle(CsVector3.left, self.CalVec3)
+    
+    
+    local xNum, yNum, zNum = offset.x >= 0 and 1 or 0, offset.y >= 0 and 1 or 0, offset.z >= 0 and 1 or 0
+    local key = xNum * 256 + yNum * 16 + zNum * 1
+    local fun = self.AngleFunc[key]
+    if not key then
+        XLog.Error("no transform function for " .. xNum, yNum, zNum)
+        self:SetCalVec3(0, angleY, angleZ)
+        return position, CsQuaternion.Euler(self.CalVec3), width
     end
-    self.CameraFollowPoint.transform.localPosition = grid.Transform.parent.localPosition
-
-    for _, camera in pairs(self.FarCameras) do
-        camera.Follow = self.CameraFollowPoint.transform
-    end
-
-    --还原所有区块显示状态
-    for _, grid in pairs(self.BlockGrids) do
-        grid.Transform.parent.gameObject:SetActiveEx(true)
-    end
-    self.PanelLine.gameObject:SetActiveEx(true)
+    angleY, angleZ = fun(angleY, angleZ)
+    self:SetCalVec3(0, angleY, angleZ)
+    return position, CsQuaternion.Euler(self.CalVec3), width
 end
 
---初始化3D格子的高度
-function XUiPanelAreaWarMainBlockList3D:ResetGridHeight(blockId)
-    local grid3D = self:GetGrid3DTransform(blockId)
-    if grid3D then
-        grid3D.localPosition =
-            Vector3(grid3D.transform.localPosition.x, BLOCK_GRID_HEIGHT_LOW, grid3D.transform.localPosition.z)
-    end
+function XUiPanelAreaWarMainBlockList3D:SetCalVec3(x, y, z)
+    self.CalVec3.x = x
+    self.CalVec3.y = y
+    self.CalVec3.z = z
 end
 
---3D格子升起动画
-function XUiPanelAreaWarMainBlockList3D:LetsLift(finishCb)
-    --场景中所有可见格子
-    local blockIds = XDataCenter.AreaWarManager.GetVisibleBlockIds()
-    if XTool.IsTableEmpty(blockIds) then
-        finishCb()
-        return
-    end
-
-    local startY
-    local targetY = BLOCK_GRID_HEIGHT_HIGH
-    for _, blockId in pairs(blockIds) do
-        local pos = self:GetGrid3DTransform(blockId).localPosition
-        if pos.y ~= targetY then
-            startY = pos.y
-            break
-        end
-    end
-
-    --所有可见格子均已达到最高高度，无需播放动画
-    if not startY then
-        finishCb()
-        return
-    end
-
-    local onRefreshFunc = function(time)
-        local allAtPos = true
-        local newY = MathfLerp(startY, targetY, time)
-        for _, blockId in pairs(blockIds) do
-            local tf = self:GetGrid3DTransform(blockId)
-            if XTool.UObjIsNil(tf) then
-                self:StopLiftAnim()
-                return true
-            end
-
-            local pos = tf.localPosition
-            if pos.y ~= targetY then
-                allAtPos = false
-                tf.localPosition = Vector3(pos.x, newY, pos.z)
-            end
-        end
-        if allAtPos then
-            return true
-        end
-    end
-
-    self:StopLiftAnim()
-    self.Timer = XUiHelper.Tween(BLOCK_GRID_ANIM_TIME, onRefreshFunc, finishCb)
-end
-
-function XUiPanelAreaWarMainBlockList3D:StopLiftAnim()
-    if self.Timer then
-        XScheduleManager.UnSchedule(self.Timer)
-        self.Timer = nil
-    end
-end
-
-function XUiPanelAreaWarMainBlockList3D:GetGrid3DTransform(blockId)
-    return self.Grids3D["Panel" .. blockId]
-end
-
-function XUiPanelAreaWarMainBlockList3D:GetGridParent(blockId)
-    local parent = self["Stage" .. blockId]
-    if not parent then
-        XLog.Error(
-            "XUiPanelAreaWarMainBlockList3D:UpdateInformation error: 地图信息错误，UiAreaWarInformation上找不到对应的Stage节点，blockId：",
-            blockId
-        )
-    end
-    return parent
-end
-
-function XUiPanelAreaWarMainBlockList3D:RefreshNewUnlockBlocks()
-    local checkDic = XDataCenter.AreaWarManager.GetNewUnlockBlockIdDic()
-    for blockId in pairs(checkDic) do
-        self:UpdateBlock(blockId)
-    end
-
-    for _, idPairs in pairs(self.DelayShowLines) do
-        self:TryShowLine(idPairs.PreBlockId, idPairs.BlockId)
-    end
-
-    XDataCenter.AreaWarManager.SetNewUnlockBlockIdDicCookie(checkDic)
+function XUiPanelAreaWarMainBlockList3D:InitAngle()
+    self.AngleFunc = {
+        [0x011] = function(x, y) return x, y end,
+        [0x110] = function(x, y) return -x, 180-y end,
+        [0x001] = function(x, y) return x, -y end,
+        [0x010] = function(x, y) return -x, y end,
+        [0x111] = function(x, y) return x, 180-y end,
+        [0x100] = function(x, y) return -x, y+180 end,
+        [0x101] = function(x, y) return x, y+180 end,
+        [0x000] = function(x, y) return -x, -y end,
+    }
 end
 
 return XUiPanelAreaWarMainBlockList3D

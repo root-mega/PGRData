@@ -25,6 +25,7 @@ local TABLE_MONSTER_INFO = CLIENT_TABLE_PATH .. "SuperSmashBrosMonsterInfo.tab"
 local TABLE_REWARD_SHOW = CLIENT_TABLE_PATH .. "SuperSmashBrosRewardShow.tab"
 local TABLE_EGG_ROBOT = CLIENT_TABLE_PATH .. "SuperSmashEggRobot.tab"
 local TABLE_TEAM_LEVEL = SHARE_TABLE_PATH .. "SuperSmashBrosTeamLevel.tab"
+local TABLE_ASSISTANCE_SKILL = SHARE_TABLE_PATH .. "SuperSmashBrosAssistance.tab"
 --================================================================
 --                         配置表                                --
 --================================================================
@@ -44,7 +45,7 @@ local Configs = {}
 --Key : 要检查的字段名 (日志中使用)
 --=============
 XSuperSmashBrosConfig.TableKey = {
-        ActivityConfig = {Id = 1, Path = TABLE_ACTIVITY}, --基础活动配置
+    ActivityConfig = {Id = 1, Path = TABLE_ACTIVITY}, --基础活动配置
         ModeConfig = {Id = 2, Path = TABLE_MODE}, --模式配置
         Activity2ModeDic = {Id = 3, Path = TABLE_MODE, Key = "ActivityId"}, --活动Id -> 模式配置字典
         CoreConfig = {Id = 4, Path = TABLE_CORE}, --超算核心配置
@@ -67,6 +68,7 @@ XSuperSmashBrosConfig.TableKey = {
         RewardShowConfig = {Id = 21, Path = TABLE_REWARD_SHOW}, --模式奖励表
         EggRobot = {Id = 22, Path = TABLE_EGG_ROBOT}, --彩蛋机器人
         TeamLevel = {Id = 23, Path = TABLE_TEAM_LEVEL}, --队伍等级
+        Assistance = { Id = 24, Path = TABLE_ASSISTANCE_SKILL }, --援助
     }
 --=============
 --模式类型
@@ -77,7 +79,7 @@ XSuperSmashBrosConfig.ModeType = {
         Arena = 3, --擂台
         DeathMatch = 4, --死斗
         Survive = 5, --连战(生存模式)
-        DeathRandom  = 6, --死亡随机
+        DeathRandom  = 6, --死亡随机(紧急抽调)
     }
 --=============
 --模式类型 -> 模式名字典
@@ -101,7 +103,8 @@ XSuperSmashBrosConfig.PanelColorType = {
         Red = "Red",
         Blue = "Blue",
         Yellow = "Yellow",
-        None = "None" --不显示颜色
+        None = "None", --不显示颜色
+        Purple = "Purple",
     }
 --=============
 --颜色面板的颜色枚举
@@ -110,7 +113,8 @@ XSuperSmashBrosConfig.ColorTypeEnum = {
     None = 0,--不显示颜色
     Red = 1,
     Blue = 2,
-    Yellow = 3
+    Yellow = 3,
+    Purple = 4,
 }
 --=============
 --颜色面板的颜色枚举索引
@@ -119,7 +123,8 @@ XSuperSmashBrosConfig.ColorTypeIndex = {
     [0] = "None",--不显示颜色
     [1] = "Red",
     [3] = "Yellow",
-    [2] = "Blue"
+    [2] = "Blue",
+    [4] = "Purple",
 }
 --=============
 --界面选人控件状态
@@ -167,6 +172,14 @@ XSuperSmashBrosConfig.PosState = {
     Ban = -3, --禁用
     Empty = 0, --空位
 }
+--=============
+--援助角色类型
+--=============
+XSuperSmashBrosConfig.AssistType = {
+    Character = 1,
+    Robot = 2,
+    Monster = 3,
+}
 --================================================================
 --                      关卡配置初始化方法                        --
 --================================================================
@@ -185,20 +198,21 @@ local InitActivity2ModeDic = function()
         Configs[tableId][mode.ActivityId][mode.Priority] = mode
     end
 end
---=============
+--============= abandon
 --初始化ActivityId -> 核心配置字典
 --需要在Activity2ModeDic初始化后初始化
 --=============
 local InitActivity2CoreDic = function()
-    local tableId = XSuperSmashBrosConfig.TableKey.Activity2CoreDic.Id
-    Configs[tableId] = {}
-    for activityId, modes in pairs (XSuperSmashBrosConfig.GetAllConfigs(XSuperSmashBrosConfig.TableKey.Activity2ModeDic) or {}) do
-        Configs[tableId][activityId] = {}
-        for modePriority, mode in pairs(modes or {}) do
-            --以所属模式的优先级顺序排序
-            Configs[tableId][activityId][modePriority] = XSuperSmashBrosConfig.GetCfgByIdKey(XSuperSmashBrosConfig.TableKey.CoreConfig, mode.CoreId)
-        end
-    end
+    --local tableId = XSuperSmashBrosConfig.TableKey.Activity2CoreDic.Id
+    --Configs[tableId] = {}
+    --for activityId, modes in pairs (XSuperSmashBrosConfig.GetAllConfigs(XSuperSmashBrosConfig.TableKey.Activity2ModeDic) or {}) do
+    --    Configs[tableId][activityId] = {}
+    --    for modePriority, mode in pairs(modes or {}) do
+    --        --以所属模式的优先级顺序排序
+    --        local t = Configs[tableId][activityId]
+    --        t[#t + 1] = XSuperSmashBrosConfig.GetCfgByIdKey(XSuperSmashBrosConfig.TableKey.CoreConfig, mode.CoreId)
+    --    end
+    --end
 end
 --=============
 --初始化ActivityId -> 核心配置字典
@@ -260,7 +274,8 @@ end
 local InitGroup2SceneDic = function()
     local tableId = XSuperSmashBrosConfig.TableKey.Group2SceneDic.Id
     Configs[tableId] = {}
-    for _, scene in pairs(XSuperSmashBrosConfig.GetAllConfigs(XSuperSmashBrosConfig.TableKey.SceneConfig) or {}) do
+    for _, scene in pairs(XSuperSmashBrosConfig.GetAllConfigs(XSuperSmashBrosConfig.TableKey.
+    SceneConfig) or {}) do
         if not Configs[tableId][scene.LibraryId] then
             Configs[tableId][scene.LibraryId] = {}
         end
@@ -287,6 +302,7 @@ function XSuperSmashBrosConfig.Init()
     Configs[XSuperSmashBrosConfig.TableKey.RewardShowConfig.Id] = XTableManager.ReadByIntKey(TABLE_REWARD_SHOW, XTable.XTableSuperSmashBrosRewardShow, "Id")
     Configs[XSuperSmashBrosConfig.TableKey.EggRobot.Id] = XTableManager.ReadByIntKey(TABLE_EGG_ROBOT, XTable.XTableSuperSmashEggRobot, "Id")
     Configs[XSuperSmashBrosConfig.TableKey.TeamLevel.Id] = XTableManager.ReadByIntKey(TABLE_TEAM_LEVEL, XTable.XTableSuperSmashBrosTeamLevel, "TeamLevel")
+    Configs[XSuperSmashBrosConfig.TableKey.Assistance.Id] = XTableManager.ReadByIntKey(TABLE_ASSISTANCE_SKILL, XTable.XTableSuperSmashBrosAssistance, "AssistId")
     InitActivity2ModeDic()
     InitActivity2CoreDic()
     InitCore2CoreLevelDic()
@@ -348,4 +364,28 @@ function XSuperSmashBrosConfig.GetCurrentActivity()
     end
     XLog.Error("XSuperSmashBrosConfig.GetCurrentActivity error:没有任何一项活动配置了OpenTimeId！请检查配置:" .. TABLE_ACTIVITY)
     return nil
+end
+
+function XSuperSmashBrosConfig.GetDailyRewardItemId()
+    local cfg = XSuperSmashBrosConfig.GetCurrentActivity()
+    return cfg and cfg.LevelItem or false
+end
+
+function XSuperSmashBrosConfig.GetDailyRewardItemCount()
+    local cfg = XSuperSmashBrosConfig.GetCurrentActivity()
+    return cfg and cfg.AddTeamItem or 0
+end
+
+---@param role XSmashBCharacter
+function XSuperSmashBrosConfig.GetAssistantSkillDesc(role)
+    local id = role:GetCharacterId()
+    local config = XSuperSmashBrosConfig.GetCfgByIdKey(XSuperSmashBrosConfig.TableKey.Assistance, id, true)
+    return config.Desc
+end
+
+---@param role XSmashBCharacter
+function XSuperSmashBrosConfig.GetAssistantSkillName(role)
+    local id = role:GetCharacterId()
+    local config = XSuperSmashBrosConfig.GetCfgByIdKey(XSuperSmashBrosConfig.TableKey.Assistance, id, true)
+    return config.SkillName
 end

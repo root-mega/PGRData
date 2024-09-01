@@ -22,8 +22,8 @@ end
 
 function XUiPanelInfo:Show()
     self.GameObject:SetActiveEx(true)
-    self:SetupDynamicTable()
     self:UpdateInfo()
+    self:SetupDynamicTable()
 end
 
 function XUiPanelInfo:UpdateInfo()
@@ -89,7 +89,7 @@ function XUiPanelInfo:InitDynamicTable()
 end
 
 function XUiPanelInfo:SetupDynamicTable(index)
-    self.MedalData = XMedalConfigs.GetMeadalConfigs()
+    self.MedalData = XDataCenter.MedalManager.SortMedal(self.MedalInfos)
     self.DynamicTable:SetDataSource(self.MedalData)
     self.DynamicTable:ReloadDataSync(index and index or 1)
 end

@@ -14,6 +14,7 @@ XSuperSmashBrosManagerCreator = function()
     -- local MANAGER_INITIAL = false
     -------------------------------------
     -------------------------------------
+    ---@class XSuperSmashBrosManager
     local XSuperSmashBrosManager = {}
     local Config = XSuperSmashBrosConfig
 
@@ -36,6 +37,8 @@ XSuperSmashBrosManagerCreator = function()
         BattleConfirm = "SuperSmashBrosConfirmRequest",
         GetRankingInfo = "SuperSmashBrosGetRankRequest", --获取排行榜信息
         TakeScoreReward = "SuperSmashBrosTakeScoreRewardRequest", --获取积分奖励
+        RollBackRecord = "SuperSmashBrosStageRollBackRequest", --回滚战斗
+        ChangeStage = "SuperSmashBrosChangeStageRequest",
     }
     --===============
     --初始化
@@ -50,8 +53,15 @@ XSuperSmashBrosManagerCreator = function()
         --     MANAGER_INITIAL = false
         --     return
         -- end
+        --[[ abandoned
         XEventManager.AddEventListener(XEventId.EVENT_FUBEN_SETTLE_REWARD,
             function(settleData)
+                if settleData == nil then
+                    CS.XFight.ExitForClient(true)
+                    HasSettle = nil
+                    TempSettleResult = nil
+                    return
+                end
                 XSuperSmashBrosManager.OnSettle(settleData)
                 local isLiner = XSuperSmashBrosManager.CheckIsLineStage(settleData.StageId)
                 if isLiner then
@@ -66,6 +76,7 @@ XSuperSmashBrosManagerCreator = function()
                     TempSettleResult = nil
                 end
             end)
+        ]]
         -- MANAGER_INITIAL = true
     end
     --===============
@@ -134,6 +145,7 @@ XSuperSmashBrosManagerCreator = function()
     --FubenManager代理方法:准备出战数据
     --===============
     function XSuperSmashBrosManager.PreFight(stage, teamIds, isAssist, challengeCount, challengeId)
+        ---@type XSmashBMode
         local playingMode = XSuperSmashBrosManager.GetPlayingMode()
         local preFight = {}
         preFight.CardIds = {}
@@ -173,7 +185,7 @@ XSuperSmashBrosManagerCreator = function()
             
             local retryFindNewCaptain = true
             for i = 1, 3 do
-                if charaList[i] then
+                if charaList[i] and not playingMode:IsAssistancePos(i) then
                     local dataValue = charaList[i]
                     local role = XSuperSmashBrosManager.GetRoleById(teamId[i]) 
                     preFight.CardIds[i] = role and dataValue.HpPercent > 0 and role:GetCharacterId() or 0
@@ -203,7 +215,8 @@ XSuperSmashBrosManagerCreator = function()
         local needNewCaptainPos = captainRole and captainRole:GetHpLeft() <= 0
         if teamId and not isRetry then
             for i = 1, 3 do
-                if teamId[i] then
+                if teamId[i] and not playingMode:IsAssistancePos(i) then
+                    ---@type XSmashBCharacter
                     local role = XSuperSmashBrosManager.GetRoleById(teamId[i])
                     preFight.CardIds[i] = role and role:GetHpLeft() > 0 and role:GetCharacterId() or 0
                     if role and role:GetHpLeft() > 0 then
@@ -251,6 +264,7 @@ XSuperSmashBrosManagerCreator = function()
     --===============
     --FubenManager代理方法:结束战斗
     --===============
+    local _IsJustFail = false
     function XSuperSmashBrosManager.FinishFight(settleData)
         if not settleData.IsWin then
             XDataCenter.FubenManager.ChallengeLose(settleData)
@@ -404,13 +418,15 @@ XSuperSmashBrosManagerCreator = function()
             end)
     end
 
-    function XSuperSmashBrosManager.GetRankingInfo(cb)
-        XNetwork.Call(METHOD_NAME.GetRankingInfo, {}, function(res)
+    function XSuperSmashBrosManager.GetRankingInfo(career, cb)
+        XNetwork.Call(METHOD_NAME.GetRankingInfo, {
+            Career = career
+        }, function(res)
                 if res.Code ~= XCode.Success then
                     XUiManager.TipCode(res.Code)
                     return
                 end
-                XSuperSmashBrosManager.RefreshRankingData(res)
+                XSuperSmashBrosManager.RefreshRankingData(career, res)
                 if cb then
                     cb()
                 end
@@ -429,6 +445,77 @@ XSuperSmashBrosManagerCreator = function()
                     cb(res.ResultList)
                 end
             end)
+    end
+    
+    function XSuperSmashBrosManager.RollBackRecord(index, cb)
+        XNetwork.Call(METHOD_NAME.RollBackRecord, {
+            Index = index - 1
+        }, function(res)
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+                return
+            end
+            if res.ModeDb then
+                local mode = XSuperSmashBrosManager.GetPlayingMode()
+                mode:RefreshNotifyModeData(res.ModeDb)
+            end
+            if cb then
+                cb()
+            end
+        end)
+    end
+    
+    function XSuperSmashBrosManager.ChangeStage(stageId, cb)
+        XNetwork.Call(METHOD_NAME.ChangeStage, {
+            StageId = stageId
+        }, function(res)
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+                return
+            end
+            if res.ModeDb then
+                local mode = XSuperSmashBrosManager.GetPlayingMode()
+                mode:RefreshNotifyModeData(res.ModeDb)
+            end
+            if cb then
+                cb()
+            end
+        end)
+    end
+
+    local KEY_HINT_ROLL_BACK = "SuperSmashRollBackRecord"
+    function XSuperSmashBrosManager.DialogRollBack(callback)
+        local key = KEY_HINT_ROLL_BACK
+        local status = XSaveTool.GetData(key)
+        if status then
+            callback()
+            return
+        end
+        local hitInfo =
+        {
+            SetHintCb = function(isSelected)
+                XSaveTool.SaveData(key, isSelected)
+            end,
+            Status = status
+        }
+        XUiManager.DialogHintTip(
+                XUiHelper.GetText("SuperSmashRollBackTitle"),
+                XUiHelper.ReadTextWithNewLine("SuperSmashRollBack"),
+                "",
+                nil,
+                callback,
+                hitInfo
+        )
+    end
+    
+    function XSuperSmashBrosManager.IsJustFail()
+        local value = _IsJustFail
+        _IsJustFail = false
+        return value
+    end
+
+    function XSuperSmashBrosManager.SetJustFail()
+        _IsJustFail = true
     end
 
     XSuperSmashBrosManager.Init()

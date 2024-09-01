@@ -92,6 +92,7 @@ XMedalManagerCreator = function()
                 tmp["IsLock"] = false
                 tmp["Time"] = Info.Time
                 tmp["Num"] = Info.Num
+                tmp["KeepTime"] = Info.KeepTime
                 othermedalList[tmp.Id] = tmp
             end
         end
@@ -209,10 +210,8 @@ XMedalManagerCreator = function()
         end
         if not XFunctionManager.CheckFunctionFitter(XFunctionManager.FunctionName.Collection) then
             if XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.Collection) then
-                for _, v in pairs(ScoreTitleDataList) do
-                    if XSaveTool.GetData(string.format("%d%s%d%d", XPlayer.Id, "NewMeadal", v.Id, v.Type)) then
-                        return true
-                    end
+                if XMedalManager.CheckHasScoreTitleNew() then 
+                    return true
                 end
             end
         end
@@ -280,6 +279,42 @@ XMedalManagerCreator = function()
 
     function XMedalManager.SetNewMedalId(id)
         NewMedalId = id
+    end
+
+    -- v1.29 勋章 个人信息界面勋章显示优先级
+    function XMedalManager.SortMedal(plyaerMedalInfos)
+        local medalData = XMedalConfigs.GetMeadalConfigs()
+        if XTool.IsTableEmpty(plyaerMedalInfos) then return medalData end
+        local result = {}
+
+        -- 遍历赋值默认上锁
+        for _, info in pairs(medalData) do
+            local tmp = {}
+            for k, v in pairs(info) do
+                tmp[k] = v
+            end
+            tmp["IsLock"] = true
+            tableInsert(result, tmp)
+        end
+
+        -- 玩家拥有则解锁
+        for _, info in pairs(plyaerMedalInfos) do
+            local cfg = result[info.Id]
+            if cfg then
+                cfg["IsLock"] = false
+            end
+        end
+
+        -- 排序
+        table.sort(result, function(a, b)
+            local weightA = a.IsLock and 0 or 1
+            local weightB = b.IsLock and 0 or 1
+            if weightA == weightB then
+                return a.Priority > b.Priority
+            end
+            return weightA > weightB
+        end)
+        return result
     end
 
     ------------------------------------------计分徽章--------------------------------->>>
@@ -576,11 +611,16 @@ XMedalManagerCreator = function()
         if #NewCollectionList == 0 then
             return false
         else
-            local list = {}
-            for _, collectionId in pairs(NewCollectionList) do
-                tableInsert(list, XRewardManager.CreateRewardGoods(collectionId))
+            -- todo 删除下方代码 by v2.1 标仔
+            -- 原始需求:肉鸽2.0的收藏品不需要弹窗
+            -- 修改方案:配置ScoreTitle表IsNotShowGetTip
+            if not XLuaUiManager.IsUiShow("UiBiancaTheatreAchievement") then
+                local list = {}
+                for _, collectionId in pairs(NewCollectionList) do
+                    tableInsert(list, XRewardManager.CreateRewardGoods(collectionId))
+                end
+                XLuaUiManager.Open("UiObtainCollection", list)
             end
-            XLuaUiManager.Open("UiObtainCollection", list)
             XMedalManager.ClearCollectionList()
             return true
         end
@@ -837,6 +877,7 @@ XMedalManagerCreator = function()
         CurWearNameplate = data.CurrentWearNameplate
         XMedalManager.InitNameplateSaveRedDic()
         NameplateSaveDic = {}
+        NameplateGroupDic = {}
         for _, info in ipairs(data.UnlockNameplates) do
             XMedalManager.UpdateNameplate(info, true)
             NameplateSaveDic[info.Id] = true
@@ -946,6 +987,7 @@ XMedalManagerCreator = function()
                 if isGetNameplateNew then
                     lastNameplateData = nil
                 end
+                XEventManager.DispatchEvent(XEventId.EVENT_NAMEPLATE_CHANGE)
                 XLuaUiManager.Open("UiObtainNameplate", nameplateData, lastNameplateData)
                 UiNameplateIsOpen = true
             end
@@ -964,14 +1006,25 @@ XMedalManagerCreator = function()
         NameplateIdDic[data.NameplateId] = nil
         if not nameplateData then
             local groupId = XMedalConfigs.GetNameplateGroup(data.NameplateId)
+            local config = XMedalConfigs.GetNameplateConfigById(data.NameplateId)
             local dataByGroup = NameplateGroupDic[groupId]
             local tmpData = {}
             tmpData.Id = data.NameplateId
             tmpData.Exp = 0
-            tmpData.EndTime = dataByGroup and dataByGroup:GetNamepalteEndTime() or 0
+            local endTime = 0
+            if config then
+                if config.Duration ~= 0 then
+                    endTime = XTime.GetServerNowTimestamp() + config.Duration
+                elseif config.PlusTime ~= 0 then
+                    endTime = XTime.GetServerNowTimestamp() + config.PlusTime    
+                end
+            end
+            tmpData.EndTime = endTime
             tmpData.GetTime = dataByGroup and dataByGroup:GetNamepalteGetTime() or 0
             nameplateData = XNameplate.New(tmpData)
+            nameplateData.IsTemplate = true
         end
+        XEventManager.DispatchEvent(XEventId.EVENT_NAMEPLATE_CHANGE)
         XLuaUiManager.Open("UiObtainNameplate", nameplateData, false, data.ConvertItem, data.ConvertCount)
 
         -- if UiNameplateIsOpen then

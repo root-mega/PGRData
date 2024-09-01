@@ -1,0 +1,67 @@
+[
+    {
+        "Type": 1,
+        "Title": "Journey",
+        "Description": "For each floor cleared +5"
+    },
+    {
+        "Type": 2,
+        "Title": "Normal Operation",
+        "Description": "For each encounter cleared on Normal difficulty +10"
+    },
+    {
+        "Type": 3,
+        "Title": "Hard Operation",
+        "Description": "For each encounter cleared on Hard difficulty +15"
+    },
+    {
+        "Type": 4,
+        "Title": "Elite Operation",
+        "Description": "For each elite battle cleared on Normal difficulty +20"
+    },
+    {
+        "Type": 5,
+        "Title": "Super Elite Operation",
+        "Description": "For each elite battle cleared on Hard difficulty +30"
+    },
+    {
+        "Type": 6,
+        "Title": "Boss Battle",
+        "Description": "For each boss battle cleared on Normal difficulty +40"
+    },
+    {
+        "Type": 7,
+        "Title": "Hard Boss",
+        "Description": "For each boss battle cleared on Hard difficulty +80"
+    },
+    {
+        "Type": 8,
+        "Title": "Touch of Fortune",
+        "Description": "Gain 1000 Support Points +75"
+    },
+    {
+        "Type": 9,
+        "Title": "Shining Wealth",
+        "Description": "Gain 2000 Support Points +100"
+    },
+    {
+        "Type": 10,
+        "Title": "Grand Riches",
+        "Description": "Gain 3000 Support Points +125"
+    },
+    {
+        "Type": 11,
+        "Title": "Intensified Operation",
+        "Description": "Clear a stage within 1 min or with a member whose BP is lower than 5000 +5"
+    },
+    {
+        "Type": 12,
+        "Title": "Buff Accumulation",
+        "Description": "For each new buff obtained +10"
+    },
+    {
+        "Type": 13,
+        "Title": "Perfect Operation",
+        "Description": "For each member who has more than 50% HP left after clearing a stage +5"
+    }
+]

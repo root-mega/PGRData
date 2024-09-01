@@ -38,7 +38,7 @@ function XUiPurchasePayListItem:SetData()
         end
     end
 
-    self.TxtYuan.text = self.ItemData.Amount
+    self.TxtYuan.text = self.ItemData.DisplayAmount
 
     -- -- 直接获得的道具
     -- local rewardGoods = self.ItemData.RewardGoodsList or {}

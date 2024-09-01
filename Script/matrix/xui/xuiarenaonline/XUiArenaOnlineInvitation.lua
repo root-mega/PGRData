@@ -17,6 +17,18 @@ local HideInvitationWnds =
     ["UiFight"] = true,
     ["UiDormMain"] = true,
     ["UiChatServeMain"] = true,
+    ["UiLogin"] = true,
+    ["UiAnnouncement"] = true,
+    ["UiUsePackage"] = true,
+    ["UiBuyAsset"] = true,
+    ["UiSignBanner"] = true,
+}
+
+local RecheckOnDisableWnds = {
+    ["UiChatServeMain"] = true,
+    ["UiAnnouncement"] = true,
+    ["UiUsePackage"] = true,
+    ["UiBuyAsset"] = true,
 }
 
 function XUiArenaOnlineInvitation:OnAwake()
@@ -53,41 +65,55 @@ function XUiArenaOnlineInvitation:OnGetEvents()
         XEventId.EVENT_MOVIE_END,
         CS.XEventId.EVENT_VIDEO_ACTION_PLAY,
         CS.XEventId.EVENT_VIDEO_ACTION_STOP,
+        XEventId.EVENT_CHAT_CLOSE,
+        XEventId.EVENT_MAINUI_TERMINAL_STATUS_CHANGE
     }
 end
 
 function XUiArenaOnlineInvitation:OnNotify(evt, ...)
 
     --剧情相关、录像相关
-    if evt == XEventId.EVENT_MOVIE_BEGIN or
-        evt == XEventId.EVENT_MOVIE_END or
-        evt == CS.XEventId.EVENT_VIDEO_ACTION_PLAY or
-        evt == CS.XEventId.EVENT_VIDEO_ACTION_STOP then
+    if evt == XEventId.EVENT_MOVIE_BEGIN 
+            or evt == XEventId.EVENT_MOVIE_END 
+            or evt == CS.XEventId.EVENT_VIDEO_ACTION_PLAY 
+            or evt == CS.XEventId.EVENT_VIDEO_ACTION_STOP 
+            or evt == XEventId.EVENT_MAINUI_TERMINAL_STATUS_CHANGE then
         self:CheckShowInvitationButton()
         return
     end
 
     local args = {...}
-    local uiObject = args[1]
+    
+    if args[1] and args[1].UiData then
+        local uiObject = args[1]
+        
+        local uiType = uiObject.UiData.UiType
+        
+        if not (uiType == CS.XUiType.Normal or uiType == CS.XUiType.NormalPopup) then
+            return
+        end
+        
+        local uiName = uiObject.UiData.UiName
+        if uiName == self.Name then
+            return
+        end
 
-    if uiObject.UiData.UiType ~= CS.XUiType.Normal then
-        return
-    end
+        if HideInvitationWnds[uiName] then
+            if evt == CS.XEventId.EVENT_UI_ENABLE then
+                self.WndCount = self.WndCount + 1
+            elseif evt == CS.XEventId.EVENT_UI_DISABLE then
+                self.WndCount = self.WndCount - 1
+            end
+        end
 
-    local uiName = uiObject.UiData.UiName
-
-    if uiName == self.Name then
-        return
-    end
-
-    if HideInvitationWnds[uiName] then
-        if evt == CS.XEventId.EVENT_UI_ENABLE then
-            self.WndCount = self.WndCount + 1
-        elseif evt == CS.XEventId.EVENT_UI_DISABLE then
-            self.WndCount = self.WndCount - 1
+        if RecheckOnDisableWnds[uiName] then
+            if evt == CS.XEventId.EVENT_UI_DISABLE then
+                self:CheckShowInvitationButton()
+            end
         end
     end
-
+    
+    --界面处理重新打开
     if evt == CS.XEventId.EVENT_UI_ENABLE then
         self:CheckShowInvitationButton()
     end
@@ -170,7 +196,7 @@ function XUiArenaOnlineInvitation:CheckShowInvitationButton()
 
     self.Datas = XDataCenter.ArenaOnlineManager.GetPrivateChatData()
     self.Count = #self.Datas
-
+    
     if self.WndCount > 0 or CS.XFight.IsRunning
         or XDataCenter.MovieManager.IsPlayingMovie() or
         XDataCenter.VideoManager.IsPlaying() or 
@@ -180,11 +206,19 @@ function XUiArenaOnlineInvitation:CheckShowInvitationButton()
     else
         self:RefreshCount()
         if XLuaUiManager.IsUiShow("UiMain") then
+            local anim = XLoginManager.IsFirstOpenMainUi() and "AnimEnable1" or "AnimEnable2"
             self.BtnInvite.gameObject:SetActiveEx(false)
-            self.BtnMainInvite.gameObject:SetActiveEx(true)
+            local luaUi = XLuaUiManager.GetTopLuaUi("UiMain")
+            local show = true
+            if luaUi and luaUi.IsShowTerminal then
+                show = not luaUi:IsShowTerminal()
+            end
+            self.BtnMainInvite.gameObject:SetActiveEx(show)
+            self:PlayAnimation(anim)
         else
             self.BtnInvite.gameObject:SetActiveEx(true)
             self.BtnMainInvite.gameObject:SetActiveEx(false)
+            self:PlayAnimation("AnimEnable2")
         end
     end
 end

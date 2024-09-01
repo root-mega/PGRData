@@ -1,6 +1,7 @@
 --=============
 --家具事件基类
 --=============
+---@class XGDFBaseEvent
 local XGDFBaseEvent = XClass(nil, "XGDFBaseEvent")
 
 function XGDFBaseEvent:Ctor(cb)

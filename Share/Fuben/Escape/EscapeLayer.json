@@ -1,374 +1,1622 @@
 [
     {
-        "Id": 1,
+        "Id": 1001,
         "ClearStageCount": 1,
         "StageIds": [
-            30062010,
-            30062011.0
+            null,
+            30062171.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 2,
-        "ClearStageCount": 1,
+        "Id": 1002,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062012,
-            30062013.0
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            1.0,
+            null
         ]
     },
     {
-        "Id": 3,
+        "Id": 1003,
         "ClearStageCount": 1,
         "StageIds": [
-            30062014,
-            30062015.0
+            null,
+            30062172.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 4,
-        "ClearStageCount": 1,
+        "Id": 1004,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062016,
-            30062017.0
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            2.0,
+            3.0
         ]
     },
     {
-        "Id": 5,
+        "Id": 1005,
         "ClearStageCount": 1,
         "StageIds": [
-            30062018,
-            30062019.0
+            null,
+            30062173.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 6,
+        "Id": 1006,
         "ClearStageCount": 1,
         "StageIds": [
-            30062020,
-            30062021.0
+            null,
+            30062174.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 7,
+        "Id": 2001,
         "ClearStageCount": 1,
         "StageIds": [
-            30062024,
-            30062025.0
+            null,
+            30062175.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 8,
-        "ClearStageCount": 1,
+        "Id": 2002,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062026,
-            30062027.0
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            4.0,
+            null
         ]
     },
     {
-        "Id": 9,
+        "Id": 2003,
         "ClearStageCount": 1,
         "StageIds": [
-            30062028,
-            30062029.0
+            null,
+            30062176.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 10,
+        "Id": 2004,
         "ClearStageCount": 1,
         "StageIds": [
-            30062030,
-            30062031.0
+            null,
+            30062177.0,
+            30062178.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 11,
-        "ClearStageCount": 1,
+        "Id": 2005,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062032,
-            30062033.0
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            5.0,
+            null
         ]
     },
     {
-        "Id": 12,
+        "Id": 2006,
         "ClearStageCount": 1,
         "StageIds": [
-            30062034,
-            30062035.0
+            null,
+            30062179.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 13,
+        "Id": 2007,
         "ClearStageCount": 1,
         "StageIds": [
-            30062038,
-            30062039.0
+            null,
+            30062180.0,
+            30062181.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 14,
-        "ClearStageCount": 1,
+        "Id": 2008,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062040,
-            30062041.0
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            6.0,
+            null
         ]
     },
     {
-        "Id": 15,
+        "Id": 2009,
         "ClearStageCount": 1,
         "StageIds": [
-            30062042,
-            30062043.0
+            null,
+            30062182.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 16,
-        "ClearStageCount": 1,
+        "Id": 3001,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062044,
-            30062045.0
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            7.0,
+            null
         ]
     },
     {
-        "Id": 17,
+        "Id": 3002,
         "ClearStageCount": 1,
         "StageIds": [
-            30062046,
-            30062047.0
+            null,
+            30062183.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 18,
+        "Id": 3003,
         "ClearStageCount": 1,
         "StageIds": [
-            30062048,
-            30062049.0
+            null,
+            30062184.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 19,
-        "ClearStageCount": 1,
+        "Id": 3004,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062110,
-            30062111.0
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            8.0,
+            null
         ]
     },
     {
-        "Id": 20,
+        "Id": 3005,
         "ClearStageCount": 1,
         "StageIds": [
-            30062112,
-            30062113.0
+            null,
+            30062185.0,
+            30062186.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 21,
+        "Id": 3006,
         "ClearStageCount": 1,
         "StageIds": [
-            30062114,
-            30062115.0
+            null,
+            30062187.0,
+            30062188.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 22,
-        "ClearStageCount": 1,
+        "Id": 3007,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062116,
-            30062117.0
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            9.0,
+            null
         ]
     },
     {
-        "Id": 23,
+        "Id": 3008,
         "ClearStageCount": 1,
         "StageIds": [
-            30062118,
-            30062119.0
+            null,
+            30062189.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 24,
+        "Id": 3009,
         "ClearStageCount": 1,
         "StageIds": [
-            30062120,
-            30062121.0
+            null,
+            30062190.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 25,
+        "Id": 4001,
         "ClearStageCount": 1,
         "StageIds": [
-            30062124,
-            30062125.0
+            null,
+            30062191.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 26,
-        "ClearStageCount": 1,
+        "Id": 4002,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062126,
-            30062127.0
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            10.0,
+            null
         ]
     },
     {
-        "Id": 27,
+        "Id": 4003,
         "ClearStageCount": 1,
         "StageIds": [
-            30062128,
-            30062129.0
+            null,
+            30062192.0,
+            30062193.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 28,
+        "Id": 4004,
         "ClearStageCount": 1,
         "StageIds": [
-            30062130,
-            30062131.0
+            null,
+            30062194.0,
+            30062195.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 29,
-        "ClearStageCount": 1,
+        "Id": 4005,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062132,
-            30062133.0
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            11.0,
+            12.0
         ]
     },
     {
-        "Id": 30,
+        "Id": 4006,
         "ClearStageCount": 1,
         "StageIds": [
-            30062134,
-            30062135.0
+            null,
+            30062196.0,
+            30062197.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 31,
+        "Id": 4007,
         "ClearStageCount": 1,
         "StageIds": [
-            30062138,
-            30062139.0
+            null,
+            30062198.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 32,
-        "ClearStageCount": 1,
+        "Id": 4008,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062140,
-            30062141.0
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            13.0,
+            14.0
         ]
     },
     {
-        "Id": 33,
+        "Id": 4009,
         "ClearStageCount": 1,
         "StageIds": [
-            30062142,
-            30062143.0
+            null,
+            30062199.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 34,
-        "ClearStageCount": 1,
+        "Id": 5001,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062144,
-            30062145.0
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            15.0,
+            null
         ]
     },
     {
-        "Id": 35,
+        "Id": 5002,
         "ClearStageCount": 1,
         "StageIds": [
-            30062146,
-            30062147.0
+            null,
+            30062200.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 36,
+        "Id": 5003,
         "ClearStageCount": 1,
         "StageIds": [
-            30062148,
-            30062149.0
+            null,
+            30062201.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 37,
-        "ClearStageCount": 1,
+        "Id": 5004,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062022
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            16.0,
+            null
         ]
     },
     {
-        "Id": 38,
+        "Id": 5005,
         "ClearStageCount": 1,
         "StageIds": [
-            30062122
+            null,
+            30062202.0,
+            30062203.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 39,
+        "Id": 5006,
         "ClearStageCount": 1,
         "StageIds": [
-            30062036
+            null,
+            30062204.0,
+            30062205.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 40,
-        "ClearStageCount": 1,
+        "Id": 5007,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062136
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            17.0,
+            null
         ]
     },
     {
-        "Id": 41,
+        "Id": 5008,
         "ClearStageCount": 1,
         "StageIds": [
-            30062050
+            null,
+            30062206.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 42,
+        "Id": 5009,
         "ClearStageCount": 1,
         "StageIds": [
-            30062150
+            null,
+            30062207.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 43,
-        "ClearStageCount": 1,
+        "Id": 6001,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062023
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            18.0,
+            19.0
         ]
     },
     {
-        "Id": 44,
+        "Id": 6002,
         "ClearStageCount": 1,
         "StageIds": [
-            30062123
+            null,
+            30062208.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 45,
-        "ClearStageCount": 1,
+        "Id": 6003,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062037
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            20.0,
+            21.0
         ]
     },
     {
-        "Id": 46,
+        "Id": 6004,
         "ClearStageCount": 1,
         "StageIds": [
-            30062137
+            null,
+            30062209.0,
+            30062210.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     },
     {
-        "Id": 47,
-        "ClearStageCount": 1,
+        "Id": 6005,
+        "ClearStageCount": 0,
         "StageIds": [
-            30062051
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            22.0,
+            23.0
         ]
     },
     {
-        "Id": 48,
+        "Id": 6006,
         "ClearStageCount": 1,
         "StageIds": [
-            30062151
+            null,
+            30062211.0,
+            30062212.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6007,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            24.0,
+            25.0
+        ]
+    },
+    {
+        "Id": 6008,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062213.0,
+            30062214.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6009,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            26.0,
+            27.0
+        ]
+    },
+    {
+        "Id": 6010,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062215.0,
+            30062216.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6011,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            28.0,
+            29.0
+        ]
+    },
+    {
+        "Id": 6012,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062217.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11001,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062221.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11002,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            1.0,
+            null
+        ]
+    },
+    {
+        "Id": 11003,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062222.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11004,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            2.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 11005,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062223.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11006,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062224.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12001,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062225.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12002,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            4.0,
+            null
+        ]
+    },
+    {
+        "Id": 12003,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062226.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12004,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062227.0,
+            30062228.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12005,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            5.0,
+            null
+        ]
+    },
+    {
+        "Id": 12006,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062229.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12007,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062230.0,
+            30062231.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12008,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            6.0,
+            null
+        ]
+    },
+    {
+        "Id": 12009,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062232.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13001,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            7.0,
+            null
+        ]
+    },
+    {
+        "Id": 13002,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062233.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13003,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062234.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13004,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            8.0,
+            null
+        ]
+    },
+    {
+        "Id": 13005,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062235.0,
+            30062236.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13006,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062237.0,
+            30062238.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13007,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            9.0,
+            null
+        ]
+    },
+    {
+        "Id": 13008,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062239.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13009,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062240.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 14001,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062241.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 14002,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            10.0,
+            null
+        ]
+    },
+    {
+        "Id": 14003,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062242.0,
+            30062243.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 14004,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062244.0,
+            30062245.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 14005,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            11.0,
+            12.0
+        ]
+    },
+    {
+        "Id": 14006,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062246.0,
+            30062247.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 14007,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062248.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 14008,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            13.0,
+            14.0
+        ]
+    },
+    {
+        "Id": 14009,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062249.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15001,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            15.0,
+            null
+        ]
+    },
+    {
+        "Id": 15002,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062250.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15003,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062251.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15004,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            16.0,
+            null
+        ]
+    },
+    {
+        "Id": 15005,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062252.0,
+            30062253.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15006,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062254.0,
+            30062255.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15007,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            17.0,
+            null
+        ]
+    },
+    {
+        "Id": 15008,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062256.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15009,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062257.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 16001,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            18.0,
+            19.0
+        ]
+    },
+    {
+        "Id": 16002,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062258.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 16003,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            20.0,
+            21.0
+        ]
+    },
+    {
+        "Id": 16004,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062259.0,
+            30062260.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 16005,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            22.0,
+            23.0
+        ]
+    },
+    {
+        "Id": 16006,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062261.0,
+            30062262.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 16007,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            24.0,
+            25.0
+        ]
+    },
+    {
+        "Id": 16008,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062263.0,
+            30062264.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 16009,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            26.0,
+            27.0
+        ]
+    },
+    {
+        "Id": 16010,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062265.0,
+            30062266.0,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 16011,
+        "ClearStageCount": 0,
+        "StageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            28.0,
+            29.0
+        ]
+    },
+    {
+        "Id": 16012,
+        "ClearStageCount": 1,
+        "StageIds": [
+            null,
+            30062267.0,
+            null,
+            null
+        ],
+        "TacticsNodeIds": [
+            null,
+            null,
+            null
         ]
     }
 ]

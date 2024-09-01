@@ -9,7 +9,7 @@ XUserManager.CHANNEL = {
     HERO = 2,
     Android = 3,
     IOS = 4,
-    KURO_SDK = 5,
+    KURO_SDK = 15,
     KuroPC = 15
 }
 
@@ -25,6 +25,8 @@ XUserManager.Token = nil
 XUserManager.ReconnectedToken = nil
 XUserManager.Channel = nil
 XUserManager.Platform = nil
+-- 登录渠道，PC端用
+XUserManager.LoginChannel = nil
 
 local UserType = XHgSdkManager.UserType
 
@@ -37,6 +39,7 @@ local InitPlatform = function()
         XHgSdkManager.SetCallBackUrl(CS.XRemoteConfig.IosPayCallbackUrl)
     else
         XUserManager.Platform = XUserManager.PLATFORM.Win
+        XHgSdkManager.SetCallBackUrl(CS.XRemoteConfig.PcPayCallbackUrl)
     end
 end
 
@@ -46,6 +49,10 @@ end
 
 function XUserManager.IsKuroSdk()
     return XUserManager.Channel == XUserManager.CHANNEL.KURO_SDK
+end
+
+function XUserManager.IsHeroSdk()
+    return XUserManager.Channel == XUserManager.CHANNEL.HERO
 end
 
 function XUserManager.Init()
@@ -62,7 +69,7 @@ end
 
 function XUserManager.IsNeedLogin()
     if (XUserManager.Channel == XUserManager.CHANNEL.Android) or (XUserManager.Channel == XUserManager.CHANNEL.IOS) or
-        XUserManager.Channel == XUserManager.CHANNEL.KuroPC then
+        XUserManager.Channel == XUserManager.CHANNEL.KURO_SDK or XUserManager.Channel == XUserManager.CHANNEL.KuroPC then
         return XHgSdkManager.IsNeedLogin()
     else
         return XHaruUserManager.IsNeedLogin()
@@ -99,7 +106,7 @@ end
 
 function XUserManager.Logout(cb)
     if XUserManager.Channel == XUserManager.CHANNEL.Android or XUserManager.Channel == XUserManager.CHANNEL.IOS or
-        XUserManager.Channel == XUserManager.CHANNEL.KuroPC then
+    XUserManager.Channel == XUserManager.CHANNEL.KURO_SDK or XUserManager.Channel == XUserManager.CHANNEL.KuroPC then
         XHgSdkManager.Logout(cb)
     else
         XHaruUserManager.Logout(cb)
@@ -108,7 +115,7 @@ end
 
 function XUserManager.ClearLoginData()
     if XUserManager.Channel == XUserManager.CHANNEL.Android or XUserManager.Channel == XUserManager.CHANNEL.IOS or
-        XUserManager.Channel == XUserManager.CHANNEL.KuroPC then
+    XUserManager.Channel == XUserManager.CHANNEL.KURO_SDK or XUserManager.Channel == XUserManager.CHANNEL.KuroPC then
         XHgSdkManager.Logout()
     else
         XUserManager.SignOut()
@@ -147,6 +154,7 @@ end
 
 function XUserManager.SetUserName(userName)
     XUserManager.UserName = userName
+
     if not XUserManager.IsUseSdk() then
         CS.UnityEngine.PlayerPrefs.SetString(XPrefs.UserName, XUserManager.UserName)
         CS.UnityEngine.PlayerPrefs.Save()
@@ -157,8 +165,17 @@ end
 function XUserManager.SetToken(token)
     XUserManager.Token = token
     if XUserManager.Channel ~= XUserManager.CHANNEL.Android and XUserManager.Channel ~= XUserManager.CHANNEL.IOS or
-        XUserManager.Channel == XUserManager.CHANNEL.KuroPC then
+    XUserManager.Channel == XUserManager.CHANNEL.KURO_SDK or XUserManager.Channel == XUserManager.CHANNEL.KuroPC then
         XLoginManager.SetToken(token)
+    end
+end
+
+function XUserManager.SetLoginChannel(channel)
+    XUserManager.LoginChannel = channel
+    if XUserManager.LoginChannel then 
+        CS.XLog.Debug(string.format("XUserManager.SetLoginChannel: type: %s , value: %s", type(XUserManager.LoginChannel), tostring(XUserManager.LoginChannel)))
+        --pc版的要在获取到登录渠道后才设置选择服务器
+        XServerManager.SelectChannelServer()
     end
 end
 
@@ -168,22 +185,25 @@ function XUserManager.CleanToken()
 end
 
 local DoRunLogin = function()
-    if CS.XFight.Instance ~= nil then
-        CS.XFight.ClearFight()
-    end
+    XEventManager.DispatchEvent(XEventId.EVENT_LOGIN_UI_OPEN)
+    XFightUtil.ClearFight()
     if XDataCenter.MovieManager then
         XDataCenter.MovieManager.StopMovie()
     end
     CS.Movie.XMovieManager.Instance:Clear()
     CsXUiManager.Instance:Clear()
     XHomeSceneManager.LeaveScene()
+
+    XDataCenter.Init()
+    XMVCA:Init()
+
     XLuaUiManager.Open("UiLogin")
 end
 
 function XUserManager.SignOut()
     XLoginManager.Disconnect()
 
-    if XUserManager.Channel ~= XUserManager.CHANNEL.Android and XUserManager.Channel ~= XUserManager.CHANNEL.IOS and 
+    if XUserManager.Channel ~= XUserManager.CHANNEL.Android and XUserManager.Channel ~= XUserManager.CHANNEL.IOS and
         XUserManager.Channel ~= XUserManager.CHANNEL.KuroPC then
         XUserManager.SetUserId(nil)
         XUserManager.SetUserName(nil)
@@ -193,7 +213,7 @@ function XUserManager.SignOut()
 
     XEventManager.DispatchEvent(XEventId.EVENT_USER_LOGOUT)
     CsXGameEventManager.Instance:Notify(XEventId.EVENT_USER_LOGOUT)
-    XDataCenter.Init()
+
     DoRunLogin()
 end
 
@@ -206,11 +226,15 @@ function XUserManager.OnSwitchAccountSuccess(uid, token, userType)
 
     XEventManager.DispatchEvent(XEventId.EVENT_USER_LOGOUT)
     CsXGameEventManager.Instance:Notify(XEventId.EVENT_USER_LOGOUT)
-
-    XDataCenter.Init()
+    
     DoRunLogin()
 end
 
+function XUserManager.GetLoginType()
+    return XUserManager.LoginType[XUserManager.Channel]
+end
+
+-- 对应服务端Server文件Define.cs中Channel规则
 function XUserManager.GetUniqueUserId()
     local prefix = ""
     if XUserManager.Channel == XUserManager.CHANNEL.HARU then   --dev（母包和win包）、

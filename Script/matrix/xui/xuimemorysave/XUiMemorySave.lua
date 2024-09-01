@@ -239,13 +239,13 @@ end
 --endregion
 
 function XUiMemorySave:ShowUIByTabIndex(tabIndex)
-    self:PlayAnimation("QieHuan")
     local chapterId = self.ChapterIds[tabIndex]
     if not XDataCenter.MemorySaveManager.IsChapterOpen(chapterId) then
         local msgTips = CsXTextManagerGetText("MemorySaveStageNotOpen", XMemorySaveConfig.GetChapterOpenTime(chapterId))
         XUiManager.TipMsg(msgTips)
         return
     end
+    self:PlayAnimation("QieHuan")
     -- 切换页签存储一下位置属性，放在CurrentSelect更新之前
     self.StageLinePanel:UpdateScrollPos()
     self.CurrentSelect = tabIndex

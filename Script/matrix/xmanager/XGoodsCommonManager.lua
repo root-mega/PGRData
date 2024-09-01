@@ -252,6 +252,13 @@ local GoodsDescription = {
     [XArrangeConfigs.Types.RankScore] = function(templateId)
         return XFubenSpecialTrainConfig.GetRankScoreGoodDescription(templateId)
     end,
+    [XArrangeConfigs.Types.DrawTicket] = function(templateId) 
+        return XDrawConfigs.GetDrawTicketDesc(templateId)
+    end,
+    [XArrangeConfigs.Types.ItemCollection] = function(templateId)
+        local template = XItemConfigs.GetItemCollectTemplate(templateId)
+        return template.Description
+    end
 }
 
 local GoodsWorldDesc = {
@@ -294,6 +301,13 @@ local GoodsWorldDesc = {
     -- [XArrangeConfigs.Types.Nameplate] = function(templateId)
     --     return XMedalConfigs.GetNameplateDescription(templateId)
     -- end,
+    [XArrangeConfigs.Types.DrawTicket] = function(templateId) 
+        return XDrawConfigs.GetDrawTicketWorldDesc(templateId)
+    end,
+    [XArrangeConfigs.Types.ItemCollection] = function(templateId)
+        local template = XItemConfigs.GetItemCollectTemplate(templateId)
+        return template.WorldDesc
+    end
 }
 
 local GoodsSkipIdParams = {
@@ -369,6 +383,14 @@ local GoodsCurrentCount = {
 
     [XArrangeConfigs.Types.RankScore] = function(templateId)
         return XDataCenter.FubenSpecialTrainManager.GetCurScore()
+    end,
+
+    [XArrangeConfigs.Types.DlcHuntChip] = function(templateId)
+        return XDataCenter.DlcHuntChipManager.GetChipAmountByItemId(templateId)
+    end,
+
+    [XArrangeConfigs.Types.ItemCollection] = function(templateId)
+        return XDataCenter.ItemManager.CheckCollectItemUnlock(templateId) and 1 or 0
     end,
 }
 
@@ -491,8 +513,8 @@ function XGoodsCommonManager.GetGoodsCurrentCount(templateId)
         return XDataCenter.ChessPursuitManager.GetSumCoinCount()
     elseif templateId == XDataCenter.StrongholdManager.GetBatteryItemId() then
         return XDataCenter.StrongholdManager.GetTotalElectricEnergy()
-    elseif templateId == XDataCenter.ReformActivityManager.GetScoreItemId() then
-        return XDataCenter.ReformActivityManager.GetAllStageAccumulativeScore()
+    --elseif templateId == XDataCenter.ReformActivityManager.GetScoreItemId() then
+    --    return XDataCenter.ReformActivityManager.GetAllStageAccumulativeScore()
     else
         local arrangeType = XArrangeConfigs.GetType(templateId)
         return GoodsCurrentCount[arrangeType] and GoodsCurrentCount[arrangeType](templateId) or 0
@@ -691,6 +713,51 @@ GoodsShowParams[XArrangeConfigs.Types.RankScore] = function(templateId)
         Name = XFubenSpecialTrainConfig.GetRankScoreGoodName(templateId),
         Icon = XFubenSpecialTrainConfig.GetRankScoreGoodIcon(templateId),
         Quality = XFubenSpecialTrainConfig.GetRankScoreGoodQuality(templateId),
+    }
+end
+
+GoodsShowParams[XArrangeConfigs.Types.DrawTicket] = function(templateId)
+    local cfg = XDrawConfigs.GetDrawTicketCfg(templateId)
+    return {
+        RewardType = XRewardManager.XRewardType.DrawTicket,
+        TemplateId = templateId,
+        Name = cfg.Name,
+        Icon = cfg.Icon,
+        BigIcon = cfg.BigIcon,
+        Quality = cfg.Quality
+    }
+end
+
+GoodsShowParams[XArrangeConfigs.Types.GuildGoods] = function(templateId) 
+    return {
+        RewardType = XRewardManager.XRewardType.GuildGoods,
+        TemplateId = templateId,
+        Name = XGuildConfig.GetGoodsName(templateId),
+        Icon = XGuildConfig.GetGoodsIcon(templateId),
+        GoodsType = XGuildConfig.GetGoodsType(templateId),
+        BigIcon = XGuildConfig.GetGoodsBigIcon(templateId)
+    }
+end
+
+GoodsShowParams[XArrangeConfigs.Types.DlcHuntChip] = function(templateId)
+    return {
+        RewardType = XRewardManager.XRewardType.DlcHuntChip,
+        TemplateId = templateId,
+        Name = XDlcHuntChipConfigs.GetChipName(templateId),
+        Icon = XDlcHuntChipConfigs.GetChipIcon(templateId),
+        Quality = XDlcHuntChipConfigs.GetChipQuality(templateId),
+    }
+end
+
+GoodsShowParams[XArrangeConfigs.Types.ItemCollection] = function(templateId)
+    local template = XItemConfigs.GetItemCollectTemplate(templateId)
+    return {
+        RewardType = XRewardManager.XRewardType.ItemCollection,
+        TemplateId = templateId,
+        Name = template.Name,
+        Icon = template.Icon,
+        BigIcon = template.BigIcon,
+        Quality = template.Quality
     }
 end
 --==============================--

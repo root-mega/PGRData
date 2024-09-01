@@ -8,6 +8,7 @@ function XUiPanelFashionList:Ctor(ui, parent,rootUi)
     self.RootUi = rootUi or parent
     self.GoodsList = {}
     self.GoodsContainer = {}
+    self.GoodsOrder = {}
     self:SetCountUpdateListener()
     self:Init()
 end
@@ -45,12 +46,16 @@ function XUiPanelFashionList:ShowPanel(id)
     self.DynamicTable:ReloadDataASync()
 end
 
-function XUiPanelFashionList:ShowScreenPanel(shopId,groupId,selectTag)
+function XUiPanelFashionList:ShowScreenPanel(shopId,groupId,selectTag,isKeepOrder)
     local shopShowTypeCfg = XShopConfigs.GetShopShowTypeTemplateById(shopId)
     if shopShowTypeCfg and shopShowTypeCfg.ShowType == XShopConfigs.ShowType.Fashion then
         self.GameObject:SetActive(true)
         self.GoodsList = XShopManager.GetScreenGoodsListByTag(shopId,groupId,selectTag)
-
+        if isKeepOrder then
+            self:SortByOldGoodsOrder()
+        else
+            self:SaveGoodsOrder()
+        end
         self:ShowGoods()
         self.DynamicTable:SetDataSource(self.GoodsList)
         self.DynamicTable:ReloadDataASync()
@@ -96,3 +101,11 @@ function XUiPanelFashionList:UpdateGoods(goodsId)
     end
 end
 
+function XUiPanelFashionList:SaveGoodsOrder()
+    self.GoodsOrder = {}
+    XShopManager.SaveGoodsOrder(self.GoodsList, self.GoodsOrder)
+end
+
+function XUiPanelFashionList:SortByOldGoodsOrder()
+    self.GoodsList = XShopManager.SortByOldGoodsOrder(self.GoodsList, self.GoodsOrder)
+end

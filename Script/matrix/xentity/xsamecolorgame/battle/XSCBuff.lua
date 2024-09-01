@@ -1,8 +1,9 @@
 local XSCBuff = XClass(nil, "XSCBuff")
 
-function XSCBuff:Ctor(buffId, buffUId)
+function XSCBuff:Ctor(buffId, buffUId, isTimeType)
     self.BuffUId = buffUId
     self.BuffId = buffId
+    self.IsTimeType = isTimeType -- 是否是限时关卡
     self.CurCountDown = 0
     self.Config = XSameColorGameConfigs.GetBuffConfig(buffId)
 end
@@ -44,7 +45,13 @@ function XSCBuff:GetDesc()
 end
 
 function XSCBuff:GetDuration()--最大持续时间
-    return self.Config.Duration
+    local battleManager = XDataCenter.SameColorActivityManager.GetBattleManager()
+    local isTimeType = battleManager:IsTimeType()
+    if isTimeType then
+        return self.Config.DurationTime
+    else
+        return self.Config.Duration
+    end
 end
 
 function XSCBuff:GetType()
@@ -53,6 +60,10 @@ end
 
 function XSCBuff:GetTargetColorList()
     return self.Config.TargetColors
+end
+
+function XSCBuff:GetDamagePercent()
+    return self.Config.DamagePercent
 end
 
 return XSCBuff

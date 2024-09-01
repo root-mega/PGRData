@@ -101,9 +101,6 @@ XBackManagerCreator = function()
         UiGoldenMinerSuspend = {
             BtnExit = true
         },
-        UiGoldenMinerDialog = {
-            BtnClose = true
-        },
     }
 
     -- 这些界面 不响应返回键
@@ -233,18 +230,18 @@ XBackManagerCreator = function()
             pointerEventData.button = CS.UnityEngine.EventSystems.PointerEventData.InputButton.Left
             xuiButton:OnPointerClick(pointerEventData)
         end
-
+        
         if XTool.UObjIsNil(transform) then
             return
         end
-
+        
         local listener = transform:GetComponent("XUguiEventListener")
         if listener then
             local pointerEventData = CS.UnityEngine.EventSystems.PointerEventData(CS.UnityEngine.EventSystems.EventSystem.current)
             pointerEventData.button = CS.UnityEngine.EventSystems.PointerEventData.InputButton.Left
             listener:OnPointerClick(pointerEventData)
         end
-
+        
         if XTool.UObjIsNil(transform) then
             return
         end
@@ -278,6 +275,11 @@ XBackManagerCreator = function()
                 local uiGuildDorm = CsXUiManager.Instance:FindTopUi("UiEquipAwarenessReplace")
                 if uiGuildDorm then
                     ui = uiGuildDorm
+                end
+            elseif uiName == "UiRestaurantCommon" then
+                local uiRestaurantMain = CsXUiManager.Instance:FindTopUi("UiRestaurantMain")
+                if uiRestaurantMain then
+                    ui = uiRestaurantMain
                 end
             end
 
@@ -315,7 +317,7 @@ XBackManagerCreator = function()
             return
         end
         
-        if XDataCenter.GuideManager.CheckIsInGuide() then
+        if XDataCenter.GuideManager.CheckIsInGuidePlus() then
             if CS.XQuitHandler and CS.XQuitHandler.OnBtnBackGuide then
                 CS.XQuitHandler.OnBtnBackGuide()
             end
@@ -340,14 +342,17 @@ XBackManagerCreator = function()
             return
         end
         if PerformButtonOnTopByLayer(CsXUiType.Normal) then
-
+            return
         end
         if PerformButtonOnTopByLayer(CsXUiType.System) then
             return
         end
-        -- XDataCenter.UiPcManager.OnEscBtnClick() -- en 的返回键还是~而不是esc
+        XDataCenter.UiPcManager.OnEscBtnClick()
 
-        if XDataCenter.GuideManager.CheckIsInGuide() then
+        if XDataCenter.GuideManager.CheckIsInGuidePlus() then
+            if not XDataCenter.GuideManager.getButton then
+                return
+            end
             local button = XDataCenter.GuideManager.getButton()
             if _DictBtnBack[button.name] then
                 XDataCenter.GuideManager.NextStep()

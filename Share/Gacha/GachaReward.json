@@ -5,12 +5,17 @@
         "UsableTimes": 1,
         "TemplateId": 1081003,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 2000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 2,
@@ -20,13 +25,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 200,
         "Rare": 1.0,
         "Priority": 1900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 3,
@@ -34,12 +41,17 @@
         "UsableTimes": 1,
         "TemplateId": 9091002,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 400,
         "Rare": 1.0,
         "Priority": 1600,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 4,
@@ -47,12 +59,17 @@
         "UsableTimes": 1,
         "TemplateId": 6000504,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 400,
         "Rare": 1.0,
         "Priority": 1500,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 5,
@@ -60,12 +77,17 @@
         "UsableTimes": 1,
         "TemplateId": 80001,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 700,
         "Rare": 1.0,
         "Priority": 1800,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 6,
@@ -75,13 +97,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 700,
         "Rare": 1.0,
         "Priority": 1700,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 7,
@@ -89,12 +113,17 @@
         "UsableTimes": 10,
         "TemplateId": 30013,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 833,
         "Rare": null,
         "Priority": 750,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 8,
@@ -102,12 +131,17 @@
         "UsableTimes": 8,
         "TemplateId": 12,
         "Count": 5,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 625,
         "Rare": null,
         "Priority": 710,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 9,
@@ -115,12 +149,17 @@
         "UsableTimes": 16,
         "TemplateId": 1,
         "Count": 20000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 585,
         "Rare": null,
         "Priority": 700,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 10,
@@ -130,13 +169,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1904,
         "Rare": null,
         "Priority": 770,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 11,
@@ -146,13 +187,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 2857,
         "Rare": null,
         "Priority": 760,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 12,
@@ -160,12 +203,17 @@
         "UsableTimes": 10,
         "TemplateId": 40100,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 1500,
         "Rare": null,
         "Priority": 740,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 13,
@@ -173,12 +221,17 @@
         "UsableTimes": 5,
         "TemplateId": 40103,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 3000,
         "Rare": null,
         "Priority": 730,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 14,
@@ -186,12 +239,17 @@
         "UsableTimes": 10,
         "TemplateId": 40104,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 1125,
         "Rare": null,
         "Priority": 720,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 15,
@@ -199,12 +257,17 @@
         "UsableTimes": 10,
         "TemplateId": 40110,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 750,
         "Rare": null,
         "Priority": 800,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 16,
@@ -212,12 +275,17 @@
         "UsableTimes": 5,
         "TemplateId": 40113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 750,
         "Rare": null,
         "Priority": 790,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 17,
@@ -225,12 +293,17 @@
         "UsableTimes": 5,
         "TemplateId": 40114,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 2250,
         "Rare": null,
         "Priority": 780,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 18,
@@ -238,12 +311,17 @@
         "UsableTimes": 1,
         "TemplateId": 6310205,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 50,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 19,
@@ -251,12 +329,17 @@
         "UsableTimes": 1,
         "TemplateId": 9010220,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 800,
         "Rare": 1.0,
         "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 20,
@@ -264,12 +347,17 @@
         "UsableTimes": 1,
         "TemplateId": 80005,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 250,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 21,
@@ -279,13 +367,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1400,
         "Rare": 1.0,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 22,
@@ -295,13 +385,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1400,
         "Rare": 1.0,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 23,
@@ -311,13 +403,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1400,
         "Rare": 1.0,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 24,
@@ -327,13 +421,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1400,
         "Rare": 1.0,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 25,
@@ -343,13 +439,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1400,
         "Rare": 1.0,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 26,
@@ -359,13 +457,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1400,
         "Rare": 1.0,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 27,
@@ -382,7 +482,8 @@
         "Rare": 1.0,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 28,
@@ -390,12 +491,17 @@
         "UsableTimes": 1,
         "TemplateId": 31204,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 1000,
         "Rare": null,
         "Priority": 840,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 29,
@@ -403,12 +509,17 @@
         "UsableTimes": 1,
         "TemplateId": 31104,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 1000,
         "Rare": null,
         "Priority": 850,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 30,
@@ -416,12 +527,17 @@
         "UsableTimes": 1,
         "TemplateId": 30013,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 250,
         "Rare": null,
         "Priority": 860,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 31,
@@ -429,12 +545,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 150,
         "Rare": null,
         "Priority": 870,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 32,
@@ -442,12 +563,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 150,
         "Rare": null,
         "Priority": 880,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 33,
@@ -455,12 +581,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 150,
         "Rare": null,
         "Priority": 890,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 34,
@@ -468,12 +599,17 @@
         "UsableTimes": 1,
         "TemplateId": 90014,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 90,
         "Rare": null,
         "Priority": 900,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 35,
@@ -481,12 +617,17 @@
         "UsableTimes": 1,
         "TemplateId": 6410306,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 50,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 36,
@@ -494,12 +635,17 @@
         "UsableTimes": 1,
         "TemplateId": 80006,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 4000,
         "Rare": 1.0,
         "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 37,
@@ -507,12 +653,17 @@
         "UsableTimes": 1,
         "TemplateId": 50003,
         "Count": 2500,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 975,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 38,
@@ -520,12 +671,17 @@
         "UsableTimes": 1,
         "TemplateId": 50005,
         "Count": 2500,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 975,
         "Rare": 1.0,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 39,
@@ -533,12 +689,17 @@
         "UsableTimes": 1,
         "TemplateId": 9010219,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 4000,
         "Rare": 1.0,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 40,
@@ -546,12 +707,17 @@
         "UsableTimes": 1,
         "TemplateId": 31204,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 1000,
         "Rare": null,
         "Priority": 950,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 41,
@@ -559,12 +725,17 @@
         "UsableTimes": 1,
         "TemplateId": 31104,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 1000,
         "Rare": null,
         "Priority": 940,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 42,
@@ -572,12 +743,17 @@
         "UsableTimes": 1,
         "TemplateId": 30013,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 500,
         "Rare": null,
         "Priority": 930,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 43,
@@ -585,12 +761,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 300,
         "Rare": null,
         "Priority": 920,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 44,
@@ -598,12 +779,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 300,
         "Rare": null,
         "Priority": 910,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 45,
@@ -611,12 +797,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 300,
         "Rare": null,
         "Priority": 900,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 46,
@@ -624,12 +815,17 @@
         "UsableTimes": 1,
         "TemplateId": 90014,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 890,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 47,
@@ -637,12 +833,17 @@
         "UsableTimes": 3,
         "TemplateId": 12,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 48,
@@ -650,12 +851,17 @@
         "UsableTimes": 3,
         "TemplateId": 30013,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 49,
@@ -663,12 +869,17 @@
         "UsableTimes": 4,
         "TemplateId": 1,
         "Count": 6000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 50,
@@ -676,12 +887,17 @@
         "UsableTimes": 3,
         "TemplateId": 31204,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 890,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 51,
@@ -689,12 +905,17 @@
         "UsableTimes": 3,
         "TemplateId": 31104,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 880,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 52,
@@ -702,12 +923,17 @@
         "UsableTimes": 3,
         "TemplateId": 40100,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 870,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 53,
@@ -715,12 +941,17 @@
         "UsableTimes": 3,
         "TemplateId": 40104,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 860,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 54,
@@ -728,12 +959,17 @@
         "UsableTimes": 3,
         "TemplateId": 40103,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 850,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 55,
@@ -741,12 +977,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 840,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 56,
@@ -754,12 +995,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 830,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 57,
@@ -767,12 +1013,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 820,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 58,
@@ -780,12 +1031,17 @@
         "UsableTimes": 3,
         "TemplateId": 30111,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 59,
@@ -793,12 +1049,17 @@
         "UsableTimes": 1,
         "TemplateId": 30113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 60,
@@ -806,12 +1067,17 @@
         "UsableTimes": 3,
         "TemplateId": 40200,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 61,
@@ -819,12 +1085,17 @@
         "UsableTimes": 1,
         "TemplateId": 40201,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 62,
@@ -832,12 +1103,17 @@
         "UsableTimes": 3,
         "TemplateId": 40301,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 63,
@@ -845,12 +1121,17 @@
         "UsableTimes": 1,
         "TemplateId": 8950001,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 64,
@@ -858,12 +1139,17 @@
         "UsableTimes": 5,
         "TemplateId": 32,
         "Count": 5,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 65,
@@ -871,12 +1157,17 @@
         "UsableTimes": 5,
         "TemplateId": 50000,
         "Count": 50,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 66,
@@ -884,12 +1175,17 @@
         "UsableTimes": 3,
         "TemplateId": 12,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 67,
@@ -897,12 +1193,17 @@
         "UsableTimes": 3,
         "TemplateId": 30013,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 68,
@@ -910,12 +1211,17 @@
         "UsableTimes": 4,
         "TemplateId": 1,
         "Count": 6000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 69,
@@ -923,12 +1229,17 @@
         "UsableTimes": 3,
         "TemplateId": 31204,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 890,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 70,
@@ -936,12 +1247,17 @@
         "UsableTimes": 3,
         "TemplateId": 31104,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 880,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 71,
@@ -949,12 +1265,17 @@
         "UsableTimes": 3,
         "TemplateId": 40100,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 870,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 72,
@@ -962,12 +1283,17 @@
         "UsableTimes": 3,
         "TemplateId": 40104,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 860,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 73,
@@ -975,12 +1301,17 @@
         "UsableTimes": 3,
         "TemplateId": 40103,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 850,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 74,
@@ -988,12 +1319,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 840,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 75,
@@ -1001,12 +1337,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 830,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 76,
@@ -1014,12 +1355,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 820,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 77,
@@ -1027,12 +1373,17 @@
         "UsableTimes": 3,
         "TemplateId": 30111,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 78,
@@ -1040,12 +1391,17 @@
         "UsableTimes": 1,
         "TemplateId": 30113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 79,
@@ -1053,12 +1409,17 @@
         "UsableTimes": 3,
         "TemplateId": 40200,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 80,
@@ -1066,12 +1427,17 @@
         "UsableTimes": 1,
         "TemplateId": 40201,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 81,
@@ -1079,12 +1445,17 @@
         "UsableTimes": 3,
         "TemplateId": 40301,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 82,
@@ -1092,12 +1463,17 @@
         "UsableTimes": 1,
         "TemplateId": 8950003,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 83,
@@ -1105,12 +1481,17 @@
         "UsableTimes": 5,
         "TemplateId": 32,
         "Count": 5,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 84,
@@ -1118,12 +1499,17 @@
         "UsableTimes": 5,
         "TemplateId": 50000,
         "Count": 50,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 85,
@@ -1131,12 +1517,17 @@
         "UsableTimes": 3,
         "TemplateId": 12,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 86,
@@ -1144,12 +1535,17 @@
         "UsableTimes": 3,
         "TemplateId": 30013,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 87,
@@ -1157,12 +1553,17 @@
         "UsableTimes": 4,
         "TemplateId": 1,
         "Count": 6000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 88,
@@ -1170,12 +1571,17 @@
         "UsableTimes": 3,
         "TemplateId": 31204,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 890,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 89,
@@ -1183,12 +1589,17 @@
         "UsableTimes": 3,
         "TemplateId": 31104,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 880,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 90,
@@ -1196,12 +1607,17 @@
         "UsableTimes": 3,
         "TemplateId": 40100,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 870,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 91,
@@ -1209,12 +1625,17 @@
         "UsableTimes": 3,
         "TemplateId": 40104,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 860,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 92,
@@ -1222,12 +1643,17 @@
         "UsableTimes": 3,
         "TemplateId": 40103,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 850,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 93,
@@ -1235,12 +1661,17 @@
         "UsableTimes": 2,
         "TemplateId": 40110,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 840,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 94,
@@ -1248,12 +1679,17 @@
         "UsableTimes": 2,
         "TemplateId": 40114,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 830,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 95,
@@ -1261,12 +1697,17 @@
         "UsableTimes": 2,
         "TemplateId": 40113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 820,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 96,
@@ -1274,12 +1715,17 @@
         "UsableTimes": 3,
         "TemplateId": 30111,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 97,
@@ -1287,12 +1733,17 @@
         "UsableTimes": 2,
         "TemplateId": 30113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 98,
@@ -1300,12 +1751,17 @@
         "UsableTimes": 3,
         "TemplateId": 40200,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 99,
@@ -1313,12 +1769,17 @@
         "UsableTimes": 1,
         "TemplateId": 40201,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 100,
@@ -1326,12 +1787,17 @@
         "UsableTimes": 3,
         "TemplateId": 40301,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 101,
@@ -1339,12 +1805,17 @@
         "UsableTimes": 1,
         "TemplateId": 8950007,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 102,
@@ -1352,12 +1823,17 @@
         "UsableTimes": 1,
         "TemplateId": 81001,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 103,
@@ -1365,12 +1841,17 @@
         "UsableTimes": 5,
         "TemplateId": 50005,
         "Count": 50,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 104,
@@ -1378,12 +1859,17 @@
         "UsableTimes": 3,
         "TemplateId": 12,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 105,
@@ -1391,12 +1877,17 @@
         "UsableTimes": 3,
         "TemplateId": 30013,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 106,
@@ -1404,12 +1895,17 @@
         "UsableTimes": 2,
         "TemplateId": 1,
         "Count": 6000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 107,
@@ -1417,12 +1913,17 @@
         "UsableTimes": 3,
         "TemplateId": 31204,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 890,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 108,
@@ -1430,12 +1931,17 @@
         "UsableTimes": 3,
         "TemplateId": 31104,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 880,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 109,
@@ -1443,12 +1949,17 @@
         "UsableTimes": 3,
         "TemplateId": 40100,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 870,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 110,
@@ -1456,12 +1967,17 @@
         "UsableTimes": 3,
         "TemplateId": 40104,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 860,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 111,
@@ -1469,12 +1985,17 @@
         "UsableTimes": 3,
         "TemplateId": 40103,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 850,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 112,
@@ -1482,12 +2003,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 840,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 113,
@@ -1495,12 +2021,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 830,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 114,
@@ -1508,12 +2039,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 820,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 115,
@@ -1521,12 +2057,17 @@
         "UsableTimes": 3,
         "TemplateId": 30111,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 116,
@@ -1534,12 +2075,17 @@
         "UsableTimes": 1,
         "TemplateId": 30113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 117,
@@ -1547,12 +2093,17 @@
         "UsableTimes": 3,
         "TemplateId": 40200,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 118,
@@ -1560,12 +2111,17 @@
         "UsableTimes": 1,
         "TemplateId": 40201,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 119,
@@ -1573,12 +2129,17 @@
         "UsableTimes": 3,
         "TemplateId": 40301,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 120,
@@ -1586,12 +2147,17 @@
         "UsableTimes": 1,
         "TemplateId": 8950008,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 121,
@@ -1599,12 +2165,17 @@
         "UsableTimes": 1,
         "TemplateId": 8950009,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 122,
@@ -1612,12 +2183,17 @@
         "UsableTimes": 1,
         "TemplateId": 6903201,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 123,
@@ -1625,12 +2201,17 @@
         "UsableTimes": 3,
         "TemplateId": 12,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 124,
@@ -1638,12 +2219,17 @@
         "UsableTimes": 3,
         "TemplateId": 30013,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 125,
@@ -1651,12 +2237,17 @@
         "UsableTimes": 4,
         "TemplateId": 1,
         "Count": 6000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 126,
@@ -1664,12 +2255,17 @@
         "UsableTimes": 3,
         "TemplateId": 31204,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 890,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 127,
@@ -1677,12 +2273,17 @@
         "UsableTimes": 3,
         "TemplateId": 31104,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 880,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 128,
@@ -1690,12 +2291,17 @@
         "UsableTimes": 3,
         "TemplateId": 40100,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 870,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 129,
@@ -1703,12 +2309,17 @@
         "UsableTimes": 3,
         "TemplateId": 40104,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 860,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 130,
@@ -1716,12 +2327,17 @@
         "UsableTimes": 3,
         "TemplateId": 40103,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 850,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 131,
@@ -1729,12 +2345,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 840,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 132,
@@ -1742,12 +2363,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 830,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 133,
@@ -1755,12 +2381,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 820,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 134,
@@ -1768,12 +2399,17 @@
         "UsableTimes": 3,
         "TemplateId": 30111,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 135,
@@ -1781,12 +2417,17 @@
         "UsableTimes": 1,
         "TemplateId": 30113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 136,
@@ -1794,12 +2435,17 @@
         "UsableTimes": 3,
         "TemplateId": 40200,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 137,
@@ -1807,12 +2453,17 @@
         "UsableTimes": 1,
         "TemplateId": 40201,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 138,
@@ -1820,12 +2471,17 @@
         "UsableTimes": 7,
         "TemplateId": 40301,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 139,
@@ -1833,12 +2489,17 @@
         "UsableTimes": 5,
         "TemplateId": 50000,
         "Count": 50,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 140,
@@ -1846,12 +2507,17 @@
         "UsableTimes": 5,
         "TemplateId": 50005,
         "Count": 50,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 142,
@@ -1859,12 +2525,17 @@
         "UsableTimes": 4,
         "TemplateId": 12,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 143,
@@ -1872,12 +2543,17 @@
         "UsableTimes": 4,
         "TemplateId": 30013,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 144,
@@ -1885,12 +2561,17 @@
         "UsableTimes": 4,
         "TemplateId": 1,
         "Count": 6000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 145,
@@ -1898,12 +2579,17 @@
         "UsableTimes": 3,
         "TemplateId": 31204,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 890,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 146,
@@ -1911,12 +2597,17 @@
         "UsableTimes": 3,
         "TemplateId": 31104,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 880,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 147,
@@ -1924,12 +2615,17 @@
         "UsableTimes": 3,
         "TemplateId": 40100,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 870,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 148,
@@ -1937,12 +2633,17 @@
         "UsableTimes": 3,
         "TemplateId": 40104,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 860,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 149,
@@ -1950,12 +2651,17 @@
         "UsableTimes": 3,
         "TemplateId": 40103,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 850,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 150,
@@ -1963,12 +2669,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 840,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 151,
@@ -1976,12 +2687,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 830,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 152,
@@ -1989,12 +2705,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 820,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 153,
@@ -2002,12 +2723,17 @@
         "UsableTimes": 3,
         "TemplateId": 30111,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 154,
@@ -2015,12 +2741,17 @@
         "UsableTimes": 1,
         "TemplateId": 30113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 155,
@@ -2028,12 +2759,17 @@
         "UsableTimes": 3,
         "TemplateId": 40200,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 156,
@@ -2041,12 +2777,17 @@
         "UsableTimes": 1,
         "TemplateId": 40201,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 157,
@@ -2054,12 +2795,17 @@
         "UsableTimes": 8,
         "TemplateId": 40301,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 158,
@@ -2067,12 +2813,17 @@
         "UsableTimes": 5,
         "TemplateId": 50005,
         "Count": 50,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 159,
@@ -2080,12 +2831,17 @@
         "UsableTimes": 1,
         "TemplateId": 9010228,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 161,
@@ -2093,12 +2849,17 @@
         "UsableTimes": 4,
         "TemplateId": 12,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 162,
@@ -2106,12 +2867,17 @@
         "UsableTimes": 4,
         "TemplateId": 30013,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 163,
@@ -2119,12 +2885,17 @@
         "UsableTimes": 4,
         "TemplateId": 1,
         "Count": 6000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 164,
@@ -2132,12 +2903,17 @@
         "UsableTimes": 3,
         "TemplateId": 31204,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 890,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 165,
@@ -2145,12 +2921,17 @@
         "UsableTimes": 3,
         "TemplateId": 31104,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 880,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 166,
@@ -2158,12 +2939,17 @@
         "UsableTimes": 3,
         "TemplateId": 40100,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 870,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 167,
@@ -2171,12 +2957,17 @@
         "UsableTimes": 3,
         "TemplateId": 40104,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 860,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 168,
@@ -2184,12 +2975,17 @@
         "UsableTimes": 3,
         "TemplateId": 40103,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 850,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 169,
@@ -2197,12 +2993,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 840,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 170,
@@ -2210,12 +3011,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 830,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 171,
@@ -2223,12 +3029,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 820,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 172,
@@ -2236,12 +3047,17 @@
         "UsableTimes": 3,
         "TemplateId": 30111,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 173,
@@ -2249,12 +3065,17 @@
         "UsableTimes": 1,
         "TemplateId": 30113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 174,
@@ -2262,12 +3083,17 @@
         "UsableTimes": 3,
         "TemplateId": 40200,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 175,
@@ -2275,12 +3101,17 @@
         "UsableTimes": 1,
         "TemplateId": 40201,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 176,
@@ -2288,12 +3119,17 @@
         "UsableTimes": 8,
         "TemplateId": 40301,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 177,
@@ -2301,12 +3137,17 @@
         "UsableTimes": 5,
         "TemplateId": 50003,
         "Count": 50,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 178,
@@ -2314,12 +3155,17 @@
         "UsableTimes": 1,
         "TemplateId": 6001305,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 179,
@@ -2327,12 +3173,17 @@
         "UsableTimes": 3,
         "TemplateId": 12,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 180,
@@ -2340,12 +3191,17 @@
         "UsableTimes": 3,
         "TemplateId": 30013,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 181,
@@ -2353,12 +3209,17 @@
         "UsableTimes": 4,
         "TemplateId": 1,
         "Count": 6000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 182,
@@ -2366,12 +3227,17 @@
         "UsableTimes": 3,
         "TemplateId": 31204,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 890,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 183,
@@ -2379,12 +3245,17 @@
         "UsableTimes": 3,
         "TemplateId": 31104,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 880,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 184,
@@ -2392,12 +3263,17 @@
         "UsableTimes": 3,
         "TemplateId": 40100,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 870,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 185,
@@ -2405,12 +3281,17 @@
         "UsableTimes": 3,
         "TemplateId": 40104,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 860,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 186,
@@ -2418,12 +3299,17 @@
         "UsableTimes": 3,
         "TemplateId": 40103,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 850,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 187,
@@ -2431,12 +3317,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 840,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 188,
@@ -2444,12 +3335,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 830,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 189,
@@ -2457,12 +3353,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 820,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 190,
@@ -2470,12 +3371,17 @@
         "UsableTimes": 3,
         "TemplateId": 30111,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 191,
@@ -2483,12 +3389,17 @@
         "UsableTimes": 1,
         "TemplateId": 30113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 192,
@@ -2496,12 +3407,17 @@
         "UsableTimes": 3,
         "TemplateId": 40200,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 193,
@@ -2509,12 +3425,17 @@
         "UsableTimes": 1,
         "TemplateId": 40201,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 194,
@@ -2522,12 +3443,17 @@
         "UsableTimes": 3,
         "TemplateId": 40301,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 195,
@@ -2535,12 +3461,17 @@
         "UsableTimes": 1,
         "TemplateId": 8981601,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 196,
@@ -2548,12 +3479,17 @@
         "UsableTimes": 5,
         "TemplateId": 102,
         "Count": 40,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 197,
@@ -2561,12 +3497,17 @@
         "UsableTimes": 5,
         "TemplateId": 50005,
         "Count": 50,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 198,
@@ -2574,12 +3515,17 @@
         "UsableTimes": 3,
         "TemplateId": 12,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 199,
@@ -2587,12 +3533,17 @@
         "UsableTimes": 3,
         "TemplateId": 30013,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 200,
@@ -2600,12 +3551,17 @@
         "UsableTimes": 3,
         "TemplateId": 1,
         "Count": 6000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 201,
@@ -2613,12 +3569,17 @@
         "UsableTimes": 3,
         "TemplateId": 31204,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 890,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 202,
@@ -2626,12 +3587,17 @@
         "UsableTimes": 3,
         "TemplateId": 31104,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 880,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 203,
@@ -2639,12 +3605,17 @@
         "UsableTimes": 3,
         "TemplateId": 40100,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 870,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 204,
@@ -2652,12 +3623,17 @@
         "UsableTimes": 3,
         "TemplateId": 40104,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 860,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 205,
@@ -2665,12 +3641,17 @@
         "UsableTimes": 3,
         "TemplateId": 40103,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 850,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 206,
@@ -2678,12 +3659,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 840,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 207,
@@ -2691,12 +3677,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 830,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 208,
@@ -2704,12 +3695,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 820,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 209,
@@ -2717,12 +3713,17 @@
         "UsableTimes": 3,
         "TemplateId": 30111,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 210,
@@ -2730,12 +3731,17 @@
         "UsableTimes": 1,
         "TemplateId": 30113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 211,
@@ -2743,12 +3749,17 @@
         "UsableTimes": 3,
         "TemplateId": 40200,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 212,
@@ -2756,12 +3767,17 @@
         "UsableTimes": 1,
         "TemplateId": 40201,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 213,
@@ -2769,12 +3785,17 @@
         "UsableTimes": 3,
         "TemplateId": 40301,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 214,
@@ -2782,12 +3803,17 @@
         "UsableTimes": 1,
         "TemplateId": 8981602,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 215,
@@ -2795,12 +3821,17 @@
         "UsableTimes": 5,
         "TemplateId": 102,
         "Count": 40,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 216,
@@ -2808,12 +3839,17 @@
         "UsableTimes": 5,
         "TemplateId": 50003,
         "Count": 50,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 217,
@@ -2821,12 +3857,17 @@
         "UsableTimes": 1,
         "TemplateId": 6000106,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 218,
@@ -2834,12 +3875,17 @@
         "UsableTimes": 3,
         "TemplateId": 12,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 219,
@@ -2847,12 +3893,17 @@
         "UsableTimes": 3,
         "TemplateId": 30013,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 220,
@@ -2860,12 +3911,17 @@
         "UsableTimes": 4,
         "TemplateId": 1,
         "Count": 6000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 221,
@@ -2873,12 +3929,17 @@
         "UsableTimes": 3,
         "TemplateId": 31204,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 890,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 222,
@@ -2886,12 +3947,17 @@
         "UsableTimes": 3,
         "TemplateId": 31104,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 880,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 223,
@@ -2899,12 +3965,17 @@
         "UsableTimes": 3,
         "TemplateId": 40100,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 870,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 224,
@@ -2912,12 +3983,17 @@
         "UsableTimes": 3,
         "TemplateId": 40104,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 860,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 225,
@@ -2925,12 +4001,17 @@
         "UsableTimes": 3,
         "TemplateId": 40103,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 850,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 226,
@@ -2938,12 +4019,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 840,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 227,
@@ -2951,12 +4037,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 830,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 228,
@@ -2964,12 +4055,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 820,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 229,
@@ -2977,12 +4073,17 @@
         "UsableTimes": 3,
         "TemplateId": 30111,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 230,
@@ -2990,12 +4091,17 @@
         "UsableTimes": 1,
         "TemplateId": 30113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 231,
@@ -3003,12 +4109,17 @@
         "UsableTimes": 3,
         "TemplateId": 40200,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 232,
@@ -3016,12 +4127,17 @@
         "UsableTimes": 1,
         "TemplateId": 40201,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 233,
@@ -3029,12 +4145,17 @@
         "UsableTimes": 3,
         "TemplateId": 40301,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 234,
@@ -3042,12 +4163,17 @@
         "UsableTimes": 1,
         "TemplateId": 8981603,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 235,
@@ -3055,12 +4181,17 @@
         "UsableTimes": 5,
         "TemplateId": 102,
         "Count": 40,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 236,
@@ -3068,12 +4199,17 @@
         "UsableTimes": 5,
         "TemplateId": 50009,
         "Count": 50,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 237,
@@ -3081,12 +4217,17 @@
         "UsableTimes": 3,
         "TemplateId": 12,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 238,
@@ -3094,12 +4235,17 @@
         "UsableTimes": 3,
         "TemplateId": 30013,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 239,
@@ -3107,12 +4253,17 @@
         "UsableTimes": 7,
         "TemplateId": 1,
         "Count": 6000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 240,
@@ -3120,12 +4271,17 @@
         "UsableTimes": 3,
         "TemplateId": 31204,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 890,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 241,
@@ -3133,12 +4289,17 @@
         "UsableTimes": 3,
         "TemplateId": 31104,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 880,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 242,
@@ -3146,12 +4307,17 @@
         "UsableTimes": 3,
         "TemplateId": 40100,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 870,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 243,
@@ -3159,12 +4325,17 @@
         "UsableTimes": 3,
         "TemplateId": 40104,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 860,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 244,
@@ -3172,12 +4343,17 @@
         "UsableTimes": 3,
         "TemplateId": 40103,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 850,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 245,
@@ -3185,12 +4361,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 840,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 246,
@@ -3198,12 +4379,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 830,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 247,
@@ -3211,12 +4397,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 820,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 248,
@@ -3224,12 +4415,17 @@
         "UsableTimes": 3,
         "TemplateId": 30111,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 249,
@@ -3237,12 +4433,17 @@
         "UsableTimes": 1,
         "TemplateId": 30113,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 250,
@@ -3250,12 +4451,17 @@
         "UsableTimes": 3,
         "TemplateId": 40200,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 251,
@@ -3263,12 +4469,17 @@
         "UsableTimes": 1,
         "TemplateId": 40201,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 252,
@@ -3276,12 +4487,17 @@
         "UsableTimes": 3,
         "TemplateId": 40301,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": null,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 253,
@@ -3289,12 +4505,17 @@
         "UsableTimes": 1,
         "TemplateId": 8981604,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 254,
@@ -3302,12 +4523,17 @@
         "UsableTimes": 1,
         "TemplateId": 8981605,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 255,
@@ -3315,12 +4541,17 @@
         "UsableTimes": 1,
         "TemplateId": 8981606,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 256,
@@ -3328,194 +4559,269 @@
         "UsableTimes": 5,
         "TemplateId": 102,
         "Count": 40,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 100,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 257,
-        "GroupId": 99,
+        "GroupId": 29,
         "UsableTimes": 1,
-        "TemplateId": 250025,
+        "TemplateId": 14000005,
         "Count": 1,
-        "Params": [],
-        "Weight": 215,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 50,
         "Rare": 1.0,
-        "Priority": 2000,
+        "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": 1.0
     },
     {
         "Id": 258,
-        "GroupId": 99,
+        "GroupId": 29,
         "UsableTimes": 1,
-        "TemplateId": 50005,
-        "Count": 2500,
-        "Params": [],
-        "Weight": 322,
+        "TemplateId": 6002505,
+        "Count": 1,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 350,
         "Rare": 1.0,
-        "Priority": 1800,
+        "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": 2.0
     },
     {
         "Id": 259,
-        "GroupId": 99,
-        "UsableTimes": 1,
-        "TemplateId": 50000,
-        "Count": 2500,
-        "Params": [],
-        "Weight": 322,
-        "Rare": 1.0,
-        "Priority": 1600,
-        "RewardType": 0,
-        "Note": null
-    },
-    {
-        "Id": 260,
-        "GroupId": 99,
-        "UsableTimes": 1,
-        "TemplateId": 50003,
-        "Count": 2500,
-        "Params": [],
-        "Weight": 322,
-        "Rare": 1.0,
-        "Priority": 1700,
-        "RewardType": 0,
-        "Note": null
-    },
-    {
-        "Id": 261,
-        "GroupId": 99,
-        "UsableTimes": 1,
-        "TemplateId": 260002,
-        "Count": 1,
-        "Params": [],
-        "Weight": 405,
-        "Rare": 1.0,
-        "Priority": 1900,
-        "RewardType": 0,
-        "Note": null
-    },
-    {
-        "Id": 262,
-        "GroupId": 99,
-        "UsableTimes": 10,
-        "TemplateId": 1,
-        "Count": 100000,
-        "Params": [],
-        "Weight": 500,
-        "Rare": null,
-        "Priority": 1500,
-        "RewardType": 0,
-        "Note": null
-    },
-    {
-        "Id": 263,
-        "GroupId": 99,
-        "UsableTimes": 7,
-        "TemplateId": 60002,
-        "Count": 2,
-        "Params": [],
-        "Weight": 500,
-        "Rare": null,
-        "Priority": 750,
-        "RewardType": 0,
-        "Note": null
-    },
-    {
-        "Id": 264,
-        "GroupId": 99,
-        "UsableTimes": 7,
-        "TemplateId": 60001,
-        "Count": 3,
-        "Params": [],
-        "Weight": 600,
-        "Rare": null,
-        "Priority": 710,
-        "RewardType": 0,
-        "Note": null
-    },
-    {
-        "Id": 265,
-        "GroupId": 99,
-        "UsableTimes": 7,
-        "TemplateId": 2994001,
-        "Count": 2,
-        "Params": [],
-        "Weight": 600,
-        "Rare": null,
-        "Priority": 700,
-        "RewardType": 0,
-        "Note": null
-    },
-    {
-        "Id": 266,
-        "GroupId": 99,
-        "UsableTimes": 7,
-        "TemplateId": 3914001,
-        "Count": 2,
-        "Params": [],
-        "Weight": 600,
-        "Rare": null,
-        "Priority": 770,
-        "RewardType": 0,
-        "Note": null
-    },
-    {
-        "Id": 267,
-        "GroupId": 99,
-        "UsableTimes": 7,
-        "TemplateId": 30013,
-        "Count": 2,
-        "Params": [],
-        "Weight": 600,
-        "Rare": null,
-        "Priority": 760,
-        "RewardType": 0,
-        "Note": null
-    },
-    {
-        "Id": 268,
-        "GroupId": 100,
-        "UsableTimes": 1,
-        "TemplateId": 250025,
-        "Count": 1,
-        "Params": [],
-        "Weight": 215,
-        "Rare": 1.0,
-        "Priority": 2000,
-        "RewardType": 0,
-        "Note": null
-    },
-    {
-        "Id": 269,
-        "GroupId": 100,
+        "GroupId": 29,
         "UsableTimes": 1,
         "TemplateId": 50005,
         "Count": 2500,
-        "Params": [],
-        "Weight": 322,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 3200,
         "Rare": 1.0,
-        "Priority": 1800,
+        "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": 3.0
+    },
+    {
+        "Id": 260,
+        "GroupId": 29,
+        "UsableTimes": 1,
+        "TemplateId": 50003,
+        "Count": 2500,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 3200,
+        "Rare": 1.0,
+        "Priority": 970,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": 3.0
+    },
+    {
+        "Id": 261,
+        "GroupId": 29,
+        "UsableTimes": 1,
+        "TemplateId": 3002,
+        "Count": 1,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 3200,
+        "Rare": 1.0,
+        "Priority": 960,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": 3.0
+    },
+    {
+        "Id": 262,
+        "GroupId": 30,
+        "UsableTimes": 1,
+        "TemplateId": 31204,
+        "Count": 8,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 700,
+        "Rare": null,
+        "Priority": 950,
+        "RewardType": 1,
+        "Note": null,
+        "Rarelevel": 4.0
+    },
+    {
+        "Id": 263,
+        "GroupId": 30,
+        "UsableTimes": 1,
+        "TemplateId": 31104,
+        "Count": 4,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 700,
+        "Rare": null,
+        "Priority": 940,
+        "RewardType": 1,
+        "Note": null,
+        "Rarelevel": 4.0
+    },
+    {
+        "Id": 264,
+        "GroupId": 30,
+        "UsableTimes": 1,
+        "TemplateId": 30013,
+        "Count": 4,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 400,
+        "Rare": null,
+        "Priority": 930,
+        "RewardType": 1,
+        "Note": null,
+        "Rarelevel": 4.0
+    },
+    {
+        "Id": 265,
+        "GroupId": 30,
+        "UsableTimes": 1,
+        "TemplateId": 40110,
+        "Count": 6,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 350,
+        "Rare": null,
+        "Priority": 920,
+        "RewardType": 1,
+        "Note": null,
+        "Rarelevel": 4.0
+    },
+    {
+        "Id": 266,
+        "GroupId": 30,
+        "UsableTimes": 1,
+        "TemplateId": 40114,
+        "Count": 6,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 350,
+        "Rare": null,
+        "Priority": 910,
+        "RewardType": 1,
+        "Note": null,
+        "Rarelevel": 4.0
+    },
+    {
+        "Id": 267,
+        "GroupId": 30,
+        "UsableTimes": 1,
+        "TemplateId": 40113,
+        "Count": 6,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 350,
+        "Rare": null,
+        "Priority": 900,
+        "RewardType": 1,
+        "Note": null,
+        "Rarelevel": 4.0
+    },
+    {
+        "Id": 268,
+        "GroupId": 30,
+        "UsableTimes": 1,
+        "TemplateId": 90014,
+        "Count": 2,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 150,
+        "Rare": null,
+        "Priority": 890,
+        "RewardType": 1,
+        "Note": null,
+        "Rarelevel": 4.0
+    },
+    {
+        "Id": 269,
+        "GroupId": 30,
+        "UsableTimes": 1,
+        "TemplateId": 40201,
+        "Count": 4,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 350,
+        "Rare": null,
+        "Priority": 880,
+        "RewardType": 1,
+        "Note": null,
+        "Rarelevel": 4.0
     },
     {
         "Id": 270,
-        "GroupId": 100,
+        "GroupId": 30,
         "UsableTimes": 1,
-        "TemplateId": 50000,
-        "Count": 2500,
-        "Params": [],
-        "Weight": 322,
-        "Rare": 1.0,
-        "Priority": 1600,
-        "RewardType": 0,
-        "Note": null
+        "TemplateId": 40301,
+        "Count": 6,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 350,
+        "Rare": null,
+        "Priority": 870,
+        "RewardType": 1,
+        "Note": null,
+        "Rarelevel": 4.0
     },
     {
         "Id": 271,
@@ -3523,12 +4829,17 @@
         "UsableTimes": 1,
         "TemplateId": 50003,
         "Count": 2500,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 322,
         "Rare": 1.0,
         "Priority": 1700,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 272,
@@ -3536,12 +4847,17 @@
         "UsableTimes": 1,
         "TemplateId": 260002,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 405,
         "Rare": 1.0,
         "Priority": 1900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 273,
@@ -3549,12 +4865,17 @@
         "UsableTimes": 10,
         "TemplateId": 1,
         "Count": 100000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 500,
         "Rare": null,
         "Priority": 1500,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 274,
@@ -3562,12 +4883,17 @@
         "UsableTimes": 7,
         "TemplateId": 60002,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 500,
         "Rare": null,
         "Priority": 750,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 275,
@@ -3575,12 +4901,17 @@
         "UsableTimes": 7,
         "TemplateId": 60001,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 600,
         "Rare": null,
         "Priority": 710,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 276,
@@ -3588,12 +4919,17 @@
         "UsableTimes": 7,
         "TemplateId": 2994001,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 600,
         "Rare": null,
         "Priority": 700,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 277,
@@ -3601,12 +4937,17 @@
         "UsableTimes": 7,
         "TemplateId": 3914001,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 600,
         "Rare": null,
         "Priority": 770,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 278,
@@ -3614,12 +4955,17 @@
         "UsableTimes": 7,
         "TemplateId": 30013,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 600,
         "Rare": null,
         "Priority": 760,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1001,
@@ -3627,12 +4973,17 @@
         "UsableTimes": 1,
         "TemplateId": 6310205,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 50,
         "Rare": 1.0,
         "Priority": 1000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1002,
@@ -3640,12 +4991,17 @@
         "UsableTimes": 1,
         "TemplateId": 9010220,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 800,
         "Rare": 1.0,
         "Priority": 990,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1003,
@@ -3653,12 +5009,17 @@
         "UsableTimes": 1,
         "TemplateId": 80005,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 250,
         "Rare": 1.0,
         "Priority": 980,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1004,
@@ -3668,13 +5029,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1400,
         "Rare": 1.0,
         "Priority": 960,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1005,
@@ -3684,13 +5047,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1400,
         "Rare": 1.0,
         "Priority": 950,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1006,
@@ -3700,13 +5065,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1400,
         "Rare": 1.0,
         "Priority": 940,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1007,
@@ -3716,13 +5083,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1400,
         "Rare": 1.0,
         "Priority": 930,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1008,
@@ -3732,13 +5101,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1400,
         "Rare": 1.0,
         "Priority": 920,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1009,
@@ -3748,13 +5119,15 @@
         "Count": 1,
         "Params": [
             1.0,
-            0.0
+            0.0,
+            null
         ],
         "Weight": 1400,
         "Rare": 1.0,
         "Priority": 910,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1010,
@@ -3771,7 +5144,8 @@
         "Rare": 1.0,
         "Priority": 970,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1011,
@@ -3779,12 +5153,17 @@
         "UsableTimes": 1,
         "TemplateId": 31204,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 1000,
         "Rare": null,
         "Priority": 840,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1012,
@@ -3792,12 +5171,17 @@
         "UsableTimes": 1,
         "TemplateId": 31104,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 1000,
         "Rare": null,
         "Priority": 850,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1013,
@@ -3805,12 +5189,17 @@
         "UsableTimes": 1,
         "TemplateId": 30013,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 250,
         "Rare": null,
         "Priority": 860,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1014,
@@ -3818,12 +5207,17 @@
         "UsableTimes": 1,
         "TemplateId": 40110,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 150,
         "Rare": null,
         "Priority": 870,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1015,
@@ -3831,12 +5225,17 @@
         "UsableTimes": 1,
         "TemplateId": 40114,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 150,
         "Rare": null,
         "Priority": 880,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1016,
@@ -3844,12 +5243,17 @@
         "UsableTimes": 1,
         "TemplateId": 40113,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 150,
         "Rare": null,
         "Priority": 890,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1017,
@@ -3857,12 +5261,17 @@
         "UsableTimes": 1,
         "TemplateId": 90014,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 90,
         "Rare": null,
         "Priority": 900,
         "RewardType": 1,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1018,
@@ -3870,12 +5279,17 @@
         "UsableTimes": 1,
         "TemplateId": 250025,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 215,
         "Rare": 1.0,
         "Priority": 2000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1019,
@@ -3883,12 +5297,17 @@
         "UsableTimes": 1,
         "TemplateId": 50005,
         "Count": 2500,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 322,
         "Rare": 1.0,
         "Priority": 1800,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1020,
@@ -3896,12 +5315,17 @@
         "UsableTimes": 1,
         "TemplateId": 50000,
         "Count": 2500,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 322,
         "Rare": 1.0,
         "Priority": 1600,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1021,
@@ -3909,12 +5333,17 @@
         "UsableTimes": 1,
         "TemplateId": 50003,
         "Count": 2500,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 322,
         "Rare": 1.0,
         "Priority": 1700,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1022,
@@ -3922,12 +5351,17 @@
         "UsableTimes": 1,
         "TemplateId": 260002,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 405,
         "Rare": 1.0,
         "Priority": 1900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1023,
@@ -3935,12 +5369,17 @@
         "UsableTimes": 10,
         "TemplateId": 1,
         "Count": 100000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 500,
         "Rare": null,
         "Priority": 1500,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1024,
@@ -3948,12 +5387,17 @@
         "UsableTimes": 7,
         "TemplateId": 60002,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 500,
         "Rare": null,
         "Priority": 750,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1025,
@@ -3961,12 +5405,17 @@
         "UsableTimes": 7,
         "TemplateId": 60001,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 600,
         "Rare": null,
         "Priority": 710,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1026,
@@ -3974,12 +5423,17 @@
         "UsableTimes": 7,
         "TemplateId": 2994001,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 600,
         "Rare": null,
         "Priority": 700,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1027,
@@ -3987,12 +5441,17 @@
         "UsableTimes": 7,
         "TemplateId": 3914001,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 600,
         "Rare": null,
         "Priority": 770,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1028,
@@ -4000,12 +5459,215 @@
         "UsableTimes": 7,
         "TemplateId": 30013,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 600,
         "Rare": null,
         "Priority": 760,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1029,
+        "GroupId": 100004,
+        "UsableTimes": 1,
+        "TemplateId": 250025,
+        "Count": 1,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 215,
+        "Rare": 1.0,
+        "Priority": 2000,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1030,
+        "GroupId": 100004,
+        "UsableTimes": 1,
+        "TemplateId": 50005,
+        "Count": 2500,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 322,
+        "Rare": 1.0,
+        "Priority": 1800,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1031,
+        "GroupId": 100004,
+        "UsableTimes": 1,
+        "TemplateId": 50000,
+        "Count": 2500,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 322,
+        "Rare": 1.0,
+        "Priority": 1600,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1032,
+        "GroupId": 100004,
+        "UsableTimes": 1,
+        "TemplateId": 50003,
+        "Count": 2500,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 322,
+        "Rare": 1.0,
+        "Priority": 1700,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1033,
+        "GroupId": 100004,
+        "UsableTimes": 1,
+        "TemplateId": 260002,
+        "Count": 1,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 405,
+        "Rare": 1.0,
+        "Priority": 1900,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1034,
+        "GroupId": 100004,
+        "UsableTimes": 10,
+        "TemplateId": 1,
+        "Count": 100000,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 500,
+        "Rare": null,
+        "Priority": 1500,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1035,
+        "GroupId": 100004,
+        "UsableTimes": 7,
+        "TemplateId": 60002,
+        "Count": 2,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 500,
+        "Rare": null,
+        "Priority": 750,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1036,
+        "GroupId": 100004,
+        "UsableTimes": 7,
+        "TemplateId": 60001,
+        "Count": 3,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 600,
+        "Rare": null,
+        "Priority": 710,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1037,
+        "GroupId": 100004,
+        "UsableTimes": 7,
+        "TemplateId": 31104,
+        "Count": 2,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 600,
+        "Rare": null,
+        "Priority": 700,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1038,
+        "GroupId": 100004,
+        "UsableTimes": 7,
+        "TemplateId": 31204,
+        "Count": 2,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 600,
+        "Rare": null,
+        "Priority": 770,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1039,
+        "GroupId": 100004,
+        "UsableTimes": 7,
+        "TemplateId": 30013,
+        "Count": 2,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 600,
+        "Rare": null,
+        "Priority": 760,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1101,
@@ -4013,12 +5675,17 @@
         "UsableTimes": 1,
         "TemplateId": 250025,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 215,
         "Rare": 1.0,
         "Priority": 2000,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1102,
@@ -4026,12 +5693,17 @@
         "UsableTimes": 1,
         "TemplateId": 50005,
         "Count": 2500,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 322,
         "Rare": 1.0,
         "Priority": 1800,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1103,
@@ -4039,12 +5711,17 @@
         "UsableTimes": 1,
         "TemplateId": 50000,
         "Count": 2500,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 322,
         "Rare": 1.0,
         "Priority": 1600,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1104,
@@ -4052,12 +5729,17 @@
         "UsableTimes": 1,
         "TemplateId": 50003,
         "Count": 2500,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 322,
         "Rare": 1.0,
         "Priority": 1700,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1105,
@@ -4065,12 +5747,17 @@
         "UsableTimes": 1,
         "TemplateId": 260002,
         "Count": 1,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 405,
         "Rare": 1.0,
         "Priority": 1900,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1106,
@@ -4078,12 +5765,17 @@
         "UsableTimes": 10,
         "TemplateId": 1,
         "Count": 100000,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 500,
         "Rare": null,
         "Priority": 1500,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1107,
@@ -4091,12 +5783,17 @@
         "UsableTimes": 7,
         "TemplateId": 60002,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 500,
         "Rare": null,
         "Priority": 750,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1108,
@@ -4104,12 +5801,17 @@
         "UsableTimes": 7,
         "TemplateId": 60001,
         "Count": 3,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 600,
         "Rare": null,
         "Priority": 710,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1109,
@@ -4117,12 +5819,17 @@
         "UsableTimes": 7,
         "TemplateId": 2994001,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 600,
         "Rare": null,
         "Priority": 700,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1110,
@@ -4130,12 +5837,17 @@
         "UsableTimes": 7,
         "TemplateId": 3914001,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 600,
         "Rare": null,
         "Priority": 770,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
     },
     {
         "Id": 1111,
@@ -4143,11 +5855,214 @@
         "UsableTimes": 7,
         "TemplateId": 30013,
         "Count": 2,
-        "Params": [],
+        "Params": [
+            null,
+            null,
+            null
+        ],
         "Weight": 600,
         "Rare": null,
         "Priority": 760,
         "RewardType": 0,
-        "Note": null
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1201,
+        "GroupId": 11003,
+        "UsableTimes": 1,
+        "TemplateId": 250025,
+        "Count": 1,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 215,
+        "Rare": 1.0,
+        "Priority": 2000,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1202,
+        "GroupId": 11003,
+        "UsableTimes": 1,
+        "TemplateId": 50005,
+        "Count": 2500,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 322,
+        "Rare": 1.0,
+        "Priority": 1800,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1203,
+        "GroupId": 11003,
+        "UsableTimes": 1,
+        "TemplateId": 50000,
+        "Count": 2500,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 322,
+        "Rare": 1.0,
+        "Priority": 1600,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1204,
+        "GroupId": 11003,
+        "UsableTimes": 1,
+        "TemplateId": 50003,
+        "Count": 2500,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 322,
+        "Rare": 1.0,
+        "Priority": 1700,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1205,
+        "GroupId": 11003,
+        "UsableTimes": 1,
+        "TemplateId": 260002,
+        "Count": 1,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 405,
+        "Rare": 1.0,
+        "Priority": 1900,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1206,
+        "GroupId": 11003,
+        "UsableTimes": 10,
+        "TemplateId": 1,
+        "Count": 100000,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 500,
+        "Rare": null,
+        "Priority": 1500,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1207,
+        "GroupId": 11003,
+        "UsableTimes": 7,
+        "TemplateId": 60002,
+        "Count": 2,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 500,
+        "Rare": null,
+        "Priority": 750,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1208,
+        "GroupId": 11003,
+        "UsableTimes": 7,
+        "TemplateId": 60001,
+        "Count": 3,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 600,
+        "Rare": null,
+        "Priority": 710,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1209,
+        "GroupId": 11003,
+        "UsableTimes": 7,
+        "TemplateId": 31104,
+        "Count": 2,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 600,
+        "Rare": null,
+        "Priority": 700,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1210,
+        "GroupId": 11003,
+        "UsableTimes": 7,
+        "TemplateId": 31204,
+        "Count": 2,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 600,
+        "Rare": null,
+        "Priority": 770,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
+    },
+    {
+        "Id": 1211,
+        "GroupId": 11003,
+        "UsableTimes": 7,
+        "TemplateId": 30013,
+        "Count": 2,
+        "Params": [
+            null,
+            null,
+            null
+        ],
+        "Weight": 600,
+        "Rare": null,
+        "Priority": 760,
+        "RewardType": 0,
+        "Note": null,
+        "Rarelevel": null
     }
 ]

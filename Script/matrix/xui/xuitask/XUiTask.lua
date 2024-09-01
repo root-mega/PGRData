@@ -166,12 +166,14 @@ end
 
 --日常标签红点
 function XUiTask:RefreshDailyTabRedDot(count)
-    self.ImgDailyNewTag.gameObject:SetActive(count >= 0)
+    local isShow = count >= 0 and XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.TaskDay)
+    self.ImgDailyNewTag.gameObject:SetActive(isShow)
 end
 
 -- 每周标签红点
 function XUiTask:RefreshWeeklyTabRedDot(count)
-    self.ImgWeeklyNewTag.gameObject:SetActive(count >= 0)
+    local isShow = count >= 0 and XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.TaskWeekly)
+    self.ImgWeeklyNewTag.gameObject:SetActive(isShow)
 end
 
 --活动标签红点

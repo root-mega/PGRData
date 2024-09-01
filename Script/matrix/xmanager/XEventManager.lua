@@ -47,12 +47,16 @@ function XEventManager.RemoveEventListener(eventId, func, obj)
             return
         end
         funcList[obj] = nil
-        listenerList[func] = funcList
+        if XTool.IsTableEmpty(funcList) then
+            listenerList[func] = nil
+        end
     else
         listenerList[func] = nil
     end
 
-    ListenersMap[eventId] = listenerList
+    if XTool.IsTableEmpty(listenerList) then
+        ListenersMap[eventId] = nil
+    end
 end
 
 function XEventManager.RemoveAllListener()
@@ -60,6 +64,7 @@ function XEventManager.RemoveAllListener()
 end
 
 function XEventManager.DispatchEvent(eventId, ...)
+    XUIEventBind.DispatchEvent(eventId, ...)
     local listenerList = ListenersMap[eventId]
     if (not listenerList) then
         return

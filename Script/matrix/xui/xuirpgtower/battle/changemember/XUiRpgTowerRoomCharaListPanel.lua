@@ -28,8 +28,23 @@ end
 --================
 --刷新列表
 --================
+local SortFun = function (list)
+    local inTeamList = {}
+    local notInTeamList = {}
+    for i, rChar in ipairs(list) do
+        if rChar:GetIsInTeam() then
+            table.insert(inTeamList, rChar)
+        else
+            table.insert(notInTeamList, rChar)
+        end
+    end
+
+    return appendArray(inTeamList, notInTeamList)
+end
+
 function XUiRpgTowerRoomCharaListPanel:UpdateData()
-    self.TeamList = XDataCenter.RpgTowerManager.GetTeam()
+    local list = XDataCenter.RpgTowerManager.GetTeam()
+    self.TeamList = SortFun(list)
     -- 获取当前选中角色在列表中的序号，若没有选中角色则默认列表第一个角色
     local rChara = self.RootUi.RCharacter
     if rChara then
@@ -40,6 +55,7 @@ function XUiRpgTowerRoomCharaListPanel:UpdateData()
             end
         end
     end
+    -- 排序
     self.CurrentIndex = self.CurrentIndex or 1
     self.DynamicTable:SetDataSource(self.TeamList)
     self.DynamicTable:ReloadDataASync(self.CurrentIndex)

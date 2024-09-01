@@ -22,7 +22,11 @@ function XUiGridActivityBossSingle:Refresh(stageId, index)
     local isUnLock = XDataCenter.FubenActivityBossSingleManager.IsChallengeUnlockByStageId(stageId)
     self.PanelStageLockParent.gameObject:SetActiveEx(not isUnLock)
     self.PanelNor.gameObject:SetActiveEx(isUnLock)
-    --self.BtnStage.gameObject:SetActiveEx(isUnLock)
+    self.BtnStage.gameObject:SetActiveEx(isUnLock)
+    local bgMaskName = "Img" .. index .. "BgMask"
+    if self.Parent[bgMaskName] then
+        self.Parent[bgMaskName].gameObject:SetActiveEx(isUnLock)
+    end
     self.IsUnLock = isUnLock
     --刷新红点显示
     local starMap = XDataCenter.FubenActivityBossSingleManager.GetStageStarMap(stageId)
@@ -33,6 +37,11 @@ function XUiGridActivityBossSingle:Refresh(stageId, index)
     --刷新是否通关显示
     local isPassed = XDataCenter.FubenActivityBossSingleManager.IsChallengePassedByStageId(stageId)
     self.PanelKillParent.gameObject:SetActiveEx(isPassed)
+    -- 刷新线
+    local line = XUiHelper.TryGetComponent(self.Parent.PanelFuBen, string.format("PanelLine/Unlock/Line%s", index - 1))
+    if line then
+        line.gameObject:SetActiveEx(isUnLock)
+    end
 end
 
 function XUiGridActivityBossSingle:OnBtnStageClick()

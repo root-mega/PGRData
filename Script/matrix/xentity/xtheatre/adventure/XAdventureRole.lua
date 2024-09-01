@@ -3,6 +3,7 @@ local type = type
 local MAIN_SKILL_INDEX = 4  --主动技能
 local PASSIVE_SKILL_INDEX = 5 --被动技能
 
+---@class XTheatreAdventureRole
 local XAdventureRole = XClass(nil, "XAdventureRole")
 
 function XAdventureRole:Ctor(id)
@@ -11,6 +12,14 @@ function XAdventureRole:Ctor(id)
     self.Config = XTheatreConfigs.GetTheatreRole(id)
     -- 是否在本地角色
     self.IsLocalRole = false
+    self.Id = self:GetFilterId() -- 适配筛选
+end
+
+function XAdventureRole:GetFilterId()
+    if not self:GetIsLocalRole() then
+        return self:GetRawData():GetId()
+    end
+    return self:GetCharacterId()
 end
 
 function XAdventureRole:GetId()
@@ -28,6 +37,7 @@ end
 function XAdventureRole:SetCharacter(value)
     self.RawData = value
     self.IsLocalRole = true
+    self.Id = self:GetFilterId() -- 适配筛选
 end
 
 -- 职业标签
@@ -72,6 +82,7 @@ function XAdventureRole:GenerateLocalRole()
     role:SetCharacter(character)
 end
 
+---@return XCharacterViewModel
 function XAdventureRole:GetCharacterViewModel()
     local characterViewModel = self:GetRawData():GetCharacterViewModel()
     if not self:GetIsLocalRole() then
@@ -295,7 +306,9 @@ function XAdventureRole:GetSkill()
             for _, skillId in pairs(skillIdList) do
                 local skillCo = {}
                 local skillType = XCharacterConfigs.GetSkillType(skillId)
-                skillCo.Level = adventureManager:GetCoreSkillLv(skillType) or skillLevelMap[skillId] or 0
+                local spSkillLevel = self:GetRawData():GetAfterSpSkillLevel(skillId)
+
+                skillCo.Level = adventureManager:GetCoreSkillLv(skillType) or (spSkillLevel and spSkillLevel or skillLevelMap[skillId]) or 0
                 local configDes = XCharacterConfigs.GetSkillGradeDesConfig(skillId, skillCo.Level)
                 if configDes then
                     skillCo.configDes = configDes

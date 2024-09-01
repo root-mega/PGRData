@@ -5,7 +5,7 @@ local GetQualityFuncs = {}
 
 ----Initialize----
 function XTypeManager.Init()
-    GetNameFuncs[XArrangeConfigs.Types.Character] = XCharacterConfigs.GetCharacterName
+    GetNameFuncs[XArrangeConfigs.Types.Character] = XCharacterConfigs.GetCharacterLogName
     GetNameFuncs[XArrangeConfigs.Types.Weapon] = XDataCenter.EquipManager.GetEquipName
     GetNameFuncs[XArrangeConfigs.Types.Wafer] = XDataCenter.EquipManager.GetEquipName
     GetNameFuncs[XArrangeConfigs.Types.Item] = XDataCenter.ItemManager.GetItemName
@@ -16,6 +16,7 @@ function XTypeManager.Init()
     GetNameFuncs[XArrangeConfigs.Types.WeaponFashion] = XWeaponFashionConfigs.GetFashionName
     GetNameFuncs[XArrangeConfigs.Types.Collection] = XMedalConfigs.GetCollectionNameById
     GetNameFuncs[XArrangeConfigs.Types.Partner] = XPartnerConfigs.GetPartnerTemplateName
+    GetNameFuncs[XArrangeConfigs.Types.Background] = XPhotographConfigs.GetBackgroundNameById
 
     GetQualityFuncs[XArrangeConfigs.Types.Character] = XCharacterConfigs.GetCharMinQuality
     GetQualityFuncs[XArrangeConfigs.Types.Weapon] = XDataCenter.EquipManager.GetEquipQuality
@@ -29,6 +30,7 @@ function XTypeManager.Init()
     GetQualityFuncs[XArrangeConfigs.Types.WeaponFashion] = XWeaponFashionConfigs.GetFashionQuality
     GetQualityFuncs[XArrangeConfigs.Types.Collection] = XMedalConfigs.GetCollectionDefaultQualityById
     GetQualityFuncs[XArrangeConfigs.Types.Partner] = XPartnerConfigs.GetPartnerTemplateQuality
+    GetQualityFuncs[XArrangeConfigs.Types.Background] = XPhotographConfigs.GetBackgroundQualityById
 end
 
 ----Public Methods----

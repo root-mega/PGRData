@@ -1,5 +1,5 @@
-local Vector2 = CS.UnityEngine.Vector2
 local XGDComponet = require("XEntity/XGuildDorm/Components/XGDComponet")
+---@class XGDInputCompoent : XGDComponet
 local XGDInputCompoent = XClass(XGDComponet, "XGDInputCompoent")
 
 function XGDInputCompoent:Ctor()

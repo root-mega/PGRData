@@ -40,6 +40,10 @@ function XSCRole:GetMainSkillGroupId()
     return self.Config.SkillId
 end
 
+function XSCRole:GetPassiveSkillId()
+    return self.Config.PassiveSkillId
+end
+
 function XSCRole:GetEnergyInit()
     return self.Config.EnergyInit
 end
@@ -64,6 +68,13 @@ function XSCRole:GetNameIcon()
     return self.Config.NameIcon
 end
 
+function XSCRole:GetSkillEnergyCost()
+    local skill = self:GetMainSkill()
+    if skill then
+        return skill:GetEnergyCost(skill:GetSkillId())
+    end
+end
+
 function XSCRole:GetAutoEnergyDic()
     return self.AutoEnergyDic
 end
@@ -79,38 +90,19 @@ function XSCRole:GetCharacterViewModel()
     return self.CharacterViewModel
 end
 
--- 是否已拥有
-function XSCRole:GetIsReceived()
-    if XDataCenter.SameColorActivityManager.CheckIsInitRole(self.Config.Id) then
-        return true
-    end
-    return XDataCenter.ItemManager.GetCount(self.Config.ShopItemId) > 0
-end
-
 -- 是否已在解锁时间内
 function XSCRole:GetIsInUnlockTime()
     return XFunctionManager.CheckInTimeByTimeId(self.Config.TimerId)
 end
 
 function XSCRole:GetIsLock()
-    return not self:GetIsInUnlockTime() or not self:GetIsReceived()
+    return not self:GetIsInUnlockTime()
 end
 
 function XSCRole:GetOpenTimeStr()
     local startTime = XFunctionManager.GetStartTimeByTimeId(self.Config.TimerId)
     return XUiHelper.GetTime(startTime - XTime.GetServerNowTimestamp()
     , XUiHelper.TimeFormatType.ACTIVITY)
-end
-
--- 获取角色当前是否满足购买条件
-function XSCRole:GetCanBuy()
-    if self:GetIsReceived() then
-        return false
-    end
-    if not self:GetIsInUnlockTime() then
-        return false
-    end
-    return XDataCenter.ItemManager.GetCount(self.Config.ConsumeId) >= self.Config.ConsumeCount
 end
 
 -- 获得角色的球的数据
@@ -181,7 +173,19 @@ function XSCRole:SaveLocalData()
     })
 end
 
-function XSCRole:GetUsingSkillGroupIds(isExcludeZero)
+function XSCRole:GetUsingSkillGroupIds(isExcludeZero, isTimeType)
+    -- 限时模式下，部分技能禁止使用
+    if isTimeType then
+        for i, skillGroupId in ipairs(self.UsingSkillGroupIds) do
+            if skillGroupId > 0 then
+                local skill = XDataCenter.SameColorActivityManager.GetRoleShowSkill(skillGroupId)
+                if skill:IsForbidInTime()  then
+                    self.UsingSkillGroupIds[i] = 0
+                end
+            end
+        end
+    end
+
     if isExcludeZero == nil then isExcludeZero = false end
     if isExcludeZero then
         local result = {}

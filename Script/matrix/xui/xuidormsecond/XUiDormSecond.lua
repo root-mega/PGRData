@@ -2,6 +2,8 @@ local Object = CS.UnityEngine.Object
 local Vector3 = CS.UnityEngine.Vector3
 local V3O = Vector3.one
 
+---@class XUiDormSecond : XLuaUi
+---@field XUiDormSecondHead XUiDormSecondHead
 local XUiDormSecond = XLuaUiManager.Register(XLuaUi, "UiDormSecond")
 local XUiDormNameGridItem = require("XUi/XUiDormSecond/XUiDormNameGridItem")
 local XUiDormSecondHead = require("XUi/XUiDormSecond/XUiDormSecondHead")
@@ -42,7 +44,7 @@ function XUiDormSecond:InitFun()
     self.BtnClickTips.CallBack = function() self:ComfortTips() end
     self.BtnExpand.CallBack = function() self:OnBtnExpand() end
     self.BtnRename.CallBack = function() self:OpenRenameUI() end
-    self:BindHelpBtn(self.BtnHelp, "Dorm")
+    self:BindHelpBtn(self.BtnHelp, "Dorm", nil, XDormConfig.MarkDormCourseGuide)
     self.BtnDormTemplate.CallBack = function() self:OnBtnDormTemplateClick() end
     self.BtnNext.CallBack = function() self:OnBtnNextClick() end
     self.BtnCollect.CallBack = function() self:OnBtnCollectClick() end
@@ -50,15 +52,16 @@ function XUiDormSecond:InitFun()
 end
 
 function XUiDormSecond:OnBtnDormTemplateClick()
-    local roomData = XDataCenter.DormManager.GetRoomDataByRoomId(self.CurDormId)
-    local connectId = roomData:GetConnectDormId()
-    local indexId = XDormConfig.GetDormTemplateSelecIndex(connectId)
-    XLuaUiManager.Open("UiDormTemplate", indexId, function()
-        if XLuaUiManager.IsUiLoad("UiDormSecond") then
-            self.IsChangeOverView = false
-            self:Remove()
-        end
-    end, self.CurDormId)
+    --local roomData = XDataCenter.DormManager.GetRoomDataByRoomId(self.CurDormId)
+    --local connectId = roomData:GetConnectDormId()
+    --local indexId = XDormConfig.GetDormTemplateSelecIndex(connectId)
+    --XLuaUiManager.Open("UiDormTemplate", indexId, function()
+    --    if XLuaUiManager.IsUiLoad("UiDormSecond") then
+    --        self.IsChangeOverView = false
+    --        self:Remove()
+    --    end
+    --end, self.CurDormId)
+    XLuaUiManager.Open("UiDormDormitoryFormWork", nil, self.CurDormId)
 end
 
 function XUiDormSecond:OnBtnCollectClick()
@@ -102,6 +105,9 @@ function XUiDormSecond:OnDestroy()
     if self.LastMusicId and self.LastMusicId > 0 then
         CS.XAudioManager.PlayMusic(self.LastMusicId)
     end
+    if self.XUiDormSecondHead then
+        self.XUiDormSecondHead:OnDestroy()
+    end
     DisplaySetType = nil
     DormSecondEnter = nil
 end
@@ -141,37 +147,23 @@ function XUiDormSecond:InitList()
 end
 
 function XUiDormSecond:InitEnterCfg()
-    self.EnterCfg = {}
-    self.EnterCfg[DormSecondEnter.Des] = {["Name"] = TextManager.GetText("DormDes"),
-    ["Skip"] = function() self:OpenDesUI() end,
-    ["IconPath"] = CS.XGame.ClientConfig:GetString("FurnitureImgS20")
-    }
-    self.EnterCfg[DormSecondEnter.WareHouse] = {["Name"] = TextManager.GetText("DormWareHouse"),
-    ["Skip"] = function() self:OpenWarehouse() end,
-    ["IconPath"] = CS.XGame.ClientConfig:GetString("FurnitureImgS5")
-    }
-    self.EnterCfg[DormSecondEnter.Person] = {["Name"] = TextManager.GetText("DormPersonText"),
-    ["Skip"] = function() self:OnBtnPersonClick() end,
-    ["IconPath"] = CS.XGame.ClientConfig:GetString("FurnitureImgS11")
-    }
-    self.EnterCfg[DormSecondEnter.FieldGuilde] = {["Name"] = TextManager.GetText("DormFieldGuilde"),
-    ["Skip"] = function() self:OpenFieldGuid() end,
-    ["IconPath"] = CS.XGame.ClientConfig:GetString("FurnitureImgS22")
-    }
-    self.EnterCfg[DormSecondEnter.Build] = {["Name"] = TextManager.GetText("DormBuild"),
-    ["Skip"] = function() self:OpenBuildUI() end,
-    ["IconPath"] = CS.XGame.ClientConfig:GetString("FurnitureImgS6")
-    }
-    self.EnterCfg[DormSecondEnter.Shop] = {["Name"] = TextManager.GetText("DormShopText"),
-    ["Skip"] = function() self:OpenShopUI() end,
-    ["IconPath"] = CS.XGame.ClientConfig:GetString("FurnitureImgS8")
-    }
+    self.EnterCfg = XDormConfig.GetSecondMenuList()
 end
 
 -- 跳到商店
 function XUiDormSecond:OpenShopUI()
     XLuaUiManager.Open("UiShop", XShopManager.ShopType.Dorm)
     self.IsStatic = true
+end
+
+-- 重置
+function XUiDormSecond:OpenResetUI()
+    XLuaUiManager.Open("UiDormReset", self.CurDormId, XDormConfig.DormDataType.Self)
+end
+
+-- 模板
+function XUiDormSecond:OpenTemplateUI()
+    XLuaUiManager.Open("UiDormDormitoryFormWork", nil, self.CurDormId)
 end
 
 -- [监听动态列表事件]
@@ -195,7 +187,7 @@ function XUiDormSecond:OnDynamicTableEvent(event, index, grid)
         self:OnBtnHostelNamesClick()
         self:UpdateData(self.CurDisplayState, self.CurDormId)
         XHomeDormManager.CharacterExit(self.CurDormId)
-        XHomeDormManager.SetSelectedRoom(self.CurDormId, true)
+        XHomeDormManager.SetSelectedRoom(self.CurDormId, true, self.CurDisplayState ~= XDormConfig.VisitDisplaySetType.MySelf)
     end
 end
 
@@ -249,7 +241,7 @@ function XUiDormSecond:SetTemplateInfo()
         return
     end
 
-    local prrcent = XDataCenter.DormManager.GetDormTemplatePercent(connectId, self.CurDormId)
+    local prrcent = XDataCenter.DormManager.GetDormTemplatePercent(self.CurDormId, connectId)
     self.SliderTemplate.fillAmount = prrcent / 100
 end
 
@@ -292,14 +284,14 @@ function XUiDormSecond:SetSelectState(state)
     self.PanelSelect.gameObject:SetActiveEx(state)
 end
 
+function XUiDormSecond:CreateDormMainItems()
+end
+
 -- 人员
 function XUiDormSecond:OnBtnPersonClick()
     local cfg = XDormConfig.GetDormitoryCfgById(self.CurDormId)
     local sceneId = cfg and cfg.SceneId
     XLuaUiManager.Open("UiDormPerson", sceneId) --要传入宿舍场景ID
-end
-
-function XUiDormSecond:CreateDormMainItems()
 end
 
 -- 任务
@@ -311,6 +303,10 @@ end
 
 -- 建造
 function XUiDormSecond:OpenBuildUI()
+    if XDataCenter.FurnitureManager.CheckFurnitureSlopLimit() then
+        XLuaUiManager.Open("UiFurnitureCreateDetail")
+        return
+    end
     self.CurMenState = false
     self:SetEnterState(self.CurMenState)
     XLuaUiManager.Open("UiFurnitureBuild")
@@ -407,7 +403,7 @@ function XUiDormSecond:SetVisitState()
         self.PanelHomeSelf.gameObject:SetActiveEx(true)
         self.PanelHomeOthers.gameObject:SetActiveEx(false)
         self.BtnMenu.gameObject:SetActiveEx(true)
-        self.BtnVisitor.gameObject:SetActiveEx(true)
+        --self.BtnVisitor.gameObject:SetActiveEx(true)
         self.BtnAdd.gameObject:SetActiveEx(false)
         self.BtnRemould.gameObject:SetActiveEx(true)
         self.DormRename.gameObject:SetActiveEx(true)
@@ -595,6 +591,7 @@ function XUiDormSecond:OnOpenedCaress(characterId)
     self.BtnCollect.gameObject:SetActiveEx(false)
     self.BtnDormShare.gameObject:SetActiveEx(false)
     self.BtnDormTemplate.gameObject:SetActiveEx(false)
+    self.BtnEdit.gameObject:SetActiveEx(false)
 
     if not self.InitCaress then
         self.InitCaress = true
@@ -612,7 +609,7 @@ function XUiDormSecond:OnCloseedCaress()
     self.PanelHostelName.gameObject:SetActiveEx(true)
     self.PanelCaress.gameObject:SetActiveEx(false)
     self.BtnRemould.gameObject:SetActiveEx(true)
-    self.BtnVisitor.gameObject:SetActiveEx(true)
+    --self.BtnVisitor.gameObject:SetActiveEx(true)
     self.PanelMenu.gameObject:SetActiveEx(true)
     self.BtnTask.gameObject:SetActiveEx(true)
     self.BtnRename.gameObject:SetActiveEx(true)
@@ -623,6 +620,7 @@ function XUiDormSecond:OnCloseedCaress()
     self.BtnCollect.gameObject:SetActiveEx(true)
     self.BtnDormShare.gameObject:SetActiveEx(false)--海外特供屏蔽宿舍分享按钮
     self.BtnDormTemplate.gameObject:SetActiveEx(true)
+    self.BtnEdit.gameObject:SetActiveEx(true)
     self.PanelCaressUI:OnClose(self.CurDormId)
 end
 
@@ -656,6 +654,17 @@ function XUiDormSecond:OnBtnTaskClick()
     self:OnOpenTask()
 end
 
+function XUiDormSecond:OnBtnEditClick()
+    if self.CurDisplayState == XDormConfig.DormDataType.Template 
+            or self.CurDisplayState == XDormConfig.DormDataType.Collect 
+            or self.CurDisplayState == XDormConfig.DormDataType.Provisional 
+            or self.CurDisplayState == XDormConfig.DormDataType.CollectNone then
+        return
+    end
+    local config = XDormConfig.GetDormitoryCfgById(self.CurDormId)
+    XLuaUiManager.Open("UiDormPerson", XDormConfig.PersonType.Staff, config.SceneId, self.CurDormId)
+end
+
 function XUiDormSecond:OnTaskSkip()
     if XDataCenter.RoomManager.RoomData ~= nil then
         local title = CS.XTextManager.GetText("TipTitle")
@@ -686,6 +695,7 @@ function XUiDormSecond:AddListener()
     self.BtnScreenShot.CallBack = function() self:BtnScreenShotCb() end
     self.BtnHide.CallBack = function() self:BtnHideCb() end
     self.BtnExpandNormalTran = self.BtnExpand.NormalObj.transform
+    self.BtnEdit.CallBack = function() self:OnBtnEditClick() end
 end
 
 function XUiDormSecond:BtnHideCb()
@@ -786,7 +796,9 @@ function XUiDormSecond:ComfortTips()
 end
 
 function XUiDormSecond:ComfortTipsTimerCb()
-    self.TopTips.gameObject:SetActiveEx(false)
+    if not XTool.UObjIsNil(self.TopTips) then
+        self.TopTips.gameObject:SetActiveEx(false)
+    end
     XScheduleManager.UnSchedule(CurrentSchedule)
     CurrentSchedule = nil
 end
@@ -907,6 +919,14 @@ function XUiDormSecond:OnBtnMainUIClick()
     XHomeSceneManager.LeaveScene()
 end
 
+function XUiDormSecond:PcClose()
+    if self.PanelRename.gameObject.activeSelf then
+        self.PanelRename.gameObject:SetActiveEx(false)
+        return
+    end
+    self:OnBtnReturnClick()
+end
+
 function XUiDormSecond:OnBtnReturnClick()
     self:RemoveTimer()
     if not XLuaUiManager.IsUiLoad("UiDormMain") then
@@ -921,24 +941,27 @@ function XUiDormSecond:OnBtnReturnClick()
         self:Close()
     else
         --从其他人宿舍返回自己宿舍，把自己的数据切回来。
-        if SelfPreDormId == -1 then
-            local data = XDataCenter.DormManager.GetDormitoryData(XDormConfig.DormDataType.Self)
-            if data then
-                for _, v in pairs(data) do
-                    if v and v.Id then
-                        SelfPreDormId = v.Id
-                        break
-                    end
-                end
-            end
+        if SelfPreDormId == -1 then --从主界面访问 -> 返回
+            --local data = XDataCenter.DormManager.GetDormitoryData(XDormConfig.DormDataType.Self)
+            --if data then
+            --    for _, v in pairs(data) do
+            --        if v and v.Id then
+            --            SelfPreDormId = v.Id
+            --            break
+            --        end
+            --    end
+            --end
+            XDataCenter.DormManager.BackToDormitoryMain(self.CurDormId)
+            self:Close()
+        else
+            XDataCenter.DormManager.VisitDormitory(DisplaySetType.MySelf, SelfPreDormId)
+            self:UpdateData(DisplaySetType.MySelf, SelfPreDormId)
+            self.CurHostelNamesState = false
+            self:SetDormListNameV(self.CurHostelNamesState)
         end
-        XDataCenter.DormManager.VisitDormitory(DisplaySetType.MySelf, SelfPreDormId)
-        self:UpdateData(DisplaySetType.MySelf, SelfPreDormId)
-        self.CurHostelNamesState = false
-        self:SetDormListNameV(self.CurHostelNamesState)
     end
-
-    XEventManager.DispatchEvent(XEventId.EVENT_DORM_HIDE_COMPONET)
+    SelfPreDormId = -1
+    XEventManager.DispatchEvent(XEventId.EVENT_DORM_HIDE_COMPONENT)
 end
 
 function XUiDormSecond:OnBtnMenuClick()
@@ -960,17 +983,15 @@ function XUiDormSecond:SetEnterState(state)
             return
         end
         self.InitEnter = true
-        for k, _ in pairs(self.EnterCfg) do
-            local obj = Object.Instantiate(self.HostSecondSkipItem.gameObject)
-            obj.transform:SetParent(self.HostSecondSkipList, false)
+        for id, template in ipairs(self.EnterCfg) do
+            local obj = Object.Instantiate(self.HostSecondSkipItem.gameObject, self.HostSecondSkipList, false)
             obj.transform.localScale = V3O
             obj.gameObject:SetActiveEx(true)
-            obj.gameObject.name = self.EnterCfg[k].Name
             local btn = obj:GetComponent("XUiButton")
-            btn:SetName(self.EnterCfg[k].Name)
-            btn:SetSprite(self.EnterCfg[k].IconPath)
-            self:RegisterClickEvent(obj, self.EnterCfg[k].Skip)
-            self.EnterBtns[k] = btn
+            btn:SetName(template.Name)
+            btn:SetSprite(template.IconPath)
+            self:RegisterClickEvent(obj, handler(self, self[template.FunctionName]))
+            self.EnterBtns[id] = btn
         end
     end
 end

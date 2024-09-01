@@ -96,8 +96,7 @@ function XUiPanelFavorabilityAction:OnDynamicTableEvent(event, index, grid)
             --点击相同的动作停止播放动作
             self.CurrentPlayAction.IsPlay = false
             grid:OnRefresh(self.CurrentPlayAction, index)
-            --播放打断特效
-            self:UnScheduleAction(true)
+            self:UnScheduleAction(true, true)
             return
         end
         self:OnActionClick(self.ActionList[index], grid, index)
@@ -130,69 +129,75 @@ function XUiPanelFavorabilityAction:OnActionClick(clickAction, grid, index)
             XEventManager.DispatchEvent(XEventId.EVENT_FAVORABILITY_ACTIONUNLOCK)
         end
         --停止正在播放的动作，准备播放新动作
-        self:UnScheduleAction(true)
+        self:UnScheduleAction(true, true)
         self:ResetPlayStatus(index)
 
-        self.UiRoot.SignBoard:ForcePlay(clickAction.SignBoardActionId, self.Parent.CvType, true)
-        self.CurrentPlayAction = clickAction
-        self.CurrentPlayAction.Index = index
-        local isFinish = false
-        local progress = 0
-        local updateCount = 0
-        local startTime = self.UiRoot.SignBoard.SignBoardPlayer.PlayerData.PlayingElement.StartTime
-        local duration = self.UiRoot.SignBoard.SignBoardPlayer.PlayerData.PlayingElement.Duration
+        XScheduleManager.ScheduleNextFrame(function()
+            self.UiRoot.SignBoard:ForcePlayCross(clickAction.SignBoardActionId, self.Parent.CvType, true)
+            --self.UiRoot.SignBoard:ForcePlay(clickAction.SignBoardActionId, self.Parent.CvType, true)
+            self.CurrentPlayAction = clickAction
+            self.CurrentPlayAction.Index = index
+            local isFinish = false
+            local progress = 0
+            local updateCount = 0
+            local startTime = self.UiRoot.SignBoard.SignBoardPlayer.PlayerData.PlayingElement.StartTime
+            local duration = self.UiRoot.SignBoard.SignBoardPlayer.PlayerData.PlayingElement.Duration
 
-        CurrentActionSchedule = XScheduleManager.ScheduleForever(function()
-            local clickGrid
-            if loadGridComplete then
-                --根据index找到点击的数据所在的Grid
-                clickGrid = self.DynamicTableAction:GetGridByIndex(self.CurrentPlayAction.Index)
-            end
-            if  clickGrid == nil then
-                --不存在点击数据的grid(列表滑动不显示这个数据的Grid)，使用点击时的Grid来代替
-                clickGrid = grid
-            end
-            if not clickGrid then
-                XLog.Error("XUiPanelFavorabilityAction:OnActionClick函数错误：clickGrid不能为空")
-                return
-            end
+            CurrentActionSchedule = XScheduleManager.ScheduleForever(function()
+                local clickGrid
+                if loadGridComplete then
+                    --根据index找到点击的数据所在的Grid
+                    clickGrid = self.DynamicTableAction:GetGridByIndex(self.CurrentPlayAction.Index)
+                end
+                if  clickGrid == nil then
+                    --不存在点击数据的grid(列表滑动不显示这个数据的Grid)，使用点击时的Grid来代替
+                    clickGrid = grid
+                end
+                if not clickGrid then
+                    XLog.Error("XUiPanelFavorabilityAction:OnActionClick函数错误：clickGrid不能为空")
+                    return
+                end
 
-            if self.CurrentPlayAction then
-                local time = self.UiRoot.SignBoard.SignBoardPlayer.Time
-                progress = (time - startTime) / duration
-                if progress >= 1 or self.UiRoot.SignBoard.SignBoardPlayer.PlayerData.PlayingElement == nil then
-                    progress = 1
-                    isFinish = true
+                if self.CurrentPlayAction then
+                    local time = self.UiRoot.SignBoard.SignBoardPlayer.Time
+                    progress = (time - startTime) / duration
+                    if progress >= 1 or self.UiRoot.SignBoard.SignBoardPlayer.PlayerData.PlayingElement == nil then
+                        progress = 1
+                        isFinish = true
+                    end
+                    --判断当前grid存放的数据是不是正在播放的数据
+                    if clickGrid:GetActionDataId() == clickAction.Id then
+                        clickGrid:UpdateProgress(progress)
+                        clickGrid:UpdateActionAlpha(updateCount)
+                    end
+                    updateCount = updateCount + 1
                 end
-                --判断当前grid存放的数据是不是正在播放的数据
-                if clickGrid:GetActionDataId() == clickAction.Id then
-                    clickGrid:UpdateProgress(progress)
-                    clickGrid:UpdateActionAlpha(updateCount)
+                if not self.CurrentPlayAction or isFinish then
+                    clickAction.IsPlay = false
+                    if clickGrid:GetActionDataId() == clickAction.Id then
+                        clickGrid:UpdatePlayStatus()
+                        clickGrid:UpdateProgress(0)
+                    end
+                    --自然结束动作，不播放打断特效
+                    self:UnScheduleAction(false)
                 end
-                updateCount = updateCount + 1
-            end
-            if not self.CurrentPlayAction or isFinish then
-                clickAction.IsPlay = false
-                if clickGrid:GetActionDataId() == clickAction.Id then
-                    clickGrid:UpdatePlayStatus()
-                    clickGrid:UpdateProgress(0)
-                end
-                --自然结束动作，不播放打断特效
-                self:UnScheduleAction(false)
-            end
-        end, 20)
+            end, 20)
+        end)
+
     else
         XUiManager.TipMsg(clickAction.ConditionDescript)
     end
 end
 
-function XUiPanelFavorabilityAction:UnScheduleAction(playEffect)
+--因为动画CrossFade可能会导致点击取消播放时，动画状态机还在融合阶段，此时运行的动画和
+--逻辑里记录的动画不是同一个，无法取消播放，所以增加强制字段取消播放
+function XUiPanelFavorabilityAction:UnScheduleAction(playEffect, force)
     self.UiRoot:SetWhetherPlayChangeActionEffect(playEffect)
     if CurrentActionSchedule then
         XScheduleManager.UnSchedule(CurrentActionSchedule)
         CurrentActionSchedule = nil
     end
-    self.UiRoot.SignBoard:Stop()
+    self.UiRoot.SignBoard:Stop(force)
     self.CurrentPlayAction = nil
     self.UiRoot:ResumeCvContent()
 end

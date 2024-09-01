@@ -452,7 +452,7 @@ function XUiBfrtRoomCharacter:OnBtnTeamPrefabClick()
 end
 
 function XUiBfrtRoomCharacter:OnBtnConsciousnessClick()
-    XLuaUiManager.Open("UiEquipAwarenessReplace", self.CurCharacterId, nil, true)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipAwareness(self.CurCharacterId)
 end
 
 function XUiBfrtRoomCharacter:OnBtnBtnTeachingClick()
@@ -461,7 +461,7 @@ function XUiBfrtRoomCharacter:OnBtnBtnTeachingClick()
 end
 
 function XUiBfrtRoomCharacter:OnBtnWeaponClick()
-    XLuaUiManager.Open("UiEquipReplaceNew", self.CurCharacterId, nil, true)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipReplace(self.CurCharacterId, nil, true)
 end
 
 function XUiBfrtRoomCharacter:OnBtnFashionClick()

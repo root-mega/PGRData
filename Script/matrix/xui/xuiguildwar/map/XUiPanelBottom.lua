@@ -10,21 +10,21 @@ function XUiPanelBottom:Ctor(ui, base, battleManager)
     self.Base = base
     self.BattleManager = battleManager
     XTool.InitUiObject(self)
-    self:SetButtonCallBack()
+    self:InitButton()
     self.IsMenuOn = false
 end
 
 function XUiPanelBottom:AddEventListener()
     XEventManager.AddEventListener(XEventId.EVENT_GUILD_RECEIVE_CHAT, self.UpdateChart, self)
-    XEventManager.AddEventListener(XEventId.EVENT_TASK_SYNC, self.CheckRedDot, self)
+    XEventManager.AddEventListener(XEventId.EVENT_TASK_SYNC, self.CheckRedDotTask, self)
 end
 
 function XUiPanelBottom:RemoveEventListener()
     XEventManager.RemoveEventListener(XEventId.EVENT_GUILD_RECEIVE_CHAT, self.UpdateChart, self)
-    XEventManager.RemoveEventListener(XEventId.EVENT_TASK_SYNC, self.CheckRedDot, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_TASK_SYNC, self.CheckRedDotTask, self)
 end
 
-function XUiPanelBottom:SetButtonCallBack()
+function XUiPanelBottom:InitButton()
     self.BtnTask.CallBack = function()
         self:OnBtnTaskClick()
     end
@@ -49,12 +49,26 @@ function XUiPanelBottom:SetButtonCallBack()
     self.BtnInformation.CallBack = function()
         self:OnBtnInformationClick()
     end
+    self.BtnSupport.CallBack = function()
+        self:OnBtnSupportClick()
+    end
+    self.BtnLz.CallBack = function()
+        self:OnBtnBossRewardClick()
+    end
+    XRedPointManager.AddRedPointEvent(self.BtnSupport, self.OnSupportRedPointEvent, self, {
+        XRedPointConditions.Types.CONDITION_GUILDWAR_SUPPLY,
+        XRedPointConditions.Types.CONDITION_GUILDWAR_ASSISTANT
+    })
+    self.BtnDifficulty.CallBack = function()
+        self:OnBtnDifficultyClick()
+    end
 end
 
 function XUiPanelBottom:UpdatePanel()
     self:UpdateChart()
     self:UpdateMenu()
-    local GuildLeader = XDataCenter.GuildManager.IsGuildLeader()
+    self:UpdateBossReward()
+    local GuildLeader = XDataCenter.GuildWarManager.IsCanSelectDifficulty()
     self.BtnMap.gameObject:SetActiveEx(GuildLeader)
 end
 
@@ -65,17 +79,19 @@ function XUiPanelBottom:UpdateMenu()
         self.PanelBtn.gameObject:SetActiveEx(true)
         self.Base:PlayAnimationWithMask("ButtonEnable")
     else
-        self.Base:PlayAnimationWithMask("ButtonDisable", function ()
-                self.PanelBtn.gameObject:SetActiveEx(false)
-            end)
+        self.Base:PlayAnimationWithMask("ButtonDisable", function()
+            self.PanelBtn.gameObject:SetActiveEx(false)
+        end)
     end
-    self:CheckRedDot()
+    self:CheckRedDotTask()
 end
 
 --更新聊天
 function XUiPanelBottom:UpdateChart()
     local chatList = XDataCenter.ChatManager.GetGuildChatList()
-    if not chatList then return end
+    if not chatList then
+        return
+    end
     local lastChat = chatList[1]
     if not lastChat then
         self.TxtMessage.text = ""
@@ -129,7 +145,7 @@ function XUiPanelBottom:OnBtnChatClick()
     if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.SocialChat) then
         return
     end
-    
+
     XUiHelper.OpenUiChatServeMain(false, ChatChannelType.Guild, ChatChannelType.World)
 end
 
@@ -149,12 +165,36 @@ function XUiPanelBottom:HidePanel()
     self.GameObject:SetActiveEx(false)
 end
 
-function XUiPanelBottom:CheckRedDot()
+function XUiPanelBottom:CheckRedDotTask()
     local IsHasAchievedTask = XDataCenter.GuildWarManager.CheckTaskAchieved()
-    self.BtnMenu:ShowReddot(not self.IsMenuOn and IsHasAchievedTask)
-    self.BtnTask:ShowReddot(self.IsMenuOn and IsHasAchievedTask)
+    self.BtnTask:ShowReddot(IsHasAchievedTask)
 end
 
+function XUiPanelBottom:OnBtnSupportClick()
+    if XDataCenter.GuildWarManager.CheckIsPlayerSkipRound() then
+        XUiManager.TipText("GuildWarNotQualifySupport")
+        return
+    end
+    XLuaUiManager.Open("UiGuildWarSupport")
+end
 
+function XUiPanelBottom:OnBtnDifficultyClick()
+    XLuaUiManager.Open("UiGuildWarSelect")
+end
+
+function XUiPanelBottom:OnSupportRedPointEvent(count)
+    self.BtnSupport:ShowReddot(count >= 0)
+    self.BtnMenu:ShowReddot(count >= 0)
+end
+
+function XUiPanelBottom:OnBtnBossRewardClick()
+    local bossNode = XDataCenter.GuildWarManager.GetBattleManager():GetNodeBossRoot()
+    XLuaUiManager.Open("UiGuildWarLzTask", bossNode)
+end
+
+function XUiPanelBottom:UpdateBossReward()
+    local isShowRedPoint = XDataCenter.GuildWarManager.IsShowRedPointBossReward()
+    self.BtnLz:ShowReddot(isShowRedPoint)
+end
 
 return XUiPanelBottom

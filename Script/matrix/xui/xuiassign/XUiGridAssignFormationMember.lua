@@ -71,6 +71,10 @@ function XUiGridAssignFormationMember:OnMemberClick()
         XLog.Debug("请选中角色")
         return
     end
+    if XDataCenter.FubenAssignManager.CheckCharacterInMultiTeamLock(self.CharacterId, self.GroupId) then
+        XUiManager.TipError(CS.XTextManager.GetText("StrongholdElectricDeployInTeamLock"))
+        return
+    end
 
     local teamId = self.TeamData:GetId()
     local memberList = self.TeamData:GetMemberList()

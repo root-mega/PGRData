@@ -10,7 +10,7 @@ local SHARE_TABLE_PATH = "Share/ReviewActivity/"
 local CLIENT_TABLE_PATH = "Client/ReviewActivity/"
 
 local TABLE_REVIEW_ACTIVITY_INFO = CLIENT_TABLE_PATH .. "ReviewActivityInfo.tab"
---local TABLE_REVIEW_ACTIVITY = SHARE_TABLE_PATH .. "ReviewActivity.tab"
+local TABLE_REVIEW_ACTIVITY = SHARE_TABLE_PATH .. "ReviewActivity.tab"
 local TABLE_REVIEW_ACTIVITY_PAGE_INFO = CLIENT_TABLE_PATH .. "ReviewActivityPageInfo.tab"
 --=================================================
 --=================================================

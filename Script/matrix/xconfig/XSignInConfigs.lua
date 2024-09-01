@@ -109,6 +109,12 @@ function XSignInConfigs.GetWelfareConfigs()
                 local cfg = XSignInConfigs.GetSignInConfig(v.SubConfigId)
                 table.insert(welfareConfigs, setConfig(cfg.Id, cfg.Name, cfg.PrefabPath, v.FunctionType, v.Id))
             end
+        elseif v.FunctionType == XAutoWindowConfigs.AutoFunctionType.SClassConstructNovice then
+            if XDataCenter.SignInManager.IsShowSignIn(v.SubConfigId, true) and
+            not XFunctionManager.CheckFunctionFitter(XFunctionManager.FunctionName.SignIn) then
+                local cfg = XSignInConfigs.GetSignInConfig(v.SubConfigId)
+                table.insert(welfareConfigs, setConfig(cfg.Id, cfg.Name, cfg.PrefabPath, v.FunctionType, v.Id))
+            end
         elseif v.FunctionType == XAutoWindowConfigs.AutoFunctionType.FirstRecharge then
             if not XDataCenter.PayManager.GetFirstRechargeReward() then
                 local cfg = XSignInConfigs.GetFirstRechargeConfig(v.SubConfigId)
@@ -159,6 +165,84 @@ function XSignInConfigs.GetWelfareConfigs()
     return welfareConfigs
 end
 
+function XSignInConfigs.GetWelfareConfigsWithActivity()
+    local list = {}
+    local activity = {}
+    local setConfig = function(id, name, welfareId, subConfig, prefabPath, functionType, btnBg, fullScreenBg) 
+        local config = {}
+        config.Id = id
+        config.FunctionType = functionType
+        config.Name = name
+        config.WelfareId = welfareId
+        config.SubConfig = subConfig
+        config.PrefabPath = prefabPath
+        config.BtnBg = btnBg
+        config.FullScreenBg = fullScreenBg
+        
+        return config
+    end
+    local openWelfare = XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.Welfare)
+    for _, cfg in pairs(SignWelfareList) do
+        if cfg.FunctionType == XAutoWindowConfigs.AutoFunctionType.Sign and openWelfare then
+            if XDataCenter.SignInManager.IsShowSignIn(cfg.SubConfigId, true) and
+                    not XFunctionManager.CheckFunctionFitter(XFunctionManager.FunctionName.SignIn) then
+                local subCfg = XSignInConfigs.GetSignInConfig(cfg.SubConfigId)
+                table.insert(list, setConfig(subCfg.Id, subCfg.Name, cfg.Id, {}, subCfg.PrefabPath, XAutoWindowConfigs.AutoFunctionType.Sign, subCfg.BtnBg, subCfg.FullScreenBg))
+            end
+        elseif cfg.FunctionType == XAutoWindowConfigs.AutoFunctionType.SClassConstructNovice and openWelfare then
+            if XDataCenter.SignInManager.IsShowSignIn(cfg.SubConfigId, true) then
+                local subCfg = XSignInConfigs.GetSignInConfig(cfg.SubConfigId)
+                table.insert(list, setConfig(subCfg.Id, subCfg.Name, cfg.Id, {}, subCfg.PrefabPath, XAutoWindowConfigs.AutoFunctionType.SClassConstructNovice, subCfg.BtnBg, subCfg.FullScreenBg))
+            end
+        elseif cfg.FunctionType == XAutoWindowConfigs.AutoFunctionType.FirstRecharge and openWelfare then
+            if not XDataCenter.PayManager.GetFirstRechargeReward() then
+                local subCfg = XSignInConfigs.GetFirstRechargeConfig(cfg.SubConfigId)
+                table.insert(list, setConfig(subCfg.Id, subCfg.Name, cfg.Id, {}, subCfg.PrefabPath, XAutoWindowConfigs.AutoFunctionType.FirstRecharge, subCfg.BtnBg, subCfg.FullScreenBg))
+            end
+        elseif cfg.FunctionType == XAutoWindowConfigs.AutoFunctionType.Card and openWelfare then
+            local subCfg = XSignInConfigs.GetSignCardConfig(cfg.SubConfigId)
+            table.insert(list, setConfig(subCfg.Id, subCfg.Name, cfg.Id, {}, subCfg.PrefabPath, XAutoWindowConfigs.AutoFunctionType.Card, subCfg.BtnBg, subCfg.FullScreenBg))
+        elseif cfg.FunctionType == XAutoWindowConfigs.AutoFunctionType.WeekChallenge and openWelfare then
+            if XDataCenter.WeekChallengeManager.IsOpen() then
+                local subCfg = XDataCenter.WeekChallengeManager.GetActivityCfg()
+                if subCfg then
+                    table.insert(list, setConfig(subCfg.Id, subCfg.Name, cfg.Id, {}, subCfg.PrefabPath, XAutoWindowConfigs.AutoFunctionType.WeekChallenge, subCfg.BtnBg, subCfg.FullScreenBg))
+                end
+            end
+        elseif cfg.FunctionType == XAutoWindowConfigs.AutoFunctionType.NoticeActivity then
+            local infos = XDataCenter.ActivityManager.GetActivityGroupInfos()
+            for _, info in ipairs(infos or {}) do
+                local subCfg = {}
+                if not XTool.IsTableEmpty(info.ActivityCfgs) then
+                    for _, subInfo in pairs(info.ActivityCfgs) do
+                        local tmpCfg = setConfig(subInfo.Id, subInfo.Name, cfg.Id, {}, nil, XAutoWindowConfigs.AutoFunctionType.NoticeActivity, "", subInfo.ActivityBg)
+                        table.insert(subCfg, tmpCfg)
+                    end
+                end
+                local groupConfig = setConfig(info.ActivityGroupCfg.Id, info.ActivityGroupCfg.Name, cfg.Id, subCfg, "", XAutoWindowConfigs.AutoFunctionType.NoticeActivity, info.ActivityGroupCfg.Bg, "")
+                table.insert(activity, groupConfig)
+            end
+        end
+    end
+    list = XTool.MergeArray(activity, list)
+    return list
+end
+
+---@desc 根据类型检查福利类活动红点
+---@param functionType XAutoWindowConfigs.AutoFunctionType
+---@return boolean 是否显示红点
+function XSignInConfigs.CheckWelfareRedPoint(functionType)
+    if functionType == XAutoWindowConfigs.AutoFunctionType.FirstRecharge then
+        return not XDataCenter.PayManager.IsGotFirstReCharge()
+    elseif functionType == XAutoWindowConfigs.AutoFunctionType.Card then
+        return not XDataCenter.PayManager.IsGotCard()
+    elseif functionType == XAutoWindowConfigs.AutoFunctionType.WeekChallenge then
+        return XDataCenter.WeekChallengeManager.IsAnyRewardCanReceived()
+    elseif functionType == XAutoWindowConfigs.AutoFunctionType.SClassConstructNovice then
+        return true
+    end
+end
+
 -- 获取福利配置表
 function XSignInConfigs.GetWelfareConfig(id)
     local cfg = SignWelfareDir[id]
@@ -175,6 +259,9 @@ function XSignInConfigs.GetPrefabPath(id)
     local config = XSignInConfigs.GetWelfareConfig(id)
 
     if config.FunctionType == XAutoWindowConfigs.AutoFunctionType.Sign then
+        local cfg = XSignInConfigs.GetSignInConfig(config.SubConfigId)
+        return cfg.PrefabPath
+    elseif config.FunctionType == XAutoWindowConfigs.AutoFunctionType.SClassConstructNovice then
         local cfg = XSignInConfigs.GetSignInConfig(config.SubConfigId)
         return cfg.PrefabPath
     elseif config.FunctionType == XAutoWindowConfigs.AutoFunctionType.FirstRecharge then

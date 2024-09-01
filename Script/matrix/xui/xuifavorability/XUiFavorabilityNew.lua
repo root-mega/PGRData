@@ -11,6 +11,8 @@ local XFavorabilityType = {
 
 local XQualityManager = CS.XQualityManager.Instance
 local LowPowerValue = CS.XGame.ClientConfig:GetFloat("UiMainLowPowerValue")
+local DateStartTime = CS.XGame.ClientConfig:GetString("BackgroundChangeTimeStr")
+local DateEndTime = CS.XGame.ClientConfig:GetString("BackgroundChangeTimeEnd")
 local BatteryComponent = CS.XUiBattery
 
 function XUiFavorabilityNew:OnAwake()
@@ -22,14 +24,19 @@ function XUiFavorabilityNew:OnAwake()
 end
 
 
-function XUiFavorabilityNew:OnStart()
+function XUiFavorabilityNew:OnStart(characterId)
+    if XTool.IsNumberValid(characterId) then
+        if XDataCenter.CharacterManager.IsOwnCharacter(characterId) then
+            self:SetCurrFavorabilityCharacter(characterId)
+        end
+    end
     self.CvType = CS.XAudioManager.CvType
     self:OpenMainView(true)
 
     XDataCenter.FavorabilityManager.BoardMutualRequest()
 
-    local characterId = self:GetCurrFavorabilityCharacter()
-    self.RedPointSwitchId = XRedPointManager.AddRedPointEvent(self.ImgReddot, nil, self, { XRedPointConditions.Types.CONDITION_FAVORABILITY_RED }, { CharacterId = characterId })
+    local curCharacterId = self:GetCurrFavorabilityCharacter()
+    self.RedPointSwitchId = XRedPointManager.AddRedPointEvent(self.ImgReddot, nil, self, { XRedPointConditions.Types.CONDITION_FAVORABILITY_RED }, { CharacterId = curCharacterId })
 end
 
 function XUiFavorabilityNew:OnEnable()
@@ -40,11 +47,22 @@ function XUiFavorabilityNew:OnEnable()
     if self.FavorabilityMain then
         self.FavorabilityMain:UpdateAllInfos()
     end
+    XDataCenter.SignBoardManager.AddRoleActionUiAnimListener(self)
+
+    -- 开启时钟
+    self.ClockTimer = XUiHelper.SetClockTimeTempFun(self)
 end
 
 function XUiFavorabilityNew:OnDisable()
     if self.SignBoard then
         self.SignBoard:OnDisable()
+    end
+    XDataCenter.SignBoardManager.RemoveRoleActionUiAnimListener(self)
+
+    -- 关闭时钟
+    if self.ClockTimer then
+        XUiHelper.StopClockTimeTempFun(self, self.ClockTimer)
+        self.ClockTimer = nil
     end
 end
 
@@ -92,7 +110,6 @@ function XUiFavorabilityNew:OnNotify(evt, ...)
 
     elseif evt == XEventId.EVENT_FAVORABILITY_ON_GIFT_CHANGED then
         self.FavorabilityMain:UpdatePreviewExp(args)
-
     end
 end
 
@@ -110,7 +127,9 @@ function XUiFavorabilityNew:InitUiAfterAuto()
     characterId = (characterId == nil) and XDataCenter.DisplayManager.GetDisplayChar().Id or characterId
     self:SetCurrFavorabilityCharacter(characterId)
 
+    ---@type XUiPanelFavorabilityExchangeRole
     self.FavorabilityChangeRole = XUiPanelFavorabilityExchangeRole.New(self.PanelFavorabilityExchangeRole, self)
+    ---@type XUiPanelSignBoard
     self.SignBoard = XUiPanelSignBoard.New(self.PanelFavorabilityBoard, self, XUiPanelSignBoard.SignBoardOpenType.FAVOR)
     self.SignBoard.OperateTrigger = false
     self.SignBoard:SetAutoPlay(true)
@@ -194,11 +213,15 @@ function XUiFavorabilityNew:OpenChangeRoleView()
     self:ChangeViewType(XFavorabilityType.UILikeSwitchRole)
     self:UpdateCamera(true)
     self.FavorabilityMain:SetTopControlActive(false)
+    --策划要求开启切换角色时不能播放动作
+    self:PauseCvContent()
     self:PlaySaftyAnimation("CharacterExchangeEnable")
 end
 
 -- [关闭切换角色,回到上一个界面]
 function XUiFavorabilityNew:CloseChangeRoleView()
+    --界面关闭恢复状态
+    self:ResumeCvContent()
     self:SetWhetherPlayChangeActionEffect(false)
     self:PlaySaftyAnimation("CharacterExchangeDisable", function()
         self.FavorabilityChangeRole.GameObject:SetActiveEx(false)
@@ -267,8 +290,10 @@ end
 function XUiFavorabilityNew:OnCurrentCharacterFavorabilityLevelChanged()
     local characterId = self:GetCurrFavorabilityCharacter()
     local favorUp = XSignBoardConfigs.GetSignBoardConfigByRoldIdAndCondition(characterId, XSignBoardEventType.FAVOR_UP)
-    if favorUp and favorUp[1] and (not self.SignBoard:IsPlaying()) then
-        self.SignBoard:ForcePlay(favorUp[1].Id)
+    favorUp = XDataCenter.FavorabilityManager.FilterSignBoardActionsByFavorabilityUnlock(favorUp)
+    if favorUp and #favorUp > 0 and (not self.SignBoard:IsPlaying()) then
+        local index = math.random(1, #favorUp)
+        self.SignBoard:ForcePlay(favorUp[index].Id)
     end
 end
 
@@ -296,7 +321,7 @@ function XUiFavorabilityNew:PlaySaftyAnimation(animName, endCb, startCb)
 end
 
 function XUiFavorabilityNew:OnUiSceneLoaded()
-    self:SetGameObject()
+    --self:SetGameObject()
     local root = self.UiModelGo
     self.PanelCamFarrExchange = self:FindVirtualCamera("PanelCamFarrExchange")
     self.PanelCamNearrExchange = self:FindVirtualCamera("PanelCamNearrExchange")
@@ -315,6 +340,8 @@ function XUiFavorabilityNew:UpdateBatteryMode() -- editor模式下 BatteryCompon
     end
 
     local animationRoot = self.UiSceneInfo.Transform:Find("Animations")
+    if XTool.UObjIsNil(animationRoot) then return end
+
     local toChargeTimeLine = animationRoot:Find("ToChargeTimeLine")
     local toFullTimeLine = animationRoot:Find("ToFullTimeLine")
     local fullTimeLine = animationRoot:Find("FullTimeLine")
@@ -326,6 +353,7 @@ function XUiFavorabilityNew:UpdateBatteryMode() -- editor模式下 BatteryCompon
     chargeTimeLine.gameObject:SetActiveEx(false)
 
     local curSelectSceneId = XDataCenter.PhotographManager.GetCurSceneId()
+    local type = XPhotographConfigs.GetBackgroundTypeById(curSelectSceneId)
     local particleGroupName = XDataCenter.PhotographManager.GetSceneTemplateById(curSelectSceneId).ParticleGroupName
     local chargeAnimator = nil
     if particleGroupName and particleGroupName ~= "" then
@@ -337,11 +365,25 @@ function XUiFavorabilityNew:UpdateBatteryMode() -- editor模式下 BatteryCompon
         end
     end
 
-    if BatteryComponent.IsCharging then --充电状态
-        if chargeAnimator then chargeAnimator:Play("Full") end
-        fullTimeLine.gameObject:SetActiveEx(true)
+    if type == XPhotographConfigs.BackGroundType.PowerSaved then
+        if BatteryComponent.IsCharging then --充电状态
+            if chargeAnimator then chargeAnimator:Play("Full") end
+            fullTimeLine.gameObject:SetActiveEx(true)
+        else
+            if BatteryComponent.BatteryLevel > LowPowerValue then -- 比较电量
+                if chargeAnimator then chargeAnimator:Play("Full") end
+                fullTimeLine.gameObject:SetActiveEx(true)
+            else
+                if chargeAnimator then chargeAnimator:Play("Low") end
+                chargeTimeLine.gameObject:SetActiveEx(true)
+            end
+        end
     else
-        if BatteryComponent.BatteryLevel > LowPowerValue then -- 比较电量
+        -- v1.29 场景预览 时间模式判断
+        local startTime = XTime.ParseToTimestamp(DateStartTime)
+        local endTime = XTime.ParseToTimestamp(DateEndTime)
+        local nowTime = XTime.ParseToTimestamp(CS.System.DateTime.Now:ToLocalTime():ToString())
+        if startTime > nowTime and nowTime > endTime then   -- 比较时间
             if chargeAnimator then chargeAnimator:Play("Full") end
             fullTimeLine.gameObject:SetActiveEx(true)
         else
@@ -350,3 +392,28 @@ function XUiFavorabilityNew:UpdateBatteryMode() -- editor模式下 BatteryCompon
         end
     end
 end
+
+-- v1.32 播放角色特殊动作Ui动画
+-- ===================================================
+
+function XUiFavorabilityNew:PlayRoleActionUiDisableAnim(signBoardid, stopTime)
+    XDataCenter.SignBoardManager.StartBreakTimer(stopTime)
+    if XSignBoardConfigs.CheckIsUseNormalUiAnim(signBoardid, self.Name) then
+        self:PlayAnimation("UiDisable")
+    end
+end
+
+function XUiFavorabilityNew:PlayRoleActionUiEnableAnim(signBoardid)
+    if XSignBoardConfigs.CheckIsUseNormalUiAnim(signBoardid, self.Name) then
+        self:PlayAnimationWithMask("UiEnable")
+    end
+end
+
+function XUiFavorabilityNew:PlayRoleActionUiBreakAnim()
+    self:PlayAnimationWithMask("DarkEnable", function ()
+        self.SignBoard:Stop(true)
+        self:PlayAnimationWithMask("DarkDisable")
+    end)
+end
+
+-- ===================================================

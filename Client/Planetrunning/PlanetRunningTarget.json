@@ -1,0 +1,673 @@
+[
+    {
+        "Id": 1,
+        "GroupId": 101,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            1.0
+        ]
+    },
+    {
+        "Id": 2,
+        "GroupId": 101,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            2.0
+        ]
+    },
+    {
+        "Id": 3,
+        "GroupId": 102,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            1.0
+        ]
+    },
+    {
+        "Id": 5,
+        "GroupId": 102,
+        "Desc": "Alien Star Rock",
+        "Type": 1,
+        "Params": [
+            null,
+            101.0,
+            4.0
+        ]
+    },
+    {
+        "Id": 6,
+        "GroupId": 103,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            1.0
+        ]
+    },
+    {
+        "Id": 7,
+        "GroupId": 103,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            5.0
+        ]
+    },
+    {
+        "Id": 8,
+        "GroupId": 103,
+        "Desc": "Alien Star Rock",
+        "Type": 1,
+        "Params": [
+            null,
+            101.0,
+            20.0
+        ]
+    },
+    {
+        "Id": 9,
+        "GroupId": 104,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            1.0
+        ]
+    },
+    {
+        "Id": 10,
+        "GroupId": 104,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 11,
+        "GroupId": 104,
+        "Desc": "Alien Star Rock",
+        "Type": 1,
+        "Params": [
+            null,
+            101.0,
+            25.0
+        ]
+    },
+    {
+        "Id": 12,
+        "GroupId": 201,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 13,
+        "GroupId": 201,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 14,
+        "GroupId": 201,
+        "Desc": "Leap Star Tower",
+        "Type": 1,
+        "Params": [
+            null,
+            7.0,
+            1.0
+        ]
+    },
+    {
+        "Id": 15,
+        "GroupId": 202,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 16,
+        "GroupId": 202,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 17,
+        "GroupId": 202,
+        "Desc": "Leap Star Tower",
+        "Type": 1,
+        "Params": [
+            null,
+            7.0,
+            1.0
+        ]
+    },
+    {
+        "Id": 18,
+        "GroupId": 203,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 19,
+        "GroupId": 203,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 20,
+        "GroupId": 203,
+        "Desc": "Leap Star Tower",
+        "Type": 1,
+        "Params": [
+            null,
+            7.0,
+            1.0
+        ]
+    },
+    {
+        "Id": 21,
+        "GroupId": 204,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 22,
+        "GroupId": 204,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 23,
+        "GroupId": 204,
+        "Desc": "Leap Star Tower",
+        "Type": 1,
+        "Params": [
+            null,
+            7.0,
+            4.0
+        ]
+    },
+    {
+        "Id": 24,
+        "GroupId": 205,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 25,
+        "GroupId": 205,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 26,
+        "GroupId": 205,
+        "Desc": "Leap Star Tower",
+        "Type": 1,
+        "Params": [
+            null,
+            7.0,
+            4.0
+        ]
+    },
+    {
+        "Id": 27,
+        "GroupId": 301,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            4.0
+        ]
+    },
+    {
+        "Id": 28,
+        "GroupId": 301,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 29,
+        "GroupId": 301,
+        "Desc": "Brilliance Observatory",
+        "Type": 1,
+        "Params": [
+            null,
+            6.0,
+            4.0
+        ]
+    },
+    {
+        "Id": 30,
+        "GroupId": 302,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 31,
+        "GroupId": 302,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 32,
+        "GroupId": 302,
+        "Desc": "Brilliance Observatory",
+        "Type": 1,
+        "Params": [
+            null,
+            6.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 33,
+        "GroupId": 303,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 34,
+        "GroupId": 303,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 35,
+        "GroupId": 303,
+        "Desc": "Brilliance Observatory",
+        "Type": 1,
+        "Params": [
+            null,
+            6.0,
+            5.0
+        ]
+    },
+    {
+        "Id": 36,
+        "GroupId": 304,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            8.0
+        ]
+    },
+    {
+        "Id": 38,
+        "GroupId": 304,
+        "Desc": "Brilliance Observatory",
+        "Type": 1,
+        "Params": [
+            null,
+            6.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 39,
+        "GroupId": 305,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            9.0
+        ]
+    },
+    {
+        "Id": 41,
+        "GroupId": 305,
+        "Desc": "Brilliance Observatory",
+        "Type": 1,
+        "Params": [
+            null,
+            6.0,
+            5.0
+        ]
+    },
+    {
+        "Id": 42,
+        "GroupId": 401,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 43,
+        "GroupId": 401,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 44,
+        "GroupId": 401,
+        "Desc": "Virtual Range",
+        "Type": 1,
+        "Params": [
+            null,
+            4.0,
+            5.0
+        ]
+    },
+    {
+        "Id": 45,
+        "GroupId": 402,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            2.0
+        ]
+    },
+    {
+        "Id": 46,
+        "GroupId": 402,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 47,
+        "GroupId": 402,
+        "Desc": "Virtual Range",
+        "Type": 1,
+        "Params": [
+            null,
+            4.0,
+            8.0
+        ]
+    },
+    {
+        "Id": 48,
+        "GroupId": 403,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            1.0
+        ]
+    },
+    {
+        "Id": 49,
+        "GroupId": 403,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 50,
+        "GroupId": 403,
+        "Desc": "Virtual Range",
+        "Type": 1,
+        "Params": [
+            null,
+            4.0,
+            12.0
+        ]
+    },
+    {
+        "Id": 51,
+        "GroupId": 404,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 52,
+        "GroupId": 404,
+        "Desc": "Virtual Range",
+        "Type": 1,
+        "Params": [
+            null,
+            4.0,
+            8.0
+        ]
+    },
+    {
+        "Id": 53,
+        "GroupId": 404,
+        "Desc": "Volcano Crystal",
+        "Type": 1,
+        "Params": [
+            null,
+            107.0,
+            64.0
+        ]
+    },
+    {
+        "Id": 54,
+        "GroupId": 405,
+        "Desc": "Star Training Field",
+        "Type": 1,
+        "Params": [
+            null,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 55,
+        "GroupId": 405,
+        "Desc": "Virtual Range",
+        "Type": 1,
+        "Params": [
+            null,
+            4.0,
+            10.0
+        ]
+    },
+    {
+        "Id": 57,
+        "GroupId": 501,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            5.0
+        ]
+    },
+    {
+        "Id": 58,
+        "GroupId": 501,
+        "Desc": "Mont Red Velvet",
+        "Type": 1,
+        "Params": [
+            null,
+            109.0,
+            60.0
+        ]
+    },
+    {
+        "Id": 59,
+        "GroupId": 502,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            5.0
+        ]
+    },
+    {
+        "Id": 60,
+        "GroupId": 502,
+        "Desc": "Mont Red Velvet",
+        "Type": 1,
+        "Params": [
+            null,
+            109.0,
+            60.0
+        ]
+    },
+    {
+        "Id": 61,
+        "GroupId": 503,
+        "Desc": "Norman Star Mine",
+        "Type": 1,
+        "Params": [
+            null,
+            2.0,
+            5.0
+        ]
+    },
+    {
+        "Id": 62,
+        "GroupId": 503,
+        "Desc": "Virtual Range",
+        "Type": 1,
+        "Params": [
+            null,
+            4.0,
+            5.0
+        ]
+    },
+    {
+        "Id": 63,
+        "GroupId": 503,
+        "Desc": "Mont Red Velvet",
+        "Type": 1,
+        "Params": [
+            null,
+            109.0,
+            50.0
+        ]
+    },
+    {
+        "Id": 64,
+        "GroupId": 504,
+        "Desc": "No recommendations for this planet",
+        "Type": 0,
+        "Params": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 65,
+        "GroupId": 505,
+        "Desc": "No recommendations for this planet",
+        "Type": 0,
+        "Params": [
+            null,
+            null,
+            null
+        ]
+    }
+]

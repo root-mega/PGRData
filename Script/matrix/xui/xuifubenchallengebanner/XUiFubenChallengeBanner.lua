@@ -163,9 +163,18 @@ function XUiFubenChallengeBanner:OnClickChapterGrid(chapter)
                     XDataCenter.TheatreManager.CheckAutoPlayStory()
                 end)
             end
+        -- v1.30-Todo-考级点击入口
+        elseif chapter.Type == XDataCenter.FubenManager.ChapterType.Course then
+            if XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.Course) then
+                self.ParentUi:PushUi(function()
+                    XDataCenter.CourseManager.OpenMain()
+                end)
+            end
+        elseif XTool.IsNumberValid(chapter.FunctionId) then
+            XFunctionManager.SkipInterface(chapter.FunctionId)
         end
     end -- doneCb
-    XDataCenter.DlcManager.CheckDownloadForEntry(XDlcConfig.EntryType.Chanllenge, chapterType, doneCb)
+    XDataCenter.DlcManager.CheckDownloadForEntry(XDlcConfig.EntryType.Challenge, chapterType, doneCb)
 end
 
 function XUiFubenChallengeBanner:OnClickMaintainerAction()

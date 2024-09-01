@@ -162,6 +162,10 @@ end
 function XUiPanelActive:RefreshSelfInfo()
     local wave = XDataCenter.ArenaManager.GetWaveRate()
     local selfInfo = XDataCenter.ArenaManager.GetPlayerArenaInfo()
+    if not selfInfo then
+        XLog.Error("GroupMemberRequest data error, id not found. playerId:" .. tostring(XPlayer.Id))
+        return
+    end
     local rank, region = XDataCenter.ArenaManager.GetPlayerArenaRankAndRegion()
     local challengeCfg = XDataCenter.ArenaManager.GetCurChallengeCfg()
     local contributeScore = XDataCenter.ArenaManager.GetContributeScoreByCfg(rank, challengeCfg, selfInfo.Point)
@@ -171,7 +175,22 @@ function XUiPanelActive:RefreshSelfInfo()
     self.TxtSelfNickname.text = selfInfo.Name
     self.TxtPoint.text = selfInfo.Point
     self.TxtRank.text = "No." .. rank
-    self.TxtRankRange.text = XArenaConfigs.GetRankRegionText(region)
+    
+    if self.PanelPromotion then
+        self.PanelPromotion.gameObject:SetActiveEx(false)
+    end
+    self.TxtRankRange.gameObject:SetActiveEx(true)
+    -- 英雄小队
+    if challengeCfg.ArenaLv == XArenaConfigs.ArenaHeroLv and challengeCfg.DanUpRankCostContributeScore > 0 and
+            region == XArenaPlayerRankRegion.UpRegion and
+            sumContributeScore >= challengeCfg.DanUpRankCostContributeScore then
+        if self.PanelPromotion then
+            self.PanelPromotion.gameObject:SetActiveEx(true)
+        end
+        self.TxtRankRange.gameObject:SetActiveEx(false)
+    else
+        self.TxtRankRange.text = XArenaConfigs.GetRankRegionText(region)
+    end
     XUiPLayerHead.InitPortrait(selfInfo.CurrHeadPortraitId, selfInfo.CurrHeadFrameId, self.Head)
 
     if sumContributeScore >= CS.XGame.Config:GetInt("ArenaProtectContributeScore") then
@@ -236,23 +255,27 @@ function XUiPanelActive:RefreshArenaPlayerRank()
 
     self.SiblingIndex = 1
     local titleIndex = 1
-    local playerIndex = 1
+    -- 是否合并DanUpRank，DanKeepRank排名变为保级区
+    local isMerge = challengeCfg.ArenaLv == XArenaConfigs.ArenaHeroLv and challengeCfg.DanUpRankCostContributeScore > 0
 
     -- 晋级区
-    if challengeCfg.DanUpRank > 0 then
+    if challengeCfg.DanUpRank > 0 and not isMerge then
         self:AddTitle(titleIndex, challengeCfg.UpRewardId)
         for i, info in ipairs(rankData.UpList) do
-            self:AddPlayer(playerIndex, info, i)
-            playerIndex = playerIndex + 1
+            self:AddPlayer(info, i)
         end
     end
 
     -- 保级区
     titleIndex = titleIndex + 1
-    self:AddTitle(titleIndex, challengeCfg.KeepRewardId)
+    self:AddTitle(titleIndex, challengeCfg.KeepRewardId, isMerge)
+    if isMerge then
+        for i, info in ipairs(rankData.UpList) do
+            self:AddPlayer(info, i)
+        end
+    end
     for i, info in ipairs(rankData.KeepList) do
-        self:AddPlayer(playerIndex, info, i)
-        playerIndex = playerIndex + 1
+        self:AddPlayer(info, i)
     end
 
     -- 降级区
@@ -260,13 +283,12 @@ function XUiPanelActive:RefreshArenaPlayerRank()
         titleIndex = titleIndex + 1
         self:AddTitle(titleIndex, challengeCfg.DownRewardId)
         for i, info in ipairs(rankData.DownList) do
-            self:AddPlayer(playerIndex, info, i)
-            playerIndex = playerIndex + 1
+            self:AddPlayer(info, i)
         end
     end
 end
 
-function XUiPanelActive:AddTitle(rankRegion, rewardId)
+function XUiPanelActive:AddTitle(rankRegion, rewardId, isHeroSquad)
     local grid = self.GridTitleCache[rankRegion]
     if not grid then
         local go = CS.UnityEngine.GameObject.Instantiate(self.GridTitle.gameObject)
@@ -285,6 +307,8 @@ function XUiPanelActive:AddTitle(rankRegion, rewardId)
     local rewardCount = XUiHelper.TryGetComponent(grid.transform, "ImgRewardCount", "Text")
     local btnTitle = XUiHelper.TryGetComponent(grid.transform, "BtnTitle", "Button")
     local btnReward = XUiHelper.TryGetComponent(grid.transform, "ImgReward/BtnReward", "Button")
+    local TxtTips = XUiHelper.TryGetComponent(grid.transform, "TxtTips", "Text")
+    TxtTips.gameObject:SetActiveEx(isHeroSquad)
 
     CsXUiHelper.RegisterClickEvent(btnTitle, function()
         XLuaUiManager.Open("UiArenaLevelDetail")
@@ -300,7 +324,7 @@ function XUiPanelActive:AddTitle(rankRegion, rewardId)
             --从Tips的ui跳转需要关闭Tips的UI
             XLuaUiManager.Open("UiCharacterDetail", list[1].TemplateId)
         elseif goodsShowParams.RewardType == XRewardManager.XRewardType.Equip then
-            XLuaUiManager.Open("UiEquipDetail", list[1].TemplateId, true)
+            XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipPreview(list[1].TemplateId)
             --从Tips的ui跳转需要关闭Tips的UI
         else
             XLuaUiManager.Open("UiTip", list[1] and list[1] or list[1].TemplateId)
@@ -317,8 +341,8 @@ function XUiPanelActive:AddTitle(rankRegion, rewardId)
     rewardCount.text = rewards[1].Count
 end
 
-function XUiPanelActive:AddPlayer(index, playerInfo, regionIndex)
-    local xUiArenaGrid = self.GridPlayerCache[index]
+function XUiPanelActive:AddPlayer(data, regionIndex)
+    local xUiArenaGrid = self.GridPlayerCache[data.Rank]
     if not xUiArenaGrid then
         local grid = CS.UnityEngine.GameObject.Instantiate(self.GridPlayer.gameObject)
         grid.transform:SetParent(self.PanelContent, false)
@@ -326,7 +350,7 @@ function XUiPanelActive:AddPlayer(index, playerInfo, regionIndex)
         table.insert(self.GridPlayerCache, xUiArenaGrid)
     end
 
-    xUiArenaGrid:Refresh(index, playerInfo, regionIndex)
+    xUiArenaGrid:Refresh(data, regionIndex)
     xUiArenaGrid:SetSiblingIndex(self.SiblingIndex - 1)
     self.SiblingIndex = self.SiblingIndex + 1
 end

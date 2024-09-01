@@ -73,23 +73,23 @@ function XPurchasePackage:CheckCanBuy(count, disCountCouponIndex, notEnoughCb)
     disCountCouponIndex = disCountCouponIndex or 0
     if self.Data.BuyLimitTimes > 0 and self.Data.BuyTimes == self.Data.BuyLimitTimes then --卖完了，不管。
         XUiManager.TipText("PurchaseLiSellOut")
-        return false
+        return 0
     end
     if self.Data.TimeToShelve > 0 and self.Data.TimeToShelve > XTime.GetServerNowTimestamp() then --没有上架
         XUiManager.TipText("PurchaseBuyNotSet")
-        return false
+        return 0
     end
     if self.Data.TimeToUnShelve > 0 and self.Data.TimeToUnShelve < XTime.GetServerNowTimestamp() then --下架了
         XUiManager.TipText("PurchaseSettOff")
-        return false
+        return 0
     end
     if self.Data.TimeToInvalid > 0 and self.Data.TimeToInvalid < XTime.GetServerNowTimestamp() then --失效了
         XUiManager.TipText("PurchaseSettOff")
-        return false
+        return 0
     end
     if self.Data.ConsumeCount > 0 and self.Data.ConvertSwitch <= 0 then -- 礼包内容全部拥有
         XUiManager.TipText("PurchaseRewardAllHaveErrorTips")
-        return false
+        return 0
     end
     local consumeCount = self.Data.ConsumeCount
     if disCountCouponIndex and disCountCouponIndex ~= 0 then
@@ -106,8 +106,12 @@ function XPurchasePackage:CheckCanBuy(count, disCountCouponIndex, notEnoughCb)
     end
     consumeCount = count * consumeCount -- 全部数量的总价
     if consumeCount > 0 and consumeCount > XDataCenter.ItemManager.GetCount(self.Data.ConsumeId) then --钱不够
-        local name = XDataCenter.ItemManager.GetItemName(self.Data.ConsumeId) or ""
-        local tips = XUiHelper.GetText("PurchaseBuyKaCountTips", name)
+        -- local name = XDataCenter.ItemManager.GetItemName(self.Data.ConsumeId) or ""
+        -- local tips = XUiHelper.GetText("PurchaseBuyKaCountTips", name)
+        if XUiHelper.CanBuyInOtherPlatformHongKa(consumeCount) then
+            return 2
+        end
+        local tips = XUiHelper.GetCountNotEnoughTips(self.Data.ConsumeId);
         XUiManager.TipMsg(tips,XUiManager.UiTipType.Wrong)
         if self.Data.ConsumeId == XDataCenter.ItemManager.ItemId.PaidGem then
             if notEnoughCb then
@@ -118,9 +122,9 @@ function XPurchasePackage:CheckCanBuy(count, disCountCouponIndex, notEnoughCb)
                 notEnoughCb(XPurchaseConfigs.TabsConfig.Pay)
             end
         end
-        return false
+        return 0
     end
-    return true
+    return 1
 end
 
 function XPurchasePackage:HandleBeforeBuy(successCb)
@@ -216,9 +220,11 @@ end
 
 -- v1.28-采购优化-检测是否礼包内是否第一件物品为时装
 function XPurchasePackage:CheckIsSingleFashion()
-    if not self.Data.RewardGoodsList then
-        return
+    --部分礼包配表没有RewardId，只有MailId
+    if self.Data.RewardGoodsList == nil then
+        return false
     end
+
     local good = self.Data.RewardGoodsList[1]
     if good.RewardType == XRewardManager.XRewardType.Fashion then
         return good.TemplateId, false
@@ -241,7 +247,7 @@ function XPurchasePackage:GetUiFashionDetailBuyData(buyFinishedFunc, notEnoughCb
     else
         buyData.ItemIcon = XDataCenter.ItemManager.GetItemIcon(self.Data.ConsumeId)
     end
-    buyData.ItemCount = math.modf(self.Data.ConsumeCount * disCountValue)
+    buyData.ItemCount = math.modf(self.Data.ConvertSwitch * disCountValue)
     buyData.BuyCallBack = function() 
         if self:CheckCanBuy(nil, nil, notEnoughCb) then
             if self.Data and self.Data.Id then
@@ -255,10 +261,12 @@ function XPurchasePackage:GetUiFashionDetailBuyData(buyFinishedFunc, notEnoughCb
                     local key
                     if Platform == RuntimePlatform.Android then
                         key = string.format("%s%s", XPayConfigs.GetPlatformConfig(1), self.Data.PayKeySuffix)
-                    else
+                    elseif Platform == RuntimePlatform.IPhonePlayer then
                         key = string.format("%s%s", XPayConfigs.GetPlatformConfig(2), self.Data.PayKeySuffix)
+                    else
+                        key = string.format("%s%s", XPayConfigs.GetPlatformConfig(0), self.Data.PayKeySuffix)
                     end
-                    XDataCenter.PayManager.Pay(key, 1, {self.Data.Id}, self.Data.Id)
+                    XDataCenter.PayManager.Pay(key, 1, {self.Data.Id,self.Data.UiType}, self.Data.Id)
                 else
                     XDataCenter.PurchaseManager.PurchaseRequest(self.Data.Id, mergeBuyFinishedCb, 1, nil, self:GetUiTypes())
                 end
@@ -311,6 +319,29 @@ function XPurchasePackage:GetIsSellOut()
             return true
         end
     end
+    return false
+end
+
+-- v1.31检查礼包奖励是否全部拥有
+function XPurchasePackage:GetIsHave()
+
+    --部分礼包配表没有RewardId，只有MailId
+    if self.Data.RewardGoodsList == nil then
+        return false
+    end
+
+    -- 全部奖励都已拥有
+    local isHave = XRewardManager.CheckRewardGoodsListIsOwnWithAll(self.Data.RewardGoodsList)
+    if isHave then 
+        return true
+    end
+
+    -- 非折价礼包：拥有涂装，仍为原价/0元。有涂装视为拥有此礼包
+    local isHaveFashion = XRewardManager.CheckRewardGoodsListIsOwnWithAll({self.Data.RewardGoodsList[1]})
+    if isHaveFashion and (self.Data.ConvertSwitch == self.Data.ConsumeCount or self.Data.ConvertSwitch == 0) then 
+        return true
+    end
+
     return false
 end
 

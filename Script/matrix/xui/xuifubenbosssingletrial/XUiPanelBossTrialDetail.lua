@@ -217,7 +217,7 @@ function XUiPanelBossTrialDetail:RefreshDesc()
     or CS.XTextManager.GetText("BossSingleFightCharCount", self.CurBossStageCfg.FightCharCount)
     self.TxtBossDes.text = sectionCfg.Desc
     self.TxtLevel.text = isHideBoss and CS.XTextManager.GetText("BossSingleLevelHideBoss", level) or CS.XTextManager.GetText("BossSingleLevel", level)
-    self.TxtATNums.text = stageCfg.RequireActionPoint
+    self.TxtATNums.text = XDataCenter.FubenManager.GetRequireActionPoint(stageId)
 
     --屏蔽挑战次数
     -- local allNums = XDataCenter.FubenBossSingleManager.GetChallengeCount()

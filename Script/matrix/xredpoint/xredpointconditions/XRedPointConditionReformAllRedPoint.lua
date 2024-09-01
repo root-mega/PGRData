@@ -1,7 +1,7 @@
 local XRedPointConditionReformAllRedPoint = {}
 
 function XRedPointConditionReformAllRedPoint.Check()
-    if not XDataCenter.ReformActivityManager.GetIsOpen() then
+    if not XDataCenter.Reform2ndManager.GetIsOpen() then
         return false
     end
     if not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.Reform) then
@@ -11,9 +11,6 @@ function XRedPointConditionReformAllRedPoint.Check()
         return true
     end
     if XRedPointConditionReformBaseStageOpen.Check() then
-        return true
-    end
-    if XRedPointConditionReformEvolvableStageUnlock.Check() then
         return true
     end
     return false

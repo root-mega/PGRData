@@ -12,7 +12,12 @@ function XUiStrongholdHelp:OnAwake()
 end
 
 function XUiStrongholdHelp:OnEnable()
+
     self:UpdateView()
+end
+
+function XUiStrongholdHelp:OnDisable()
+
 end
 
 function XUiStrongholdHelp:OnGetEvents()

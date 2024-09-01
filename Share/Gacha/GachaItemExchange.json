@@ -1,0 +1,28 @@
+[
+    {
+        "Id": 1,
+        "BuyCountMax": 10,
+        "TotalBuyCountMax": 100,
+        "UseItemIds": [
+            null,
+            3,
+            5
+        ],
+        "UseItemCounts": [
+            null,
+            175,
+            5
+        ],
+        "Sales": [
+            null,
+            null,
+            "71%OFF"
+        ],
+        "UseItemImgs": [
+            null,
+            "Assets/Product/Texture/Image/UiLotto/UiLottoCardHeika.png",
+            "Assets/Product/Texture/Image/UiLotto/UiLottoCardHongka.png"
+        ],
+        "TargetItemImg": "Assets/Product/Texture/Image/UiLotto/UiLottoCardSummer.png"
+    }
+]

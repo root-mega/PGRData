@@ -88,7 +88,7 @@ end
 --===========================================================================
 function XUiPanelCharQuality:InitUi()
     --星节点区域
-    for i = 1, XCharacterConfigs.MAX_QUALITY_STAR do
+    for i = 1, XEnumConst.CHARACTER.MAX_QUALITY_STAR do
         --Bg
         self["ImgLine" .. i] = self.Bg.transform:Find("ImgLine"..i):GetComponent("Image")
         --PanelWaferIcon-星节点
@@ -172,7 +172,7 @@ function XUiPanelCharQuality:OnBtnAdvancedClick()
     local characterId = self.CharacterId
     local character = XDataCenter.CharacterManager.GetCharacter(characterId)
     self.CharQualityUpgrade:OldCharUpgradeInfo(character)
-    if character.Star == XCharacterConfigs.MAX_QUALITY_STAR then
+    if character.Star == XEnumConst.CHARACTER.MAX_QUALITY_STAR then
         XDataCenter.CharacterManager.PromoteQuality(character, function()
             CS.XAudioManager.PlaySound(XSoundManager.UiBasicsMusic.UiCharacter_QualityUp)
             self.QualityUpgradeEnable:PlayTimelineAnimation()
@@ -204,7 +204,7 @@ function XUiPanelCharQuality:InitIcon()
     self.SelectIcon = {}
     self.Line = {}
     self.StarColour = {}
-    for i = 1, XCharacterConfigs.MAX_QUALITY_STAR do
+    for i = 1, XEnumConst.CHARACTER.MAX_QUALITY_STAR do
         self.StarColour[i] = self["ImgWaferColour" .. i]
         self.StarIcon[i] = self["ImgWaferon" .. i]
         self.StarAttr[i] = self["TxtWaferName" .. i]
@@ -214,7 +214,7 @@ function XUiPanelCharQuality:InitIcon()
 end
 
 function XUiPanelCharQuality:ClearAttrs()
-    for i = 1, XCharacterConfigs.MAX_QUALITY_STAR do
+    for i = 1, XEnumConst.CHARACTER.MAX_QUALITY_STAR do
         self.StarAttr[i].text = ""
     end
 end
@@ -224,7 +224,7 @@ end
 --===========================================================================
 function XUiPanelCharQuality:RefreshPanel()
     local character = XDataCenter.CharacterManager.GetCharacter(self.CharacterId)
-    local maxStar = XCharacterConfigs.MAX_QUALITY_STAR
+    local maxStar = XEnumConst.CHARACTER.MAX_QUALITY_STAR
     local isMaxStar = character.Star == maxStar
     
     self:UpdateWaferCircuit(character)
@@ -246,7 +246,7 @@ end
 function XUiPanelCharQuality:UpdateWaferCircuit(character)
     local isMaxQuality = XDataCenter.CharacterManager.IsMaxQuality(character)
     local qualityIcon = XCharacterConfigs.GetCharacterQualityIcon(character.Quality)
-    local isMaxStar = character.Star == XCharacterConfigs.MAX_QUALITY_STAR
+    local isMaxStar = character.Star == XEnumConst.CHARACTER.MAX_QUALITY_STAR
 
     self.ImgPromoteQulityMax.gameObject:SetActive(isMaxQuality)
     self.RImgQuality.gameObject:SetActive(not isMaxQuality and not isMaxStar)
@@ -296,7 +296,7 @@ end
 --===========================================================================
 function XUiPanelCharQuality:UpdateStar(character)
     -- 刷新星节点图标
-    for i = 1, XCharacterConfigs.MAX_QUALITY_STAR do
+    for i = 1, XEnumConst.CHARACTER.MAX_QUALITY_STAR do
         local isSkillStar = XCharacterConfigs.GetCharSkillQualityApartDicByStar(self.CharacterId, character.Quality, i)
         if #isSkillStar > 0 then
             self.StarColour[i]:SetSprite(CharSkillQualityNorIcon)
@@ -325,7 +325,7 @@ function XUiPanelCharQuality:UpdateStar(character)
     end
 
     -- 未亮星节点
-    for i = XCharacterConfigs.MAX_QUALITY_STAR, character.Star + 1, -1 do
+    for i = XEnumConst.CHARACTER.MAX_QUALITY_STAR, character.Star + 1, -1 do
         self.StarIcon[i].gameObject:SetActive(false)
         self.Line[i].gameObject:SetActive(false)
         self.StarColour[i].gameObject:SetActive(true)
@@ -373,7 +373,7 @@ end
 
 function XUiPanelCharQuality:UpdateStarAttrInfo(star)
     local character = XDataCenter.CharacterManager.GetCharacter(self.CharacterId)
-    if star < XCharacterConfigs.MAX_QUALITY_STAR then
+    if star < XEnumConst.CHARACTER.MAX_QUALITY_STAR then
         self.StarAttr[star + 1].gameObject:SetActive(false)
         self.StarColour[star + 1].gameObject:SetActive(false)
         self.SelectIcon[star + 1].gameObject:SetActive(true)
@@ -425,7 +425,7 @@ function XUiPanelCharQuality:OpenAdvanced(characterType, quality)
 
     local itemId = XCharacterConfigs.GetPromoteItemId(characterType, quality)
     local useCoin = XCharacterConfigs.GetPromoteUseCoin(characterType, quality)
-    self.TxtConditionCountMoney.text = XDataCenter.ItemManager.GetItemName(itemId) .. useCoin
+    self.TxtConditionCountMoney.text = useCoin .. " " .. XDataCenter.ItemManager.GetItemName(itemId)
 end
 
 function XUiPanelCharQuality:InitStarAttrInfo()

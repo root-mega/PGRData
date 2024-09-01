@@ -111,7 +111,7 @@ function XUiArchiveWeaponDetail:UpdateWeaponModel(modelConfig)
                     local panelEffect = root.PanelEffect
                     panelEffect.gameObject:SetActiveEx(false)
                     panelEffect.gameObject:SetActiveEx(true)
-                end, {gameObject = self.GameObject, IsDragRotation = true}, self.PanelDrag)
+                end, {gameObject = self.GameObject, IsDragRotation = true, AntiClockwise = true}, self.PanelDrag)
         end, delayTime)
 end
 

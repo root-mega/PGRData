@@ -24,12 +24,27 @@ function XUiPanelTask:Ctor(ui, rootUi)
     self.DynamicTable:SetDelegate(self)
 end
 
+function XUiPanelTask:OnDisable()
+    self:RemoveTimer()
+end
+
+function XUiPanelTask:OnDestroy()
+    self:RemoveTimer()
+end
+
+function XUiPanelTask:RemoveTimer()
+    if self.Timer then
+        XScheduleManager.UnSchedule(self.Timer)
+        self.Timer = nil
+    end
+end
+
 function XUiPanelTask:Refresh(activityCfg)
     if not activityCfg then return end
     self.ActivityCfg = activityCfg
     self.TxtContentTimeTask.text = self:GetTxtContentTimeTask(activityCfg)
     self.TxtContentTitleTask.text = activityCfg.ActivityTitle
-    self.TxtContentTask.text = activityCfg.ActivityDes
+    self.TxtContentTask.text = XUiHelper.ConvertLineBreakSymbol(activityCfg.ActivityDes)
 
     local skipId = activityCfg.Params[2]
     if skipId and skipId ~= 0 then
@@ -56,6 +71,20 @@ function XUiPanelTask:Refresh(activityCfg)
     end
 
     self:UpdateDynamicTable()
+    self:UpdateTimer()
+end
+
+function XUiPanelTask:UpdateTimer()
+    self:RemoveTimer()
+    local grids
+    self.Timer = XScheduleManager.ScheduleForeverEx(function()
+        grids = self.DynamicTable:GetGrids()
+        for _, grid in pairs(grids) do
+            if grid:GetTaskState() ~= XDataCenter.TaskManager.TaskState.Finish then
+                grid:UpdateTimes()
+            end
+        end
+    end, XScheduleManager.SECOND)
 end
 
 function XUiPanelTask:GetTxtContentTimeTask(activityCfg)
@@ -77,15 +106,16 @@ function XUiPanelTask:OnDynamicTableEvent(event, index, grid)
         grid.RootUi = self.RootUi
     elseif event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_ATINDEX then
         local data = self.TaskDatas[index]
-
         grid:ResetData(data)
-        
-        
     end
 end
 
 function XUiPanelTask:OnRedPointEvent(count)
     self.BtnGo:ShowReddot(count >= 0)
+end
+
+function XUiPanelTask:UpdateTask()
+    self:UpdateDynamicTable()
 end
 
 return XUiPanelTask

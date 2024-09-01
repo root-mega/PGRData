@@ -1,3 +1,4 @@
+---@class XGoldenMinerItemBase
 local XGoldenMinerItemBase = XClass(nil, "XGoldenMinerItemBase")
 
 function XGoldenMinerItemBase:Ctor(itemId)

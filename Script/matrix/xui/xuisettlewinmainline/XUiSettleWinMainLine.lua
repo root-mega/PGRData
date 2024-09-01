@@ -1,4 +1,5 @@
 local XUiPanelExpBar = require("XUi/XUiSettleWinMainLine/XUiPanelExpBar")
+local XUiStageSettleSound = require("XUi/XUiSettleWin/XUiStageSettleSound")
 
 local XUiSettleWinMainLine = XLuaUiManager.Register(XLuaUi, "UiSettleWinMainLine")
 
@@ -22,7 +23,9 @@ function XUiSettleWinMainLine:OnStart(data, cb, closeCb, onlyTouchBtn)
     self:PlayRewardAnimation()
     -- "再次挑战"上方显示血清消耗
     self.UiEncorePrice = require("XUi/XUiSettleWin/XUiSettleEncorePrice").New(self, data.StageId)
-    CS.XInputManager.SetCurOperationType(CS.XOperationType.System)
+
+    CS.XInputManager.SetCurOperationType(CS.XOperationType.System)    ---@type XUiStageSettleSound
+    self.UiStageSettleSound = XUiStageSettleSound.New(self, self.CurrentStageId, true)
 end
 
 function XUiSettleWinMainLine:OnEnable()
@@ -32,10 +35,12 @@ function XUiSettleWinMainLine:OnEnable()
             self:PlaySecondAnimation()
         end, 0)
     end
+    self.UiStageSettleSound:PlaySettleSound()
 end
 
 function XUiSettleWinMainLine:OnDestroy()
     XDataCenter.AntiAddictionManager.EndFightAction()
+    self.UiStageSettleSound:StopSettleSound()
 end
 
 -- 奖励动画
@@ -73,6 +78,7 @@ function XUiSettleWinMainLine:PlaySecondAnimation()
         this:PlayTipMission()
         XDataCenter.FunctionEventManager.UnLockFunctionEvent()
         self.IsFirst = false;
+        XEventManager.DispatchEvent(XEventId.EVENT_CHARACTER_TOWER_CONDITION_LISTENING, XFubenCharacterTowerConfigs.ListeningType.Stage, { StageId = self.StageCfg.StageId })
     end)
 end
 
@@ -188,6 +194,13 @@ function XUiSettleWinMainLine:InitInfo(data)
     self.PanelFriend.gameObject:SetActive(false)
     XTipManager.Execute()
 
+    -- 获取跳转缓存数据 
+    self.TeleportRewardCache = XDataCenter.FubenMainLineManager.GetTeleportRewardCache(self.StageInfos.ChapterId)
+    if not XTool.IsTableEmpty(self.TeleportRewardCache) then
+        -- 清空缓存
+        XDataCenter.FubenMainLineManager.RemoveTeleportRewardCache(self.StageInfos.ChapterId)
+    end
+    
     self:SetBtnsInfo(data)
     self:SetStageInfo(data)
     self:UpdatePlayerInfo(data)
@@ -209,6 +222,9 @@ function XUiSettleWinMainLine:SetBtnsInfo(data)
         local stasMap = XDataCenter.ArenaOnlineManager.GetStageStarsMapByChallengeId(challengeId)
         self.PanelCond.gameObject:SetActive(true)
         self:UpdateConditions(data.StageId, stasMap)
+    elseif self.StageInfos.Type == XDataCenter.FubenManager.StageType.CerberusGame then
+        self.PanelCond.gameObject:SetActive(true)
+        self:UpdateConditionsShowForDesc(data.StageId, data.StarsMap)
     else
         self.PanelCond.gameObject:SetActive(true)
         self:UpdateConditions(data.StageId, data.StarsMap)
@@ -274,7 +290,16 @@ function XUiSettleWinMainLine:InitRewardCharacterList(data)
             local ui = CS.UnityEngine.Object.Instantiate(self.GridWinRole)
             local grid = XUiGridWinRole.New(self, ui)
             grid.Transform:SetParent(self.PanelRoleContent, false)
-            grid:UpdateRoleInfo(charExp[i], self.StageCfg.CardExp)
+            local cardExp = XDataCenter.FubenManager.GetCardExp(self.CurrentStageId)
+            -- 获取跳转缓存数据
+            for _, info in pairs(self.TeleportRewardCache or {}) do
+                for _, v in pairs(info.CharExp or {}) do
+                    if v.Id == charExp[i].Id then
+                        cardExp = cardExp + info.AddCardExp
+                    end
+                end
+            end
+            grid:UpdateRoleInfo(charExp[i], cardExp)
             grid.GameObject:SetActive(true)
         end
     end
@@ -291,7 +316,11 @@ function XUiSettleWinMainLine:UpdatePlayerInfo(data)
     local curExp = XPlayer.Exp
     local curMaxExp = XPlayerManager.GetMaxExp(curLevel, XPlayer.IsHonorLevelOpen())
     local txtLevelName = XPlayer.IsHonorLevelOpen() and CS.XTextManager.GetText("HonorLevel") or nil
-    local addExp = self.StageCfg.TeamExp
+    local addExp = XDataCenter.FubenManager.GetTeamExp(self.CurrentStageId)
+    -- 获取跳转缓存数据
+    for _, info in pairs(self.TeleportRewardCache or {}) do
+        addExp = addExp + info.AddTeamExp
+    end
     self.PlayerExpBar = self.PlayerExpBar or XUiPanelExpBar.New(self.PanelPlayerExpBar)
     self.PlayerExpBar:LetsRoll(lastLevel, lastExp, lastMaxExp, curLevel, curExp, curMaxExp, addExp, txtLevelName)
 end
@@ -323,6 +352,11 @@ function XUiSettleWinMainLine:InitRewardList(rewardGoodsList)
     self.PanelAssist.gameObject:SetActiveEx(false)
     self.PaenlRewardList.gameObject:SetActiveEx(true)
     rewardGoodsList = rewardGoodsList or {}
+    -- 获取跳转缓存数据
+    for _, info in pairs(self.TeleportRewardCache or {}) do
+        local rewardList = info.RewardGoodsList or {}
+        rewardGoodsList = XTool.MergeArray(rewardGoodsList, rewardList)
+    end
     self.GridRewardList = {}
     local rewards = XRewardManager.MergeAndSortRewardGoodsList(rewardGoodsList)
     for _, item in ipairs(rewards) do
@@ -332,6 +366,27 @@ function XUiSettleWinMainLine:InitRewardList(rewardGoodsList)
         grid:Refresh(item, nil, nil, true)
         grid.GameObject:SetActive(false)
         table.insert(self.GridRewardList, grid)
+    end
+end
+
+-- 根据描述数量显示胜利满足的条件
+function XUiSettleWinMainLine:UpdateConditionsShowForDesc(stageId, starMap)
+    self.GridCond.gameObject:SetActive(false)
+    if starMap == nil then
+        return
+    end
+
+    self.GridCondList = {}
+    for i = 1, #starMap do
+        local conDesc = self.StageCfg.StarDesc[i]
+        if conDesc then
+            local ui = CS.UnityEngine.Object.Instantiate(self.GridCond)
+            local grid = XUiGridCond.New(ui)
+            grid.Transform:SetParent(self.PanelCondContent, false)
+            grid:Refresh(conDesc, starMap[i])
+            grid.GameObject:SetActive(true)
+            self.GridCondList[i] = grid
+        end
     end
 end
 

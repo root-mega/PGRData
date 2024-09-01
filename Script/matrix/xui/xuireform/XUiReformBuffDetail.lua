@@ -7,7 +7,8 @@ end
 function XUiReformBuffDetail:OnStart(data)
     self.TxtName.text = data.Name
     self.RImgIcon:SetRawImage(data.Icon)
-    self.TxtStarCount.text = data.StarCount
+    --self.TxtStarCount.text = data.StarCount
+    self.TxtStarCount.transform.parent.gameObject:SetActiveEx(false)
     self.TxtDescription.text = data.Description
 end
 

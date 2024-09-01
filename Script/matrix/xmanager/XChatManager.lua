@@ -1320,6 +1320,21 @@ XChatManagerCreator = function()
         return ""
     end
 
+    -- 检查是否有新的表情包
+    function XChatManager.CheckIsNewEmoji()
+        local isRed = nil
+        local allPacks = XChatManager.GetAllEmojiPacksWithAutoSort()
+        for k, v in pairs(allPacks) do
+            for k2, v2 in pairs(v:GetEmojiList()) do
+                if v2:GetIsNew() then
+                    isRed = true
+                    break
+                end            
+            end
+        end
+        return isRed
+    end
+
     function XChatManager.ProcessExtraContent(chatData)
         if not chatData then
             return

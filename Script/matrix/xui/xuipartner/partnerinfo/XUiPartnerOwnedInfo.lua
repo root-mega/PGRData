@@ -48,7 +48,7 @@ end
 
 function XUiPartnerOwnedInfo:OnBtnPartnerLockClick()
     XDataCenter.PartnerManager.PartnerUpdateLockRequest(self.Data:GetId(), not self.Data:GetIsLock(), function ()
-            self.Base:ShowPanel()
+            self.Base:ShowPanel(true)
         end)
 end
 

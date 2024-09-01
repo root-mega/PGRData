@@ -10,6 +10,7 @@ XEquipManagerCreator = function()
     local mathFloor = math.floor
     local CSXTextManagerGetText = CS.XTextManager.GetText
 
+    ---@class XEquipManager
     local XEquipManager = {}
     local Equips = {} -- 装备数据
     local WeaponTypeCheckDic = {}
@@ -100,29 +101,8 @@ XEquipManagerCreator = function()
     InitEquipTypeCheckDic()
     InitAwakeItemTypeDic()
     -----------------------------------------Privite End------------------------------------
-    function XEquipManager.InitEquipData(equipsData)
-        for _, equip in pairs(equipsData) do
-            Equips[equip.Id] = XEquipManager.NewEquip(equip)
-        end
-
-        XEventManager.DispatchEvent(XEventId.EVENT_EQUIP_DATA_INIT_NOTIFY)
-    end
-
-    function XEquipManager.NewEquip(protoData)
-        return XEquip.New(protoData)
-    end
-
-    function XEquipManager.NotifyEquipDataList(data)
-        local syncList = data.EquipDataList
-        if not syncList then
-            return
-        end
-
-        for _, equip in pairs(syncList) do
-            XEquipManager.OnSyncEquip(equip)
-        end
-
-        CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIP_DATA_LIST_UPDATE_NOTYFY)
+    function XEquipManager.InitEquipData(equipDic)
+        Equips = equipDic
     end
 
     function XEquipManager.NotifyEquipChipGroupList(data)
@@ -135,29 +115,54 @@ XEquipManagerCreator = function()
         CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIP_SUIT_PREFAB_DATA_UPDATE_NOTIFY)
     end
 
-    function XEquipManager.OnSyncEquip(protoData)
-        local equip = Equips[protoData.Id]
-        if not equip then
-            equip = XEquipManager.NewEquip(protoData)
-            Equips[protoData.Id] = equip
-        else
-            equip:SyncData(protoData)
-        end
 
-        XEventManager.DispatchEvent(XEventId.EVENT_EQUIP_DATA_CHANGE_NOTIFY, equip)
-    end
-
-    function XEquipManager.DeleteEquip(equipProtoId)
-        Equips[equipProtoId] = nil
+    function XEquipManager.DeleteEquip(equipId)
+        XMVCA:GetAgency(ModuleId.XEquip):DeleteEquip(equipId)
     end
 
     function XEquipManager.GetEquip(equipId)
-        local equip = Equips[equipId]
-        if not equip then
-            XLog.Error("XEquipManager.GetEquip error: 装备不存在, equipId: " .. equipId)
-            return
+        return XMVCA:GetAgency(ModuleId.XEquip):GetEquip(equipId)
+    end
+
+    -- 是否拥有这件装备
+    function XEquipManager.IsOwnEquip(templateId)
+        for _, equip in pairs(Equips) do
+            if equip.TemplateId == templateId then
+                return true
+            end
         end
-        return equip
+        return  false
+    end
+    
+    --==============================
+     ---@desc 通过templateId获取背包中或目标角色身上的装备
+     ---@templateId 装备真实Id 
+     ---@return table
+    --==============================
+    function XEquipManager.GetEnableEquipIdsByTemplateId(templateId, targetCharacterId)
+        local equipIds = {}
+        for id, equip in pairs(Equips) do
+            if equip.TemplateId == templateId and
+                    (equip.CharacterId <= 0 or equip.CharacterId == targetCharacterId) then
+                table.insert(equipIds, id)
+            end
+        end
+        return equipIds
+    end
+    
+    --==============================
+     ---@desc 目标装备是否可用（未被其他角色装备）
+     ---@templateId 装备真实Id 
+     ---@return boolean
+    --==============================
+    function XEquipManager.IsEquipActive(templateId, characterId)
+        for id, equip in pairs(Equips) do
+            if equip.TemplateId == templateId and
+                    (equip.CharacterId <= 0 or equip.CharacterId == characterId) then
+                return true
+            end
+        end
+        return false
     end
 
     --desc: 获取所有武器equipId
@@ -358,6 +363,13 @@ XEquipManagerCreator = function()
             if aStar ~= bStar then
                 return aStar > bStar
             end
+        end
+
+        -- 是否超限
+        local isOverrunA = a:IsOverrun() and 1 or 0
+        local isOverrunB = b:IsOverrun() and 1 or 0
+        if isOverrunA ~= isOverrunB then
+            return isOverrunA > isOverrunB
         end
 
         if not exclude or exclude ~= XEquipConfig.PriorSortType.Breakthrough then
@@ -588,105 +600,6 @@ XEquipManagerCreator = function()
     end
     -----------------------------------------Function End------------------------------------
     -----------------------------------------Protocol Begin------------------------------------
-    function XEquipManager.PutOn(characterId, equipId)
-        if not XDataCenter.CharacterManager.IsOwnCharacter(characterId) then
-            XUiManager.TipText("EquipPutOnNotChar")
-            return
-        end
-
-        local equipSpecialCharacterId = XEquipManager.GetEquipSpecialCharacterId(equipId)
-        if equipSpecialCharacterId and equipSpecialCharacterId ~= characterId then
-            local char = XDataCenter.CharacterManager.GetCharacter(equipSpecialCharacterId)
-            if char then
-                local characterName = XCharacterConfigs.GetCharacterName(equipSpecialCharacterId)
-                local gradeName = XCharacterConfigs.GetCharGradeName(equipSpecialCharacterId, char.Grade)
-                XUiManager.TipMsg(
-                    CSXTextManagerGetText("EquipPutOnSpecialCharacterIdNotEqual", characterName, gradeName)
-                )
-            end
-            return
-        end
-
-        local characterEquipType = XCharacterConfigs.GetCharacterEquipType(characterId)
-        if not XEquipManager.IsTypeEqual(equipId, characterEquipType) then
-            XUiManager.TipText("EquipPutOnEquipTypeError")
-            return
-        end
-
-        local req = {CharacterId = characterId, Site = XEquipManager.GetEquipSite(equipId), EquipId = equipId}
-        XNetwork.Call(
-            "EquipPutOnRequest",
-            req,
-            function(res)
-                if res.Code ~= XCode.Success then
-                    XUiManager.TipCode(res.Code)
-                    return
-                end
-
-                local equipSite = XEquipManager.GetEquipSite(equipId)
-                local oldEquipId = XEquipManager.GetWearingEquipIdBySite(characterId, equipSite)
-                if oldEquipId and oldEquipId ~= 0 then
-                    local oldEquip = XEquipManager.GetEquip(oldEquipId)
-                    if XEquipManager.IsWeapon(oldEquipId) then
-                        local switchCharacterId = XEquipManager.GetEquipWearingCharacterId(equipId)
-                        oldEquip:PutOn(switchCharacterId)
-                    else
-                        oldEquip:TakeOff()
-                    end
-                end
-
-                local equip = XEquipManager.GetEquip(equipId)
-                equip:PutOn(characterId)
-
-                XEquipManager.TipEquipOperation(nil, CSXTextManagerGetText("EquipPutOnSuc"))
-
-                CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIP_PUTON_NOTYFY, equipId)
-                XEventManager.DispatchEvent(XEventId.EVENT_EQUIP_PUTON_NOTYFY, equipId)
-
-                if XEquipManager.IsClassifyEqual(equipId, XEquipConfig.Classify.Weapon) then
-                    XEventManager.DispatchEvent(XEventId.EVENT_EQUIP_PUTON_WEAPON_NOTYFY, characterId, equipId)
-                end
-            end
-        )
-    end
-
-    function XEquipManager.TakeOff(equipIds)
-        if not equipIds or not next(equipIds) then
-            XLog.Error("XEquipManager.TakeOff错误, 参数equipIds不能为为空")
-            return
-        end
-
-        for _, equipId in pairs(equipIds) do
-            if not XEquipManager.IsWearing(equipId) then
-                XUiManager.TipText("EquipTakeOffNotChar")
-                return
-            end
-        end
-
-        local req = {EquipIds = equipIds}
-        XNetwork.Call(
-            "EquipTakeOffRequest",
-            req,
-            function(res)
-                if res.Code ~= XCode.Success then
-                    XUiManager.TipCode(res.Code)
-                    return
-                end
-
-                XEquipManager.TipEquipOperation(nil, CSXTextManagerGetText("EquipTakeOffSuc"))
-
-                for _, equipId in pairs(equipIds) do
-                    local equip = XEquipManager.GetEquip(equipId)
-                    equip:TakeOff()
-                    XEventManager.DispatchEvent(XEventId.EVENT_EQUIP_TAKEOFF_NOTYFY, equipId)
-                end
-
-                XEventManager.DispatchEvent(XEventId.EVENT_EQUIPLIST_TAKEOFF_NOTYFY, equipIds)
-                CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIPLIST_TAKEOFF_NOTYFY, equipIds)
-            end
-        )
-    end
-
     function XEquipManager.SetLock(equipId, isLock)
         if not equipId then
             XLog.Error("XEquipManager.SetLock错误: 参数equipId不能为空")
@@ -708,167 +621,6 @@ XEquipManagerCreator = function()
 
                 CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIP_LOCK_STATUS_CHANGE_NOTYFY, equipId, isLock)
                 XEventManager.DispatchEvent(XEventId.EVENT_EQUIP_LOCK_STATUS_CHANGE_NOTYFY, equipId, isLock)
-            end
-        )
-    end
-
-    function XEquipManager.LevelUp(equipId, equipIdCheckList, useItemDic, callBackBeforeEvent)
-        if not equipId then
-            XLog.Error("XEquipManager.LevelUp错误: 参数equipId不能为空")
-            return
-        end
-
-        if XEquipManager.IsMaxLevel(equipId) then
-            XUiManager.TipText("EquipLevelUpMaxLevel")
-            return
-        end
-
-        local costEmpty = true
-        local costMoney = 0
-        if equipIdCheckList and next(equipIdCheckList) then
-            costEmpty = nil
-            costMoney = costMoney + XEquipManager.GetEatEquipsCostMoney(equipIdCheckList)
-        end
-
-        if useItemDic and next(useItemDic) then
-            costEmpty = nil
-            costMoney = costMoney + XEquipManager.GetEatItemsCostMoney(useItemDic)
-            XMessagePack.MarkAsTable(useItemDic)
-        end
-
-        if costEmpty then
-            XUiManager.TipText("EquipLevelUpItemEmpty")
-            return
-        end
-
-        if
-            not XDataCenter.ItemManager.DoNotEnoughBuyAsset(
-                XDataCenter.ItemManager.ItemId.Coin,
-                costMoney,
-                1,
-                function()
-                    XEquipManager.LevelUp(equipId, equipIdCheckList, useItemDic, callBackBeforeEvent)
-                end,
-                "EquipBreakCoinNotEnough"
-            )
-         then
-            return
-        end
-
-        local useEquipIdList = {}
-        local containPrecious = false
-        local canNotAutoEatStar = XEquipConfig.CAN_NOT_AUTO_EAT_STAR
-        for tmpEquipId in pairs(equipIdCheckList) do
-            containPrecious =
-                containPrecious or XEquipManager.GetEquipStar(GetEquipTemplateId(tmpEquipId)) >= canNotAutoEatStar
-            tableInsert(useEquipIdList, tmpEquipId)
-        end
-
-        local req = {EquipId = equipId, UseEquipIdList = useEquipIdList, UseItems = useItemDic}
-        local callFunc = function()
-            XNetwork.Call(
-                "EquipLevelUpRequest",
-                req,
-                function(res)
-                    if res.Code ~= XCode.Success then
-                        XUiManager.TipCode(res.Code)
-                        return
-                    end
-
-                    for _, id in pairs(useEquipIdList) do
-                        XEquipManager.DeleteEquip(id)
-                    end
-
-                    local equip = XEquipManager.GetEquip(equipId)
-                    equip:SetLevel(res.Level)
-                    equip:SetExp(res.Exp)
-
-                    local closeCb
-                    if XEquipManager.CanBreakThrough(equipId) then
-                        closeCb = function()
-                            XEquipManager.TipEquipOperation(equipId, nil, nil, true)
-                        end
-                    end
-                    XEquipManager.TipEquipOperation(nil, CSXTextManagerGetText("EquipStrengthenSuc"), closeCb, true)
-
-                    if callBackBeforeEvent then
-                        callBackBeforeEvent()
-                    end
-                    CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIP_STRENGTHEN_NOTYFY, equipId)
-                    XEventManager.DispatchEvent(XEventId.EVENT_EQUIP_STRENGTHEN_NOTYFY, equipId)
-                end
-            )
-        end
-
-        if containPrecious then
-            local title = CSXTextManagerGetText("EquipStrengthenPreciousTipTitle")
-            local content = CSXTextManagerGetText("EquipStrengthenPreciousTipContent")
-            XUiManager.DialogTip(title, content, XUiManager.DialogType.Normal, nil, callFunc)
-        else
-            callFunc()
-        end
-    end
-
-    function XEquipManager.Breakthrough(equipId)
-        if not equipId then
-            XLog.Error("XEquipManager.Breakthrough错误: 参数equipId不能为空")
-            return
-        end
-
-        if XEquipManager.IsMaxBreakthrough(equipId) then
-            XUiManager.TipText("EquipBreakMax")
-            return
-        end
-
-        if not XEquipManager.IsReachBreakthroughLevel(equipId) then
-            XUiManager.TipText("EquipBreakMinLevel")
-            return
-        end
-
-        local consumeItems = XEquipManager.GetBreakthroughConsumeItems(equipId)
-        if not XDataCenter.ItemManager.CheckItemsCount(consumeItems) then
-            XUiManager.TipText("EquipBreakItemNotEnough")
-            return
-        end
-
-        if
-            not XDataCenter.ItemManager.DoNotEnoughBuyAsset(
-                XEquipManager.GetBreakthroughUseItemId(equipId),
-                XEquipManager.GetBreakthroughUseMoney(equipId),
-                1,
-                function()
-                    XEquipManager.Breakthrough(equipId)
-                end,
-                "EquipBreakCoinNotEnough"
-            )
-         then
-            return
-        end
-
-        local title = CSXTextManagerGetText("EquipBreakthroughConfirmTiltle")
-        local content = CSXTextManagerGetText("EquipBreakthroughConfirmContent")
-        XUiManager.DialogTip(
-            title,
-            content,
-            XUiManager.DialogType.Normal,
-            nil,
-            function()
-                XNetwork.Call(
-                    "EquipBreakthroughRequest",
-                    {EquipId = equipId},
-                    function(res)
-                        if res.Code ~= XCode.Success then
-                            XUiManager.TipCode(res.Code)
-                            return
-                        end
-
-                        local equip = XEquipManager.GetEquip(equipId)
-                        equip:BreakthroughOneTime()
-
-                        CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIP_BREAKTHROUGH_NOTYFY, equipId)
-                        XEventManager.DispatchEvent(XEventId.EVENT_EQUIP_BREAKTHROUGH_NOTYFY, equipId)
-                    end
-                )
             end
         )
     end
@@ -895,152 +647,6 @@ XEquipManagerCreator = function()
 
                 if cb then
                     cb(res.EquipData)
-                end
-            end
-        )
-    end
-
-    -- 服务端接口begin
-    function XEquipManager.Resonance(
-        equipId,
-        slot,
-        characterId,
-        useEquipId,
-        useItemId,
-        selectSkillId,
-        equipResonanceType)
-        if useEquipId and XEquipManager.IsLock(useEquipId) then
-            XUiManager.TipText("EquipIsLock")
-            return
-        end
-
-        if characterId and not XDataCenter.CharacterManager.IsOwnCharacter(characterId) then
-            XUiManager.TipText("EquipResonanceNotOwnCharacter")
-            return
-        end
-
-        local callFunc = function()
-            local req = {
-                EquipId = equipId,
-                Slot = slot,
-                CharacterId = characterId,
-                UseEquipId = useEquipId,
-                UseItemId = useItemId,
-                SelectSkillId = selectSkillId,
-                SelectType = equipResonanceType
-            }
-            XNetwork.Call(
-                "EquipResonanceRequest",
-                req,
-                function(res)
-                    if res.Code ~= XCode.Success then
-                        XUiManager.TipCode(res.Code)
-                        return
-                    end
-
-                    if useEquipId then
-                        XEquipManager.DeleteEquip(useEquipId)
-                    end
-
-                    local equip = XEquipManager.GetEquip(equipId)
-                    if XDataCenter.EquipManager.IsClassifyEqual(equipId, XEquipConfig.Classify.Weapon) then
-                        equip:Resonance(res.ResonanceData, selectSkillId ~= nil)
-                    else
-                        equip:Resonance(res.ResonanceData)
-                    end
-
-                    --5星及以上的装备（包括武器、意识）共鸣操作成功之后，将该装备自动上锁
-                    if XEquipManager.CanResonance(equipId) then
-                        equip:SetLock(true)
-                    end
-
-                    CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIP_RESONANCE_NOTYFY, equipId, slot)
-                    XEventManager.DispatchEvent(XEventId.EVENT_EQUIP_RESONANCE_NOTYFY, equipId)
-                end
-            )
-        end
-
-        local containPreciousConfirmFunc = function()
-            local containPrecious =
-                useEquipId and
-                XEquipManager.GetEquipStar(GetEquipTemplateId(useEquipId)) >= XEquipConfig.CAN_NOT_AUTO_EAT_STAR
-            if containPrecious then
-                local title = CSXTextManagerGetText("EquipResonancePreciousTipTitle")
-                local content = CSXTextManagerGetText("EquipResonancePreciousTipContent")
-                XUiManager.DialogTip(title, content, XUiManager.DialogType.Normal, nil, callFunc)
-            else
-                callFunc()
-            end
-        end
-
-        containPreciousConfirmFunc()
-    end
-
-    function XEquipManager.ResonanceConfirm(equipId, slot, isUse)
-        local req = {EquipId = equipId, Slot = slot, IsUse = isUse}
-        XNetwork.Call(
-            "EquipResonanceConfirmRequest",
-            req,
-            function(res)
-                if res.Code ~= XCode.Success then
-                    XUiManager.TipCode(res.Code)
-                    return
-                end
-
-                local equip = XEquipManager.GetEquip(equipId)
-                equip:ResonanceConfirm(slot, isUse)
-
-                CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIP_RESONANCE_ACK_NOTYFY, equipId, slot)
-                XEventManager.DispatchEvent(XEventId.EVENT_EQUIP_RESONANCE_ACK_NOTYFY, equipId)
-            end
-        )
-    end
-
-    function XEquipManager.Awake(equipId, slot, costType)
-        if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.EquipAwake) then
-            return
-        end
-
-        XNetwork.Call(
-            "EquipAwakeRequest",
-            {
-                EquipId = equipId,
-                Slot = slot,
-                CostType = costType
-            },
-            function(res)
-                if res.Code ~= XCode.Success then
-                    XUiManager.TipCode(res.Code)
-                    return
-                end
-
-                local equip = XEquipManager.GetEquip(equipId)
-                equip:SetAwake(slot)
-
-                CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIP_AWAKE_NOTYFY, equipId, slot)
-                XEventManager.DispatchEvent(XEventId.EVENT_EQUIP_AWAKE_NOTYFY, equipId)
-            end
-        )
-    end
-
-    function XEquipManager.EquipDecompose(equipIds, cb)
-        local req = {EquipIds = equipIds}
-        XNetwork.Call(
-            "EquipDecomposeRequest",
-            req,
-            function(res)
-                if res.Code ~= XCode.Success then
-                    XUiManager.TipCode(res.Code)
-                    return
-                end
-
-                local rewardGoodsList = res.RewardGoodsList
-                for _, id in pairs(equipIds) do
-                    XEquipManager.DeleteEquip(id)
-                end
-
-                if cb then
-                    cb(rewardGoodsList)
                 end
             end
         )
@@ -1081,95 +687,6 @@ XEquipManagerCreator = function()
                 XEquipManager.SaveSuitPrefabInfo(res.ChipGroupData)
                 XUiManager.TipText("EquipSuitPrefabSaveSuc")
                 CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIP_SUIT_PREFAB_DATA_UPDATE_NOTIFY)
-            end
-        )
-    end
-
-    function XEquipManager.EquipSuitPrefabEquip(prefabIndex, characterId, afterCheckCb)
-        if not characterId then
-            return
-        end
-        local suitPrefabInfo = XEquipManager.GetSuitPrefabInfo(prefabIndex)
-        if not suitPrefabInfo then
-            return
-        end
-
-        local oldEquipSiteToIdDic = {}
-        local oldEquipIds = XEquipManager.GetCharacterWearingAwarenessIds(characterId)
-        for _, equipId in pairs(oldEquipIds) do
-            local equipSite = XEquipManager.GetEquipSite(equipId)
-            oldEquipSiteToIdDic[equipSite] = equipId
-        end
-
-        local isDifferent = false
-        local newEquipSiteToIdDic = {}
-        local newEquipIds = suitPrefabInfo:GetEquipIds()
-        local newEquipIdDic = {}
-        for _, equipId in pairs(newEquipIds) do
-            local equipSpecialCharacterId = XEquipManager.GetEquipSpecialCharacterId(equipId)
-            if equipSpecialCharacterId and equipSpecialCharacterId ~= characterId then
-                local char = XDataCenter.CharacterManager.GetCharacter(equipSpecialCharacterId)
-                local characterName = XCharacterConfigs.GetCharacterName(equipSpecialCharacterId)
-                local gradeName = XCharacterConfigs.GetCharGradeName(equipSpecialCharacterId, char.Grade)
-                XUiManager.TipMsg(
-                    CSXTextManagerGetText("EquipPutOnSpecialCharacterIdNotEqual", characterName, gradeName)
-                )
-                return
-            end
-
-            local equipSite = XEquipManager.GetEquipSite(equipId)
-            newEquipSiteToIdDic[equipSite] = equipId
-            newEquipIdDic[equipId] = true
-            if oldEquipSiteToIdDic[equipSite] ~= equipId then
-                isDifferent = true
-            end
-        end
-
-        for _, oldequipId in pairs(oldEquipIds) do
-            if not newEquipIdDic[oldequipId] then
-                isDifferent = true
-            end
-        end
-
-        if not isDifferent then
-            XUiManager.TipText("EquipSuitPrefabEquipSame")
-            return
-        end
-
-        local req = {CharacterId = characterId, GroupId = suitPrefabInfo:GetGroupId()}
-        XNetwork.Call(
-            "EquipPutOnChipGroupRequest",
-            req,
-            function(res)
-                if res.Code ~= XCode.Success then
-                    XUiManager.TipCode(res.Code)
-                    return
-                end
-
-                for _, equipId in pairs(oldEquipIds) do
-                    local equip = XEquipManager.GetEquip(equipId)
-                    equip:TakeOff()
-                end
-
-                for _, equipId in pairs(newEquipIds) do
-                    local equip = XEquipManager.GetEquip(equipId)
-                    equip:PutOn(characterId)
-                end
-
-                local equipIds = {}
-                for _, equipSite in pairs(XEquipConfig.EquipSite.Awareness) do
-                    local equipId = oldEquipSiteToIdDic[equipSite] or newEquipSiteToIdDic[equipSite]
-                    if equipId then
-                        tableInsert(equipIds, equipId)
-                    end
-                end
-
-                XUiManager.TipText("EquipSuitPrefabEquipSuc")
-                if afterCheckCb then
-                    afterCheckCb()
-                end
-                CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIPLIST_TAKEOFF_NOTYFY, equipIds)
-                XEventManager.DispatchEvent(XEventId.EVENT_EQUIPLIST_TAKEOFF_NOTYFY, equipIds)
             end
         )
     end
@@ -1470,7 +987,7 @@ XEquipManagerCreator = function()
         return true
     end
 
-    function XEquipManager.CheckEquipCanAwake(equipId)
+    function XEquipManager.CheckEquipCanAwake(equipId, pos)
         if not XEquipManager.CheckEquipStarCanAwake(equipId) then
             return false
         end
@@ -1479,6 +996,10 @@ XEquipManagerCreator = function()
         local maxLevel = XEquipManager.GetEquipMaxLevel(templateId)
         local equip = XEquipManager.GetEquip(equipId)
         if equip.Level ~= maxLevel then
+            return false
+        end
+
+        if not XDataCenter.EquipManager.CheckEquipPosResonanced(equipId, pos) then
             return false
         end
 
@@ -1497,6 +1018,27 @@ XEquipManagerCreator = function()
     function XEquipManager.IsEquipPosAwaken(equipId, pos)
         local equip = XEquipManager.GetEquip(equipId)
         return equip:IsEquipPosAwaken(pos)
+    end
+
+    -- 根据意识id 获得对应的公约加成描述字符串
+    function XEquipManager.GetEquipAwarenessOccupyHarmDesc(equipId, forceNum)
+        local str = ""
+        if XTool.IsNumberValid(equipId) then
+            local curr = 0
+            for i = 1, XEquipConfig.MAX_RESONANCE_SKILL_COUNT do
+                local awaken = XEquipManager.IsEquipPosAwaken(equipId, i)
+                if awaken then
+                    curr = curr + 1
+                end
+            end
+            
+            local equipData = XEquipManager.GetEquip(equipId)
+            if curr > 0 then
+                local awakeCfg = XEquipConfig.GetEquipAwakeCfg(equipData.TemplateId)
+                str = awakeCfg.AwarenessAttrDesc..((forceNum or curr) * awakeCfg.AwarenessAttrValue).."%"
+            end
+        end
+        return str
     end
 
     function XEquipManager.CheckEquipPosUnconfirmedResonanced(equipId, pos)
@@ -1594,17 +1136,8 @@ XEquipManagerCreator = function()
     end
 
     function XEquipManager.GetEquipAttrMap(equipId, preLevel)
-        local attrMap = {}
-
-        if not equipId then
-            return attrMap
+        return XMVCA:GetAgency(ModuleId.XEquip):GetEquipAttrMap(equipId, nil, preLevel)
         end
-        local equip = XEquipManager.GetEquip(equipId)
-        local attrs = XFightEquipManager.GetEquipAttribs(equip, preLevel)
-        attrMap = ConstructEquipAttrMap(attrs)
-
-        return attrMap
-    end
 
     function XEquipManager.GetEquipAttrMapByEquipData(equip)
         local attrMap = {}
@@ -1623,7 +1156,7 @@ XEquipManagerCreator = function()
             Breakthrough = 0,
             Level = 1
         }
-        local attrs = XFightEquipManager.GetEquipAttribs(equipData, preLevel)
+        local attrs = XFightEquipManager.GetEquipAttribs(equipData, nil, preLevel)
         return ConstructEquipAttrMap(attrs)
     end
 
@@ -2129,11 +1662,22 @@ XEquipManagerCreator = function()
 
     function XEquipManager.GetCharacterWearingSuitMergeActiveSkillDesInfoList(characterId)
         local wearingAwarenessIds = XEquipManager.GetCharacterWearingAwarenessIds(characterId)
-        return XEquipManager.GetSuitMergeActiveSkillDesInfoList(wearingAwarenessIds)
+        return XEquipManager.GetSuitMergeActiveSkillDesInfoList(wearingAwarenessIds, characterId)
     end
 
-    function XEquipManager.GetSuitMergeActiveSkillDesInfoList(wearingAwarenessIds)
+    function XEquipManager.GetSuitMergeActiveSkillDesInfoList(wearingAwarenessIds, characterId)
         local skillDesInfoList = {}
+        local overrunSuitId = 0 -- 超限绑定的套装id
+        local isAddOverrun = false
+        if characterId then
+            local usingWeaponId = XEquipManager.GetCharacterWearingWeaponId(characterId)
+            if usingWeaponId ~= 0 then
+                local equip = XEquipManager.GetEquip(usingWeaponId)
+                if equip:CanOverrun() and equip:IsOverrunBlindMatch() then
+                    overrunSuitId = equip:GetOverrunChoseSuit()
+                end
+            end
+        end
 
         local suitIdSet = {}
         for _, equipId in pairs(wearingAwarenessIds) do
@@ -2143,9 +1687,14 @@ XEquipManagerCreator = function()
                 suitIdSet[suitId] = count and count + 1 or 1
             end
         end
+        if overrunSuitId ~= 0 and not suitIdSet[overrunSuitId] then
+            suitIdSet[overrunSuitId] = 0
+        end
 
         for suitId, count in pairs(suitIdSet) do
-            local activeskillDesList = XEquipManager.GetSuitActiveSkillDesList(suitId, count)
+            local isOverrun = suitId == overrunSuitId
+            isAddOverrun = isAddOverrun or isOverrun
+            local activeskillDesList = XEquipManager.GetSuitActiveSkillDesList(suitId, count, isOverrun, isOverrun)
             for _, info in pairs(activeskillDesList) do
                 if info.IsActive then
                     tableInsert(skillDesInfoList, info)
@@ -2173,39 +1722,58 @@ XEquipManagerCreator = function()
         return count, siteCheckDic
     end
 
-    function XEquipManager.GetSuitActiveSkillDesList(suitId, count)
+    function XEquipManager.GetSuitActiveSkillDesList(suitId, count, isOverrun, isAddOverrunTips)
+        count = count or 0
         local activeskillDesList = {}
 
         local skillDesList = XEquipManager.GetSuitSkillDesList(suitId)
         if skillDesList[2] then
-            tableInsert(
-                activeskillDesList,
-                {
-                    SkillDes = skillDesList[2] or "",
-                    PosDes = CSXTextManagerGetText("EquipSuitSkillPrefix2"),
-                    IsActive = count and count >= 2
-                }
-            )
+            local isActive = count >= 2
+            local isActiveWithOverrun = count + XEquipConfig.OVERRUN_ADD_SUIT_CNT >= 2
+            local skillInfo = {}
+            skillInfo.SkillDes = skillDesList[2] or ""
+            skillInfo.PosDes = CSXTextManagerGetText("EquipSuitSkillPrefix2")
+            skillInfo.IsActive = isOverrun and isActiveWithOverrun or isActive
+            skillInfo.IsActiveByOverrun = isOverrun and not isActive and isActiveWithOverrun
+            if skillInfo.IsActiveByOverrun then
+                skillInfo.OverrunTips = CSXTextManagerGetText("EquipOverrunActive2")
+                if isAddOverrunTips then
+                    skillInfo.SkillDes = skillInfo.SkillDes .. CSXTextManagerGetText("EquipOverrunActiveTips")
+                end
+            end
+            tableInsert(activeskillDesList, skillInfo)
         end
         if skillDesList[4] then
-            tableInsert(
-                activeskillDesList,
-                {
-                    SkillDes = skillDesList[4] or "",
-                    PosDes = CSXTextManagerGetText("EquipSuitSkillPrefix4"),
-                    IsActive = count and count >= 4
-                }
-            )
+            local isActive = count >= 4
+            local isActiveWithOverrun = count + XEquipConfig.OVERRUN_ADD_SUIT_CNT >= 4
+            local skillInfo = {}
+            skillInfo.SkillDes = skillDesList[4] or ""
+            skillInfo.PosDes = CSXTextManagerGetText("EquipSuitSkillPrefix4")
+            skillInfo.IsActive = isOverrun and isActiveWithOverrun or isActive
+            skillInfo.IsActiveByOverrun = isOverrun and not isActive and isActiveWithOverrun
+            if skillInfo.IsActiveByOverrun then
+                skillInfo.OverrunTips = CSXTextManagerGetText("EquipOverrunActive4")
+                if isAddOverrunTips then
+                    skillInfo.SkillDes = skillInfo.SkillDes .. CSXTextManagerGetText("EquipOverrunActiveTips")
+                end
+            end
+            tableInsert(activeskillDesList, skillInfo)
         end
         if skillDesList[6] then
-            tableInsert(
-                activeskillDesList,
-                {
-                    SkillDes = skillDesList[6] or "",
-                    PosDes = CSXTextManagerGetText("EquipSuitSkillPrefix6"),
-                    IsActive = count and count >= 6
-                }
-            )
+            local isActive = count >= 6
+            local isActiveWithOverrun = count + XEquipConfig.OVERRUN_ADD_SUIT_CNT >= 6
+            local skillInfo = {}
+            skillInfo.SkillDes = skillDesList[6] or ""
+            skillInfo.PosDes = CSXTextManagerGetText("EquipSuitSkillPrefix6")
+            skillInfo.IsActive = isOverrun and isActiveWithOverrun or isActive
+            skillInfo.IsActiveByOverrun = isOverrun and not isActive and isActiveWithOverrun
+            if skillInfo.IsActiveByOverrun then
+                skillInfo.OverrunTips = CSXTextManagerGetText("EquipOverrunActive6")
+                if isAddOverrunTips then
+                    skillInfo.SkillDes = skillInfo.SkillDes .. CSXTextManagerGetText("EquipOverrunActiveTips")
+                end
+            end
+            tableInsert(activeskillDesList, skillInfo)
         end
 
         return activeskillDesList
@@ -2277,22 +1845,24 @@ XEquipManagerCreator = function()
         local idList = {}
         local templateId = equip.TemplateId
         local isWeaponFashion = weaponFashionId and not XWeaponFashionConfigs.IsDefaultId(weaponFashionId)
-        local isAprilFoolDay = XDataCenter.AprilFoolDayManager.IsInTime()
+        local isAprilFoolDay = XDataCenter.AprilFoolDayManager.IsInTitleTime()
 
         local template = (not isWeaponFashion and isAprilFoolDay) and XEquipConfig.GetFoolEquipResCfg(templateId) or XEquipConfig.GetEquipResCfg(templateId, equip.Breakthrough)
         local resonanceCount =
             equip and equip.ResonanceInfo and (equip.ResonanceInfo.Count or XTool.GetTableCount(equip.ResonanceInfo)) or
             0
 
-        for case, modelTransId in pairs(template.ModelTransId) do
-            if XTool.IsNumberValid(modelTransId) then
-                local modelId = isWeaponFashion and XWeaponFashionConfigs.GetWeaponResonanceModelId(case, weaponFashionId, resonanceCount)
-                if not modelId then
-                    modelId = isAprilFoolDay and 
-                        XEquipConfig.GetFoolWeaponResonanceModelId(case, templateId, resonanceCount) or 
-                        XEquipConfig.GetWeaponResonanceModelId(case, templateId, resonanceCount)
+        if template then
+            for case, modelTransId in pairs(template.ModelTransId) do
+                if XTool.IsNumberValid(modelTransId) then
+                    local modelId = isWeaponFashion and XWeaponFashionConfigs.GetWeaponResonanceModelId(case, weaponFashionId, resonanceCount)
+                    if not modelId then
+                        modelId = isAprilFoolDay and
+                                XEquipConfig.GetFoolWeaponResonanceModelId(case, templateId, resonanceCount) or
+                                XEquipConfig.GetWeaponResonanceModelId(case, templateId, resonanceCount)
+                    end
+                    idList[case] = modelId
                 end
-                idList[case] = modelId
             end
         end
 
@@ -2842,39 +2412,6 @@ XEquipManagerCreator = function()
         return count
     end
 
-    function XEquipManager.GetResonancePreSkillInfoList(equipId, characterId, slot)
-        local preSkillInfoList = {}
-        local templateId = GetEquipTemplateId(equipId)
-        local equipResonanceCfg = XEquipConfig.GetEquipResonanceCfg(templateId)
-
-        if XEquipManager.IsClassifyEqual(equipId, XEquipConfig.Classify.Weapon) then
-            local poolId = equipResonanceCfg.WeaponSkillPoolId[slot]
-            local skillIds = XEquipConfig.GetWeaponSkillPoolSkillIds(poolId, characterId)
-
-            for _, skillId in ipairs(skillIds) do
-                tableInsert(preSkillInfoList, XSkillInfoObj.New(XEquipConfig.EquipResonanceType.WeaponSkill, skillId))
-            end
-        else
-            local skillPoolId = equipResonanceCfg.CharacterSkillPoolId[slot]
-            local skillInfos = XCharacterConfigs.GetCharacterSkillPoolSkillInfos(skillPoolId, characterId)
-            local attrPoolId = equipResonanceCfg.AttribPoolId[slot]
-            local attrInfos = XAttribConfigs.GetAttribGroupTemplateByPoolId(attrPoolId)
-
-            for i, v in ipairs(skillInfos) do
-                tableInsert(
-                    preSkillInfoList,
-                    XSkillInfoObj.New(XEquipConfig.EquipResonanceType.CharacterSkill, v.SkillId)
-                )
-            end
-
-            for i, v in ipairs(attrInfos) do
-                tableInsert(preSkillInfoList, XSkillInfoObj.New(XEquipConfig.EquipResonanceType.Attrib, v.Id))
-            end
-        end
-
-        return preSkillInfoList
-    end
-
     function XEquipManager.GetResonanceSkillInfo(equipId, pos)
         local skillInfo = {}
 
@@ -3166,9 +2703,26 @@ XEquipManagerCreator = function()
         return equipListAbility + skillAbility
     end
 
-    function XEquipManager.GetEquipSkipIds(eatType, equipId)
+    --==============================
+     ---@desc 获取装备升级消耗来源
+     ---@eatType 消耗类型
+     ---@equipId 装备Id
+     ---@return table
+    --==============================
+    function XEquipManager.GetEquipEatSkipIds(eatType, equipId)
         local site = XEquipManager.GetEquipSite(equipId)
-        local template = XEquipConfig.GetEquipSkipIdTemplate(eatType, site)
+        local template = XEquipConfig.GetEquipEatSkipIdTemplate(eatType, site)
+        return template.SkipIdParams
+    end
+    
+    --==============================
+     ---@desc 获取装备来源
+     ---@templateId 装备Id 
+     ---@return table
+    --==============================
+    function XEquipManager.GetEquipSkipIds(templateId)
+        local equipType = XEquipManager.GetEquipClassifyByTemplateId(templateId)
+        local template = XEquipConfig.GetEquipSkipIdTemplate(equipType)
         return template.SkipIdParams
     end
 
@@ -3188,7 +2742,9 @@ XEquipManagerCreator = function()
             OverLimitTexts["Wafer"] = CS.XTextManager.GetText("WaferBoxIsFull")
         end
 
-        if XDataCenter.MailManager.CheckMailIsOverLimit(true) then
+        ---@type XMailAgency
+        local mailAgency = XMVCA:GetAgency(ModuleId.XMail)
+        if mailAgency:CheckMailIsOverLimit(true) then
             return true
         end
 
@@ -3213,7 +2769,9 @@ XEquipManagerCreator = function()
         end
 
         max = CS.XGame.Config:GetInt("MailCountLimit")
-        cur = #XDataCenter.MailManager.GetMailList()
+        ---@type XMailAgency
+        local mailAgency = XMVCA:GetAgency(ModuleId.XMail)
+        cur = mailAgency:GetMailListCount()
         if (max - cur) < 1 then
             XUiManager.TipMsg(CS.XTextManager.GetText("MailBoxIsFull"))
             return true
@@ -4182,129 +3740,57 @@ XEquipManagerCreator = function()
 
         return result
     end
+    --endregion
 
-    --请求一键培养
-    --[[
-        /// <summary>
-        /// 装备一键培养一次操作信息
-        /// </summary>
-        [MessagePackObject(keyAsPropertyName:true)]
-        public class EquipOneKeyFeedOperationInfo
-        {
-            // 操作类型
-            public OneKeyFeedOperationType OperationType;
-            // 升级消耗的装备
-            public List<int> UseEquipIdList;
-            // 升级消耗的物品id列表
-            public List<int> UseItemIdList;
-            // 升级消耗的物品数量列表
-            public List<int> UseItemCountList;
-            // 升级消耗的物品（客户端不需要使用）
-            public Dictionary<int, int> UseItems;
-        }
-        /// <summary>
-        /// 装备一键培养操作枚举
-        /// </summary>
-        public enum OneKeyFeedOperationType
-        {
-            LevelUp = 1,                     // 升级操作
-            Breakthrough = 2,                // 突破操作
-        }
-    ]]
-    function XEquipManager.EquipOneKeyFeedRequest(equipId, targetBreakthrough, targetLevel, operations, cb)
-        if XFunctionManager.CheckFunctionFitter(XFunctionManager.FunctionName.EquipQuick) then
-            return
-        end
+    --region---------------------------------EquipSignboard--------------------------------
+    function XEquipManager.GetEquipAnimControllerBySignboard(characterId, fashionId, actionId)
+        return XEquipConfig.GetEquipAnimControllerBySignboard(characterId, fashionId, actionId)
+    end
 
-        local req = {
-            EquipId = equipId,
-            TargetBreakthrough = targetBreakthrough,
-            TargetLevel = targetLevel,
-            OperationInfos = {}
-        }
-        --服务端要求数据结构
-        for _, operation in ipairs(operations) do
-            local data = {
-                OperationType = operation.OperationType,
-                UseItemIdList = {},
-                UseItemCountList = {},
-                UseEquipIdList = {}
-            }
-            if not XTool.IsTableEmpty(operation.UseItems) then
-                for itemId, itemCount in pairs(operation.UseItems) do
-                    if itemCount > 0 then
-                        tableInsert(data.UseItemIdList, itemId)
-                        tableInsert(data.UseItemCountList, itemCount)
-                    end
-                end
-            end
-            --构造装备列表
-            if not XTool.IsTableEmpty(operation.UseEquipIdDic) then
-                for equipId in pairs(operation.UseEquipIdDic) do
-                    tableInsert(data.UseEquipIdList, equipId)
-                end
-            end
-            tableInsert(req.OperationInfos, data)
-        end
-        -- 拦截空操作
-        if XTool.IsTableEmpty(req.OperationInfos) then
-            return
-        end
-
-        XNetwork.Call(
-            "EquipOneKeyFeedRequest",
-            req,
-            function(res)
-                if res.Code ~= XCode.Success then
-                    XUiManager.TipCode(res.Code)
-                    return
-                end
-
-                --更新装备数据
-                local equip = XEquipManager.GetEquip(equipId)
-                equip:SetBreakthrough(res.Breakthrough)
-                equip:SetLevel(res.Level)
-                equip:SetExp(res.Exp)
-
-                --删除被吃掉的装备
-                for _, operation in pairs(req.OperationInfos) do
-                    for _, equipId in pairs(operation.UseEquipIdList) do
-                        XEquipManager.DeleteEquip(equipId)
-                    end
-                end
-
-                XEquipManager.TipEquipOperation(nil, CSXTextManagerGetText("EquipMultiStrengthenSuc"))
-
-                if cb then
-                    cb()
-                end
-
-                CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIP_QUICK_STRENGTHEN_NOTYFY)
-                CsXGameEventManager.Instance:Notify(XEventId.EVENT_EQUIP_STRENGTHEN_NOTYFY, equipId)
-                XEventManager.DispatchEvent(XEventId.EVENT_EQUIP_STRENGTHEN_NOTYFY, equipId)
-            end
-        )
+    function XEquipManager.CheckHasLoadEquipBySignboard(characterId, fashionId, actionId)
+        return XEquipConfig.CheckHasLoadEquipBySignboard(characterId, fashionId, actionId)
     end
     --endregion
+
+    --#region 武器超限
+    -- 检测超限引导
+    function XEquipManager.CheckOverrunGuide(weaponId)
+        -- debug模式下，禁用引导时不播放
+        if XMain.IsDebug then
+            local isGuideDisable = XDataCenter.GuideManager.CheckFuncDisable()
+            if isGuideDisable then
+                return
+            end
+        end
+
+        -- 功能未开启
+        local isOpen = XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.EquipOverrun)
+        if not isOpen then
+            return
+        end
+
+        -- 装备不可超限
+        local equip = XEquipManager.GetEquip(weaponId)
+        local canOverrun = XEquipConfig.CanOverrunByTemplateId(equip.TemplateId)
+        if not canOverrun then
+            return
+        end
+
+        -- 播放引导，已播过会跳过
+        local guideId = CS.XGame.ClientConfig:GetInt("EquipOverrunGuideId")
+        if guideId ~= 0 then
+            local guide = XGuideConfig.GetGuideGroupTemplatesById(guideId)
+            local isFinish = XDataCenter.GuideManager.CheckIsGuide(guideId)
+            local isGuiding = XDataCenter.GuideManager.CheckIsInGuide()
+            if not isFinish and not isGuiding then
+                XDataCenter.GuideManager.TryActiveGuide(guide)
+            end
+        end
+    end
+    --#endregion 武器超限
 
     -----------------------------------------Getter End------------------------------------
     XEquipManager.GetEquipTemplateId = GetEquipTemplateId
 
     return XEquipManager
-end
-
-XRpc.NotifyEquipDataList = function(data)
-    XDataCenter.EquipManager.NotifyEquipDataList(data)
-end
-
-XRpc.NotifyEquipChipGroupList = function(data)
-    XDataCenter.EquipManager.NotifyEquipChipGroupList(data)
-end
-
-XRpc.NotifyEquipChipAutoRecycleSite = function(data)
-    XDataCenter.EquipManager.NotifyEquipChipAutoRecycleSite(data)
-end
-
-XRpc.NotifyEquipAutoRecycleChipList = function(data)
-    XDataCenter.EquipManager.NotifyEquipAutoRecycleChipList(data)
 end

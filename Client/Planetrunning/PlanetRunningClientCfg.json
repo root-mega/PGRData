@@ -1,0 +1,1428 @@
+[
+    {
+        "Key": "HelpKey",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "PlanetRunning",
+            null,
+            null
+        ],
+        "desc": "Guide Key"
+    },
+    {
+        "Key": "TileSelectMat",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Scene/QPlanet/Floor/Materials/ChunseGreen1501.mat",
+            null,
+            null
+        ],
+        "desc": "Material Selected"
+    },
+    {
+        "Key": "TileCantBuildMat",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Scene/QPlanet/Floor/Materials/ChunseRed1502.mat",
+            null,
+            null
+        ],
+        "desc": "Non-building Material"
+    },
+    {
+        "Key": "TileNoneMat",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Scene/QPlanet/Floor/Materials/ChunseBlack1503.mat",
+            null,
+            null
+        ],
+        "desc": "Empty Tile Material"
+    },
+    {
+        "Key": "TileNoneBuildMat",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Scene/QPlanet/Floor/Materials/ChunseLock1504.mat",
+            null,
+            null
+        ],
+        "desc": "Empty Tile Building Lock Material"
+    },
+    {
+        "Key": "TileBuildRangeMat",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Scene/QPlanet/Floor/Materials/ChunseBlue1505.mat",
+            null,
+            null
+        ],
+        "desc": "Building Area Tile Material"
+    },
+    {
+        "Key": "DefaultPlanetUrl",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Scene/QPlanet/ScenePrefab/DefaultPlanet.prefab",
+            null,
+            null
+        ],
+        "desc": "Default Planet Preset Format"
+    },
+    {
+        "Key": "MainSceneUrl",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Scene/ScenePrefab/Scene03604e.prefab",
+            null,
+            null
+        ],
+        "desc": "External (Talent Orb) Scene"
+    },
+    {
+        "Key": "WeatherNoneIcon",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Texture/Atlas/UiPlanet/UiPlanetWeatherNone.png",
+            null,
+            null
+        ],
+        "desc": "No-Weather Icon"
+    },
+    {
+        "Key": "WeatherNoneName",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "No Weather Name"
+    },
+    {
+        "Key": "CamRotationSpeed",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            100.0,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Camera Rotation Speed"
+    },
+    {
+        "Key": "CamChapterXOffset",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            43.3,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Chapter Selection X Axis Deviation"
+    },
+    {
+        "Key": "ReformFloorBuildModeIcon",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Texture/Image/UiPlanet/UiPlanetBaseIconOne.png",
+            "Assets/Product/Texture/Image/UiPlanet/UiPlanetBaseIconSeven.png",
+            null
+        ],
+        "desc": null
+    },
+    {
+        "Key": "MainMeteorEffect",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Shooting Star Weather Effect"
+    },
+    {
+        "Key": "MainAirEffectChapterUse",
+        "IntValues": [
+            null,
+            2.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "External Chapter X Planet Atmosphere (Linked to ChapterId)"
+    },
+    {
+        "Key": "MainCharacterMaxCount",
+        "IntValues": [
+            null,
+            3.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Max External Character Queue Size"
+    },
+    {
+        "Key": "ChapterPlanetLockGray",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Chapter Planet Locked Parameter"
+    },
+    {
+        "Key": "ChapterPlanetLockColorCode",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "4F4F4FFA",
+            null,
+            null
+        ],
+        "desc": "Chapter Planet Locked ColorCode"
+    },
+    {
+        "Key": "NoneTileRendererGray",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            0.0,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Floor Null Status Rendering Gray Scale"
+    },
+    {
+        "Key": "NoneTileRendererColorCode",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "4F4F4F0",
+            null,
+            null
+        ],
+        "desc": "Floor Null Status Rendering Color"
+    },
+    {
+        "Key": "BuildCardScale",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            0.7,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Building Card Drag Size"
+    },
+    {
+        "Key": "BuildCardAlpha",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            0.8,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Building Card Drag Transparency"
+    },
+    {
+        "Key": "BuildCardOffset",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            -50.0,
+            50.0,
+            0.0
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Building Card's Coordinate Deviation in a Single Building Slot"
+    },
+    {
+        "Key": "SceneLiuxingEffectOffset",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            0.0,
+            0.0,
+            50.0
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Scene Shooting Star Trait Deviation"
+    },
+    {
+        "Key": "CamPrefab",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Scene/QPlanet/ScenePrefab/PlanetCamera.prefab",
+            null,
+            null
+        ],
+        "desc": "Scene Camera Preset"
+    },
+    {
+        "Key": "CamMain",
+        "IntValues": [
+            null,
+            1.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Main Screen Scene ID (Linked to the SceneCamera Form)"
+    },
+    {
+        "Key": "CamFollowRole",
+        "IntValues": [
+            null,
+            2.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Character-Following Scene ID (Linked to the SceneCamera Form)"
+    },
+    {
+        "Key": "CamBuildMax",
+        "IntValues": [
+            null,
+            3.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Free Mode Scene ID (Farthest POV) (Linked to the SceneCamera Form)"
+    },
+    {
+        "Key": "CamBuildMin",
+        "IntValues": [
+            null,
+            4.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Free Mode Scene ID (Closest POV) (Linked to the SceneCamera Form)"
+    },
+    {
+        "Key": "CamChapter",
+        "IntValues": [
+            null,
+            5.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Chapter Scene ID (Linked to the SceneCamera Form)"
+    },
+    {
+        "Key": "CamStageChoise",
+        "IntValues": [
+            null,
+            6.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Stage Selection Scene ID (Linked to the SceneCamera Form)"
+    },
+    {
+        "Key": "CamStageOver",
+        "IntValues": [
+            null,
+            9.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Stage Result Calculation Scene (Linked to the SceneCamera Form)"
+    },
+    {
+        "Key": "CamStageMovie",
+        "IntValues": [
+            null,
+            10.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Stage Story Scene (Linked to the SceneCamera Form)"
+    },
+    {
+        "Key": "CamStageBoss",
+        "IntValues": [
+            null,
+            11.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Boss Arriving Scene (Linked to the SceneCamera Form)"
+    },
+    {
+        "Key": "MoneyColorHex",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "15FF83",
+            "FF153D",
+            null
+        ],
+        "desc": "Token Color (1: plus, 2: minus)"
+    },
+    {
+        "Key": "BuildEffect",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Effect/Prefab/FxWanfa/FxXXHYjsmokeJianzhu.prefab",
+            null,
+            null
+        ],
+        "desc": "Effect of Keeping Constructing"
+    },
+    {
+        "Key": "EffectChangeRole",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Effect/Prefab/FxWanfa/FxXXHYJsmokeGuai.prefab",
+            null,
+            null
+        ],
+        "desc": "Character Switch Effect, Skip Battle Effect"
+    },
+    {
+        "Key": "UiPlanet2DObj",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "Assets/Product/Ui/ComponentPrefab/UiPlanet/UiPlanet2DObj.prefab",
+            null,
+            null
+        ],
+        "desc": null
+    },
+    {
+        "Key": "TalentUnLockStage",
+        "IntValues": [
+            null,
+            101.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": null
+    },
+    {
+        "Key": "SkyBoxOffset",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            0.0,
+            0.0,
+            600.0
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Sky Box Deviation"
+    },
+    {
+        "Key": "SkyBoxRotation",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            0.0,
+            -18.0,
+            0.0
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Sky Box Rotation"
+    },
+    {
+        "Key": "SkyBoxScale",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            170.0,
+            170.0,
+            170.0
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Sky Box Size"
+    },
+    {
+        "Key": "MainStarEffectOffset",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            -97.0,
+            -330.0,
+            750.0
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Main Interface Star Effect Deviation"
+    },
+    {
+        "Key": "MainStarEffectRotation",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            -24.0,
+            5.5,
+            3.5
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Main Interface Star Effect Rotation"
+    },
+    {
+        "Key": "MainStarEffectScale",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            1.0,
+            1.0,
+            1.0
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Main Interface Star Effect Size"
+    },
+    {
+        "Key": "StageStarEffectOffset",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            -3.0,
+            -9.0,
+            180.0
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Stage Interface Star Effect Deviation"
+    },
+    {
+        "Key": "StageStarEffectRotation",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Stage Interface Star Effect Rotation"
+    },
+    {
+        "Key": "StageStarEffectScale",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            0.5,
+            0.5,
+            0.5
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Stage Interface Star Effect Size"
+    },
+    {
+        "Key": "FirstOpenMovie",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "HD02001BA",
+            null,
+            null
+        ],
+        "desc": "Prologue Story"
+    },
+    {
+        "Key": "BubbleFight",
+        "IntValues": [
+            null,
+            4.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Victory Bubble When Battle Is Skipped"
+    },
+    {
+        "Key": "BubbleFightSeckill",
+        "IntValues": [
+            null,
+            5.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Seckill Victory Bubble When Battle Is Skipped"
+    },
+    {
+        "Key": "PlanetRotateParams",
+        "IntValues": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            1.0,
+            20.0,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": null
+    },
+    {
+        "Key": "MoneyEffectId",
+        "IntValues": [
+            null,
+            1002.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Gold coin effectId"
+    },
+    {
+        "Key": "GuideGuideStageTileList",
+        "IntValues": [
+            null,
+            101.0,
+            102.0,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "GuideBuildTileList1",
+            "GuideBuildTileList2",
+            null
+        ],
+        "desc": "Guide to Related Content"
+    },
+    {
+        "Key": "DragBuildCardList",
+        "IntValues": [
+            null,
+            2.0,
+            3.0,
+            101.0,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Guide to Related Content"
+    },
+    {
+        "Key": "GuideBuildTileList1",
+        "IntValues": [
+            null,
+            465.0,
+            476.0,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Guide to Related Content"
+    },
+    {
+        "Key": "GuideBuildTileList2",
+        "IntValues": [
+            null,
+            62.0,
+            72.0,
+            255.0,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Guide to Related Content"
+    },
+    {
+        "Key": "GuideFirstCamRootOffset",
+        "IntValues": [
+            null,
+            101.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            7.51,
+            -18.79,
+            -18.44
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Guide to Related Content"
+    },
+    {
+        "Key": "GuideSecondCamRootOffset",
+        "IntValues": [
+            null,
+            102.0,
+            null,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            38.8,
+            6.74,
+            -10.49
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Guide to Related Content"
+    },
+    {
+        "Key": "GuideStageClickCardToDragList",
+        "IntValues": [
+            null,
+            101.0,
+            102.0,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            "GuideBuildClickList1",
+            "GuideBuildClickList2",
+            null
+        ],
+        "desc": "Guide to Related Content"
+    },
+    {
+        "Key": "GuideBuildClickList1",
+        "IntValues": [
+            null,
+            1.0,
+            0.0,
+            null,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Guide to Related Content"
+    },
+    {
+        "Key": "GuideBuildClickList2",
+        "IntValues": [
+            null,
+            0.0,
+            0.0,
+            1.0,
+            null
+        ],
+        "FloatValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "StringValues": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "desc": "Guide to Related Content"
+    }
+]

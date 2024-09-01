@@ -9,22 +9,12 @@ end
 -- 获取链接的近卫区节点
 function XInfectGWNode:GetGuardNodes()
     local result = {}
-    for _, node in pairs(self:GetParentNodes()) do
+    for _, node in pairs(self:GetFrontNodes()) do
         if node:GetNodeType() == XGuildWarConfig.NodeType.Guard then
             table.insert(result, node)
         end
     end
     return result
-end
-
-function XInfectGWNode:GetAllGuardIsDead()
-    for _, node in pairs(self:GetParentNodes()) do
-        if node:GetNodeType() == XGuildWarConfig.NodeType.Guard 
-           and not node:GetIsDead() then
-            return false
-        end
-    end
-    return true
 end
 
 function XInfectGWNode:GetStageId()

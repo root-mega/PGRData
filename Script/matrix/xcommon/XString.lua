@@ -43,9 +43,9 @@ function string.Utf8Len(str)
 end
 
 --==============================--
---desc: 通过utf8获取单个字符长度
+--desc: 通过utf8获取单个字符大小
 --@str: 单个字符
---@return 字符串长度
+--@return 字符大小(字节为单位)
 --==============================--
 function string.Utf8Size(char)
     if not char then
@@ -83,6 +83,72 @@ function string.Utf8Sub(str, startChar, numChars)
         local char = stringByte(str, currentIndex)
         currentIndex = currentIndex + string.Utf8Size(char)
         numChars = numChars - 1
+    end
+    return str:sub(startIndex, currentIndex - 1)
+end
+
+--==============================--
+--desc: 通过utf8并且以(中文为2,其余为1)的方式获取字符串长度
+--@str: 字符串(中文为2,其余为1)
+--@return 字符串长度
+--==============================--
+function string.Utf8LenCustom(str)
+    local len = stringLen(str)
+    local left = len
+    local cnt = 0
+    local arr = { 0, 192, 224, 240, 248, 252 } --UFT8中首位字节代表这个是由几个字节组成，比如0 192 224分别代表这个字符是由于1、2、3个字节组成,中韩日一般是3字节以上
+    while left ~= 0 do
+        local tmp = stringByte(str, -left)
+        local i = #arr
+        while arr[i] do
+            if tmp >= arr[i] then
+                left = left - i
+                break
+            end
+            i = i - 1
+        end
+        if tmp >= 224 then
+            cnt = cnt + 2
+        else
+            cnt = cnt + 1
+        end
+    end
+    return cnt
+end
+
+--==============================--
+--desc: 通过utf8以(中文为2,其余为1)的方式获取单个字符长度
+--@str: 单个字符
+--@return 字符长度
+--==============================--
+function string.Utf8CharLenCustom(char)
+    if not char then
+        return 0
+    elseif char >= 224 then
+        return 2
+    else
+        return 1
+    end
+end
+
+--==============================--
+--desc: 按utf8长度并且以(中文为2,其余为1)的方式截取字符串
+--@str: 字符串(中文为2)
+--@return 字符串
+--==============================--
+function string.Utf8SubCustom(str, startChar, numChars)
+    local startIndex = 1
+    while startChar > 1 do
+        local char = stringByte(str, startIndex)
+        startIndex = startIndex + string.Utf8Size(char)
+        startChar = startChar - string.Utf8CharLenCustom(char)
+    end
+
+    local currentIndex = startIndex
+    while numChars > 0 and currentIndex <= #str do
+        local char = stringByte(str, currentIndex)
+        currentIndex = currentIndex + string.Utf8Size(char)
+        numChars = numChars - string.Utf8CharLenCustom(char)
     end
     return str:sub(startIndex, currentIndex - 1)
 end

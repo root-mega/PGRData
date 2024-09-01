@@ -1118,8 +1118,7 @@ XNieRManagerCreator = function()
         for _, repeatData in ipairs(nierRepeatList) do
             if repeatData:CheckNieRRepeatMainStageUnlock() then
                 consumCount = repeatData:GetNierRepeatStageConsumeCount()
-                local stageCfg = XDataCenter.FubenManager.GetStageCfg(repeatData:GetNieRRepeatStageId())
-                local needActionPoint = stageCfg.RequireActionPoint
+                local needActionPoint = XDataCenter.FubenManager.GetRequireActionPoint(repeatData:GetNieRRepeatStageId())
                 local haveActionPoint = XDataCenter.ItemManager.GetCount(XDataCenter.ItemManager.ItemId.ActionPoint)
                 if haveCount >= consumCount and haveActionPoint >= needActionPoint then
                     return true

@@ -20,7 +20,12 @@ function XUiTRPGFightTips:OnStart(cardId, cardIndex, stageId, challengeLevel, qu
 end
 
 function XUiTRPGFightTips:OnEnable()
+
     self:UpdateUi()
+end
+
+function XUiTRPGFightTips:OnDisable()
+
 end
 
 function XUiTRPGFightTips:OnDestroy()

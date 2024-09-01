@@ -20,10 +20,271 @@ CSXTextManagerGetText = CsXTextManagerGetText
 CSObjectInstantiate = CS.UnityEngine.Object.Instantiate
 Vector2 = CS.UnityEngine.Vector2
 Vector3 = CS.UnityEngine.Vector3
+
+local IsWindowsEditor = XMain.IsWindowsEditor
+
+local _UIUid = 0
+local GenUIUid = function()
+    _UIUid = _UIUid + 1
+    return _UIUid
+end
+
+local UIBindControl = require("MVCA/UIBindControl")
+
+---@class XUiNode
+XUiNode = XClass(nil, "XUiNode")
+if IsWindowsEditor then
+    XUiNode._profiler = {}
+    setmetatable(XUiNode._profiler, {__mode = "kv"})
+    XUiNode._Profiler = function ()
+        collectgarbage("collect") --得调用Lua Profiler界面的GC才能释放干净
+        XLog.Debug("XUiNode._Profiler", XUiNode._profiler)
+    end
+    XUiNode._ProfilerNode = function (key)
+        for node, classname in pairs(XUiNode._profiler) do
+            if classname == key then
+                LuaMemorySnapshotDump.SnapshotObject(node)
+                break
+            end
+        end
+    end
+end
+--XUiNode._Profiler()
+--XUiNode._ProfilerNode("XUiGridCharacterNew")
+function XUiNode:Ctor(ui, parent, ...)
+    self:InitNode(ui, parent, ...)
+end
+
+function XUiNode:InitNode(ui, parent, ...)
+    if IsWindowsEditor then
+        XUiNode._profiler[self] = self.__cname
+    end
+    self._IsPopPanel = false
+    self._Uid = GenUIUid()
+    self.GameObject = ui.gameObject
+    self.Transform = ui.transform
+    self.Parent = parent
+    ---@type XUiNode[]
+    self._ChildNodes = {} --子节点
+    self._Control = nil
+    self._IsShow = self.GameObject.activeSelf
+    self._EnabledCount = 0
+    self._BindControlId = nil
+    XTool.InitUiObject(self)
+    self:BindParent() --跟父节点绑定关系
+    self:InitBindControlId() --实例化要绑定的control名字,优先父节点
+    self:BindControl() --绑定control
+
+    self._LuaEvents = self:OnGetLuaEvents()
+
+    self:OnStart(...) --执行子类的onStart
+    if self._IsShow then
+        self:OnEnableUi()
+    end
+end
+
+---设置是否为弹出的界面, 用于那种使用内部节点做资源, 但是有独立的弹出窗体的界面
+function XUiNode:SetIsPopPanel(value)
+    self._IsPopPanel = value
+end
+
+function XUiNode:GetIsPopPanel()
+    return self._IsPopPanel
+end
+
+function XUiNode:OnGetLuaEvents()
+
+end
+
+function XUiNode:OnNotify(evt, ...)
+
+end
+
+function XUiNode:OnStart()
+
+end
+
+function XUiNode:OnEnableUi()
+    self:OnEnable()
+    if self._LuaEvents then
+        for i = 1, #self._LuaEvents do
+            XUIEventBind.AddEventListener(self._LuaEvents[i], self.OnNotify, self)
+        end
+    end
+    if self._EnabledCount > 0 then
+        self:EnableChildNodes()
+    end
+    self._EnabledCount = self._EnabledCount + 1
+end
+function XUiNode:OnEnable()
+end
+
+function XUiNode:OnDisableUi()
+    if self._LuaEvents then
+        for i = 1, #self._LuaEvents do
+            XUIEventBind.RemoveEventListener(self._LuaEvents[i], self.OnNotify, self)
+        end
+    end
+    self:OnDisable()
+    self:DisableChildNodes()
+end
+function XUiNode:OnDisable()
+end
+
+function XUiNode:EnableChildNodes()
+    for _, child in ipairs(self._ChildNodes) do
+        if child._IsShow then
+            child:OnEnableUi()
+        end
+    end
+end
+
+function XUiNode:DisableChildNodes()
+    for _, child in ipairs(self._ChildNodes) do
+        if child._IsShow then
+            child:OnDisableUi()
+        end
+    end
+end
+
+---显示节点
+function XUiNode:Open()
+    if not self._IsShow then
+        self._IsShow = true
+        self:SetDisplay(true)
+        self:OnEnableUi()
+    end
+end
+
+---隐藏节点
+function XUiNode:Close()
+    if self._IsShow then
+        self._IsShow = false
+        self:SetDisplay(false)
+        self:OnDisableUi()
+    end
+end
+
+---设置显示, 子类可以重写
+---@param val boolean 是否显示
+function XUiNode:SetDisplay(val)
+    self.GameObject:SetActiveEx(val)
+end
+
+function XUiNode:BindParent()
+    if self.Parent then
+        if self.Parent.AddChildNode then
+            self.Parent:AddChildNode(self)
+        else
+            local parentClsName = self.Parent.__cname and self.Parent.__cname or ""
+            if IsWindowsEditor then
+                XLog.Error("Parent 不为XLuaUi 或 XUiNode: ".. parentClsName)
+            end
+        end
+    else
+        if IsWindowsEditor then
+            XLog.Error("XUiNode has not Parent: "..self.__cname)
+        end
+    end
+end
+
+--暂时没有中途移除的需求
+function XUiNode:UnBindParent()
+    if self.Parent then
+        if self.Parent.RemoveChildNode then
+            self.Parent:RemoveChildNode(self)
+        else
+            local parentClsName = self.Parent.__cname and self.Parent.__cname or ""
+            if IsWindowsEditor then
+                XLog.Error("Parent 不为XLuaUi 或 XUiNode: ".. parentClsName)
+            end
+        end
+    else
+        if IsWindowsEditor then
+            XLog.Error("XUiNode has not Parent: "..self.__cname)
+        end
+    end
+end
+
+---@param node XUiNode
+function XUiNode:AddChildNode(node)
+    if not table.contains(self._ChildNodes, node) then
+        table.insert(self._ChildNodes, node)
+    end
+end
+
+---@param node XUiNode
+function XUiNode:RemoveChildNode(node)
+    local index = table.indexof(self._ChildNodes, node)
+    if index then
+        table.remove(self._ChildNodes, index)
+    end
+end
+
+---获取绑定的control名字,优先获取父节点
+function XUiNode:InitBindControlId()
+    local tempBindName = UIBindControl[self.__cname] --有配置的优先读取配置
+    if not tempBindName then
+        if self.Parent then
+            if self.Parent._BindControlId then --这个有值证明可以绑定
+                tempBindName = self.Parent._BindControlId
+            elseif self.Parent.__cname and UIBindControl[self.Parent.__cname] then
+                tempBindName = UIBindControl[self.Parent.__cname]
+            end
+        end
+    end
+    self._BindControlId = tempBindName
+end
+
+
+function XUiNode:BindControl()
+    if self._BindControlId then --子界面用_BindControlId
+        self._Control = XMVCA:_GetOrRegisterControl(self._BindControlId)
+        self._Control:AddViewRef(self._Uid)
+    end
+end
+
+function XUiNode:UnBindControl()
+    self._BindControlId = nil
+    if self._Control then
+        if not self._Control:GetIsRelease() then
+            self._Control:SubViewRef(self._Uid)
+            XMVCA:CheckReleaseControl(self._Control:GetId())
+        end
+        self._Control = nil
+    end
+end
+
+function XUiNode:Release()
+    self:OnRelease()
+    self:UnBindControl() --移除控制器
+    self:ReleaseChildNodes() --执行子节点的
+
+    self.GameObject = nil
+    self.Transform = nil
+    self.Parent = nil
+    self._LuaEvents = nil
+end
+
+function XUiNode:ReleaseChildNodes()
+    for _, child in ipairs(self._ChildNodes) do
+        child:Release()
+    end
+    self._ChildNodes = nil
+end
+
+--这是给子类重写的
+function XUiNode:OnRelease()
+
+end
+
 ------------------------------------------------LuaUI---------------------------------------------------------
+---@class XLuaUi
+---@field UiModel XUiModel
 XLuaUi = XClass(nil, "XLuaUi")
 
 function XLuaUi:Ctor(name, uiProxy)
+    self._Uid = GenUIUid()
     self.Name = name
     self.UiProxy = uiProxy
     self.Ui = uiProxy.Ui
@@ -34,7 +295,68 @@ function XLuaUi:Ctor(name, uiProxy)
     self.AutoCloseCallback = nil
     self.AutoCloseIntervalTime = nil
     self.AutoCloseDelayTime = nil
-    self.ChildUis = {}
+    self._Control = nil
+    ---@type XUiNode[]
+    self._ChildNodes = {} --子节点
+    self._EnabledCount = 0
+    self:BindControl()
+    self._LuaEvents = self:OnGetLuaEvents()
+end
+
+function XLuaUi:BindControl()
+    if UIBindControl[self.__cname] then
+        local controlId = UIBindControl[self.__cname]
+        self._Control = XMVCA:_GetOrRegisterControl(controlId)
+        self._Control:AddViewRef(self._Uid)
+    end
+end
+
+function XLuaUi:UnBindControl()
+    if self._Control then
+        if not self._Control:GetIsRelease() then
+            self._Control:SubViewRef(self._Uid)
+            XMVCA:CheckReleaseControl(self._Control:GetId())
+        end
+        self._Control = nil
+    end
+end
+
+---@param node XUiNode
+function XLuaUi:AddChildNode(node)
+    if not table.contains(self._ChildNodes, node) then
+        table.insert(self._ChildNodes, node)
+    end
+end
+
+---@param node XUiNode
+function XLuaUi:RemoveChildNode(node)
+    local index = table.indexof(self._ChildNodes, node)
+    if index then
+        table.remove(self._ChildNodes, index)
+    end
+end
+
+function XLuaUi:ReleaseChildNodes()
+    for _, child in ipairs(self._ChildNodes) do
+        child:Release()
+    end
+    self._ChildNodes = nil
+end
+
+function XLuaUi:EnableChildNodes()
+    for _, child in ipairs(self._ChildNodes) do
+        if child._IsShow then
+            child:OnEnableUi()
+        end
+    end
+end
+
+function XLuaUi:DisableChildNodes()
+    for _, child in ipairs(self._ChildNodes) do
+        if child._IsShow then
+            child:OnDisableUi()
+        end
+    end
 end
 
 -- PS:如果页面重写了OnEnable和OnDisable，使用时必须在OnEnable和OnDisable调用下父类方法
@@ -61,26 +383,63 @@ function XLuaUi:SetGameObject()
     self:InitUiObjects()
 end
 
+function XLuaUi:OnAwakeUi()
+    self:OnAwake()
+end
+
 function XLuaUi:OnAwake()
 end
 
+function XLuaUi:OnStartUi(...)
+    self:OnStart(...)
+end
 function XLuaUi:OnStart()
 end
 
-function XLuaUi:OnEnable()
+function XLuaUi:OnEnableUi(...)
+    self:OnEnable(...)
+    if self._LuaEvents then
+        for i = 1, #self._LuaEvents do
+            XUIEventBind.AddEventListener(self._LuaEvents[i], self.OnNotify, self)
+        end
+    end
     if self.OpenAutoClose then
         self:_StartAutoCloseTimer()
     end
+    if self._EnabledCount > 0 then
+        self:EnableChildNodes()
+    end
+    self._EnabledCount = self._EnabledCount + 1
 end
 
-function XLuaUi:OnDisable()
+function XLuaUi:OnEnable()
+
+end
+
+function XLuaUi:OnDisableUi()
+    if self._LuaEvents then
+        for i = 1, #self._LuaEvents do
+            XUIEventBind.RemoveEventListener(self._LuaEvents[i], self.OnNotify, self)
+        end
+    end
     if self.OpenAutoClose then
         self:_StopAutoCloseTimer()
     end
+    self:OnDisable()
+    self:DisableChildNodes()
+end
+
+function XLuaUi:OnDisable()
+
+end
+
+function XLuaUi:OnDestroyUi()
+    self:ReleaseRedPoint()
+    self:OnDestroy()
 end
 
 function XLuaUi:OnDestroy()
-    self:ReleaseRedPoint()
+
 end
 
 function XLuaUi:_StartAutoCloseTimer()
@@ -131,6 +490,7 @@ function XLuaUi:OnRelease()
     --self.Name = nil
     self.UiProxy = nil
     self.Ui = nil
+    self.ParentUi = nil
 
     self.Transform = nil
     self.GameObject = nil
@@ -149,6 +509,7 @@ function XLuaUi:OnRelease()
     self.AutoCloseCallback = nil
     self.AutoCloseIntervalTime = nil
     self.AutoCloseDelayTime = nil
+    self._LuaEvents = nil
 
     -- 释放信号数据
     if self.SignalData then
@@ -175,6 +536,10 @@ function XLuaUi:OnRelease()
         self._ViewModelDic = nil
     end
 
+    self:UnBindControl()
+    self:ReleaseChildNodes()
+
+
     if self.Obj and self.Obj:Exist() then
         local nameList = self.Obj.NameList
         for _, v in pairs(nameList) do
@@ -198,6 +563,9 @@ end
 function XLuaUi:OnGetEvents()
 end
 
+function XLuaUi:OnGetLuaEvents()
+end
+
 function XLuaUi:SetUiSprite(image, spriteName, callBack)
     self.UiProxy:SetUiSprite(image, spriteName, callBack)
 end
@@ -213,9 +581,6 @@ function XLuaUi:Close()
     if self.UiProxy == nil then
         XLog.Error(self.Name .. "重复Close")
     else
-        for k, _ in pairs(self.ChildUis) do
-            self:CloseChildUi(k)
-        end
         self.UiProxy:Close()
     end
 end
@@ -265,7 +630,6 @@ end
 --@childUIName 子UI名字
 --@... 传到OnStart的参数
 function XLuaUi:OpenChildUi(childUIName, ...)
-    self.ChildUis[childUIName] = 1
     self.UiProxy:OpenChildUi(childUIName, ...)
 end
 
@@ -273,7 +637,6 @@ end
 --@childUIName 子UI名字
 --@... 传到OnStart的参数
 function XLuaUi:OpenOneChildUi(childUIName, ...)
-    self.ChildUis[childUIName] = 1
     self.UiProxy:OpenOneChildUi(childUIName, ...)
     --self.UiProxy:OpenOneChildUi(childUIName, ...)
 end
@@ -281,9 +644,6 @@ end
 --关闭子UI
 --@childUIName 子UI名字
 function XLuaUi:CloseChildUi(childUIName)
-    if self.ChildUis[childUIName] then
-        self.ChildUis[childUIName] = nil
-    end
     self.UiProxy:CloseChildUi(childUIName)
 end
 
@@ -376,6 +736,7 @@ function XLuaUi:LoadUiScene(sceneUrl, modelUrl, cb, force)
     self.Ui:LoadUiScene(sceneUrl, modelUrl, force)
     self.UiModelGo = self.Ui.UiModelGo
     self.UiModel = self.Ui.UiModel
+    self.UiSceneInfo = self.Ui.UiSceneInfo
     if cb then
         cb(sceneUrl, modelUrl)
     end
@@ -386,6 +747,7 @@ function XLuaUi:LoadUiSceneAsync(sceneUrl, modelUrl, cb)
     self.Ui:LoadUiSceneAsync(sceneUrl, modelUrl, function()
         self.UiModelGo = self.Ui.UiModelGo
         self.UiModel = self.Ui.UiModel
+        self.UiSceneInfo = self.Ui.UiSceneInfo
         if cb then
             cb(sceneUrl, modelUrl)
         end
@@ -436,7 +798,7 @@ function XLuaUi:BindExitBtns(btnBack, btnMainUi)
 end
 
 -- 绑定帮助按钮
-function XLuaUi:BindHelpBtn(btn, helpDataKey, cb)
+function XLuaUi:BindHelpBtn(btn, helpDataKey, cb, openCb)
     btn = btn or self.BtnHelp
     helpDataKey = helpDataKey or self.Name
 
@@ -452,6 +814,7 @@ function XLuaUi:BindHelpBtn(btn, helpDataKey, cb)
 
     if CS.XTool.ConfirmObjectType(btn, "XUiButton") then
         btn.CallBack = function()
+            if openCb then openCb() end
             XUiManager.ShowHelpTip(helpDataKey, cb)
         end
         return
@@ -461,6 +824,7 @@ function XLuaUi:BindHelpBtn(btn, helpDataKey, cb)
         self:RegisterClickEvent(
             btn,
             function()
+                if openCb then openCb() end
                 XUiManager.ShowHelpTip(helpDataKey, cb)
             end
         )
@@ -662,13 +1026,15 @@ function XLuaUi:RefreshTemplateGrids(templateGo, dataList, parents, ctor, name, 
             grids[index] = grid
         end
 
+        --先显示再刷新，避免动画被打断
+        grid.GameObject:SetActiveEx(true)
+
         if refreshFunc then
             refreshFunc(grid, data)
         elseif grid.Refresh then
             grid:Refresh(data)
         end
 
-        grid.GameObject:SetActiveEx(true)
     end
 
     for index = #dataList + 1, #grids do
@@ -703,6 +1069,7 @@ end
 --     XLuaUiCheckGC.Super.OnRelease(self)
 -- end
 ------------------------------------------------------------------------------------------------------------------------
+---@class XLuaUiManager
 XLuaUiManager = XClass(nil, "XLuaUiManager")
 local UiData = {}
 local ClassType = {}
@@ -710,9 +1077,12 @@ local ImportModule = {}
 local XUiPrefix = "XUi/X%s/X%s"
 local UiMainName = "UiMain"
 local Registry = require("UiRegistry")
---注册UI
--- @super 父类
--- @uiName UI名字
+
+--- 注册Ui
+---@param super XLuaUi 父类
+---@param uiName string ui名
+---@return XLuaUi
+--------------------------
 function XLuaUiManager.Register(super, uiName)
     super = super or XLuaUi
     local uiObject = XClass(super, uiName)
@@ -803,25 +1173,55 @@ function XLuaUiManager.IsUiShow(uiName)
     return CsXUiManager.Instance:IsUiShow(uiName)
 end
 
+--某个UI是否正在推入中，打开即推入，Awake推出
+function XLuaUiManager.IsUiPushing(uiName)
+    return CsXUiManager.Instance:IsUiPushing(uiName)
+end
+
 --某个UI是否已经加载
 function XLuaUiManager.IsUiLoad(uiName)
     return CsXUiManager.Instance:IsUiLoad(uiName)
 end
 
+local _MaskCount = {}
 --设置mask，visible=true时不能操作
-function XLuaUiManager.SetMask(visible)
+function XLuaUiManager.SetMask(visible, key)
     visible = visible and true or false
     CsXUiManager.Instance:SetMask(visible)
+
+    -- key分类计数
+    if key then
+        if not _MaskCount[key] then
+            _MaskCount[key] = 0
+        end
+        if visible then
+            _MaskCount[key] = _MaskCount[key] + 1
+        else
+            _MaskCount[key] = math.max(_MaskCount[key] - 1, 0)
+        end
+    end
+end
+
+function XLuaUiManager.IsMaskShow(key)
+    if not key then
+        XLog.Error("[XLuaUiManager] 不支持获取计数")
+        return false
+    end
+    return (_MaskCount[key] or 0) > 0
 end
 
 --设置animationMask，tag标签,visible=true时不能操作，delay(默认2秒)后会展示菊花
 function XLuaUiManager.SetAnimationMask(tag, visible, delay)
     visible = visible and true or false
+    delay = delay or 2
     CsXUiManager.Instance:SetAnimationMask(tag, visible, delay)
 end
 
 function XLuaUiManager.ClearMask(resetMaskCount)
     resetMaskCount = resetMaskCount and true or false
+    if resetMaskCount then
+        _MaskCount = {}
+    end
     CsXUiManager.Instance:ClearMask(resetMaskCount)
 end
 
@@ -919,7 +1319,13 @@ function XLuaUiManager.RunMain(notDialogTip)
                 )
             end
         )
+    elseif XDataCenter.DlcRoomManager.IsInRoom() then
+        XDataCenter.DlcRoomManager.DialogTipQuitRoom(function()
+            CsXUiManager.Instance:RunMain()
+        end)
+        
     else
+
         local unionFightData = XDataCenter.FubenUnionKillRoomManager.GetUnionRoomData()
         local unionInfo = XDataCenter.FubenUnionKillManager.GetUnionKillInfo()
         local inActivity = false
@@ -928,19 +1334,23 @@ function XLuaUiManager.RunMain(notDialogTip)
         end
 
         if inActivity and unionFightData and unionFightData.Id then
+            if notDialogTip then
+                XDataCenter.FubenUnionKillRoomManager.LeaveUnionTeamRoom(function()
+                    CsXUiManager.Instance:RunMain()
+                end)
+                return
+            end
+
             local title = CsXTextManagerGetText("TipTitle")
             local cancelMatchMsg = CsXTextManagerGetText("UnionKillExitRoom")
             XUiManager.DialogTip(
                 title,
                 cancelMatchMsg,
                 XUiManager.DialogType.Normal,
-                nil,
-                function()
-                    XDataCenter.FubenUnionKillRoomManager.LeaveUnionTeamRoom(
-                        function()
-                            CsXUiManager.Instance:RunMain()
-                        end
-                    )
+                nil, function()
+                    XDataCenter.FubenUnionKillRoomManager.LeaveUnionTeamRoom(function()
+                        CsXUiManager.Instance:RunMain()
+                    end)
                 end
             )
         else
@@ -1003,3 +1413,25 @@ function XLuaUiManager.GetTopLuaUi(uiname)
     if luaUi == nil then return nil end
     return luaUi
 end
+
+function XLuaUiManager.SafeClose(uiName)
+    if XLuaUiManager.IsUiShow(uiName) then
+        XLuaUiManager.Close(uiName)
+        return
+    end
+    XLuaUiManager.Remove(uiName)
+end
+
+function XLuaUiManager.OpenSingleUi(uiName, ...)
+    if XLuaUiManager.IsUiShow(uiName) then
+        XLuaUiManager.Close(uiName)
+    elseif XLuaUiManager.IsUiLoad(uiName) then
+        XLuaUiManager.Remove(uiName)
+    end
+    
+    XLuaUiManager.Open(uiName, ...)
+end
+
+function XLuaUiManager.RemoveTopOne(uiName)
+    CsXUiManager.Instance:RemoveTopOne(uiName)
+end 

@@ -10,7 +10,7 @@ function XUiExpeditionEquipGrid:Ctor(ui, clickCb, rootUi)
     self:SetSelected(false)
 end
 
-function XUiExpeditionEquipGrid:Refresh(templateId, breakNum, equipSite, isWeapon, level, resonanceCount)
+function XUiExpeditionEquipGrid:Refresh(templateId, breakNum, equipSite, isWeapon, level, resonanceCount, awakeSlotList, awarenessSetPositions, resonanceInfo, characterId)
     if self.RImgIcon and self.RImgIcon:Exist() then
         self.RImgIcon:SetRawImage(XDataCenter.EquipManager.GetEquipIconBagPath(templateId, breakNum), nil, true)
     end
@@ -42,6 +42,13 @@ function XUiExpeditionEquipGrid:Refresh(templateId, breakNum, equipSite, isWeapo
         end
     end
 
+    -- 公约驻守激活橙色边框
+    local isActiveAwarenessOcuupy
+    if self.ImgFrame then
+        isActiveAwarenessOcuupy = awarenessSetPositions and awarenessSetPositions[equipSite]
+        self.ImgFrame.gameObject:SetActiveEx(isActiveAwarenessOcuupy)
+    end
+
     for i = 1, XEquipConfig.MAX_STAR_COUNT do
         if self["ImgGirdStar" .. i] then
             if i <= XDataCenter.EquipManager.GetEquipStar(templateId) then
@@ -55,7 +62,19 @@ function XUiExpeditionEquipGrid:Refresh(templateId, breakNum, equipSite, isWeapo
         local obj = self["ImgResonance" .. i]
         if obj then
             if XTool.IsNumberValid(resonanceCount) and resonanceCount >= i then
-                local icon = XEquipConfig.GetEquipResoanceIconPath(true)
+                local isAwake = awakeSlotList and awakeSlotList[i] and true or false
+                local icon = XEquipConfig.GetEquipResoanceIconPath(isAwake)
+                -- local bindCharId = XDataCenter.EquipManager.GetResonanceBindCharacterId(templateId, i)
+                -- local characterId = XDataCenter.EquipManager.GetEquipWearingCharacterId(templateId)
+
+                local bindCharId = nil
+                if resonanceInfo and resonanceInfo[i] then
+                    bindCharId = resonanceInfo[i].CharacterId
+                end
+
+                if isAwake and isActiveAwarenessOcuupy and XTool.IsNumberValid(characterId) and characterId == bindCharId then
+                    icon = CS.XGame.ClientConfig:GetString("AwarenessOcuupyActiveResonanced")
+                end
                 self.RootUi:SetUiSprite(obj, icon)
                 obj.gameObject:SetActiveEx(true)
             else

@@ -10,14 +10,14 @@ end
 function XUiGridSkip:InitAutoScript()
     XTool.InitUiObject(self)
     self.BtnSkip.CallBack = function()
-        XFunctionManager.SkipInterface(self.SkipId)
+        XFunctionManager.SkipInterface(self.SkipId, self.Args)
         if self.SkipCb then
             self.SkipCb()
         end
     end
 end
 
-function XUiGridSkip:Refresh(skipId, hideSkipBtn, skipCb)
+function XUiGridSkip:Refresh(skipId, hideSkipBtn, skipCb, ...)
     if not skipId then
         self.GameObject:SetActive(false)
         return
@@ -26,6 +26,7 @@ function XUiGridSkip:Refresh(skipId, hideSkipBtn, skipCb)
 
     self.SkipId = skipId
     self.SkipCb = skipCb
+    self.Args = {...}
 
     local canSkip = XFunctionManager.IsCanSkip(skipId)
     local template = XFunctionConfig.GetSkipList(skipId)

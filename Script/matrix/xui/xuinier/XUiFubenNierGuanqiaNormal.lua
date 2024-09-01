@@ -147,22 +147,24 @@ function XUiFubenNierGuanqiaNormal:UpdateCommon()
             self.UsePowerIcon1:SetRawImage(XDataCenter.ItemManager.GetItemIcon(consumeId))
             self.UsePowerNum1.text = counsumCount
         end
-        if self.Stage.RequireActionPoint == 0 then
+        local actionPoint = XDataCenter.FubenManager.GetRequireActionPoint(self.StageId)
+        if actionPoint == 0 then
             self.UsePowerItemGrid2.gameObject:SetActiveEx(false)
         else
             self.UsePowerItemGrid2.gameObject:SetActiveEx(true)
-            self.UsePowerNum2.text = self.Stage.RequireActionPoint
+            self.UsePowerNum2.text = actionPoint
         end
         self:InitAssetPanel()
         XDataCenter.NieRManager.SaveNieRRepeatRedCheckCount()
         XEventManager.DispatchEvent(XEventId.EVENT_NIER_REPEAT_CLICK)
     else
         self.UsePowerItemGrid1.gameObject:SetActiveEx(false)
-        if self.Stage.RequireActionPoint == 0 then
+        local actionPoint = XDataCenter.FubenManager.GetRequireActionPoint(self.StageId)
+        if actionPoint == 0 then
             self.UsePowerItemGrid2.gameObject:SetActiveEx(false)
         else
             self.UsePowerItemGrid2.gameObject:SetActiveEx(true)
-            self.UsePowerNum2.text = self.Stage.RequireActionPoint
+            self.UsePowerNum2.text = actionPoint
         end
         
     end

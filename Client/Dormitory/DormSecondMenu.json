@@ -1,7 +1,7 @@
 [
     {
         "Id": 1,
-        "Name": "\u4efb\u52a1",
+        "Name": "Mission",
         "FunctionName": "OpenTaskUI",
         "IconPath": null,
         "Order": 0,
@@ -9,7 +9,7 @@
     },
     {
         "Id": 2,
-        "Name": "\u63cf\u8ff0",
+        "Name": "Description",
         "FunctionName": "OpenDesUI",
         "IconPath": "Assets/Product/Texture/Atlas/UiDorm/FurnitureImgS20.png",
         "Order": 1,
@@ -17,7 +17,7 @@
     },
     {
         "Id": 3,
-        "Name": "\u4ed3\u5e93",
+        "Name": "Warehouse",
         "FunctionName": "OpenWarehouse",
         "IconPath": "Assets/Product/Texture/Atlas/UiDorm/FurnitureImgS5.png",
         "Order": 0,
@@ -25,7 +25,7 @@
     },
     {
         "Id": 4,
-        "Name": "\u6539\u540d",
+        "Name": "Rename",
         "FunctionName": "OpenRenameUI",
         "IconPath": null,
         "Order": 0,
@@ -33,7 +33,7 @@
     },
     {
         "Id": 5,
-        "Name": "\u56fe\u9274",
+        "Name": "Codex",
         "FunctionName": "OpenFieldGuid",
         "IconPath": "Assets/Product/Texture/Atlas/UiDorm/FurnitureImgS22.png",
         "Order": 2,
@@ -41,7 +41,7 @@
     },
     {
         "Id": 6,
-        "Name": "\u5236\u9020",
+        "Name": "Craft",
         "FunctionName": "OpenBuildUI",
         "IconPath": "Assets/Product/Texture/Atlas/UiDorm/FurnitureImgS6.png",
         "Order": 5,
@@ -49,7 +49,7 @@
     },
     {
         "Id": 7,
-        "Name": "\u5546\u5e97",
+        "Name": "Shop",
         "FunctionName": "OpenShopUI",
         "IconPath": "Assets/Product/Texture/Atlas/UiDorm/FurnitureImgS8.png",
         "Order": 3,
@@ -57,7 +57,7 @@
     },
     {
         "Id": 8,
-        "Name": "\u4eba\u5458",
+        "Name": "Members",
         "FunctionName": "OnBtnPersonClick",
         "IconPath": "Assets/Product/Texture/Atlas/UiDorm/FurnitureImgS11.png",
         "Order": 0,
@@ -65,7 +65,7 @@
     },
     {
         "Id": 9,
-        "Name": "\u6a21\u677f",
+        "Name": "Template",
         "FunctionName": "OpenTemplateUI",
         "IconPath": "Assets/Product/Texture/Atlas/UiDorm/FurnitureImgSTemplate01.png",
         "Order": 4,
@@ -73,7 +73,7 @@
     },
     {
         "Id": 10,
-        "Name": "\u91cd\u5236",
+        "Name": "Recraft",
         "FunctionName": "OpenResetUI",
         "IconPath": "Assets/Product/Texture/Atlas/UiDorm/FurnitureImgSRemake01.png",
         "Order": 6,

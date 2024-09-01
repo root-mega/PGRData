@@ -1,0 +1,1191 @@
+[
+    {
+        "Id": 101,
+        "Desc": "fought alongside humans against the Punishing Virus until the end. Now it walks upon the abandoned ruins of civilization as a Corrupted, but for some reason it has kept the clumsy bandaging that a kind-hearted civilian once gave him.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab10.png",
+        "Priority": 20,
+        "StageId": [
+            null,
+            30000101,
+            30000102,
+            30000103,
+            30000104,
+            30000105,
+            30000111
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 102,
+        "Desc": "Originally designed to spray paint, it now employs it in 'artistic' ways to attack those who would impede his art.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab9.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30000201,
+            30000202,
+            30000203,
+            30000204,
+            30000205,
+            30000211
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 103,
+        "Desc": "One of the Ascendant, employing his gun and chain blade to cause chaos on the battlefield. Few have been able to get him to drop his nonchalant attitude in battle, and none have lived to tell the tale.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab14.png",
+        "Priority": 10,
+        "StageId": [
+            null,
+            30000301,
+            30000302,
+            30000303,
+            30000304,
+            30000305,
+            30000311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 104,
+        "Desc": "A restoration of the guardians of a lost desert civilization, they are able to move swiftly in sand, tearing apart any creature who enters the desert without permission.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab13.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30000601,
+            30000602,
+            30000603,
+            30000604,
+            30000605,
+            30000611
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 105,
+        "Desc": "A Construct of unknown origin, wielding a katana just like Lucia, but far more experienced and skilled at it. Every swing seems to tear apart the fabric of reality.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab16.png",
+        "Priority": 20,
+        "StageId": [
+            null,
+            30000501,
+            30000502,
+            30000503,
+            30000504,
+            30000505,
+            30000511
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 106,
+        "Desc": "Butler robot once used by the upper class, faithfully following its masters' orders. Employing a rapier in battle, it is graceful and dangerous in equal measure.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab7.png",
+        "Priority": 20,
+        "StageId": [
+            null,
+            30000701,
+            30000702,
+            30000703,
+            30000704,
+            30000705,
+            30000711
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 107,
+        "Desc": "Multi-terrain military robot, its variable spherical frame concealing powerful energy reserves. Now infected by the Punishing Virus, its heavy firepower has become the nightmare of humankind.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab2.png",
+        "Priority": 10,
+        "StageId": [
+            null,
+            30000901,
+            30000902,
+            30000903,
+            30000904,
+            30000905,
+            30000918
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 108,
+        "Desc": "The spiked armor on this corrupted Construct is more than just a deadly weapon or solid protection, it also continues to spread the infection throughout the interior of the Construct.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab5.png",
+        "Priority": 10,
+        "StageId": [
+            null,
+            30000401,
+            30000402,
+            30000403,
+            30000404,
+            30000405,
+            30000411
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 109,
+        "Desc": "The incarnation of a certain Construct's will, brutal and swift in battle. Its great sword is often the first and last thing that its enemies see.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab3.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30000801,
+            30000802,
+            30000803,
+            30000804,
+            30000805,
+            30000811
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 110,
+        "Desc": "This silver-haired humanoid hybrid Construct is the current leader of the Forest Guard in South Murmansk Port. Rosetta and Derek, the Narwhal, are long-acquainted. She is also able to communicate with it.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab17.png",
+        "Priority": 20,
+        "StageId": [
+            null,
+            30001001,
+            30001002,
+            30001003,
+            30001004,
+            30001005,
+            30001011
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 201,
+        "Desc": "Multi-terrain military robot, its variable spherical frame concealing powerful energy reserves. Now infected by the Punishing Virus, its heavy firepower has become the nightmare of humankind.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab2.png",
+        "Priority": 10,
+        "StageId": [
+            null,
+            30000906,
+            30000907,
+            30000908,
+            30000909,
+            30000910,
+            30000916
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 202,
+        "Desc": "Multi-terrain military robot, its variable spherical frame concealing powerful energy reserves. Now infected by the Punishing Virus, its heavy firepower has become the nightmare of humankind.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab2.png",
+        "Priority": 10,
+        "StageId": [
+            null,
+            30000911,
+            30000912,
+            30000913,
+            30000914,
+            30000915,
+            30000917
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 203,
+        "Desc": "A projection of the AI system on the Nighter that summons various forms of hands to crush her enemies. Has multiple attack modes, such as Palm, Hammer, and Lightning Storm.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab18.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30001201,
+            30001202,
+            30001203,
+            30001204,
+            30001205,
+            30001211
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 204,
+        "Desc": "An Ascendant that dominates the battlefield and drives the opponent to despair with great physical power and unpredictable, astonishing mobility. With the Ascension-Network as his supreme belief, all kills he made represent his loyalty to the network.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab19.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30001301,
+            30001302,
+            30001303,
+            30001304,
+            30001305,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 1001,
+        "Desc": "fought alongside humans against the Punishing Virus until the end. Now it walks upon the abandoned ruins of civilization as a Corrupted, but for some reason it has kept the clumsy bandaging that a kind-hearted civilian once gave him.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab10.png",
+        "Priority": 20,
+        "StageId": [
+            null,
+            30300101,
+            30300102,
+            30300103,
+            30300104,
+            30300105,
+            30000111
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 1002,
+        "Desc": "Originally designed to spray paint, it now employs it in \"artistic\" ways to attack those who would impede his art.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab9.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30300201,
+            30300202,
+            30300203,
+            30300204,
+            30300205,
+            30000211
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 1003,
+        "Desc": "One of the Ascendant, employing his gun and chain blade to cause chaos on the battlefield. Few have been able to get him to drop his nonchalant attitude in battle, and none have lived to tell the tale.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab14.png",
+        "Priority": 10,
+        "StageId": [
+            null,
+            30300301,
+            30300302,
+            30300303,
+            30300304,
+            30300305,
+            30000311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 1004,
+        "Desc": "A restoration of the guardians of a lost desert civilization, they are able to move swiftly in sand, tearing apart any creature who enters the desert without permission.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab13.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30300601,
+            30300602,
+            30300603,
+            30300604,
+            30300605,
+            30000611
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 1005,
+        "Desc": "A Construct of unknown origin, wielding a katana just like Lucia, but far more experienced and skilled at it. Every swing seems to tear apart the fabric of reality.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab16.png",
+        "Priority": 20,
+        "StageId": [
+            null,
+            30300501,
+            30300502,
+            30300503,
+            30300504,
+            30300505,
+            30000511
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 1006,
+        "Desc": "Butler robot once used by the upper class, faithfully following its masters' orders. Employing a rapier in battle, it is graceful and dangerous in equal measure.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab7.png",
+        "Priority": 20,
+        "StageId": [
+            null,
+            30300701,
+            30300702,
+            30300703,
+            30300704,
+            30300705,
+            30000711
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 1008,
+        "Desc": "The spiked armor on this corrupted Construct is more than just a deadly weapon or solid protection, it also continues to spread the infection throughout the interior of the Construct.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab5.png",
+        "Priority": 10,
+        "StageId": [
+            null,
+            30300401,
+            30300402,
+            30300403,
+            30300404,
+            30300405,
+            30000411
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 1009,
+        "Desc": "The incarnation of a certain Construct's will, brutal and swift in battle. Its great sword is often the first and last thing that its enemies see.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab3.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30300801,
+            30300802,
+            30300803,
+            30300804,
+            30300805,
+            30000811
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 1010,
+        "Desc": "This silver-haired humanoid-hybrid Construct is the current leader of the Forest Guard in South Murmansk Port. Rosetta and Derek, the Narwhal, are long-acquainted. She is also able to communicate with it.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab17.png",
+        "Priority": 20,
+        "StageId": [
+            null,
+            30301001,
+            30301002,
+            30301003,
+            30301004,
+            30301005,
+            30001011
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2003,
+        "Desc": "A projection of the AI system on Nona Ouroboros that summons various forms of hands to crush her enemies. Has multiple attack modes, such as Palm, Hammer, and Lightning Storm.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab18.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30301201,
+            30301202,
+            30301203,
+            30301204,
+            30301205,
+            30001211
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2004,
+        "Desc": "An Ascendant that dominates the battlefield and drives the opponent to despair with great physical power and unpredictable, astonishing mobility. With the Ascension-Network as his supreme belief, all kills he made represent his loyalty to the network.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab19.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30301301,
+            30301302,
+            30301303,
+            30301304,
+            30301305,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2005,
+        "Desc": "As the first humanoid-hybrid Construct modified by the ARU, Amberia was made into a forbidden weapon to end the Punishing disaster once and for all. She has terrifying blades and energy field that can erode the armor of Constructs.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab21.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30301401,
+            30301402,
+            30301403,
+            30301404,
+            30301405,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2006,
+        "Desc": "Every entertaining function of this bionic mascot of Venus Splash Park could easily be turned into a weapon with simple recoding. Once put into the defense mode, it will instantly turn into a special defense machine with power far beyond what its cute appearance suggests.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab20.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30301501,
+            30301502,
+            30301503,
+            30301504,
+            30301505,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2007,
+        "Desc": "A mechanoid manufactured by the mysterious \"Safein\" School for execution and containment. Compared with the other two Safein Constructs, the bionic design allows him to swing his scepter-like weapon with ease. The more advanced control units also enable him to control landscape and unleash lightning.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab23.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30301601,
+            30301602,
+            30301603,
+            30301604,
+            30301605,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2008,
+        "Desc": "Born in the center of Polyphage, this humanoid Punishing Hetero-creature served as its terminal and could also be used to control it. It resembled an abomination crawling out of the abyss. Its shiny, red scythe and wings suggested its bloodthirsty nature, warning any living things not to approach.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab22.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30301701,
+            30301702,
+            30301703,
+            30301704,
+            30301705,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2009,
+        "Desc": "She... was eroded by the Punishing Virus and because the mindless beast\u2014\"Siren\". Her once beautiful voice turning into a shrill roar filled with nothing but despair and anger. It now viciously attacks all living creatures with the twisted limbs given to it by the Red Tide.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab25.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30301801,
+            30301802,
+            30301803,
+            30301804,
+            30301805,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2010,
+        "Desc": "Empress of Kowloong Metropolis and one of the few granted the title of Transcendant. She wields the Glaive as a natural extension of her vigorous, elegant body, allowing her to unleash the full potential of its might. Such a blade kills all who are bold and treacherous.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab24.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30301901,
+            30301902,
+            30301903,
+            30301904,
+            30301905,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2011,
+        "Desc": "Luna is an agent\u2015a special member among the mysterious Ascendants. She will eliminate all the enemies of the Ascension-Network with the overwhelming power of various Punishing Virus Heteromer weapons.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab26.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30302001,
+            30302002,
+            30302003,
+            30302004,
+            30302005,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2012,
+        "Desc": "An Ascendant with a huge fishtail and excellent camouflage capability and underwater battle performance. Her spear can deal damage to a large area, but the electric ghosts that disturb one's senses and the phantoms that show up at random spots are harder to deal with.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab27.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30302101,
+            30302102,
+            30302103,
+            30302104,
+            30302105,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2013,
+        "Desc": "According to the battle report submitted by Cerberus, Voodoo seems to be mentally unstable but still has great combat capability. Thanks to the unparalleled mobility given by the wings on her back, Voodoo is just like a hunter who always launches a surprise attack and leaves immediately afterward.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab28.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30302201,
+            30302202,
+            30302203,
+            30302204,
+            30302205,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2014,
+        "Desc": "A data cluster born in Liv's contaminated M.I.N.D. with no clear data about it. The contaminated data formed a crimson light beam, corrupting everything it touches in the M.I.N.D.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab29.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30302301,
+            30302302,
+            30302303,
+            30302304,
+            30302305,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2016,
+        "Desc": "Born on the moon, this Hetero-Creature devoured zero-point energy to grow into this abomination. Its blue light has the power to corrode everything nearby, and its large, inorganic eye only stares at its enemy with greed.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab31.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30302501,
+            30302502,
+            30302503,
+            30302504,
+            30302505,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2017,
+        "Desc": "The bionic mascot of Venus Splash Park. Once it has entered the defense mode, Shark-speare will turn into a powerful special defense mechanoid.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab32.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30302601,
+            30302602,
+            30302603,
+            30302604,
+            30302605,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2018,
+        "Desc": "The spiked armor on this corrupted Construct is more than just a deadly weapon or solid protection, it also continues to spread the infection throughout the interior of the Construct.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab34.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30302701,
+            30302702,
+            30302703,
+            30302704,
+            30302705,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2019,
+        "Desc": "Mechanoid Madorea was originally an integrated terminal for an experiment. For unknown reasons, Madorea shows an obsessive adherence to executing the \"Control\" program. Any deviation from expectations triggers Madorea to mercilessly punish those who disobey.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab33.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30302801,
+            30302802,
+            30302803,
+            30302804,
+            30302805,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2021,
+        "Desc": "Once a defector from Babylonia's Construct ranks and now an Ascendant. With a blend of cunning, deception, and counter strategies, she embodies the essence of a mad gambler and a crafty magician. Every move she makes is a calculated scheme, concealing deadly traps within her actions.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab36.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30303001,
+            30303002,
+            30303003,
+            30303004,
+            30303005,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    },
+    {
+        "Id": 2022,
+        "Desc": "A humanoid hybrid mechanoid who excels in close-quarter combat, displaying a solemn and powerful demeanor.",
+        "BossHeadIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleTab35.png",
+        "Priority": 30,
+        "StageId": [
+            null,
+            30303101,
+            30303102,
+            30303103,
+            30303104,
+            30303105,
+            30001311
+        ],
+        "ActivityTimeId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ActivityTag": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SwitchTimeId": null,
+        "TeamBuffId": null
+    }
+]

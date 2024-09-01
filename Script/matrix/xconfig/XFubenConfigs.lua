@@ -1,7 +1,26 @@
 local CSXGameClientConfig = CS.XGame.ClientConfig
 local CSXTextManagerGetText = CS.XTextManager.GetText
 
-XFubenConfigs = XFubenConfigs or {}
+XFubenConfigs = XConfigCenter.CreateTableConfig(XFubenConfigs, "XFubenConfigs", "Fuben")
+--=============
+--配置表枚举
+--TableName : 表名，对应需要读取的表的文件名字，不写即为枚举的Key字符串
+--TableDefindName : 表定于名，默认同表名
+--ReadFuncName : 读取表格的方法，默认为ReadByIntKey
+--ReadKeyName : 读取表格的主键名，默认为Id
+--DirType : 读取的文件夹类型XConfigCenter.DirectoryType，默认是Share
+--LogKey : GetCfgByIdKey方法idKey找不到时所输出的日志信息，默认是唯一Id
+--=============
+XFubenConfigs.TableKey = enum({
+    FubenActivity = {},
+    FubenTabConfig = { DirType = XConfigCenter.DirectoryType.Client },
+    FubenSecondTag = { DirType = XConfigCenter.DirectoryType.Client },
+    FubenStoryLine = { DirType = XConfigCenter.DirectoryType.Client },
+    FubenActivityTimeTips = { DirType = XConfigCenter.DirectoryType.Client },
+    FubenCollegeBanner = {},
+    FubenClientConfig = { ReadKeyName = "Key", ReadFuncName = "ReadByStringKey", DirType = XConfigCenter.DirectoryType.Client },
+    StageVoiceTip = { ReadKeyName = "StageId", DirType = XConfigCenter.DirectoryType.Client},
+})
 
 local TABLE_STAGE = "Share/Fuben/Stage.tab"
 local TABLE_STAGE_TYPE = "Share/Fuben/StageType.tab"
@@ -24,6 +43,7 @@ local TABLE_STAGE_MIX_CHARACTER_LIMIT_BUFF_PATH = "Client/Fuben/StageMixCharacte
 local TABLE_STAGE_STEP_SKIP = "Client/Fuben/StageStepSkip.tab"  -- 关卡步骤跳过
 local TABLE_STAGE_GAME_PLAY_DESC = "Client/Fuben/StageGamePlayDesc.tab" -- 暂停界面玩法说明
 local TABLE_STAGE_GAME_PLAY_DESC_SHEET = "Client/Fuben/StageGamePlayDescSheet.tab" -- 暂停界面玩法说明子页签
+local TABLE_STAGE_SETTLE_SPECIAL_SOUND = "Client/Fuben/StageSettleSpecialSound.tab" -- 结算界面特殊Sound
 
 local StageCfg = {}
 local StageTransformCfg = {}
@@ -47,7 +67,9 @@ local StageCharacterLimitBuffDic = {}
 local StageStepSkipConfigs = {}
 local StageGamePlayDesc = {}
 local StageGamePlayDescSheet = {}
+local StageSettleSpecialSoundCfg = {}
 
+--对应Stage表的StageType，注意和FubenManager的StageType区分
 XFubenConfigs.STAGETYPE_COMMON = 0
 XFubenConfigs.STAGETYPE_FIGHT = 1
 XFubenConfigs.STAGETYPE_STORY = 2
@@ -68,6 +90,14 @@ XFubenConfigs.CharacterLimitType = {
     NormalDebuff = 4, --构造体(Debuff)/感染体 [AKA:重灾区]
 }
 
+XFubenConfigs.MainLineMoveOpenTime = 0.3
+XFubenConfigs.MainLineMoveCloseTime = 0.7
+XFubenConfigs.MainLineWaitTime = 500
+XFubenConfigs.ExtralLineMoveOpenTime = 0.3
+XFubenConfigs.ExtralLineMoveCloseTime = 0.5
+XFubenConfigs.ExtralLineWaitTime = 650
+XFubenConfigs.DebugOpenOldMainUi = false
+
 XFubenConfigs.AISuggestType = {
     All = 0, -- 无
     Robot = 1, -- 推荐使用角色
@@ -75,6 +105,102 @@ XFubenConfigs.AISuggestType = {
 
 XFubenConfigs.StepSkipType = {
     SettleLose = 1, -- 失败结算
+}
+
+XFubenConfigs.ChapterType = {
+    MainLine = 0,
+    TOWER = 1,
+    YSHTX = 2,
+    EMEX = 3,
+    DJHGZD = 4,
+    BossSingle = 5,
+    Urgent = 6,
+    BossOnline = 7,
+    Resource = 8,
+    Trial = 9, --意识营救战
+    ARENA = 10,
+    Explore = 11, --探索(黄金之涡)
+    ActivtityBranch = 12, --活动支线副本
+    ActivityBossSingle = 13, --活动单挑BOSS
+    Practice = 14, --教学关卡
+    GZTX = 15, --日常構造體特訓
+    XYZB = 16, --日常稀有裝備
+    TPCL = 17, --日常突破材料
+    ZBJY = 18, --日常裝備經驗
+    LMDZ = 19, --日常螺母大戰
+    JNQH = 20, --日常技能强化
+    Christmas = 21, --节日活动-圣诞节
+    BriefDarkStream = 22, --活动-极地暗流
+    ActivityBabelTower = 23, --巴别塔计划
+    FestivalNewYear = 24, --新年活动
+    RepeatChallenge = 25, --复刷本
+    RogueLike = 26, --爬塔
+    FoolsDay = 27, --愚人节活动
+    Assign = 28, -- 边界公约
+    ChinaBoatPreheat = 29, --中国船预热
+    ArenaOnline = 30, -- 合众战局
+    UnionKill = 31, --列阵
+    SpecialTrain = 32, --特训关
+    InfestorExplore = 33, -- 感染体玩法
+    Expedition = 34, -- 虚像地平线
+    WorldBoss = 35, --世界Boss
+    RpgTower = 36, --兵法蓝图
+    MaintainerAction = 37, --大富翁
+    NewCharAct = 38, -- 新角色教学
+    Pokemon = 39, --口袋战双
+    NieR = 40, --尼尔玩法
+    ChessPursuit = 41, --追击玩法
+    SpringFestivalActivity = 42, --春节活动
+    SimulatedCombat = 43, --模拟作战
+    Stronghold = 44, --超级据点
+    MoeWar = 45, --萌战
+    Reform = 46, --改造玩法
+    PartnerTeaching = 47, --宠物教学
+    FZJQH = 48, --日常辅助机强化
+    PokerGuessing = 49, --翻牌猜大小
+    Hack = 50, --骇入玩法
+    FashionStory = 51, --涂装剧情活动
+    KillZone = 52, --杀戮无双
+    SuperTower = 53, --超级爬塔
+    CoupleCombat = 54, --双人下场玩法玩法
+    SameColor = 55, -- 三消游戏
+    SuperSmashBros = 56, --超限乱斗
+    AreaWar = 57, -- 全服决战
+    MemorySave = 58, -- 周年意识营救战
+    Maverick = 59, -- 射击玩法
+    Theatre = 60, --肉鸽玩法
+    NewYearLuck = 61,--春节奖券小游戏
+    Escape = 62, --大逃杀玩法
+    PivotCombat = 63, --SP枢纽作战
+    DoubleTowers = 64, --动作塔防
+    GoldenMiner = 65, --黄金矿工
+    RpgMakerGame = 66, --推箱子小游戏
+    MultiDim = 67, -- 多维挑战
+    TaikoMaster = 68, --音游
+    TwoSideTower = 69, --正逆塔
+    Doomsday = 70, --模拟经营
+    Bfrt = 71, --据点
+    Experiment = 72, --试玩关
+    Daily = 73, -- 日常
+    ExtralChapter = 74, -- 外篇旧闻
+    Festival = 75,   -- 活动记录
+    ShortStory = 76, -- 浮点纪实
+    Prequel = 77,   -- 间章旧闻
+    CharacterFragment = 78, -- 角色碎片
+    Activity = 79, -- 活动归纳整理
+    Course = 80, -- v1.30 考级
+    BiancaTheatre = 81, --肉鸽2.0
+    Rift = 82, --战双大秘境
+    CharacterTower = 83, --本我回廊（角色塔）
+    ColorTable = 84, -- 调色板战争
+    BrilliantWalk = 85, --光辉同行
+    DlcHunt = 86,   -- Dlc
+    Maverick2 = 87, -- 异构阵线2.0
+    Maze = 88, -- 情人节活动2023
+    PlanetRunning = 89, 
+    CerberusGame = 90,
+    Transfinite = 91, -- 超限连战
+    Theatre3 = 92, -- 肉鸽3.0
 }
 
 function XFubenConfigs.Init()
@@ -132,6 +258,8 @@ function XFubenConfigs.Init()
             StageCharacterLimitBuffDic[limitType][diffCount] = tmpDic
         end
     end
+
+    StageSettleSpecialSoundCfg = XTableManager.ReadByIntKey(TABLE_STAGE_SETTLE_SPECIAL_SOUND, XTable.XTableStageSettleSpecialSound, "StageId")
 end
 
 local function GetStageCfg(stageId, ignoreError)
@@ -655,6 +783,13 @@ function XFubenConfigs.IsStageRecommendCharacterType(stageId, Id)
     --if characterType == XCharacterConfigs.CharacterType.Isomer and recommendType == characterType then
     --    return true
     --end
+
+    --为【SP区】优先上阵独域角色
+    if (recommendType == XCharacterConfigs.CharacterType.Sp) and 
+        (characterType == XCharacterConfigs.CharacterType.Isomer or characterType == XCharacterConfigs.CharacterType.Sp) then
+        return true
+    end
+
     --特殊逻辑：当关卡推荐元素为0时推荐所有该角色类型（构造体/授格者）的构造体
     --（此处兼容之前废弃的《授格者一定推荐的特殊逻辑》，StageRecommend配置中的授格者类型下推荐属性都是0，故兼容）
     return XTool.IsNumberValid(recommendType) and
@@ -665,6 +800,11 @@ end
 function XFubenConfigs.GetStageName(stageId, ignoreError)
     local config = GetStageCfg(stageId, ignoreError)
     return config and config.Name or ""
+end
+
+function XFubenConfigs.GetStageDescription(stageId, ignoreError)
+    local config = GetStageCfg(stageId, ignoreError)
+    return config and config.Description or ""
 end
 
 function XFubenConfigs.GetStageType(stageId)
@@ -687,13 +827,6 @@ function XFubenConfigs.GetStarDesc(stageId)
 end
 
 ---
---- 关卡需要消耗的体力
-function XFubenConfigs.GetRequireActionPoint(stageId)
-    local config = GetStageCfg(stageId)
-    return (config or {}).RequireActionPoint
-end
-
----
 --- 关卡首通奖励
 function XFubenConfigs.GetFirstRewardShow(stageId)
     local config = GetStageCfg(stageId)
@@ -712,6 +845,13 @@ end
 function XFubenConfigs.GetBeginStoryId(stageId)
     local config = GetStageCfg(stageId)
     return (config or {}).BeginStoryId
+end
+
+---
+--- 获得战后剧情ID
+function XFubenConfigs.GetEndStoryId(stageId)
+    local config = GetStageCfg(stageId)
+    return (config or {}).EndStoryId
 end
 
 ---
@@ -787,4 +927,127 @@ function XFubenConfigs.GetStageGamePlayDescDataSource(stageType)
     end
     return StageGamePlayDataSource[stageType] or {}
 end
+
+function XFubenConfigs.GetFubenActivityConfigByManagerName(value)
+    local activityConfigs = XFubenConfigs.GetAllConfigs(XFubenConfigs.TableKey.FubenActivity)
+    for _, config in ipairs(activityConfigs) do
+        if config.ManagerName == value then
+            return config
+        end
+    end
+    return {}
+end
+
+function XFubenConfigs.GetSecondTagConfigsByFirstTagId(firstTagId)
+    local configs = XFubenConfigs.GetAllConfigs(XFubenConfigs.TableKey.FubenSecondTag)
+    local result = {}
+    for _, config in pairs(configs) do
+        if config.FirstTagId == firstTagId then
+            table.insert(result, config)
+        end
+    end
+    table.sort(result, function (tagConfigA, tagConfigB)
+        return tagConfigA.Order and tagConfigB.Order and (tagConfigA.Order < tagConfigB.Order)
+    end)
+    return result
+end
+
+function XFubenConfigs.GetSecondTagConfigById(id)
+    local configs = XFubenConfigs.GetAllConfigs(XFubenConfigs.TableKey.FubenSecondTag)
+    return configs[id]
+end
+
+function XFubenConfigs.GetCollegeChapterBannerByType(chapterType)
+    local configs = XFubenConfigs.GetAllConfigs(XFubenConfigs.TableKey.FubenCollegeBanner)
+    for _, config in ipairs(configs) do
+        if config.Type == chapterType then
+            return config
+        end
+    end
+end
+
+function XFubenConfigs.GetActivityPanelPrefabPath()
+    return XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "ActivityPanelPrefab").Values[1]
+end
+
+function XFubenConfigs.GetMainPanelTimeId()
+    return tonumber(XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "MainPanelTimeId").Values[1])
+end
+
+function XFubenConfigs.GetMainFestivalBg() -- 覆盖其他二级标签的活动背景图
+    return XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "MainFestivalBg").Values[1]
+end
+
+function XFubenConfigs.GetMainPanelItemId()
+    return tonumber(XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "MainPanelItemId").Values[1])
+end
+
+function XFubenConfigs.GetMainPanelName()
+    return XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "MainPanelName").Values[1]
+end
+
+function XFubenConfigs.GetMain3DBgPrefab()
+    return XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "Main3DBgPrefab").Values[1]
+end
+
+function XFubenConfigs.GetMain3DCameraPrefab()
+    return XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "Main3DCameraPrefab").Values[1]
+end
+
+function XFubenConfigs.GetMainVideoBgUrl()
+    return XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "MianVideoBgUrl").Values[1]
+end
+
+function XFubenConfigs.GetStageSettleWinSoundId()
+    return XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "StageSettleWinSoundId").Values
+end
+
+function XFubenConfigs.GetStageSettleLoseSoundId()
+    return XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "StageSettleLoseSoundId").Values
+end
+
+function XFubenConfigs.GetQxmsTryIcon()
+    return XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "UiFubenQxmsTryIcon").Values[1]
+end
+
+function XFubenConfigs.GetQxmsUseIcon()
+    return XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "UiFubenQxmsUseIcon").Values[1]
+end
+
+function XFubenConfigs.GetChallengeShowGridCount()
+    return tonumber(XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "ChallengeShowGridCount").Values[1])
+end
+
+function XFubenConfigs.GetChallengeShowGridList()
+    local result = {}
+    for i, value in ipairs(XFubenConfigs.GetCfgByIdKey(XFubenConfigs.TableKey.FubenClientConfig, "ChallengeShowGridList").Values) do
+        result[#result + 1] = tonumber(value)
+    end
+    --Debug 代码
+    --result = {
+    --    XFubenConfigs.ChapterType.BossSingle,
+    --    XFubenConfigs.ChapterType.ARENA,
+    --    XFubenConfigs.ChapterType.Stronghold,
+    --    XFubenConfigs.ChapterType.BiancaTheatre,
+    --    XFubenConfigs.ChapterType.Theatre,
+    --    XFubenConfigs.ChapterType.Transfinite
+    --}
+    return result
+end
+
+-- 判断副本主界面是否是用3D场景
+function XFubenConfigs.GetIsMainHave3DBg()
+    return not string.IsNilOrEmpty(XFubenConfigs.GetMain3DBgPrefab())
+end
+
+-- 判断副本主界面是否是用视频背景
+function XFubenConfigs.GetIsMainHaveVideoBg()
+    return not string.IsNilOrEmpty(XFubenConfigs.GetMainVideoBgUrl())
+end
+
 --endregion
+
+function XFubenConfigs.GetSettleSpecialSoundCfgByStageId(stageId)
+    local config = StageSettleSpecialSoundCfg[stageId]
+    return config or {}
+end

@@ -1,19 +1,37 @@
 local XUiDialog = XLuaUiManager.Register(XLuaUi, "UiDialog")
 
 function XUiDialog:OnAwake()
-    self.LastOperationType = CS.XInputManager.CurOperationType  
+    self.LastOperationType = CS.XInputManager.CurOperationType
     self:AutoAddListener()
 end
 
-function XUiDialog:OnStart(title, content, dialogType, closeCallback, sureCallback, data)
+function XUiDialog:OnStart(title, content, dialogType, closeCallback, sureCallback, data, cancelCallBack)
     ---- 处理额外参数 -----
     local ItemIds, sureText, closeText
+    local content2, content3    --content2存在时用TxtInfo2替换TxtInfoNormal显示
     if data then
-        ItemIds = {data.ItemId1, data.ItemId2, data.ItemId3}
+        ItemIds = { data.ItemId1, data.ItemId2, data.ItemId3 }
         sureText = data.sureText
         closeText = data.closeText
+        content2 = data.Content2
+        content3 = data.Content3
     end
-    
+
+    if content2 then
+        self.TxtInfoNormal.gameObject:SetActiveEx(false)
+        self.TxtInfo2.text = string.gsub(content2, "\\n", "\n")
+        self.TxtInfo2.gameObject:SetActiveEx(true)
+    else
+        self.TxtInfo2.gameObject:SetActiveEx(false)
+    end
+
+    if content3 then
+        self.TxtInfo3.text = string.gsub(content3, "\\n", "\n")
+        self.TxtInfo3.gameObject:SetActiveEx(true)
+    else
+        self.TxtInfo3.gameObject:SetActiveEx(false)
+    end
+
     if ItemIds and #ItemIds > 0 then
         self.PanelActivityAsset.gameObject:SetActive(true)
         XUiPanelAsset.New(self, self.PanelActivityAsset, ItemIds[1], ItemIds[2], ItemIds[3])
@@ -25,13 +43,13 @@ function XUiDialog:OnStart(title, content, dialogType, closeCallback, sureCallba
         self.BtnConfirm:SetNameByGroup(0, sureText)
         self.BtnConfirmB:SetNameByGroup(0, sureText)
     end
-    
+
     if closeText then
         self.BtnClose:SetNameByGroup(0, closeText)
         self.BtnCloseA:SetNameByGroup(0, closeText)
     end
     ---- end -----
-    
+
     self:HideDialogLayer()
     if title then
         self.TxtTitle.text = title
@@ -67,7 +85,9 @@ function XUiDialog:OnStart(title, content, dialogType, closeCallback, sureCallba
         self:ShowSpecialRegulationForJP()
     end
     self.OkCallBack = sureCallback
-    self.CancelCallBack = closeCallback
+    self.CloseCallBack = closeCallback
+    self.CancelCallBack = cancelCallBack
+    self.DialogType = dialogType
 end
 
 function XUiDialog:OnEnable()
@@ -78,6 +98,11 @@ function XUiDialog:OnEnable()
     if self.EnableAnimation then
         self:PlayAnimation(self.EnableAnimation)
     end
+
+end
+
+function XUiDialog:OnDisable()
+
 end
 
 function XUiDialog:RegisterClickEvent(uiNode, func)
@@ -101,12 +126,13 @@ function XUiDialog:AutoAddListener()
     self:RegisterClickEvent(self.BtnConfirmB, self.OnBtnConfirmBClick)
     self:RegisterClickEvent(self.BtnCloseA, self.OnBtnCloseAClick)
     self:RegisterClickEvent(self.BtnConfirm, self.OnBtnConfirmClick)
-    self:RegisterClickEvent(self.BtnClose, self.OnBtnCloseClick)
+    self:RegisterClickEvent(self.BtnClose, self.OnBtnCancelClick)
     self:RegisterClickEvent(self.BtnTanchuangClose, self.OnBtnCloseClick)
     if XDataCenter.InputManagerPc then
         self.LastInputLevel = XDataCenter.InputManagerPc.GetCurrentLevel()
         XDataCenter.InputManagerPc.SetCurrentLevel(5000)
     end
+    XDataCenter.InputManagerPc.RegisterFunc(CS.XUiPc.XUiPcCustomKeyEnum.DialogCancel, function() self:CancelBtnClick() end)
 end
 
 function XUiDialog:HideDialogLayer()
@@ -139,17 +165,49 @@ function XUiDialog:OkBtnClick()
     end
 
     self.OkCallBack = nil
-    self.CancelCallBack = nil
+    self.CloseCallBack = nil
 end
 
 function XUiDialog:CancelBtnClick()
     self:EmitSignal("Close", false)
     CsXUiManager.Instance:Close(self.Name)
-    if self.CancelCallBack then
-        self.CancelCallBack()
+    if self.CloseCallBack then
+        self.CloseCallBack()
     end
 
     self.OkCallBack = nil
+    self.CloseCallBack = nil
+end
+
+--PC端响应返回键关闭界面
+function XUiDialog:PcClose()
+    if self.DialogType == XUiManager.DialogType.OnlySure then
+        self:OkBtnClick()
+        return
+    end
+    self:CancelBtnClick()
+end
+
+function XUiDialog:OnDestroy()
+    self:AutoRemoveListener()
+    CS.XInputManager.SetCurOperationType(self.LastOperationType)
+end
+
+function XUiDialog:AutoRemoveListener()
+end
+
+-- 区分取消和关闭弹窗
+function XUiDialog:OnBtnCancelClick()
+    self:EmitSignal("Close", false)
+    CsXUiManager.Instance:Close(self.Name)
+    if self.CancelCallBack then
+        self.CancelCallBack()
+    elseif self.CloseCallBack then
+        self.CloseCallBack()
+    end
+
+    self.OkCallBack = nil
+    self.CloseCallBack = nil
     self.CancelCallBack = nil
 end
 

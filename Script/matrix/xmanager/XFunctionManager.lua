@@ -68,11 +68,16 @@ XFunctionManager.FunctionName = {
     EquipStrengthenAutoSelect = 204, --装备一键强化
     EquipAwake = 205, --装备觉醒
     EquipQuick = 206, --一键培养
+    EquipGuideRecommend = 207, --装备目标-推荐
+    EquipGuideSetTarget = 208, --装备目标-设定
+    EquipOverrun = 209, --装备超限
 
     Bag = 301, --背包
     DrawCard = 401, --研发
     DrawCardEquip = 402, --研发装备
     ActivityDrawCard = 403, --活动研发
+    Lotto = 10432,--皮肤抽卡
+
     Task = 501, --任务
     TaskDay = 503, --任务每日
     TaskActivity = 504, --任务活动
@@ -86,6 +91,7 @@ XFunctionManager.FunctionName = {
     SocialChat = 802, --聊天
     Domitory = 901, --基建（弃用）
     Dorm = 902, --宿舍
+    DormQuest = 903, -- 宿舍委托
     ShopCommon = 1001, --普通商店
     ShopActive = 1002, --活动商店
     ShopPoints = 1003, --积分商店
@@ -112,6 +118,7 @@ XFunctionManager.FunctionName = {
     Prequel = 1701, --断章
     Practice = 1800, --教学
     PartnerTeaching = 1801, -- 宠物教学
+    Course = 1802,  --考级系统
 
     Guild = 1901, --指挥部
     GuildBoss = 1904, --工会boss
@@ -147,7 +154,7 @@ XFunctionManager.FunctionName = {
     FubenActivityBranch = 10303, --活动支线
     FubenActivitySingleBoss = 10304, --活动单挑boss
     FubenActivityTrial = 10305, --试验区
-    FestivalActivity = 10306, --节日活动
+    FestivalActivity = 10306, --节日活动(活动记录)
     FubenActivityFestival = 10306, --节日活动
     BabelTower = 10307, --巴别塔计划
     FubenActivityMainLine = 10308, --活动主线
@@ -156,8 +163,8 @@ XFunctionManager.FunctionName = {
     FubenAssign = 10311, --占领玩法
     ArenaOnline = 10312, --区域联机玩法
     FubenUnionKill = 10313, --狙击战
-    Extra = 10314, -- 外章
-    ShortStory = 10352, --故事集
+    Extra = 10314, -- 外篇旧闻
+    ShortStory = 10352, --浮点纪实
     FubenInfesotorExplore = 10315, --感染体玩法
     SpecialTrain = 10316, -- 特训关
     EliminateGame = 10317, -- 特训关小游戏
@@ -220,6 +227,25 @@ XFunctionManager.FunctionName = {
     WeekChallenge = 10428, --周挑战
     MultiDim = 10427, -- 多维挑战
     TaikoMaster = 10430, --音游
+    TwoSideTower = 10431, --正逆塔
+    BiancaTheatre = 10433,  --肉鸽2.0
+    SummerSignIn = 10434, --夏日签到
+    NewbieTask = 10435, -- 新手任务二期
+    CharacterTower = 10436, --本我回廊（角色塔）
+    Rift = 10437, -- 大秘境
+    ColorTable = 10438, -- 调色板战争
+    FubenBrilliantWalk = 10439, -- 光辉同行
+    FubenAwareness = 10440, -- 意识公约副本
+    SkinVote = 10442, -- 皮肤投票
+    Restaurant = 10443, -- 餐厅玩法
+    Maverick2 = 10444, -- 异构阵线2.0
+    MonsterCombat = 10447, -- 战双BVB
+    CerberusGame = 10448, -- 三头犬小队
+    SlotMachines = 10449, -- 老虎机
+    Transfinite = 10451, -- 超限连战
+    NewActivityCalendar = 10452, -- 新活动周历
+    Theatre3 = 10453, -- 肉鸽3.0
+    Turntable = 10454, -- 夏日幸运星
 }
 
 XFunctionManager.FunctionType = {
@@ -307,10 +333,10 @@ end
 --检测是否可以过滤该功能
 function XFunctionManager.CheckFunctionFitter(id)
     return ShieldFuncDic[id]
-    end
+end
 
 --界面跳转
-function XFunctionManager.SkipInterface(id)
+function XFunctionManager.SkipInterface(id, ...)
     if id == 0 then
         return
     end
@@ -336,15 +362,17 @@ function XFunctionManager.SkipInterface(id)
 
     -- 提审包屏蔽，跳转到主线页面
     if XUiManager.IsHideFunc and list.IsHideFunc then
-        XLuaUiManager.Open("UiFuben", XDataCenter.FubenManager.StageType.Mainline, nil, 1)
+        -- XLuaUiManager.Open("UiFuben", XDataCenter.FubenManager.StageType.Mainline, nil, 1)
+        XLuaUiManager.Open("UiNewFuben", XFubenConfigs.ChapterType.MainLine)
         return
     end
+
 
     if list.Origin == XFunctionManager.SkipOrigin.System then
         if XLuaUiManager.IsUiShow(list.UiName) then
             return
         end
-
+        
         XLuaUiManager.Open(list.UiName)
     end
 
@@ -376,17 +404,20 @@ function XFunctionManager.SkipInterface(id)
         if XLuaUiManager.IsUiShow("UiMain") then
             return
         end
-
+        
+        CS.XResourceRecord.Stop()
         XLuaUiManager.RunMain()
     end
 
     if list.Origin == XFunctionManager.SkipOrigin.SystemWithArgs then
+        CS.XResourceRecord.FunctionEnter(id)
         XDataCenter.FunctionalSkipManager.SkipSystemWidthArgs(list)
         return
     end
 
     if list.Origin == XFunctionManager.SkipOrigin.Custom then
-        XDataCenter.FunctionalSkipManager.SkipCustom(list)
+        CS.XResourceRecord.FunctionEnter(id)
+        XDataCenter.FunctionalSkipManager.SkipCustom(list, ...)
         return
     end
 

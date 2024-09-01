@@ -17,6 +17,7 @@ function XUiGuildDormMainBtnInfo:Refresh()
     self:ChangeGuildName(XDataCenter.GuildManager.GetGuildName())
     self:ChangeGuildLevel(XDataCenter.GuildManager.GetGuildLevel())
     self:ChangeGuildIcon(XDataCenter.GuildManager.GetGuildIconId())
+    self:ChangeGuildId(XDataCenter.GuildManager.GetGuildId())
 end
 
 function XUiGuildDormMainBtnInfo:ChangeGuildExpAmount(guildExpAmount)
@@ -29,6 +30,10 @@ end
 
 function XUiGuildDormMainBtnInfo:ChangeGuildLevel(level)
     self.BtnInformation:SetNameByGroup(1, level)
+end
+
+function XUiGuildDormMainBtnInfo:ChangeGuildId(guildId)
+    self.BtnInformation:SetNameByGroup(2, string.format("%08d",guildId))
 end
 
 function XUiGuildDormMainBtnInfo:ChangeGuildIcon(icon)

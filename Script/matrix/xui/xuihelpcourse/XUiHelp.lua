@@ -5,9 +5,11 @@ function XUiHelp:OnAwake()
 
 end
 
-function XUiHelp:OnStart(config, cb)
+function XUiHelp:OnStart(config, cb, jumpIndex, closeCb)
     self.Config = config
     self.Cb = cb
+    self.JumpIndex = jumpIndex
+    self.CloseCb = closeCb
     self:RegisterClickEvent(self.BtnMask, self.OnBtnMaskClick)
     self:InitDynamicTable()
 end
@@ -25,7 +27,12 @@ function XUiHelp:OnEnable()
     self.Icons = self.Config.ImageAsset
     self.Length = #self.Icons
     self.DynamicTable:SetDataSource(self.Config.ImageAsset)
-    self.DynamicTable:ReloadData()
+    self.DynamicTable:ReloadData(self.JumpIndex)
+
+end
+
+function XUiHelp:OnDisable()
+
 end
 
 --动态列表事件
@@ -40,4 +47,7 @@ function XUiHelp:OnBtnMaskClick()
         self.Cb()
     end
     self:Close()
+    if self.CloseCb then
+        self.CloseCb()
+    end
 end

@@ -9,7 +9,8 @@ local Default = {
     _BlockStatus = 0,       --状态，1阻挡，0不阻挡
 }
 
---缝隙对象
+---缝隙对象
+---@class XRpgMakerGameGap:XRpgMakerGameObject
 local XRpgMakerGameGap = XClass(XRpgMakerGameObject, "XRpgMakerGameGap")
 
 function XRpgMakerGameGap:Ctor(id)
@@ -22,6 +23,11 @@ function XRpgMakerGameGap:Ctor(id)
     end
 end
 
+---@param mapObjData XMapObjectData
+function XRpgMakerGameGap:InitDataByMapObjData(mapObjData)
+    self.MapObjData = mapObjData
+end
+
 --改变方向
 function XRpgMakerGameGap:ChangeDirectionAction(action, cb)
     local transform = self:GetTransform()
@@ -29,9 +35,12 @@ function XRpgMakerGameGap:ChangeDirectionAction(action, cb)
         return
     end
 
-    local gapId = self:GetId()
-    local x = XRpgMakerGameConfigs.GetRpgMakerGameGapX(gapId)
-    local y = XRpgMakerGameConfigs.GetRpgMakerGameGapY(gapId)
+    -- local gapId = self:GetId()
+    -- local x = XRpgMakerGameConfigs.GetRpgMakerGameGapX(gapId)
+    -- local y = XRpgMakerGameConfigs.GetRpgMakerGameGapY(gapId)
+    local x = self.MapObjData:GetX()
+    local y = self.MapObjData:GetY()
+
     local cube = self:GetCubeObj(y, x)
     local cubePosition = cube:GetGameObjUpCenterPosition()
     local cubeSize = cube:GetGameObjSize()
@@ -65,8 +74,7 @@ function XRpgMakerGameGap:IsGapInMiddle(curPosX, curPosY, direction, nextPosX, n
         return false
     end
 
-    local id = self:GetId()
-    local curGapDirection = XRpgMakerGameConfigs.GetRpgMakerGameGapDirection(id)
+    local curGapDirection = self.MapObjData:GetParams()[1]
     if self:IsSamePoint(curPosX, curPosY) and curGapDirection == direction then
         return true
     end

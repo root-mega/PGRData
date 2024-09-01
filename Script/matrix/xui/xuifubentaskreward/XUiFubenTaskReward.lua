@@ -7,7 +7,7 @@ function XUiFubenTaskReward:OnAwake()
     self.DynamicTable:SetDelegate(self)
     self.DynamicTable:SetProxy(XUiGridTask)
 
-    CsXUiHelper.RegisterClickEvent(self.BtnBg, handler(self, self.Close))
+    CsXUiHelper.RegisterClickEvent(self.BtnBg, handler(self, self.OnBtnCloseClick))
     self.BtnClose.CallBack = function() self:OnBtnCloseClick() end
     self.GridTask.gameObject:SetActiveEx(false)
 end

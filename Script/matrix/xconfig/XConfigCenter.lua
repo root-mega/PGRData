@@ -7,10 +7,11 @@ XConfigCenter.DirectoryType = {
 
 local IsWindowsEditor = XMain.IsWindowsEditor
 local ConfigCenterProfiler = nil
+local ConfigCenterDetailProfiler = nil
  
 local function InitConfig(config, key) 
     if IsWindowsEditor then
-        local profiler = ConfigCenterProfiler:CreateChild(key)
+        local profiler = ConfigCenterDetailProfiler:CreateChild(key)
         profiler:Start()
         -- XPerformance.RecordLuaMemData(key, function()
         config.Init()
@@ -24,6 +25,9 @@ end
 function XConfigCenter.Init()
     ConfigCenterProfiler = XGame.Profiler:CreateChild("XConfigCenter")
     ConfigCenterProfiler:Start()
+    if IsWindowsEditor then
+        ConfigCenterDetailProfiler = CS.XProfiler.Create("XConfigCenter", false, true)
+    end
     
     InitConfig(XDlcConfig,"XDlcConfig")
     
@@ -43,6 +47,7 @@ function XConfigCenter.Init()
     InitConfig(XCharacterConfigs, "XCharacterConfigs")
     InitConfig(XSignBoardConfigs, "XSignBoardConfigs")
     InitConfig(XEquipConfig, "XEquipConfig")
+    InitConfig(XEquipGuideConfigs, "XEquipGuideConfigs")
     InitConfig(XComeAcrossConfig, "XComeAcrossConfig")
     InitConfig(XFavorabilityConfigs, "XFavorabilityConfigs")
     InitConfig(XArenaConfigs, "XArenaConfigs")
@@ -58,7 +63,6 @@ function XConfigCenter.Init()
     InitConfig(XFubenMainLineConfigs, "XFubenMainLineConfigs")
     InitConfig(XFubenBossSingleConfigs, "XFubenBossSingleConfigs")
     InitConfig(XFubenExperimentConfigs, "XFubenExperimentConfigs")
-    InitConfig(XMailConfigs, "XMailConfigs")
     InitConfig(XBfrtConfigs, "XBfrtConfigs")
     InitConfig(XBountyTaskConfigs, "XBountyTaskConfigs")
     --InitConfig(XHostelConfigs, "XHostelConfigs")
@@ -70,6 +74,7 @@ function XConfigCenter.Init()
     InitConfig(XFubenActivityBossSingleConfigs, "XFubenActivityBossSingleConfigs")
     InitConfig(XFubenRepeatChallengeConfigs, "XFubenRepeatChallengeConfigs")
     InitConfig(XDormConfig, "XDormConfig")
+    InitConfig(XDormQuestConfigs, "XDormQuestConfigs")
     InitConfig(XMovieConfigs, "XMovieConfigs")
     InitConfig(XExhibitionConfigs, "XExhibitionConfigs")
     InitConfig(XAutoWindowConfigs, "XAutoWindowConfigs")
@@ -90,6 +95,7 @@ function XConfigCenter.Init()
     InitConfig(XFubenRogueLikeConfig, "XFubenRogueLikeConfig")
     InitConfig(XMarketingActivityConfigs, "XMarketingActivityConfigs")
     InitConfig(XFubenAssignConfigs, "XFubenAssignConfigs")
+    InitConfig(XFubenAwarenessConfigs, "XFubenAwarenessConfigs")
     InitConfig(XRegressionConfigs, "XRegressionConfigs")
     InitConfig(XPlatformShareConfigs, "XPlatformShareConfigs")
     InitConfig(XRewardConfigs, "XRewardConfigs")
@@ -97,7 +103,6 @@ function XConfigCenter.Init()
     InitConfig(XFubenExtraChapterConfigs, "XFubenExtraChapterConfigs")
     InitConfig(XFubenShortStoryChapterConfigs, "XFubenShortStoryChapterConfigs")
     InitConfig(XDailyDungeonConfigs, "XDailyDungeonConfigs")
-    InitConfig(XCharacterUiEffectConfig, "XCharacterUiEffectConfig")
     InitConfig(XHeadPortraitConfigs, "XHeadPortraitConfigs")
     InitConfig(XGuildBossConfig, "XGuildBossConfig")
     InitConfig(XEliminateGameConfig, "XEliminateGameConfig")
@@ -106,6 +111,10 @@ function XConfigCenter.Init()
 
     InitConfig(XExpeditionConfig, "XExpeditionConfig")
     InitConfig(XRpgTowerConfig, "XRpgTowerConfig")
+    InitConfig(XRiftConfig, "XRiftConfig")
+    InitConfig(XCerberusGameConfig, "XCerberusGameConfig")
+    InitConfig(XColorTableConfigs, "XColorTableConfigs")
+    InitConfig(XMaverick2Configs, "XMaverick2Configs")
     InitConfig(XClickClearGameConfigs, "XClickClearGameConfigs")
     InitConfig(XFubenZhouMuConfigs, "XFubenZhouMuConfigs")
     InitConfig(XNieRConfigs, "XNieRConfigs")
@@ -136,8 +145,9 @@ function XConfigCenter.Init()
     InitConfig(XWhiteValentineConfig, "XWhiteValentineConfig")
     InitConfig(XSpecialShopConfigs, "XSpecialShopConfigs")
     InitConfig(XFashionConfigs, "XFashionConfigs")
+    InitConfig(XCharacterUiEffectConfig, "XCharacterUiEffectConfig")
     InitConfig(XFingerGuessingConfig, "XFingerGuessingConfig")
-    InitConfig(XReformConfigs, "XReformConfigs")
+    InitConfig(XReform2ndConfigs, "XReform2ndConfigs")
     InitConfig(XPartnerTeachingConfigs, "XPartnerTeachingConfigs")
     InitConfig(XScratchTicketConfig, "XScratchTicketConfig")
     InitConfig(XRpgMakerGameConfigs, "XRpgMakerGameConfigs")
@@ -151,6 +161,7 @@ function XConfigCenter.Init()
     InitConfig(XChristmasTreeConfig, "XChristmasTreeConfig")
     InitConfig(XCoupletGameConfigs, "XCoupletGameConfigs")
     InitConfig(XStrongholdConfigs, "XStrongholdConfigs")
+    InitConfig(XBrilliantWalkConfigs, "XBrilliantWalkConfigs")
     InitConfig(XMoeWarConfig, "XMoeWarConfig")
     InitConfig(XMovieAssembleConfig, "XMovieAssembleConfig")
     InitConfig(XFubenHackConfig, "XFubenHackConfig")
@@ -168,9 +179,11 @@ function XConfigCenter.Init()
     InitConfig(XSuperSmashBrosConfig, "XSuperSmashBrosConfig")
     InitConfig(XPickFlipConfigs, "XPickFlipConfigs")
     InitConfig(XNewRegressionConfigs, "XNewRegressionConfigs")
+    InitConfig(XRegression3rdConfigs, "XRegression3rdConfigs")
     InitConfig(XMemorySaveConfig, "XMemorySaveConfig")
 	InitConfig(XDiceGameConfigs, "XDiceGameConfigs")
     InitConfig(XTheatreConfigs, "XTheatreConfigs")
+    InitConfig(XBiancaTheatreConfigs, "XBiancaTheatreConfigs")
     InitConfig(XMaverickConfigs, "XMaverickConfigs")
     InitConfig(XAchievementConfigs, "XAchievementConfigs")
     InitConfig(XReviewActivityConfigs, "XReviewActivityConfigs")
@@ -187,10 +200,42 @@ function XConfigCenter.Init()
     InitConfig(XMultiDimConfig, "XMultiDimConfig")
     InitConfig(XTaikoMasterConfigs, "XTaikoMasterConfigs")
     InitConfig(XGuildDormConfig, "XGuildDormConfig")
+    InitConfig(XTwoSideTowerConfigs, "XTwoSideTowerConfigs")
+    InitConfig(XUiPcConfig, "XUiPcConfig")
+    InitConfig(XCourseConfig, "XCourseConfig")
+    InitConfig(XNewbieTaskConfigs, "XNewbieTaskConfigs")
+    InitConfig(XSummerSignInConfigs, "XSummerSignInConfigs")
+    InitConfig(XSkinVoteConfigs, "XSkinVoteConfigs")
+    InitConfig(XRestaurantConfigs, "XRestaurantConfigs")
+    InitConfig(XFubenCharacterTowerConfigs, "XFubenCharacterTowerConfigs")
+    InitConfig(XFightPasswordConfigs, "XFightPasswordConfigs")
+    InitConfig(XDlcHuntConfigs,"XDlcHuntConfigs")
+    InitConfig(XDlcHuntAttrConfigs,"XDlcHuntAttrConfigs")
+    InitConfig(XDlcHuntCharacterConfigs,"XDlcHuntCharacterConfigs")
+    InitConfig(XDlcHuntSkillConfigs,"XDlcHuntSkillConfigs")
+    InitConfig(XDlcHuntChipConfigs,"XDlcHuntChipConfigs")
+    InitConfig(XDlcHuntWorldConfig,"XDlcHuntWorldConfig")
+    InitConfig(XPlanetConfigs,"XPlanetConfigs")
+    InitConfig(XPlanetStageConfigs,"XPlanetStageConfigs")
+    InitConfig(XPlanetTalentConfigs,"XPlanetTalentConfigs")
+    InitConfig(XPlanetWorldConfigs,"XPlanetWorldConfigs")
+    InitConfig(XPlanetCameraConfigs,"XPlanetCameraConfigs")
+    InitConfig(XMazeConfig,"XMazeConfig")
+    InitConfig(XCharacterCuteConfig,"XCharacterCuteConfig")
+    InitConfig(XPlanetCharacterConfigs,"XPlanetCharacterConfigs")
+    InitConfig(XPlanetExploreConfigs,"XPlanetExploreConfigs")
+    InitConfig(XFightBrilliantwalkConfigs, "XFightBrilliantwalkConfigs")
+    InitConfig(XMonsterCombatConfigs,"XMonsterCombatConfigs")
     InitConfig(XSlotMachineConfigs, "XSlotMachineConfigs")
+    InitConfig(XNewActivityCalendarConfigs, "XNewActivityCalendarConfigs")
+    InitConfig(XFightCommonImageConfigs, "XFightCommonImageConfigs")
     ConfigCenterProfiler:Stop()
+    if IsWindowsEditor then
+        XLog.Debug("ConfigCenterDetailProfiler:\n" .. tostring(ConfigCenterDetailProfiler))
+    end
 end
 
+-- 方法已废弃，读取配置方式可考虑使用CreateTableConfig
 -- 创建配置表属性，主要是为了封装方法延时调用加载表
 function XConfigCenter.CreateGetPropertyByFunc(config, name, readFunc)
     config["Get" .. name] = function(key, showTip)
@@ -204,6 +249,7 @@ function XConfigCenter.CreateGetPropertyByFunc(config, name, readFunc)
     end
 end
 
+-- 方法已废弃，读取配置方式可考虑使用CreateTableConfig
 function XConfigCenter.CreateGetPropertyByArgs(config, name, funcName, path, tableConfig, readId)
     config[name] = nil
     config["Get" .. name] = function(key, showTip)
@@ -217,6 +263,7 @@ function XConfigCenter.CreateGetPropertyByArgs(config, name, funcName, path, tab
     end
 end
 
+-- 方法已废弃，读取配置方式可考虑使用CreateTableConfig
 function XConfigCenter.GetValueByKey(key, showTip, config, name, path, readId)
     local result = config[name][key]
     if not result and showTip then
@@ -230,6 +277,7 @@ function XConfigCenter.GetValueByKey(key, showTip, config, name, path, readId)
     return result
 end
 
+-- 方法已废弃，读取配置方式可考虑使用CreateTableConfig
 function XConfigCenter.CreateGetProperties(config, names, args)
     local beginIndex = 1
     for i, name in ipairs(names) do
@@ -238,20 +286,32 @@ function XConfigCenter.CreateGetProperties(config, names, args)
     end
 end
 
-function XConfigCenter.ReadTableByTableConfig(tableConfig, directoryName, tableName)
+function XConfigCenter.ReadTableByTableConfig(tableConfig, directoryName, tableName, tableDefindName)
     local readFuncName = tableConfig.ReadFuncName or "ReadByIntKey"
     local readKeyName = tableConfig.ReadKeyName or "Id"
     local tablePath = "Share"
     if tableConfig.DirType == XConfigCenter.DirectoryType.Client then
         tablePath = "Client"
     end
+    if tableDefindName == nil then
+        tableDefindName = "XTable" .. tableName
+    end
     tablePath = string.format("%s/%s/%s.tab", tablePath, directoryName, tableName)
-    return XTableManager[readFuncName](tablePath, XTable["XTable" .. tableName], readKeyName)
+    return XTableManager[readFuncName](tablePath, XTable[tableDefindName], readKeyName)
 end
 
-function XConfigCenter.CreateTableConfig(value, name)
+--=============
+--创建配置
+--value : table，主要用来避免重复创建，目前看来好像没什么必要，后面可以考虑省略掉即可
+--name : string，主要用来报错提示，目前看来可以考虑省略掉，用参数3代替也能找到唯一值
+--directoryName : string，表格在Table/Client或Table/Share中的路径
+--=============
+function XConfigCenter.CreateTableConfig(value, name, directoryName)
     if value then return value end
     local config = {}
+    if directoryName then
+        config.DirectoryName = directoryName
+    end
     setmetatable(config, {
         __index = {
             --=============
@@ -266,7 +326,7 @@ function XConfigCenter.CreateTableConfig(value, name)
                 local result = config.__Configs[tableKey]
                 if result == nil then
                     result = XConfigCenter.ReadTableByTableConfig(tableKey, config.DirectoryName
-                        , tableKey.TableName or config.TableKey[tableKey])
+                        , tableKey.TableName or config.TableKey[tableKey], tableKey.TableDefindName)
                     config.__Configs[tableKey] = result
                 end
                 return result

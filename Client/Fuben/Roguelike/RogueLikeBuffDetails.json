@@ -1,0 +1,1650 @@
+[
+    {
+        "Id": 773000,
+        "Name": "Razor-Sharp I",
+        "Description": "Basic Attack's Extra DMG Bonus increases by 15%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21011.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773001,
+        "Name": "Razor-Sharp II",
+        "Description": "Basic Attack's Extra DMG Bonus increases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21012.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 773002,
+        "Name": "Razor-Sharp III",
+        "Description": "Basic Attack's Extra DMG Bonus increases by 45%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21013.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 773006,
+        "Name": "Overclock I",
+        "Description": "Skill's Extra DMG Bonus increases by 10%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21061.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773007,
+        "Name": "Overclock II",
+        "Description": "Skill's Extra DMG Bonus increases by 20%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21062.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 773008,
+        "Name": "Overclock III",
+        "Description": "Skill's Extra DMG Bonus increases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21063.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 773012,
+        "Name": "Heat Cutting I",
+        "Description": "Melee attacks reduce the target's DEF by 10%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32111.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773013,
+        "Name": "Heat Cutting II",
+        "Description": "Melee attacks reduce the target's DEF by 20%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32112.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 773014,
+        "Name": "Heat Cutting III",
+        "Description": "Melee attacks reduce the target's DEF by 30%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32113.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 773027,
+        "Name": "Adaptive Structure",
+        "Description": "Attacks lower the target's Extra DMG Bonus by 40% for 5s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon12241.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773034,
+        "Name": "Metal Fatigue",
+        "Description": "When dealing DMG, Extra DMG Bonus increases by 30% for 10s. 15s cooldown.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32101.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773041,
+        "Name": "Solidity",
+        "Description": "Attacks have a 20% chance to grant a shield equal to 15% of maximum HP for 5s. 8s cooldown.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21161.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773048,
+        "Name": "Energy Spike",
+        "Description": "Attacks have a 10% chance to stun the target for 1.5s and deal 1000% Physical DMG. 25s cooldown.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32121.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773114,
+        "Name": "Electromagnetic Wave",
+        "Description": "Gain 10s Super Armor and 20% Extra DMG Bonus after casting a Signature Move.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32161.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773117,
+        "Name": "Leadership Chain I",
+        "Description": "After summoning a QTE, unleashes a shockwave within 6m that deals 300% Physical DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22031.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773118,
+        "Name": "Leadership Chain II",
+        "Description": "After summoning a QTE, unleashes a shockwave within 6m that deals 450% Physical DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22032.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 773119,
+        "Name": "Leadership Chain III",
+        "Description": "After summoning a QTE, unleashes a shockwave within 6m that deals 600% Physical DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22033.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 773129,
+        "Name": "Chain Optimization I",
+        "Description": "QTE cooldown decreases by 1s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33001.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773130,
+        "Name": "Chain Optimization II",
+        "Description": "QTE cooldown decreases by 2s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33002.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 773131,
+        "Name": "Chain Optimization III",
+        "Description": "QTE cooldown decreases by 3s",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33003.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 773132,
+        "Name": "All-Out Attack",
+        "Description": "Triggering a QTE by a 3-Ping will trigger the other two members' QTE. 15s cooldown.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon10.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773135,
+        "Name": "Mobility Up I",
+        "Description": "Limit of Dodge Gauge increases by 400.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21051.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773136,
+        "Name": "Mobility Up II",
+        "Description": "Limit of Dodge Gauge increases by 700.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21052.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 773137,
+        "Name": "Mobility Up III",
+        "Description": "Limit of Dodge Gauge increases by 1000.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21053.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 773138,
+        "Name": "Processor Adjustment",
+        "Description": "Gains 1 Signal Orb when entering Matrix.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon13011.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773174,
+        "Name": "Auxiliary Add-On",
+        "Description": "For every Orb pinged, increases Extra DMG Bonus by 3% for 5s. Stacks up to 10 times.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon17.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773181,
+        "Name": "Superior Processing I",
+        "Description": "When entering Matrix, unleashes a shockwave within 12m that deals 600% Physical DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32081.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773182,
+        "Name": "Superior Processing II",
+        "Description": "When entering Matrix, unleashes a shockwave within 12m that deals 900% Physical DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32082.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 773183,
+        "Name": "Superior Processing III",
+        "Description": "When entering Matrix, unleashes a shockwave within 12m that deals 1200% Physical DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32083.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 773187,
+        "Name": "Processing Suppression",
+        "Description": "Becomes immune to any DMG when in Matrix.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32131.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773202,
+        "Name": "Feedback Chain",
+        "Description": "Extra DMG Bonus increases by 10%/20%/30% for 5s when Combo is greater than 40/80/120.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon14.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773216,
+        "Name": "Tactic Upgrade",
+        "Description": "DMG dealt increases by 15%. DMG taken decreases by 15%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773219,
+        "Name": "Desperation",
+        "Description": "For each Construct defeated, other members' Extra DMG Bonus increases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32033.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773222,
+        "Name": "Well-Prepared",
+        "Description": "All members have full Energy at the start of battle.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon12141.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773223,
+        "Name": "Battlefield Analysis",
+        "Description": "After landing a critical hit, increases Extra DMG Bonus by 3% for 5s. Stacks up to 10 times.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon15.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 7001,
+        "Name": "Signal Orb I",
+        "Description": "100% chance to drop 1 random Signal Orb after an enemy is defeated.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22021.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 7002,
+        "Name": "Signal Orb II",
+        "Description": "100% chance to drop 2 random Signal Orbs after an enemy is defeated.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22022.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 7003,
+        "Name": "Signal Orb III",
+        "Description": "100% chance to drop 3 random Signal Orbs after an enemy is defeated.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22023.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 7004,
+        "Name": "Signal Amplifier",
+        "Description": "Gives 3 random Signal Orbs of the same color to the character in battle every 10s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon7.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 7005,
+        "Name": "Awaken",
+        "Description": "Gives an extra random Signal Orb when entering battle for the first time.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32071.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 7006,
+        "Name": "Maintenance",
+        "Description": "Gives 20 bonus Energy each time when the character is deployed.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon3.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 7007,
+        "Name": "Resistance Reduction I",
+        "Description": "Reduces the target's Elemental Resistance by 10% upon dealing DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32061.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 7008,
+        "Name": "Resistance Reduction II",
+        "Description": "Reduces the target's Elemental Resistance by 20% upon dealing DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32062.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 7009,
+        "Name": "Resistance Reduction III",
+        "Description": "Reduces the target's Elemental Resistance by 30% upon dealing DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32063.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 7010,
+        "Name": "Endless Vigor",
+        "Description": "Healing effect increases by 15%. Increases the Extra Damage Bonus of targets healed by 20% for 5s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21131.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 7011,
+        "Name": "Critical Blow",
+        "Description": "Characters in combat gain 8% CRIT Rate every second. After landing a critical hit, gain \"Guaranteed Critical\" effect for 2s. 15s cooldown.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32141.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 7012,
+        "Name": "Quick Charge",
+        "Description": "Gains 3 Energy every second.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21083.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773261,
+        "Name": "Power Booster",
+        "Description": "HP and ATK increase by 5%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon4.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 800001,
+        "Name": "Strong Arm",
+        "Description": "Physical DMG increases 30%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21042.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 800002,
+        "Name": "Kelvin",
+        "Description": "Ice DMG increases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10045.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 800003,
+        "Name": "joule",
+        "Description": "Fire DMG increases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10042.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 800004,
+        "Name": "Ampere",
+        "Description": "Lightning DMG increases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10043.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 800005,
+        "Name": "Sievert",
+        "Description": "Dark DMG increases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10044.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 800006,
+        "Name": "Gold Plating",
+        "Description": "Extra DMG Bonus increases by 8%",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22011.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 800007,
+        "Name": "Reactive Armor",
+        "Description": "Deployed Constructs' Extra DMG Reduction increases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21023.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 800008,
+        "Name": "Tactical team",
+        "Description": "Deployed Constructs' ATK increases by 10%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 4001,
+        "Name": "Lucky Dog",
+        "Description": "Gains 5% more Support Points from battles",
+        "Icon": "Assets/Product/Texture/Image/UiRogueLike/UiRogueLikeBuff06.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 4002,
+        "Name": "Lucky Dog",
+        "Description": "Gains 10% more Support Points from battles",
+        "Icon": "Assets/Product/Texture/Image/UiRogueLike/UiRogueLikeBuff07.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 4003,
+        "Name": "Lucky Dog",
+        "Description": "Gains 15% more Support Points from battles",
+        "Icon": "Assets/Product/Texture/Image/UiRogueLike/UiRogueLikeBuff08.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 4004,
+        "Name": "Lucky Dog",
+        "Description": "Gains 20% more Support Points from battles",
+        "Icon": "Assets/Product/Texture/Image/UiRogueLike/UiRogueLikeBuff09.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 4005,
+        "Name": "Lucky Dog",
+        "Description": "Gains 25% more Support Points from battles",
+        "Icon": "Assets/Product/Texture/Image/UiRogueLike/UiRogueLikeBuff10.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 5001,
+        "Name": "Authority Up I",
+        "Description": "Get a 5% discount in the Tactical Supply Shop",
+        "Icon": "Assets/Product/Texture/Image/UiRogueLike/UiRogueLikeBuff01.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 5002,
+        "Name": "Authority Up II",
+        "Description": "Get a 10% discount in the Tactical Supply Shop",
+        "Icon": "Assets/Product/Texture/Image/UiRogueLike/UiRogueLikeBuff02.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 5003,
+        "Name": "Authority Up",
+        "Description": "Get a 15% discount in the Tactical Supply Shop",
+        "Icon": "Assets/Product/Texture/Image/UiRogueLike/UiRogueLikeBuff03.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 5004,
+        "Name": "Authority Up",
+        "Description": "Get a 20% discount in the Tactical Supply Shop",
+        "Icon": "Assets/Product/Texture/Image/UiRogueLike/UiRogueLikeBuff04.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 5005,
+        "Name": "Authority Up",
+        "Description": "Get a 25% discount in the Tactical Supply Shop",
+        "Icon": "Assets/Product/Texture/Image/UiRogueLike/UiRogueLikeBuff05.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 5006,
+        "Name": "Authority Up",
+        "Description": "Get a 30% discount in the Tactical Supply Shop",
+        "Icon": "Assets/Product/Texture/Image/UiRogueLike/UiRogueLikeBuff02.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 6001,
+        "Name": "Shared Leadership",
+        "Description": "Extra DMG Bonus of all team members increases by 15%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon6.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 6002,
+        "Name": "Field Maintenance",
+        "Description": "Heals the team for 10% HP lost every 6s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22002.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 6003,
+        "Name": "False Target",
+        "Description": "Construct's Extra DMG Reduction increases by 15%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10032.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 6004,
+        "Name": "Omnipotent",
+        "Description": "Extra DMG Bonus of all team members increases by 24%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22041.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773140,
+        "Name": "Mechanical Learning",
+        "Description": "Dodge increases Movement Speed by 10% for 5s. Can be stacked up to 5 times.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33111.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773108,
+        "Name": "Signal Tracker",
+        "Description": "Basic Attacks generate 1 more Energy.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon2.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773102,
+        "Name": "Energy Recycling",
+        "Description": "1-Ping/2-Ping/3-Ping generates 1/2/3 additional Energy.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33121.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 773208,
+        "Name": "Maintenance Theory",
+        "Description": "Healing effect increases by 10%",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22001.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 900001,
+        "Name": "Icy Blade I",
+        "Description": "Basic Attacks deal additional Ice DMG equal to 50% of self ATK.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10045.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 900002,
+        "Name": "Icy Blade II",
+        "Description": "Basic Attacks deal additional Ice DMG equal to 70% of self ATK.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10045.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 900003,
+        "Name": "Icy Blade III",
+        "Description": "Basic Attacks deal additional Ice DMG equal to 100% of self ATK.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10045.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 900004,
+        "Name": "Dark Blade I",
+        "Description": "Basic Attacks deal additional Dark DMG equal to 50% of self ATK.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10044.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 900005,
+        "Name": "Dark Blade II",
+        "Description": "Basic Attacks deal additional Dark DMG equal to 70% of self ATK.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10044.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 900006,
+        "Name": "Dark Blade III",
+        "Description": "Basic Attacks deal additional Dark DMG equal to 100% of self ATK.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10044.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 900007,
+        "Name": "Arctic I",
+        "Description": "Ice DMG increases by 10%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10045.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 900008,
+        "Name": "Arctic II",
+        "Description": "Ice DMG increases by 20%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10045.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 900009,
+        "Name": "Arctic III",
+        "Description": "Ice DMG increases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10045.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 900010,
+        "Name": "Shadow I",
+        "Description": "Dark DMG increases by 10%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10044.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 900011,
+        "Name": "Shadow II",
+        "Description": "Dark DMG increases by 20%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10044.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 900012,
+        "Name": "Shadow III",
+        "Description": "Dark DMG increases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10044.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 900013,
+        "Name": "Ice Shield I",
+        "Description": "Dealing Ice DMG has a 20% chance to grant self an ice shield equal to 50% of max HP. Immune to any attacks when the shield exists. 15s cooldown.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon12251.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 900014,
+        "Name": "Ice Shield II",
+        "Description": "Dealing Ice DMG has a 20% chance to grant self an ice shield equal to 75% of max HP. Immune to any attacks when the shield exists. 15s cooldown.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon12251.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 900015,
+        "Name": "Ice Shield III",
+        "Description": "Dealing Ice DMG has a 20% chance to grant self an ice shield equal to 100% of max HP. Immune to any attacks when the shield exists. 15s cooldown.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon12251.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 900016,
+        "Name": "Freeze I",
+        "Description": "Ice DMG has a 10% chance to freeze the enemy for 3s. It can only be triggered once per 13s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon14.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 900017,
+        "Name": "Freeze II",
+        "Description": "Ice DMG has a 20% chance to freeze the enemy for 3s. It can only be triggered once per 13s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon14.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 900018,
+        "Name": "Freeze III",
+        "Description": "Ice DMG has a 30% chance to freeze the enemy for 3s. It can only be triggered once per 13s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon14.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 900019,
+        "Name": "Dark Field I",
+        "Description": "All enemies within 4.5m from the Construct deployed receive Dark DMG equal to 5% of the Construct's ATK once per 3s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon16.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 900020,
+        "Name": "Dark Field II",
+        "Description": "All enemies within 4.5m from the Construct deployed receive Dark DMG equal to 10% of the Construct's ATK once per 3s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon16.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 900021,
+        "Name": "Dark Field III",
+        "Description": "All enemies within 4.5m from the Construct deployed receive Dark DMG equal to 15% of the Construct's ATK once per 3s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon16.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 900022,
+        "Name": "Strong Arm",
+        "Description": "Deployed members' HP increases by 40%",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11003.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 900023,
+        "Name": "Shield I",
+        "Description": "Gain a shield equal to 10% HP at the start of battle.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11021.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 900024,
+        "Name": "Shield II",
+        "Description": "Gain a shield equal to 15% HP at the start of battle.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11022.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 900025,
+        "Name": "Shield III",
+        "Description": "Gain a shield equal to 20% HP at the start of battle.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11023.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 900026,
+        "Name": "Fight Back I",
+        "Description": "Has a 40% chance to gain a shield equal to 5% HP for 5s when taking DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32021.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 900027,
+        "Name": "Fight Back II",
+        "Description": "Has a 50% chance to gain a shield equal to 10% HP for 5s when taking DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32022.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 900028,
+        "Name": "Fight Back III",
+        "Description": "Has a 60% chance to gain a shield equal to 15% HP for 5s when taking DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32023.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600000,
+        "Name": "Assist",
+        "Description": "Michael will help you in battle. You can purchase bonuses from Tactical Supply to enhance Michael's strength.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11045.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600001,
+        "Name": "Ultra: Thunder Wrath I",
+        "Description": "Pining a Blue Orb within 3s after a 3-Ping can increase the DMG of next 6 Basic Attacks by <color=#FF3300FF>300%</color>/600%/900%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon14.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600002,
+        "Name": "Ultra: Thunder Wrath II",
+        "Description": "Pining a Blue Orb within 3s after a 3-Ping can increase the DMG of next 6 Basic Attacks by 300%/<color=#FF3300FF>600%</color>/900%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon14.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600003,
+        "Name": "Ultra: Thunder Wrath III",
+        "Description": "Pining a Blue Orb within 3s after a 3-Ping can increase the DMG of next 6 Basic Attacks by 300%/600%/<color=#FF3300FF>900%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon14.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600004,
+        "Name": "Ultra: Infernal Tempest I",
+        "Description": "After a Signature Move, Basic Attack DMG increases by <color=#FF3300FF>300%</color>/600%/900% for 10s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon15.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600005,
+        "Name": "Ultra: Infernal Tempest II",
+        "Description": "After a Signature Move, Basic Attack DMG increases by 300%/<color=#FF3300FF>600%</color>/900% for 10s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon15.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600006,
+        "Name": "Ultra: Infernal Tempest III",
+        "Description": "After a Signature Move, Basic Attack DMG increases by 300%/600%/<color=#FF3300FF>900%</color> for 10s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon15.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600007,
+        "Name": "Ultra: Abyssal Gaze I",
+        "Description": "For every 1 Orb pinged, CRIT Rate increases by <color=#FF3300FF>5%</color>/15%/25% for 6s, up to 4 stacks.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon16.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600008,
+        "Name": "Ultra: Abyssal Gaze II",
+        "Description": "For every 1 Orb pinged, CRIT Rate increases by 5%/<color=#FF3300FF>15%</color>/25% for 6s, up to 4 stacks.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon16.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600009,
+        "Name": "Ultra: Abyssal Gaze III",
+        "Description": "For every 1 Orb pinged, CRIT Rate increases by 5%/15%/<color=#FF3300FF>25%</color> for 6s, up to 4 stacks.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon16.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600010,
+        "Name": "Ultra: Nightcrow Down I",
+        "Description": "Making 3-Ping twice within 5s can increase the damage of the next Signature Move by <color=#FF3300FF>300%</color>/600%/900%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon17.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600011,
+        "Name": "Ultra: Nightcrow Down II",
+        "Description": "Making 3-Ping twice within 5s can increase the DMG of the next Signature Move by 300%/<color=#FF3300FF>600%</color>/900%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon17.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600012,
+        "Name": "Ultra: Nightcrow Down III",
+        "Description": "Making 3-Ping twice within 5s can increase the DMG of the next Signature Move by 300%/600%/<color=#FF3300FF>900%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon17.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600013,
+        "Name": "Ultra: Tenebrion Core I",
+        "Description": "After a Signature Move, DMG from pinging Orbs increases by <color=#FF3300FF>300%</color>/600%/900% for 10s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon18.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600014,
+        "Name": "Ultra: Tenebrion Core II",
+        "Description": "After a Signature Move, DMG from pinging Orbs increases by 300%/<color=#FF3300FF>600%</color>/900% for 10s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon18.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600015,
+        "Name": "Ultra: Tenebrion Core III",
+        "Description": "After a Signature Move, DMG from pinging Orbs increases by 300%/600%/<color=#FF3300FF>900%</color> for 10s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon18.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600016,
+        "Name": "Signal Orb I",
+        "Description": "<color=#FF3300FF>1</color>/2/3 random Signal Orb(s) drop after the enemy is defeated.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon7.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600017,
+        "Name": "Signal Orb II",
+        "Description": "1/<color=#FF3300FF>2</color>/3 random Signal Orb(s) drop after the enemy is defeated.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon7.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600018,
+        "Name": "Signal Orb III",
+        "Description": "1/2/<color=#FF3300FF>3</color> random Signal Orb(s) drop after the enemy is defeated.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon7.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600019,
+        "Name": "Signal Amplifier I",
+        "Description": "Characters receive <color=#FF3300FF>1</color>/2/3 random Signal Orb(s) of the same color for every 10s they stay in battle.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon016.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600020,
+        "Name": "Signal Amplifier II",
+        "Description": "Characters receive 1/<color=#FF3300FF>2</color>/3 random Signal Orb(s) of the same color for every 10s they stay in battle.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon016.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600021,
+        "Name": "Signal Amplifier III",
+        "Description": "Characters receive 1/2/<color=#FF3300FF>3</color> random Signal Orb(s) of the same color for every 10s they stay in battle.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon016.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600022,
+        "Name": "Signal Optimization I",
+        "Description": "Give <color=#FF3300FF>1</color>/2/3 random Signal Orb(s) each time when the character is deployed.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon008.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600023,
+        "Name": "Signal Optimization II",
+        "Description": "Give 1/<color=#FF3300FF>2</color>/3 random Signal Orb(s) each time when the character is deployed.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon008.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600024,
+        "Name": "Signal Optimization III",
+        "Description": "Give 1/2/<color=#FF3300FF>3</color> random Signal Orb(s) each time when the character is deployed.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon008.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600025,
+        "Name": "Signal Adaptation I",
+        "Description": "Give <color=#FF3300FF>1</color>/2/3 random Signal Orb(s) when entering Matrix.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon015.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600026,
+        "Name": "Signal Adaptation II",
+        "Description": "Give 1/<color=#FF3300FF>2</color>/3 random Signal Orb(s) when entering Matrix.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon015.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600027,
+        "Name": "Signal Adaptation III",
+        "Description": "Give 1/2/<color=#FF3300FF>3</color> random Signal Orb(s) when entering Matrix.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon015.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600028,
+        "Name": "Energy Recycling I",
+        "Description": "3-Pings give <color=#FF3300FF>5</color>/10/15 extra Energy.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33021.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600029,
+        "Name": "Energy Recycling II",
+        "Description": "3-Pings give 5/<color=#FF3300FF>10</color>/15 extra Energy.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33021.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600030,
+        "Name": "Energy Recycling III",
+        "Description": "3-Pings give 5/10/<color=#FF3300FF>15</color> extra Energy.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33021.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600031,
+        "Name": "Energy Detection I",
+        "Description": "Basic Attacks have a 20% chance to gain <color=#FF3300FF>2</color>/4/6 bonus Energy.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon2.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600032,
+        "Name": "Energy Detection II",
+        "Description": "Basic Attacks have a 20% chance to gain 2/<color=#FF3300FF>4</color>/6 bonus Energy.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon2.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600033,
+        "Name": "Energy Detection III",
+        "Description": "Basic Attacks have a 20% chance to gain 2/4/<color=#FF3300FF>6</color> bonus Energy.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon2.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600034,
+        "Name": "Instant Charging I",
+        "Description": "Characters receive <color=#FF3300FF>10</color>/20/30 Energy for every 10s they stay in battle.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon3.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600035,
+        "Name": "Instant Charging II",
+        "Description": "Characters receive 10/<color=#FF3300FF>20</color>/30 Energy for every 10s they stay in battle.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon3.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600036,
+        "Name": "Instant Charging III",
+        "Description": "Characters receive 10/20/<color=#FF3300FF>30</color> Energy for every 10s they stay in battle.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon3.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600037,
+        "Name": "Energy Field I",
+        "Description": "Give <color=#FF3300FF>5</color>/10/15 bonus Energy each time when the character is deployed.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon1.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600038,
+        "Name": "Energy Field II",
+        "Description": "Give 5/<color=#FF3300FF>10</color>/15 bonus Energy each time when the character is deployed.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon1.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600039,
+        "Name": "Energy Field III",
+        "Description": "Give 5/10/<color=#FF3300FF>15</color> bonus Energy each time when the character is deployed.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon1.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600040,
+        "Name": "Michael: Strike I",
+        "Description": "Increases the Pet's power level by <color=#FF3300FF>50</color>/100/150.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon8.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600041,
+        "Name": "Michael: Strike II",
+        "Description": "Increases the Pet's power level by 50/<color=#FF3300FF>100</color>/150.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon8.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600042,
+        "Name": "Michael: Strike III",
+        "Description": "Increases the Pet's power level by 50/100/<color=#FF3300FF>150</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon8.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600043,
+        "Name": "Michael: Quick Attack I",
+        "Description": "Reduces the Pet's skill cooldown to <color=#FF3300FF>12</color>/8/4s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon13.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600044,
+        "Name": "Michael: Quick Attack II",
+        "Description": "Reduces the Pet's skill cooldown to 12/<color=#FF3300FF>8</color>/4s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon13.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600045,
+        "Name": "Michael: Quick Attack III",
+        "Description": "Reduces the Pet's skill cooldown to 12/8/<color=#FF3300FF>4</color>s.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon13.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600046,
+        "Name": "Michael: In-depth Study I",
+        "Description": "Teach the Pet the Whirlwind skill.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon10.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600047,
+        "Name": "Michael: In-depth Study II",
+        "Description": "Increases the number of Blade Wave from 1 to 3, and casting Whirlwind will automatically launch <color=#FF3300FF>20</color>/40 Blade Waves.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon10.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600048,
+        "Name": "Michael: In-depth Study III",
+        "Description": "Increases the number of Blade Wave from 3 to 6, and casting Whirlwind will automatically launch 20/<color=#FF3300FF>40</color> Blade Waves.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon10.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600049,
+        "Name": "Michael: Radiation I",
+        "Description": "Grants the Pet the Radiation skill that continuously damages nearby enemy units for <color=#FF3300FF>6%</color>/8%/10% of own ATK.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon12.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600050,
+        "Name": "Michael: Radiation II",
+        "Description": "Grants the Pet the Radiation skill that continuously damages nearby enemy units for 6%/<color=#FF3300FF>8%</color>/10% of own ATK.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon12.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600051,
+        "Name": "Michael: Radiation III",
+        "Description": "Grants the Pet the Radiation skill that continuously damages nearby enemy units for 6%/8%/<color=#FF3300FF>10%</color> of own ATK.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon12.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600052,
+        "Name": "Michael: Berserk I",
+        "Description": "Increases the Pet's DMG by <color=#FF3300FF>20%</color>/30%/40% and attack frequency by <color=#FF3300FF>20%</color>/30%/40%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon9.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600053,
+        "Name": "Michael: Berserk II",
+        "Description": "Increases the Pet's DMG by 20%/<color=#FF3300FF>30%</color>/40% and attack frequency by 20%/<color=#FF3300FF>30%</color>/40%.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon9.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600054,
+        "Name": "Michael: Berserk III",
+        "Description": "Increases the Pet's DMG by 20%/30%/<color=#FF3300FF>40%</color> and attack frequency by 20%/30%/<color=#FF3300FF>40%</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon9.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600055,
+        "Name": "Michael: Black Hole I",
+        "Description": "The Pet's Basic Attacks have a chance to trigger the Black Hole skill against enemies within <color=#FF3300FF>3</color>/5/7m.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon11.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600056,
+        "Name": "Michael: Black Hole II",
+        "Description": "The Pet's Basic Attacks have a chance to trigger the Black Hole skill against enemies within 3/<color=#FF3300FF>5</color>/7m.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon11.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600057,
+        "Name": "Michael: Black Hole III",
+        "Description": "The Pet's Basic Attacks have a chance to trigger the Black Hole skill against enemies within 3/5/<color=#FF3300FF>7</color>m.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon11.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600058,
+        "Name": "Shared Leadership I",
+        "Description": "When team members are of 3 different classes, your character's max HP increases by <color=#FF3300FF>10%</color>/20%/30%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon006.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600059,
+        "Name": "Shared Leadership II",
+        "Description": "When team members are of 3 different classes, your character's max HP increases by 10%/<color=#FF3300FF>20%</color>/30%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon006.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600060,
+        "Name": "Shared Leadership III",
+        "Description": "When team members are of 3 different classes, your character's max HP increases by 10%/20%/<color=#FF3300FF>30%</color>.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon006.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600061,
+        "Name": "Shield I",
+        "Description": "Gains a shield equal to <color=#FF3300FF>10%</color>/20%/30% HP at the start of battle.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21161.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600062,
+        "Name": "Shield II",
+        "Description": "Gains a shield equal to 10%/<color=#FF3300FF>20%</color>/30% HP at the start of battle.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21161.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600063,
+        "Name": "Shield III",
+        "Description": "Gains a shield equal to 10%/20%/<color=#FF3300FF>30%</color> HP at the start of battle.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21161.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600064,
+        "Name": "Maintenance Theory I",
+        "Description": "After a 3-Ping, receive <color=#FF3300FF>15%</color>/30%/45% more healing for 10s.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon009.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600065,
+        "Name": "Maintenance Theory II",
+        "Description": "After a 3-Ping, receive 15%/<color=#FF3300FF>30%</color>/45% more healing for 10s.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon009.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600066,
+        "Name": "Maintenance Theory III",
+        "Description": "After a 3-Ping, receive 15%/30%/<color=#FF3300FF>45%</color> more healing for 10s.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon009.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600067,
+        "Name": "Mobility Up I",
+        "Description": "Members recover Dodge Gauge <color=#FF3300FF>20%</color>/35%/50% faster.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon020.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600068,
+        "Name": "Mobility Up II",
+        "Description": "Members recover Dodge Gauge 20%/<color=#FF3300FF>35%</color>/50% faster.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon020.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600069,
+        "Name": "Mobility Up III",
+        "Description": "Members recover Dodge Gauge 20%/35%/<color=#FF3300FF>50%</color> faster.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon020.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600070,
+        "Name": "Machine Learning I",
+        "Description": "Limit of Dodge Gauge increases by <color=#FF3300FF>400</color>/700/1000.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon021.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600071,
+        "Name": "Machine Learning II",
+        "Description": "Limit of Dodge Gauge increases by 400/<color=#FF3300FF>700</color>/1000.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon021.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600072,
+        "Name": "Machine Learning III",
+        "Description": "Limit of Dodge Gauge increases by 400/700/<color=#FF3300FF>1000</color>.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon021.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600073,
+        "Name": "Mobility Counterattack I",
+        "Description": "Each dodge increases Movement Speed by 15% and all DMG dealt by <color=#FF3300FF>3%</color>/4%/5% for 5s. Can be stacked up to 5 times.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22031.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600074,
+        "Name": "Mobility Counterattack II",
+        "Description": "Each dodge increases Movement Speed by 15% and all DMG dealt by 3%/<color=#FF3300FF>4%</color>/5% for 5s. Can be stacked up to 5 times.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22031.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600075,
+        "Name": "Mobility Counterattack III",
+        "Description": "Each dodge increases Movement Speed by 15% and all DMG dealt by 3%/4%/<color=#FF3300FF>5%</color> for 5s. Can be stacked up to 5 times.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22031.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600076,
+        "Name": "Overwhelming Power I",
+        "Description": "Character ATK increases by <color=#FF3300FF>300</color>/600/900.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon6.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600077,
+        "Name": "Overwhelming Power II",
+        "Description": "Character ATK increases by 300/<color=#FF3300FF>600</color>/900.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon6.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600078,
+        "Name": "Overwhelming Power III",
+        "Description": "Character ATK increases by 300/600/<color=#FF3300FF>900</color>.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon6.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600079,
+        "Name": "Omnipotent I",
+        "Description": "Character ATK increases by <color=#FF3300FF>50</color>/75/100 and DMG taken decreases by 15%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600080,
+        "Name": "Omnipotent II",
+        "Description": "Character ATK increases by 50/<color=#FF3300FF>75</color>/100 and DMG taken decreases by 15%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600081,
+        "Name": "Omnipotent III",
+        "Description": "Character ATK increases by 50/75/<color=#FF3300FF>100</color> and DMG taken decreases by 15%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600082,
+        "Name": "Long Range Sniping I",
+        "Description": "Attacks deal extra <color=#FF3300FF>400</color>/800/1200 Physical DMG on targets more than 4m away.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon005.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600083,
+        "Name": "Long Range Sniping II",
+        "Description": "Attacks deal extra 400/<color=#FF3300FF>800</color>/1200 Physical DMG on targets more than 4m away.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon005.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600084,
+        "Name": "Long Range Sniping III",
+        "Description": "Attacks deal extra 400/800/<color=#FF3300FF>1200</color> Physical DMG on targets more than 4m away.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon005.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600085,
+        "Name": "Desperation I",
+        "Description": "Each time a Construct is defeated in battle, increases the Extra DMG Bonus of other Constructs by <color=#FF3300FF>10%</color>/20%/30%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon011.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600086,
+        "Name": "Desperation II",
+        "Description": "Each time a Construct is defeated in battle, increases the Extra DMG Bonus of other Constructs by 10%/<color=#FF3300FF>20%</color>/30%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon011.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600087,
+        "Name": "Desperation III",
+        "Description": "Each time a Construct is defeated in battle, increases the Extra DMG Bonus of other Constructs by 10%/20%/<color=#FF3300FF>30%</color>.",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon011.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600088,
+        "Name": "Melee Assault I",
+        "Description": "Attacks deal extra <color=#FF3300FF>400</color>/800/1200 Physical DMG on targets within 4m.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600089,
+        "Name": "Melee Assault II",
+        "Description": "Attacks deal extra 400/<color=#FF3300FF>800</color>/1200 Physical DMG on targets within 4m.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600090,
+        "Name": "Melee Assault III",
+        "Description": "Attacks deal extra 400/800/<color=#FF3300FF>1200</color> Physical DMG on targets within 4m.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10001.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600091,
+        "Name": "Joule I",
+        "Description": "Every Basic Attack deals <color=#FF3300FF>300</color>/600/900 bonus Fire DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10042.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600092,
+        "Name": "Joule II",
+        "Description": "Every Basic Attack deals 300/<color=#FF3300FF>600</color>/900 bonus Fire DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10042.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600093,
+        "Name": "Joule III",
+        "Description": "Every Basic Attack deals 300/600/<color=#FF3300FF>900</color> bonus Fire DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10042.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600094,
+        "Name": "Ampere I",
+        "Description": "Every Basic Attack deals <color=#FF3300FF>300</color>/600/900 bonus Lightning DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10043.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600095,
+        "Name": "Ampere II",
+        "Description": "Every Basic Attack deals 300/<color=#FF3300FF>600</color>/900 bonus Lightning DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10043.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600096,
+        "Name": "Ampere III",
+        "Description": "Every Basic Attack deals 300/600/<color=#FF3300FF>900</color> bonus Lightning DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10043.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600097,
+        "Name": "Kelvin I",
+        "Description": "Every Basic Attack deals <color=#FF3300FF>300</color>/600/900 bonus Ice DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10045.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600098,
+        "Name": "Kelvin II",
+        "Description": "Every Basic Attack deals 300/<color=#FF3300FF>600</color>/900 bonus Ice DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10045.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600099,
+        "Name": "Kelvin III",
+        "Description": "Every Basic Attack deals 300/600/<color=#FF3300FF>900</color> bonus Ice DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10045.png",
+        "BuffType": 1,
+        "Priority": 3
+    },
+    {
+        "Id": 600100,
+        "Name": "Sievert I",
+        "Description": "Every Basic Attack deals <color=#FF3300FF>300</color>/600/900 bonus Dark DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10044.png",
+        "BuffType": 1,
+        "Priority": 1
+    },
+    {
+        "Id": 600101,
+        "Name": "Sievert II",
+        "Description": "Every Basic Attack deals 300/<color=#FF3300FF>600</color>/900 bonus Dark DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10044.png",
+        "BuffType": 1,
+        "Priority": 2
+    },
+    {
+        "Id": 600102,
+        "Name": "Sievert III",
+        "Description": "Every Basic Attack deals 300/600/<color=#FF3300FF>900</color> bonus Dark DMG.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10044.png",
+        "BuffType": 1,
+        "Priority": 3
+    }
+]

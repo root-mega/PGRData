@@ -1,4 +1,11 @@
+---@class XCharacterViewModel
 local XCharacterViewModel = XClass(nil, "XCharacterViewModel")
+
+---@return XCharacterAgency
+local GetCharAgency = function ()
+    local ag = XMVCA:GetAgency(ModuleId.XCharacter)
+    return ag
+end
 
 function XCharacterViewModel:Ctor(characterCid)
     self.Config = XCharacterConfigs.GetCharacterTemplate(characterCid)
@@ -13,6 +20,8 @@ function XCharacterViewModel:Ctor(characterCid)
     self.UpdatedData = nil
     -- 来源实体Id，默认读取角色的
     self.SourceEntityId = characterCid
+    -- 队长技能等级
+    self._CaptainSkillLevel = false
     -- 初始化来自XCharacter的默认字段,保持一致性
     for key, value in pairs(XCharacter.GetDefaultFields()) do
         if type(value) == "table" then
@@ -55,6 +64,20 @@ end
 -- value : XCharacter
 function XCharacterViewModel:UpdateCharacter(value)
     self.Character = value
+end
+
+function XCharacterViewModel:UpdateCaptainSkillLevelByList(skillList)
+    local characterId = self:GetId()
+    local captainSkillId = XCharacterConfigs.GetCharacterCaptainSkill(characterId)
+    local captainLevel = 0
+    for i = 1, #skillList do
+        local skillData = skillList[i]
+        local skillId = skillData.Id
+        if captainSkillId == skillId then
+            captainLevel = skillData.Level
+        end
+    end
+    self._CaptainSkillLevel = captainLevel
 end
 
 function XCharacterViewModel:GetId()
@@ -135,19 +158,21 @@ function XCharacterViewModel:GetQualityIcon()
 end
 
 function XCharacterViewModel:GetSmallHeadIcon()
-    return XDataCenter.CharacterManager.GetCharSmallHeadIcon(self.Config.Id, not self.IsBelongPlayer)
+    return GetCharAgency():GetCharSmallHeadIcon(self.Config.Id, not self.IsBelongPlayer)
 end
 
 function XCharacterViewModel:GetBigHeadIcon()
-    return XDataCenter.CharacterManager.GetCharBigHeadIcon(self.Config.Id, not self.IsBelongPlayer)
+    return GetCharAgency():GetCharBigHeadIcon(self.Config.Id, not self.IsBelongPlayer)
 end
 
-function XCharacterViewModel:GetHalfBodyIcon() --获得角色半身像（剧情用）
-    return XDataCenter.CharacterManager.GetCharHalfBodyBigImage(self.Config.Id)
+function XCharacterViewModel:GetHalfBodyIcon()
+    --获得角色半身像（剧情用）
+    return GetCharAgency():GetCharHalfBodyBigImage(self.Config.Id)
 end
 
-function XCharacterViewModel:GetHalfBodyCommonIcon() --获得角色半身像（通用）
-    return XDataCenter.CharacterManager.GetCharHalfBodyImage(self.Config.Id)
+function XCharacterViewModel:GetHalfBodyCommonIcon()
+    --获得角色半身像（通用）
+    return GetCharAgency():GetCharHalfBodyImage(self.Config.Id)
 end
 
 function XCharacterViewModel:GetGradeLevel()
@@ -197,7 +222,7 @@ function XCharacterViewModel:GetAttributes(equipViewModels)
     for _, value in ipairs(equipViewModels or {}) do
         table.insert(equips, value:GetEquip())
     end
-    self.Attribs = XDataCenter.CharacterManager.GetCharacterAttribsOther(character, equips)
+    self.Attribs = GetCharAgency():GetCharacterAttribsOther(character, equips)
     return self.Attribs
 end
 
@@ -207,8 +232,11 @@ function XCharacterViewModel:GetCaptainSkillInfo()
     if XRobotManager.CheckIsRobotId(self.SourceEntityId) then
         result = XRobotManager.GetRobotCaptainSkillInfo(self.SourceEntityId)
     elseif self.IsBelongPlayer then
-        result = XDataCenter.CharacterManager.GetCaptainSkillInfo(self.SourceEntityId)
-    -- 可能存在第三种情况，是角色同时不属于玩家本身，后面有业务需求再扩展
+        result = GetCharAgency():GetCaptainSkillInfo(self.SourceEntityId)
+    else
+        -- 可能存在第三种情况，是角色同时不属于玩家本身，后面有业务需求再扩展
+        local skillLevel = self._CaptainSkillLevel or 1 
+        result = XCharacterConfigs.GetCaptainSkillInfo(self.SourceEntityId, skillLevel)
     end
     return result
 end
@@ -236,6 +264,16 @@ function XCharacterViewModel:GetMaxLevel()
     local character = self:GetCharacter()
     local charId = self:GetId()
     return XCharacterConfigs.GetCharMaxLevel(charId)
+end
+
+function XCharacterViewModel:UpdateByFightNpcData(fightNpcData)
+    self:UpdateWithData(fightNpcData.Character)
+    self:UpdateAbility(fightNpcData.Character.Ability)
+    self:UpdateFashionId(fightNpcData.Character.FashionId)
+    self:UpdateLiberateLv(fightNpcData.Character.LiberateLv)
+    self:UpdateSourceEntityId(fightNpcData.Character.Id)
+    local skillList = fightNpcData.Character.SkillList
+    self:UpdateCaptainSkillLevelByList(skillList)
 end
 
 return XCharacterViewModel

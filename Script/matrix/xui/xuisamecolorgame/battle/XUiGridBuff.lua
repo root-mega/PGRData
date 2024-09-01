@@ -17,7 +17,7 @@ end
 
 function XUiGridBuff:OnBtnClick()
     if self.IsBossSkill then
-        XLuaUiManager.Open("UiSameColorGameSkillDetails", self.Entity, self.IsBossSkill)
+        XLuaUiManager.Open("UiSameColorGameSkillDetails", self.Entity)
     else
         XLuaUiManager.Open("UiSameColorGameEffectDetails")
     end

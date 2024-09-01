@@ -81,21 +81,21 @@ function XUiFubenActivityBanner:ClickChapterGrid(chapter)
             end
         )
     elseif chapter.Type == XDataCenter.FubenManager.ChapterType.ActivityBossSingle then
-        if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.FubenActivitySingleBoss) then
-            return
-        end
-        self.ParentUi:PushUi(
-            function()
-                XLuaUiManager.Open("UiActivityBossSingle", chapter.Id)
-            end
-        )
-    elseif
-        chapter.Type == XDataCenter.FubenManager.ChapterType.Christmas or
+        XDataCenter.FubenActivityBossSingleManager.ExOpenMainUi(XDataCenter.FubenActivityBossSingleManager, chapter.Id)
+        --if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.FubenActivitySingleBoss) then
+        --    return
+        --end
+        --self.ParentUi:PushUi(
+        --    function()
+        --        XLuaUiManager.Open("UiActivityBossSingle", chapter.Id)
+        --    end
+        --)
+    elseif chapter.Type == XDataCenter.FubenManager.ChapterType.Christmas or
             chapter.Type == XDataCenter.FubenManager.ChapterType.BriefDarkStream or
             chapter.Type == XDataCenter.FubenManager.ChapterType.FestivalNewYear or
             chapter.Type == XDataCenter.FubenManager.ChapterType.FoolsDay or
             chapter.Type == XDataCenter.FubenManager.ChapterType.ChinaBoatPreheat
-     then
+    then
         self:OnClickFestivalActivity(chapter.Id)
     elseif chapter.Type == XDataCenter.FubenManager.ChapterType.ActivityBabelTower then
         self:OnClickBabelTowerActivity()
@@ -176,7 +176,15 @@ function XUiFubenActivityBanner:ClickChapterGrid(chapter)
         self:OnClickMultiDim()
     elseif chapter.Type == XDataCenter.FubenManager.ChapterType.TaikoMaster then
         self:OnClickTaikoMaster()
+    elseif chapter.Type == XDataCenter.FubenManager.ChapterType.Doomsday then
+        self:OnClickDoomsday()
+    elseif chapter.Type == XDataCenter.FubenManager.ChapterType.TwoSideTower then
+        self:OnClickTwoSideTower()
     end
+end
+
+function XUiFubenActivityBanner:OnClickDoomsday()
+    XDataCenter.DoomsdayManager.EnterUiMain()
 end
 
 function XUiFubenActivityBanner:OnClickPivotCombat()
@@ -196,7 +204,7 @@ function XUiFubenActivityBanner:OnClickMemorySave()
     if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.MemorySave) then
         return
     end
-    self.ParentUi:PushUi(function ()
+    self.ParentUi:PushUi(function()
         XLuaUiManager.Open("UiMemorySave")
     end)
 end
@@ -248,7 +256,7 @@ function XUiFubenActivityBanner:OnClickMaverick()
     if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.Maverick) then
         return
     end
-    
+
     if XDataCenter.MaverickManager.IsActivityEnd() then
         XUiManager.TipMsg(CS.XTextManager.GetText("MaverickEnd"))
         return
@@ -340,7 +348,8 @@ function XUiFubenActivityBanner:OnClickSpecialTrainActivity(chapterId)
             elseif config.Type == XFubenSpecialTrainConfig.Type.Snow then
                 XLuaUiManager.Open("UiFubenSnowGame")
             elseif config.Type == XFubenSpecialTrainConfig.Type.Rhythm then
-                XLuaUiManager.Open("UiFubenYuanXiao")
+                --XLuaUiManager.Open("UiFubenYuanXiao")
+                XLuaUiManager.Open("UiFuben2023YuanXiao")
             elseif config.Type == XFubenSpecialTrainConfig.Type.Breakthrough then
                 XLuaUiManager.Open("UiSpecialTrainBreakthroughMain")
             else
@@ -376,17 +385,10 @@ function XUiFubenActivityBanner:OnClickNewCharAct(actId)
         uiName = "UiNewCharActivity"
     elseif newCharType == XFubenNewCharConfig.NewCharType.KoroChar then
         uiName = "UiFunbenKoroTutorial"
-    elseif newCharType == XFubenNewCharConfig.NewCharType.WeiLa 
-            or newCharType == XFubenNewCharConfig.NewCharType.LuoLan
-            or newCharType == XFubenNewCharConfig.NewCharType.Pulao
-            or newCharType == XFubenNewCharConfig.NewCharType.Selen
-            or newCharType == XFubenNewCharConfig.NewCharType.Qishi 
-            or newCharType == XFubenNewCharConfig.NewCharType.Hakama
-            or newCharType == XFubenNewCharConfig.NewCharType.SuperKarenina
-            then
-        uiName = "UiFunbenWeiLaTutorial"
     elseif newCharType == XFubenNewCharConfig.NewCharType.Liv then
         uiName = "UiLifuActivityMain"
+    else
+        uiName = "UiFunbenWeiLaTutorial"
     end
 
     self.ParentUi:PushUi(
@@ -472,11 +474,12 @@ function XUiFubenActivityBanner:OnClickReform()
     if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.Reform) then
         return
     end
-    XDataCenter.ReformActivityManager.EnterRequest(
+    XDataCenter.Reform2ndManager.EnterRequest(
         function()
             self.ParentUi:PushUi(
                 function()
-                    XLuaUiManager.Open("UiReform")
+                    --XLuaUiManager.Open("UiReform")
+                    XLuaUiManager.Open("UiReform2")
                 end
             )
         end
@@ -615,9 +618,9 @@ function XUiFubenActivityBanner:OnClickMultiDim()
         return
     end
     self.ParentUi:PushUi(
-            function()
-                XDataCenter.MultiDimManager.OnOpenMain()
-            end
+        function()
+            XDataCenter.MultiDimManager.OnOpenMain()
+        end
     )
 end
 
@@ -632,3 +635,14 @@ function XUiFubenActivityBanner:OnClickTaikoMaster()
         end
     )
 end
+
+function XUiFubenActivityBanner:OnClickTwoSideTower()
+    if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.TwoSideTower) then
+        return
+    end
+    self.ParentUi:PushUi(
+        function()
+            XLuaUiManager.Open("UiTwoSideTowerMain")
+        end
+    )
+end 

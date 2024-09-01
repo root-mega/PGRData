@@ -20,6 +20,13 @@ function XUiUsePackage:OnStart(id, successCallback, challengeCountData, buyAmoun
     CsXGameEventManager.Instance:Notify(XEventId.EVENT_UIDIALOG_VIEW_ENABLE)
 end
 
+function XUiUsePackage:OnEnable()
+
+end
+
+function XUiUsePackage:OnDisable()
+
+end
 
 function XUiUsePackage:OnDestroy()
     if self.Timers then

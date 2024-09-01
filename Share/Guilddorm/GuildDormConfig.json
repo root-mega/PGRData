@@ -1,0 +1,17 @@
+[
+    {
+        "Id": 1,
+        "InteractIntervalTime": 3,
+        "MaxInteractIntervalTime": 60,
+        "HeartbeatTimeout": 10000,
+        "HeartbeatInterval": 1000,
+        "MaxDisconnectTime": 600,
+        "ReconnectInterval": 3000,
+        "DefaultEnterCharacterId": 1021001,
+        "DailyInteractRewardId": 7395,
+        "DailyInteractRewardTimesMin": 3,
+        "DailyInteractRewardTimesMax": 3,
+        "SetRoomThemeCd": 43200,
+        "CommonDefaultBgmListId": 1
+    }
+]

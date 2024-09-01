@@ -1,8 +1,9 @@
 [
     {
         "FactorType": 1,
-        "Name": "\u901a\u8fc7\u7ae0\u8282\u6570",
+        "Name": "Chapters Cleared",
         "Params": [
+            null,
             30,
             70.0,
             120.0,
@@ -13,37 +14,67 @@
     },
     {
         "FactorType": 2,
-        "Name": "\u901a\u8fc7\u8282\u70b9\u603b\u6570",
+        "Name": "Nodes Cleared",
         "Params": [
-            3
+            null,
+            3,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "FactorType": 3,
-        "Name": "\u6218\u6597\u8282\u70b9\u6570",
+        "Name": "Battle Nodes",
         "Params": [
-            2
+            null,
+            2,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "FactorType": 4,
-        "Name": "\u5957\u88c5\u603b\u6570",
+        "Name": "Sets",
         "Params": [
-            3
+            null,
+            3,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "FactorType": 5,
-        "Name": "\u88c5\u5907\u6570\u76ee",
+        "Name": "Equipment Count",
         "Params": [
-            1
+            null,
+            1,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "FactorType": 6,
-        "Name": "\u85cf\u54c1\u603b\u6570",
+        "Name": "Artifacts",
         "Params": [
-            2
+            null,
+            2,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     }
 ]

@@ -23,8 +23,13 @@ function XUiTRPGMapTips:OnStart(mazeId)
 end
 
 function XUiTRPGMapTips:OnEnable()
+
     self.PanelLayer:SelectIndex(self:GetLayerIndex(self.LayerId))
     self:UpdateCardRecords()
+end
+
+function XUiTRPGMapTips:OnDisable()
+
 end
 
 function XUiTRPGMapTips:OnGetEvents()

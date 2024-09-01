@@ -33,7 +33,8 @@ function XUiGridRank:Refresh(rankPlayerInfo, isSelf)
         self.RootUi:SetUiSprite(self.ImgRankSpecial, icon)
     else
         local totalCount = XDataCenter.GoldenMinerManager.GetGoldenMinerRankData():GetTotalCount()
-        local rankNumTemp = (rankNum <= MAX_RANK_COUNT and XTool.IsNumberValid(totalCount)) and rankNum or math.floor(rankNum / totalCount * 100) .. "%"
+        local rankPercent = math.min(math.floor(rankNum / totalCount * 100), 99)
+        local rankNumTemp = (rankNum <= MAX_RANK_COUNT and XTool.IsNumberValid(totalCount)) and rankNum or rankPercent .. "%"
         self.TxtRankNormal.text = rankNumTemp
     end
 

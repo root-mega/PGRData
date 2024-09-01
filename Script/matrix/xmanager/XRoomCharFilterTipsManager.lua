@@ -52,9 +52,26 @@ XRoomCharFilterTipsManagerCreator = function()
             end
             return isSort
         end
+        
+        local EquipGuideSort = function(idA, idB, isAscendOrder) 
+            local isA = XDataCenter.EquipGuideManager.IsEquipGuideCharacter(idA)
+            local isB = XDataCenter.EquipGuideManager.IsEquipGuideCharacter(idB)
+            local isSort = false
+            if isA ~= isB then
+                isSort = true
+                return isSort, isA
+            end
+            return isSort
+        end
 
         SortFunction[XRoomCharFilterTipsConfigs.EnumSortTag.Default] = function(idA, idB, isAscendOrder, alreadySortTag, isSortAbility)
             local isSort, sortResult
+            if alreadySortTag ~= XRoomCharFilterTipsConfigs.EnumSortTag.EquipGuide then
+                isSort, sortResult = EquipGuideSort(idA, idB, isAscendOrder)
+                if isSort then
+                    return sortResult
+                end
+            end
             if alreadySortTag ~= XRoomCharFilterTipsConfigs.EnumSortTag.Level then
                 isSort, sortResult = LevelSort(idA, idB, isAscendOrder)
                 if isSort then

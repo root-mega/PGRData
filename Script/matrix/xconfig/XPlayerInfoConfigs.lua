@@ -1,7 +1,7 @@
 XPlayerInfoConfigs = XPlayerInfoConfigs or {}
 
 local TABLE_FETTERS_PATH = "Share/Social/FettersLevel.tab"
-local TABLE_CHARACTER_SHOW_SCORE_PATH = "Client/Character/CharacterShowScore.tab"
+local TABLE_CHARACTER_SHOW_SCORE_PATH = "Share/Character/CharacterShowScore.tab"
 
 local FettersCfg = {}
 local CharacterShowScoreCfg = {}

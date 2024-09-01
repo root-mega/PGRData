@@ -74,7 +74,7 @@ XInvertCardGameManagerCreator = function()
                         XInvertCardGameManager.CheckNextStageOpen()
                     end
                     
-                    XEventManager.DispatchEvent(XEventId.EVENT_INVERT_CARD_GAME_CARD_CHANGED)
+                    --XEventManager.DispatchEvent(XEventId.EVENT_INVERT_CARD_GAME_CARD_CHANGED)
                     CsXGameEventManager.Instance:Notify(XEventId.EVENT_INVERT_CARD_GAME_CARD_CHANGED, stageData, cardIdx, res.PunishCardsIdxList, res.FinCardsIdxList)
                 end
             end)

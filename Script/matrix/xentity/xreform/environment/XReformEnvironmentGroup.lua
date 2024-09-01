@@ -78,7 +78,7 @@ function XReformEnvironmentGroup:GetMaxChallengeScore()
                     end
                 end
                 table.remove(maxScores, #maxScores)
-                minScore = maxScores[#maxScores]
+                minScore = maxScores[#maxScores] or 0
             end
         end
         local result = 0
@@ -89,7 +89,6 @@ function XReformEnvironmentGroup:GetMaxChallengeScore()
     end
     return self.__MaxChallengeScore
 end
-
 
 --######################## 私有方法 ########################
 

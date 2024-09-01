@@ -1,4 +1,6 @@
 -- 猜拳小游戏游戏进行界面
+---@class XUiFingerGuessingGame : XLuaUi
+---@field Stage XFingerGuessingStage
 local XUiFingerGuessingGame = XLuaUiManager.Register(XLuaUi, "UiFingerGuessingGame")
 
 --================

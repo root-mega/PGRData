@@ -13,7 +13,7 @@ function XUiGridDoubleResonanceSkill:Ctor(ui, clickCb)
 
     for i = 1, SINGLE_SITE_RESONANCE_SKILL_NUM do
         self["BtnAddResonanceSkill" .. i].CallBack = function()
-            XLuaUiManager.Open("UiEquipDetail", self.EquipId, nil, self.CharacterId, nil, XEquipConfig.EquipDetailBtnTabIndex.Resonance)
+            XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipDetail(self.EquipId, nil, self.CharacterId, nil, XEquipConfig.EquipDetailBtnTabIndex.Resonance)
             if clickCb then clickCb(self) end
         end
     end

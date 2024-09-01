@@ -37,11 +37,13 @@ function XUiFightButtonSettings:AddListener()
     self.BtnProject1.CallBack = function() self:OnButtonProject1() end
     self.BtnProject2.CallBack = function() self:OnButtonProject2() end
 
-    self.BtnProject1PC.CallBack = function() self:OnButtonProject1() end
-    self.BtnProject2PC.CallBack = function() self:OnButtonProject2() end
-
+    if self.BtnProject1PC and self.BtnProject2PC then
+        self.BtnProject1PC.CallBack = function() self:OnButtonProject1() end
+        self.BtnProject2PC.CallBack = function() self:OnButtonProject2() end
+    end
+        
     self:RefreshBtnPoint()
-
+    
     self.BtnGouxuan1.CallBack = function(value) self:OnBtnGouxuan1(value) end
     self.BtnGouxuan2.CallBack = function(value) self:OnBtnGouxuan2(value) end
     self.BtnClose.CallBack = function() self:OnBtnClose() end
@@ -49,11 +51,11 @@ function XUiFightButtonSettings:AddListener()
 end
 
 function XUiFightButtonSettings:OnEnable()
-    CS.XPc.XCursorHelper.ForceResponse = true;
+    CS.XJoystickLSHelper.ForceResponse = true;
 end
 
 function XUiFightButtonSettings:OnDisable()
-    CS.XPc.XCursorHelper.ForceResponse = false;
+    CS.XJoystickLSHelper.ForceResponse = false;
 end
 
 function XUiFightButtonSettings:RefreshBtnPoint()
@@ -77,6 +79,7 @@ end
 -- function XUiFightButtonSettings:OpenCustomFight()
 -- XLuaUiManager.Open("UiFightCustom",true)
 -- end
+
 function XUiFightButtonSettings:OnBtnClose()
     XUiFightButtonDefaultStyleConfig.SaveDefaultStyleById(self.CurSelect)
     XDataCenter.SetManager.SetCurSeleButton(self.CurSelect)

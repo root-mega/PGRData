@@ -5,8 +5,25 @@
         "BigIconPath": null,
         "Name": null,
         "Description": null,
-        "SkillEffect": [],
-        "SkillDescription": []
+        "SkillEffect": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "SuitType": null
     },
     {
         "Id": 1101,
@@ -14,10 +31,25 @@
         "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/EYiefuliemofuI01002.png",
         "Name": "Joseph",
         "Description": "White Board",
-        "SkillEffect": [],
+        "SkillEffect": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "SkillDescription": [
-            "ATK +5"
-        ]
+            null,
+            null,
+            "ATK +5",
+            null,
+            null,
+            null,
+            null
+        ],
+        "SuitType": null
     },
     {
         "Id": 1201,
@@ -26,13 +58,24 @@
         "Name": "Merli",
         "Description": "ATK Boost",
         "SkillEffect": [
+            null,
+            null,
             120102.0,
-            120104.0
+            null,
+            120104.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "ATK +10",
-            "HP +50"
-        ]
+            null,
+            "HP +50",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1301,
@@ -41,13 +84,24 @@
         "Name": "Pinoff",
         "Description": "Close Range Boost",
         "SkillEffect": [
+            null,
+            null,
             130102.0,
-            130104.0
+            null,
+            130104.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Extra DMG Bonus increases by 3% when attacking enemies within 2m.",
-            "Extra DMG Reduction increases by 3% when attacked by enemies within 2m."
-        ]
+            null,
+            "Extra DMG Reduction increases by 3% when attacked by enemies within 2m.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1304,
@@ -56,13 +110,24 @@
         "Name": "Pavrey",
         "Description": "Long Range Boost",
         "SkillEffect": [
+            null,
+            null,
             130402.0,
-            130404.0
+            null,
+            130404.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Extra DMG Bonus increases by 3% when attacking enemies farther than 3m.",
-            "Extra DMG Reduction increases by 3% when attacked by enemies farther than 3m."
-        ]
+            null,
+            "Extra DMG Reduction increases by 3% when attacked by enemies farther than 3m.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1401,
@@ -71,13 +136,24 @@
         "Name": "Archimedes",
         "Description": "Basic Attack Boost",
         "SkillEffect": [
+            null,
+            null,
             140102.0,
-            140104.0
+            null,
+            140104.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Basic Attack's Extra DMG Bonus increases by 5%.",
-            "In every 10s, the next Basic Attack increases Basic Attack DMG by 10% for 4s."
-        ]
+            null,
+            "In every 10s, the next Basic Attack increases Basic Attack DMG by 10% for 4s.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1404,
@@ -86,13 +162,24 @@
         "Name": "Edison",
         "Description": "Skill Attack Boost",
         "SkillEffect": [
+            null,
+            null,
             140402.0,
-            140404.0
+            null,
+            140404.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Signal Orb skill DMG increases by 5%.",
-            "After a 3-Ping, Extra DMG Bonus increases by 5% for 5s. Duration resets every time it is triggered."
-        ]
+            null,
+            "After a 3-Ping, Extra DMG Bonus increases by 5% for 5s. Duration resets every time it is triggered.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1407,
@@ -101,13 +188,24 @@
         "Name": "Alice",
         "Description": "Support Boost",
         "SkillEffect": [
+            null,
+            null,
             140702.0,
-            140704.0
+            null,
+            140704.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Healing effect increases by 5%.",
-            "Healing increases the target's Physical DMG and Elemental DMG by 4% for 4s. Duration resets every time it is triggered."
-        ]
+            null,
+            "Healing increases the target's Physical DMG and Elemental DMG by 4% for 4s. Duration resets every time it is triggered.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1410,
@@ -116,13 +214,24 @@
         "Name": "Cunningham",
         "Description": "Defense Boost",
         "SkillEffect": [
+            null,
+            null,
             141002.0,
-            141004.0
+            null,
+            141004.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Physical and Elemental DMG increase by 5% when attacking enemies with Super Armor.",
-            "If being attacked multiple times within 5s, gain a shield that reduces the next DMG taken by 30%. 5s cooldown."
-        ]
+            null,
+            "If being attacked multiple times within 5s, gain a shield that reduces the next DMG taken by 30%. 5s cooldown.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1413,
@@ -131,11 +240,24 @@
         "Name": "Kuriko - Eternal",
         "Description": "Summon Boost",
         "SkillEffect": [
-            141302.0
+            null,
+            null,
+            141302.0,
+            null,
+            null,
+            null,
+            null
         ],
         "SkillDescription": [
-            "When attacking, has a 20% chance to call an artillery strike, each shell dealing 40% Physical DMG to the target. 15s cooldown."
-        ]
+            null,
+            null,
+            "When attacking, has a 20% chance to call an artillery strike, each shell dealing 40% Physical DMG to the target. 15s cooldown.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1416,
@@ -144,15 +266,24 @@
         "Name": "Nimitz",
         "Description": "ATK Boost",
         "SkillEffect": [
+            null,
+            null,
             141602.0,
+            null,
             141604.0,
+            null,
             141606.0
         ],
         "SkillDescription": [
+            null,
+            null,
             "Basic Attack's Extra DMG Bonus increases by 5%.",
+            null,
             "Extra DMG Bonus of 3-Ping is increased by 5%.",
+            null,
             "After an Entrance Skill, Extra DMG Bonus increases by 10% for 8s."
-        ]
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1501,
@@ -161,13 +292,24 @@
         "Name": "Carrielynn",
         "Description": "Basic Attack Boost",
         "SkillEffect": [
+            null,
+            null,
             150102.0,
-            150104.0
+            null,
+            150104.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Basic Attack's Extra DMG Bonus increases by 10%.",
-            "Basic Attack's Extra DMG Bonus increases by 15% when not attacked. This effect enters a 12s cooldown upon being attacked."
-        ]
+            null,
+            "Basic Attack's Extra DMG Bonus increases by 15% when not attacked. This effect enters a 12s cooldown upon being attacked.",
+            null,
+            null
+        ],
+        "SuitType": 6.0
     },
     {
         "Id": 1502,
@@ -176,13 +318,24 @@
         "Name": "Aife",
         "Description": "Skill Boost",
         "SkillEffect": [
+            null,
+            null,
             150202.0,
-            150204.0
+            null,
+            150204.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "For each orb pinged, Extra DMG Bonus increases by 2% for 3s. Can be stacked up to 5 times. Duration resets every time it is triggered.",
-            "Enters Matrix upon a 3-Ping. 60s cooldown."
-        ]
+            null,
+            "Enters Matrix upon a 3-Ping. 60s cooldown.",
+            null,
+            null
+        ],
+        "SuitType": 6.0
     },
     {
         "Id": 1503,
@@ -191,13 +344,24 @@
         "Name": "Ike",
         "Description": "Energy Attack Boost",
         "SkillEffect": [
+            null,
+            null,
             150302.0,
-            150304.0
+            null,
+            150304.0,
+            null,
+            null
         ],
         "SkillDescription": [
-            "Extra DMG Bonus increases by 2% and Elemental DMG increases by 4%.",
-            "When dealing Elemental DMG, you have a 15% chance to inflict Burn, Electrocute, Frost, and Corruption depending on the element. Lasts 5 seconds and has an 8 second cooldown on the same unit."
-        ]
+            null,
+            null,
+            "Extra DMG Bonus increases by 2% and all Elemental DMG increases by 4%.",
+            null,
+            "When dealing Elemental DMG, you have a 15% chance to inflict Burn, Electrocute, Frost, and Corruption depending on the element. Lasts 5s and has an 8s Cooldown on the same unit.",
+            null,
+            null
+        ],
+        "SuitType": 6.0
     },
     {
         "Id": 1504,
@@ -206,13 +370,24 @@
         "Name": "Voltaire",
         "Description": "Weaken Enemy I",
         "SkillEffect": [
+            null,
+            null,
             150402.0,
-            150404.0
+            null,
+            150404.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Attacks reduce the target's DEF by 10% for 5s. 12s cooldown.",
-            "When taking damage, reduces the attacker's Physical DEF by 15% for 7s. Can be stacked up to 2 times. Duration resets every time it is triggered."
-        ]
+            null,
+            "When taking damage, reduces the attacker's Physical DEF by 15% for 7s. Can be stacked up to 2 times. Duration resets every time it is triggered.",
+            null,
+            null
+        ],
+        "SuitType": 10.0
     },
     {
         "Id": 1505,
@@ -221,13 +396,24 @@
         "Name": "Gloria",
         "Description": "Weaken Enemy II",
         "SkillEffect": [
+            null,
+            null,
             150502.0,
-            150504.0
+            null,
+            150504.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Attacks reduce the target's all Elemental Resistance by 6% for 5s. 12s cooldown.",
-            "When taking damage, reduces the Elemental Resistance of enemies within 5m by 6% for 7s. Duration resets every time it is triggered."
-        ]
+            null,
+            "When taking damage, reduces all Elemental Resistance of enemies within 5m by 6% for 7s. Duration resets every time it is triggered.",
+            null,
+            null
+        ],
+        "SuitType": 11.0
     },
     {
         "Id": 1506,
@@ -236,13 +422,24 @@
         "Name": "Richelieu",
         "Description": "Attack Support Boost",
         "SkillEffect": [
+            null,
+            null,
             150602.0,
-            150604.0
+            null,
+            150604.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Healing effect increases by 5%. Next healing effect increases the target's Physical DMG by 8% for 4s. 5s cooldown.",
-            "Gains a random Signal Orb for every 8 orbs pinged. 5s cooldown."
-        ]
+            null,
+            "Gains a random Signal Orb for every 8 orbs pinged. 5s cooldown.",
+            null,
+            null
+        ],
+        "SuitType": 7.0
     },
     {
         "Id": 1507,
@@ -251,13 +448,24 @@
         "Name": "Samantha",
         "Description": "Energy Support Boost",
         "SkillEffect": [
+            null,
+            null,
             150702.0,
-            150704.0
+            null,
+            150704.0,
+            null,
+            null
         ],
         "SkillDescription": [
-            "Healing effect increases by 5%. Next healing effect increases the target's Elemental DMG by 8% for 4s. 5s cooldown.",
-            "The next healing effect adds an elemental aura that increases the Elemental DMG and Elemental Resistance of the allies in the area by 8% and 5% respectively. 10s cooldown."
-        ]
+            null,
+            null,
+            "Healing effect increases by 5%. Next healing effect increases the target's all Elemental DMG by 8% for 4s. 5s cooldown.",
+            null,
+            "The next healing skill cast leaves an elemental aura that increases all Elemental DMG and Elemental Resistance of the allies in the area by 8% and 5% respectively. 10s cooldown.",
+            null,
+            null
+        ],
+        "SuitType": 8.0
     },
     {
         "Id": 1508,
@@ -266,13 +474,24 @@
         "Name": "Mozart",
         "Description": "EX Dodge Boost",
         "SkillEffect": [
+            null,
+            null,
             150802.0,
-            150804.0
+            null,
+            150804.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Extra DMG Bonus increases by 15% when in Matrix.",
-            "Deals 200% damage to all enemies on screen when you enter Matrix."
-        ]
+            null,
+            "Deals 200% damage to all enemies on screen when you enter Matrix.",
+            null,
+            null
+        ],
+        "SuitType": 6.0
     },
     {
         "Id": 1509,
@@ -281,15 +500,24 @@
         "Name": "Boudica",
         "Description": "ATK Boost",
         "SkillEffect": [
+            null,
+            null,
             150902.0,
+            null,
             150904.0,
+            null,
             150906.0
         ],
         "SkillDescription": [
+            null,
+            null,
             "Basic Attack's Extra DMG Bonus increases by 7%.",
+            null,
             "All DMG dealt and Movement Speed are increased by 5% and 10% when in Matrix.",
+            null,
             "Extra DMG Bonus increases by 3% upon dealing DMG. It can only be triggered once per 2s. Stacks up to 5 times until taking DMG."
-        ]
+        ],
+        "SuitType": 6.0
     },
     {
         "Id": 1550,
@@ -298,13 +526,24 @@
         "Name": "Liv: Reindeer",
         "Description": "Energy Boost",
         "SkillEffect": [
+            null,
+            null,
             155002.0,
-            155004.0
+            null,
+            155004.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Signal Orb skill's Extra DMG Bonus and healing effect increase by 5%.",
-            "Attacks have a 20% chance to drop Christmas gifts next to the enemy. Picking up a gift restores 5 Energy and increases Extra DMG Bonus by 5% for 5s. 10s cooldown."
-        ]
+            null,
+            "Attacks have a 20% chance to drop Christmas gifts next to the enemy. Picking up a gift restores 5 Energy and increases Extra DMG Bonus by 5% for 5s. 10s cooldown.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1551,
@@ -313,11 +552,24 @@
         "Name": "New Year Fireworks",
         "Description": "Damage Boost",
         "SkillEffect": [
-            155012.0
+            null,
+            null,
+            155012.0,
+            null,
+            null,
+            null,
+            null
         ],
         "SkillDescription": [
-            "ATK increases by 5%. For every 3 Red Orbs pinged, summons 4 red packets that deal 10% Fire DMG when they touch the enemy. Lasts 10s. 30s cooldown."
-        ]
+            null,
+            null,
+            "ATK increases by 5%. For every 3 Red Orbs pinged, summons 4 red packets that deal 10% Fire DMG when they touch the enemy. Lasts 10s. 30s cooldown.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1552,
@@ -326,11 +578,24 @@
         "Name": "Lantern Festival: Reunion",
         "Description": "ATK Boost",
         "SkillEffect": [
-            155022.0
+            null,
+            null,
+            155022.0,
+            null,
+            null,
+            null,
+            null
         ],
         "SkillDescription": [
-            "After performing a 3-Ping or QTE skill, releases a lantern to follow the character on field, increasing the ATK and Movement Speed of nearby allies by 7% for 15s. 30s cooldown."
-        ]
+            null,
+            null,
+            "After performing a 3-Ping or QTE skill, releases a lantern to follow the character on field, increasing the ATK and Movement Speed of nearby allies by 7% for 15s. 30s cooldown.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "SuitType": 9.0
     },
     {
         "Id": 1553,
@@ -339,13 +604,24 @@
         "Name": "Lee\u2014Celebration under the Moon",
         "Description": "Anniversary",
         "SkillEffect": [
+            null,
+            null,
             155052.0,
-            155054.0
+            null,
+            155054.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Gain 10% Extra DMG Reduction for 3s upon dodge.",
-            "The own max. HP restores by 10% when entering Matrix, and is triggered every 30s."
-        ]
+            null,
+            "The own max. HP restores by 10% when entering Matrix, and is triggered every 30s.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1555,
@@ -354,11 +630,24 @@
         "Name": "KFC\u00b7Alpha",
         "Description": "Speed Boost",
         "SkillEffect": [
-            155032.0
+            null,
+            null,
+            155032.0,
+            null,
+            null,
+            null,
+            null
         ],
         "SkillDescription": [
-            "A QTE or 3-Ping has a 50% chance to drop a bucket of chicken. 30s cooldown. The bucket disappears in 10s. Picking it up will increase Movement Speed by 12% for 15s. Duration resets every time it is triggered."
-        ]
+            null,
+            null,
+            "A QTE or 3-Ping has a 50% chance to drop a bucket of chicken. 30s cooldown. The bucket disappears in 10s. Picking it up will increase Movement Speed by 12% for 15s. Duration resets every time it is triggered.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1556,
@@ -367,11 +656,24 @@
         "Name": "KFC\u00b7Lucia",
         "Description": "Energy Boost",
         "SkillEffect": [
-            155042.0
+            null,
+            null,
+            155042.0,
+            null,
+            null,
+            null,
+            null
         ],
         "SkillDescription": [
-            "A QTE or 3-Ping has a 50% chance to drop a chicken burger. 30s cooldown. The chicken burger disappears in 10s. Picking it up grants 8 energy."
-        ]
+            null,
+            null,
+            "A QTE or 3-Ping has a 50% chance to drop a chicken burger. 30s cooldown. The chicken burger disappears in 10s. Picking it up grants 8 energy.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1557,
@@ -380,13 +682,24 @@
         "Name": "Liv: United",
         "Description": "Survival Boost",
         "SkillEffect": [
+            null,
+            null,
             155062.0,
-            155064.0
+            null,
+            155064.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Movement speed increases by 10%",
-            "After a 3-Ping, increases healing by 10% and gains a shield of 10% max HP for 5s."
-        ]
+            null,
+            "After a 3-Ping, increases healing by 10% and gains a shield of 10% max HP for 5s.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1558,
@@ -395,13 +708,76 @@
         "Name": "Chrome: Banquet",
         "Description": "2nd Anniversary Memory",
         "SkillEffect": [
+            null,
+            null,
             155072.0,
-            155074.0
+            null,
+            155074.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "DEF increases by 10%.",
-            "After a 3-Ping, gain a shield of 15% max HP for 8s. Can be triggered once per 8s."
-        ]
+            null,
+            "After a 3-Ping, gain a shield of 15% max HP for 8s. Can be triggered once per 8s.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
+    },
+    {
+        "Id": 1559,
+        "IconPath": "Assets/Product/Texture/Image/IconToolsSp/EBiankaZhounianI01001Sp.png",
+        "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/EBiankaZhounianI01002.png",
+        "Name": "Bianca: Tipsy Night",
+        "Description": "3rd Year Anniversary Memory",
+        "SkillEffect": [
+            null,
+            null,
+            155902.0,
+            null,
+            155904.0,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            "Movement speed increases by 10%",
+            null,
+            "After a 3-Ping, DEF increases by 10% for 5s.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
+    },
+    {
+        "Id": 1560,
+        "IconPath": "Assets/Product/Texture/Image/IconToolsSp/ELunaMengzhanI01001Sp.png",
+        "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/ELunaMengzhanI01002.png",
+        "Name": "Luna: Fullmoon Laurel",
+        "Description": "Eden Festival",
+        "SkillEffect": [
+            null,
+            null,
+            156002.0,
+            null,
+            156004.0,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            "Every 20s, receives a healing effect equal to 10% of max HP.",
+            null,
+            "Every 30s, when taking DMG, gains a shield equal to 25% of max HP, lasting for 5s.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1601,
@@ -410,13 +786,24 @@
         "Name": "Condelina",
         "Description": "Basic Attack Boost",
         "SkillEffect": [
+            null,
+            null,
             160102.0,
-            160104.0
+            null,
+            160104.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Basic Attack's Extra DMG Bonus increases by 15%.",
-            "Basic Attacks have a 25% chance to go berserk, increasing the Extra Damage of Basic Attack by 15% and CRIT Rate by 5% for 5s. 8s cooldown."
-        ]
+            null,
+            "Basic Attacks have a 25% chance to go berserk, increasing the Extra Damage of Basic Attack by 15% and CRIT Rate by 5% for 5s. 8s cooldown.",
+            null,
+            null
+        ],
+        "SuitType": 6.0
     },
     {
         "Id": 1602,
@@ -425,13 +812,24 @@
         "Name": "Shakespeare",
         "Description": "Fire Boost",
         "SkillEffect": [
+            null,
+            null,
             160202.0,
-            160204.0
+            null,
+            160204.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "All ATK increases by 3% and Fire DMG increases by 7%.",
-            "Attacks have a 50% chance to inflict Burn for 5s. When attacking a burning enemy, there is a 20% chance to cause an explosion, dealing 100% Fire DMG. 5s cooldown. Burn: Reduces the target's Fire Resistance by 8% and deals 12% Fire DMG per second. Can be stacked up to 3 times. Duration resets every time it is triggered."
-        ]
+            null,
+            "Attacks have a 50% chance to inflict Burn for 5s. When attacking a burning enemy, there is a 20% chance to cause an explosion, dealing 100% Fire DMG. 5s cooldown. Burn: Reduces the target's Fire Resistance by 8% and deals 12% Fire DMG per second. Can be stacked up to 3 times. Duration resets every time it is triggered.",
+            null,
+            null
+        ],
+        "SuitType": 2.0
     },
     {
         "Id": 1603,
@@ -440,13 +838,24 @@
         "Name": "Heisen",
         "Description": "Lightning Boost",
         "SkillEffect": [
+            null,
+            null,
             160302.0,
-            160304.0
+            null,
+            160304.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "All ATK increases by 3% and Lightning DMG increases by 7%.",
-            "Attacks have a 25% chance to trigger Thunderstorm within 3.5m. Thunderstorm electrocutes the target for 5s. 5s cooldown. Attacking an electrocuted enemy has a 20% chance to trigger lightning chain damage. 8s cooldown. Lightning Chain: All electrocuted targets take 250% Lightning DMG. Thunderstorm: 100% Lightning DMG. Electrocute: Lightning Resistance is reduced by 8%."
-        ]
+            null,
+            "Attacks have a 25% chance to trigger Thunderstorm within 3.5m. Thunderstorm electrocutes the target for 5s. 5s cooldown. Attacking an electrocuted enemy has a 20% chance to trigger lightning chain damage. 8s cooldown. Lightning Chain: All electrocuted targets take 250% Lightning DMG. Thunderstorm: 100% Lightning DMG. Electrocute: Lightning Resistance is reduced by 8%.",
+            null,
+            null
+        ],
+        "SuitType": 4.0
     },
     {
         "Id": 1604,
@@ -455,13 +864,24 @@
         "Name": "Darwin",
         "Description": "Orb Skill Boost",
         "SkillEffect": [
+            null,
+            null,
             160402.0,
-            160404.0
+            null,
+            160404.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "For each orb pinged, Extra DMG Bonus increases by 3% for 4s. Can be stacked up to 5 times. Duration resets every time it is triggered.",
-            "Records the color of Signal Orbs pinged. When all 3 colors are recorded, unleashes a 12m shockwave that deals 600% Physical DMG and resets the record."
-        ]
+            null,
+            "Records the color of Signal Orbs pinged. When all 3 colors are recorded, unleashes a 12m shockwave that deals 600% Physical DMG and resets the record.",
+            null,
+            null
+        ],
+        "SuitType": 6.0
     },
     {
         "Id": 1605,
@@ -470,13 +890,24 @@
         "Name": "Hanna",
         "Description": "3-Ping Boost",
         "SkillEffect": [
+            null,
+            null,
             160502.0,
-            160504.0
+            null,
+            160504.0,
+            null,
+            null
         ],
         "SkillDescription": [
-            "Extra DMG Bonus of 3-Ping is increased by 25%.",
-            "For every 30s, enters Matrix upon a 3-Ping and gains a random Signal Orb."
-        ]
+            null,
+            null,
+            "Extra DMG Bonus of 3-Ping skills increases by 25%.",
+            null,
+            "For every 30s, enters Matrix upon a 3-Ping and gains a random Signal Orb.",
+            null,
+            null
+        ],
+        "SuitType": 6.0
     },
     {
         "Id": 1606,
@@ -485,13 +916,24 @@
         "Name": "Cottie",
         "Description": "Signature Move Boost",
         "SkillEffect": [
+            null,
+            null,
             160602.0,
-            160604.0
+            null,
+            160604.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Gains 20% more Energy when pinging an orb. Signature Move requires 20% less Energy.",
-            "Extra DMG Bonus increases by 15% for 10s when performing a Signature Move. Gains Super Armor that increases Extra DMG Reduction by 20% for 5s after the Signature Move. Both duration will reset every time it is triggered."
-        ]
+            null,
+            "Extra DMG Bonus increases by 15% for 10s when performing a Signature Move. Gains Super Armor that increases Extra DMG Reduction by 20% for 5s after the Signature Move. Triggering these effects again will renew their duration.",
+            null,
+            null
+        ],
+        "SuitType": 6.0
     },
     {
         "Id": 1607,
@@ -500,13 +942,24 @@
         "Name": "Da Vinci",
         "Description": "QTE Boost",
         "SkillEffect": [
+            null,
+            null,
             160702.0,
-            160704.0
+            null,
+            160704.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "When QTE is triggered, the controlling character gains 10% ATK and 20% DEF for 8s. Duration resets every time it is triggered.",
-            "When QTE is triggered, triggers another character's QTE. 8s cooldown. If there are 3 characters on the field, ATK is increased by 20%."
-        ]
+            null,
+            "When QTE is triggered, triggers another character's QTE. 8s cooldown. If there are 3 characters on the field, ATK is increased by 20%.",
+            null,
+            null
+        ],
+        "SuitType": 9.0
     },
     {
         "Id": 1608,
@@ -515,13 +968,24 @@
         "Name": "Catherine",
         "Description": "Survival Boost I",
         "SkillEffect": [
+            null,
+            null,
             160802.0,
-            160804.0
+            null,
+            160804.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "QTE and 3-Ping skills reduce the target's Physical DEF by 20% for 8s. 10s cooldown.",
-            "When taking damage, gains a shield that absorbs damage equal to 20% of own DEF, as well as increasing the Physical DMG dealt by 15% for 5s. 8s cooldown."
-        ]
+            null,
+            "When taking damage, gains a shield that absorbs damage equal to 20% of own DEF, as well as increasing the Physical DMG dealt by 15% for 5s. 8s cooldown.",
+            null,
+            null
+        ],
+        "SuitType": 10.0
     },
     {
         "Id": 1609,
@@ -530,13 +994,24 @@
         "Name": "Einsteina",
         "Description": "Survival Boost II",
         "SkillEffect": [
+            null,
+            null,
             160902.0,
-            160904.0
+            null,
+            160904.0,
+            null,
+            null
         ],
         "SkillDescription": [
-            "QTEs and 3-Pings reduce the target's corresponding Elemental DMG Resistance by 15% for 8s. Cooldown: 10s.",
-            "When taking damage, releases an elemental aura, gaining Elemental Resistance equal to 5% + 1% of own DEF for 5s. Elemental DMG dealt increases by 15% when the aura is present. 8s cooldown."
-        ]
+            null,
+            null,
+            "QTE and 3-Ping skills reduce the target's corresponding Elemental Resistance by 15% for 8s. 10s cooldown.",
+            null,
+            "When taking damage, releases an elemental aura, gaining Elemental Resistance equal to 5% + 1% of own DEF for 5s. All Elemental DMG dealt increases by 15% when the aura is present. 8s cooldown.",
+            null,
+            null
+        ],
+        "SuitType": 11.0
     },
     {
         "Id": 1610,
@@ -545,13 +1020,24 @@
         "Name": "Philip II",
         "Description": "Support Boost I",
         "SkillEffect": [
+            null,
+            null,
             161002.0,
-            161004.0
+            null,
+            161004.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Increase Heal by 10%. Healing allies increases their Physical DMG and DEF by 10% for 5s (CD: 8s).",
-            "A healing drone will be charged when healing is performed. When fully charged, the next time you performing healing will consume all charged energy to summon the healing drone. It will follow an ally with the lowest HP percentage, healing allies in a 5m radius for 2% maximum HP per second and increasing their Physical DMG by 15% for 5s. 12s cooldown."
-        ]
+            null,
+            "A healing drone will be charged when healing is performed. When fully charged, the next time you performing healing will consume all charged energy to summon the healing drone. It will follow an ally with the lowest HP percentage, healing allies in a 5m radius for 2% maximum HP per second and increasing their Physical DMG by 15% for 5s. 12s cooldown.",
+            null,
+            null
+        ],
+        "SuitType": 7.0
     },
     {
         "Id": 1611,
@@ -560,13 +1046,24 @@
         "Name": "Guinevere",
         "Description": "Support Boost II",
         "SkillEffect": [
+            null,
+            null,
             161102.0,
-            161104.0
+            null,
+            161104.0,
+            null,
+            null
         ],
         "SkillDescription": [
-            "Heals for 10% more. Increases the Elemental DMG and Resistances of the healing target by 10% for 5 seconds. Has a cooldown of 8 seconds.",
-            "A healing drone will be charged when healing is performed. When fully charged, the next time you performing healing will consume all charged energy to summon the healing drone. It will follow an ally with the lowest HP percentage, healing allies in a 5m radius for 2% maximum HP per second and increasing their Elemental ATK by 15% for 5s. 12s cooldown."
-        ]
+            null,
+            null,
+            "Healing effect increases by 10%. Next healing effect increases the target's all Elemental DMG and Resistance by 10% for 5s. 8s cooldown.",
+            null,
+            "Each healing cast will charge up the drone. When the drone is fully charged, the next healing effect will consume all charged energy to summon an elemental drone. The drone automatically follows the ally with the lowest HP percentage, healing allies in a 5m radius for 2% maximum HP per second and increasing their all Elemental DMG by 15% for 5s. 12s cooldown.",
+            null,
+            null
+        ],
+        "SuitType": 8.0
     },
     {
         "Id": 1612,
@@ -575,13 +1072,24 @@
         "Name": "Frederick",
         "Description": "Dodge Boost",
         "SkillEffect": [
+            null,
+            null,
             161202.0,
-            161204.0
+            null,
+            161204.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Each dodge increases Movement Speed by 15% and Extra DMG Bonus by 5% for 5s. Can be stacked up to 3 times. Duration resets every time it is triggered.",
-            "The next dodge reduces the attacker's speed by 20% and Extra DMG Reduction by 15% for 4s. 8s cooldown."
-        ]
+            null,
+            "Triggering Matrix reduces all enemies' Speed by 20% and Extra DMG Reduction by 15% for 4s. 8s cooldown.",
+            null,
+            null
+        ],
+        "SuitType": 6.0
     },
     {
         "Id": 1613,
@@ -590,13 +1098,24 @@
         "Name": "Bathlon",
         "Description": "Dark Boost",
         "SkillEffect": [
+            null,
+            null,
             161302.0,
-            161304.0
+            null,
+            161304.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "ATK increases by 3% and Dark DMG increases by 7%",
-            "Dealing DMG has a 20% chance to summon a Dark Zone that lasts 5s. 5s cooldown. The Dark Zone will inflict Corruption on the targets within it for 3s. Attacking a Corrupted target has a 20% chance to gain 1 random Signal Orb. 12s cooldown. Corruption: Deals 80% Dark DMG every 2s and reduces Dark Resistance by 8%."
-        ]
+            null,
+            "Dealing DMG has a 20% chance to summon a Dark Zone that lasts 5s. 5s cooldown. The Dark Zone will inflict Corruption on the targets within it for 3s. Attacking a Corrupted target has a 20% chance to gain 1 random Signal Orb. 12s cooldown. Corruption: Deals 80% Dark DMG every 2s and reduces Dark Resistance by 8%.",
+            null,
+            null
+        ],
+        "SuitType": 5.0
     },
     {
         "Id": 1614,
@@ -605,13 +1124,24 @@
         "Name": "Patton",
         "Description": "Physical Boost",
         "SkillEffect": [
+            null,
+            null,
             161402.0,
-            161404.0
+            null,
+            161404.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "CRIT Rate and Physical DMG increase by 5%.",
-            "Each time you deal Physical DMG, if it is not a CRIT Hit, the CRIT Rate of the next Physical DMG increases by 2%, stacking up to a maximum of 20%. This effect is reset when you deal a CRIT Hit. CRIT Hit increases Physical DMG by 5% for 3s. Can be stacked up to 3 times. Duration resets every time it is triggered."
-        ]
+            null,
+            "Each time you deal Physical DMG, if it is not a CRIT Hit, the CRIT Rate of the next Physical DMG increases by 2%, stacking up to a maximum of 20%. This effect is reset when you deal a CRIT Hit. CRIT Hit increases Physical DMG by 5% for 3s. Can be stacked up to 3 times. Duration resets every time it is triggered.",
+            null,
+            null
+        ],
+        "SuitType": 1.0
     },
     {
         "Id": 1615,
@@ -620,13 +1150,24 @@
         "Name": "Chen Jiyuan",
         "Description": "Ice Boost",
         "SkillEffect": [
+            null,
+            null,
             161502.0,
-            161504.0
+            null,
+            161504.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "ATK increases by 3% and Ice DMG increases by 7%",
-            "30% chance to cause Frost for 5s while attacking. When attacking targets with Frost, there is a 20% chance to trigger Ice Explosion to deal 420% Ice DMG within 3m from the target and apply Frost. This effect has a 8s cooldown. Frost: Reduces target's Movement Speed by 20% and Ice Resistance by 8%."
-        ]
+            null,
+            "30% chance to cause Frost for 5s while attacking. When attacking targets with Frost, there is a 20% chance to trigger Ice Explosion to deal 420% Ice DMG within 3m from the target and apply Frost. This effect has a 8s cooldown. Frost: Reduces target's Movement Speed by 20% and Ice Resistance by 8%.",
+            null,
+            null
+        ],
+        "SuitType": 3.0
     },
     {
         "Id": 1616,
@@ -635,15 +1176,24 @@
         "Name": "Koya",
         "Description": "ATK Boost",
         "SkillEffect": [
+            null,
+            null,
             161602.0,
+            null,
             161604.0,
+            null,
             161606.0
         ],
         "SkillDescription": [
+            null,
+            null,
             "Extra DMG increases by 10%.",
+            null,
             "Gains 20% energy when switched in. Signal Orb Skill DMG increases by 10% while a shield exists.",
+            null,
             "When Camu: Crocotta is Berserk, increases Damage Dealt by 10% and Speed by 20%. Ping Skills that deal damage also inflict Fear for the duration of Berserk. Fear: Reduces ATK DMG by 10% and deals an additional 10% ATK DMG to the target."
-        ]
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1617,
@@ -652,13 +1202,24 @@
         "Name": "Leeuwenhoek",
         "Description": "Physical Support Boost",
         "SkillEffect": [
+            null,
+            null,
             161702.0,
-            161704.0
+            null,
+            161704.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "ATK increases by 3% and Physical DMG increases by 7%",
-            "Increases the effect of Lance of Perception by 20%. Deals 5% more damage against targets under the effect of Lance of Perception."
-        ]
+            null,
+            "Increases the effect of Lance of Perception by 20%. Deals 5% more damage against targets under the effect of Lance of Perception.",
+            null,
+            null
+        ],
+        "SuitType": 1.0
     },
     {
         "Id": 1618,
@@ -667,15 +1228,24 @@
         "Name": "Wu'an",
         "Description": "ATK Boost",
         "SkillEffect": [
+            null,
+            null,
             161802.0,
+            null,
             161804.0,
+            null,
             161806.0
         ],
         "SkillDescription": [
+            null,
+            null,
             "Basic Attack's Extra DMG Bonus increases by 5%, Physical DMG increases by 7%.",
+            null,
             "The Super Armor of Sweeping Tempest lasts 2s longer. Physical DMG increases by 15% while Super Armor is active.",
+            null,
             "Gains 24 Energy upon entering Concentrated Will. Immediately gains one Signal Orb of each color after casting Signature - Dragon's Wrath."
-        ]
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1619,
@@ -684,13 +1254,24 @@
         "Name": "Flamel",
         "Description": "ATK Boost",
         "SkillEffect": [
+            null,
+            null,
             161902.0,
-            161904.0
+            null,
+            161904.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Dark DMG increases by 5% and ATK increases by 5%",
-            "After entering annihilation state, the aphotic DMG increases by 30%. DMG of End is Nigh increases by 30%. Gain extra 10 Energy after the annihilation orb is eliminated."
-        ]
+            null,
+            "After entering annihilation state, the aphotic DMG increases by 30%. DMG of End is Nigh increases by 30%. Gain extra 10 Energy after the annihilation orb is eliminated.",
+            null,
+            null
+        ],
+        "SuitType": 5.0
     },
     {
         "Id": 1620,
@@ -699,15 +1280,24 @@
         "Name": "Lucrezia",
         "Description": "Lightning Boost",
         "SkillEffect": [
+            null,
+            null,
             162002.0,
+            null,
             162004.0,
+            null,
             162006.0
         ],
         "SkillDescription": [
+            null,
+            null,
             "Lightning DMG increases by 10%.",
+            null,
             "Upon triggering Chord, gain bonus 15 energy and 10% Extra DMG Bonus for 5s.",
+            null,
             "Extra DMG Bonus increases by 20% when attacking enemies affected by Concerto."
-        ]
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1621,
@@ -715,8 +1305,25 @@
         "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/EAikesupeiliI01002.png",
         "Name": "Exupery",
         "Description": "Ice Boost",
-        "SkillEffect": [],
-        "SkillDescription": []
+        "SkillEffect": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "SuitType": null
     },
     {
         "Id": 1622,
@@ -725,13 +1332,24 @@
         "Name": "Tifa",
         "Description": "Lightning Boost",
         "SkillEffect": [
+            null,
+            null,
             162202.0,
-            162204.0
+            null,
+            162204.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "ATK increases by 5% and Lightning DMG increases by 5%",
-            "DMG from Spear Lunge increases by 50%. Victorious War Flag causes Turbulence Interference on the target for 2s. Refreshes every time it is triggered. Basic DMG from Lightning Fall increases by 100%."
-        ]
+            null,
+            "DMG from Spear Lunge increases by 50%. Victorious War Flag causes Turbulence Interference on the target for 2s. Refreshes every time it is triggered. Basic DMG from Lightning Fall increases by 100%.",
+            null,
+            null
+        ],
+        "SuitType": 4.0
     },
     {
         "Id": 1623,
@@ -740,15 +1358,24 @@
         "Name": "Jack",
         "Description": "Fire Boost",
         "SkillEffect": [
+            null,
+            null,
             162302.0,
+            null,
             162304.0,
+            null,
             162306.0
         ],
         "SkillDescription": [
+            null,
+            null,
             "ATK increases by 5% and Fire DMG increases by 7%.",
+            null,
             "Basic Attack combo has 10% more Extra DMG Bonus and returns 10 bonus Deception Points.",
+            null,
             "Gains 30 bonus energy each time upon deployment. After casting a valid combo, recovers 50/75/100 Dodge Gauge based on the combo type. The Extra DMG Bonus of Incinerating Orb increases by 100%. After casting a Signature Move, Attack increases by 5% for 8s."
-        ]
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1624,
@@ -757,13 +1384,24 @@
         "Name": "Elizabeth",
         "Description": "Fire Boost",
         "SkillEffect": [
+            null,
+            null,
             162402.0,
-            162404.0
+            null,
+            162404.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "ATK increases by 5% and Fire DMG increases by 5%.",
-            "Extra DMG Bonus of Oaths will increase by 50%. When equipped by Liv: Empyrea, upon a 3-Ping by any team member, Liv: Empyrea's drones will appear and cast White Oracle against the target, dealing damage equal to 3% Liv: Empyrea's ATK every second for 20s. This effect can be stacked up to 5 times. Meanwhile, Liv: Empyrea will restore HP equal to 15% of her ATK every second for team members within the range for 4s."
-        ]
+            null,
+            "Extra DMG Bonus of Oaths will increase by 50%. When equipped by Liv: Empyrea, upon a 3-Ping by any team member, Liv: Empyrea's drones will appear and cast White Oracle against the target, dealing damage equal to 3% Liv: Empyrea's ATK every second for 20s. This effect can be stacked up to 5 times. Meanwhile, Liv: Empyrea will restore HP equal to 15% of her ATK every second for team members within the range for 4s.",
+            null,
+            null
+        ],
+        "SuitType": 2.0
     },
     {
         "Id": 1625,
@@ -772,13 +1410,24 @@
         "Name": "Seraphine",
         "Description": "Dark Boost",
         "SkillEffect": [
+            null,
+            null,
             162502.0,
-            162504.0
+            null,
+            162504.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "ATK increases by 5% and Dark DMG increases by 5%.",
-            "A random Reprise deals 100% more damage. Allies healed by Selena: Capriccio gain a Dark Radiation effect of dealing 10% more Dark DMG for 8s. The duration will be reset every time the effect is triggered."
-        ]
+            null,
+            "A random Reprise deals 100% more damage. Allies healed by Selena: Capriccio gain a Dark Radiation effect of dealing 10% more Dark DMG for 8s. The duration will be reset every time the effect is triggered.",
+            null,
+            null
+        ],
+        "SuitType": 5.0
     },
     {
         "Id": 1626,
@@ -787,15 +1436,24 @@
         "Name": "Marco",
         "Description": "Physical Boost",
         "SkillEffect": [
+            null,
+            null,
             162602.0,
+            null,
             162604.0,
+            null,
             162606.0
         ],
         "SkillDescription": [
+            null,
+            null,
             "Deals 7% more Physical DMG and 5% more Basic Attack DMG.",
+            null,
             "When Pulao: Dragontoll catches Dragon Axe while being hit, removes her own Hit status and throws it again. Meanwhile, removes the red penalty on the Dodge Gauge and restores 250 Dodge Gauge value.",
+            null,
             "Dragon Force Combo's Base DMG increases by 50%. When the first hit of Dragon Force Combo is triggered, Dragon Axe will release Dragon Roar to pull enemies to Pulao and she gains a shield equal to 15% max HP for 6s."
-        ]
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1627,
@@ -804,13 +1462,24 @@
         "Name": "Unimate",
         "Description": "Fire Boost",
         "SkillEffect": [
+            null,
+            null,
             162702.0,
-            162704.0
+            null,
+            162704.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Increases Fire DMG by 10%.",
-            "Oops! Missed it!/\"Perfect!\"/Burning Blow deals 100% more Base DMG. Nanami: Starfarer's QTE Skill will inflict Scorching Invasion that reduces the target's Fire Resistance by 15% upon hitting it for 8s."
-        ]
+            null,
+            "Oops! Missed it!/\"Perfect!\"/Burning Blow deals 100% more Base DMG. Nanami: Starfarer's QTE Skill will inflict Scorching Invasion that reduces the target's Fire Resistance by 15% upon hitting it for 8s.",
+            null,
+            null
+        ],
+        "SuitType": 2.0
     },
     {
         "Id": 1628,
@@ -819,15 +1488,24 @@
         "Name": "Isabel",
         "Description": "Ice Boost",
         "SkillEffect": [
+            null,
+            null,
             162802.0,
+            null,
             162804.0,
+            null,
             162806.0
         ],
         "SkillDescription": [
+            null,
+            null,
             "ATK increases by 5% and Ice DMG increases by 7%.",
+            null,
             "Frost-Treated Blade: Quench deals 15% more Base DMG.",
+            null,
             "Bitter Frost deals 200% more Ice DMG to enemies with Frozen Status."
-        ]
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1629,
@@ -836,13 +1514,24 @@
         "Name": "Boone",
         "Description": "Dark Boost",
         "SkillEffect": [
+            null,
+            null,
             162902.0,
-            162904.0
+            null,
+            162904.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Dark DMG increases by 10%.",
-            "Doubles the Base DMG increase effect of Karenina: Scire's Kinetic Energy for Starshatter Horizon and the Base DMG multiplier of Leap Attack and Radiant Whirlwind."
-        ]
+            null,
+            "Doubles the Base DMG increase effect of Karenina: Scire's Kinetic Energy for Starshatter Horizon and the Base DMG multiplier of Leap Attack and Radiant Whirlwind.",
+            null,
+            null
+        ],
+        "SuitType": 5.0
     },
     {
         "Id": 1630,
@@ -851,15 +1540,24 @@
         "Name": "Shelley",
         "Description": "Lightning Boost",
         "SkillEffect": [
+            null,
+            null,
             163002.0,
+            null,
             163004.0,
+            null,
             163006.0
         ],
         "SkillDescription": [
+            null,
+            null,
             "Lightning DMG increases by 10%.",
+            null,
             "Gains Super Armor when casting a 3-Ping and Combo Strike. Whenever taking DMG during a 3-Ping, Gear-Break Combo, or Assault-Rising Combo, loses Dodge Gauge instead of HP until the DMG taken exceeds the available Dodge Gauge.",
+            null,
             "The Base DMG multiplier of Gear-Break Combo and Assault-Rising Combo doubles."
-        ]
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1631,
@@ -868,13 +1566,180 @@
         "Name": "Charlotte",
         "Description": "Physical Boost",
         "SkillEffect": [
+            null,
+            null,
             163102.0,
-            163104.0
+            null,
+            163104.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Basic Attacks deal 5% more DMG. ATK increases by 7%.",
-            "Glowing Lanternlight deals 50% more Base DMG. Afterglow Shadow deals 100% more Base DMG. Every time upon entering Luminous Realm, rearranges the Signal Orbs when casting Glowing Lanternlight."
-        ]
+            null,
+            "Glowing Lanternlight deals 50% more Base DMG. Afterglow Shadow deals 100% more Base DMG. Every time upon entering Luminous Realm, rearranges the Signal Orbs when casting Glowing Lanternlight.",
+            null,
+            null
+        ],
+        "SuitType": 1.0
+    },
+    {
+        "Id": 1632,
+        "IconPath": "Assets/Product/Texture/Image/IconToolsSp/ETulingI01001Sp.png",
+        "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/ETulingI01002.png",
+        "Name": "Turing",
+        "Description": "Fire Boost",
+        "SkillEffect": [
+            null,
+            null,
+            163202.0,
+            null,
+            163204.0,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            "Fire DMG increases by 10%.",
+            null,
+            "Hypermatrix Strike and Signature - Collapsing Realm's Base DMG increases by 100%. Casting Hypermatrix Strike in Hypermatrix increases the duration of Hypermatrix by 1s.",
+            null,
+            null
+        ],
+        "SuitType": 2.0
+    },
+    {
+        "Id": 1633,
+        "IconPath": "Assets/Product/Texture/Image/IconToolsSp/EYileinuoyaI01001Sp.png",
+        "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/EYileinuoyaI01002.png",
+        "Name": "Aline",
+        "Description": "Ice Boost",
+        "SkillEffect": [
+            null,
+            null,
+            163302.0,
+            null,
+            163304.0,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            "Extra DMG Bonus increases by 5% and Ice DMG increases by 5%.",
+            null,
+            "Base DMG of Pure Color: Theme Emphasis and Color Mix: Clash of Concepts increases by 50%. Base DMG of Vibrant Brushstroke increases by 80%.",
+            null,
+            null
+        ],
+        "SuitType": 3.0
+    },
+    {
+        "Id": 1634,
+        "IconPath": "Assets/Product/Texture/Image/IconToolsSp/EDiseerI01001Sp.png",
+        "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/EDiseerI01002.png",
+        "Name": "Diesel",
+        "Description": "Lightning Boost",
+        "SkillEffect": [
+            null,
+            null,
+            163402.0,
+            null,
+            163404.0,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            "Lightning DMG increases by 10%.",
+            null,
+            "The efficiency of acquiring Blade Aura increases by 50%. The Base DMG of Unquenchable Flare's Leaping Thrust increases by 50%, and the Base DMG of Signature - Weave: Karmic Inferno increases by 80%.",
+            null,
+            null
+        ],
+        "SuitType": 4.0
+    },
+    {
+        "Id": 1635,
+        "IconPath": "Assets/Product/Texture/Image/IconToolsSp/EFulanI01001Sp.png",
+        "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/EFulanI01002.png",
+        "Name": "Fran",
+        "Description": "Lightning Boost",
+        "SkillEffect": [
+            null,
+            null,
+            163502.0,
+            null,
+            163504.0,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            "Lightning DMG increases by 5% and Extra DMG Bonus increases by 5%.",
+            null,
+            "Dusk Fluorescence and Forest Predator's Base DMG increases by 100%. Wolfspirit Release's Base DMG increases by 70%.",
+            null,
+            null
+        ],
+        "SuitType": 4.0
+    },
+    {
+        "Id": 1636,
+        "IconPath": "Assets/Product/Texture/Image/IconToolsSp/EXigenaI01001Sp.png",
+        "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/EXigenaI01002.png",
+        "Name": "Signa",
+        "Description": "Physical Boost",
+        "SkillEffect": [
+            null,
+            null,
+            163602.0,
+            null,
+            163604.0,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            "Physical DMG increases by 5% and Extra DMG Bonus increases by 5%.",
+            null,
+            "The Base DMG of Imprisoning Co-Strike and Soulbreaking Co-Strike increases by 100%. Allies healed by Echo gain an extra 20% CRIT DMG and 75% CRIT Rate for 8s. Triggering this effect again will renew its duration.",
+            null,
+            null
+        ],
+        "SuitType": 1.0
+    },
+    {
+        "Id": 1637,
+        "IconPath": "Assets/Product/Texture/Image/IconToolsSp/EDekeduoI01001Sp.png",
+        "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/EDekeduoI01002.png",
+        "Name": "Derketo",
+        "Description": "Dark Boost",
+        "SkillEffect": [
+            null,
+            null,
+            163702.0,
+            null,
+            163704.0,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            "Dark DMG increases by 10%.",
+            null,
+            "Base DMG of Torrent Orbs, Tidal Orbs, and Signature - Sunken Finale increases by 100%. After casting Signature - Sunken Finale, if Lamia is switched out of battle, she will still cast co-attacks when any teammate actively casts their Signature. Co-attacks deal 3000% Dark DMG each time, and can be triggered up to 3 times after every Signature - Sunken Finale.",
+            null,
+            null
+        ],
+        "SuitType": 5.0
     },
     {
         "Id": 20001,
@@ -883,13 +1748,24 @@
         "Name": "Ceremony - Liv",
         "Description": "Survival Boost",
         "SkillEffect": [
+            null,
+            null,
             3000002.0,
-            3000004.0
+            null,
+            3000004.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Gain a shield equal to 20% Max HP for 5s every 30s after taking DMG.",
-            "Gain a Heal effect equal to 15% Max HP every 20s."
-        ]
+            null,
+            "Gain a Heal effect equal to 15% Max HP every 20s.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 1901,
@@ -897,8 +1773,25 @@
         "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/EGouliangI01002.png",
         "Name": "Memory Enhancer",
         "Description": "Enhance Material I",
-        "SkillEffect": [],
-        "SkillDescription": []
+        "SkillEffect": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "SuitType": null
     },
     {
         "Id": 1902,
@@ -906,8 +1799,25 @@
         "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/EGouliangI01002.png",
         "Name": "Memory Enhancer",
         "Description": "Enhance Material II",
-        "SkillEffect": [],
-        "SkillDescription": []
+        "SkillEffect": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "SuitType": null
     },
     {
         "Id": 1903,
@@ -915,8 +1825,25 @@
         "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/EGouliangI01002.png",
         "Name": "Memory Enhancer",
         "Description": "Enhance Material III",
-        "SkillEffect": [],
-        "SkillDescription": []
+        "SkillEffect": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "SuitType": null
     },
     {
         "Id": 1904,
@@ -924,8 +1851,25 @@
         "BigIconPath": "Assets/Product/Texture/Image/RoleWaferBag/EGouliangI01002.png",
         "Name": "Memory Enhancer",
         "Description": "Enhance Material III",
-        "SkillEffect": [],
-        "SkillDescription": []
+        "SkillEffect": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "SkillDescription": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "SuitType": null
     },
     {
         "Id": 1905,
@@ -934,13 +1878,24 @@
         "Name": "Memory Enhancer",
         "Description": "Enhance Material III",
         "SkillEffect": [
+            null,
+            null,
             190202.0,
-            190204.0
+            null,
+            190204.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Reduces Extra DMG Bonus by 15% and Extra DMG Reduction by 30%.",
-            "Lose 5% of maximum HP every 5s."
-        ]
+            null,
+            "Lose 5% of maximum HP every 5s.",
+            null,
+            null
+        ],
+        "SuitType": null
     },
     {
         "Id": 1906,
@@ -949,13 +1904,24 @@
         "Name": "Memory Enhancer",
         "Description": "Enhance Material III",
         "SkillEffect": [
+            null,
+            null,
             190202.0,
-            190204.0
+            null,
+            190204.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Reduces Extra DMG Bonus by 15% and Extra DMG Reduction by 30%.",
-            "Lose 5% of maximum HP every 5s."
-        ]
+            null,
+            "Lose 5% of maximum HP every 5s.",
+            null,
+            null
+        ],
+        "SuitType": null
     },
     {
         "Id": 20002,
@@ -964,13 +1930,24 @@
         "Name": "Vera - Scarlet Summers",
         "Description": "Attack HP Recovery",
         "SkillEffect": [
+            null,
+            null,
             3000006.0,
-            3000008.0
+            null,
+            3000008.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Upon a 3-Ping, gains 5% ATK for 5s. Cooldown: 10s.",
-            "When in Matrix, restores HP equal to 200% of the current ATK next time when dealing DMG. Cooldown: 25s."
-        ]
+            null,
+            "When in Matrix, restores HP equal to 200% of the current ATK next time when dealing DMG. Cooldown: 25s.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     },
     {
         "Id": 20000,
@@ -979,13 +1956,24 @@
         "Name": "Straylight Terminal",
         "Description": "Physical Boost",
         "SkillEffect": [
+            null,
+            null,
             2000002.0,
-            2000004.0
+            null,
+            2000004.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Movement Speed +10%",
-            "\u4f1a\u5fc3\u7387\u304c3%\u4e0a\u6607\u3001\u7269\u7406\u30c0\u30e1\u30fc\u30b8\u304c2%\u4e0a\u6607"
-        ]
+            null,
+            "\u4f1a\u5fc3\u7387\u304c3%\u4e0a\u6607\u3001\u7269\u7406\u30c0\u30e1\u30fc\u30b8\u304c2%\u4e0a\u6607",
+            null,
+            null
+        ],
+        "SuitType": null
     },
     {
         "Id": 50000,
@@ -994,12 +1982,23 @@
         "Name": "Lucia - Summer Daze",
         "Description": "Exclusive Memory",
         "SkillEffect": [
+            null,
+            null,
             5000002.0,
-            5000004.0
+            null,
+            5000004.0,
+            null,
+            null
         ],
         "SkillDescription": [
+            null,
+            null,
             "Basic Attack DMG increases by 10%.",
-            "After any 3-Ping, randomly gain one of the below effects for 3s. 4s cooldown. Wild Rocker: All DMG increases by 7%. Soothing Chord: Receives a shield equal to 15% of your Defense. The shield refreshes when this effect is triggered again."
-        ]
+            null,
+            "After any 3-Ping, randomly gain one of the below effects for 3s. 4s cooldown. Wild Rocker: All DMG increases by 7%. Soothing Chord: Receives a shield equal to 15% of your Defense. The shield refreshes when this effect is triggered again.",
+            null,
+            null
+        ],
+        "SuitType": 12.0
     }
 ]

@@ -107,4 +107,35 @@ end
 function XGDRolePlayActionFSM:OnExit()
 end
 
+local XGDRolePatrolIdleFSM=XGuildDormRoleFSMFactory.RegisterFSM("XGDRolePatrolIdleFSM",XGuildDormConfig.RoleFSMType.PATROL_IDLE)
+
+function XGDRolePatrolIdleFSM:OnEnter()
+    local npcData=XDataCenter.GuildDormManager.GetNpcDataFromDormData(self.Role.RefreshId)
+    --查表获取动画
+    local config=XGuildDormConfig.GetIdleConfigById(npcData.ActionId)
+    if config then
+        local idleAnimName=config.IdleAnimId
+        self.Role:GetRLRole():PlayAnimation(idleAnimName
+        , true, 0.05)
+    end
+    
+end
+
+function XGDRolePatrolIdleFSM:Execute()
+end
+
+function XGDRolePatrolIdleFSM:OnExit()
+end
+
+local XGDRoleInteractFSM=XGuildDormRoleFSMFactory.RegisterFSM("XGDRoleInteractFSM",XGuildDormConfig.RoleFSMType.INTERACT)
+
+function XGDRoleInteractFSM:OnEnter()
+end
+
+function XGDRoleInteractFSM:Execute()
+end
+
+function XGDRoleInteractFSM:OnExit()
+end
+
 return XGuildDormRoleFSMFactory

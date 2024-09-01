@@ -56,8 +56,9 @@ function XUiEquipResonanceSelect:OnNotify(evt, ...)
     if pos ~= self.Pos then return end
 
     if evt == XEventId.EVENT_EQUIP_RESONANCE_NOTYFY then
-        self.RootUi:FindChildUiObj("UiEquipResonanceSkill").UiProxy:SetActive(true)
-        self.UiProxy:SetActive(false)
+        -- self.RootUi:FindChildUiObj("UiEquipResonanceSkill").UiProxy:SetActive(true)
+        -- self.UiProxy:SetActive(false)
+        self.RootUi.PanelTabGroup:SelectIndex(XEquipConfig.EquipDetailBtnTabIndex.Resonance)
         
         local forceShowBindCharacter = self.RootUi.ForceShowBindCharacter
         --如果是武器自选只需要弹提示
@@ -135,9 +136,9 @@ function XUiEquipResonanceSelect:InitRightView()
         end
     end
 
-    self.CurEquipGird = self.CurEquipGird or XUiGridEquip.New(self.GridCurAwareness, function()
+    self.CurEquipGird = self.CurEquipGird or XUiGridEquip.New(self.GridCurAwareness, self, function()
         self:OnBtnSelectAwarenessClick()
-    end,self)
+    end, true)
 
     self.CurItemGird = self.CurItemGird or XUiGridCommon.New(self, self.GridCurItem)
     self.CurItemGird:SetClickCallback(function ()
@@ -341,15 +342,7 @@ function XUiEquipResonanceSelect:OnBtnResonanceClick()
         self.IsNewSkill = true
     end
 
-    XDataCenter.EquipManager.Resonance(
-        self.EquipId, 
-        self.Pos, 
-        self.SelectCharacterId, 
-        useEquipId, 
-        useItemId, 
-        selectSkillId, 
-        equipResonanceType
-    )
+    XMVCA:GetAgency(ModuleId.XEquip):RequestEquipResonance(self.EquipId, {self.Pos}, self.SelectCharacterId, useEquipId, useItemId, {selectSkillId}, equipResonanceType)
 end
 
 function XUiEquipResonanceSelect:OnBtnSkillPreviewClick()

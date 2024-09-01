@@ -1,5 +1,5 @@
 XItemManagerCreator = function()
-
+    ---@class XItemManager
     local XItemManager = {}
 
     local tableInsert = table.insert
@@ -16,6 +16,7 @@ XItemManagerCreator = function()
     local ItemTemplates = {}
     local ItemFirstGetCheckTable = {}
     local RedEnvelopeInfos = {}                      -- 红包道具使用记录
+    local ItemCollectionIds = {}                     -- 已解锁收藏道具Id 
 
     local BuyAssetCoinBase    = 0
     local BuyAssetCoinMul    = 0
@@ -25,7 +26,7 @@ XItemManagerCreator = function()
     -- local PARAM_ACTIONPOINT_INTERVAL = 1
     -- local PARAM_ACTIONPOINT_NUM = 2
     local RecTimer
-
+    
     XItemManager.ItemId = {
         Coin = 1,
         PaidGem = 2,
@@ -52,6 +53,8 @@ XItemManagerCreator = function()
         PokemonStarUpItem = 57,
         PokemonLowStarUpItem = 58,
         PassportExp = 60,
+        DormQuestCoin = 103, -- 宿舍委托道具Id
+        SEllaFragment = 559, -- 逆元碎片-万华
         TRPGTalen = 61000,
         TRPGMoney = 61001,
         TRPGEXP = 61002,
@@ -62,14 +65,30 @@ XItemManagerCreator = function()
         MoeWarPreparationItemId = 62505, --萌战筹备度
         MoeWarCommunicateItemId = 62506, --萌战礼物
         MoeWarCommemorativeItemId = 62510, --萌战2.0，纪念代币
-        PokerGuessingItemId = 62711, --翻牌比大小活动物品
+        PokerGuessingItemId = 97012, --翻牌比大小活动物品
         SuperTowerBagItemId = 62801, --超级爬塔背包扩容道具Id
         AreaWarActionPoint = 62901, --全服决战-行动点
         AreaWarCoin = 62902, --全服决战-货币
         AreaWarPurifyExp = 62903, --全服决战-净化之火
         RpgMakerGameHintCoin = 63300,   --推箱子游戏-提示货币
         DoubleTower = 60850,--动作塔防代币
-
+        GuildWarCoin = 96190,-- 工会战货币
+        RiftCoin = 63400, --大秘境活动代币，用于活动商店兑换
+        RiftGold = 63401, --大秘境金币，用于队伍增幅和插件商店兑换
+        RiftLoadLimit = 63405, -- 大秘境提升负载上限道具
+        RiftAttributeLimit = 63406, -- 大秘境提升属性点上限道具
+        ColorTableCoin = 96124, -- 调色板战争代币
+        DlcHunt = 97002,
+        DlcHuntCoin1 = 96125,
+        DlcHuntCoin2 = 96128,
+        Maverick2Unit = 60841, -- 异构阵线2.0金币，用于心智天赋
+        Maverick2Coin = 60842, -- 异构阵线2.0代币，用于活动商店兑换
+        PlanetRunningStageCoin = 63411,-- 行星天赋关卡货币
+        PlanetRunningTalent  = 63412, -- 行星天赋天赋货币
+        PlanetRunningShopActivity  = 63413, -- 行星天赋商店兑换
+        CerberusGameCoin1 = 97007, -- 三头犬玩法货币1
+        CerberusGameCoin2 = 97008,-- 三头犬玩法货币2
+        TransfiniteScore = 105,-- 超限连战积分
     }
 
     --时效性道具初始时间计算方式
@@ -107,6 +126,12 @@ XItemManagerCreator = function()
         Use = "ItemUseRequest",
         BuyAsset = "ItemBuyAssetRequest",
         MultiplyUse = "ItemUseMultipleRequest",
+        GetAndroidOrIosMoneyCardRequest = "GetAndroidOrIosMoneyCardRequest",
+    }
+    
+    ---需要显示回复提示的道具的列表
+    local NeedTipsItemList={
+        [62901]=true --特制血清
     }
 
     local BAG_ITEM_SORT_FUNC = function(a, b)
@@ -256,6 +281,10 @@ XItemManagerCreator = function()
         end
 
         return false
+    end
+    
+    local GetCookieKey = function(key) 
+        return string.format("ItemManager_UID:%s_%s", XPlayer.Id, key)
     end
 
     function XItemManager.Init()
@@ -479,6 +508,10 @@ XItemManagerCreator = function()
             mergeGem.Count = mergeGem.Count + freeGem.Count + paidGem.Count
 
             return mergeGem
+        elseif id == XGuildConfig.GoodsCoinId then
+            local item =  Items[id]
+            item.Count = XDataCenter.GuildManager.GetShopCoin()
+            return item
         else
             return Items[id]
         end
@@ -492,6 +525,8 @@ XItemManagerCreator = function()
             return XDataCenter.GuildManager.GetGuildContributeLeft() or 0
         elseif id == XItemManager.ItemId.TRPGEXP then
             return XDataCenter.TRPGManager.GetExploreCurExp()
+        elseif id == XGuildConfig.GoodsCoinId then
+            return XDataCenter.GuildManager.GetShopCoin()
         end
         return Items[id] and Items[id]:GetCount() or 0
     end
@@ -642,7 +677,7 @@ XItemManagerCreator = function()
                 tableInsert(result, items[i2])
             end
         end
-
+       
         local bagItems = XDataCenter.ItemManager.ConvertToGridData(result)
         local sortFunc = useConsumableSort and CONSUMABLES_ITEM_SORT_FUNC or BAG_ITEM_SORT_FUNC
         tableSort(bagItems, sortFunc)
@@ -744,7 +779,8 @@ XItemManagerCreator = function()
 
     -- 战斗复活ui调用
     function XItemManager.CanRebootBuyItem(id)
-        return (id ~= XItemManager.ItemId.Coin and id ~= XItemManager.ItemId.FreeGem and id ~= XItemManager.ItemId.PaidGem)
+        return (id ~= XItemManager.ItemId.Coin and id ~= XItemManager.ItemId.FreeGem and id ~= XItemManager.ItemId.PaidGem and id ~= XBiancaTheatreConfigs.TheatreActionPoint and 
+            id ~= XEnumConst.THEATRE3.Theatre3InnerCoin)
     end
 
     function XItemManager.GetItemSuit(id)
@@ -753,6 +789,91 @@ XItemManagerCreator = function()
             return nil
         end
         return template.Suit
+    end
+    
+    --已解锁收藏道具
+    function XItemManager.GetUnlockItemCollectIds()
+        local tmp = {}
+        tmp = appendArray(tmp, XItemConfigs.GetDefaultCollectList())
+        tmp = appendArray(tmp, ItemCollectionIds)
+        return tmp
+    end
+
+    -- 检测有获得新的道具
+    function XItemManager.CheckHasNewColletId()
+        for k, id in pairs(XItemManager.GetUnlockItemCollectIds()) do
+            if XItemManager.CheckHasNewItemCollect(id) then
+                return true
+            end
+        end
+
+        return false
+    end
+    
+    function XItemManager.CheckCollectItemUnlock(templateId)
+        local list = XItemManager.GetUnlockItemCollectIds()
+        for _, id in pairs(list or {}) do
+            if id == templateId then
+                return true
+            end
+        end
+        return false
+    end
+    
+    --首次进入道具收藏界面
+    function XItemManager.IsFirstOpenItemCollectView()
+        local key =  GetCookieKey("FirstOpenItemCollectView")
+        local data = XSaveTool.GetData(key) or false
+        return not data
+    end
+    
+    --标记首次进入
+    function XItemManager.MarkFirstOpenItemCollectView()
+        local key =  GetCookieKey("FirstOpenItemCollectView")
+        local data = XSaveTool.GetData(key) or false
+        if data then
+            return
+        end
+        
+        XSaveTool.SaveData(key, true)
+        XEventManager.DispatchEvent(XEventId.EVENT_ITEM_COLLECT_STATE_CHANGE)
+    end
+    
+    --检查是否有新解锁收藏道具, itemId可选参数，不填则检查全部
+    function XItemManager.CheckHasNewItemCollect(itemId)
+        local check = function(id)
+            local template = XItemConfigs.GetItemCollectTemplate(id)
+            if template.Type == XItemConfigs.ItemCollectionType.DefaultCollect then
+                return false
+            end
+            local key = GetCookieKey("NewItemCollect_" .. id)
+            local data = XSaveTool.GetData(key) or false
+            return not data
+        end
+        
+        local result = false
+        if XTool.IsNumberValid(itemId) then
+            result = check(itemId)
+        else
+            for _, id in ipairs(ItemCollectionIds) do
+                result = check(id)
+                if result then
+                    break
+                end
+            end
+        end
+        return result
+    end
+    
+    --标记已读
+    function XItemManager.MarkNewItemCollect(itemId)
+        local key = GetCookieKey("NewItemCollect_" .. itemId)
+        local data = XSaveTool.GetData(key) or false
+        if data then
+            return
+        end
+        XSaveTool.SaveData(key, true)
+        XEventManager.DispatchEvent(XEventId.EVENT_ITEM_COLLECT_STATE_CHANGE)
     end
 
     function XItemManager.GetDailyActiveness()
@@ -1401,6 +1522,11 @@ XItemManagerCreator = function()
         end
         return bagDatas
     end
+    
+    ---判断道具是否需要显示回复提示，以后若有其他判断途径则改该方法内部逻辑即可
+    function XItemManager.CheckItemNeedTips(id)
+        return NeedTipsItemList[id] and true or false
+    end
     -------------------------道具事件相关-------------------------
     --==============================--
     --desc: 道具数量变化监听
@@ -1434,6 +1560,10 @@ XItemManagerCreator = function()
         for _, id in pairs(ids) do
             XEventManager.BindEvent(ui, XEventId.EVENT_ITEM_COUNT_UPDATE_PREFIX .. id, func, obj)
         end
+    end
+
+    function XItemManager.RemoveCountUpdateListener(ui)
+        XEventManager.UnBindEvent(ui)
     end
 
     --==============================--
@@ -1571,7 +1701,63 @@ XItemManagerCreator = function()
 
         XLuaUiManager.Open("UiRedEnvelope", envelopeId, envelopes)
     end
+    
+    --- 道具收藏盒，登录下发
+    ---@param data Server.XItemCollectionDataDb
+    --------------------------
+    function XItemManager.NotifyLoginItemCollectionData(data)
+        if not data then
+            return
+        end
+        ItemCollectionIds = {}
+        local dataList = data.ItemCollectionData and data.ItemCollectionData.TemplateIds or {}
+        ItemCollectionIds = dataList
+        
+        XEventManager.DispatchEvent(XEventId.EVENT_ITEM_COLLECT_STATE_CHANGE)
+    end
+    
+    function XItemManager.NotifyAddItemCollectionData(data)
+        if not data then
+            return
+        end
+        local templateId = data.TemplateId
+        local exist = false
+        for _, id in ipairs(ItemCollectionIds) do
+            if id == templateId then
+                exist = true
+                XLog.Error("道具盒子重复添加道具，道具Id = " .. templateId)
+                break
+            end
+        end
+        if not exist then
+            tableInsert(ItemCollectionIds, templateId)
+        end
+        XEventManager.DispatchEvent(XEventId.EVENT_ITEM_COLLECT_STATE_CHANGE)
+    end
     -------------------------道具事件相关-------------------------
+
+    -------------------------PC虹卡相关-------------------------
+    function XItemManager.GetPcOtherPlatformMoneyCardCount(cb)
+        if not XDataCenter.UiPcManager.IsPc() then
+            cb(0)
+            XLog.Debug("非PC平台不请求")
+        end
+        -- 国服PC端需要获取另一平台(移动端)虹卡数据, 海外PC端如果有自己的虹卡, 则不需要获取, 可以通过调用XDataCenter.UiPcManager.IsOverSea()以判断
+        XNetwork.Call(METHOD_NAME.GetAndroidOrIosMoneyCardRequest, nil, function(response)
+            if not response or response.Code ~= 0 then
+                XLog.Error("获取另一平台虹卡数量失败")
+                if cb then
+                    cb(0)
+                end
+                return
+            end
+            if cb then
+                cb(response.MoneyCard, response.Count)
+            end
+        end)
+    end
+
+
     XItemManager.Init()
     return XItemManager
 end
@@ -1594,4 +1780,12 @@ end
 
 XRpc.NotifyRedEnvelopeUse = function(data)
     XDataCenter.ItemManager.NotifyRedEnvelopeUse(data)
+end
+
+XRpc.NotifyLoginItemCollectionData = function(data) 
+    XDataCenter.ItemManager.NotifyLoginItemCollectionData(data)
+end
+
+XRpc.NotifyAddItemCollectionData = function(data)
+    XDataCenter.ItemManager.NotifyAddItemCollectionData(data)
 end

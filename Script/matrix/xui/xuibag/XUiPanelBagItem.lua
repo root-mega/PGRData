@@ -18,7 +18,7 @@ function XUiPanelBagItem:Init(rootUi, page, isfirstanimation)
         self.Parent:OnGridClick(data, grid)
     end
 
-    self.EquipGrid = XUiGridEquip.New(self.GridEquip, clickCb, rootUi)
+    self.EquipGrid = XUiGridEquip.New(self.GridEquip, rootUi, clickCb, true)
     self.SuitGrid = XUiGridSuitDetail.New(self.GridSuitSimple, rootUi, clickCb)
     self.BagItemGrid = XUiBagItem.New(rootUi, self.GridBagItem, nil, clickCb)
     self.BagPartnerGrid = XUiGridBagPartner.New(self.GridPartner, clickCb)
@@ -79,14 +79,27 @@ function XUiPanelBagItem:PlayAnimation()
 
     self.IsFirstAnimation = false
     if self.Page == XItemConfigs.PageType.Equip or self.Page == XItemConfigs.PageType.Awareness then
-        self.GridEquipTimeline:PlayTimelineAnimation()
+        self:PlayTimelineAnimation(self.GridEquipTimeline.gameObject)
     elseif self.Page == XItemConfigs.PageType.SuitCover then
-        self.GridSuitSimpleTimeline:PlayTimelineAnimation()
+        self:PlayTimelineAnimation(self.GridSuitSimpleTimeline.gameObject)
     elseif self.Page == XItemConfigs.PageType.Partner then
-        self.GridPartnerTimeline:PlayTimelineAnimation()
+        self:PlayTimelineAnimation(self.GridPartnerTimeline.gameObject)
     else
-        self.GridBagItemTimeline:PlayTimelineAnimation()
+        self:PlayTimelineAnimation(self.GridBagItemTimeline.gameObject)
     end
+end
+
+---@param gameObject UnityEngine.GameObject
+function XUiPanelBagItem:PlayTimelineAnimation(gameObject, finish, begin, wrapMode)
+    if XTool.UObjIsNil(gameObject) then
+        return
+    end
+
+    if not gameObject.activeInHierarchy then
+        return
+    end
+    wrapMode = wrapMode or CS.UnityEngine.Playables.DirectorWrapMode.Hold
+    gameObject:PlayTimelineAnimation(finish, begin, wrapMode)
 end
 
 return XUiPanelBagItem

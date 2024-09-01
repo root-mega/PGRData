@@ -74,7 +74,11 @@ function XUiSameColorGameRank:OnAwake()
     self.DynamicTable:SetDelegate(self)
     self.GridPlayerRank.gameObject:SetActiveEx(false)
     -- 资源栏
-    XUiHelper.NewPanelActivityAsset(self.SameColorGameManager.GetAssetItemIds(), self.PanelAsset)
+    local itemIds = self.SameColorGameManager.GetAssetItemIds()
+    XUiHelper.NewPanelActivityAsset(itemIds, self.PanelAsset, nil , function(uiSelf, index)
+        local itemId = itemIds[index]
+        XLuaUiManager.Open("UiSameColorGameSkillDetails", nil, itemId)
+    end)
     -- 技能详情
     self.UiPanelSkillDetail = XUiSameColorPanelSkillDetail.New(self.PanelPopup)
     self:RegisterUiEvents()
@@ -163,6 +167,7 @@ function XUiSameColorGameRank:OnBtnTagClicked(index)
         self:RefreshMyRankInfo(myRankInfo)
         self:RefreshRankList(rankList)
     end)
+    self:PlayAnimation("QieHuan")
 end
 
 function XUiSameColorGameRank:RegisterUiEvents()

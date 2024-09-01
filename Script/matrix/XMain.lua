@@ -33,15 +33,19 @@ XMain.Step1 = function()
 
     require("XCommon/XRpc")
     import("XCommon")
+    require("Binary/ReaderPool")
     import("XConfig")
+    require("XModule/XEnumConst")
+    require("MVCA/XMVCA") --MVCA入口
     import("XOverseas/XConfig") -- 海外定制化目录
     require("XGame")
     import("XEntity")
-    import("XOverseas/XEntity") -- 海外定制化目录
     -- import("XUi/XUiBase")
     -- import("XUi/XUiCommon/XScrollView")
     import("XBehavior")
     import("XGuide")
+    --import("XOverseas/XConfig") -- 海外定制化目录
+    --import("XOverseas/XEntity") -- 海外定制化目录
     require("XMovieActions/XMovieActionBase")
     CS.XApplication.SetProgress(0.52)
 end
@@ -49,7 +53,10 @@ end
 
 XMain.Step2 = function()
     import("XManager")
-    import("XOverseas/XManager") -- 海外定制化目录
+    --import("XOverseas/XManager") -- 海外定制化目录
+    XMVCA:InitModule()
+    XMVCA:InitAllAgencyRpc()
+
     import("XNotify")
     CS.XApplication.SetProgress(0.54)
 end
@@ -203,12 +210,21 @@ XMain.Step8 = function()
     import("XScene")
     -- import("XUi")
     require("XUi/XUiCommon/XUiCommon") --XUiGridCommon,
-    import("XOverseas/XUi") -- 海外定制化目录
+    --import("XOverseas/XUi") -- 海外定制化目录，暂时屏蔽海外老虎机
+    import("XOverseas/XUi/XUiBubbleTip") -- 海外定制化目录
+    import("XOverseas/XUi/XUiSpecialRegulation") -- 海外定制化目录
+    import("XOverseas/XUi/XUiMonthlyCardEn")
     import("XMerge")
     CS.XApplication.SetProgress(0.68)
 end
 
 XMain.Step9 = function()
+    require("XDLCFight/XDlcScriptManager")
+    require("XCommon/XFightUtil")
+    CS.XApplication.SetProgress(0.69)
+end
+
+XMain.Step10 = function()
     LuaLockG()
     --打点
     CS.XRecord.Record("23008", "LuaXMainStartFinish")

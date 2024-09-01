@@ -1,23 +1,25 @@
-local XUiMainDown = require("XUi/XUiMain/XUiMainDown")
+--local XUiMainDown = require("XUi/XUiMain/XUiMainDown")
 local XUiMainRightTop = require("XUi/XUiMain/XUiMainRightTop")
 local XUiMainRightMid = require("XUi/XUiMain/XUiMainRightMid")
 local XUiMainLeftTop = require("XUi/XUiMain/XUiMainLeftTop")
-local XUiMainRightMidSecond = require("XUi/XUiMain/XUiMainRightMidSecond")
+--local XUiMainRightMidSecond = require("XUi/XUiMain/XUiMainRightMidSecond")
 local XUiMainRightBottom = require("XUi/XUiMain/XUiMainRightBottom")
 
 
-local XUiMainLeftMid = require("XUi/XUiMain/XUiMainLeftMid")
+--local XUiMainLeftMid = require("XUi/XUiMain/XUiMainLeftMid")
 local XUiMainLeftBottom = require("XUi/XUiMain/XUiMainLeftBottom")
 local XUiMainOther = require("XUi/XUiMain/XUiMainOther")
 local XUiPanelSignBoard = require("XUi/XUiMain/XUiChildView/XUiPanelSignBoard")
+local XUiMainCalendar = require("XUi/XUiMain/XUiMainCalendar")
 
-
+---@class XUiMain : XLuaUi
 local XUiMain = XLuaUiManager.Register(XLuaUi, "UiMain")
 
 local CameraIndex = {
     Main = 1,
     MainEnter = 2,
     MainChatEnter = 3,
+    MainRightMidSecondEnter = 4,
 }
 
 local MenuType = {
@@ -34,93 +36,151 @@ XUiMain.LowPowerState = {
 }
 
 local RightMidType = MenuType.Main
+local InitBackgroundScreenCapture = false
+
+function XUiMain:InitPanel()
+    ---@type XUiMainRightTop
+    self.RightTop =    XUiMainRightTop.New(self.PanelRightTop.transform, self, self)           --右上角组件（资源、电量、时间、设置、邮件……）
+    self.RightMid =    XUiMainRightMid.New(self.PanelRightMid, self, self)           --右中角组件（各种功能……）
+
+    --self.RightMidSecond = XUiMainRightMidSecond.New(self)   -- 右中角二级菜单
+    self.RightBottom = XUiMainRightBottom.New(self.PanelRightBottom.transform, self, self)        --右下角组件（各个大功能入口……）
+    ---@type XUiMainLeftTop
+    self.LeftTop =    XUiMainLeftTop.New(self.PanelLeftTop, self, self)            --左上角组件（玩家信息……）
+    --self.LeftMid =    XUiMainLeftMid.New(self.PanelLeftMid.transform, self)            --左中角组件（自动战斗、过期提醒……）
+    self.LeftBottom = XUiMainLeftBottom.New(self.PanelLeftBottom.transform, self)         --左下角组件（公告、好友、福利、AD、聊天……）
+    ---@type XUiMainOther
+    self.Other =        XUiMainOther.New(self.PanelOther.transform, self, self)              --其他组件（角色触摸、截图……）
+    --self.Down =    XUiMainDown.New(self.PanelDown, self, self)                 --底部组件（战斗通行证……）
+    self.Terminal = require("XUi/XUiMain/XUiMainTerminal").New(self.PanelRightMidSecond.transform, self, self) --终端界面
+    ---@type XUiMainCalendar
+    self.Calendar = XUiMainCalendar.New(self.PanelLeftCalendar, self, self) --周历界面
+    
+    -- self.AreanOnline = XUiPanelArenaOnline.New(self, self.PanelArenaOnline)  --屏蔽合众战局
+end
 
 function XUiMain:OnAwake()
     --BDC
     CS.XHeroBdcAgent.BdcIntoGame(CS.UnityEngine.Time.time)
-
-    self.RightTop =    XUiMainRightTop.New(self)           --右上角组件（资源、电量、时间、设置、邮件……）
-    self.RightMid =    XUiMainRightMid.New(self)           --右中角组件（各种功能……）
-
-    self.RightMidSecond = XUiMainRightMidSecond.New(self)   -- 右中角二级菜单
-    self.RightBottom = XUiMainRightBottom.New(self)        --右下角组件（各个大功能入口……）
-
-    self.LeftTop =    XUiMainLeftTop.New(self)            --左上角组件（玩家信息……）
-    self.LeftMid =    XUiMainLeftMid.New(self)            --左中角组件（自动战斗、过期提醒……）
-    self.LeftBottom = XUiMainLeftBottom.New(self)         --左下角组件（公告、好友、福利、AD、聊天……）
-    self.Other =        XUiMainOther.New(self)              --其他组件（角色触摸、截图……）
-    self.Down =    XUiMainDown.New(self, self.PanelDown)                 --底部组件（战斗通行证……）
-    -- self.AreanOnline = XUiPanelArenaOnline.New(self, self.PanelArenaOnline)  --屏蔽合众战局
+   
     self.PreEnterFightCallback = function() self:OnPreEnterFight() end
     XEventManager.AddEventListener(XEventId.EVENT_PRE_ENTER_FIGHT, self.PreEnterFightCallback)
+    
+    XEventManager.AddEventListener(XEventId.EVENT_SCENE_UIMAIN_RIGHTMIDTYPE_CHANGE, self.ForceChangeUiMainRightMidType, self)
+
+    --self.Down.GameObject:SetActiveEx(not XUiManager.IsHideFunc)
+    self.PanelLeftBottom.gameObject:SetActiveEx(not XUiManager.IsHideFunc)
 end
 
 function XUiMain:OnStart()
+    self:InitPanel()
+    self:InitTheme()
     -- 注销后重新登录 主界面默认不显示二级菜单
     if XLoginManager.IsFirstOpenMainUi() then
         RightMidType = MenuType.Main
     end
 
-    -- 二级菜单切换按钮
-    self.BtnMain.CallBack = function() self:OnBtnMain() end
-    self.BtnSecond.CallBack = function() self:OnBtnSecond() end
+    --界面重新打开
+    self.NewOpen = true
 
+    if InitBackgroundScreenCapture == false then
+        CS.XBlurHelper.GetBlurScreenCapture(CS.XUiManager.Instance.UiCamera,
+            CS.XGraphicManager.RenderConst.Ui.PopupBackgroundBlurInfo, function(tex2D)
+                CS.UnityEngine.Object.DestroyImmediate(tex2D);
+                -- CS.XLog.Debug("----- InitBackgroundScreenCapture")
+            end, false);
+        InitBackgroundScreenCapture = true
+    end
+
+    -- 回到主界面就重置XInputSystem.operationType
+    CS.XInputManager.SetCurOperationType(CS.XOperationType.System)
 end
 
 function XUiMain:OnEnable()
     if XDataCenter.GuideManager.CheckIsInGuide() then
         RightMidType = MenuType.Main
     end
-    if XDataCenter.PokemonManager then
-        XDataCenter.PokemonManager.ResetSpeed()
-    end
 
     -- 刷新二级菜单
     self:UpdateRightMenu()
 
+    CS.XResourceRecord.Stop();
     -- 每次打开的时候重新加载一下场景
     local curSceneId = XDataCenter.PhotographManager.GetCurSceneId()
     local curSceneTemplate = XDataCenter.PhotographManager.GetSceneTemplateById(curSceneId)
     local curSceneUrl, _ = XSceneModelConfigs.GetSceneAndModelPathById(curSceneTemplate.SceneModelId)
     local modelUrl = self:GetDefaultUiModelUrl()
+    self.CurSceneId = curSceneId
+    --先加载可见界面主题
+    self:UpdateTheme()
     self:LoadUiScene(curSceneUrl, modelUrl, function() self:OnUiSceneLoaded(curSceneTemplate.ParticleGroupName) end, false)
 
     self:PlayEnterAnim()
-    XRedPointManager.AutoReleseRedPointEvent()
-    self.LeftTop:OnEnable()
-    self.LeftMid:OnEnable()
-    self.LeftBottom:OnEnable()
-    self.RightMid:OnEnable()
-    self.RightMidSecond:OnEnable()
-    self.RightTop:OnEnable()
-    self.RightBottom:OnEnable()
-    self.Other:OnEnable()
+    XRedPointManager.AutoReleaseRedPointEvent()
+    -- self.LeftTop:OnEnable()
+    -- --self.LeftMid:OnEnable()
+    -- self.LeftBottom:OnEnable()
+    -- self.RightMid:OnEnable()
+    -- --self.RightMidSecond:OnEnable()
+    -- self.RightTop:OnEnable()
+    -- self.RightBottom:OnEnable()
+    -- self.Other:OnEnable()
+    -- self.Calendar:OnEnable()
     self:SetCacheFight()
     self:SetScreenAdaptorCache()
     XDataCenter.SetManager.SetSceneUIType()
-    self:AreanOnlineInviteNotify()
-    self.Down:OnEnable()
-    self:OnBtnMain(true) --临时修改#94661
+    --self.Down:OnEnable()
     XLoginManager.ResetHearbeatInterval()
+
+    self:AreanOnlineInviteNotify()
+    XEventManager.AddEventListener(XEventId.EVENT_SCENE_UIMAIN_STATE_CHANGE, self.OnBackGroupPreview, self)
+    XDataCenter.SignBoardManager.AddRoleActionUiAnimListener(self)
+    if not XLoginManager.IsFirstOpenMainUi() then
+        self:PlayEquipGuide(false)
+    end
+
+    -- 开启时钟
+    self.ClockTimer = XUiHelper.SetClockTimeTempFun(self)
+end
+
+function XUiMain:ForceChangeUiMainRightMidType(arg)
+    RightMidType = arg
 end
 
 function XUiMain:OnDisable()
-    self.LeftTop:OnDisable()
-    self.LeftMid:OnDisable()
-    self.LeftBottom:OnDisable()
-    self.RightMid:OnDisable()
-    self.RightMidSecond:OnDisable()
-    self.Other:OnDisable()
-    self.RightBottom:OnDisable()
-    self.RightTop:OnDisable()
-    self.Down:OnDisable()
+    -- self.LeftTop:OnDisable()
+    --self.LeftMid:OnDisable()
+    -- self.LeftBottom:OnDisable()
+    -- self.RightMid:OnDisable()
+    -- --self.RightMidSecond:OnDisable()
+    -- self.Other:OnDisable()
+    -- self.RightBottom:OnDisable()
+    -- self.RightTop:OnDisable()
+    self.Terminal:OnDisable()
+    -- self.Calendar:OnDisable()
+    --self.Down:OnDisable()
+    
+    XEventManager.RemoveEventListener(XEventId.EVENT_SCENE_UIMAIN_STATE_CHANGE, self.OnBackGroupPreview, self)
+    XDataCenter.SignBoardManager.RemoveRoleActionUiAnimListener(self)
+    --界面重新打开
+    self.NewOpen = false
+    self:ClearSceneReference()
+
+    -- 关闭时钟
+    if self.ClockTimer then
+        XUiHelper.StopClockTimeTempFun(self, self.ClockTimer)
+        self.ClockTimer = nil
+    end
 end
 
 function XUiMain:OnDestroy()
     self.LeftBottom:OnDestroy()
     self.Other:OnDestroy()
     self.RightTop:OnDestroy()
+    self.LeftTop:OnDestroy()
+    self.RightBottom:OnDestroy()
     XEventManager.RemoveEventListener(XEventId.EVENT_PRE_ENTER_FIGHT, self.PreEnterFightCallback)
+    XEventManager.RemoveEventListener(XEventId.EVENT_SCENE_UIMAIN_RIGHTMIDTYPE_CHANGE, self.ForceChangeUiMainRightMidType, self)
 end
 
 function XUiMain:OnNotify(evt, ...)
@@ -134,7 +194,9 @@ function XUiMain:OnNotify(evt, ...)
         -- self.AreanOnline:Show(...)
     elseif evt == XEventId.EVENT_GUIDE_START then
         -- 进行新手引导时，切换显示为主菜单
-        self:OnBtnMain()
+        self:OnShowMain()
+    elseif evt == XEventId.EVENT_SCENE_SET_NONE_STATE then
+        self:ChangeLowPowerState(self.LowPowerState.None)
     end
 
     self.LeftBottom:OnNotify(evt)
@@ -162,9 +224,10 @@ function XUiMain:OnGetEvents()
         XEventId.EVENT_NOTICE_PIC_CHANGE,
         XEventId.EVENT_TASKFORCE_INFO_NOTIFY,
         XEventId.EVENT_ACTIVITY_MAINLINE_STATE_CHANGE,
-        XEventId.EVENT_MAIL_COUNT_CHANGE,
+        XAgencyEventId.EVENT_MAIL_COUNT_CHANGE,
         XEventId.EVENT_CHAT_RECEIVE_PRIVATECHAT,
         XEventId.EVENT_GUIDE_START,
+        XEventId.EVENT_SCENE_SET_NONE_STATE,
     }
 end
 
@@ -175,15 +238,20 @@ function XUiMain:InitSceneRoot(particleGroupName)
         [CameraIndex.Main] = self:FindVirtualCamera("CamFarMain"),
         [CameraIndex.MainEnter] = self:FindVirtualCamera("CamFarMainEnter"),
         [CameraIndex.MainChatEnter] = self:FindVirtualCamera("CamFarMainChatEnter"),
+        [CameraIndex.MainRightMidSecondEnter] = self:FindVirtualCamera("CamFarMainRightMidSecondEnter"),
     }
     self.CameraNear = {
         [CameraIndex.Main] = self:FindVirtualCamera("CamNearMain"),
         [CameraIndex.MainEnter] = self:FindVirtualCamera("CamNearMainEnter"),
         [CameraIndex.MainChatEnter] = self:FindVirtualCamera("CamNearMainChatEnter"),
+        [CameraIndex.MainRightMidSecondEnter] = self:FindVirtualCamera("CamNearMainRightMidSecondEnter"),
     }
 
     --主页面电量特效相关
     local sceneRoot = self.UiSceneInfo.Transform
+    local animationRoot = self.UiSceneInfo.Transform:Find("Animations")
+    if XTool.UObjIsNil(animationRoot) then return end
+
     if particleGroupName and particleGroupName ~= "" then
         self.ChargeAnimator = sceneRoot:FindTransform(particleGroupName):GetComponent("Animator")
     else
@@ -193,6 +261,19 @@ function XUiMain:InitSceneRoot(particleGroupName)
     self.ToFullPD = sceneRoot:Find("Animations/ToFullTimeLine")
     self.FullPD = sceneRoot:Find("Animations/FullTimeLine")
     self.ChargePD = sceneRoot:Find("Animations/ChargeTimeLine")
+end
+
+--- 清除场景引用，避免场景加载前使用
+---@return void
+--------------------------
+function XUiMain:ClearSceneReference()
+    self.CameraFar = nil
+    self.CameraNear = nil
+    self.ChargeAnimator = nil
+    self.ToChargePD = nil
+    self.ToFullPD = nil
+    self.FullPD = nil
+    self.ChargePD = nil
 end
 
 function XUiMain:ChangeLowPowerPartical(state)
@@ -232,23 +313,26 @@ function XUiMain:ChangeLowPowerState(state)
 end
 
 function XUiMain:UpdateCamera(camera)
+    if not self.CameraFar or not self.CameraNear then
+        return
+    end
     for _, cameraIndex in pairs(CameraIndex) do
-        self.CameraNear[cameraIndex].gameObject:SetActive(cameraIndex == camera)
-        self.CameraFar[cameraIndex].gameObject:SetActive(cameraIndex == camera)
+        local nearCamera = self.CameraNear[cameraIndex]
+        if not XTool.UObjIsNil(nearCamera) then
+            nearCamera.gameObject:SetActive(cameraIndex == camera)
+        end
+        local farCamera = self.CameraFar[cameraIndex]
+        if not XTool.UObjIsNil(farCamera) then
+            farCamera.gameObject:SetActive(cameraIndex == camera)
+        end
     end
 end
 
 function XUiMain:UpdateRightMenu()
-    -- 根据状态控制右侧面板的显隐
-    self.BtnSecond.gameObject:SetActiveEx(RightMidType == MenuType.Main)
-    self.PanelRightBottom.gameObject:SetActiveEx(RightMidType == MenuType.Main)
-    self.PanelRightMid.gameObject:SetActiveEx(RightMidType == MenuType.Main)
-
-    self.BtnMain.gameObject:SetActiveEx(RightMidType == MenuType.Second)
-    self.PanelRightMidSecond.gameObject:SetActiveEx(RightMidType == MenuType.Second)
-
-    if RightMidType == MenuType.Second then
-        self.RightMidSecond:RefreshMenu()
+    if self:IsShowTerminal() then
+        self:OnShowTerminal()
+    else
+        self:OnShowMain()
     end
 end
 
@@ -266,27 +350,82 @@ function XUiMain:PlayEnterAnim()
             anim = "AnimEnter2"
             self:PlayAnimation(anim, endCb)
             self:UpdateCamera(CameraIndex.Main)
+            self:PlayEquipGuide(true)
             XLoginManager.SetFirstOpenMainUi(false)
+            --第一次进入界面，拦截公告请求
+            self.InterceptNotice = true
         else
             XLoginManager.SetStartGuide(true)
             XEventManager.DispatchEvent(XEventId.EVENT_MAINUI_ENABLE)
             XEventManager.DispatchEvent(XEventId.EVENT_CARD_REFRESH_WELFARE_BTN)
             XLuaUiManager.SetMask(false)
+            
+            if XDataCenter.DlcRoomManager.IsCanReconnect() then
+                XDataCenter.DlcRoomManager.ReconnectToRoom()
+            end
+            --发送公告请求
+            self:UpdateNotice()
+            --取消拦截公告
+            self.InterceptNotice = false
+            --动画播放完，再加载剩余主题
+            self:UpdateTheme()
         end
     end
+    
     self:PlayAnimation(anim, endCb)
 end
 
 --播放关闭聊天动画
 function XUiMain:PlayMainChatOut()
+    self:SetSignPanelEnable(true)
     self:UpdateCamera(CameraIndex.Main)
     self:PlayAnimation("AnimChatIn")
 end
 
 --播放打开聊天动画
 function XUiMain:PlayMainChatIn()
+    self:SetSignPanelEnable(false)
+    self.Other:Stop()
     self:UpdateCamera(CameraIndex.MainChatEnter)
     self:PlayAnimation("AnimChatOut")
+end
+
+--播放装备目标动画
+function XUiMain:PlayEquipGuide(isFirst)
+    local isSetEquipTarget = XDataCenter.EquipGuideManager.IsSetEquipTarget()
+    if not isSetEquipTarget then
+        return
+    end
+    local anim = isFirst and "EquipGuideEnableLong" or "EquipGuideEnableShort"
+    self:PlayAnimation(anim, function()
+        self.RightMid:SetBtnEquipGuideState(false)
+    end, function() 
+        self.RightMid:SetBtnEquipGuideState(true)
+    end)
+end
+
+-- 关闭周历
+function XUiMain:OnHideCalendar()
+    self:SetSignPanelEnable(true)
+    self:PlayAnimationWithMask("LeftCalendarDisable")
+    self:PlayAnimation("LeftUiEnable")
+end
+
+-- 打开周历
+function XUiMain:OnShowCalendar()
+    self:SetSignPanelEnable(false)
+    self.Other:Stop()
+    self:PlayAnimationWithMask("LeftCalendarEnable")
+    self:PlayAnimation("LeftUiDisable")
+    self.Calendar:Show()
+end
+
+-- 检查周历界面是否显示
+function XUiMain:CheckCalenderShow()
+    if not self.Calendar then
+        return false
+    end
+    return self.Calendar:CheckIsShow()
 end
 
 function XUiMain:SetCacheFight()
@@ -312,52 +451,168 @@ function XUiMain:SetBtnWelfareTagActive(active)
 end
 
 -- 回到主页按钮
-function XUiMain:OnBtnMain(force)
-    if RightMidType == MenuType.Main and not force then 
-        return
+function XUiMain:OnShowMain(playAnimation)
+    self:SetSignPanelEnable(true)
+    self:UpdateCamera(CameraIndex.Main)
+    --终端界面由隐藏变为显示不需要播放动画。重新打开界面则需要播一次
+    playAnimation = playAnimation or (self.NewOpen and self:IsShowTerminal())
+    if playAnimation then
+        self:PlayAnimationWithMask("RightMidSecondDisable")
+        self:PlayAnimation("RightEnable")
+        if self:CheckCalenderShow() then
+            self:PlayAnimation("LeftCalendarEnable")
+        else
+            self:PlayAnimation("LeftUiEnable")
+        end
     end
-
     RightMidType = MenuType.Main
-
-    self.BtnSecond.gameObject:SetActiveEx(true)
-    self.BtnMain.gameObject:SetActiveEx(false)
-
-    self.PanelRightBottom.gameObject:SetActiveEx(true)
-    self.PanelRightMid.gameObject:SetActiveEx(true)
-
-    self:PlayAnimationWithMask("AnimPanelRightMid", function()
-        self.PanelRightMidSecond.gameObject:SetActiveEx(false)
-    end)
 end
 
 -- 下一页按钮（主界面二级菜单）
-function XUiMain:OnBtnSecond()
-    if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.SubMenu) then return end
-    local dict = {}
-    dict["ui_first_button"] = XGlobalVar.BtnBuriedSpotTypeLevelOne.BtnUiMainBtnSecond
-    dict["role_level"] = XPlayer.GetLevel()
-    CS.XRecord.Record(dict, "200004", "UiOpen")
+function XUiMain:OnShowTerminal(playAnimation)
+    self.Other:Stop()
+    self:SetSignPanelEnable(false)
+    self:UpdateCamera(CameraIndex.MainRightMidSecondEnter)
+    --终端界面由隐藏变为显示不需要播放动画。重新打开界面则需要播一次
+    playAnimation = playAnimation or self.NewOpen
+    if playAnimation then
+        self:PlayAnimationWithMask("RightMidSecondEnable")
+        self:PlayAnimation("RightDisable")
+        if self:CheckCalenderShow() then
+            self:PlayAnimation("LeftCalendarDisable")
+        else
+            self:PlayAnimation("LeftUiDisable")
+        end
+    end
+    
     RightMidType = MenuType.Second
-    self.RightMidSecond:RefreshMenu()
-
-    self.BtnMain.gameObject:SetActiveEx(true)
-    self.BtnSecond.gameObject:SetActiveEx(false)
-    self.PanelRightMidSecond.gameObject:SetActiveEx(true)
-
-    self:PlayAnimationWithMask("AnimPanelRightMidSecond", function()
-        self.PanelRightMid.gameObject:SetActiveEx(false)
-        self.PanelRightBottom.gameObject:SetActiveEx(false)
-    end)
+    self.Terminal:Show()
 end
 
 function XUiMain:OnUiSceneLoaded(particleGroupName)
-    self:SetGameObject()
+    --self:SetGameObject()
     self:InitSceneRoot(particleGroupName)
-    self.Other.SignBoard = XUiPanelSignBoard.New(self.Other.PanelSignBoard, self, XUiPanelSignBoard.SignBoardOpenType.MAIN)
+    --self.Other.SignBoard = XUiPanelSignBoard.New(self.Other.PanelSignBoard, self, XUiPanelSignBoard.SignBoardOpenType.MAIN)
+    self.Other:SafeCreateSignBoard()
     if XLoginManager.IsFirstOpenMainUi() then
         self:SetBtnWelfareTagActive(false)
         self:UpdateCamera(CameraIndex.MainEnter)
     else
-        self:UpdateCamera(CameraIndex.Main)
+        local camera = self:IsShowTerminal() and CameraIndex.MainRightMidSecondEnter or CameraIndex.Main
+        self:UpdateCamera(camera)
     end
 end
+
+function XUiMain:IsShowTerminal()
+    return RightMidType == MenuType.Second
+end
+
+function XUiMain:PlayChangeModelEffect()
+    self.ChangeActionEffect = self.UiModelGo.transform:FindTransform("ChangeActionEffect")
+    if not self.ChangeActionEffect or XTool.UObjIsNil(self.ChangeActionEffect) then return end
+    self.ChangeActionEffect.gameObject:SetActiveEx(false)
+    self.ChangeActionEffect.gameObject:SetActiveEx(true)
+end
+
+-- v1.29 预览状态下切换
+function XUiMain:OnBackGroupPreview()
+    if XDataCenter.PhotographManager.GetPreviewState() == XPhotographConfigs.BackGroundState.Full then --满电状态
+        self:ChangeLowPowerState(self.LowPowerState.Full)
+    else
+        self:ChangeLowPowerState(self.LowPowerState.Low)
+    end
+end
+
+-- v1.32 播放角色特殊动作Ui动画
+-- ===================================================
+
+function XUiMain:PlayRoleActionUiDisableAnim(signBoardid, stopTime)
+    XDataCenter.SignBoardManager.StartBreakTimer(stopTime)
+    -- 关闭福利按钮特效
+    self:SetBtnWelfareTagActive(false)
+    if XSignBoardConfigs.CheckIsUseNormalUiAnim(signBoardid, self.Name) then
+        self:PlayAnimation("UiDisable")
+    end
+end
+
+function XUiMain:PlayRoleActionUiEnableAnim(signBoardid)
+    -- 检查福利按钮特效
+    self.LeftBottom:OnRefreshFirstRechargeId()
+    if XSignBoardConfigs.CheckIsUseNormalUiAnim(signBoardid, self.Name) then
+        self:PlayAnimationWithMask("UiEnable")
+    end
+end
+
+function XUiMain:PlayRoleActionUiBreakAnim()
+    self:PlayAnimationWithMask("DarkEnable", function ()
+        self.Other:Stop()
+        self:PlayAnimationWithMask("DarkDisable")
+        -- 检查福利按钮特效
+        self.LeftBottom:OnRefreshFirstRechargeId()
+    end)
+end
+
+-- 禁用角色动作
+function XUiMain:SetSignPanelEnable(enable)
+    self.Other:SetSignBoardEnable(enable)
+end
+
+-- ===================================================
+
+--- 每次返回主界面检查是否需要弹出公告
+--------------------------
+function XUiMain:UpdateNotice()
+    if self:IsShowTerminal() or XLoginManager.IsFirstOpenMainUi() 
+            or self.InterceptNotice then
+        return
+    end
+    
+    XDataCenter.NoticeManager.RequestInGameNotice(function()
+        if XLuaUiManager.GetTopUiName() == "UiMain" then
+            XDataCenter.NoticeManager.AutoOpenInGameNotice()
+        end
+    end)
+end
+
+--region   ------------------UI主题 start-------------------
+function XUiMain:UpdateTheme()
+    if not XTool.IsNumberValid(self.CurSceneId) then
+        return
+    end
+   
+    local curSceneId = self.CurSceneId
+    local theme = XUiConfigs.GetUiTheme(curSceneId)
+    
+    local colors = {}
+    for _, colorStr in ipairs(theme.Color) do
+        local color = XUiHelper.Hexcolor2Color(colorStr)
+        table.insert(colors, color)
+    end
+    
+    ---@type ThemeData
+    local themeTemplate = {
+        Colors = colors,
+        Backgrounds = theme.Background,
+        Effects = theme.Effect,
+    }
+    self.LeftBottom:UpdateTheme(themeTemplate)
+    self.LeftTop:UpdateTheme(themeTemplate)
+    self.Other:UpdateTheme(themeTemplate)
+    self.RightBottom:UpdateTheme(themeTemplate)
+    self.RightMid:UpdateTheme(themeTemplate)
+    self.RightTop:UpdateTheme(themeTemplate)
+    self.Terminal:UpdateTheme(themeTemplate)
+    self.Calendar:UpdateTheme(themeTemplate)
+end
+
+function XUiMain:InitTheme()
+    self.LeftBottom:InitTheme()
+    self.LeftTop:InitTheme()
+    self.Other:InitTheme()
+    self.RightBottom:InitTheme()
+    self.RightMid:InitTheme()
+    self.RightTop:InitTheme()
+    self.Terminal:InitTheme()
+    self.Calendar:InitTheme()
+end 
+--endregion------------------UI主题 finish------------------

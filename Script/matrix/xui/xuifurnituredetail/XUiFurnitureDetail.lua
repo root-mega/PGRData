@@ -16,27 +16,30 @@ function XUiFurnitureDetail:OnDisable()
     XEventManager.RemoveEventListener(XEventId.EVENT_DORM_CLOSE_DETAIL, self.OnBtnCloseClick, self)
 end
 
-function XUiFurnitureDetail:OnStart(furnitureId, furnitureConfigId, furnitureRewardId, recycleCallBack, isCloseRecycle, isCloseSuit)
+function XUiFurnitureDetail:OnStart(furnitureId, furnitureConfigId, furnitureRewardId, recycleCallBack, isCloseRecycle, isCloseSuit, isCloseRemake)
     self.FurnitureId = furnitureId
     self.FurnitureConfigId = furnitureConfigId
     self.FurnitureRewardId = furnitureRewardId
     self.RecycleCallBack = recycleCallBack
+    self.IsCloseRemake = isCloseRemake
 
     -- 是否显示回收按钮
     if isCloseRecycle ~= nil and isCloseRecycle then
         self.BtnRecovery.gameObject:SetActive(not isCloseRecycle)
     end
 
-    if isCloseSuit ~= nil and isCloseSuit then
-        self.BtnSuitInfo.gameObject:SetActive(not isCloseSuit)
+    if (isCloseSuit == nil or isCloseSuit) then
+        self.BtnSuitInfo.gameObject:SetActiveEx(false)
     end
 
     self:InitConfigInfo()
 
     if self.FurnitureId then
-        self:InitOwerInfoByObjectId()
+        self:InitOwnerInfoByObjectId()
+        XDataCenter.FurnitureManager.SetDetailData(true, furnitureConfigId)
     else
-        self:InitOwerInfoByConfigId()
+        self:InitOwnerInfoByConfigId()
+        XDataCenter.FurnitureManager.SetDetailData(false, furnitureConfigId)
     end
 end
 
@@ -45,6 +48,7 @@ function XUiFurnitureDetail:AddListener()
     self:RegisterClickEvent(self.BtnBg, self.OnBtnCloseClick)
     self:RegisterClickEvent(self.BtnSuitInfo, self.OnBtnSuitInfoClick)
     self:RegisterClickEvent(self.BtnRecovery, self.OnBtnRecoveryClick)
+    self:RegisterClickEvent(self.BtnReCreate, self.OnBtnReCreateClick)
 end
 
 function XUiFurnitureDetail:InitLockButtons()
@@ -99,9 +103,41 @@ function XUiFurnitureDetail:OnBtnRecoveryClick()
                 if self.RecycleCallBack then
                     self.RecycleCallBack()
                 end
+
+                XEventManager.DispatchEvent(XEventId.EVENT_FURNITURE_ON_MODIFY)
+                CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_ON_MODIFY)
+                
             end)
         end)
     end)
+end
+
+--重置
+function XUiFurnitureDetail:OnBtnReCreateClick()
+    if XDataCenter.FurnitureManager.GetFurnitureIsLocked(self.FurnitureId) then
+        XUiManager.TipText("DormCannotRecycleLockFurniture")
+        return
+    end
+
+    local roomId
+    if XDataCenter.FurnitureManager.CheckFurnitureUsing(self.FurnitureId) then
+        --XUiManager.TipText("DormFurnitureRecycelUsingTip")
+        --return
+        local furniture = XDataCenter.FurnitureManager.GetFurnitureById(self.FurnitureId)
+        if furniture then
+            roomId = furniture.DormitoryId
+        end
+    end
+
+    if not self.RemakeEnough then
+        XUiManager.TipText("FurnitureZeroCoin")
+        return
+    end
+    
+    local furnitureIds = { self.FurnitureId }
+    local furniture = XDataCenter.FurnitureManager.GetFurnitureById(self.FurnitureId)
+    local costA, costB, costC = furniture:GetBaseAttr()
+    XDataCenter.FurnitureManager.FurnitureRemake(furnitureIds, costA, costB, costC, roomId)
 end
 
 function XUiFurnitureDetail:OnBtnLock()
@@ -133,7 +169,7 @@ function XUiFurnitureDetail:InitConfigInfo()
 
     -- 套装
     local tp = XFurnitureConfigs.GetFurnitureTemplateById(self.FurnitureConfigId)
-    self.BtnSuitInfo.gameObject:SetActive(tp.SuitId ~= nil and tp.SuitId > 0)
+    --self.BtnSuitInfo.gameObject:SetActive(tp.SuitId ~= nil and tp.SuitId > 0)
 
     local suitInfo = nil
 
@@ -157,7 +193,7 @@ function XUiFurnitureDetail:InitConfigInfo()
     self.TxtEffectScore.gameObject:SetActive(false)
 end
 
-function XUiFurnitureDetail:InitOwerInfoByObjectId()
+function XUiFurnitureDetail:InitOwnerInfoByObjectId()
     local redTypeName = XFurnitureConfigs.GetDormFurnitureTypeName(attrRed)
     local yoellowTypeName = XFurnitureConfigs.GetDormFurnitureTypeName(attrYellow)
     local blueTypeName = XFurnitureConfigs.GetDormFurnitureTypeName(attrBule)
@@ -207,9 +243,26 @@ function XUiFurnitureDetail:InitOwerInfoByObjectId()
             self.TxtSuit.text = CS.XGame.ClientConfig:GetString("DormSuitBgmTitleDesc")
         end
     end
+    
+    local costA, costB, costC = furnitureData:GetBaseAttr()
+    local createCount = costA + costB + costC
+    local showReCreate = createCount > 0
+    self.BtnReCreate.gameObject:SetActiveEx(showReCreate and not self.IsCloseRemake)
+    if showReCreate then
+        local coinId = XDataCenter.ItemManager.ItemId.FurnitureCoin
+        local recycleCount = self:GetRewardCount()
+        local cost = math.max(createCount - recycleCount, 0)
+        local own = XDataCenter.ItemManager.GetCount(coinId)
+        self.RemakeEnough = own >= cost 
+        local key = self.RemakeEnough and "DormBuildEnoughCount" or "DormBuildNoEnoughCount"
+        self.BtnReCreate:SetNameByGroup(1, XUiHelper.GetText(key, cost))
+        self.BtnReCreate:SetDisable(not self.RemakeEnough, self.RemakeEnough)
+        self.BtnReCreate:SetRawImage(XDataCenter.ItemManager.GetItemIcon(coinId))
+    end
 end
 
-function XUiFurnitureDetail:InitOwerInfoByConfigId()
+function XUiFurnitureDetail:InitOwnerInfoByConfigId()
+    self.BtnReCreate.gameObject:SetActiveEx(false)
     local template = XFurnitureConfigs.GetFurnitureReward(self.FurnitureRewardId)
     if not template then
         return
@@ -257,3 +310,21 @@ function XUiFurnitureDetail:InitOwerInfoByConfigId()
     self.TxtEffectDesc.text = XFurnitureConfigs.GetAdditionalRandomIntroduce(additionId)
     self.TxtEffectScore.text = additionScoreDesc
 end
+
+function XUiFurnitureDetail:GetRewardCount()
+    if not XTool.IsNumberValid(self.FurnitureId) then
+        return 0
+    end
+    local count = 0
+    local rewards = XDataCenter.FurnitureManager.GetRecycleRewards({ self.FurnitureId } )
+    local coinId = XDataCenter.ItemManager.ItemId.FurnitureCoin
+
+    for _, reward in ipairs(rewards) do
+        local templateId = (reward.TemplateId and reward.TemplateId > 0) and reward.TemplateId or reward.Id
+        if templateId == coinId then
+            count = count + reward.Count
+        end
+    end
+    
+    return count
+end 

@@ -15,10 +15,12 @@ end
 
 function XUiPanelTop:AddEventListener()
     XEventManager.AddEventListener(XEventId.EVENT_GUILDWAR_ACTIONLIST_OVER, self.UpdatePanel, self)
+    XEventManager.AddEventListener(XEventId.EVENT_GUILDWAR_NODEDATA_CHANGE, self.UpdatePanel, self)
 end
 
 function XUiPanelTop:RemoveEventListener()
     XEventManager.RemoveEventListener(XEventId.EVENT_GUILDWAR_ACTIONLIST_OVER, self.UpdatePanel, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_GUILDWAR_NODEDATA_CHANGE, self.UpdatePanel, self)
 end
 
 function XUiPanelTop:SetButtonCallBack()

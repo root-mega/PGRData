@@ -465,7 +465,7 @@ end
 
 function XUiPanelSidePopUp:EqualDecomposionPopUpClick()
     local callFunc = function()
-        XDataCenter.EquipManager.EquipDecompose(self.SelectEquipIds, function(rewardGoodsList)
+        XMVCA:GetAgency(ModuleId.XEquip):EquipDecompose(self.SelectEquipIds, function(rewardGoodsList)
             self.Parent:OperationTurn(self.Parent.OperationType.Decomposion)
             if (#rewardGoodsList > 0) then
                 XUiManager.OpenUiObtain(rewardGoodsList)

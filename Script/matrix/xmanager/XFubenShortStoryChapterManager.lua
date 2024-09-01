@@ -1,3 +1,5 @@
+local XExFubenShortStoryManager = require("XEntity/XFuben/XExFubenShortStoryManager")
+
 XFubenShortStoryChapterManagerCreator = function()
     local pairs = pairs
     local ipairs = ipairs
@@ -8,7 +10,8 @@ XFubenShortStoryChapterManagerCreator = function()
     local stringFormat = string.format
     local next = next
     
-    local XFubenShortStoryChapterManager = {}
+    ---@class XFubenShortStoryChapterManager
+    local XFubenShortStoryChapterManager = XExFubenShortStoryManager.New(XFubenConfigs.ChapterType.ShortStory)
     --排序
     local orderIdSortFunc = function(a, b)
         return a.OrderId < b.OrderId
@@ -23,6 +26,34 @@ XFubenShortStoryChapterManagerCreator = function()
         Normal = CS.XGame.Config:GetInt("FubenDifficultNormal"),
         Hard = CS.XGame.Config:GetInt("FubenDifficultHard")
     }
+
+    function XFubenShortStoryChapterManager.PreFight(stage, teamId, isAssist, challengeCount, challengeId)
+        local preFight = {}
+        preFight.CardIds = {}
+        preFight.RobotIds = {}
+        preFight.StageId = stage.StageId
+        preFight.IsHasAssist = isAssist and true or false
+        preFight.ChallengeCount = challengeCount or 1
+        local isHideAction = XDataCenter.FubenManager.GetIsHideAction()
+        if not stage.RobotId or #stage.RobotId <= 0 or isHideAction then
+            local teamData = XDataCenter.TeamManager.GetTeamData(teamId)
+            for i, v in pairs(teamData) do
+                local isRobot = XEntityHelper.GetIsRobot(v)
+                preFight.RobotIds[i] = isRobot and v or 0
+                preFight.CardIds[i] = isRobot and 0 or v
+            end
+            preFight.CaptainPos = XDataCenter.TeamManager.GetTeamCaptainPos(teamId)
+            preFight.FirstFightPos = XDataCenter.TeamManager.GetTeamFirstFightPos(teamId)
+        else
+            for i, v in pairs(stage.RobotId) do
+                preFight.RobotIds[i] = v
+            end
+            -- 设置默认值
+            preFight.CaptainPos = 1
+            preFight.FirstFightPos = 1
+        end
+        return preFight
+    end
     
     -----------------------------------------------服务端下发信息 Start--------------------------------------------------
     local XShortStoryData = require("XEntity/XFuBenShortStoryChapter/XShortStoryData")
@@ -122,6 +153,7 @@ XFubenShortStoryChapterManagerCreator = function()
     
     function XFubenShortStoryChapterManager.InitStageInfo(checkNewUnlock)
         XFubenShortStoryChapterManager.InitChapterData(checkNewUnlock)
+        XFubenShortStoryChapterManager.ShortStoryActivityStart()
     end
 
     function XFubenShortStoryChapterManager.InitChapterData(checkNewUnlock)
@@ -144,44 +176,15 @@ XFubenShortStoryChapterManagerCreator = function()
     end
     
     function XFubenShortStoryChapterManager.GetShortStoryChapterCfg(difficult)
-        local list = {}
-        local activityList = {}
+        local list = {} -- v1.30新入口，顺序只和order有关了，和限时标签无关
         
         local chapterIds = XFubenShortStoryChapterConfigs.GetChapterIdsByDifficult(difficult)
         for orderId, chapterId in pairs(chapterIds) do
-            if XFubenShortStoryChapterManager.IsActivity(chapterId) then
-                tableInsert(activityList, {OrderId = orderId,ChapterId = chapterId})
-            else
-                tableInsert(list, {OrderId = orderId,ChapterId = chapterId})
-            end
+            tableInsert(list, {OrderId = orderId,ChapterId = chapterId})
         end
 
         if next(list) then
             tableSort(list, orderIdSortFunc)
-        end
-
-        if next(activityList) then
-            tableSort(activityList, orderIdSortFunc)
-
-            local allUnlock = true
-            for order, template in pairs(list) do
-                if not GetShortStoryChapter(template.ChapterId):IsUnlock() then
-                    local index = order
-                    for _, v in pairs(activityList) do
-                        tableInsert(list, index, v)
-                        index = index + 1
-                    end
-
-                    allUnlock = false
-                    break
-                end
-            end
-
-            if allUnlock then
-                for _, v in pairs(activityList) do
-                    tableInsert(list, v)
-                end
-            end
         end
 
         return list
@@ -229,6 +232,19 @@ XFubenShortStoryChapterManagerCreator = function()
         return unlock and not passed
     end
     
+    function XFubenShortStoryChapterManager.CheckChapterIsPassed(chapterId)
+        local unlock = GetShortStoryChapter(chapterId):IsUnlock()
+        local passed = true
+        local stageIds = XFubenShortStoryChapterConfigs.GetStageIdByChapterId(chapterId)
+        for _, stageId in ipairs(stageIds) do
+            local stageInfo = XDataCenter.FubenManager.GetStageInfo(stageId)
+            if not stageInfo.Passed then
+                passed = false
+            end
+        end
+        return unlock and passed
+    end
+
     ---检测章节内是否有收集进度奖励
     function XFubenShortStoryChapterManager.CheckTreasureReward(chapterId)
         if not GetShortStoryChapter(chapterId):IsUnlock() then
@@ -341,6 +357,10 @@ XFubenShortStoryChapterManagerCreator = function()
         _AllActivity:UnlockChapterViaActivity(chapterId)
     end
 
+    function XFubenShortStoryChapterManager.ShortStoryActivityStart()
+        _AllActivity:ShortStoryActivityStart()
+    end
+
     function XFubenShortStoryChapterManager.IsActivity(chapterId)
         return _AllActivity:IsActivity(chapterId)
     end
@@ -378,7 +398,8 @@ XFubenShortStoryChapterManagerCreator = function()
     -----------------------------------------------快速跳转 Start-------------------------------------
     --跳转到故事集Banner页面
     function XFubenShortStoryChapterManager.JumpToShortStoryBanner()
-        XLuaUiManager.Open("UiFuben", XDataCenter.FubenManager.StageType.Mainline, nil, 4)
+        -- XLuaUiManager.Open("UiFuben", XDataCenter.FubenManager.StageType.Mainline, nil, 4)
+        XLuaUiManager.Open("UiNewFuben", XFubenConfigs.ChapterType.ShortStory)
     end
 
     --跳转到故事集章节关卡

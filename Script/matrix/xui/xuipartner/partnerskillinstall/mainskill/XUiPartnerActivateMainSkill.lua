@@ -22,13 +22,18 @@ end
 
 function XUiPartnerActivateMainSkill:OnEnable()
     XEventManager.AddEventListener(XEventId.EVENT_PARTNER_SKILLCHANGE, self.CloseMask, self)
+
 end
 
 function XUiPartnerActivateMainSkill:OnDisable()
     XEventManager.RemoveEventListener(XEventId.EVENT_PARTNER_SKILLCHANGE, self.CloseMask, self)
+
 end
 
 function XUiPartnerActivateMainSkill:SetButtonCallBack()
+    self.BtnClose.CallBack = function()
+        self:OnBtnCloseClick()
+    end
     self.BtnTanchuangClose.CallBack = function()
         self:OnBtnCloseClick()
     end

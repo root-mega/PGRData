@@ -44,7 +44,20 @@ XPrefs.ArenaOnlineFirstOpen = "AreanOnline_First_Open"
 -- 战斗设置
 XPrefs.DynamicJoystick = "DYNAMIC_JOYSTICK"
 XPrefs.FocusType = "FOCUS_TYPE"
-XPrefs.FocusButton = "FOCUS_BUTTON"
+XPrefs.FocusTypeDlcHunt = "FOCUS_TYPE_DLC_HUNT"
+XPrefs.FocusButton = {
+    History = "FOCUS_BUTTON",
+    [1] = "FOCUS_BUTTON1",
+    [2] = "FOCUS_BUTTON2",
+    [3] = "FOCUS_BUTTON3",
+    -- 对应XSetConfigs.FocusType
+}
+XPrefs.FocusButtonDlcHunt = {
+    [1] = "FOCUS_DLC_HUNT_BUTTON1",
+    [2] = "FOCUS_DLC_HUNT_BUTTON2",
+    [3] = "FOCUS_DLC_HUNT_BUTTON3",
+    -- 对应XSetConfigs.FocusTypeDlcHunt
+}
 XPrefs.InviteButton = "INVITE_BUTTON"
 
 -- 武器显示设置

@@ -19,10 +19,12 @@ function XUiStrongholdQuickDeploy:OnStart(groupId, teamList, saveCb)
 end
 
 function XUiStrongholdQuickDeploy:OnEnable()
+
     self:UpdateView()
 end
 
 function XUiStrongholdQuickDeploy:OnDisable()
+
     self.OldTeamId = nil
     self.OldPos = nil
 

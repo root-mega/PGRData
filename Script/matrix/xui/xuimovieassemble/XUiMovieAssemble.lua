@@ -10,6 +10,10 @@ function XUiMovieAssemble:OnStart(assembleId)
     self:Refresh()
 end
 
+function XUiMovieAssemble:OnDestroy()
+    self:ReleaseResource()
+end
+
 function XUiMovieAssemble:Refresh()
     local bgImgUrl = XMovieAssembleConfig.GetBgImgUrlById(self.AssembleId)
     if bgImgUrl and bgImgUrl ~= "" then
@@ -46,15 +50,16 @@ function XUiMovieAssemble:InitUiPrefab(uiPrefab, cb) -- 把Ui预制体的引用�
 end
 
 function XUiMovieAssemble:RefreshContent()
+    self:ReleaseResource()
     if self.PanelStageContent then
         local stagePrefabUrl = XMovieAssembleConfig.GetMovieTmpPrefabById(self.AssembleId)
-        self.StageTmpObj = CS.XResourceManager.Load(stagePrefabUrl).Asset
+        self.Resource = CS.XResourceManager.Load(stagePrefabUrl)
         local movieIds = XMovieAssembleConfig.GetMovieTmpIdsById(self.AssembleId)
         local onCreat = function (item, movieId)
             item:OnCreat(movieId)
         end
 
-        XUiHelper.CreateTemplates(self, self.StagePool, movieIds, XUiMovieAssembleStage.New, self.StageTmpObj, self.PanelStageContent, onCreat)
+        XUiHelper.CreateTemplates(self, self.StagePool, movieIds, XUiMovieAssembleStage.New, self.Resource.Asset, self.PanelStageContent, onCreat)
     end
 end
 
@@ -63,4 +68,12 @@ function XUiMovieAssemble:PlayMovie(movieId)
     XDataCenter.MovieManager.PlayMovie(storyId)
     XSaveTool.SaveData(string.format("%s%s%s", XMovieAssembleConfig.MovieAssembleWatchedKey, XPlayer.Id, movieId), XMovieAssembleConfig.MovieWatchedState.Watched)
     XEventManager.DispatchEvent(XEventId.EVENT_MOVIE_ASSEMBLE_WATCH_MOVIE)
+end
+
+-- 释放资源
+function XUiMovieAssemble:ReleaseResource()
+    if self.Resource then
+        CS.XResourceManager.Unload(self.Resource)
+        self.Resource = nil
+    end
 end

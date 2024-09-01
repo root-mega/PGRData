@@ -29,8 +29,12 @@ function XSCRoleSkill:GetShopItemId()
     return self:GetSkillGroupCfg().ShopItemId
 end
 
-function XSCRoleSkill:GetCD()
-    return self:GetSkillGroupCfg().Cd
+function XSCRoleSkill:GetCD(isTimeType)
+    if isTimeType then
+        return self:GetSkillGroupCfg().LimitTime
+    else
+        return self:GetSkillGroupCfg().Cd
+    end
 end
 
 function XSCRoleSkill:GetOnSkillId()
@@ -61,8 +65,12 @@ function XSCRoleSkill:GetName(skillId)
     return self:GetSkillCfg(skillId).Name
 end
 
-function XSCRoleSkill:GetDesc(skillId)
-    return self:GetSkillCfg(skillId).Desc
+function XSCRoleSkill:GetDesc(isTimeType)
+    if isTimeType then
+        return self:GetSkillCfg().DescTimeType
+    else
+        return self:GetSkillCfg().Desc
+    end
 end
 
 function XSCRoleSkill:GetScreenMaskType(skillId)
@@ -77,12 +85,40 @@ function XSCRoleSkill:GetIsShowCountdown(skillId)
     return self:GetSkillCfg(skillId).ShowCountdown
 end
 
-function XSCRoleSkill:GetHintText(skillId)
-    return self:GetSkillCfg(skillId).HintText
+function XSCRoleSkill:GetHintText()
+    local skillCfg = self:GetSkillCfg()
+    local battleManager = XDataCenter.SameColorActivityManager.GetBattleManager()
+    local isTimeType = battleManager:IsTimeType()
+    if isTimeType then
+        return skillCfg.HintTextTimeType
+    else
+        return skillCfg.HintText
+    end
 end
 
 function XSCRoleSkill:GetEnergyCost(skillId)
     return self:GetSkillCfg(skillId).EnergyCost
+end
+
+function XSCRoleSkill:GetBuffIds(skillId)
+    return self:GetSkillCfg(skillId).BuffIds
+end
+
+function XSCRoleSkill:IsForbidInTime(skillId)
+    -- 增加步数的技能禁止在限时关卡使用
+    local buffIds = self:GetBuffIds(skillId)
+    for _, buffId in pairs(buffIds) do
+        local buffCfg = XSameColorGameConfigs.GetBuffConfig(buffId)
+        if buffCfg.Step ~= 0 then
+            return true
+        end
+    end
+
+    return false
+end
+
+function XSCRoleSkill:GetSkillComboType(skillId)
+    return self:GetSkillCfg(skillId).SkillComboType
 end
 
 return XSCRoleSkill

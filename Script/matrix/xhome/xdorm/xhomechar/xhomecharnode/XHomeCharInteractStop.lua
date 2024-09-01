@@ -17,7 +17,7 @@ function XHomeCharInteractStop:OnNotify(evt, ...)
         if not XTool.UObjIsNil(self.Agent) then
             self.Agent:SetVarDicByKey("InteractStopSuccess", true)
         else
-            XLog.Error("行为树节点HomeCharInteractStop Agent为nil")
+            XLog.Error("行为树节点HomeCharInteractStop Agent为nil PlayerId:" .. self.PlayerId)
         end
     end
 end

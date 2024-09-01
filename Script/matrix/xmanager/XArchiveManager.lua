@@ -217,6 +217,7 @@ XArchiveManagerCreator = function()
         XArchiveManager.InitArchivePartnerSetting()
         XArchiveManager.InitArchivePartnerList()
     end
+    
     --------------------------------怪物图鉴，数据初始化------------------------------------------>>>
     function XArchiveManager.InitArchiveMonsterList()
         ArchiveMonsterList = {}
@@ -1186,6 +1187,7 @@ XArchiveManagerCreator = function()
 
     -- 从服务端获取武器和意识相关数据
     function XArchiveManager.SetEquipServerData(equipData)
+        ArchiveAwarenessSuitToAwarenessCountDic = {}
         local templateId
         local suitId
         --只有在配置表中出现id才会记录在本地的serverData
@@ -2181,17 +2183,18 @@ XArchiveManagerCreator = function()
                 local lockDes = ""
                 local nowTime = XTime.GetServerNowTimestamp()
                 local unLockTime = mail:GetUnLockTime() and XTime.ParseToTimestamp(mail:GetUnLockTime()) or 0
-                local IsInUnLockTime = (unLockTime == 0) or (nowTime > unLockTime)
-                if not IsInUnLockTime then
-                    lockDes = CS.XTextManager.GetText("ArchiveNotUnLockTime")
-                    IsUnLock = false
-                else
-                    if mail:GetCondition() == 0 then
-                        IsUnLock = true
-                    else
-                        IsUnLock, lockDes = XConditionManager.CheckCondition(mail:GetCondition())
-                    end
+                local condition = mail:GetCondition() or 0
+                
+                if unLockTime == 0 and condition == 0 then
+                    IsUnLock = true
                 end
+                if condition ~= 0 then
+                    IsUnLock, lockDes = XConditionManager.CheckCondition(condition)
+                end
+                if unLockTime ~= 0 and nowTime > unLockTime then
+                    IsUnLock = true
+                end
+                
                 local tmpData = {}
                 tmpData.IsLock = not IsUnLock
                 tmpData.LockDesc = lockDes

@@ -9,7 +9,8 @@ local Default = {
     _ElectricStatus = 1,       --状态，1开启，0关闭
 }
 
---电网对象
+---电网对象
+---@class XRpgMakerGameElectricFence:XRpgMakerGameObject
 local XRpgMakerGameElectricFence = XClass(XRpgMakerGameObject, "XRpgMakerGameElectricFence")
 
 function XRpgMakerGameElectricFence:Ctor(id)
@@ -33,9 +34,19 @@ end
 
 function XRpgMakerGameElectricFence:InitData()
     local id = self:GetId()
-    local pointX = XRpgMakerGameConfigs.GetRpgMakerGameElectricFenceX(id)
-    local pointY = XRpgMakerGameConfigs.GetRpgMakerGameElectricFenceY(id)
-    self:UpdatePosition({PositionX = pointX, PositionY = pointY})
+    -- local pointX = XRpgMakerGameConfigs.GetRpgMakerGameElectricFenceX(id)
+    -- local pointY = XRpgMakerGameConfigs.GetRpgMakerGameElectricFenceY(id)
+    -- self:UpdatePosition({PositionX = pointX, PositionY = pointY})
+    self:SetElectricStatus(XRpgMakerGameConfigs.XRpgMakerGameElectricFenceStatus.Open)
+    if not XTool.IsTableEmpty(self.MapObjData) then
+        self:InitDataByMapObjData(self.MapObjData)
+    end
+end
+
+---@param mapObjData XMapObjectData
+function XRpgMakerGameElectricFence:InitDataByMapObjData(mapObjData)
+    self.MapObjData = mapObjData
+    self:UpdatePosition({PositionX = self.MapObjData:GetX(), PositionY = self.MapObjData:GetY()})
     self:SetElectricStatus(XRpgMakerGameConfigs.XRpgMakerGameElectricFenceStatus.Open)
 end
 
@@ -46,9 +57,11 @@ function XRpgMakerGameElectricFence:ChangeDirectionAction(action, cb)
         return
     end
 
-    local electricFenceId = self:GetId()
-    local x = XRpgMakerGameConfigs.GetRpgMakerGameElectricFenceX(electricFenceId)
-    local y = XRpgMakerGameConfigs.GetRpgMakerGameElectricFenceY(electricFenceId)
+    -- local electricFenceId = self:GetId()
+    -- local x = XRpgMakerGameConfigs.GetRpgMakerGameElectricFenceX(electricFenceId)
+    -- local y = XRpgMakerGameConfigs.GetRpgMakerGameElectricFenceY(electricFenceId)
+    local x = self.MapObjData:GetX()
+    local y = self.MapObjData:GetY()
     local cube = self:GetCubeObj(y, x)
     local cubeSize = cube:GetGameObjSize()
 
@@ -97,8 +110,9 @@ function XRpgMakerGameElectricFence:IsElectricFenceInMiddle(curPosX, curPosY, di
         return false
     end
 
-    local id = self:GetId()
-    local electricDirection = XRpgMakerGameConfigs.GetRpgMakerGameElectricDirection(id)
+    -- local id = self:GetId()
+    -- local electricDirection = XRpgMakerGameConfigs.GetRpgMakerGameElectricDirection(id)
+    local electricDirection = self.MapObjData:GetParams()[1]
     if self:IsSamePoint(curPosX, curPosY) and electricDirection == direction then
         return true
     end

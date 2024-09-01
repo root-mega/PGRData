@@ -32,8 +32,14 @@ function XUiKillZonePluginReset:UpdateView()
 
     local itemId, itemCount = XDataCenter.KillZoneManager.GetPluginsResetCost(pluginIds)
     local icon = XItemConfigs.GetItemIconById(itemId)
-    self.RImgCost:SetRawImage(icon)
-    self.TxtCost.text = itemCount
+
+    local isShow = XTool.IsNumberValid(itemCount)
+    self.RImgCost.gameObject:SetActiveEx(isShow)
+    self.TxtCost.gameObject:SetActiveEx(isShow)
+    if isShow then
+        self.RImgCost:SetRawImage(icon)
+        self.TxtCost.text = itemCount
+    end
 
     local obtainList = XDataCenter.KillZoneManager.GetPluginsResetObtainList(pluginIds)
     for index, item in ipairs(obtainList) do

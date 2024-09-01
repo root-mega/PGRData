@@ -22,11 +22,11 @@ function XUiGridActivityBanner:Refresh(chapter, uiRoot)
     elseif chapter.Type == XDataCenter.FubenManager.ChapterType.ActivityBossSingle then
         self:RefreshActivityBossSingle(chapter, uiRoot)
     elseif chapter.Type == XDataCenter.FubenManager.ChapterType.Christmas or
-    chapter.Type == XDataCenter.FubenManager.ChapterType.BriefDarkStream or
-    chapter.Type == XDataCenter.FubenManager.ChapterType.FestivalNewYear or
-    chapter.Type == XDataCenter.FubenManager.ChapterType.FoolsDay or
-    chapter.Type == XDataCenter.FubenManager.ChapterType.ChinaBoatPreheat or
-    chapter.Type == XDataCenter.FubenManager.ChapterType.SpringFestivalActivity then
+            chapter.Type == XDataCenter.FubenManager.ChapterType.BriefDarkStream or
+            chapter.Type == XDataCenter.FubenManager.ChapterType.FestivalNewYear or
+            chapter.Type == XDataCenter.FubenManager.ChapterType.FoolsDay or
+            chapter.Type == XDataCenter.FubenManager.ChapterType.ChinaBoatPreheat or
+            chapter.Type == XDataCenter.FubenManager.ChapterType.SpringFestivalActivity then
         self:RefreshActivityFestival(chapter, uiRoot)
     elseif chapter.Type == XDataCenter.FubenManager.ChapterType.ActivityBabelTower then
         self:RefreshBabelTowerBanner(chapter, uiRoot)
@@ -98,6 +98,10 @@ function XUiGridActivityBanner:Refresh(chapter, uiRoot)
         self:RefreshMultiDimBanner(chapter, uiRoot)
     elseif chapter.Type == XDataCenter.FubenManager.ChapterType.TaikoMaster then
         self:RefreshTaikoMasterBanner(chapter, uiRoot)
+    elseif chapter.Type == XDataCenter.FubenManager.ChapterType.Doomsday then
+        self:RefreshDoomsdayBanner(chapter, uiRoot)
+    elseif chapter.Type == XDataCenter.FubenManager.ChapterType.TwoSideTower then
+        self:RefreshTwoSideTower(chapter, uiRoot)
     end
 end
 
@@ -436,6 +440,7 @@ function XUiGridActivityBanner:RefreshSuperTower(chapter, uiRoot)
         self.TxtConsumeCount.gameObject:SetActiveEx(true)
     end
 end
+
 --==================
 --超限乱斗入口
 --==================
@@ -455,8 +460,8 @@ function XUiGridActivityBanner:RefreshSuperSmashBros(chapter, uiRoot)
     local now = XTime.GetServerNowTimestamp()
     if startTimeSecond and endTimeSecond and now >= startTimeSecond and now <= endTimeSecond then
         self:CreateCommonTimer(startTimeSecond, endTimeSecond, function()
-                uiRoot:SetupDynamicTable()
-            end)
+            uiRoot:SetupDynamicTable()
+        end)
     else
         self.PanelLeftTime.gameObject:SetActiveEx(false)
     end
@@ -493,7 +498,7 @@ function XUiGridActivityBanner:RefreshExpeditionBanner(chapter, uiRoot)
         self.PanelLeftTime.gameObject:SetActiveEx(false)
     end
     self.TxtConsumeCount.text = CsXTextManager.GetText("ExpeditionEntryBannerProcessStr",
-    XDataCenter.ExpeditionManager.GetStageCompleteStr())
+        XDataCenter.ExpeditionManager.GetStageCompleteStr())
     self.TxtConsumeCount.gameObject:SetActiveEx(true)
 end
 
@@ -502,6 +507,7 @@ function XUiGridActivityBanner:OnCheckRedPoint(count)
         self.Red.gameObject:SetActive(count >= 0)
     end
 end
+
 --特训关
 function XUiGridActivityBanner:RefreshSpecialTrainBanner(chapter, uiRoot)
     local activityId = chapter.Id
@@ -967,7 +973,7 @@ function XUiGridActivityBanner:RefreshReformBanner(chapterData, uiRoot)
         self.PanelLeftTime.gameObject:SetActiveEx(false)
     end
     -- 进度
-    self.TxtConsumeCount.text = "完成进度: " .. XDataCenter.ReformActivityManager.GetCurrentProgress() .. "/" .. XDataCenter.ReformActivityManager.GetMaxProgress()
+    self.TxtConsumeCount.text = "Progress: " .. XDataCenter.ReformActivityManager.GetCurrentProgress() .. "/" .. XDataCenter.ReformActivityManager.GetMaxProgress()
     -- 检查小红点
     XRedPointManager.CheckOnce(self.OnCheckRedPoint, self, { XRedPointConditions.Types.CONDITION_REFORM_All_RED_POINT })
 end
@@ -1042,7 +1048,7 @@ function XUiGridActivityBanner:RefreshCoupleCombatBanner(chapter, uiRoot)
         self.PanelLock.gameObject:SetActiveEx(false)
     end
 
-    XRedPointManager.CheckOnce(self.OnCheckRedPoint, self, {XRedPointConditions.Types.CONDITION_COUPLE_COMBAT_TASK_REWARD})
+    XRedPointManager.CheckOnce(self.OnCheckRedPoint, self, { XRedPointConditions.Types.CONDITION_COUPLE_COMBAT_TASK_REWARD })
 
     local cur, count = XDataCenter.FubenCoupleCombatManager.GetChapterSchedule()
     self.TxtConsumeCount.text = CS.XTextManager.GetText("ActivityBossSingleProcess", cur, count)
@@ -1130,7 +1136,7 @@ function XUiGridActivityBanner:RefreshAreaWar(chapter, uiRoot)
         self.PanelLock.gameObject:SetActiveEx(false)
     end
 
-    self.TxtConsumeCount.text = XDataCenter.AreaWarManager.GetBranchNewAreaName()
+    self.TxtConsumeCount.text = XDataCenter.AreaWarManager.GetBranchNewChapterName()
     self.TxtConsumeCount.gameObject:SetActiveEx(true)
 
     local startTimeSecond = XDataCenter.AreaWarManager.GetStartTime()
@@ -1164,7 +1170,7 @@ function XUiGridActivityBanner:RefreshMemorySave(chapter, uiRoot)
     local endTimeSecond = XDataCenter.MemorySaveManager.GetActivityEndTime()
     local now = XTime.GetServerNowTimestamp()
     if startTimeSecond and endTimeSecond and now >= startTimeSecond and now <= endTimeSecond then
-        self:CreateCommonTimer(startTimeSecond,endTimeSecond, function ()
+        self:CreateCommonTimer(startTimeSecond, endTimeSecond, function()
             uiRoot:SetupDynamicTable()
         end)
     else
@@ -1192,10 +1198,10 @@ function XUiGridActivityBanner:RefreshPivotCombat(chapter, uiRoot)
     end
     self.TxtConsumeCount.text = XDataCenter.PivotCombatManager.GetActivityProgress()
     self.TxtConsumeCount.gameObject:SetActiveEx(true)
-    
-    local timeOfBegin   = XDataCenter.PivotCombatManager.GetActivityBeginTime()
-    local timeOfEnd     = XDataCenter.PivotCombatManager.GetActivityEndTime()
-    local timeOfNow     = XTime.GetServerNowTimestamp()
+
+    local timeOfBegin = XDataCenter.PivotCombatManager.GetActivityBeginTime()
+    local timeOfEnd   = XDataCenter.PivotCombatManager.GetActivityEndTime()
+    local timeOfNow   = XTime.GetServerNowTimestamp()
     if timeOfBegin and timeOfEnd and timeOfBegin <= timeOfNow and timeOfEnd >= timeOfNow then
         self:CreateCommonTimer(timeOfBegin, timeOfEnd, function()
             uiRoot:SetupDynamicTable()
@@ -1206,7 +1212,7 @@ function XUiGridActivityBanner:RefreshPivotCombat(chapter, uiRoot)
     XRedPointManager.CheckOnce(self.OnCheckRedPoint, self, { XRedPointConditions.Types.CONDITION_PIVOTCOMBAT_ALL_RED_POINT })
 end
 
-function XUiGridActivityBanner:RefreshNewYearLuckBanner(chapter,uiRoot)
+function XUiGridActivityBanner:RefreshNewYearLuckBanner(chapter, uiRoot)
     self.TxtName.text = chapter.Name
     self.RImgIcon:SetRawImage(chapter.BannerBg)
     self.PanelActivityTag.gameObject:SetActiveEx(true)
@@ -1218,7 +1224,7 @@ function XUiGridActivityBanner:RefreshNewYearLuckBanner(chapter,uiRoot)
     else
         self.PanelLock.gameObject:SetActiveEx(false)
     end
-    
+
     local cur, count = XDataCenter.NewYearLuckManager.GetProgress()
     self.TxtConsumeCount.text = CS.XTextManager.GetText("ActivityBossSingleProcess", cur, count)
 
@@ -1564,6 +1570,61 @@ function XUiGridActivityBanner:RefreshTaikoMasterBanner(chapter, uiRoot)
     end
     self.TxtConsumeCount.gameObject:SetActiveEx(false)
     XRedPointManager.CheckOnce(self.OnCheckRedPoint, self, { XRedPointConditions.Types.CONDITION_ACTIVITY_TAIKO_MASTER })
+end
+
+--==============================
+---@desc 末日生存（模拟经营）
+--==============================
+function XUiGridActivityBanner:RefreshDoomsdayBanner(chapter, uiRoot)
+    self.TxtName.text = chapter.Name
+    self.RImgIcon:SetRawImage(chapter.BannerBg)
+    self.PanelActivityTag.gameObject:SetActiveEx(true)
+    if not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.Doomsday) then
+        self.PanelLock.gameObject:SetActiveEx(true)
+        self.TxtLock.text = XFunctionManager.GetFunctionOpenCondition(XFunctionManager.FunctionName.Doomsday)
+    else
+        self.PanelLock.gameObject:SetActiveEx(false)
+    end
+
+    local startTimeSecond = XDataCenter.DoomsdayManager.GetStartTime()
+    local endTimeSecond = XDataCenter.DoomsdayManager.GetEndTime()
+    local now = XTime.GetServerNowTimestamp()
+    if startTimeSecond and endTimeSecond and now >= startTimeSecond and now <= endTimeSecond then
+        self:CreateCommonTimer(startTimeSecond, endTimeSecond, function()
+            uiRoot:SetupDynamicTable()
+        end)
+    else
+        self.PanelLeftTime.gameObject:SetActiveEx(false)
+    end
+    self.TxtConsumeCount.gameObject:SetActiveEx(false)
+    XRedPointManager.CheckOnce(self.OnCheckRedPoint, self, { XRedPointConditions.Types.XRedPointConditionDoomsdayActivity })
+end
+
+function XUiGridActivityBanner:RefreshTwoSideTower(chapter, uiRoot)
+    self.TxtName.text = chapter.Name
+    self.RImgIcon:SetRawImage(chapter.Background)
+    self.PanelActivityTag.gameObject:SetActiveEx(true)
+    if not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.TwoSideTower) then
+        self.PanelLock.gameObject:SetActiveEx(true)
+        self.TxtLock.text = XFunctionManager.GetFunctionOpenCondition(XFunctionManager.FunctionName.TwoSideTower)
+    else
+        XRedPointManager.CheckOnce(self.OnCheckRedPoint, self, { XRedPointConditions.Types.CONDITION_TWO_SIDE_TOWER_TASK,XRedPointConditions.Types.CONDITION_TWO_SIDE_TOWER_NEW_CHAPTER })
+        self.PanelLock.gameObject:SetActiveEx(false)
+    end
+
+    local startTimeSecond = XDataCenter.TwoSideTowerManager.GetStartTime()
+    local endTimeSecond = XDataCenter.TwoSideTowerManager.GetEndTime()
+    local now = XTime.GetServerNowTimestamp()
+    if startTimeSecond and endTimeSecond and now >= startTimeSecond and now <= endTimeSecond then
+        self:CreateCommonTimer(startTimeSecond, endTimeSecond, function()
+            uiRoot:SetupDynamicTable()
+        end)
+    else
+        self.PanelLeftTime.gameObject:SetActiveEx(false)
+    end
+    local taskList = XDataCenter.TaskManager.GetTimeLimitTaskListByGroupId(XDataCenter.TwoSideTowerManager.GetLimitTaskId())
+    local passCount, allCount = XDataCenter.TaskManager.GetTaskProgressByTaskList(taskList)
+    self.TxtConsumeCount.text = XUiHelper.GetText("TwoSideTowerProcess", passCount, allCount)
 end
 
 return XUiGridActivityBanner

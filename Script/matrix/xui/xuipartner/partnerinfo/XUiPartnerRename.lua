@@ -36,7 +36,7 @@ function XUiPartnerRename:OnBtnNameSure()
         
         XDataCenter.PartnerManager.PartnerChangeNameRequest(self.PartnerId, editName, function ()
                 XUiManager.TipText("PartnerRenameSuc")
-                self.Base:ShowPanel()
+                self.Base:ShowPanel(true)
                 self:Close()
         end)
     else

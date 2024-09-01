@@ -46,16 +46,22 @@ function XUiPanelSetting:OnStart(root)
     self:InitUnfold()
 end
 
+function XUiPanelSetting:Close()
+    self.UiRoot:OnClickBtnBack()
+end
+
 ---
 --- 更新展示角色
 function XUiPanelSetting:UpdateCharacterHead()
     for i = 1, #self.RImgCharacter do
-        if self.CharacterList[i] then
-            self.RImgCharacter[i].gameObject:SetActive(true)
-            local charIcon = XDataCenter.CharacterManager.GetCharSmallHeadIcon(self.CharacterList[i])
-            self.RImgCharacter[i]:SetRawImage(charIcon)
-        else
-            self.RImgCharacter[i].gameObject:SetActive(false)
+        if not XTool.UObjIsNil(self.RImgCharacter[i]) then
+            if self.CharacterList[i] then
+                self.RImgCharacter[i].gameObject:SetActive(true)
+                local charIcon = XDataCenter.CharacterManager.GetCharSmallHeadIcon(self.CharacterList[i])
+                self.RImgCharacter[i]:SetRawImage(charIcon)
+            else
+                self.RImgCharacter[i].gameObject:SetActive(false)
+            end
         end
     end
 end

@@ -1,5 +1,7 @@
+local XExFubenSimulationChallengeManager = require("XEntity/XFuben/XExFubenSimulationChallengeManager")
+
 XFubenExploreManagerCreator = function()
-    local XFubenExploreManager = {}
+    local XFubenExploreManager = XExFubenSimulationChallengeManager.New(XFubenConfigs.ChapterType.Explore)
     --服务器数据
     local ExploreChapterData = {}
     --处理后的关卡数据
@@ -362,6 +364,30 @@ XFubenExploreManagerCreator = function()
     end
 
     --Handle end
+
+    ------------------副本入口扩展 start-------------------------
+    -- 获取进度提示
+    function XFubenExploreManager:ExGetProgressTip() 
+        local str = ""
+        if not self:ExGetIsLocked() then 
+            if XFubenExploreManager.GetCurProgressName() ~= nil then
+                str = CS.XTextManager.GetText("ExploreBannerProgress") .. XFubenExploreManager.GetCurProgressName()
+            else
+                str = CS.XTextManager.GetText("ExploreBannerProgressEnd")
+            end
+        end
+
+        return str
+    end
+
+    function XFubenExploreManager:ExOpenMainUi()
+        if XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.FubenExplore) then
+            XLuaUiManager.Open("UiFubenExploreChapter")
+        end
+    end
+    
+    ------------------副本入口扩展 end-------------------------
+
     XFubenExploreManager.Init()
     return XFubenExploreManager
 end

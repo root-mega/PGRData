@@ -81,7 +81,9 @@ function XUiEnvironmentDetailPanel:RefreshBuffDetail(index)
             go = CS.UnityEngine.Object.Instantiate(self.RImgBuffDetail, self.BuffDetailContent)
             go:GetComponent("RawImage"):SetRawImage(value)
         end
-        go.gameObject:SetActiveEx(true)
+        if go then
+            go.gameObject:SetActiveEx(true)
+        end
     end
 end
 

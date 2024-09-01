@@ -8,6 +8,9 @@ function XUiGridPos:Ctor(ui, row, col)
     self.Col = col
     XTool.InitUiObject(self)
     self.EffectRemove.gameObject:SetActiveEx(false)
+    if self.EffectBoom then
+        self.EffectBoom.gameObject:SetActiveEx(false)
+    end
 end
 
 function XUiGridPos:GetPosKey(row, col, boardRow, boardCol, MaxSize)
@@ -21,6 +24,7 @@ function XUiGridPos:ShowGrid(IsShow)
     self.PanelNotUse.gameObject:SetActiveEx(not IsShow)
 end
 
+--itemType：爆炸类型，默认0，1为爆炸中心
 function XUiGridPos:ShowRemoveEffect()
     self.EffectRemove.gameObject:SetActiveEx(false)
     self.EffectRemove.gameObject:SetActiveEx(true)

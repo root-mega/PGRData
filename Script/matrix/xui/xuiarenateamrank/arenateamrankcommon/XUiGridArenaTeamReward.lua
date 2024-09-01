@@ -25,7 +25,9 @@ function XUiGridArenaTeamReward:ResetData(data, rootUi)
     local rankRate = XDataCenter.ArenaManager.GetMyTeamRankRate()
     self.ImgSelf.gameObject:SetActive(data.MinRank / 100 < rankRate and data.MaxRank / 100 >= rankRate)
 
-    self.DataList = XDataCenter.MailManager.GetRewardList(data.MailId) or {}
+    ---@type XMailAgency
+    local mailAgency = XMVCA:GetAgency(ModuleId.XMail)
+    self.DataList = mailAgency:GetRewardList(data.MailId) or {}
     for _, ui in pairs(self.GridUis) do
         ui.GameObject:SetActive(false)
     end

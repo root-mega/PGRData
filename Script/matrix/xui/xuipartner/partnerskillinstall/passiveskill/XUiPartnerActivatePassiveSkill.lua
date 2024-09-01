@@ -14,13 +14,18 @@ function XUiPartnerActivatePassiveSkill:OnEnable()
     self:SetupDynamicTable()
     self:UpdatePanel()
     XEventManager.AddEventListener(XEventId.EVENT_PARTNER_SKILLCHANGE, self.CloseMask, self)
+
 end
 
 function XUiPartnerActivatePassiveSkill:OnDisable()
     XEventManager.RemoveEventListener(XEventId.EVENT_PARTNER_SKILLCHANGE, self.CloseMask, self)
+
 end
 
 function XUiPartnerActivatePassiveSkill:SetButtonCallBack()
+    self.BtnClose.CallBack = function()
+        self:OnBtnCloseClick()
+    end
     self.BtnTanchuangClose.CallBack = function()
         self:OnBtnCloseClick()
     end

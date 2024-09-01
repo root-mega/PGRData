@@ -1,0 +1,2450 @@
+[
+    {
+        "Id": 20010001,
+        "Name": "TFZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1010101,
+            1010201,
+            1010301
+        ],
+        "SingleDiff": [
+            null,
+            1011101.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk01.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Boss:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Musashi IX",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760413,
+            760283.0,
+            760273.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010011,
+        "Name": "TFZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2010101,
+            2010201,
+            2010301
+        ],
+        "SingleDiff": [
+            null,
+            2011101.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk01.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Enemies:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Hetero Deconstruct Unit, Hetero Repair Unit, Hetero Fire Unit, Hetero Explore Unit",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760133,
+            760343.0,
+            760333.0,
+            760263.0,
+            760293.0,
+            760202.0,
+            760313.0,
+            760253.0,
+            760353.0,
+            760283.0
+        ]
+    },
+    {
+        "Id": 20010101,
+        "Name": "TFZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3010101,
+            3010201,
+            3010301
+        ],
+        "SingleDiff": [
+            null,
+            3011101.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk01.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Split:",
+            "Gather:",
+            "Scatter:",
+            "Devour:"
+        ],
+        "SkillDesc": [
+            null,
+            "There are two roads leading to the Boss.",
+            "All members take the same path. Defeat all enemies on the path to reach the Boss.",
+            "If you decide to split up, you can only reach the Boss after defeating all the enemies, except the case when all the members on one of the paths have fallen.",
+            "The Boss will devour all the remaining enemies to enhance itself."
+        ],
+        "EventId": [
+            null,
+            760253,
+            760133.0,
+            760242.0,
+            760353.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010002,
+        "Name": "TSZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1010102,
+            1010202,
+            1010302
+        ],
+        "SingleDiff": [
+            null,
+            1011102.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk02.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Boss:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Iron Maiden",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760293,
+            760373.0,
+            760133.0,
+            760253.0,
+            760201.0,
+            760281.0,
+            760243.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010012,
+        "Name": "TSZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2010102,
+            2010202,
+            2010302
+        ],
+        "SingleDiff": [
+            null,
+            2011102.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk02.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Enemies:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Blubber VI, Kemuri I",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760353,
+            760343.0,
+            760373.0,
+            760293.0,
+            760263.0,
+            760253.0,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010103,
+        "Name": "TSZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3010102,
+            3010202,
+            3010302
+        ],
+        "SingleDiff": [
+            null,
+            3011102.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk02.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Split:",
+            "Gather:",
+            "Scatter:",
+            "Devour:"
+        ],
+        "SkillDesc": [
+            null,
+            "There are two roads leading to the Boss.",
+            "All members take the same path. Defeat all enemies on the path to reach the Boss.",
+            "If you decide to split up, you can only reach the Boss after defeating all the enemies, except the case when all the members on one of the paths have fallen.",
+            "The Boss will devour all the remaining enemies to enhance itself."
+        ],
+        "EventId": [
+            null,
+            760253,
+            760133.0,
+            760242.0,
+            760353.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010003,
+        "Name": "TFZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1010103,
+            1010203,
+            1010303
+        ],
+        "SingleDiff": [
+            null,
+            1011103.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk01.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Boss:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Osiris",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760411,
+            760133.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010013,
+        "Name": "TFZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2010103,
+            2010203,
+            2010303
+        ],
+        "SingleDiff": [
+            null,
+            2011103.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk01.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Enemies:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Executor, Ronin IV, Excavator, Explorer",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760243,
+            760253.0,
+            760133.0,
+            760303.0,
+            760343.0,
+            760353.0,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010102,
+        "Name": "TFZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3010103,
+            3010203,
+            3010303
+        ],
+        "SingleDiff": [
+            null,
+            3011103.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk01.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Assistance:",
+            "Wave 1: ",
+            "Wave 2: ",
+            "Wave 3: "
+        ],
+        "SkillDesc": [
+            null,
+            "A buff is dropped each time an enemy wave is defeated. Pick up to activate the buff.",
+            "Healing: Teammates within the range gain HP over time.",
+            "Radiation: Enemies within the range lose HP over time.",
+            "Booster: Personal attack bonus."
+        ],
+        "EventId": [
+            null,
+            760253,
+            760262.0,
+            760243.0,
+            760343.0,
+            760133.0,
+            760283.0,
+            760293.0,
+            760373.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010004,
+        "Name": "TSZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1010104,
+            1010204,
+            1010304
+        ],
+        "SingleDiff": [
+            null,
+            1011104.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk02.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Boss:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Sister",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760291,
+            760251.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010014,
+        "Name": "TSZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2010104,
+            2010204,
+            2010304
+        ],
+        "SingleDiff": [
+            null,
+            2011104.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk02.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Boss:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Envoy, Gardener, Ronin IV, Bio-Salamander",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760243,
+            760251.0,
+            760133.0,
+            760343.0,
+            760353.0,
+            760303.0,
+            760293.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010104,
+        "Name": "TSZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3010104,
+            3010204,
+            3010304
+        ],
+        "SingleDiff": [
+            null,
+            3011104.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk02.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Assistance:",
+            "Wave 1: ",
+            "Wave 2: ",
+            "Wave 3: "
+        ],
+        "SkillDesc": [
+            null,
+            "A buff is dropped each time an enemy wave is defeated. Pick up to activate the buff.",
+            "Healing: Teammates within the range gain HP over time.",
+            "Radiation: Enemies within the range lose HP over time.",
+            "Booster: Personal attack bonus."
+        ],
+        "EventId": [
+            null,
+            760253,
+            760262.0,
+            760243.0,
+            760343.0,
+            760133.0,
+            760283.0,
+            760293.0,
+            760373.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010005,
+        "Name": "TFZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1020101,
+            1020201,
+            1020301
+        ],
+        "SingleDiff": [
+            null,
+            1021101.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk01.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Boss:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Musashi IX",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760413,
+            760283.0,
+            760273.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010015,
+        "Name": "TFZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2020101,
+            2020201,
+            2020301
+        ],
+        "SingleDiff": [
+            null,
+            2021101.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk01.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Boss:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Hetero Deconstruct Unit, Hetero Repair Unit, Hetero Fire Unit, Hetero Explore Unit",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760133,
+            760343.0,
+            760333.0,
+            760263.0,
+            760293.0,
+            760202.0,
+            760313.0,
+            760253.0,
+            760353.0,
+            760283.0
+        ]
+    },
+    {
+        "Id": 20010105,
+        "Name": "TFZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3020101,
+            3020201,
+            3020301
+        ],
+        "SingleDiff": [
+            null,
+            3021101.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk01.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Split:",
+            "Gather:",
+            "Scatter:",
+            "Devour:"
+        ],
+        "SkillDesc": [
+            null,
+            "There are two roads leading to the Boss.",
+            "All members take the same path. Defeat all enemies on the path to reach the Boss.",
+            "If you decide to split up, you can only reach the Boss after defeating all the enemies, except the case when all the members on one of the paths have fallen.",
+            "The Boss will devour all the remaining enemies to enhance itself."
+        ],
+        "EventId": [
+            null,
+            760253,
+            760133.0,
+            760242.0,
+            760353.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010006,
+        "Name": "TSZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1020102,
+            1020202,
+            1020302
+        ],
+        "SingleDiff": [
+            null,
+            1021102.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk02.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Boss:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Iron Maiden",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760293,
+            760373.0,
+            760133.0,
+            760253.0,
+            760201.0,
+            760281.0,
+            760243.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010016,
+        "Name": "TSZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2020102,
+            2020202,
+            2020302
+        ],
+        "SingleDiff": [
+            null,
+            2021102.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk02.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Enemies:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Blubber VI, Kemuri I",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760353,
+            760343.0,
+            760373.0,
+            760293.0,
+            760263.0,
+            760253.0,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010107,
+        "Name": "TSZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3020102,
+            3020202,
+            3020302
+        ],
+        "SingleDiff": [
+            null,
+            3021102.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk02.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Split:",
+            "Gather:",
+            "Scatter:",
+            "Devour:"
+        ],
+        "SkillDesc": [
+            null,
+            "There are two roads leading to the Boss.",
+            "All members take the same path. Defeat all enemies on the path to reach the Boss.",
+            "If you decide to split up, you can only reach the Boss after defeating all the enemies, except the case when all the members on one of the paths have fallen.",
+            "The Boss will devour all the remaining enemies to enhance itself."
+        ],
+        "EventId": [
+            null,
+            760253,
+            760133.0,
+            760242.0,
+            760353.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010007,
+        "Name": "TFZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1020103,
+            1020203,
+            1020303
+        ],
+        "SingleDiff": [
+            null,
+            1021103.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk01.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Boss:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Osiris",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760411,
+            760133.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010017,
+        "Name": "TFZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2020103,
+            2020203,
+            2020303
+        ],
+        "SingleDiff": [
+            null,
+            2021103.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk01.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Enemies:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Executor, Ronin IV, Excavator, Explorer",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760243,
+            760253.0,
+            760133.0,
+            760303.0,
+            760343.0,
+            760353.0,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010106,
+        "Name": "TFZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3020103,
+            3020203,
+            3020303
+        ],
+        "SingleDiff": [
+            null,
+            3021103.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk01.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Assistance:",
+            "Wave 1: ",
+            "Wave 2: ",
+            "Wave 3: "
+        ],
+        "SkillDesc": [
+            null,
+            "A buff is dropped each time an enemy wave is defeated. Pick up to activate the buff.",
+            "Healing: Teammates within the range gain HP over time.",
+            "Radiation: Enemies within the range lose HP over time.",
+            "Booster: Personal attack bonus."
+        ],
+        "EventId": [
+            null,
+            760253,
+            760262.0,
+            760243.0,
+            760343.0,
+            760133.0,
+            760283.0,
+            760293.0,
+            760373.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010008,
+        "Name": "TSZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1020104,
+            1020204,
+            1020304
+        ],
+        "SingleDiff": [
+            null,
+            1021104.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk02.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Boss:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Sister",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760291,
+            760251.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010018,
+        "Name": "TSZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2020104,
+            2020204,
+            2020304
+        ],
+        "SingleDiff": [
+            null,
+            2021104.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk02.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Enemies:",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Envoy, Gardener, Ronin IV, Bio-Salamander",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760243,
+            760251.0,
+            760133.0,
+            760343.0,
+            760353.0,
+            760303.0,
+            760293.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20010108,
+        "Name": "TSZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3020104,
+            3020204,
+            3020304
+        ],
+        "SingleDiff": [
+            null,
+            3021104.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk02.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Assistance:",
+            "Wave 1: ",
+            "Wave 2: ",
+            "Wave 3: "
+        ],
+        "SkillDesc": [
+            null,
+            "A buff is dropped each time an enemy wave is defeated. Pick up to activate the buff.",
+            "Healing: Teammates within the range gain HP over time.",
+            "Radiation: Enemies within the range lose HP over time.",
+            "Booster: Personal attack bonus."
+        ],
+        "EventId": [
+            null,
+            760253,
+            760262.0,
+            760243.0,
+            760343.0,
+            760133.0,
+            760283.0,
+            760293.0,
+            760373.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 31001,
+        "Name": "TFZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1010105,
+            1010205,
+            1010305
+        ],
+        "SingleDiff": [
+            null,
+            null
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk03.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 0,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Boss: ",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Huaxu",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760343,
+            760303.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 31002,
+        "Name": "TFZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2010105,
+            2010205,
+            2010305
+        ],
+        "SingleDiff": [
+            null,
+            null
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk03.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 0,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Blaze: ",
+            "Flux: ",
+            "Possible enemies: ",
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "The flames will appear occasionally and deal damage in the stage.",
+            "The enemies are different every time you enter the stage.",
+            "Nozzle, Musashi IX, Royal guard, and Explorer",
+            null
+        ],
+        "EventId": [
+            null,
+            760303,
+            760343.0,
+            760453.0,
+            760283.0,
+            760221.0,
+            760353.0,
+            760253.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 31003,
+        "Name": "TFZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3010105,
+            3010205,
+            3010305
+        ],
+        "SingleDiff": [
+            null,
+            null
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk03.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 0,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Obstacles: ",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Follow the instructions to break through the obstacles and defeat the final boss.",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760253,
+            760133.0,
+            760343.0,
+            760351.0,
+            760201.0,
+            760303.0,
+            760453.0,
+            760293.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 32001,
+        "Name": "TSZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1010106,
+            1010206,
+            1010306
+        ],
+        "SingleDiff": [
+            null,
+            null
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk04.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 0,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Boss: ",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Gabriel",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760281,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 32002,
+        "Name": "TSZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2010106,
+            2010206,
+            2010306
+        ],
+        "SingleDiff": [
+            null,
+            null
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk04.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 0,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Blaze: ",
+            "Flux: ",
+            "Possible enemies: ",
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "The flames will appear occasionally and deal damage in the stage.",
+            "The enemies are different every time you enter the stage.",
+            "Nozzle, Musashi IX, Royal guard, and Explorer",
+            null
+        ],
+        "EventId": [
+            null,
+            760303,
+            760343.0,
+            760453.0,
+            760283.0,
+            760221.0,
+            760353.0,
+            760253.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 32003,
+        "Name": "TSZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3010106,
+            3010206,
+            3010306
+        ],
+        "SingleDiff": [
+            null,
+            null
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk04.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 0,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Obstacles: ",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Follow the instructions to break through the obstacles and defeat the final boss.",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760253,
+            760133.0,
+            760343.0,
+            760351.0,
+            760201.0,
+            760303.0,
+            760453.0,
+            760293.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 41001,
+        "Name": "TFZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1010107,
+            1010207,
+            1010307
+        ],
+        "SingleDiff": [
+            null,
+            1011107.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk03.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Boss: ",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Rosetta",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760341,
+            760601.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 41002,
+        "Name": "TFZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2010107,
+            2010207,
+            2010307
+        ],
+        "SingleDiff": [
+            null,
+            2011107.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk03.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Blaze: ",
+            "Flux: ",
+            "Possible enemies: ",
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "The flames will appear occasionally and deal damage in the stage.",
+            "The enemies are different every time you enter the stage.",
+            "Blubber, Ballwheel, Hanged Man, Phecda, Prime, and Explore Unit",
+            null
+        ],
+        "EventId": [
+            null,
+            760411,
+            760303.0,
+            760373.0,
+            760133.0,
+            760453.0,
+            760383.0,
+            760293.0,
+            760433.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 41003,
+        "Name": "TFZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3010107,
+            3010207,
+            3010307
+        ],
+        "SingleDiff": [
+            null,
+            3011107.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk03.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Split: ",
+            "Gather: ",
+            "Scatter: ",
+            "Devour: "
+        ],
+        "SkillDesc": [
+            null,
+            "There are two roads leading to the Boss.",
+            "All members take the same path. Defeat all enemies on the path to reach the Boss.",
+            "If you decide to split up, you can only reach the Boss after defeating all the enemies, except the case when all the members on one of the paths have fallen.",
+            "The Boss will devour all the remaining enemies to enhance itself."
+        ],
+        "EventId": [
+            null,
+            760253,
+            760133.0,
+            760242.0,
+            760353.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 42001,
+        "Name": "TSZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1010108,
+            1010208,
+            1010308
+        ],
+        "SingleDiff": [
+            null,
+            1011108.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk04.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Boss: ",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Gabriel",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760281,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 42002,
+        "Name": "TSZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2010108,
+            2010208,
+            2010308
+        ],
+        "SingleDiff": [
+            null,
+            2011108.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk04.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Blaze: ",
+            "Flux: ",
+            "Possible enemies: ",
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "The flames will appear occasionally and deal damage in the stage.",
+            "The enemies are different every time you enter the stage.",
+            "Blubber, Ballwheel, Hanged Man, Phecda, Prime, and Explore Unit",
+            null
+        ],
+        "EventId": [
+            null,
+            760411,
+            760303.0,
+            760373.0,
+            760133.0,
+            760453.0,
+            760383.0,
+            760293.0,
+            760433.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 42003,
+        "Name": "TSZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3010108,
+            3010208,
+            3010308
+        ],
+        "SingleDiff": [
+            null,
+            3011108.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk04.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140100,
+        "ShowBottomId": 140100,
+        "SkillTitle": [
+            null,
+            "Split: ",
+            "Gather: ",
+            "Scatter: ",
+            "Devour: "
+        ],
+        "SkillDesc": [
+            null,
+            "There are two roads leading to the Boss.",
+            "All members take the same path. Defeat all enemies on the path to reach the Boss.",
+            "If you decide to split up, you can only reach the Boss after defeating all the enemies, except the case when all the members on one of the paths have fallen.",
+            "The Boss will devour all the remaining enemies to enhance itself."
+        ],
+        "EventId": [
+            null,
+            760253,
+            760133.0,
+            760242.0,
+            760353.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 31101,
+        "Name": "TFZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1020105,
+            1020205,
+            1020305
+        ],
+        "SingleDiff": [
+            null,
+            null
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk03.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 0,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Boss: ",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Huaxu",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760343,
+            760303.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 31102,
+        "Name": "TFZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2020105,
+            2020205,
+            2020305
+        ],
+        "SingleDiff": [
+            null,
+            null
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk03.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 0,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Blaze: ",
+            "Flux: ",
+            "Possible enemies: ",
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "The flames will appear occasionally and deal damage in the stage.",
+            "The enemies are different every time you enter the stage.",
+            "Nozzle, Musashi IX, Royal guard, and Explorer",
+            null
+        ],
+        "EventId": [
+            null,
+            760303,
+            760343.0,
+            760453.0,
+            760283.0,
+            760221.0,
+            760353.0,
+            760253.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 31103,
+        "Name": "TFZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3020105,
+            3020205,
+            3020305
+        ],
+        "SingleDiff": [
+            null,
+            null
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk03.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 0,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Obstacles: ",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Follow the instructions to break through the obstacles and defeat the final boss.",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760253,
+            760133.0,
+            760343.0,
+            760351.0,
+            760201.0,
+            760303.0,
+            760453.0,
+            760293.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 32101,
+        "Name": "TSZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1020106,
+            1020206,
+            1020306
+        ],
+        "SingleDiff": [
+            null,
+            null
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk04.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 0,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Boss: ",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Gabriel",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760281,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 32102,
+        "Name": "TSZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2020106,
+            2020206,
+            2020306
+        ],
+        "SingleDiff": [
+            null,
+            null
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk04.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 0,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Blaze: ",
+            "Flux: ",
+            "Possible enemies: ",
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "The flames will appear occasionally and deal damage in the stage.",
+            "The enemies are different every time you enter the stage.",
+            "Nozzle, Musashi IX, Royal guard, and Explorer",
+            null
+        ],
+        "EventId": [
+            null,
+            760303,
+            760343.0,
+            760453.0,
+            760283.0,
+            760221.0,
+            760353.0,
+            760253.0,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 32103,
+        "Name": "TSZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3020106,
+            3020206,
+            3020306
+        ],
+        "SingleDiff": [
+            null,
+            null
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk04.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 0,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Obstacles: ",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Follow the instructions to break through the obstacles and defeat the final boss.",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760253,
+            760133.0,
+            760343.0,
+            760351.0,
+            760201.0,
+            760303.0,
+            760453.0,
+            760293.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 41101,
+        "Name": "TFZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1020107,
+            1020207,
+            1020307
+        ],
+        "SingleDiff": [
+            null,
+            1021107.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk03.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Boss: ",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Rosetta",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760341,
+            760601.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 41102,
+        "Name": "TFZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2020107,
+            2020207,
+            2020307
+        ],
+        "SingleDiff": [
+            null,
+            2021107.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk03.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Blaze: ",
+            "Flux: ",
+            "Possible enemies: ",
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "The flames will appear occasionally and deal damage in the stage.",
+            "The enemies are different every time you enter the stage.",
+            "Blubber, Ballwheel, Hanged Man, Phecda, Prime, and Explore Unit",
+            null
+        ],
+        "EventId": [
+            null,
+            760411,
+            760303.0,
+            760373.0,
+            760133.0,
+            760453.0,
+            760383.0,
+            760293.0,
+            760433.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 41103,
+        "Name": "TFZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3020107,
+            3020207,
+            3020307
+        ],
+        "SingleDiff": [
+            null,
+            3021107.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk03.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Split: ",
+            "Gather: ",
+            "Scatter: ",
+            "Devour: "
+        ],
+        "SkillDesc": [
+            null,
+            "There are two roads leading to the Boss.",
+            "All members take the same path. Defeat all enemies on the path to reach the Boss.",
+            "If you decide to split up, you can only reach the Boss after defeating all the enemies, except the case when all the members on one of the paths have fallen.",
+            "The Boss will devour all the remaining enemies to enhance itself."
+        ],
+        "EventId": [
+            null,
+            760253,
+            760133.0,
+            760242.0,
+            760353.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 42101,
+        "Name": "TSZ-01",
+        "Sort": 1,
+        "Difficulty": [
+            null,
+            1020108,
+            1020208,
+            1020308
+        ],
+        "SingleDiff": [
+            null,
+            1021108.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk04.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz01.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Boss: ",
+            null,
+            null,
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "Gabriel",
+            null,
+            null,
+            null
+        ],
+        "EventId": [
+            null,
+            760281,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 42102,
+        "Name": "TSZ-02",
+        "Sort": 2,
+        "Difficulty": [
+            null,
+            2020108,
+            2020208,
+            2020308
+        ],
+        "SingleDiff": [
+            null,
+            2021108.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk04.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz02.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat all enemies",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Blaze: ",
+            "Flux: ",
+            "Possible enemies: ",
+            null
+        ],
+        "SkillDesc": [
+            null,
+            "The flames will appear occasionally and deal damage in the stage.",
+            "The enemies are different every time you enter the stage.",
+            "Blubber, Ballwheel, Hanged Man, Phecda, Prime, and Explore Unit",
+            null
+        ],
+        "EventId": [
+            null,
+            760411,
+            760303.0,
+            760373.0,
+            760133.0,
+            760453.0,
+            760383.0,
+            760293.0,
+            760433.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 42103,
+        "Name": "TSZ-03",
+        "Sort": 3,
+        "Difficulty": [
+            null,
+            3020108,
+            3020208,
+            3020308
+        ],
+        "SingleDiff": [
+            null,
+            3021108.0
+        ],
+        "BgIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineFubenGk04.png",
+        "NameIcon": "Assets/Product/Texture/Image/UiArenaOnline/ArenaOnlineSz03.png",
+        "SingleSwitch": 1,
+        "EnduranceCost": 1,
+        "ConditionDesc": "Defeat the final Boss",
+        "ActiveBuffId": 1,
+        "BottomCount": 12,
+        "ShowDropId": 140101,
+        "ShowBottomId": 140101,
+        "SkillTitle": [
+            null,
+            "Split: ",
+            "Gather: ",
+            "Scatter: ",
+            "Devour: "
+        ],
+        "SkillDesc": [
+            null,
+            "There are two roads leading to the Boss.",
+            "All members take the same path. Defeat all enemies on the path to reach the Boss.",
+            "If you decide to split up, you can only reach the Boss after defeating all the enemies, except the case when all the members on one of the paths have fallen.",
+            "The Boss will devour all the remaining enemies to enhance itself."
+        ],
+        "EventId": [
+            null,
+            760253,
+            760133.0,
+            760242.0,
+            760353.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    }
+]

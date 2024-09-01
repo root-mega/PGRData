@@ -1,4 +1,4 @@
-XUiGridItem = XClass(nil, "XUiGridItem")
+local XUiGridItem = XClass(nil, "XUiGridItem")
 
 function XUiGridItem:Ctor(rootUi, ui)
     self.RootUi = rootUi
@@ -60,3 +60,5 @@ function XUiGridItem:UpdateItemGrid(itemInfo)
     self.RootUi:SetUiSprite(self.ImgItemIcon, itemTemplate.Icon)
     self.TxtItemCount.text = itemInfo.Count
 end
+
+return

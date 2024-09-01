@@ -63,6 +63,7 @@ function XUiGuildRankingList:OnRefresh()
     self.TxtGuildLeaderName.text = self.GuildInfo.GuildLeaderName
     self.TxtContributionNumber.text = self.GuildInfo.GuildContributeIn7Days
     self.TxtNoticeText.text = self.GuildInfo.GuildDeclaration
+    self.TxtID.text = string.format("%08d",self.CurGuild)
     --人数
     self.TxtGuildNumber.text = CS.XTextManager.GetText("GuildPersonCountDes", self.GuildInfo.GuildMemberCount,self.GuildInfo.GuildMemberMaxCount)
     self:SetVistorCount()
@@ -166,6 +167,7 @@ function XUiGuildRankingList:OnBtnGuildRankShenqingClick()
     end
 
     XDataCenter.GuildManager.ApplyToJoinGuildRequest(guidId,function()
+        self:Close()
         XUiManager.TipText("GuildApplyRequestSuccess")
     end)
 end

@@ -7,6 +7,7 @@ function XEquipLevelUpConsume:Ctor()
     self.SelectCount = 0 --已选择数量
     self.AddExp = 0 --提供经验值
     self.CostMoney = 0 --消耗货币（被吃掉时）
+    self.CanAutoSelect = true --是否可以被自动选取
 end
 
 --以道具类型初始化
@@ -16,10 +17,11 @@ function XEquipLevelUpConsume:InitItem(itemId)
     self.TemplateId = itemId
     self.AddExp = XDataCenter.ItemManager.GetItemsAddEquipExp(itemId)
     self.CostMoney = XDataCenter.ItemManager.GetItemsAddEquipCost(itemId)
+    self.CanAutoSelect = true
 end
 
 --以装备类型初始化
-function XEquipLevelUpConsume:InitEquip(equipId)
+function XEquipLevelUpConsume:InitEquip(equipId, canAutoSelect)
     self.Type = 1
     self.Id = equipId
     self.TemplateId = XDataCenter.EquipManager.GetEquipTemplateId(equipId)
@@ -27,6 +29,7 @@ function XEquipLevelUpConsume:InitEquip(equipId)
 
     local equipCfg = XEquipConfig.GetEquipCfg(self.TemplateId)
     self.CostMoney = XEquipConfig.GetEatEquipCostMoney(equipCfg.Site, equipCfg.Star)
+    self.CanAutoSelect = canAutoSelect == true
 end
 
 function XEquipLevelUpConsume:IsItem()
@@ -83,7 +86,7 @@ function XEquipLevelUpConsume:GetCount()
 end
 
 function XEquipLevelUpConsume:CheckSelectCount()
-    return self:GetCount() >= self.SelectCount
+    return self:GetCount() > self.SelectCount
 end
 
 --获取剩余数量（总数量 - 已选择数量）

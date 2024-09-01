@@ -23,8 +23,8 @@ end
 -- 先分类后排序
 function XUiPurchaseLB:OnSortFun(data)
     self.SellOutList = {}--买完了
+    self.SellHaveList = {}--已拥有
     self.SellingList = {}--在上架中
-    self.SellOffList = {}--下架了
     self.SellWaitList = {}--待上架中
     self.ListData = {}
 
@@ -32,11 +32,13 @@ function XUiPurchaseLB:OnSortFun(data)
     for _,v in pairs(data)do
         if v and not v.IsSelloutHide then
             if v.TimeToUnShelve > 0 and v.TimeToUnShelve <= nowTime then--下架了
-                table.insert(self.SellOffList,v)
+                --不显示
             elseif v.TimeToShelve > 0 and v.TimeToShelve > nowTime then--待上架中
                 table.insert(self.SellWaitList,v)
             elseif v.BuyTimes > 0 and v.BuyLimitTimes > 0 and v.BuyTimes >= v.BuyLimitTimes then--买完了
                 table.insert(self.SellOutList,v)
+            elseif XDataCenter.PurchaseManager.IsLBHave(v) then--已拥有
+                table.insert(self.SellHaveList,v)
             else                                                       --在上架中,还能买。
                 table.insert(self.SellingList,v)
             end
@@ -67,18 +69,23 @@ function XUiPurchaseLB:OnSortFun(data)
         end
     end
 
-    --下架了
-    if Next(self.SellOffList) then
-        table.sort(self.SellOffList, XUiPurchaseLB.SortByPriority)
-        for _,v in pairs(self.SellOffList) do
+    --已拥有
+    if Next(self.SellHaveList) then
+        table.sort(self.SellHaveList, XUiPurchaseLB.SortByPriority)
+        for _,v in pairs(self.SellHaveList) do
             table.insert(self.ListData, v)
         end
     end
-
 end
 
 function XUiPurchaseLB.SortByPriority(a,b)
-    return a.Priority < b.Priority
+    if a.Priority < b.Priority then
+        return true
+    elseif a.Priority > b.Priority then
+        return false
+    elseif a.Priority == b.Priority then
+        return a.Id < b.Id
+    end
 end
 
 function XUiPurchaseLB:StartLBTimer()
@@ -160,6 +167,9 @@ end
 function XUiPurchaseLB:HidePanel()
     self:DestroyTimer()
     self.GameObject:SetActive(false)
+    if not self.ListenersAdded then return end
+    XEventManager.RemoveEventListener(XEventId.EVENT_PURCAHSE_BUYUSERIYUAN, self.OnUpdate, self)
+    self.ListenersAdded = false
 end
 
 function XUiPurchaseLB:ShowPanel()
@@ -215,27 +225,27 @@ function XUiPurchaseLB:CheckBuy(count, disCountCouponIndex)
 
     if self.CurData.BuyLimitTimes > 0 and self.CurData.BuyTimes == self.CurData.BuyLimitTimes then --卖完了，不管。
         XUiManager.TipText("PurchaseLiSellOut")
-        return false
+        return 0
     end
 
     if self.CurData.TimeToShelve > 0 and self.CurData.TimeToShelve > XTime.GetServerNowTimestamp() then --没有上架
         XUiManager.TipText("PurchaseBuyNotSet")
-        return false
+        return 0
     end
 
     if self.CurData.TimeToUnShelve > 0 and self.CurData.TimeToUnShelve < XTime.GetServerNowTimestamp() then --下架了
         XUiManager.TipText("PurchaseSettOff")
-        return false
+        return 0
     end
 
     if self.CurData.TimeToInvalid > 0 and self.CurData.TimeToInvalid < XTime.GetServerNowTimestamp() then --失效了
         XUiManager.TipText("PurchaseSettOff")
-        return false
+        return 0
     end
 
     if self.CurData.ConsumeCount > 0 and self.CurData.ConvertSwitch <= 0 then -- 礼包内容全部拥有
         XUiManager.TipText("PurchaseRewardAllHaveErrorTips")
-        return false
+        return 0
     end
 
     local consumeCount = self.CurData.ConsumeCount
@@ -255,18 +265,22 @@ function XUiPurchaseLB:CheckBuy(count, disCountCouponIndex)
     
     consumeCount = count * consumeCount -- 全部数量的总价
     if consumeCount > 0 and consumeCount > XDataCenter.ItemManager.GetCount(self.CurData.ConsumeId) then --钱不够
-        local name = XDataCenter.ItemManager.GetItemName(self.CurData.ConsumeId) or ""
-        local tips = CSXTextManagerGetText("PurchaseBuyKaCountTips", name)
+        -- local name = XDataCenter.ItemManager.GetItemName(self.CurData.ConsumeId) or ""
+        -- local tips = CSXTextManagerGetText("PurchaseBuyKaCountTips", name)
+        if XUiHelper.CanBuyInOtherPlatformHongKa(consumeCount) then
+            return 2
+        end
+        local tips = XUiHelper.GetCountNotEnoughTips(self.CurData.ConsumeId)
         XUiManager.TipMsg(tips,XUiManager.UiTipType.Wrong)
         if self.CurData.ConsumeId == XDataCenter.ItemManager.ItemId.PaidGem then
             self.CallBack(XPurchaseConfigs.TabsConfig.HK)
         elseif self.CurData.ConsumeId == XDataCenter.ItemManager.ItemId.HongKa then
             self.CallBack(XPurchaseConfigs.TabsConfig.Pay)
         end
-        return false
+        return 0
     end
 
-    return true
+    return 1
 end
 
 function XUiPurchaseLB:CheckIsOpenBuyTips(successCb)

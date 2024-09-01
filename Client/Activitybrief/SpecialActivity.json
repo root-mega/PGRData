@@ -1,0 +1,112 @@
+[
+    {
+        "Id": 1,
+        "TimeId": 20090,
+        "Condition": 774800,
+        "SkipId": 20193,
+        "Bg": "Assets/Product/Texture/Image/UiFubenActivity/MainBtnKareninaEpicLotto.png",
+        "ActivityType": 0,
+        "RedPointConditions": null,
+        "Param": null
+    },
+    {
+        "Id": 2,
+        "TimeId": 20931,
+        "Condition": 774800,
+        "SkipId": 89029,
+        "Bg": "Assets/Product/Texture/Image/UiFubenActivity/MainBtnFashionStoryV2p6.png",
+        "ActivityType": 1,
+        "RedPointConditions": "CONDITION_FASHION_STORY_ENTRANCE",
+        "Param": null
+    },
+    {
+        "Id": 3,
+        "TimeId": 20203,
+        "Condition": 774800,
+        "SkipId": 89008,
+        "Bg": "Assets/Product/Texture/Image/UiFubenActivity/MainBtnRestaurant02.png",
+        "ActivityType": 1,
+        "RedPointConditions": "CONDITION_RESTAURANT_ENTRANCE",
+        "Param": null
+    },
+    {
+        "Id": 4,
+        "TimeId": 20702,
+        "Condition": 1020005,
+        "SkipId": 89027,
+        "Bg": "Assets/Product/Texture/Image/UiFubenActivity/MainBtnTheatre3.png",
+        "ActivityType": 0,
+        "RedPointConditions": null,
+        "Param": null
+    },
+    {
+        "Id": 5,
+        "TimeId": 20403,
+        "Condition": 775600,
+        "SkipId": 11795,
+        "Bg": "Assets/Product/Texture/Image/UiFubenActivity/MainBtnCharacterTower03.png",
+        "ActivityType": 0,
+        "RedPointConditions": null,
+        "Param": null
+    },
+    {
+        "Id": 6,
+        "TimeId": 20940,
+        "Condition": 774800,
+        "SkipId": 11761,
+        "Bg": "Assets/Product/Texture/Image/UiFubenActivity/MainBtnPokerGuessing02.png",
+        "ActivityType": 1,
+        "RedPointConditions": "CONDITION_POKER_GUESSING_RED",
+        "Param": null
+    },
+    {
+        "Id": 7,
+        "TimeId": 20105,
+        "Condition": 30406,
+        "SkipId": 85016,
+        "Bg": "Assets/Product/Texture/Image/UiFubenActivity/MainBtnGuildWarThree.png",
+        "ActivityType": 1,
+        "RedPointConditions": "CONDITION_GUILDWAR_Main",
+        "Param": null
+    },
+    {
+        "Id": 8,
+        "TimeId": 20106,
+        "Condition": 30406,
+        "SkipId": 85016,
+        "Bg": "Assets/Product/Texture/Image/UiFubenActivity/MainBtnGuildWarThree.png",
+        "ActivityType": 1,
+        "RedPointConditions": "CONDITION_GUILDWAR_Main",
+        "Param": null
+    },
+    {
+        "Id": 9,
+        "TimeId": 20601,
+        "Condition": 30406,
+        "SkipId": 20170,
+        "Bg": "Assets/Product/Texture/Image/UiFubenActivity/MainBtnPuzzle2.png",
+        "ActivityType": 1,
+        "RedPointConditions": "CONDITION_FUBEN_DRAGPUZZLEGAME_RED",
+        "Param": null
+    },
+    {
+        "Id": 10,
+        "TimeId": 2121119,
+        "Condition": 774800,
+        "SkipId": 89026,
+        "Bg": "Assets/Product/Texture/Image/UiFubenActivity/MainBtnUiTurntable.png",
+        "ActivityType": 1,
+        "RedPointConditions": "CONDITION_TURNTABLE_SUMMARY",
+        "Param": null
+    },
+    {
+        "Id": 11,
+        "TimeId": 2160327,
+        "Condition": 30406,
+        "SkipId": 20166,
+        "Bg": "Assets/Product/Texture/Image/UiFubenActivity/MainBtnZhongQiu2022.png",
+        "ActivityType": 2,
+        "RedPointConditions": "CONDITION_ACTIVITY_FESTIVAL",
+        "Param": 27.0
+    }
+]

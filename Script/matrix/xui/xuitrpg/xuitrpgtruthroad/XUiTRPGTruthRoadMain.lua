@@ -33,6 +33,7 @@ end
 
 function XUiTRPGTruthRoadMain:OnDestroy()
     XEventManager.RemoveEventListener(XEventId.EVENT_TRPG_GET_REWARD, self.OnCheckRedPoint, self)
+
 end
 
 function XUiTRPGTruthRoadMain:InitAutoScript()
@@ -49,6 +50,7 @@ function XUiTRPGTruthRoadMain:AutoAddListener()
     self:RegisterClickEvent(self.BtnMask, self.OnBtnMaskClick)
     self:RegisterClickEvent(self.BtnEnterStory, self.OnBtnEnterStoryClick)
     self:RegisterClickEvent(self.BtnEnterFight, self.OnBtnEnterFightClick)
+
 end
 
 function XUiTRPGTruthRoadMain:OnBtnEnterStoryClick()

@@ -134,7 +134,12 @@ function XUiPassportCard:OnBtnBuyClick()
     local sureCallback = function()
         -- if string.IsNilOrEmpty(XPassportConfigs.GetPassportTypeInfoPayKeySuffix(passportId)) and haveCostItemCount < costItemCount then
         if haveCostItemCount < costItemCount then -- 英文服使用虹卡
-            XUiManager.TipText("ShopItemHongKaNotEnough")
+            -- XUiManager.TipText("ShopItemHongKaNotEnough")
+            if XUiHelper.CanBuyInOtherPlatformHongKa(costItemCount) then
+                XUiHelper.BuyInOtherPlatformHongka()
+                return
+            end
+            XUiHelper.OpenPurchaseBuyHongKaCountTips()
             XLuaUiManager.Open("UiPurchase", XPurchaseConfigs.TabsConfig.Pay)
             return
         end

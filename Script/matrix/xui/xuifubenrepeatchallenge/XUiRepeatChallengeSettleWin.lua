@@ -160,7 +160,8 @@ function XUiRepeatChallengeSettleWin:InitRewardCharacterList(data)
             local ui = CS.UnityEngine.Object.Instantiate(self.GridWinRole)
             local grid = XUiGridWinRole.New(self, ui)
             grid.Transform:SetParent(self.PanelRoleContent, false)
-            grid:UpdateRoleInfo(charExp[i], self.StageCfg.CardExp * winCount)
+            local cardExp = XDataCenter.FubenManager.GetCardExp(self.CurrentStageId)
+            grid:UpdateRoleInfo(charExp[i], cardExp * winCount)
             grid.GameObject:SetActive(true)
         end
     end
@@ -181,7 +182,8 @@ function XUiRepeatChallengeSettleWin:UpdatePlayerInfo(data)
 
     -- 原先机制只加一次经验，而且读的本地表，多重挑战需要乘以次数
     local winCount = self.WinCount
-    local addExp = self.StageCfg.TeamExp * winCount
+    local teamExp = XDataCenter.FubenManager.GetTeamExp(self.CurrentStageId)
+    local addExp = teamExp * winCount
     self.PlayerExpBar = self.PlayerExpBar or XUiPanelExpBar.New(self.PanelPlayerExpBar)
     self.PlayerExpBar:LetsRoll(lastLevel, lastExp, lastMaxExp, curLevel, curExp, curMaxExp, addExp, txtLevelName)
 end

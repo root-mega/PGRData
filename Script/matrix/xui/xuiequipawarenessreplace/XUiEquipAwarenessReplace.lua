@@ -10,6 +10,7 @@ local CSUnityEngineObjectInstantiate = CS.UnityEngine.Object.Instantiate
 local CSXTextManagerGetText = CS.XTextManager.GetText
 local CSXScheduleManagerUnSchedule = XScheduleManager.UnSchedule
 local CSXScheduleManagerScheduleOnce = XScheduleManager.ScheduleOnce
+local MAX_SUIT_SKILL_COUNT = 4
 
 local MAX_MERGE_ATTR_COUNT = 4
 local MAX_RESONANCE_SKILL_COUNT = 6
@@ -41,6 +42,7 @@ local ResonanceType = {
 local XUiEquipAwarenessReplace = XLuaUiManager.Register(XLuaUi, "UiEquipAwarenessReplace")
 
 function XUiEquipAwarenessReplace:OnAwake()
+    self.BtnClosePopup.gameObject:SetActive(false)
     self:AutoAddListener()
     self:InitComponentStatus()
 end
@@ -239,7 +241,7 @@ function XUiEquipAwarenessReplace:InitScrollPanel()
         self:SetSortBtnEnabled(true)
     end
 
-    self.EquipScroll = XUiPanelEquipScroll.New(self, self.PanelEquipScroll, equipTouchCb, gridReloadCb)
+    self.EquipScroll = XUiPanelEquipScroll.New(self.PanelEquipScroll, self, equipTouchCb, gridReloadCb)
     self.SuitSimpleScroll = XUiPanelSuitSimpleScroll.New(self, self.PanelSuitSimpleScroll, suitTouchCb, gridReloadCb)
     self.SuitDetailScroll = XUiPanelSuitDetailScroll.New(self, self.PanelSuitDetailScroll, suitTouchCb, gridReloadCb)
 end
@@ -254,7 +256,7 @@ function XUiEquipAwarenessReplace:InitCurEquipGrids()
     self.CurEquipGirds = {}
     for _, equipSite in pairs(XEquipConfig.EquipSite.Awareness) do
         local item = CSUnityEngineObjectInstantiate(self.GridCurAwareness)
-        self.CurEquipGirds[equipSite] = XUiGridEquip.New(item, clickCb)
+        self.CurEquipGirds[equipSite] = XUiGridEquip.New(item, self, clickCb, true)
         self.CurEquipGirds[equipSite]:InitRootUi(self)
         self.CurEquipGirds[equipSite].Transform:SetParent(self["PanelPos" .. equipSite], false)
     end
@@ -301,7 +303,7 @@ function XUiEquipAwarenessReplace:UpdateCurEquipSkill()
     local skillCount = 0
     local activeSkillDesInfoList = XDataCenter.EquipManager.GetCharacterWearingSuitMergeActiveSkillDesInfoList(self.CharacterId)
 
-    for i = 1, XEquipConfig.MAX_SUIT_SKILL_COUNT do
+    for i = 1, MAX_SUIT_SKILL_COUNT do
         if not activeSkillDesInfoList[i] then
             self["TxtSkillDes" .. i].gameObject:SetActive(false)
         else
@@ -776,7 +778,7 @@ function XUiEquipAwarenessReplace:OnBtnAutoTakeOffClick()
         XUiManager.TipText("EquipAutoTakeOffNotWearingEquip")
         return
     end
-    XDataCenter.EquipManager.TakeOff(wearingEquipIds)
+    XMVCA:GetAgency(ModuleId.XEquip):TakeOff(wearingEquipIds)
 end
 
 function XUiEquipAwarenessReplace:OnBtnAwarenessSuitPrefabClick()

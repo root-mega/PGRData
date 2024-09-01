@@ -6,19 +6,23 @@ function XUiGuildBossDiff:OnAwake()
     self.DynamicTable = XDynamicTableNormal.New(self.BossScoreList)
     self.DynamicTable:SetProxy(XUiGuildBossLevelGrid)
     self.DynamicTable:SetDelegate(self)
+    self.GridBossRankReward.gameObject:SetActiveEx(false)
     self.BtnBack.CallBack = function() self:OnBtnBackClick() end
 end
 
 function XUiGuildBossDiff:OnEnable()
     XEventManager.AddEventListener(XEventId.EVENT_GUILDBOSS_UPDATEDIFF, self.UpdateDynamicTable, self)
+
 end
 
 function XUiGuildBossDiff:OnDisable()
     XEventManager.RemoveEventListener(XEventId.EVENT_GUILDBOSS_UPDATEDIFF, self.UpdateDynamicTable, self)
+
 end
 
 function XUiGuildBossDiff:OnStart()
-    self.TxtTotalScore.text = XUiHelper.GetLargeIntNumText(XDataCenter.GuildBossManager.GetTotalScore())
+    self.TxtCurrTotalScore.text = XUiHelper.GetLargeIntNumText(XDataCenter.GuildBossManager.GetTotalScore())
+    self.TxtBestTotalScore.text = XUiHelper.GetLargeIntNumText(XDataCenter.GuildBossManager.GetScoreSumBest())
     self.LevelData = XGuildBossConfig.GetBossLevel()
     self:UpdateDynamicTable()
 end

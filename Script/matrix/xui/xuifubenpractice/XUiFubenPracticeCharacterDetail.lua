@@ -8,8 +8,9 @@ function XUiFubenPracticeCharacterDetail:OnAwake()
     self:RegisterUiEvents()
 end
 
-function XUiFubenPracticeCharacterDetail:OnStart(groupId)
+function XUiFubenPracticeCharacterDetail:OnStart(groupId, defaultStageId)
     self.GroupId = groupId
+    self.DefaultStageId = defaultStageId
     self:LoadPrefab(groupId)
 end
 
@@ -20,6 +21,9 @@ function XUiFubenPracticeCharacterDetail:LoadPrefab(groupId)
         local go = self.PanelChapter:LoadPrefab(prefabPath)
         self.PracticeMainline = XUiPanelPracticeMainline.New(go, groupId, handler(self, self.CloseStageDetailCb), handler(self, self.ShowStageDetail))
         self.PracticeMainline:Refresh()
+        if XTool.IsNumberValid(self.DefaultStageId) then
+            self.PracticeMainline:OnSelectStageByStageId(self.DefaultStageId)
+        end
     end
 end
 

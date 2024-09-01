@@ -31,7 +31,7 @@ function XUiMemorySaveDetail:UpdateCommon()
     self.TxtTitle.text = self.Stage.Name
     self.PanelNums.gameObject:SetActiveEx(false)
     self.PanelNoLimitCount.gameObject:SetActiveEx(true)
-    self.TxtATNums.text = self.Stage.RequireActionPoint
+    self.TxtATNums.text = XDataCenter.FubenManager.GetRequireActionPoint(self.Stage.StageId)
     local stageInfo = XDataCenter.FubenManager.GetStageInfo(self.Stage.StageId)
     for i = 1, 3 do
         self.TargetList[i]:Refresh(self.Stage.StarDesc[i], stageInfo.StarsMap[i])

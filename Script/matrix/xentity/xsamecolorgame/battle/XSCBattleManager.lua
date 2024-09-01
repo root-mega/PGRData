@@ -2,6 +2,8 @@
 local XSCBattleManager = XClass(nil, "XSCBattleManager")
 local XSCBuff = require("XEntity/XSameColorGame/Battle/XSCBuff")
 local XSCBattleRoleSkill = require("XEntity/XSameColorGame/Battle/XSCBattleRoleSkill")
+local ShowScorePara = 0.1 -- 消除分数的放大/缩小倍数，只用于消求过程ActionType.ActionItemRemove，分数结算ActionType.ActionSettleScore由服务器计算好
+
 local ChangeItemPos = function(item)--转换服务器坐标的参考基准
     local tagItemList = {}
     local tagItem = {ItemId = item.ItemId, PositionX = item.PositionX + 1, PositionY = item.PositionY + 1}
@@ -10,9 +12,23 @@ end
 
 local ChangeItemPosList = function(itemList)--转换服务器坐标的参考基准
     local tagItemList = {}
+    local tagItemDic = {}
+    -- v1.31-爆炸剔除重复球
     for _,item in pairs(itemList) do
-        local pos = {ItemId = item.ItemId, PositionX = item.PositionX + 1, PositionY = item.PositionY + 1}
-        table.insert(tagItemList, pos)
+        local pos = {ItemId = item.ItemId, 
+                     PositionX = item.PositionX + 1, 
+                     PositionY = item.PositionY + 1,
+                     ItemType = item.ItemType,  --爆炸类型，详见XSameColorGameConfigs.SkillBoomBallType
+        }
+        local key = XSameColorGameConfigs.CreatePosKey(pos.PositionX, pos.PositionY)
+        if not tagItemDic[key] or
+           tagItemDic[key].ItemType ~= XSameColorGameConfigs.BallRemoveType.BoomCenter and pos.ItemType == XSameColorGameConfigs.BallRemoveType.BoomCenter then
+            tagItemDic[key] = pos
+        end
+    end
+
+    for _, item in pairs(tagItemDic) do
+        table.insert(tagItemList, item)
     end
     return tagItemList
 end
@@ -29,6 +45,7 @@ end
 
 XSCBattleManager.DoAction = {
     [XSameColorGameConfigs.ActionType.ActionMapInit] = function(self, action)--地图初始化
+        self:SetLeftTime(action.LeftTime)
         local param = {BallList = ChangeItemPosList(action.ItemList),
             ActionType = action.ActionType}
         self.IsActionPlayingDic[action.ActionType] = true
@@ -38,7 +55,7 @@ XSCBattleManager.DoAction = {
     [XSameColorGameConfigs.ActionType.ActionItemRemove] = function(self, action)--消除
         self:DoCountCombo(action.CurrentCombo)
         local param = {RemoveBallList = ChangeItemPosList(action.ItemList),
-            ActionType = action.ActionType}
+            ActionType = action.ActionType, CurrentScore = math.floor(action.CurrentScore * ShowScorePara)}
         self.IsActionPlayingDic[action.ActionType] = true
 
         XScheduleManager.ScheduleOnce(function()
@@ -76,6 +93,7 @@ XSCBattleManager.DoAction = {
 
     [XSameColorGameConfigs.ActionType.ActionSettleScore] = function(self, action)--此行动只占位，数据存储和表演逻辑在其他地方
         self.IsActionPlayingDic[action.ActionType] = true
+        self:ShowSettleScore()
         self:DoActionFinish(action.ActionType)
     end,
 
@@ -162,6 +180,46 @@ XSCBattleManager.DoAction = {
         self.IsActionPlayingDic[action.ActionType] = true
         XEventManager.DispatchEvent(XEventId.EVENT_SC_ACTION_CDCHANGE, param)
         self:DoActionFinish(action.ActionType)
+
+        -- 固定时间的技能通过NotifySameColorGameUpdate来结束技能 例如：v4.0的白毛剑气技能5秒后结束技能
+        self:ClearComboCount()
+    end,
+
+    [XSameColorGameConfigs.ActionType.ActionLeftTimeChange] = function(self, action)--关卡剩余时间改变
+        self:SetLeftTime(action.LeftTime)
+        XEventManager.DispatchEvent(XEventId.EVENT_SC_ACTION_LEFTTIME_CHANGE)
+        -- 通过XRpc.NotifySameColorGameUpdate直接刷新的action，不走DoActionFinish的流程
+    end,
+
+    [XSameColorGameConfigs.ActionType.ActionBuffLeftTimeChange] = function(self, action)--buff剩余时间改变
+        XEventManager.DispatchEvent(XEventId.EVENT_SC_ACTION_BUFF_LEFTTIME_CHANGE)
+        -- 通过XRpc.NotifySameColorGameUpdate直接刷新的action，不走DoActionFinish的流程
+    end,
+
+    [XSameColorGameConfigs.ActionType.ActionMapReset] = function(self, action)--棋盘重置
+        self.IsActionPlayingDic[action.ActionType] = true
+        local param = {BallList = ChangeItemPosList(action.ItemList),
+            ActionType = action.ActionType}
+
+        local isStartSkill = self:GetPrepSkill() ~= nil
+        if isStartSkill then
+            -- 开始技能的棋盘重置，阻塞播过渡表现
+            XEventManager.DispatchEvent(XEventId.EVENT_SC_ACTION_MAPRESET, param)
+            self.Resetting = true
+            XScheduleManager.ScheduleOnce(function()
+                self.Resetting = false
+            end, XSameColorGameConfigs.UseSkillMaskTime * 1000)
+        else
+            -- 结束技能时的棋盘重置，存在跳过动画阻塞的技能，延迟重置，等球全部回收完毕
+            XScheduleManager.ScheduleOnce(function()
+                XEventManager.DispatchEvent(XEventId.EVENT_SC_ACTION_MAPRESET, param)
+            end, XSameColorGameConfigs.BallRemoveTime * 1000)
+
+            self.Resetting = true
+            XScheduleManager.ScheduleOnce(function()
+                self.Resetting = false
+            end, (XSameColorGameConfigs.BallRemoveTime + XSameColorGameConfigs.UseSkillMaskTime) * 1000)
+        end
     end,
 }
 
@@ -194,6 +252,10 @@ function XSCBattleManager:Init()
     self.EnergyChangeShowList = {}
     self.IsShowingEnergyChange = false
     self.CurEnergy = 0
+    self.RoleMainSkillId = 0
+    self.LeftTime = 0--剩余时间
+    self.MaxComboCount = 0--最大combo数量
+    self.Resetting = false
 end
 
 function XSCBattleManager:DoActionFinish(actionType)
@@ -254,8 +316,27 @@ function XSCBattleManager:SetPrepSkill(skill)
     self.InPrepSkill = skill
 end
 
+function XSCBattleManager:CheckIsPrepSkill(skill)
+    if self.InPrepSkill == nil then
+        return false
+    else
+        return self.InPrepSkill == skill
+    end
+end
+
+function XSCBattleManager:CheckPrepSkillIsMain(skillId)
+    return self.RoleMainSkillId == skillId
+end
+
+function XSCBattleManager:SetRoleMainSkill(skillId)
+    self.RoleMainSkillId = skillId
+end
+
 function XSCBattleManager:ClearPrepSkill()
-    self.InPrepSkill = nil
+    if self.InPrepSkill then
+        self.InPrepSkill:Clear()
+        self.InPrepSkill = nil
+    end
 end
 
 function XSCBattleManager:GetBossSkill()
@@ -278,12 +359,29 @@ function XSCBattleManager:ResetRound()
     self.BattleRound = 0
 end
 
+-- 获取挑战剩余回合数
 function XSCBattleManager:GetBattleStep(boss)
     return boss:GetMaxRound() - self:GetBattleRound() + self.ExtraStep
 end
 
 function XSCBattleManager:SetExtraStep(step)
     self.ExtraStep = self.ExtraStep + step
+end
+
+-- 获取当前挑战是否限时关卡
+function XSCBattleManager:IsTimeType()
+    local bossManager = XDataCenter.SameColorActivityManager.GetBossManager()
+    local boss = bossManager:GetCurrentChallengeBoss()
+    return boss:IsTimeType()
+end
+
+-- 获取挑战剩余时间
+function XSCBattleManager:GetLeftTime()
+    return self.LeftTime
+end
+
+function XSCBattleManager:SetLeftTime(leftTime)
+    self.LeftTime = leftTime
 end
 
 function XSCBattleManager:GetCountCombo()
@@ -295,7 +393,15 @@ function XSCBattleManager:DoCountCombo(combo)
 end
 
 function XSCBattleManager:GetDamageCount()
-    return self.ScoreData.TotalScore
+    return self.ScoreData.TotalScore or 0
+end
+
+function XSCBattleManager:SetMaxComboCount(comboCount)
+    self.MaxComboCount = comboCount > self.MaxComboCount and comboCount or self.MaxComboCount
+end
+
+function XSCBattleManager:GetMaxComboCount()
+    return self.MaxComboCount
 end
 
 function XSCBattleManager:GetScoreData()
@@ -304,6 +410,7 @@ end
 
 function XSCBattleManager:SetScoreData(data)
     self.ScoreData = data
+    self:SetMaxComboCount(data.TotalCombo)
 end
 
 function XSCBattleManager:SetIsAnimeFinish(IsFinish)
@@ -357,8 +464,17 @@ function XSCBattleManager:ShowBossSkill()
 end
 
 function XSCBattleManager:ShowSettleScore()
-    self:ShowEnergyChange(XSameColorGameConfigs.EnergyChangeFrom.Combo, 1)--连击回能
-    self:ShowEnergyChange(XSameColorGameConfigs.EnergyChangeFrom.Buff,1)--Buff回能
+    -- 不阻塞的技能，不需要延迟播回能
+    local isNotMask = false
+    local preSkill = self:GetPrepSkill()
+    if preSkill then
+        local skillId = preSkill:GetSkillId()
+        isNotMask = XSameColorGameConfigs.AnimNotMaskSkill[skillId]
+    end
+
+    local waitTime = isNotMask and 0 or 1
+    self:ShowEnergyChange(XSameColorGameConfigs.EnergyChangeFrom.Combo, waitTime)--连击回能
+    self:ShowEnergyChange(XSameColorGameConfigs.EnergyChangeFrom.Buff, waitTime)--Buff回能
     XEventManager.DispatchEvent(XEventId.EVENT_SC_ACTION_SETTLESCORE)
 end
 
@@ -392,7 +508,7 @@ function XSCBattleManager:CheckActionList()
         local IsSpecial = false
 
         if self.ActionSchedule == 1 then
-            XLuaUiManager.SetMask(true)
+            XEventManager.DispatchEvent(XEventId.EVENT_SC_BATTLESHOW_MASK, true)
             self.IsActionAllFinish = false
         end
 
@@ -411,13 +527,35 @@ function XSCBattleManager:CheckActionList()
                 self.ActionSchedule = self.ActionSchedule + 1
                 self.DoAction[action.ActionType](self, action)
             else
-                self.ActionList = nil
+                self:ClearActionList()
                 self.ActionSchedule = 1
-                self.ComboCount = 0
+                self:ClearComboCount()
                 self.IsActionAllFinish = true
                 self:CheckCloseMask()
                 XEventManager.DispatchEvent(XEventId.EVENT_SC_ACTION_ACTIONLIST_OVER)
             end
+        end
+    end
+end
+
+-- v4.0 处于技能释放中，继续累加combo数量
+function XSCBattleManager:ClearComboCount()
+    if not self:GetPrepSkill() and not self.ActionList then
+        self.ComboCount = 0
+    end
+end
+
+-- 执行刷新Action，不需要一个接一个
+function XSCBattleManager:DoUpdateActionList(actions)
+    -- 阻塞的action列表是否正在执行中
+    -- 部分通过时间update触发的刷新action，会与正在执行的action列表冲突，塞到action列表最后执行
+    local isDealingAction = self.ActionList ~= nil and self.ActionSchedule < #self.ActionList
+
+    for _, action in ipairs(actions) do
+        if isDealingAction and action.ActionType == XSameColorGameConfigs.ActionType.ActionMapReset then
+            table.insert(self.ActionList, action)
+        else
+            self.DoAction[action.ActionType](self, action)
         end
     end
 end
@@ -430,12 +568,22 @@ function XSCBattleManager:DoAutoEnergyHint()
 end
 
 function XSCBattleManager:CheckAnimeAndActionIsAllFinish()
+    -- 跳过动画阻塞
+    local preSkill = self:GetPrepSkill()
+    if preSkill then
+        local skillId = preSkill:GetSkillId()
+        if XSameColorGameConfigs.AnimNotMaskSkill[skillId] then
+            return self.IsActionAllFinish
+        end
+    end
+
+    -- 默认：动画、ActionList都会打开mask阻塞玩家的操作
     return self.IsAnimeFinish and self.IsActionAllFinish
 end
 
 function XSCBattleManager:CheckCloseMask()
     if self:CheckAnimeAndActionIsAllFinish() then
-        XLuaUiManager.SetMask(false)
+        XEventManager.DispatchEvent(XEventId.EVENT_SC_BATTLESHOW_MASK, false)
     end
 end
 
@@ -466,6 +614,13 @@ function XSCBattleManager:SetPreData()--(不按行动顺序)
             self:AddEnergyChangeData(action)
         end
     end
+
+    -- 技能期间触发的消球，消球次数累加起来
+    local preSkill = self:GetPrepSkill()
+    if preSkill then
+        ballRemoveCount = preSkill:AddBallRemoveCount(ballRemoveCount)
+    end
+
     if ballRemoveCount > 0 then
         XEventManager.DispatchEvent(XEventId.EVENT_SC_BATTLESHOW_COMBOPLAY, ballRemoveCount)
     end
@@ -515,6 +670,10 @@ function XSCBattleManager:GetBattleComboLevel(combo)
         end
     end
     return comboLevel
+end
+
+function XSCBattleManager:GetIsResetting()
+    return self.Resetting
 end
 
 return XSCBattleManager

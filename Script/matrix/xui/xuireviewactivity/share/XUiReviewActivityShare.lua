@@ -11,7 +11,8 @@ function XUiReviewActivityShare:OnStart(photoName, shareTexture, sprite, onClose
     self.ShareTexture = shareTexture
     self.ImagePhoto.sprite = sprite
     self.OnCloseCb = onCloseCb
-    XEventManager.AddEventListener(XEventId.EVENT_PHOTO_SHARE_SUCCESS, function(photoName) self:OnShareSuccess(photoName) end)
+    self.OnShareSuccessCb = handler(self, self.OnShareSuccess)
+    XEventManager.AddEventListener(XEventId.EVENT_PHOTO_SHARE_SUCCESS, self.OnShareSuccessCb)
 end
 
 function XUiReviewActivityShare:RegisterButtonEvent()
@@ -33,7 +34,7 @@ function XUiReviewActivityShare:OnDisable()
 end
 
 function XUiReviewActivityShare:OnDestroy()
-    XEventManager.RemoveEventListener(XEventId.EVENT_PHOTO_SHARE_SUCCESS, function(photoName) self:OnShareSuccess(photoName) end)
+    XEventManager.RemoveEventListener(XEventId.EVENT_PHOTO_SHARE_SUCCESS, self.OnShareSuccessCb)
     --XLuaUiManager.Remove("UiNewRegressionForwardScreenShot")
     if self.OnCloseCb then
         local cb = self.OnCloseCb

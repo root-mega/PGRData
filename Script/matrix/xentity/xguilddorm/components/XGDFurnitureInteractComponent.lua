@@ -1,8 +1,10 @@
 local Quaternion = CS.UnityEngine.Quaternion
 local XGDComponet = require("XEntity/XGuildDorm/Components/XGDComponet")
 local XGuildDormHelper = CS.XGuildDormHelper
+---@class XGDFurnitureInteractComponent : XGDComponet
 local XGDFurnitureInteractComponent = XClass(XGDComponet, "XGDFurnitureInteractComponent")
 
+---@param role XGuildDormRole
 function XGDFurnitureInteractComponent:Ctor(role)
     self.Role = role
     self.MoveAgent = nil
@@ -23,18 +25,29 @@ end
 
 function XGDFurnitureInteractComponent:BeginInteract(currentInteractInfo, isDirectInteract)
     if isDirectInteract == nil then isDirectInteract = false end
-    if self.Transform:EqualsPosition(currentInteractInfo.InteractPos.transform.position, 0.1) then
+    if self.Transform:EqualsPosition2D(currentInteractInfo.InteractPos.transform.position, 0.0001) then
         isDirectInteract = true
     end
     self.IsDirectInteract = isDirectInteract
     self.Role:UpdateInteractStatus(XGuildDormConfig.InteractStatus.Begin)
+    local agent = self.Role:GetAgent()
+    if agent then
+        local dict = {}
+        dict["button"] = XGlobalVar.BtnGuildDormMain.BtnFurnitureInteract
+        dict["role_level"] = XPlayer.GetLevel() 
+        dict["can_get_reward"] = agent.Proxy.LuaAgentProxy:CheckCanGetReward()
+        dict["furniture_id"] = currentInteractInfo.Id
+        CS.XRecord.Record(dict, "200006", "GuildDorm")
+    end
     -- 设置导航中交互点
     if isDirectInteract then
-        self.Transform.position = currentInteractInfo.InteractPos.transform.position
+        local tempPos = currentInteractInfo.InteractPos.transform.position
+        tempPos.y = self.Transform.position.y
+        self.Transform.position = tempPos
         self.Transform.rotation = currentInteractInfo.InteractPos.transform.rotation
     else
         if not self.MoveAgent:SetDestination(currentInteractInfo.InteractPos.transform) then
-            XLog.Error("当前家具交互导航点错误，无法前往")
+            XLog.Error("当前家具交互导航点错误，无法前往。家具Id:" .. currentInteractInfo.Id)
             XScheduleManager.ScheduleOnce(function()
                 self.Role:UpdateInteractStatus(XGuildDormConfig.InteractStatus.End)
             end, 1)

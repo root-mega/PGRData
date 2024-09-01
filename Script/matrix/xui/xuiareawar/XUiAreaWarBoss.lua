@@ -161,14 +161,16 @@ function XUiAreaWarBoss:UpdateView()
 
     local isOpen = XDataCenter.AreaWarManager.IsBlockWorldBossOpen(blockId)
     local isFinished = XDataCenter.AreaWarManager.IsBlockWorldBossFinish(blockId) --已攻破
-    local isFighting = not isFinished and isOpen --战斗中
+    local isRepeatChallengeTime = XDataCenter.AreaWarManager.IsRepeatChallengeTime()
+    local isClear = XDataCenter.AreaWarManager.IsBlockClear(blockId)
+    local isFighting = (not isFinished and isOpen) or (isRepeatChallengeTime and isClear) --战斗中
     local isUnOpen = not isFinished and not isOpen --未开启
-
+    
     self.PanelDefeat.gameObject:SetActiveEx(isFinished)
     self.PanelLock.gameObject:SetActiveEx(isUnOpen)
-    self.Hint.gameObject:SetActiveEx(isFighting)
+    self.Hint.gameObject:SetActiveEx(not isFinished and isOpen)
     self.TxtUnOpen.gameObject:SetActiveEx(isUnOpen)
-    self.TxtEnd.gameObject:SetActiveEx(isFinished)
+    self.TxtEnd.gameObject:SetActiveEx(isFinished and not isRepeatChallengeTime)
     self.PanelTime.gameObject:SetActiveEx(false)
 
     --已攻破
@@ -203,7 +205,8 @@ function XUiAreaWarBoss:UpdateView()
         end
     end
 
-    local showFight = isFinished or isOpen --显示作战按钮
+    --local showFight = isFinished or isOpen or isRepeatChallengeTime --显示作战按钮
+    local showFight = isFighting --显示作战按钮
     self.PanelOpen.gameObject:SetActiveEx(showFight)
     self.PanelUnopen.gameObject:SetActiveEx(not showFight)
     self.BtnFight:SetDisable(not isFighting, isFighting)
@@ -216,11 +219,18 @@ function XUiAreaWarBoss:UpdateView()
         local icon = XDataCenter.AreaWarManager.GetActionPointItemIcon()
         self.RImgCost:SetRawImage(icon)
     else
-        local openTime = XDataCenter.AreaWarManager.GetBlockWorldBossTime(blockId)
-        self.TxtOpenDay.text = XTime.TimestampToGameDateTimeString(openTime, "MM/dd")
+        local worldBossOpenTime = block:GetWorldBossOpenTime()
+        local validTime = XTool.IsNumberValid(worldBossOpenTime)
+        self.TxtOpenDay.gameObject:SetActiveEx(validTime)
+        self.TxtOpenTime.gameObject:SetActiveEx(validTime)
+        --解锁与数据更新有时差
+        if validTime then
+            local openTime = XDataCenter.AreaWarManager.GetBlockWorldBossTime(blockId)
+            self.TxtOpenDay.text = XTime.TimestampToGameDateTimeString(openTime, "MM/dd")
 
-        local startHour, endHour = XAreaWarConfigs.GetBlockWorldBossHour(blockId)
-        self.TxtOpenTime.text = CsXTextManagerGetText("AreaWarWorldBossOpenHour", startHour, endHour)
+            local startHour, endHour = XAreaWarConfigs.GetBlockWorldBossHour(blockId)
+            self.TxtOpenTime.text = CsXTextManagerGetText("AreaWarWorldBossOpenHour", startHour, endHour)
+        end
     end
 
     --全服奖励展示

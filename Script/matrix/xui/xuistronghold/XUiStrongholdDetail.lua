@@ -22,6 +22,13 @@ function XUiStrongholdDetail:OnStart(groupId, closeCb, skipCb)
     self.BaseBuffGrids = {}
 
     self:UpdateData(groupId)
+    self:CheckBtnAutoFightActive(groupId)
+end
+
+function XUiStrongholdDetail:CheckBtnAutoFightActive(groupId)
+    local isAutoFight = XDataCenter.StrongholdManager.IsAutoFightByGroupId(groupId)
+    self.BtnAutoFight.gameObject:SetActiveEx(isAutoFight)
+    self.TxtCondition.text = XDataCenter.StrongholdManager.GetAutoFightConditionDesc(groupId)
 end
 
 function XUiStrongholdDetail:UpdateData(groupId)
@@ -33,7 +40,9 @@ function XUiStrongholdDetail:OnEnable()
     self:UpdateView()
     self:UpdateEndurance()
     self:UpdateSupport()
+
 end
+
 
 function XUiStrongholdDetail:OnGetEvents()
     return {
@@ -179,14 +188,31 @@ function XUiStrongholdDetail:AutoAddListener()
     self.BtnClose.CallBack = function() self:OnClickBtnClose() end
     self.BtnEnter.CallBack = function() self:OnClickBtnEnter() end
     self.BtnAssitantBuff.CallBack = function() self:OnClickBtnAssitantBuff() end
+    self.BtnAutoFight.CallBack = function() self:OnClickBtnAutoFight() end
+end
+
+function XUiStrongholdDetail:OnClickBtnAutoFight()
+    XDataCenter.StrongholdManager.RequestSweepStrongholdStage(self.GroupId, handler(self, self.Close))
 end
 
 function XUiStrongholdDetail:OnClickBtnClose()
     self:Close()
     if self.CloseCb then self.CloseCb() end
+
 end
 
 function XUiStrongholdDetail:OnClickBtnEnter()
+    local groupId = self.GroupId
+    if XDataCenter.StrongholdManager.IsAutoFightByGroupId(groupId) then
+        local title = CSXTextManagerGetText("TipTitle")
+        local content = CSXTextManagerGetText("StrongholdNotAutoFightTipsDesc")
+        XUiManager.DialogTip(title, content, XUiManager.DialogType.Normal, nil, handler(self, self.EnterFight))
+        return
+    end
+    self:EnterFight()
+end
+
+function XUiStrongholdDetail:EnterFight()
     local groupId = self.GroupId
 
     local btnFunc = function()

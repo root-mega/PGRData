@@ -13,7 +13,7 @@ function XUiBabelTowerWinPanel:Ctor(ui, rootUi)
     self.RImgHead.gameObject:SetActiveEx(false)
 end
 
-function XUiBabelTowerWinPanel:SetData(stageId, teamId, challengeBuffs, supportBuffs, curTeamScore, curActivityMaxScore)
+function XUiBabelTowerWinPanel:SetData(stageId, teamId, challengeBuffs, supportBuffs, curTeamScore, curActivityMaxScore, babelTowerSettleResult)
     self.StageId = stageId
     self.TeamId = teamId
     -- 玩家基本信息
@@ -25,12 +25,10 @@ function XUiBabelTowerWinPanel:SetData(stageId, teamId, challengeBuffs, supportB
     self.TxtTeamNumber.text = CsXTextManager.GetText("BabelTowerTeamOrder", teamId)
     self.TxtTeamLevel.text = teamScore
     local characterIds = XDataCenter.FubenBabelTowerManager.GetTeamCharacterIds(stageId, teamId)
-    local characterId, characterIcon
     local headContentChild, rImgHeadIcon
     for i = 1, 3 do
-        characterId = characterIds[i]
-        if characterId and characterId > 0 then
-            characterIcon = XDataCenter.CharacterManager.GetCharSmallHeadIcon(characterId)
+        local characterViewModel = XEntityHelper.GetCharacterViewModelByEntityId(characterIds[i])
+        if characterViewModel then
             if i > self.HeadContent.childCount then
                 headContentChild = CS.UnityEngine.Object.Instantiate(self.RImgHead, self.HeadContent)
             else
@@ -38,7 +36,7 @@ function XUiBabelTowerWinPanel:SetData(stageId, teamId, challengeBuffs, supportB
             end
             headContentChild.gameObject:SetActiveEx(true)
             rImgHeadIcon = headContentChild:GetComponent("RawImage")
-            rImgHeadIcon:SetRawImage(characterIcon)
+            rImgHeadIcon:SetRawImage(characterViewModel:GetSmallHeadIcon())
         end
     end
     -- 关卡难度
@@ -77,15 +75,17 @@ function XUiBabelTowerWinPanel:SetData(stageId, teamId, challengeBuffs, supportB
     -- 关卡名
     self.TxtStageName.text = stageConfig.Title
     -- 完成等级
-    local finishedScore = self:GetChallengePoints(challengeBuffs)
+    local finishedScore = babelTowerSettleResult.FinalScore
     self.RImgLevelUp.gameObject:SetActiveEx(finishedScore > curTeamScore)
     self.TxtLevel.text = finishedScore
     -- 总等级
-    local _, maxScore = XDataCenter.FubenBabelTowerManager.GetCurrentActivityScores()
-    -- if maxScore > curActivityMaxScore then
-    --     XLog.Warning("====================== todo, 播放活动升级特效")
-    -- end
-    self.TxtTotalLevel.text = "Total Lv: " .. maxScore -- 海外修改
+    self.TxtTotalLevel.text = XUiHelper.GetText("BabelTowerSettleTotalLevel", babelTowerSettleResult.OriginScore)
+    -- 复活
+    self.TxtTitle01.gameObject:SetActiveEx(babelTowerSettleResult.RebootSubScore > 0)
+    self.TxtNumber01.text = XUiHelper.GetText("BabelTowerSettleLevelTips", babelTowerSettleResult.RebootSubScore)
+    -- 超时
+    self.TxtTitle02.gameObject:SetActiveEx(babelTowerSettleResult.TimeoutSubScore > 0)
+    self.TxtNumber02.text = XUiHelper.GetText("BabelTowerSettleLevelTips", babelTowerSettleResult.TimeoutSubScore)
     -- 角色立绘
     local captainPos = XDataCenter.FubenBabelTowerManager.GetTeamCaptainPos(stageId, teamId)
     self.RImgRole:SetRawImage(XDataCenter.CharacterManager.GetCharHalfBodyBigImage(characterIds[captainPos]))
@@ -164,7 +164,7 @@ function XUiBabelTowerFightTips:OnBtnBackClick()
 end
 
 
-function XUiBabelTowerFightTips:OnStart(stageId, battleStatus)
+function XUiBabelTowerFightTips:OnStart(stageId, battleStatus, babelTowerSettleResult)
     self.BaseBuffGrids = {}
 
     self.StageId = stageId
@@ -182,7 +182,7 @@ function XUiBabelTowerFightTips:OnStart(stageId, battleStatus)
     self.PanelWin.gameObject:SetActiveEx(self.BattleStatus == XFubenBabelTowerConfigs.BattleEnd)
     -- 如果是胜利界面，直接交给胜利界面单独处理
     if self.BattleStatus == XFubenBabelTowerConfigs.BattleEnd then
-        self.UiBabelTowerWinPanel:SetData(self.CurStageId, self.CurTeamId, self.ChallengeBuffs, self.SupportBuffs, self.CurTeamScore, self.curActivityMaxScore)
+        self.UiBabelTowerWinPanel:SetData(self.CurStageId, self.CurTeamId, self.ChallengeBuffs, self.SupportBuffs, self.CurTeamScore, self.curActivityMaxScore, babelTowerSettleResult)
         self:PlayAnimation(ANIM_END_ENABLE)
         return
     end

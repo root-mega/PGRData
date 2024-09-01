@@ -8,6 +8,14 @@ function XUiFubenPokerGuessingTask:OnStart()
     self:InitDynamicTable()
     self:RegisterButtonClick()
     self:Refresh()
+
+    local endTime = XDataCenter.PokerGuessingManager.GetEndTime()
+    self:SetAutoCloseInfo(endTime, function(isClose)
+        if isClose then
+            XDataCenter.PokerGuessingManager.OnActivityEnd()
+            return
+        end 
+    end)
 end
 
 function XUiFubenPokerGuessingTask:OnEnable()

@@ -19,6 +19,9 @@ local IOSPayCallback = nil  -- iOS 充值回调
 local CallbackUrl = CS.XRemoteConfig.PayCallbackUrl
 
 local XRecordUserInfo = CS.XRecord.XRecordUserInfo
+local deepLinkValue = ""
+
+local HeroRoleInfo = CS.XHeroRoleInfo
 
 local CleanPayCallbacks = function()
     PayCallbacks = {}
@@ -37,8 +40,7 @@ XHgSdkManager.UserType = {
     Apple = 7,
     Line = 8,
     Suid = 9,
-    Huawei = 10,
-    Oppo = 11,
+    Mail = 16,
 }
 
 --检测SDK是否已经登录
@@ -130,6 +132,11 @@ function XHgSdkManager.LoginOppo()
     CS.XHgSdkAgent.SwitchAccount(XHgSdkManager.UserType.Oppo);
 end
 
+function XHgSdkManager.LoginMail()
+    XLog.Debug("SDK登录类型:邮箱登录")
+    CS.XHgSdkAgent.LoginMail()
+end
+
 local loginMethods = {
     [XHgSdkManager.UserType.Quickly] = XHgSdkManager.LoginQuickly,
     [XHgSdkManager.UserType.Vistor] = XHgSdkManager.LoginVisitor,
@@ -138,8 +145,6 @@ local loginMethods = {
     [XHgSdkManager.UserType.Apple] = XHgSdkManager.LoginApple,
     [XHgSdkManager.UserType.Twitter] = XHgSdkManager.LoginTwitter,
     [XHgSdkManager.UserType.Suid] = XHgSdkManager.LoginSid,
-    [XHgSdkManager.UserType.Huawei] = XHgSdkManager.LoginHuawei,
-    [XHgSdkManager.UserType.Oppo] = XHgSdkManager.LoginOppo,
     [XHgSdkManager.UserType.Line] = XHgSdkManager.LoginLine,
 }
 
@@ -198,6 +203,12 @@ function XHgSdkManager.OnLoginSuccess(jsondata)
     XLog.Debug("--------------jsondata---------------")
     XLog.Debug(jsondata)
     local data = Json.decode(jsondata)
+
+    if tonumber(data.logoutStatus) == XLoginManager.SDKAccountStatus.Cancellation and Platform == RuntimePlatform.Android then
+        IsSdkLogined = false
+    else
+        IsSdkLogined = true
+    end
 
     local info = XRecordUserInfo()
 
@@ -295,6 +306,40 @@ function XHgSdkManager.OnLoginUnRegister()
     CS.XHgSdkAgent.ShowRegister()
 end
 
+local GetRoleInfo = function()
+    local roleInfo = HeroRoleInfo()
+    roleInfo.Id = XPlayer.Id
+    if XUserManager.IsKuroSdk() then 
+        -- 库洛母包需要有正确的区服ID，下面那个else获取的是服务器列表索引值，其实是错的
+        roleInfo.ServerId = CS.XHeroBdcAgent.ServerId
+    else 
+        roleInfo.ServerId = XServerManager.Id
+    end
+    roleInfo.ServerName = XServerManager.ServerName
+    roleInfo.Name = XPlayer.Name
+    roleInfo.Level = XPlayer.Level
+    roleInfo.CreateTime = XPlayer.CreateTime
+    roleInfo.PaidGem = XDataCenter.ItemManager.GetCount(XDataCenter.ItemManager.ItemId.PaidGem)
+    roleInfo.Coin = XDataCenter.ItemManager.GetCount(XDataCenter.ItemManager.ItemId.Coin)
+    roleInfo.SumPay = 0
+    roleInfo.VipLevel = 0
+    roleInfo.PartyName = nil
+
+    return roleInfo
+end
+
+function XHgSdkManager.CreateNewRole()
+    CS.XHgSdkAgent.CreateNewRole(GetRoleInfo())
+end
+
+function XHgSdkManager.EnterGame()
+    CS.XHgSdkAgent.EnterGame(GetRoleInfo())
+end
+
+function XHgSdkManager.RoleLevelUp()
+    CS.XHgSdkAgent.RoleLevelUp(GetRoleInfo())
+end
+
 local GetOrderInfo = function(productKey, cpOrderId, goodsId, roleId)
     local orderInfo = HgOrderInfo()
     orderInfo.CpOrderId = cpOrderId
@@ -307,7 +352,7 @@ local GetOrderInfo = function(productKey, cpOrderId, goodsId, roleId)
     if Platform == RuntimePlatform.WindowsPlayer 
     or Platform == RuntimePlatform.WindowsEditor then 
         local template = XPayConfigs.GetPayTemplate(productKey)
-        orderInfo.Price = template.Amount
+        orderInfo.Price = template.DisplayAmount
         orderInfo.GoodsName = template.Name
         orderInfo.ServerId = XServerManager.Id
         orderInfo.ServerName = XServerManager.ServerName
@@ -328,8 +373,7 @@ function XHgSdkManager.Pay(productKey, cpOrderId, goodsId, cb)
             }
         }
     end
-    
-    local order = GetOrderInfo(productKey, cpOrderId, goodsId, XPlayer.Id)
+    local order = GetOrderInfo(productKey,cpOrderId, goodsId, XPlayer.Id)
     CS.XHgSdkAgent.Pay(order)
 end
 
@@ -503,14 +547,14 @@ end
 
 function XHgSdkManager.AccountCancellation()
     XLog.Debug("Lua层调用注销账号")
-    if Platform == RuntimePlatform.IPhonePlayer then -- 目前只有ios存在账号注销功能
+    if Platform == RuntimePlatform.IPhonePlayer or Platform == RuntimePlatform.Android then
         CS.XHgSdkAgent.AccountCancellation()
     end
 end
 
 function XHgSdkManager.AccountUnCancellation()
     XLog.Debug("Lua层调用取消注销账号")
-    if Platform == RuntimePlatform.IPhonePlayer then -- 目前只有ios存在该功能
+    if Platform == RuntimePlatform.IPhonePlayer or Platform == RuntimePlatform.Android then
         CS.XHgSdkAgent.AccountUnCancellation()
     end
 end
@@ -522,7 +566,7 @@ end
 
 function XHgSdkManager.reportAccountInfo(serverId,roleId,cpExt)
     if Platform == RuntimePlatform.Android then
-        CS.XHgSdkAgent.reportAccountInfo(serverId,roleId,cpExt)
+        CS.XHgSdkAgent.reportAccountInfo(serverId,roleId,OrderUrl,cpExt)
     end
 end
 -- 注销账号成功回调
@@ -553,6 +597,10 @@ function XHgSdkManager.OnBdcServerBeanChanged()
     else
         XLog.Error("Lua OnBdcServerBeanChanged ServerBean is Nil")
     end
+end
+
+function XHgSdkManager.ClearDeepLinkValue()
+    deepLinkValue = nil
 end
 
 function XHgSdkManager.GetDeepLinkValue()

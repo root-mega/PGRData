@@ -31,7 +31,7 @@ function XUiGuildBossOtherSubLevelInfo:OnEnable()
     self.Data = self.ParentUi.CurSelectLevelData
     self.ConfigData = XGuildBossConfig.GetBossStageInfo(self.Data.StageId)
     --buff
-    self.Skill:Init(self.ConfigData, self.Data.BuffNeed)
+    self.Skill:Init(self.ConfigData, self.Data)
     --Rank
     self.RankPanel:Init(self.Data.StageId)
     --log

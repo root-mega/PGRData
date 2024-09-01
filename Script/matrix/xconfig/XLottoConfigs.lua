@@ -3,8 +3,10 @@ XLottoConfigs = XLottoConfigs or {}
 local TABLE_LOTTO = "Share/Lotto/Lotto.tab"
 local TABLE_LOTTO_REWARD = "Share/Lotto/LottoReward.tab"
 local TABLE_LOTTO_BUY_TICKET_RULE = "Share/Lotto/LottoBuyTicketRule.tab"
+local TABLE_LOTTO_CLIENT_CONFIG = "Client/Lotto/LottoClientConfig.tab"
 local TABLE_LOTTO_PROBSHOW = "Client/Lotto/LottoProbShow.tab"
 local TABLE_LOTTO_GROUP_RULE = "Client/Lotto/LottoGroupRule.tab"
+local TABLE_LOTTO_SHOW_REWARD_CONFIG = "Client/Lotto/LottoShowRewardConfig.tab"
 
 local Lottos = {}
 local LottoRewards = {}
@@ -12,6 +14,8 @@ local LottoProbShow = {}
 local LottoRewardDic = {}
 local LottoGroupRule = {}
 local LottoBuyTicketRules = {}
+local LottoShowRewardConfig = {}
+local LottoClientConfig = {}
 
 XLottoConfigs.RareLevel = {
     One = 1,
@@ -32,7 +36,8 @@ function XLottoConfigs.Init()
     LottoProbShow = XTableManager.ReadByIntKey(TABLE_LOTTO_PROBSHOW, XTable.XTableLottoProbShow, "Id")
     LottoGroupRule = XTableManager.ReadByIntKey(TABLE_LOTTO_GROUP_RULE, XTable.XTableLottoGroupRule, "Id")
     LottoBuyTicketRules = XTableManager.ReadByIntKey(TABLE_LOTTO_BUY_TICKET_RULE, XTable.XTableLottoBuyTicketRule, "Id")
-    
+    LottoShowRewardConfig = XTableManager.ReadByIntKey(TABLE_LOTTO_SHOW_REWARD_CONFIG,XTable.XTableLottoShowRewardConfig,"Id")
+    LottoClientConfig = XTableManager.ReadByStringKey(TABLE_LOTTO_CLIENT_CONFIG,XTable.XTableLottoClientConfig,"Key")
     XLottoConfigs.SetLottoRewardDic()
 end
 
@@ -44,6 +49,8 @@ function XLottoConfigs.GetLottos()
     return Lottos
 end
 
+--region Cfg - Lotto
+---@return XTableLotto
 function XLottoConfigs.GetLottoCfgById(id)
     if not Lottos[id] then
         XLog.Error("id is not exist in "..TABLE_LOTTO.." id = " .. id)
@@ -52,10 +59,23 @@ function XLottoConfigs.GetLottoCfgById(id)
     return Lottos[id]
 end
 
+function XLottoConfigs.GetLottoStageActivity(id)
+    local cfg = XLottoConfigs.GetLottoCfgById(id)
+    return cfg and cfg.LottoStageActivity or 0
+end
+
+function XLottoConfigs.GetLottoOpenUiName(id)
+    local cfg = XLottoConfigs.GetLottoCfgById(id)
+    return cfg and cfg.OpenUiName or "UiLotto"
+end
+--endregion 
+
+---@return XTableLottoProbShow[]
 function XLottoConfigs.GetLottoProbShows()
     return LottoProbShow
 end
 
+---@return XTableLottoProbShow
 function XLottoConfigs.GetLottoProbShowCfgById(id)
     if not LottoProbShow[id] then
         XLog.Error("id is not exist in "..TABLE_LOTTO_PROBSHOW.." id = " .. id)
@@ -64,6 +84,7 @@ function XLottoConfigs.GetLottoProbShowCfgById(id)
     return LottoProbShow[id]
 end
 
+---@return XTableLottoReward
 function XLottoConfigs.GetLottoRewardCfgById(id)
     if not LottoRewards[id] then
         XLog.Error("id is not exist in "..TABLE_LOTTO_REWARD.." id = " .. id)
@@ -72,6 +93,7 @@ function XLottoConfigs.GetLottoRewardCfgById(id)
     return LottoRewards[id]
 end
 
+---@return XTableLottoGroupRule
 function XLottoConfigs.GetLottoGroupRuleCfgById(id)
     if not LottoGroupRule[id] then
         XLog.Error("id is not exist in "..LottoGroupRule.." id = " .. id)
@@ -101,4 +123,86 @@ function XLottoConfigs.SetLottoRewardDic()
         LottoRewardDic[reward.LottoId] = LottoRewardDic[reward.LottoId] or {}
         table.insert(LottoRewardDic[reward.LottoId],reward)
     end
+end
+
+
+function XLottoConfigs.GetLottoRewardEffectPath(templateId)
+    return LottoShowRewardConfig[templateId] and LottoShowRewardConfig[templateId].DrawEffectPath or nil
+end
+
+function XLottoConfigs.GetLottoRewardEffectPosition(templateId)
+    return LottoShowRewardConfig[templateId] and LottoShowRewardConfig[templateId].EffectPosition or nil
+end
+
+function XLottoConfigs.GetLottoRewardEffectRotation(templateId)
+    return LottoShowRewardConfig[templateId] and LottoShowRewardConfig[templateId].EffectRotation or nil
+end
+
+function XLottoConfigs.GetLottoRewardEffectScale(templateId)
+    return LottoShowRewardConfig[templateId] and LottoShowRewardConfig[templateId].EffectScale or nil
+end
+function XLottoConfigs.GetLottoRewardAnimationName(templateId)
+    return LottoShowRewardConfig[templateId] and LottoShowRewardConfig[templateId].AnimationName or nil
+end
+
+---@return string
+function XLottoConfigs.GetLottoClientConfig(key, index)
+    index = index or 1
+    return LottoClientConfig[key] and LottoClientConfig[key].Value[index]
+end
+
+---@return number
+function XLottoConfigs.GetLottoClientConfigNumber(key, index)
+    index = index or 1
+    return LottoClientConfig[key] and tonumber(LottoClientConfig[key].Value[index])
+end
+
+---@return table
+function XLottoConfigs._GetLottoKalieSpecialRewardIdDir()
+    local result = {}
+    local key = "KalieSpecialRewardId"
+    local valueList = LottoClientConfig[key].Value
+    if XTool.IsTableEmpty(valueList) then
+        return result
+    end
+    for index, value in ipairs(valueList) do
+        result[tonumber(value)] = index
+    end
+    return result
+end
+
+---@return string
+function XLottoConfigs._GetLottoKalieSpecialDrawTimeLine(index)
+    index = index or 1
+    local key = "KalieSpecialRewardEffectDraw"
+    return LottoClientConfig[key] and LottoClientConfig[key].Value[index]
+end
+
+---@return number
+function XLottoConfigs._GetLottoKalieSpecialDrawEffectGroupId(index)
+    index = index or 1
+    local key = "KalieSpecialRewardEffectShow"
+    return LottoClientConfig[key] and tonumber(LottoClientConfig[key].Value[index])
+end
+
+---@return number
+function XLottoConfigs.GetLottoKalieDrawEffectGroupId(templateId, quality)
+    local index = quality and quality - 3 or 1
+    local key = "KalieRewardEffectShow"
+    local dir = XLottoConfigs._GetLottoKalieSpecialRewardIdDir()
+    if dir[templateId] then
+        return XLottoConfigs._GetLottoKalieSpecialDrawEffectGroupId(dir[templateId])
+    end
+    return LottoClientConfig[key] and tonumber(LottoClientConfig[key].Value[index])
+end
+
+---@return string
+function XLottoConfigs.GetLottoKalieDrawTimeLine(templateId, quality)
+    local index = quality and quality - 3 or 1
+    local key = "KalieRewardEffectDraw"
+    local dir = XLottoConfigs._GetLottoKalieSpecialRewardIdDir()
+    if dir[templateId] then
+        return XLottoConfigs._GetLottoKalieSpecialDrawTimeLine(dir[templateId])
+    end
+    return LottoClientConfig[key] and LottoClientConfig[key].Value[index]
 end

@@ -95,6 +95,8 @@ function XUiPanelAddContactView:OnBtnSerachClick()--搜索玩家
         else
             XDataCenter.SocialManager.SearchPlayer(inputid, callback)
         end
+    elseif inputid == nil then
+        XUiManager.TipText("PleaseEnterPlayerID")
     end
 end
 --------------------------End Btn Event--------------------------

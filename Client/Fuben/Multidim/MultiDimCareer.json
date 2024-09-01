@@ -1,0 +1,41 @@
+[
+    {
+        "Career": 1,
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "IconTranspose": "Assets/Product/Texture/Image/IconType/IconCharacter3Transpose.png",
+        "Des": "<color=#0F70BC>High frequency Matrix, massive DMG increase</color>\\nFever gives allies Matrix for a designated time",
+        "Name": "Attack/Vanguard",
+        "SortId": 3,
+        "FilterCareer": [
+            null,
+            1,
+            4.0
+        ]
+    },
+    {
+        "Career": 2,
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "IconTranspose": "Assets/Product/Texture/Image/IconType/IconCharacter1Transpose.png",
+        "Des": "<color=#0F70BC>Dodge recovery, DEF reduction</color>\\nFever gives allies a shield and Dodge recovery",
+        "Name": "Tank",
+        "SortId": 2,
+        "FilterCareer": [
+            null,
+            2,
+            null
+        ]
+    },
+    {
+        "Career": 3,
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+        "IconTranspose": "Assets/Product/Texture/Image/IconType/IconCharacter2Transpose.png",
+        "Des": "<color=#0F70BC>Signal orb recovery, increased HP regen speed</color>\\nFever gives allies signal orb regen",
+        "Name": "Support/Amplifier",
+        "SortId": 1,
+        "FilterCareer": [
+            null,
+            3,
+            5.0
+        ]
+    }
+]

@@ -73,19 +73,6 @@ function XUiGridQuickDeployTeam:Refresh(echelonId, team, echelonIndex, echelonTy
         end
     end
 
-    if not XFubenConfigs.IsStageCharacterLimitConfigExist(characterLimitType) then
-        self.PanelRequireCharacter.gameObject:SetActiveEx(false)
-        return
-    else
-        self.PanelRequireCharacter.gameObject:SetActiveEx(true)
-    end
-
-    local icon = XFubenConfigs.GetStageCharacterLimitImageTeamEdit(characterLimitType)
-    self.ImgRequireCharacter:SetSprite(icon)
-
-    local name = XFubenConfigs.GetStageCharacterLimitName(characterLimitType)
-    self.TxtRequireCharacter.text = name
-
     --队长/首发
     for i = echelonRequireCharacterNum + 1, #self.TabGroup do
         self.TabGroup[i].gameObject:SetActiveEx(false)
@@ -98,6 +85,19 @@ function XUiGridQuickDeployTeam:Refresh(echelonId, team, echelonIndex, echelonTy
     end
     local captainPos = XDataCenter.BfrtManager.GetTeamCaptainPos(echelonId, groupId, echelonIndex)
     self.PanelTabCaptain:SelectIndex(captainPos)
+
+    if not XFubenConfigs.IsStageCharacterLimitConfigExist(characterLimitType) then
+        self.PanelRequireCharacter.gameObject:SetActiveEx(false)
+        return
+    else
+        self.PanelRequireCharacter.gameObject:SetActiveEx(true)
+    end
+
+    local icon = XFubenConfigs.GetStageCharacterLimitImageTeamEdit(characterLimitType)
+    self.ImgRequireCharacter:SetSprite(icon)
+
+    local name = XFubenConfigs.GetStageCharacterLimitName(characterLimitType)
+    self.TxtRequireCharacter.text = name
 end
 
 function XUiGridQuickDeployTeam:OnClickTabCallBack(firstFightPos)

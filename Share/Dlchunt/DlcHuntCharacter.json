@@ -1,0 +1,40 @@
+[
+    {
+        "Id": 1021001,
+        "NpcId": 1002,
+        "Name": "Lucia",
+        "TradeName": "Lotus",
+        "LogName": "Lucia: Lotus",
+        "EnName": "Lucia",
+        "Icon": "Assets/Product/Texture/Image/Role/RoleHeadluxiya.png",
+        "Sex": 1,
+        "Priority": 80,
+        "EquipId": 2022001,
+        "DefaultNpcFashionId": 6210101,
+        "Code": "BPL-01",
+        "Element": [
+            null,
+            1,
+            null
+        ]
+    },
+    {
+        "Id": 1041003,
+        "NpcId": 1014,
+        "Name": "Bianca",
+        "TradeName": "Veritas",
+        "LogName": "Bianca: Veritas",
+        "EnName": "Bianca",
+        "Icon": "Assets/Product/Texture/Image/Role/RoleHeadBiankaSS.png",
+        "Sex": 1,
+        "Priority": 100,
+        "EquipId": 2046002,
+        "DefaultNpcFashionId": 6410303,
+        "Code": "BPO-87",
+        "Element": [
+            null,
+            4,
+            null
+        ]
+    }
+]

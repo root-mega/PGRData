@@ -1,4 +1,5 @@
 -- 庆典类活动关卡对象
+---@class XFestivalStage
 local XFestivalStage = XClass(nil, "XFestivalStage")
 --====================
 --构造函数
@@ -222,13 +223,19 @@ end
 --获取关卡挑战所需体力
 --====================
 function XFestivalStage:GetRequireActionPoint()
-    return self.StageCfg and self.StageCfg.RequireActionPoint or 0
+    return XDataCenter.FubenManager.GetRequireActionPoint(self.StageId)
 end
 --====================
 --获取关卡图标
 --====================
 function XFestivalStage:GetIcon()
     return self.StageCfg and self.StageCfg.Icon
+end
+--====================
+--获取剧情关卡图标
+--====================
+function XFestivalStage:GetStoryIcon()
+    return self.StageCfg and self.StageCfg.StoryIcon
 end
 --====================
 --获取关卡首通奖励

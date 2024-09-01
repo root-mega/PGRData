@@ -3,10 +3,15 @@
         "Id": 1,
         "DefaultEnergy": 1,
         "DefaultUnlockPositions": [
-            5
+            null,
+            5,
+            null,
+            null
         ],
         "FirstMonsterIds": [
-            15000003
+            null,
+            15000003,
+            null
         ],
         "DefaultStageTimes": 20,
         "StageTimesMax": 30,

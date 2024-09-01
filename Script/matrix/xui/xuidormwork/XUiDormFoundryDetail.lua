@@ -34,6 +34,7 @@ end
 
 function XUiDormFoundryDetail:OnEnable()
     self:OnRefresh()
+    XDataCenter.UiPcManager.OnUiEnable(self, "BtnCloseFun")
 end
 
 function XUiDormFoundryDetail:OnDisable()
@@ -43,6 +44,7 @@ function XUiDormFoundryDetail:OnDisable()
         end
     end
     self.UiRoot.PanelWork.gameObject:SetActiveEx(true)
+    XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
 end
 
 function XUiDormFoundryDetail:OnDestroy()

@@ -15,7 +15,7 @@ local function InitBtnStory()
     end
     btn.CallBack = function()
         XDataCenter.ReviewActivityManager.GetReviewData(function()
-                XLuaUiManager.Open("UiReviewActivity2Anniversary")
+                XLuaUiManager.Open("UiReviewActivityAnniversary")
             end)
     end
 end

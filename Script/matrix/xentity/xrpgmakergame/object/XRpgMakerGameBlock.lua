@@ -7,7 +7,8 @@ local Default = {
     _BlockStatus = 0,       --状态，1阻挡，0不阻挡
 }
 
---阻挡物对象
+---推箱子阻挡物对象
+---@class XRpgMakerGameBlock:XRpgMakerGameObject
 local XRpgMakerGameBlock = XClass(XRpgMakerGameObject, "XRpgMakerGameBlock")
 
 function XRpgMakerGameBlock:Ctor(id)

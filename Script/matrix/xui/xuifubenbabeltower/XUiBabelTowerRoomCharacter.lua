@@ -399,12 +399,12 @@ end
 
 function XUiBabelTowerRoomCharacter:OnBtnConsciousnessClick()
     if not self.CurCharacter then return end
-    XLuaUiManager.Open("UiEquipAwarenessReplace", self.CurCharacter.Id, nil, true)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipAwareness(self.CurCharacter.Id)
 end
 
 function XUiBabelTowerRoomCharacter:OnBtnWeaponClick()
     if not self.CurCharacter then return end
-    XLuaUiManager.Open("UiEquipReplaceNew", self.CurCharacter.Id, nil, true)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipReplace(self.CurCharacter.Id, nil, true)
 end
 
 function XUiBabelTowerRoomCharacter:OnBtnPartnerClick()

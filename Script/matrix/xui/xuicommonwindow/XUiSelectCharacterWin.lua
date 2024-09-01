@@ -388,11 +388,11 @@ function XUiSelectCharacterWin:OnBtnFashionClick()
 end
 
 function XUiSelectCharacterWin:OnBtnConsciousnessClick()
-    XLuaUiManager.Open("UiEquipAwarenessReplace", self.CurSelectData.Id, nil, true)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipAwareness(self.CurSelectData.Id)
 end
 
 function XUiSelectCharacterWin:OnBtnWeaponClick()
-    XLuaUiManager.Open("UiEquipReplaceNew", self.CurSelectData.Id, nil, true)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipReplace(self.CurSelectData.Id, nil, true)
 end
 
 function XUiSelectCharacterWin:OnBtnTeachingClick()

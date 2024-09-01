@@ -202,4 +202,13 @@ function XUiPanelPracticeMainline:EndScrollViewMove()
     self.PanelStageList.movementType = CS.UnityEngine.UI.ScrollRect.MovementType.Elastic
 end
 
+function XUiPanelPracticeMainline:OnSelectStageByStageId(stageId)
+    for _, grid in ipairs(self.GridStageList) do
+        if grid.StageId == stageId then
+            grid:OnBtnStage()
+            break
+        end
+    end
+end
+
 return XUiPanelPracticeMainline

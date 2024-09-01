@@ -40,6 +40,8 @@ end
 --######################## XUiEscapeBattleRoomRoleDetail ########################
 local XRobot = require("XEntity/XRobot/XRobot")
 local XUiBattleRoomRoleDetailDefaultProxy = require("XUi/XUiNewRoomSingle/XUiBattleRoomRoleDetailDefaultProxy")
+---@class XUiEscapeBattleRoomRoleDetail:XUiBattleRoomRoleDetailDefaultProxy
+---@field Super XUiBattleRoomRoleDetailDefaultProxy
 local XUiEscapeBattleRoomRoleDetail = XClass(XUiBattleRoomRoleDetailDefaultProxy, "XUiEscapeBattleRoomRoleDetail")
 
 function XUiEscapeBattleRoomRoleDetail:Ctor()

@@ -17,6 +17,10 @@ XAutoWindowConfigs.AutoFunctionType = {
     Regression      = 5,     -- 回归活动(特殊处理类型)
     NewRegression   = 6,     -- 新回归活动(特殊处理类型)
     WeekChallenge   = 7,     -- 周挑战(特殊处理类型)
+    SummerSignIn   = 8,      -- 夏日签到
+    NoticeActivity = 9,      -- 原公告内的活动
+    Regression3rd  = 10,     -- 回归活动3期
+    SClassConstructNovice  = 11,  -- 新手S礼包
     -- 日服定制
     NewYearZhanBu   = 500,     -- 元旦占卜
     NewYearDrawActivity = 501, -- 元旦抽奖

@@ -28,7 +28,7 @@ function XUiGridSummerEpisodeSettleItem:OnBtnAddFriendClick()
     self.Parent:OnApplyFriend(self.PlayerData.Id)
 end
 
-function XUiGridSummerEpisodeSettleItem:Init(playerData, playerCount)
+function XUiGridSummerEpisodeSettleItem:Init(playerData, playerCount, stageId)
     local medalConfig = XMedalConfigs.GetMeadalConfigById(playerData.MedalId)
     local medalIcon = nil
     if medalConfig then
@@ -52,9 +52,15 @@ function XUiGridSummerEpisodeSettleItem:Init(playerData, playerCount)
     self.PanelArenaOnline.gameObject:SetActiveEx(isArenaOnline and isPass)
 
     local item1 = CS.UnityEngine.GameObject.Instantiate(self.GridFightDataItem, self.PanelFightDataContainer)
+    --2.6 只有合作模式
+    --[[
+    local IsPeaceModel = XFubenSpecialTrainConfig.IsHellStageId(stageId)
+    local mischiefText = IsPeaceModel and CSXTextManagerGetText("SummerEpisodeWorkingScore") or CSXTextManagerGetText("SummerEpisodeMischiefScore")
+    --]]
+    local mischiefText=CSXTextManagerGetText("SummerEpisodeWorkingScore")
     self.GridFightDataList = {
-    XUiGridFightDataItem.New(self.GridFightDataItem, CSXTextManagerGetText("SummerEpisodePhotoScore")),
-        XUiGridFightDataItem.New(item1, CSXTextManagerGetText("SummerEpisodeMischiefScore")),
+        XUiGridFightDataItem.New(self.GridFightDataItem, CSXTextManagerGetText("SummerEpisodePhotoScore")),
+        XUiGridFightDataItem.New(item1, mischiefText),
     }
 end
 

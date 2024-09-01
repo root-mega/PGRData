@@ -136,7 +136,9 @@ function XUiPanelFubenWeiLaStage:OnShow(type)
     if fristNewStageIndex > 1 then self:SetPanelInNewStage(self.StageGroup[fristNewStageIndex].transform) end
 
     self.LineIcon.gameObject:SetActiveEx(XDataCenter.FubenNewCharActivityManager.CheckStagePass(self.StageIds[#self.StageIds - 1]))
-    self.LineEnable:PlayTimelineAnimation()
+    if self.LineEnable then
+        self.LineEnable:PlayTimelineAnimation()
+    end
 end
 
 function XUiPanelFubenWeiLaStage:OnHide()

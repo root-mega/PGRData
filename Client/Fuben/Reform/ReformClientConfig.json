@@ -3,22 +3,59 @@
         "Key": "SceneUrl",
         "Desc": "Scenario Resources",
         "Values": [
+            null,
             "Assets/Product/Ui/Scene3DPrefab/UiCharacter3d2.prefab",
-            "Assets/Product/Ui/Scene3DPrefab/UiCharacter3d02.prefab"
+            "Assets/Product/Ui/Scene3DPrefab/UiCharacter3d02.prefab",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ModelUrl",
         "Desc": "Model Resources",
         "Values": [
+            null,
             "Assets/Product/Ui/UiModel/UiCharacter3d/UiReform.prefab",
-            "Assets/Product/Ui/UiModel/UiCharacter3d/UiReform.prefab"
+            "Assets/Product/Ui/UiModel/UiCharacter3d/UiReform.prefab",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "NormalTaskIds",
         "Desc": "Normal Mission IDs",
         "Values": [
+            null,
             "88010",
             "88011",
             88012.0,
@@ -44,6 +81,7 @@
         "Key": "ChallengeTaskIds",
         "Desc": "Challenge Mission IDs",
         "Values": [
+            null,
             "88029",
             "88030",
             88031.0,
@@ -53,7 +91,42 @@
             88035.0,
             88036.0,
             88037.0,
-            88038.0
+            88038.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Key": "TaskRewardDisplay",
+        "Desc": "Display Reward Missions",
+        "Values": [
+            null,
+            "59996",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     }
 ]

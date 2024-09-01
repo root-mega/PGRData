@@ -16,6 +16,14 @@ function XUiTRPGRewardTip:OnStart(rewardIdList, truthRoadGroupId, secondMainId)
     self:Refresh()
 end
 
+function XUiTRPGRewardTip:OnEnable()
+
+end
+
+function XUiTRPGRewardTip:OnDisable()
+
+end
+
 function XUiTRPGRewardTip:AutoAddListener()
     self:RegisterClickEvent(self.BtnMask, self.Close)
     self:RegisterClickEvent(self.BtnTanchuangClose, self.Close)

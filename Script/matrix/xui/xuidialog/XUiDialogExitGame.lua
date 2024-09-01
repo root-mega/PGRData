@@ -1,6 +1,5 @@
-local XUiDialog = require("XUi/XUiDialog/XUiDialog")
 -- 为了解决: 重复按Esc, 会重复弹出"退出游戏"提示
-local XUiDialogExitGame = XLuaUiManager.Register(XUiDialog, "UiDialogExitGame")
+local XUiDialogExitGame = XLuaUiManager.Register(require("XUi/XUiDialog/XUiDialog"), "UiDialogExitGame")
 
 function XUiDialogExitGame:OnEnable()
     self.Super.OnEnable(self)

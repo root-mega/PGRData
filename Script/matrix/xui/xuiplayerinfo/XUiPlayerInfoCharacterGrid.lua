@@ -37,7 +37,7 @@ function XUiPlayerInfoCharacterGrid:OnBtnCharacter()
             partner:UpdateData(characterInfo.PartnerData)
             partner:SetIsBelongSelf(characterInfo.IsSelfData)
         end
-        XLuaUiManager.Open("UiPanelCharPropertyOther", character, equipList, characterInfo.WeaponFashionId, assignChapterRecords, partner)
+        XLuaUiManager.Open("UiPanelCharPropertyOther", character, equipList, characterInfo.WeaponFashionId, assignChapterRecords, partner, characterInfo.AwarenessSetPositions)
     end)
 end
 

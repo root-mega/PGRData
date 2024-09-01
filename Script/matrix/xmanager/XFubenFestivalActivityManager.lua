@@ -1,6 +1,9 @@
+local XExFubenFestivalManager = require("XEntity/XFuben/XExFubenFestivalManager")
 XFubenFestivalActivityManagerCreator = function()
     local XFestivalChapter = require("XEntity/XFestival/XFestivalChapter") 
-    local XFubenFestivalActivityManager = {}
+    ---@class XFubenFestivalActivityManager
+    local XFubenFestivalActivityManager = XExFubenFestivalManager.New(XFubenConfigs.ChapterType.Festival)
+    ---@type XFestivalChapter[]
     local FestivalChapters = {}
     XFubenFestivalActivityManager.StageFuben = 1    --战斗
     XFubenFestivalActivityManager.StageStory = 2    --剧情
@@ -113,6 +116,17 @@ XFubenFestivalActivityManagerCreator = function()
         end
         return activityList
     end
+
+    function XFubenFestivalActivityManager.GetFestivalsByUiType(uiType)
+        local result = {}
+        for _, chapter in pairs(FestivalChapters) do
+            if chapter:GetUiType() == uiType then
+                table.insert(result, chapter)
+            end
+        end
+        return result
+    end
+
     --====================
     --根据节日ID获取节日活动是否在开放时间内
     --@param festivalId:节日配置Id
@@ -129,6 +143,7 @@ XFubenFestivalActivityManagerCreator = function()
     --@param festivalId:节日配置Id
     --@param stageId:关卡表Id
     --====================
+    ---@return XFestivalStage
     function XFubenFestivalActivityManager.GetFestivalStageByFestivalIdAndStageId(festivalId, stageId)
         local chapter = FestivalChapters[festivalId]
         if not chapter then return end
@@ -154,6 +169,65 @@ XFubenFestivalActivityManagerCreator = function()
         end
         return false
     end
+    --====================
+    --获取所有在开放时间内的节日活动Id
+    --====================
+    function XFubenFestivalActivityManager.GetAllAvailableFestivalsId()
+        local activityList = {}
+        for _, chapter in pairs(FestivalChapters) do
+            if chapter:GetIsOpen() then
+                table.insert(activityList, chapter:GetChapterId())
+            end
+        end
+        return activityList
+    end
+    -- 红点的显示
+    -- 每天凌晨5点（通用重置时间）检测是否存在未通关关卡，存在则刷新红点显示
+    -- 点击进活动界面，红点消失，当天未重置前不再显示
+    function XFubenFestivalActivityManager.CheckFestivalRedPoint(sectionId)
+        local finishCount, totalCount = XFubenFestivalActivityManager.GetFestivalProgress(sectionId)
+        if finishCount < totalCount and not XFubenFestivalActivityManager.CheckFestivalActivityIsOpen(sectionId) then
+            return true
+        end
+        return false
+    end
+    -- 判断是否是红点判断的节日
+    function XFubenFestivalActivityManager.CheckFesticalAcitvityTimeIsOpen(sectionId)
+        if XTool.IsTableEmpty(FestivalChapters[sectionId]) then
+            return false
+        end
+        local timeId = FestivalChapters[sectionId]:GetActivityTimeId()
+        if not XTool.IsNumberValid(timeId) then
+            return false
+        else
+            local startTime, endTime = XFunctionManager.GetTimeByTimeId(timeId)
+            local nowTime = XTime.GetServerNowTimestamp()
+            return (nowTime >= startTime) and (nowTime < endTime)
+        end
+    end
+    -- 本地保存key
+    function XFubenFestivalActivityManager.GetFestivalActivityKey(sectionId)
+        return string.format("%s_%s_%s", "FubenFestivalActivityRedPoint", XPlayer.Id, sectionId)
+    end
+
+    function XFubenFestivalActivityManager.CheckFestivalActivityIsOpen(sectionId)
+        local key = XFubenFestivalActivityManager.GetFestivalActivityKey(sectionId)
+        local updateTime = XSaveTool.GetData(key)
+        if not updateTime then
+            return false
+        end
+        return XTime.GetServerNowTimestamp() < updateTime
+    end
+
+    function XFubenFestivalActivityManager.SaveFestivalActivityIsOpen(sectionId)
+        if XFubenFestivalActivityManager.CheckFestivalActivityIsOpen(sectionId) then
+            return
+        end
+        local key = XFubenFestivalActivityManager.GetFestivalActivityKey(sectionId)
+        local updateTime = XTime.GetSeverTomorrowFreshTime()
+        XSaveTool.SaveData(key, updateTime)
+    end
+    
     -- [播放剧情]
     function XFubenFestivalActivityManager.FinishStoryRequest(stageId, cb)
         XNetwork.Call("EnterStoryRequest", { StageId = stageId }, function(res)

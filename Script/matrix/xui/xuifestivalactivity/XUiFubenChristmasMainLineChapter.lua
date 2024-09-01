@@ -90,6 +90,8 @@ function XUiFubenChristmasMainLineChapter:OnStart(chapterId, defaultStageId)
     if defaultStageId then
         self:OpenDefaultStage(defaultStageId)
     end
+    -- 保存点击
+    XDataCenter.FubenFestivalActivityManager.SaveFestivalActivityIsOpen(chapterId)
 end
 
 function XUiFubenChristmasMainLineChapter:InitProxy()
@@ -129,6 +131,11 @@ function XUiFubenChristmasMainLineChapter:SetUiData(chapterTemplate)
     end
     self:InitSkipBtn()
     if self.PaneStageList then
+        local listCanvas = self.PaneStageList.gameObject:GetComponent(typeof(CS.UnityEngine.Canvas))
+        local rootCanvas = self.GameObject:GetComponent(typeof(CS.UnityEngine.Canvas))
+        if not XTool.UObjIsNil(listCanvas) and not XTool.UObjIsNil(rootCanvas) then
+            listCanvas.sortingOrder = rootCanvas.sortingOrder + listCanvas.sortingOrder
+        end
         local dragProxy = self.PaneStageList:GetComponent(typeof(XUguiDragProxy))
         if not dragProxy then
             dragProxy = self.PaneStageList.gameObject:AddComponent(typeof(XUguiDragProxy))
@@ -148,7 +155,9 @@ function XUiFubenChristmasMainLineChapter:SetUiData(chapterTemplate)
     self:LoadEffect(chapterTemplate.EffectUrl)
     local now = XTime.GetServerNowTimestamp()
     local startTime, endTimeSecond = XFunctionManager.GetTimeByTimeId(self.Chapter:GetTimeId())
-    if endTimeSecond then
+    local isShowTime = endTimeSecond and endTimeSecond ~= 0
+    self.TxtDay.gameObject:SetActiveEx(isShowTime)
+    if isShowTime then
         self.TxtDay.text = XUiHelper.GetTime(endTimeSecond - now, self._Proxy:GetTimeFormatType())
         self:CreateActivityTimer(now, endTimeSecond)
     end
@@ -402,7 +411,7 @@ function XUiFubenChristmasMainLineChapter:ReopenAssetPanel()
     if self.IsOpenDetails then
         return
     end
-    if self.AssetPanel then
+    if self.AssetPanel and self.AssetPanel.GameObject and self.AssetPanel.GameObject:Exist() then
         self.AssetPanel.GameObject:SetActiveEx(true)
     end
 end

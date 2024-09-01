@@ -4,6 +4,7 @@ local tableInsert = table.insert
 local tableSort = table.sort
 
 XFashionManagerCreator = function()
+    ---@class XFashionManager
     local XFashionManager = {}
 
     XFashionManager.FashionStatus = {
@@ -16,14 +17,12 @@ XFashionManagerCreator = function()
         -- 已穿戴
         Dressed = 3,
     }
-
-    local TABLE_FASHION_PATH = "Share/Fashion/Fashion.tab"
+    
     local METHOD_NAME = {
         Use = "FashionUseRequest",
         Unlock = "FashionUnLockRequest",
     }
-
-    local FashionTemplates = {}      -- 时装配置
+    
     local OwnFashionStatus = {}           -- 已拥有的时装
     local CharFashions = {}     -- 角色对应时装列表
     local ResToFashionTab = {} -- 资源Id对应时装表
@@ -35,11 +34,7 @@ XFashionManagerCreator = function()
     --@return: 时装配置
     --==============================--
     function XFashionManager.GetFashionTemplate(id)
-        local tab = FashionTemplates[id]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionTemplate", "tab", TABLE_FASHION_PATH, "id", tostring(id))
-        end
-        return tab
+        return XFashionConfigs.GetFashionTemplate(id)
     end
 
     function XFashionManager.IsFashionInTime(id)
@@ -58,7 +53,7 @@ XFashionManagerCreator = function()
     --@return: 时装配置
     --==============================--
     function XFashionManager.GetAllFashionTemplateInTime()
-        local allFashionTemplates = XTool.Clone(FashionTemplates)
+        local allFashionTemplates = XTool.Clone(XFashionConfigs.GetFashionTemplates())
         local fashionTemplateDic = {}
         local timeStamp = XTime.GetServerNowTimestamp()
         for _, fashionTemplate in pairs(allFashionTemplates) do
@@ -131,11 +126,10 @@ XFashionManagerCreator = function()
     end
 
     function XFashionManager.Init()
-        FashionTemplates = XTableManager.ReadByIntKey(TABLE_FASHION_PATH, XTable.XTableFashion, "Id")
-
         local defaultHeadIconCheck = {}--默认头像只允许配置一种
         local liberationHeadIconCheck = {}--终解头像只允许配置一种
-        for id, template in pairs(FashionTemplates) do
+        local allFashionTemplates = XFashionConfigs.GetFashionTemplates()
+        for id, template in pairs(allFashionTemplates or {}) do
             local characterId = template.CharacterId
 
             local list = CharFashions[characterId]
@@ -164,7 +158,7 @@ XFashionManagerCreator = function()
                     }
                     defaultHeadIconCheck[characterId] = iconPath
                 else
-                    XLog.Error("XFashionManager.Init error: 同一角色默认头像不允许配置多个,请修改SmallHeadIcon字段,配置路径: " .. TABLE_FASHION_PATH .. " ,id: " .. id .. " ,characterId: " .. characterId)
+                    XLog.Error("XFashionManager.Init error: 同一角色默认头像不允许配置多个,请修改SmallHeadIcon字段,配置表格: Fashion.tab. Id: " .. id .. ", CharacterId: " .. characterId)
                 end
             end
             iconPath = template.SmallHeadIconLiberation--终解头像
@@ -176,7 +170,7 @@ XFashionManagerCreator = function()
                     }
                     liberationHeadIconCheck[characterId] = iconPath
                 else
-                    XLog.Error("XFashionManager.Init error: 同一角色终解头像不允许配置多个,请修改SmallHeadIconLiberation字段,配置路径: " .. TABLE_FASHION_PATH .. " ,id: " .. id .. " ,characterId: " .. characterId)
+                    XLog.Error("XFashionManager.Init error: 同一角色终解头像不允许配置多个,请修改SmallHeadIconLiberation字段,配置路径: Fashion.tab. Id: " .. id .. ", CharacterId: " .. characterId)
                 end
             end
             iconPath = template.SmallHeadIconFashion--特效皮肤
@@ -246,7 +240,7 @@ XFashionManagerCreator = function()
             if not XTool.IsNumberValid(characterId) then
                 return false
             end
-            return XDataCenter.ExhibitionManager.IsAchieveMaxLiberation(characterId)
+            return XDataCenter.ExhibitionManager.IsAchieveLiberation(characterId, XCharacterConfigs.GrowUpLevel.Higher)
         elseif headFashionType == XFashionConfigs.HeadPortraitType.Fashion then
             return XFashionManager.CheckHasFashion(headFashionId)
         end
@@ -264,13 +258,14 @@ XFashionManagerCreator = function()
     end
 
     --获取时装头像解锁条件描述
-    function XFashionManager.GetFashionHeadUnlockConditionDesc(headFashionType)
+    function XFashionManager.GetFashionHeadUnlockConditionDesc(headFashionType, headFashionId)
         if headFashionType == XFashionConfigs.HeadPortraitType.Default then
             return CsXTextManagerGetText("UiFashionHeadPortraitConditionDefault")
         elseif headFashionType == XFashionConfigs.HeadPortraitType.Liberation then
             return CsXTextManagerGetText("UiFashionHeadPortraitConditionLiberation")
         elseif headFashionType == XFashionConfigs.HeadPortraitType.Fashion then
-            return CsXTextManagerGetText("UiFashionHeadPortraitConditionFashion")
+            local fashionName = XFashionManager.GetFashionName(headFashionId)
+            return CsXTextManagerGetText("UiFashionHeadPortraitConditionFashion", fashionName)
         end
         return ""
     end
@@ -300,11 +295,7 @@ XFashionManagerCreator = function()
     end
 
     local function GetFashionSmallHeadIcon(fashionId)
-        local tab = FashionTemplates[fashionId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionSmallHeadIcon", "tab", TABLE_FASHION_PATH, "fashionId", tostring(fashionId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(fashionId)
         return tab.SmallHeadIcon
     end
 
@@ -329,12 +320,7 @@ XFashionManagerCreator = function()
     --@return 时装对应的人物角色小图像图标【三阶解放版】
     --==============================--
     function XFashionManager.GetFashionSmallHeadIconLiberation(fashionId)
-        local tab = FashionTemplates[fashionId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionSmallHeadIconLiberation",
-            "tab", TABLE_FASHION_PATH, "fashionId", tostring(fashionId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(fashionId)
         return tab.SmallHeadIconLiberation
     end
 
@@ -344,21 +330,12 @@ XFashionManagerCreator = function()
     --@return 时装对应的人物角色小图像图标【特效时装版】
     --==============================--
     function XFashionManager.GetFashionSmallHeadIconFashion(fashionId)
-        local tab = FashionTemplates[fashionId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionSmallHeadIconFashion",
-            "tab", TABLE_FASHION_PATH, "fashionId", tostring(fashionId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(fashionId)
         return tab.SmallHeadIconFashion
     end
 
     local function GetFashionBigHeadIcon(fashionId)
-        local tab = FashionTemplates[fashionId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionBigHeadIcon", "tab", TABLE_FASHION_PATH, "fashionId", tostring(fashionId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(fashionId)
         return tab.BigHeadIcon
     end
 
@@ -383,12 +360,7 @@ XFashionManagerCreator = function()
     --@return 时装对应的人物角色大图像图标【三阶解放版】
     --==============================--
     function XFashionManager.GetFashionBigHeadIconLiberation(fashionId)
-        local tab = FashionTemplates[fashionId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionBigHeadIconLiberation",
-            "tab", TABLE_FASHION_PATH, "fashionId", tostring(fashionId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(fashionId)
         return tab.BigHeadIconLiberation
     end
 
@@ -398,12 +370,7 @@ XFashionManagerCreator = function()
     --@return 时装对应的人物角色大图像图标【特效时装版】
     --==============================--
     function XFashionManager.GetFashionBigHeadIconFashion(fashionId)
-        local tab = FashionTemplates[fashionId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionBigHeadIconFashion",
-            "tab", TABLE_FASHION_PATH, "fashionId", tostring(fashionId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(fashionId)
         return tab.BigHeadIconFashion
     end
 
@@ -413,11 +380,7 @@ XFashionManagerCreator = function()
     --@return 时装对应的人物角色小圆形图像图标
     --==============================--
     function XFashionManager.GetFashionRoundnessHeadIcon(fashionId)
-        local tab = FashionTemplates[fashionId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionRoundnessHeadIcon", "tab", TABLE_FASHION_PATH, "fashionId", tostring(fashionId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(fashionId)
         return tab.RoundnessHeadIcon
     end
 
@@ -427,11 +390,7 @@ XFashionManagerCreator = function()
     --@return 时装对应的人物角色大圆形图像图标
     --==============================--
     function XFashionManager.GetFashionBigRoundnessHeadIcon(fashionId)
-        local tab = FashionTemplates[fashionId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionBigRoundnessHeadIcon", "tab", TABLE_FASHION_PATH, "fashionId", tostring(fashionId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(fashionId)
         return tab.BigRoundnessHeadIcon
     end
 
@@ -441,12 +400,7 @@ XFashionManagerCreator = function()
     --@return 时装对应的人物角色圆形图像图标(非物品使用)
     --==============================--
     function XFashionManager.GetFashionRoundnessNotItemHeadIcon(fashionId)
-        local tab = FashionTemplates[fashionId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionRoundnessNotItemHeadIcon",
-            "tab", TABLE_FASHION_PATH, "fashionId", tostring(fashionId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(fashionId)
         return tab.RoundnessNotItemHeadIcon
     end
 
@@ -456,12 +410,7 @@ XFashionManagerCreator = function()
     --@return 时装对应的人物角色圆形图像图标(非物品使用)【三阶解放版】
     --==============================--
     function XFashionManager.GetFashionRoundnessNotItemHeadIconLiberation(fashionId)
-        local tab = FashionTemplates[fashionId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionRoundnessNotItemHeadIconLiberation",
-            "tab", TABLE_FASHION_PATH, "fashionId", tostring(fashionId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(fashionId)
         return tab.RoundnessNotItemHeadIconLiberation
     end
 
@@ -471,11 +420,7 @@ XFashionManagerCreator = function()
     --@return 时装对应的人物角色半身像（剧情用）
     --==============================--
     function XFashionManager.GetFashionHalfBodyImage(fashionId)
-        local tab = FashionTemplates[fashionId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionHalfBodyImage", "tab", TABLE_FASHION_PATH, "fashionId", tostring(fashionId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(fashionId)
         return tab.HalfBodyImage
     end
 
@@ -485,11 +430,7 @@ XFashionManagerCreator = function()
     --@return 时装对应的人物角色半身像（通用）
     --==============================--
     function XFashionManager.GetRoleCharacterBigImage(fashionId)
-        local tab = FashionTemplates[fashionId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetRoleCharacterBigImage", "tab", TABLE_FASHION_PATH, "fashionId", tostring(fashionId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(fashionId)
         return tab.RoleCharacterBigImage
     end
 
@@ -499,11 +440,13 @@ XFashionManagerCreator = function()
     --@return 时装图标
     --==============================--
     function XFashionManager.GetFashionIcon(id)
-        local tab = FashionTemplates[id]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionIcon", "tab", TABLE_FASHION_PATH, "id", tostring(id))
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(id)
         return tab.Icon
+    end
+
+    function XFashionManager.GetFashionGachaIcon(id)
+        local tab = XFashionConfigs.GetFashionTemplate(id)
+        return tab.GachaIcon
     end
 
     --==============================--
@@ -514,7 +457,7 @@ XFashionManagerCreator = function()
     function XFashionManager.GetFashionIdByResId(resId)
         local id = ResToFashionTab[resId]
         if id == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionIdByResId", "时装Id", TABLE_FASHION_PATH, "ResourceId", tostring(resId))
+            XLog.Error("获取涂装Id错误，请检查表格Fashion.tab. ResourceId = " .. tostring(resId))
         end
         return id
     end
@@ -524,10 +467,7 @@ XFashionManagerCreator = function()
     --@return ResourcesId
     --==============================--
     function XFashionManager.GetResourcesId(id)
-        local tab = FashionTemplates[id]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetResourcesId", "tab", TABLE_FASHION_PATH, "id", tostring(id))
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(id)
         return tab.ResourcesId
     end
     --==============================--
@@ -536,10 +476,7 @@ XFashionManagerCreator = function()
     --@return CharacterId
     --==============================--
     function XFashionManager.GetCharacterId(id)
-        local tab = FashionTemplates[id]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetCharacterId", "tab", TABLE_FASHION_PATH, "id", tostring(id))
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(id)
         return tab.CharacterId
     end
     --==============================--
@@ -548,10 +485,7 @@ XFashionManagerCreator = function()
     --@return 时装大图标
     --==============================--
     function XFashionManager.GetFashionBigIcon(id)
-        local tab = FashionTemplates[id]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionBigIcon", "tab", TABLE_FASHION_PATH, "id", tostring(id))
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(id)
         return tab.BigIcon
     end
     --==============================--
@@ -560,10 +494,7 @@ XFashionManagerCreator = function()
     --@return 时装图标
     --==============================--
     function XFashionManager.GetFashionCharacterIcon(id)
-        local tab = FashionTemplates[id]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.CharacterIcon", "tab", TABLE_FASHION_PATH, "id", tostring(id))
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(id)
         return tab.CharacterIcon
     end
     --==============================--
@@ -572,10 +503,7 @@ XFashionManagerCreator = function()
     --@return: 时装名字
     --==============================--
     function XFashionManager.GetFashionName(id)
-        local tab = FashionTemplates[id]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionName", "tab", TABLE_FASHION_PATH, "id", tostring(id))
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(id)
         return tab.Name
     end
 
@@ -585,10 +513,7 @@ XFashionManagerCreator = function()
     --@return: 时装品质
     --==============================--
     function XFashionManager.GetFashionQuality(id)
-        local tab = FashionTemplates[id]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionQuality", "tab", TABLE_FASHION_PATH, "id", tostring(id))
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(id)
         return tab.Quality
     end
 
@@ -598,10 +523,7 @@ XFashionManagerCreator = function()
     --@return: 时装系列Id
     --==============================--
     function XFashionManager.GetFashionSeries(id)
-        local tab = FashionTemplates[id]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionSeries", "tab", TABLE_FASHION_PATH, "id", tostring(id))
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(id)
         return tab.Series
     end
 
@@ -611,10 +533,7 @@ XFashionManagerCreator = function()
     --@return: 时装简介
     --==============================--
     function XFashionManager.GetFashionDesc(id)
-        local tab = FashionTemplates[id]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionDesc", "tab", TABLE_FASHION_PATH, "id", tostring(id))
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(id)
         return tab.Description
     end
 
@@ -624,10 +543,7 @@ XFashionManagerCreator = function()
     --@return: 时装简介
     --==============================--
     function XFashionManager.GetFashionWorldDescription(id)
-        local tab = FashionTemplates[id]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionWorldDescription", "tab", TABLE_FASHION_PATH, "id", tostring(id))
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(id)
         return tab.WorldDescription
     end
 
@@ -638,10 +554,7 @@ XFashionManagerCreator = function()
     --@return: 时装列表
     --==============================--
     function XFashionManager.GetFashionSkipIdParams(id)
-        local tab = FashionTemplates[id]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionSkipIdParams", "tab", TABLE_FASHION_PATH, "id", tostring(id))
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(id)
         return tab.SkipIdParams
     end
 
@@ -661,7 +574,7 @@ XFashionManagerCreator = function()
     function XFashionManager.GetFashionByCharId(charId)
         local fashions = CharFashions[charId]
         if not fashions then
-            XLog.Error("XFashionManager.GetFashionByCharId 错误: 无法根据参数charId " .. charId .. "获取" .. TABLE_FASHION_PATH .. "表中的时装信息, 检查charId获取这配置表")
+            XLog.Error("XFashionManager.GetFashionByCharId 错误: 无法根据参数charId " .. charId .. "获取Fashion.tab表中的时装信息, 检查charId获取这配置表")
             return
         end
 
@@ -691,7 +604,7 @@ XFashionManagerCreator = function()
     function XFashionManager.GetCurrentTimeFashionByCharId(charId)
         local fashions = CharFashions[charId]
         if not fashions then
-            XLog.Error("XFashionManager.GetFashionByCharId 错误: 无法根据参数charId " .. charId .. "获取" .. TABLE_FASHION_PATH .. "表中的时装信息, 检查charId获取这配置表")
+            XLog.Error("XFashionManager.GetFashionByCharId 错误: 无法根据参数charId " .. charId .. "获取Fashion.tab表中的时装信息, 检查charId获取这配置表")
             return
         end
 
@@ -737,12 +650,12 @@ XFashionManagerCreator = function()
         local fashions = CharFashions[charId]
         if not fashions then
             XLog.Error("XFashionManager.GetFashionByCharId 错误: 无法根据参数charId " ..
- charId .. "获取" .. TABLE_FASHION_PATH .. "表中的时装信息, 检查charId获取这配置表")
+ charId .. "获取Fashion.tab表中的时装信息, 检查charId获取这配置表")
             return resIdList
         end
 
         for _, id in pairs(fashions) do
-            tableInsert(resIdList, FashionTemplates[id].ResourcesId)
+            tableInsert(resIdList, XFashionManager.GetResourcesId(id))
         end
 
         return resIdList
@@ -822,10 +735,7 @@ XFashionManagerCreator = function()
     --@return 显示优先级
     --==============================--
     function XFashionManager.GetFashionPriority(templateId)
-        local tab = FashionTemplates[templateId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionPriority", "tab", TABLE_FASHION_PATH, "templateId", tostring(templateId))
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(templateId)
         return tab.Priority
     end
 
@@ -835,11 +745,7 @@ XFashionManagerCreator = function()
     --@return 场景路径SceneUrl
     --==============================--
     function XFashionManager.GetFashionSceneUrl(templateId)
-        local tab = FashionTemplates[templateId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionSceneUrl", "tab", TABLE_FASHION_PATH, "templateId", tostring(templateId))
-            return
-        end
+        local tab = XFashionConfigs.GetFashionTemplate(templateId)
 
         if not tab.SceneModelId or tab.SceneModelId == 0 then
             return
@@ -859,17 +765,17 @@ XFashionManagerCreator = function()
     --@return EffectRootName, EffectPath
     --==============================--
     function XFashionManager.GetFashionLiberationEffectRootAndPath(templateId)
-        local tab = FashionTemplates[templateId]
-        if tab == nil then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionLiberationEffectRootAndPath", "tab", TABLE_FASHION_PATH, "templateId", tostring(templateId))
-        end
+        return XFashionConfigs.GetFashionLiberationEffectRootAndPath(templateId)
+    end
 
-        local rootName, fxPath = tab.EffectRootName, tab.EffectPath
-        if not rootName or not fxPath then
-            XLog.ErrorTableDataNotFound("XFashionManager.GetFashionLiberationEffectRootAndPath", "EffectRootName/EffectPath", TABLE_FASHION_PATH, "templateId", tostring(templateId))
-        end
-
-        return rootName, fxPath
+    --==============================--
+    --desc: 获取涂装赠送的CG展示道具列表
+    --@id: 时装Id
+    --@return: 时装赠送的CG展示道具列表
+    --==============================--
+    function XFashionManager.GetFashionSubItems(id)
+        local tab = XFashionConfigs.GetFashionTemplate(id)
+        return tab.SubItem
     end
 
     -- service config begin --
@@ -915,7 +821,61 @@ XFashionManagerCreator = function()
             if cb then cb() end
         end)
     end
+
+    -- 判断当前角色有没有可更换时装
+    function XFashionManager.GetCurrCharHaveCanChangeFashion(charId)
+        local fashions = CharFashions[charId]
+
+        local targetNum = 0 -- 只要可使用的时装大于1个 就返回真
+        for k, fashionId in pairs(fashions) do
+            local status = XFashionManager.GetFashionStatus(fashionId)
+            if status == XFashionManager.FashionStatus.Lock or status == XFashionManager.FashionStatus.UnLock then --已获得，未解锁
+                targetNum = targetNum + 1
+            end
+
+            if targetNum > 1 then
+                return true
+            end
+        end
+
+        return false
+    end
+
+    -- 判断当前角色有没有新获得的时装
+    function XFashionManager.GetCurrCharHaveCanUnlockFashion(charId)
+        local fashions = CharFashions[charId]
+
+        for k, fashionId in pairs(fashions) do
+            local status = XFashionManager.GetFashionStatus(fashionId)
+            if status == XFashionManager.FashionStatus.Lock then --可解锁但未解锁
+                return true
+            end
+        end
+
+        return false
+    end
+
     -- service config end --
+
+    --region 时装背景音乐相关
+    ---通过时装Id获取播放的音频Id
+    ---@param fashionId number
+    ---@return number
+    function XFashionManager.GetCueIdByFashionId(fashionId)
+        return XFashionConfigs.GetFashionCueIdByFashionId(fashionId)
+    end
+
+    ---通过角色Id获取当前角色穿着时装播放的音频Id
+    ---@param characterId number
+    ---@return number
+    function XFashionManager.GetCueIdByCharacterId(characterId)
+        local character = XDataCenter.CharacterManager.GetCharacter(characterId)
+        local fashionId = character and character.FashionId or XDataCenter.CharacterManager.GetShowFashionId(characterId)
+
+        return XFashionManager.GetCueIdByFashionId(fashionId)
+    end
+    --endregion
+    
     XFashionManager.Init()
     return XFashionManager
 end

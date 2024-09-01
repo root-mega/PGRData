@@ -1,9 +1,15 @@
 local XUiArchiveMonsterSelectTag = XLuaUiManager.Register(XLuaUi, "UiArchiveMonsterSelectTag")
 local tableInsert = table.insert
+
 function XUiArchiveMonsterSelectTag:OnEnable()
     self.InfoData = self.Base.CurInfoData
     self.EvaluateData = self.Base.CurEvaluateData
     self:SetupDynamicTable()
+
+end
+
+function XUiArchiveMonsterSelectTag:OnDisable()
+
 end
 
 function XUiArchiveMonsterSelectTag:OnStart(base)

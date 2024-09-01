@@ -18,7 +18,22 @@ end
 
 function XRpgTowerStage:RefreshData(data)
     self.IsPass = true
-    self.Score = data.Score
+    if data.Score > self:GetScore() then
+        self.Score = data.Score
+        self:SetNewTrigger()
+    end
+end
+
+function XRpgTowerStage:SetNewTrigger()
+    self.IsNewRecordTrigger = true
+end
+
+function XRpgTowerStage:GetNewTrigger()
+    if self.IsNewRecordTrigger then
+        self.IsNewRecordTrigger = nil
+        return true
+    end
+    return false
 end
 --================
 --获取关卡基础配置
@@ -133,7 +148,7 @@ end
 --获取是否显示关卡分数
 --================
 function XRpgTowerStage:GetIsShowScore()
-    return self.RStageCfg.IsShowScore == 1
+    return self.RStageCfg.IsShowScore >= 1
 end
 --================
 --获取关卡分数

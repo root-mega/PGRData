@@ -9,6 +9,7 @@ local MapGridType = enum(
 --===============
 --房间地图数据
 --===============
+---@class XGuildRoomMapData
 local XGuildRoomMapData = XClass(nil, "XGuildRoomMapData")
 --===============
 --roomWidth : 房间宽

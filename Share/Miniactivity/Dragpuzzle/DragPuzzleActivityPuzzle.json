@@ -1,0 +1,408 @@
+[
+    {
+        "Id": 1,
+        "ActId": 1,
+        "Name": "Black Guardian",
+        "SubName": "Kowloong Art",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg01.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull01.png",
+        "CompleteStoryId": "1100141",
+        "CompleteRewardId": 11925,
+        "CompleteHintText": "The \"Black Guardian\" stage is unlocked in [Theater Ruins]",
+        "RewardPiecesStr": [
+            null,
+            "1|2|6|11",
+            "7|8|12|13",
+            "3|4|5|9",
+            "10|14|15"
+        ],
+        "RewardId": [
+            null,
+            11926.0,
+            11927.0,
+            11928.0,
+            11929.0
+        ],
+        "PuzzleType": 1
+    },
+    {
+        "Id": 2,
+        "ActId": 1,
+        "Name": "Requiem",
+        "SubName": "One Against Thousand",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg01.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull02.png",
+        "CompleteStoryId": "1100141",
+        "CompleteRewardId": 11925,
+        "CompleteHintText": "The \"Requiem\" stage is unlocked in [Theater Ruins]",
+        "RewardPiecesStr": [
+            null,
+            "1|2|6|11",
+            "7|8|12|13",
+            "3|4|5|9",
+            "10|14|15"
+        ],
+        "RewardId": [
+            null,
+            11929.0,
+            11928.0,
+            11927.0,
+            11926.0
+        ],
+        "PuzzleType": 1
+    },
+    {
+        "Id": 3,
+        "ActId": 2,
+        "Name": "Daybreaking Moon",
+        "SubName": "Hidden Current",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg01.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull04.png",
+        "CompleteStoryId": "YR01602BA",
+        "CompleteRewardId": 11925,
+        "CompleteHintText": "Puzzle Story \"Hidden Current (II)\" unlocked",
+        "RewardPiecesStr": [
+            null,
+            "1|2|6|11",
+            "7|8|12|13",
+            "3|4|5|9",
+            "10|14|15"
+        ],
+        "RewardId": [
+            null,
+            11926.0,
+            11927.0,
+            11928.0,
+            11929.0
+        ],
+        "PuzzleType": 1
+    },
+    {
+        "Id": 4,
+        "ActId": 2,
+        "Name": "Virtual Space",
+        "SubName": "Imminent Threat",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg01.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull03.png",
+        "CompleteStoryId": "YR01603BA",
+        "CompleteRewardId": 11925,
+        "CompleteHintText": "Puzzle Story \"Hidden Current (III)\" unlocked",
+        "RewardPiecesStr": [
+            null,
+            "1|2|6|11",
+            "7|8|12|13",
+            "3|4|5|9",
+            "10|14|15"
+        ],
+        "RewardId": [
+            null,
+            11929.0,
+            11928.0,
+            11927.0,
+            11926.0
+        ],
+        "PuzzleType": 1
+    },
+    {
+        "Id": 5,
+        "ActId": 3,
+        "Name": "Snow Cub",
+        "SubName": "XXI",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg08.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull07.png",
+        "CompleteStoryId": "YR01801BA",
+        "CompleteRewardId": 420059,
+        "CompleteHintText": "Puzzle Story \"Snow Cub\" unlocked",
+        "RewardPiecesStr": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "PuzzleType": 2
+    },
+    {
+        "Id": 6,
+        "ActId": 3,
+        "Name": "Black Knight",
+        "SubName": "Black Knight",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg08.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull08.png",
+        "CompleteStoryId": "YR01802BA",
+        "CompleteRewardId": 420060,
+        "CompleteHintText": "Puzzle Story \"Black Knight\" unlocked",
+        "RewardPiecesStr": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "PuzzleType": 2
+    },
+    {
+        "Id": 7,
+        "ActId": 4,
+        "Name": "Art Palace",
+        "SubName": "Art Palace",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg08.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull09.png",
+        "CompleteStoryId": null,
+        "CompleteRewardId": 12687,
+        "CompleteHintText": null,
+        "RewardPiecesStr": [
+            null,
+            "1|2|6|11",
+            "7|8|12|13",
+            "3|4|5|9",
+            "10|14|15"
+        ],
+        "RewardId": [
+            null,
+            12689.0,
+            12690.0,
+            12691.0,
+            12692.0
+        ],
+        "PuzzleType": 1
+    },
+    {
+        "Id": 8,
+        "ActId": 4,
+        "Name": "Promise Memory",
+        "SubName": "Promise Memory",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg08.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull10.png",
+        "CompleteStoryId": null,
+        "CompleteRewardId": 12688,
+        "CompleteHintText": null,
+        "RewardPiecesStr": [
+            null,
+            "1|2|6|11",
+            "7|8|12|13",
+            "3|4|5|9",
+            "10|14|15"
+        ],
+        "RewardId": [
+            null,
+            12693.0,
+            12694.0,
+            12695.0,
+            12696.0
+        ],
+        "PuzzleType": 1
+    },
+    {
+        "Id": 9,
+        "ActId": 5,
+        "Name": "Mystery Lantern",
+        "SubName": "Searching Secret",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg09.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull11.png",
+        "CompleteStoryId": null,
+        "CompleteRewardId": 12935,
+        "CompleteHintText": null,
+        "RewardPiecesStr": [
+            null,
+            "1|2|6|11",
+            "7|8|12|13",
+            "3|4|5|9",
+            "10|14|15"
+        ],
+        "RewardId": [
+            null,
+            12931.0,
+            12932.0,
+            12933.0,
+            12934.0
+        ],
+        "PuzzleType": 1
+    },
+    {
+        "Id": 10,
+        "ActId": 5,
+        "Name": "Deep Sea Protection",
+        "SubName": "Sunken Guardian",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg09.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull12.png",
+        "CompleteStoryId": null,
+        "CompleteRewardId": 12940,
+        "CompleteHintText": null,
+        "RewardPiecesStr": [
+            null,
+            "1|2|6|11",
+            "7|8|12|13",
+            "3|4|5|9",
+            "10|14|15"
+        ],
+        "RewardId": [
+            null,
+            12936.0,
+            12937.0,
+            12938.0,
+            12939.0
+        ],
+        "PuzzleType": 1
+    },
+    {
+        "Id": 11,
+        "ActId": 6,
+        "Name": "Iris Warbler",
+        "SubName": "Iris Warbler",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg10.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull13.png",
+        "CompleteStoryId": null,
+        "CompleteRewardId": 12992,
+        "CompleteHintText": null,
+        "RewardPiecesStr": [
+            null,
+            "1|2|6|11",
+            "7|8|12|13",
+            "3|4|5|9",
+            "10|14|15"
+        ],
+        "RewardId": [
+            null,
+            12988.0,
+            12989.0,
+            12990.0,
+            12991.0
+        ],
+        "PuzzleType": 1
+    },
+    {
+        "Id": 12,
+        "ActId": 6,
+        "Name": "Art Class",
+        "SubName": "Art Class",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg10.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull14.png",
+        "CompleteStoryId": null,
+        "CompleteRewardId": 12997,
+        "CompleteHintText": null,
+        "RewardPiecesStr": [
+            null,
+            "1|2|6|11",
+            "7|8|12|13",
+            "3|4|5|9",
+            "10|14|15"
+        ],
+        "RewardId": [
+            null,
+            12993.0,
+            12994.0,
+            12995.0,
+            12996.0
+        ],
+        "PuzzleType": 1
+    },
+    {
+        "Id": 13,
+        "ActId": 7,
+        "Name": "Deathlord",
+        "SubName": "DEAD MASTER",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg14.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull15.png",
+        "CompleteStoryId": null,
+        "CompleteRewardId": 61510,
+        "CompleteHintText": null,
+        "RewardPiecesStr": [
+            null,
+            "1|2|6|11",
+            "7|8|12|13",
+            "3|4|5|9",
+            "10|14|15"
+        ],
+        "RewardId": [
+            null,
+            61506.0,
+            61507.0,
+            61508.0,
+            61509.0
+        ],
+        "PuzzleType": 1
+    },
+    {
+        "Id": 14,
+        "ActId": 7,
+        "Name": "Escalation",
+        "SubName": "Promotion",
+        "RowSize": 3,
+        "ColSize": 5,
+        "PieceItemCount": 1,
+        "BgUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/FubenActivityPuzzleBg14.png",
+        "CompleteImageUrl": "Assets/Product/Texture/Image/UiFubenActivityPuzzle/PuzzleImgFull16.png",
+        "CompleteStoryId": null,
+        "CompleteRewardId": 61515,
+        "CompleteHintText": null,
+        "RewardPiecesStr": [
+            null,
+            "1|2|6|11",
+            "7|8|12|13",
+            "3|4|5|9",
+            "10|14|15"
+        ],
+        "RewardId": [
+            null,
+            61511.0,
+            61512.0,
+            61513.0,
+            61514.0
+        ],
+        "PuzzleType": 1
+    }
+]

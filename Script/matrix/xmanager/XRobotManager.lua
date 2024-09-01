@@ -23,12 +23,16 @@ end
 local function GetRobot(robotId)
     local robot = Robots[robotId]
     if not robot then
+        if not XRobotManager.TryGetRobotTemplate(robotId) then
+            return
+        end
         robot = XRobot.New(robotId)
         Robots[robotId] = robot
     end
     return robot
 end
 
+---@return XRobot
 function XRobotManager.GetRobotById(robotId)
     return GetRobot(robotId)
 end
@@ -158,9 +162,14 @@ function XRobotManager.GetRobotIdFilterListByCharacterType(robotIdList, characte
         characterId = XRobotManager.GetCharacterId(robotId)
         if characterId > 0 then
             robotCharacterType = XCharacterConfigs.GetCharacterType(characterId)
-            if robotCharacterType == characterType then
+            if characterType then
+                if robotCharacterType == characterType then
+                    tableInsert(filterRobotIdList, robotId)
+                end
+            else
                 tableInsert(filterRobotIdList, robotId)
             end
+            
         end
     end
     return filterRobotIdList

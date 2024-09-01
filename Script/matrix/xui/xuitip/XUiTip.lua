@@ -6,7 +6,7 @@ function XUiTip:OnAwake()
     self:InitAutoScript()
 end
 
-function XUiTip:OnStart(data, hideSkipBtn, rootUiName, lackNum, showNum)
+function XUiTip:OnStart(data, hideSkipBtn, rootUiName, lackNum, showNum, switchRainbowCard)
     local musicKey = self:GetAutoKey(self.BtnBack, "onClick")
     self.SpecialSoundMap[musicKey] = XSoundManager.UiBasicsMusic.Return
     self.HideSkipBtn = hideSkipBtn
@@ -15,11 +15,59 @@ function XUiTip:OnStart(data, hideSkipBtn, rootUiName, lackNum, showNum)
     self.LackNum = lackNum
     self.ShowNum = showNum -- 兼容自定义数量
     self:PlayAnimation("AnimStart")
+    if XDataCenter.UiPcManager.IsPc() then
+        self.BtnPCSwich.gameObject:SetActiveEx(false)
+        -- if self.Data then
+        --     -- and (self.Data == XDataCenter.ItemManager.ItemId.HongKa or self.Data.Id == XDataCenter.ItemManager.ItemId.HongKa)
+        --     local dataType = type(self.Data)
+        --     local showCurrentRainbow = false
+        --     if dataType == "number" and self.Data == XDataCenter.ItemManager.ItemId.HongKa then
+        --         showCurrentRainbow = true
+        --     elseif dataType == "table" and self.Data.Id == XDataCenter.ItemManager.ItemId.HongKa then
+        --         showCurrentRainbow = true
+        --     end
+        --     if not showCurrentRainbow then
+        --         return
+        --     end
+        --     local selectedId = XPlayer.GetPcSelectMoneyCardId()
+        --     self:ShowCurrentRainbowCard(selectedId)
+        --     self.BtnPCSwich.gameObject:SetActiveEx(true)
+        --     XEventManager.AddEventListener(XEventId.EVENT_ONPCSELECT_MONEYCARD_CHANGED, self.OnPcSelectedIdChanged, self)
+        -- end
+    end
 end
 
 function XUiTip:OnEnable()
     self:Refresh(self.Data)
 end
+
+function XUiTip:OnDisable()
+
+end
+
+-- function XUiTip:OnDestroy()
+--     XEventManager.RemoveEventListener(XEventId.EVENT_ONPCSELECT_MONEYCARD_CHANGED, self.OnPcSelectedIdChanged, self)
+-- end
+
+-- function XUiTip:OnPcSelectedIdChanged(newSelectedId)
+--     self:ShowCurrentRainbowCard(newSelectedId)
+-- end
+
+-- function XUiTip:ShowCurrentRainbowCard(selectedId)   
+--     if selectedId == 8 then
+--         self:ShowCurrentAndOther("安卓", "IOS")
+--     elseif selectedId == 10 then
+--         self:ShowCurrentAndOther("IOS", "安卓")
+--     end
+--     if self.TxtCount then
+--         self.TxtCount.text = XDataCenter.ItemManager.GetCount(XDataCenter.ItemManager.ItemId.HongKa)
+--     end
+-- end
+
+-- function XUiTip:ShowCurrentAndOther(current, other)
+--     self.SwichText.text = CS.XTextManager.GetText("PCCurrentRainbowCard", current)
+--     self.BtnPCSwich:SetName(CS.XTextManager.GetText("PCSwitchRainbowCard", other))
+-- end
 
 -- auto
 -- Automatic generation of code, forbid to edit
@@ -66,6 +114,8 @@ function XUiTip:AutoAddListener()
     self:RegisterClickEvent(self.BtnGet, self.OnBtnGetClick)
     self:RegisterClickEvent(self.BtnOk, self.OnBtnOkClick)
     self:RegisterClickEvent(self.BtnTcanchaungBlack, self.OnBtnTcanchaungBlackClick)
+    self:RegisterClickEvent(self.BtnAction, self.OnBtnActionClick)
+    -- self:RegisterClickEvent(self.BtnPCSwich, self.OnBtnPCSwichClick)
 end
 -- auto
 function XUiTip:OnBtnBackClick()
@@ -87,6 +137,14 @@ function XUiTip:OnBtnOkClick()
     self:Close()
 end
 
+-- function XUiTip:OnBtnPCSwichClick()
+--     self:SwitchRainbowCard()
+-- end
+
+-- function XUiTip:SwitchRainbowCard()
+--     XPlayer.ChangePcSelectMoneyCardId()
+-- end
+
 function XUiTip:OnBtnTcanchaungBlackClick()
     local buyAssetTemplate = XDataCenter.ItemManager.GetBuyAssetTemplateById(self.TemplateId)
 
@@ -95,6 +153,13 @@ function XUiTip:OnBtnTcanchaungBlackClick()
         XUiManager.TipMsg(CS.XTextManager.GetText("ShopNoGoodsDesc"), XUiManager.UiTipType.Tip)
     else
         XLuaUiManager.Open("UiBuyAsset", self.TemplateId, nil, nil, self.LackNum)
+    end
+end
+
+function XUiTip:OnBtnActionClick()
+    local signBoardActionId = XFubenCharacterTowerConfigs.GetSignBoardActionIdById(self.TemplateId)
+    if XTool.IsNumberValid(signBoardActionId) then
+        XLuaUiManager.Open("UiCharacterTowerPhotograph", signBoardActionId)
     end
 end
 
@@ -118,6 +183,7 @@ function XUiTip:ResetUi()
     self:SetUiActive(self.TxtDescription, false)
     self:SetUiActive(self.BtnGet, false)
     self:SetUiActive(self.CountTitle, false)
+    self:SetUiActive(self.BtnAction, false)
 end
 
 -- data 可以是 XItemData / XEquipData / XCharacterData / XFashionData
@@ -129,6 +195,9 @@ function XUiTip:Refresh(data)
     end
 
     self:ResetUi()
+    --UI数据
+    local tipNotShowCount = false --不显示道具数量
+    local tipShowBlackBg = false --显示黑色背景(针对纯白色道具Icon)
     if type(data) == "number" then
         self.TemplateId = data
     else
@@ -137,6 +206,8 @@ function XUiTip:Refresh(data)
             return
         end
         self.TemplateId = data.TemplateId and data.TemplateId or data.Id
+        tipNotShowCount = data.TipNotShowCount or false
+        tipShowBlackBg = data.TipShowBlackBg or false
     end
 
     if
@@ -158,7 +229,7 @@ function XUiTip:Refresh(data)
     if
         XDataCenter.ItemManager.IsFastTrading(self.TemplateId) and
             XDataCenter.ItemManager.JudjeCanFastTrading(self.RootUiName)
-     then
+    then
         self:SetUiActive(self.BtnTcanchaungBlack, true)
     end
 
@@ -170,15 +241,20 @@ function XUiTip:Refresh(data)
 
     -- 数量
     if self.TxtCount then
-        local count = nil
-        if self.ShowNum then
-            count = self.ShowNum
+        if tipNotShowCount then
+            self:SetUiActive(self.TxtCount, false)
+            self:SetUiActive(self.CountTitle, false)
         else
-            count = XGoodsCommonManager.GetGoodsCurrentCount(self.TemplateId)
+            local count = nil
+            if self.ShowNum then
+                count = self.ShowNum
+            else
+                count = XGoodsCommonManager.GetGoodsCurrentCount(self.TemplateId)
+            end
+            self.TxtCount.text = count or 0
+            self:SetUiActive(self.TxtCount, true)
+            self:SetUiActive(self.CountTitle, true)
         end
-        self.TxtCount.text = count or 0
-        self:SetUiActive(self.TxtCount, true)
-        self:SetUiActive(self.CountTitle, true)
     end
 
     -- 图标
@@ -192,6 +268,10 @@ function XUiTip:Refresh(data)
         if icon and #icon > 0 then
             self.RImgIcon:SetRawImage(icon)
             self:SetUiActive(self.RImgIcon, true)
+        end
+
+        if self.ImgBlackBg then
+            self.ImgBlackBg.gameObject:SetActiveEx(tipShowBlackBg or false)
         end
     end
 
@@ -229,6 +309,12 @@ function XUiTip:Refresh(data)
             self.TxtDescription.text = desc
             self:SetUiActive(self.TxtDescription, true)
         end
+    end
+    
+    -- 动作
+    if self.BtnAction then
+        local signBoardActionId = XFubenCharacterTowerConfigs.GetSignBoardActionIdById(self.TemplateId)
+        self:SetUiActive(self.BtnAction, XTool.IsNumberValid(signBoardActionId))
     end
 end
 --===============
@@ -293,3 +379,5 @@ function XUiTip:OnNotify(evt, ...)
         end
     end
 end
+
+return XUiTip

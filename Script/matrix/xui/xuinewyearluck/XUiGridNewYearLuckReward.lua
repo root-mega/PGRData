@@ -22,7 +22,7 @@ function XUiGridNewYearLuckReward:Refresh()
         if i == #self.Config.LuckNums then
             textNum = textNum..num
         else
-            textNum = textNum..num.."、"
+            textNum = textNum..num..","
         end
     end
     self.TxtLuckNum.text = textNum

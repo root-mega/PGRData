@@ -1,0 +1,182 @@
+[
+    {
+        "Id": 100,
+        "Name": "Redundant Block 22-16",
+        "StartLayerId": 1001,
+        "LayerId": [
+            null,
+            1001,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102,
+        "Name": "Parliament Square",
+        "StartLayerId": 1021,
+        "LayerId": [
+            null,
+            1021,
+            1022.0,
+            1023.0,
+            null
+        ]
+    },
+    {
+        "Id": 103,
+        "Name": "Eden 16-B Leisure Module",
+        "StartLayerId": 1031,
+        "LayerId": [
+            null,
+            1031,
+            1033.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 104,
+        "Name": "Dominik Memorial Park",
+        "StartLayerId": 1041,
+        "LayerId": [
+            null,
+            1041,
+            1043.0,
+            1044.0,
+            null
+        ]
+    },
+    {
+        "Id": 105,
+        "Name": "Tactical Bridge",
+        "StartLayerId": 1051,
+        "LayerId": [
+            null,
+            1051,
+            1052.0,
+            1053.0,
+            null
+        ]
+    },
+    {
+        "Id": 202,
+        "Name": "Zone A Forgotten Streets",
+        "StartLayerId": 2021,
+        "LayerId": [
+            null,
+            2021,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 203,
+        "Name": "Zone B Business District Ruins",
+        "StartLayerId": 2031,
+        "LayerId": [
+            null,
+            2031,
+            2032.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 204,
+        "Name": "Zone C Abandoned Factory",
+        "StartLayerId": 2041,
+        "LayerId": [
+            null,
+            2041,
+            2042.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 302,
+        "Name": "B01 Industrial Sector",
+        "StartLayerId": 3022,
+        "LayerId": [
+            null,
+            3022,
+            3023.0,
+            3024.0,
+            null
+        ]
+    },
+    {
+        "Id": 303,
+        "Name": "B01 Junction Corridor",
+        "StartLayerId": 3031,
+        "LayerId": [
+            null,
+            3031,
+            3032.0,
+            3033.0,
+            3034.0
+        ]
+    },
+    {
+        "Id": 304,
+        "Name": "Core Area",
+        "StartLayerId": 3041,
+        "LayerId": [
+            null,
+            3041,
+            3042.0,
+            3043.0,
+            null
+        ]
+    },
+    {
+        "Id": 305,
+        "Name": "A M.I.N.D.",
+        "StartLayerId": 3051,
+        "LayerId": [
+            null,
+            3051,
+            3052.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 402,
+        "Name": "Shattered Valley",
+        "StartLayerId": 4021,
+        "LayerId": [
+            null,
+            4021,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 403,
+        "Name": "Polyphage Left Hand",
+        "StartLayerId": 4031,
+        "LayerId": [
+            null,
+            4031,
+            4032.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 404,
+        "Name": "Polyphage Body",
+        "StartLayerId": 4041,
+        "LayerId": [
+            null,
+            4041,
+            4042.0,
+            4043.0,
+            null
+        ]
+    }
+]

@@ -5,11 +5,11 @@ function XUiLoginNotice:OnAwake()
 end
 
 
-function XUiLoginNotice:OnStart(loginNotice)
+function XUiLoginNotice:OnStart(loginNotice, showToggleTodayOnce)
     if XLuaUiManager.IsUiShow("UiLoginAgreement") then
         XLuaUiManager.Close("UiLoginAgreement")
     end
-
+    
     if not loginNotice or not loginNotice.HtmlUrl then
         return
     end
@@ -21,6 +21,14 @@ function XUiLoginNotice:OnStart(loginNotice)
     end
 
     self.TxtTitle.text = loginNotice.Title
+    if self.TogClose then
+        if showToggleTodayOnce then
+            self.TogClose.isOn = XDataCenter.NoticeManager.CheckHasOpenLoginNotice()
+            self.TogClose.gameObject:SetActiveEx(true)
+        else
+            self.TogClose.gameObject:SetActiveEx(false)
+        end
+    end
 end
 
 function XUiLoginNotice:SendWebRequestForLogin(loginNotice)
@@ -56,19 +64,21 @@ function XUiLoginNotice:LoadByHtml(request, loginNotice)
     if request.isNetworkError or request.isHttpError or not request.downloadHandler then
         return
     end
-
-    if CS.UnityEngine.Application.platform == CS.UnityEngine.RuntimePlatform.WindowsEditor or 
+    if CS.UnityEngine.Application.platform == CS.UnityEngine.RuntimePlatform.WindowsEditor or
     CS.UnityEngine.Application.platform == CS.UnityEngine.RuntimePlatform.WindowsPlayer then
-        --PC上，直接加载网页
-        self.PCPanelWebView.gameObject:SetActiveEx(true);
+        -- PC上，直接加载网页
+        -- 先改成加载HTML文本吧，以后有H5需求再说
+        self.PCPanelWebView.gameObject:SetActiveEx(true)
         CS.XWebView.PCLoadHTML(self.PCPanelWebView.gameObject, request.downloadHandler.text)
+        
     else
-         -- 手机上暂时使用旧方法，将HTML文本显示上去
+        -- 手机上暂时使用旧方法，将HTML文本显示上去
         --此WEB VIEW仅会在手机平台上显示
         self.PCPanelWebView.gameObject:SetActiveEx(false)
         local html = request.downloadHandler.text
         CS.XWebView.LoadByHtml(self.PanelWebView.gameObject, html)
     end
+    
 end
 
 
@@ -108,10 +118,14 @@ function XUiLoginNotice:AutoInitUi()
     self.TxtTitle = self.Transform:Find("Animator/SafeAreaContentPane/TxtTitle"):GetComponent("Text")
     self.BtnClose = self.Transform:Find("Animator/SafeAreaContentPane/BtnClose"):GetComponent("Button")
     self.TxtClose = self.Transform:Find("Animator/SafeAreaContentPane/BtnClose/TxtClose"):GetComponent("Text")
+    self.TogClose = XUiHelper.TryGetComponent(self.Transform, "Animator/SafeAreaContentPane/TogClose", "Toggle")
 end
 
 function XUiLoginNotice:AutoAddListener()
     self:RegisterClickEvent(self.BtnClose, self.OnBtnCloseClick)
+    if self.TogClose then
+        self:RegisterClickEvent(self.TogClose, self.OnTogCloseClick)
+    end
 end
 -- auto
 
@@ -119,3 +133,9 @@ function XUiLoginNotice:OnBtnCloseClick()
     self:Close()
     XEventManager.DispatchEvent(XEventId.EVENT_WHEN_CLOSE_LOGIN_NOTICE)
 end
+
+function XUiLoginNotice:OnTogCloseClick()
+    if self.TogClose then
+        XDataCenter.NoticeManager.SaveOpenLoginNoticeValue(self.TogClose.isOn)
+    end
+end 

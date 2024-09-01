@@ -7,6 +7,7 @@ local XGuildDormRoom = require("XEntity/XGuildDorm/Room/XGuildDormRoom")
 --负责人：吕天元，陈思亮
 --=================
 XGuildDormManagerCreator = function()
+    ---@class GuildDormManager
     local GuildDormManager = {}
     local SubManagers = {}
     local DataInit = false
@@ -14,9 +15,21 @@ XGuildDormManagerCreator = function()
     local CurrentChannelIndex = 0
     local HideTalkUi = false -- 隐藏聊天Ui
     local HideNameUi = false -- 隐藏玩家名字Ui
+    local HideUi = false -- 隐藏Ui(不包括摇杆，交互)
+    local HideOtherPlayers = false -- 隐藏其他玩家
+    local WhiteEntityIdNameDic = {}
     local IsRunning = false --公会宿舍是否正在打开
+    ---@type XGuildDormNetwork
     local GuildDormNetwork = XGuildDormNetwork.New()
     local SyncMsgQueue = XQueue.New()
+    local IsHaveTempError = false
+    local RemaindRewardCount = 0
+    local BgmAudioInfo = nil --公会宿舍背景音乐
+    local BgmId = 0
+    local BgmQueue = XQueue.New()
+    local BgmTimer
+    local IsShowUiGuildDormCommon = false
+    local UiCommonSortingOrder = 49 --默认SortingOrder
     --===============
     --获取资源管理器
     --===============
@@ -36,6 +49,7 @@ XGuildDormManagerCreator = function()
         end
         return SubManagers.Scene
     end
+    ---@type XGuildDormSceneManager
     GuildDormManager.SceneManager = SubManagers.Scene or GetSceneManager()
     --===============
     --获取网格管理器
@@ -98,7 +112,9 @@ XGuildDormManagerCreator = function()
         end
         SceneName2RoomDataDic[sceneName][data.Id] = data
     end
+    ---@type XGuildDormRoomData
     local DormData = nil -- XGuildDormRoomData 整个公会宿舍房间服务器数据
+    local NpcDataCache={}
     --==============
     --ChannelData当前房间频道数据
     --==============    
@@ -217,10 +233,12 @@ XGuildDormManagerCreator = function()
         --GuildDormManager.MapGridManager.InitMapGrid()
         --②加载首个场景
         --修改全局光照
-        CS.XGlobalIllumination.SetSceneType(CS.XSceneType.Dormitory)
+        XUiHelper.SetSceneType(CS.XSceneType.Dormitory)
         --获取首场景名与地址
-        local sceneName = CS.XGame.ClientConfig:GetString("GuildDormMainSceneName")
-        local scenePrefabPath = CS.XGame.ClientConfig:GetString("GuildDormMainScenePrefabPath")
+        --todo aafasou 根据主题换场景
+        local themeCfg = GuildDormManager.GetThemeCfg()
+        local sceneName = themeCfg.SceneName
+        local scenePrefabPath = themeCfg.ScenePath
         --进入场景
         GuildDormManager.SceneManager.EnterScene(sceneName, scenePrefabPath, nil, onLoadCompleteCb, onExitCb, onLoadingStart)
     end
@@ -229,6 +247,7 @@ XGuildDormManagerCreator = function()
     --==============
     function GuildDormManager.ExitGuildDorm()
         GuildDormManager.SceneManager.ExitGuildDorm()
+        GuildDormManager.StopBgm()
         --GuildDormManager.MapGridManager.CollectMapGrid()
     end
     --=============
@@ -260,6 +279,28 @@ XGuildDormManagerCreator = function()
     --=============
     function GuildDormManager.GetPlayerDatas()
         return DormData.PlayerDatas
+    end
+    --=============
+    --获取当前房间主题
+    --=============
+    function GuildDormManager.GetThemeId()
+        return DormData.ThemeId or 1
+    end
+    --=============
+    --获取当前房间背景音乐列表
+    --=============
+    function GuildDormManager.GetBgmIds()
+        return DormData.BgmIds
+    end
+    -- 获取当前房间Npc组Id
+    function GuildDormManager.GetNpcGroupId()
+        return DormData.NpcGroupId or 0
+    end
+    --=============
+    --获取当前房间主题配置
+    --=============
+    function GuildDormManager.GetThemeCfg()
+        return XGuildDormConfig.GetThemeCfgById(GuildDormManager.GetThemeId())
     end
     --=============
     --增加当前房间所有玩家数据
@@ -345,6 +386,14 @@ XGuildDormManagerCreator = function()
             GuildDormNetwork.TcpPort = res.ConnectData.TcpPort
             GuildDormNetwork.Token = res.ConnectData.Token
             if callback then callback(true) end
+        end, nil, function(ex)
+            XLuaUiManager.SetAnimationMask("GuildDormManager.RequestLoadRoom", false)
+            XLuaUiManager.Open("UiDialog", nil, XUiHelper.GetText("GuildDormNetworkTimeOutTip"), XUiManager.DialogType.Normal, nil, function()
+                if callback then callback(false) end
+            end)
+            IsHaveTempError = true
+        end, function()
+            XLuaUiManager.SetAnimationMask("GuildDormManager.RequestLoadRoom", false)
         end)
     end
 
@@ -361,7 +410,16 @@ XGuildDormManagerCreator = function()
             GuildDormNetwork.KcpPort = res.Port
             GuildDormNetwork.KcpConv = res.Conv
             DormData = res.RoomData
-            XLog.Debug("========= DormData", DormData)
+            if not XTool.IsTableEmpty(DormData.NpcDatas) then
+                for i, npcData in ipairs(DormData.NpcDatas) do
+                    GuildDormManager.UpdateNpcData(npcData)
+                end
+            end
+            BgmQueue:Clear()
+            for _,bgmId in pairs(DormData.BgmIds) do
+                BgmQueue:Enqueue(bgmId)
+            end
+            BgmId = DormData.BgmIds[1] or 0
             if callback then callback(true) end
         end, false)
     end
@@ -415,9 +473,13 @@ XGuildDormManagerCreator = function()
         IsRunning = false
     end
 
-    function GuildDormManager.RequestSyncPlayerState(x, z, angle, state)
-        GuildDormNetwork:RequestSyncPlayerState(x, z, angle, state)
+    function GuildDormManager.GetIsRunning()
+        return IsRunning
     end
+
+    -- function GuildDormManager.RequestSyncPlayerState(x, z, angle, state)
+    --     GuildDormNetwork:RequestSyncPlayerState(x, z, angle, state)
+    -- end
 
     function GuildDormManager.RequestFurnitureInteract(furnitureId, callback)
         GuildDormNetwork:Call("GuildDormFurnitureInteractRequest", {
@@ -435,8 +497,39 @@ XGuildDormManagerCreator = function()
             if callback then callback() end
         end)
     end
+    
+    function GuildDormManager.RequestSetRoomTheme(themeId, callback)
+        XNetwork.Call("GuildDormSetRoomThemeRequest",{
+            RoomId = CurrentRoomId,
+            ThemeId = themeId
+        },function(res)
+            if res.Code == XCode.GuildGdSetThemeInCd then
+                local offset = res.NextSetRoomThemeTime - XTime.GetServerNowTimestamp()
+                local timeStr = XUiHelper.GetTime(offset)
+                XUiManager.TipMsg(CS.XTextManager.GetText("GuildDormSetThemeCd",timeStr))
+                return
+            end
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+                return
+            end
+            if callback then callback() end
+        end)
+    end
 
-    function GuildDormManager.RequestLoadRoom(roomId, channelIndex, callback)
+    function GuildDormManager.RequestGetDailyInteractReward(callback)
+        XNetwork.Call("GuildDormGetDailyInteractRewardRequest", { }, function(res)
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+                if callback then callback(false) end
+                return
+            end
+            if callback then callback(true, res.RewardGoodsList) end
+            RemaindRewardCount = math.max(RemaindRewardCount - 1, 0)
+        end)
+    end
+
+    function GuildDormManager.RequestLoadRoom(roomId, channelIndex, inCallback)
         if roomId == nil then roomId = CurrentRoomId end
         if channelIndex == nil then channelIndex = CurrentChannelIndex end
         local timer = GuildDormManager.__NetworkUpdateTimer
@@ -449,6 +542,13 @@ XGuildDormManagerCreator = function()
             csNetwork:Update()
         end, 1, 0)
         local guildDormManager = GuildDormManager
+        XLuaUiManager.SetAnimationMask("GuildDormManager.RequestLoadRoom", true, 0)
+        local callback = function(errorCode)
+            if errorCode ~= XGuildDormConfig.ErrorCode.PreEnterSuccess then
+                XLuaUiManager.SetAnimationMask("GuildDormManager.RequestLoadRoom", false)
+            end
+            if inCallback then inCallback(errorCode) end
+        end
         local asyncPreEnter = asynTask(function(cb)
             guildDormManager.RequestPreEnter(roomId, channelIndex, function(res)
                 if not res then 
@@ -462,9 +562,18 @@ XGuildDormManagerCreator = function()
         local asyncConnectTcp = asynTask(function(cb)
             local ip = GuildDormNetwork.IpAddress
             local tcpPort = GuildDormNetwork.TcpPort
-            csNetwork:Connect(ip, tcpPort, function(res)
-                if not res then 
-                    if callback then callback(XGuildDormConfig.ErrorCode.TCPFailed) end
+            csNetwork:Connect(ip, tcpPort, function(tcpErrorCode)
+                if tcpErrorCode ~= XGuildDormConfig.TcpErrorCode.OK then 
+                    if tcpErrorCode == XGuildDormConfig.TcpErrorCode.Error then
+                        if callback then callback(XGuildDormConfig.ErrorCode.TCPFailed) end
+                    elseif tcpErrorCode == XGuildDormConfig.TcpErrorCode.RemoteDisconnect then
+                        -- PS:如果后期需要关服对玩家踢出的处理，可以走这个错误码判断，
+                        -- 但需要验证和过滤掉TcpErrorCode.RemoteDisconnect枚举中列出的可能性
+                        local dict = {}
+                        dict["error_code"] = XGuildDormConfig.ErrorCode.RemoteDisconnect
+                        CS.XRecord.Record(dict, "200018", "GuildDormNetwork")
+                        if callback then callback(XGuildDormConfig.ErrorCode.RemoteDisconnect) end
+                    end
                     return 
                 end
                 if cb then cb() end
@@ -488,8 +597,7 @@ XGuildDormManagerCreator = function()
                     if callback then callback(XGuildDormConfig.ErrorCode.KCPFailed) end
                     return 
                 end
-         
-            if cb then cb() end
+                if cb then cb() end
             end)
         end)
         RunAsyn(function()
@@ -509,7 +617,7 @@ XGuildDormManagerCreator = function()
             asyncEnter()
             -- 这里重新设置为了获取服务器真正的进入的频道
             CurrentChannelIndex = DormData.ChannelId or 0
-            XLog.Debug("========== 开始做心跳和连接KCP")
+            XLog.Debug("========== 连接KCP")
             -- 连接KCP
             asyncConnectKcp()
             XLog.Debug("========== 连接KCP完成")
@@ -517,13 +625,40 @@ XGuildDormManagerCreator = function()
             XScheduleManager.ScheduleOnce(function()
                 if callback then callback(XGuildDormConfig.ErrorCode.Success) end
                 -- 做心跳
+                XLog.Debug("========== 开始做心跳")
                 GuildDormNetwork:RequestHeartbeat()
             end, 1)
+        end)
+    end
+    
+    function GuildDormManager.GuildDormSetRoomBgmIdsRequest(bgmIds,cb)
+        local req = {
+            RoomId = DormData.RoomId,
+            BgmIds = bgmIds
+        }
+        XNetwork.Call("GuildDormSetRoomBgmIdsRequest",req,function(rsp)
+            if rsp.Code ~= XCode.Success then
+                XUiManager.TipCode(rsp.Code)
+                return
+            end
+            BgmQueue:Clear()
+            for _,bgmId in ipairs(bgmIds) do
+                BgmQueue:Enqueue(bgmId)
+            end
+            GuildDormManager.PlayBgm(bgmIds[1])
+            XEventManager.DispatchEvent(XEventId.EVENT_GUILD_UPDATE_BGM_LIST)
+            if cb then
+                cb()
+            end
         end)
     end
 
     -- 处理重连成功后的操作
     function GuildDormManager.HandleReConnectSuccess()
+        if not GuildDormManager.GetIsRunning() then
+            GuildDormManager.Dispose()
+            return
+        end
         local currentRoom = GuildDormManager.GetCurrentRoom()
         if currentRoom and currentRoom:GetIsInit() then
             -- 更新所有玩家最新的位置 
@@ -544,9 +679,11 @@ XGuildDormManagerCreator = function()
                 -- 加载角色
                 currentRoom:CreateRoles(GuildDormManager.GetPlayerDatas()
                     , currentRoom:GetCharacterRoot())
+                currentRoom:UpdateFurnitureRandomReward()
                 -- 打开共用组件管理
             end, function() GuildDormManager.Dispose() end)
         end
+        XLuaUiManager.ClearAllMask()
     end
 
     -- 获取角色数据，从宿舍管理器中获取
@@ -619,6 +756,8 @@ XGuildDormManagerCreator = function()
         GuildDormManager.RequestLoadRoom(CurrentRoomId, channelIndex, function(errorCode)
             -- 切换频道预先进入房间成功后断开连接
             if errorCode == XGuildDormConfig.ErrorCode.PreEnterSuccess then
+                local currentRoom = GuildDormManager.GetCurrentRoom()
+                currentRoom:SetIsInit(false)
                 GuildDormNetwork:Disconnect()
             elseif errorCode == XGuildDormConfig.ErrorCode.Success then
                 -- 这里开始正式走切换频道的流程
@@ -627,17 +766,17 @@ XGuildDormManagerCreator = function()
                 -- 加载角色
                 currentRoom:CreateRoles(GuildDormManager.GetPlayerDatas()
                     , currentRoom:GetCharacterRoot())
+                currentRoom:UpdateFurnitureRandomReward()
                 if callback then callback(true) end
                 XEventManager.DispatchEvent(XEventId.EVENT_GUILD_DORM_SWITCH_CHANNEL)
                 XEventManager.DispatchEvent(XEventId.EVENT_GUILD_DORM_CANCEL_INTERACT_BTN_SHOW, false, XPlayer.Id)
             -- 预先进入房间失败了，不处理
             elseif errorCode == XGuildDormConfig.ErrorCode.PreEnterFailed then
                 if callback then callback(false) end
-            elseif errorCode == XGuildDormConfig.ErrorCode.TCPFailed
+            elseif errorCode == XGuildDormConfig.ErrorCode.TCPFailed 
                 or errorCode == XGuildDormConfig.ErrorCode.KCPFailed then
-                GuildDormManager.Dispose()
-                XLuaUiManager.RunMain()
-            else
+                GuildDormNetwork:StartReconnect()
+            elseif errorCode == XGuildDormConfig.ErrorCode.EnterFailed then
                 GuildDormManager.Dispose()
                 XLuaUiManager.RunMain()
             end
@@ -658,6 +797,91 @@ XGuildDormManagerCreator = function()
 
     function GuildDormManager.GetIsHideNameUi()
         return HideNameUi
+    end
+
+    function GuildDormManager.SetIsHideUi(value)
+        HideUi = value
+    end
+
+    function GuildDormManager.GetIsHideUi()
+        return HideUi
+    end
+
+    function GuildDormManager.SetHideOtherPlayers(value)
+        HideOtherPlayers = value
+    end
+
+    function GuildDormManager.GetHideOtherPlayers()
+        return HideOtherPlayers
+    end
+
+    function GuildDormManager.CheckIsWhiteEntityName(id)
+        return WhiteEntityIdNameDic[id]
+    end
+
+    function GuildDormManager.SetNpcInteractGameStatus(npcId)
+        GuildDormManager.__LastHideNameUi = HideNameUi
+        GuildDormManager.__LastHideTalkUi = HideTalkUi
+        XEventManager.DispatchEvent(XEventId.EVENT_GUILD_DORM_UI_SETTING, false, true)
+        GuildDormManager.SetIsHideNameUi(true)
+        GuildDormManager.SetIsHideTalkUi(true)
+        -- 隐藏其他玩家
+        GuildDormManager.SetHideOtherPlayers(true)
+        local currentRoom = GuildDormManager.GetCurrentRoom()
+        for _, role in ipairs(currentRoom:GetRoles()) do
+            if not role:CheckIsSelfPlayer() then
+                role:GetRLRole():PlayTargetAlphaAnim(0, 0.5)
+            end
+        end
+        -- 只显示npc和自己玩家的名字
+        WhiteEntityIdNameDic[XPlayer.Id] = true
+        WhiteEntityIdNameDic[npcId] = true
+    end
+
+    function GuildDormManager.ResetNpcInteractGameStatus(npcId)
+        XEventManager.DispatchEvent(XEventId.EVENT_GUILD_DORM_UI_SETTING, not HideUi)
+        GuildDormManager.SetIsHideNameUi(GuildDormManager.__LastHideNameUi)
+        GuildDormManager.SetIsHideTalkUi(GuildDormManager.__LastHideTalkUi)
+        -- 显示其他玩家
+        GuildDormManager.SetHideOtherPlayers(false)
+        local currentRoom = GuildDormManager.GetCurrentRoom()
+        for _, role in ipairs(currentRoom:GetRoles()) do
+            if not role:CheckIsSelfPlayer() then
+                role:GetRLRole():PlayTargetAlphaAnim(1, 0.5)
+            end
+        end
+        -- 清除白名单
+        WhiteEntityIdNameDic[XPlayer.Id] = nil
+        WhiteEntityIdNameDic[npcId] = nil
+    end
+    
+    function GuildDormManager.HandleSyncBGM(data)
+        if not data or (not data.BgmIds) then
+            return
+        end
+        DormData.BgmIds = data.BgmIds
+        BgmQueue:Clear()
+        for _,bgmId in pairs(data.BgmIds) do
+            BgmQueue:Enqueue(bgmId)
+        end
+        if #DormData.BgmIds > 0 then
+            GuildDormManager.PlayBgm(DormData.BgmIds[1])
+        else
+            GuildDormManager.StopBgm()
+        end
+        XEventManager.DispatchEvent(XEventId.EVENT_GUILD_UPDATE_BGM_LIST)
+    end
+    
+    function GuildDormManager.HandleSyncTheme(data)
+        DormData.RoomId = data.RoomId
+        DormData.ThemeId = data.ThemeId
+        --XUiManager.TipText("GuildDormThemeChanged")
+        XLuaUiManager.Open("UiGuildDialog")
+        --XLuaUiManager.RunMain()
+    end
+    
+    function GuildDormManager.HandleSyncNpcGroup(data)
+        DormData.NpcGroupId = data.NpcGroupId
     end
 
     function GuildDormManager.HandleSyncEntities(data)
@@ -685,25 +909,52 @@ XGuildDormManagerCreator = function()
                 end
             end
         end
-        for _, playerData in ipairs(data.PlayerDatas) do
-            if XPlayer.Id ~= playerData.PlayerId then
-                role = currentRoom:GetRoleByPlayerId(playerData.PlayerId)
-                if role == nil then 
-                    GuildDormManager.AddPlayerData(playerData)
-                    role = currentRoom:CreateRole(playerData, currentRoom:GetCharacterRoot())
+        if not XTool.IsTableEmpty(data.PlayerDatas) then
+            for _, playerData in ipairs(data.PlayerDatas) do
+                if XPlayer.Id ~= playerData.PlayerId then
+                    role = currentRoom:GetRoleByPlayerId(playerData.PlayerId)
+                    if role == nil then
+                        GuildDormManager.AddPlayerData(playerData)
+                        role = currentRoom:CreateRole(playerData, currentRoom:GetCharacterRoot())
+                    end
+                    syncData = playerData.Position
+                    if syncData then
+                        transform = role:GetRLRole():GetTransform()
+                        local position = Vector3(syncData.X, syncData.Y, syncData.Z)
+                        local eulerAngles = transform.rotation.eulerAngles
+                        local rotation = Quaternion.Euler(
+                                Vector3(eulerAngles.x, syncData.Angle, eulerAngles.z))
+                        local component = role:GetComponent("XGDSyncToClientComponent")
+                        component:UpdateCurrentSyncData(position, rotation, playerData.State)
+                    end
+                    if playerData.CharacterId and playerData.CharacterId ~= role:GetId() then
+                        role:UpdateRoleId(playerData.CharacterId)
+                    end
                 end
-                syncData = playerData.Position
-                if syncData then
-                    transform = role:GetRLRole():GetTransform()
-                    local position = Vector3(syncData.X, role:GetRLRole():GetSkinWidth(), syncData.Y)
-                    local eulerAngles = transform.rotation.eulerAngles
-                    local rotation = Quaternion.Euler(
-                        Vector3(eulerAngles.x, syncData.Angle, eulerAngles.z))
-                    local component = role:GetComponent("XGDSyncToClientComponent")
-                    component:UpdateCurrentSyncData(position, rotation, playerData.State)
-                end
-                if playerData.CharacterId and playerData.CharacterId ~= role:GetId() then
-                    role:UpdateRoleId(playerData.CharacterId)
+            end
+        end
+        --2.6 处理NPC同步数据
+        if XTool.IsTableEmpty(data.NpcDatas) then return end
+
+        for _, npcData in ipairs(data.NpcDatas) do
+            local npcConfig=XGuildDormConfig.GetNpcRefreshConfigById(npcData.Id)
+            if npcConfig then
+                local combieId=tostring(npcConfig.NpcId)..'_XGuildDormNpc'
+                local npc=currentRoom:GetNpc(combieId)
+                if npc then
+                    if npc.RefreshId==nil then
+                        npc.RefreshId=npcData.Id
+                    end
+                    -- 更新数据
+                    GuildDormManager.UpdateNpcData(npcData)
+                    if GuildDormManager.GetNpcDataFromDormData(npcData.Id).State~=XGuildDormConfig.NpcState.Static then--not static
+                        -- 同步位置
+                        GuildDormManager.SyncNpcPosition(npcData,npc)
+                        -- 同步待机
+                        GuildDormManager.SyncNpcIdle(npcData,npc)
+                        --交互处理
+                        GuildDormManager.InteractWithPlayer(npcData,npc)
+                    end
                 end
             end
         end
@@ -728,11 +979,13 @@ XGuildDormManagerCreator = function()
     function GuildDormManager.HandleSyncFurniture(data)
         local currentRoom = GuildDormManager.GetCurrentRoom()
         for _, value in ipairs(data.FurnitureDatas) do
+            ---@type XGuildDormRole
             local role
             if value.PlayerId <= 0 then
                 role = currentRoom:GetRoleByFurnitureId(value.Id)
                 if role then
                     role:StopInteract()
+                    XLog.Debug("交互结束 交互信息为, 家具Id:" .. value.Id .. " 角色Id:" .. value.PlayerId .. " 交互前角色Id:" .. role:GetPlayerId())
                 end
             else
                 role = currentRoom:GetRoleByPlayerId(value.PlayerId)
@@ -745,23 +998,9 @@ XGuildDormManagerCreator = function()
         GuildDormManager.UpdateFurnitureDatas(data.FurnitureDatas)
     end
 
-    local IsHaveTempError = false
-    function GuildDormManager.TempErrorHandleFunc()
-        CsXGameEventManager.Instance:RemoveEvent(XEventId.EVENT_UIDIALOG_VIEW_ENABLE, GuildDormManager.TempErrorHandleFunc)
-        GuildDormManager.Dispose()
-        XScheduleManager.ScheduleOnce(function()
-            XLuaUiManager.Remove("UiSystemDialog")
-            XLuaUiManager.Open("UiDialog", nil, XUiHelper.GetText("GuildDormNetworkTimeOutTip"), XUiManager.DialogType.Normal, nil, function()
-                XDataCenter.GuildManager.EnterGuild()
-            end)
-        end, 1)
-        IsHaveTempError = true
-    end
-
     function GuildDormManager.GetIsHaveTempError()
         return IsHaveTempError
     end
-
     --==============
     --进入房间
     --==============
@@ -785,21 +1024,18 @@ XGuildDormManagerCreator = function()
             LuaGC()
             if roomId == nil then roomId = 1 end
             if channelIndex == nil then channelIndex = 0 end
-            -- 因服务器超时错误在c#中处理，lua在这里通过临时注册事件处理
-            if IsHaveTempError then
+            if IsHaveTempError or XGuildDormConfig.DebugOpenOldUi then
                 XDataCenter.GuildManager.EnterGuild()
                 return
             end
-            CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_UIDIALOG_VIEW_ENABLE
-                , GuildDormManager.TempErrorHandleFunc)
             GuildDormManager.RequestLoadRoom(roomId, channelIndex, function(errorCode)
-                CsXGameEventManager.Instance:RemoveEvent(XEventId.EVENT_UIDIALOG_VIEW_ENABLE, GuildDormManager.TempErrorHandleFunc)
                 if errorCode == XGuildDormConfig.ErrorCode.Success then
                     GuildDormManager.StartGuildDorm(function()
                         local currentRoom = GuildDormManager.GetCurrentRoom()
                         -- 加载角色
                         currentRoom:CreateRoles(GuildDormManager.GetPlayerDatas()
                             , currentRoom:GetCharacterRoot())
+                        currentRoom:UpdateFurnitureRandomReward()
                         -- 打开共用组件管理
                         --XLuaUiManager.Open("UiGuildDormCommon")
                         IsRunning = true
@@ -811,9 +1047,7 @@ XGuildDormManagerCreator = function()
                     end, onLoadingStart)
                 elseif errorCode == XGuildDormConfig.ErrorCode.TCPFailed
                     or errorCode == XGuildDormConfig.ErrorCode.KCPFailed then
-                    -- GuildDormNetwork:StartReconnect()
-                    XDataCenter.GuildManager.EnterGuild()
-                    GuildDormManager.Dispose()
+                    GuildDormNetwork:StartReconnect()
                 elseif errorCode == XGuildDormConfig.ErrorCode.PreEnterFailed
                     or errorCode == XGuildDormConfig.ErrorCode.EnterFailed then
                     XDataCenter.GuildManager.EnterGuild()
@@ -845,6 +1079,273 @@ XGuildDormManagerCreator = function()
     function GuildDormManager.GetGuildDormNetwork()
         return GuildDormNetwork
     end
+
+    function GuildDormManager.SetRemaindRewardCount(value)
+        RemaindRewardCount = value
+    end
+
+    function GuildDormManager.GetRemaindRewardCount()
+        return RemaindRewardCount
+    end
+    
+    function GuildDormManager.PlayBgm(bgmId)
+        while BgmQueue:Peek() ~= bgmId and (not BgmQueue:IsEmpty()) do
+            local tempBgmId = BgmQueue:Dequeue()
+            BgmQueue:Enqueue(tempBgmId)            
+        end
+        local bgmCfg = XGuildDormConfig.GetBgmCfgById(bgmId)
+        BgmId = bgmId
+        if BgmId ~= 0 then
+            GuildDormManager.StopBgm()
+            CS.XAudioManager.PlayMusicWithAnalyzer(bgmCfg.CueId)
+            XEventManager.DispatchEvent(XEventId.EVENT_DORM_UPDATE_MUSIC)
+            if BgmTimer then
+                XScheduleManager.UnSchedule(BgmTimer)
+            end
+            BgmTimer = XScheduleManager.ScheduleOnce(function()
+                if not XLuaUiManager.IsUiLoad("UiGuildDormMain") then
+                    return
+                end
+                BgmTimer = nil
+                local lastBgmId = BgmQueue:Dequeue()
+                BgmQueue:Enqueue(lastBgmId)
+                GuildDormManager.PlayBgm(BgmQueue:Peek())
+            end,bgmCfg.Duration)
+        end
+    end
+    
+    function GuildDormManager.StopBgm()
+        CS.XAudioManager.StopMusicWithAnalyzer()
+    end
+    
+    function GuildDormManager.GetPlayedBgmId()
+        return BgmId
+    end
+    
+    function GuildDormManager.IsNewVersionFirstIn()
+        local key = string.format("GuildDormManager_IsNewVersionFirstIn_V132_%s", XPlayer.Id)
+        local data = XSaveTool.GetData(key)
+        return data ~= 1 and true or false
+    end
+    
+    function GuildDormManager.MarkNewVersionFirstIn()
+        local key = string.format("GuildDormManager_IsNewVersionFirstIn_V132_%s", XPlayer.Id)
+        local data = XSaveTool.GetData(key)
+        if data == 1 then
+            return
+        end
+        XSaveTool.SaveData(key, 1)
+    end
+    
+    function GuildDormManager.GetGuildDormBgmBtnFirstKey()
+        local key = string.format("GuildDormManager_GuildDormBgmBtnFirst_%s", tostring(XPlayer.Id))
+        return key
+    end
+    
+    function GuildDormManager.SaveGuildDormBgmBtnFirst()
+        local key = GuildDormManager.GetGuildDormBgmBtnFirstKey()
+        local data = XSaveTool.GetData(key)
+        if data == 1 then
+            return
+        end
+        XSaveTool.SaveData(key, 1)
+    end
+    
+    function GuildDormManager.GetGuildDormBgmBtnFirst()
+        local key = GuildDormManager.GetGuildDormBgmBtnFirstKey()
+        local data = XSaveTool.GetData(key) or 0
+        return data == 1
+    end
+    
+    -- 检测bgm是否在体验时间内
+    function GuildDormManager.CheckExperienceTimeIdByBgmId(bgmId)
+        local bgmCfg = XGuildDormConfig.GetBgmCfgById(bgmId)
+        -- 已购买
+        local boughtBgm = XDataCenter.GuildManager.GetDormBgms()
+        if bgmCfg.NeedBuy == 1 and XTool.IsNumberValid(bgmCfg.ExperienceTimeId) then
+            local isInTime = XFunctionManager.CheckInTimeByTimeId(bgmCfg.ExperienceTimeId)
+            local isBoughtBgm = table.contains(boughtBgm, bgmId)
+            if not isBoughtBgm and isInTime then
+                return true
+            end
+        end
+        return false
+    end
+
+    -- 检测bgm是否在体验时间外（过期）
+    function GuildDormManager.CheckExperienceExpireByBgmId(bgmId)
+        local bgmCfg = XGuildDormConfig.GetBgmCfgById(bgmId)
+        -- 已购买
+        local boughtBgm = XDataCenter.GuildManager.GetDormBgms()
+        if bgmCfg.NeedBuy == 1 and XTool.IsNumberValid(bgmCfg.ExperienceTimeId) then
+            local isInTime = XFunctionManager.CheckInTimeByTimeId(bgmCfg.ExperienceTimeId)
+            local isBoughtBgm = table.contains(boughtBgm, bgmId)
+            if not isBoughtBgm and not isInTime then
+                return true
+            end
+        end
+        return false
+    end
+    
+    -- 移除过期的BgmId
+    function GuildDormManager.RemoveExperienceExpireBgmId(bgmIds)
+        local isExpire = false
+        local removeDic = {}
+        for _, bgmId in pairs(bgmIds) do
+            if GuildDormManager.CheckExperienceExpireByBgmId(bgmId) then
+                table.insert(removeDic, bgmId)
+            end
+        end
+        if #removeDic > 0 then
+            isExpire = true
+            for _, bgmId in pairs(removeDic) do
+                XTool.TableRemove(bgmIds, bgmId)
+            end
+        end
+        return isExpire
+    end
+    
+    function GuildDormManager.UpdateSortingOrder(order)
+        UiCommonSortingOrder = order
+    end
+    
+    function GuildDormManager.GetCommonSortingOrder()
+        return UiCommonSortingOrder - 1
+    end
+    
+    function GuildDormManager.SetUiGuildDormCommon(show)
+        IsShowUiGuildDormCommon = show
+    end
+    
+    function GuildDormManager.CheckIsShowUiGuildDormCommon()
+        return IsShowUiGuildDormCommon
+    end
+    
+    --region 2.6 NPC同步
+    function GuildDormManager.UpdateNpcData(npcData)
+        local npcLocalData=GuildDormManager.GetNpcDataFromDormData(npcData.Id)
+        if npcLocalData then
+            if npcData.State then
+                npcLocalData.State=npcData.State
+            end
+            if npcData.ActionId then
+                npcLocalData.ActionId=npcData.ActionId
+            end
+            if npcData.LastInteractTime then
+                npcLocalData.LastInteractTime=npcData.LastInteractTime
+            end
+        else
+            NpcDataCache[npcData.Id]=npcData
+        end
+        
+    end
+    
+    function GuildDormManager.SyncNpcPosition(npcData,npc)
+        if npcData.Position and npc:CheckRLRoleIsCreated() then
+            local transform = npc:GetRLRole():GetTransform()
+            local position = Vector3(npcData.Position.X,npcData.Position.Y,npcData.Position.Z)
+            local eulerAngles = transform.rotation.eulerAngles
+            --确定新的Y轴转向：如果角度值是被忽略的，则沿用当前角度，否则使用下发的角度
+            local newYangle=(XGuildDormConfig.IgnoreAngle==npcData.Position.Angle or math.abs(npcData.Position.Angle-XGuildDormConfig.IgnoreAngle)<100) and eulerAngles.y or npcData.Position.Angle
+            local rotation = Quaternion.Euler(
+                    Vector3(eulerAngles.x, newYangle, eulerAngles.z))
+            if not npc.SyncAgent then
+                local XGDNpcManagerComponent = require("XEntity/XGuildDorm/Components/XGDNpcSyncToClientComponent")
+                npc.SyncAgent=XGDNpcManagerComponent.New(npc, transform,GuildDormManager.GetCurrentRoom())
+                npc.SyncAgent:UpdateCurrentSyncData(position, rotation)
+            else
+                npc.SyncAgent:UpdateCurrentSyncData(position, rotation)
+            end
+            
+            if GuildDormManager.GetNpcDataFromDormData(npcData.Id).State==XGuildDormConfig.NpcState.Move then--patrol
+                if npc:GetAgent().BTree==nil or (npc:GetAgent().BTree.Id ~=npc:GetPatrolBehaviorId() and npc.InteractStatus~=XGuildDormConfig.InteractStatus.End) then
+                    npc:PlayBehavior(npc:GetPatrolBehaviorId())
+                end
+            end
+        end
+    end
+    
+    function GuildDormManager.SyncNpcIdle(npcData,npc)
+        if npcData.ActionId and npc:CheckRLRoleIsCreated() then
+            if GuildDormManager.GetNpcDataFromDormData(npcData.Id).State==XGuildDormConfig.NpcState.Idle then--Idle
+                if npc.SyncAgent then
+                    npc.SyncAgent:SetMoveLock(true)
+                end
+                npc:ChangeStateMachine(XGuildDormConfig.RoleFSMType.PATROL_IDLE)
+
+            end
+        end
+    end
+    
+    function GuildDormManager.InteractWithPlayer(npcData,npc)
+        local npcLocalData=GuildDormManager.GetNpcDataFromDormData(npcData.Id)
+        if npcLocalData.State==XGuildDormConfig.NpcState.Interact and npcData.PlayerId then --Interact
+            npcLocalData.lastState=XGuildDormConfig.NpcState.Interact
+            local player = GuildDormManager.GetCurrentRoom():GetRoleByPlayerId(npcData.PlayerId)
+            if not player then return end
+            local position=npc:GetRLRole():GetTransform().position
+            local rotation=Quaternion.LookRotation(player:GetRLRole():GetTransform().position-position)
+
+            if not npc.SyncAgent then
+                local XGDNpcManagerComponent = require("XEntity/XGuildDorm/Components/XGDNpcSyncToClientComponent")
+                npc.SyncAgent=XGDNpcManagerComponent.New(npc, npc:GetRLRole():GetTransform(),GuildDormManager.GetCurrentRoom())
+                npc.SyncAgent:UpdateCurrentSyncData(position, rotation,true)
+            else
+                npc.SyncAgent:UpdateCurrentSyncData(position, rotation,true)
+            end
+            npc:ChangeStateMachine(XGuildDormConfig.RoleFSMType.INTERACT)
+
+        elseif npcLocalData.lastState==XGuildDormConfig.NpcState.Interact then
+            XEventManager.DispatchEvent("GuildDormNpcInteractEndTalk")
+            npcLocalData.lastState=nil
+        end
+    end
+    
+    function GuildDormManager.GetNpcDataFromDormData(npcRefreshId)
+        return NpcDataCache[npcRefreshId]
+    end
+    
+    function GuildDormManager.CheckIfCanInteract(npcId)
+        local npcData=GuildDormManager.GetNpcDataFromDormData(npcId)
+        if npcData then
+            local npcConfig=XGuildDormConfig.GetNpcRefreshConfigById(npcId)
+            if npcConfig then
+                local curTime=XTime.GetServerNowTimestamp()
+                return curTime-npcData.LastInteractTime >=npcConfig.InteractCdTime
+            end
+        end
+        return false
+    end
+    
+    function GuildDormManager.RequestInteractWithDynamicNpc(npcId,callback)
+        GuildDormNetwork:Call("GuildDormNpcInteractRequest",{
+            NpcId=npcId
+        },function(res)
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+            end
+            if callback then callback(res.Code == XCode.Success) end
+        end )
+    end
+    
+    function GuildDormManager.GetNpcRefreshIdByThemeAndNpcId(npcId,themeId)
+        local configs=XGuildDormConfig.GetNpcRefreshConfigsByThemeId(themeId)
+        for i, value in ipairs(configs) do
+            if value.NpcId==npcId then
+                return value.Id
+            end
+        end
+    end
+    
+    function GuildDormManager.CheckNpcIsStatic(npcRefreshId)
+        local data=GuildDormManager.GetNpcDataFromDormData(npcRefreshId)
+        if data~=nil then
+            return data.State==0
+        else
+            return true    
+        end
+    end
+    --endregion
 
     --require时运行初始化
     Init()
@@ -885,4 +1386,25 @@ end
 XRpc.NotifyGuildDormSyncFurniture = function(data)
     local queue = XDataCenter.GuildDormManager.GetSyncMsgQueue()
     queue:Enqueue({ Data = data, SyncType = XGuildDormConfig.SyncMsgType.Furniture })
+end
+
+XRpc.NotifyGuildDormThemeChanged = function(data)
+    local queue = XDataCenter.GuildDormManager.GetSyncMsgQueue()
+    queue:Enqueue({ Data = data, SyncType = XGuildDormConfig.SyncMsgType.Theme })
+end
+
+XRpc.NotifyGuildDormBgmChanged = function(data) 
+    local queue = XDataCenter.GuildDormManager.GetSyncMsgQueue()
+    queue:Enqueue({ Data = data, SyncType = XGuildDormConfig.SyncMsgType.BGM })
+end
+
+XRpc.NotifyGuildDormPlayerData = function(data)
+    local guildDormData = data.GuildDormData
+    XDataCenter.GuildDormManager.SetRemaindRewardCount(guildDormData.DailyInteractRewardTotalTimes 
+        - guildDormData.DailyInteractRewardCurTimes)
+end
+
+XRpc.NotifyGuildDormNpcGroupChanged = function(data)
+    local queue = XDataCenter.GuildDormManager.GetSyncMsgQueue()
+    queue:Enqueue({ Data = data, SyncType = XGuildDormConfig.SyncMsgType.NpcGroup })
 end

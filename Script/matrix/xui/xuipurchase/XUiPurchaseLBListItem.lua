@@ -134,15 +134,21 @@ function XUiPurchaseLBListItem:SetData()
         self.TxtHk.text = self.ItemData.ConsumeCount or ""
     end
 
+    -- 达到限购次数
+    if self.ItemData.BuyLimitTimes and self.ItemData.BuyLimitTimes > 0 and self.ItemData.BuyTimes == self.ItemData.BuyLimitTimes then
+        self.TxtPutawayTime.gameObject:SetActive(false)
+        self.ImgSellout.gameObject:SetActive(true)
+        self.TxtSetOut.text = TextManager.GetText("PurchaseSettOut")
+        self.TxtFree.gameObject:SetActive(false)
+        self.TxtHk.gameObject:SetActive(false)
+        -- self.TxtYuan.gameObject:SetActive(false)
+        self:SetBuyDes()
+        return
+    end
+
     --是否已拥有
     if self.ImgHave then
-        local isShowHave
-        if self.ItemData.RewardGoodsList and #self.ItemData.RewardGoodsList == 1 then
-            local isHave, isLimitTime = XRewardManager.CheckRewardGoodsListIsOwn(self.ItemData.RewardGoodsList)
-            isShowHave = isHave and not isLimitTime
-        else
-            isShowHave = false
-        end
+        local isShowHave = XDataCenter.PurchaseManager.IsLBHave(self.ItemData)
         self.ImgHave.gameObject:SetActive(isShowHave)
     end
 

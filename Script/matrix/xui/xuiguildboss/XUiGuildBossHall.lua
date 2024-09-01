@@ -97,7 +97,7 @@ function XUiGuildBossHall:UpdateBossHp(damage)
     local bossMaxHp = XDataCenter.GuildBossManager.GetMaxBossHp()
     local bossCurHp = XDataCenter.GuildBossManager.GetCurBossHp() - damage
     local leftHpNum = math.floor(bossCurHp / (bossMaxHp / 100)) --剩余血量管数
-    self.ImgBossHp.fillAmount = (bossCurHp - (leftHpNum * (bossMaxHp / 100))) / (bossMaxHp / 100)
+    self.ImgBossHp.fillAmount = bossCurHp / bossMaxHp
     self.TxtBossCurHp.text = XUiHelper.GetLargeIntNumText(bossCurHp)
     self.PanelBossBack.gameObject:SetActiveEx(bossCurHp > 0)
     self.PanelFinsh.gameObject:SetActiveEx(bossCurHp == 0)

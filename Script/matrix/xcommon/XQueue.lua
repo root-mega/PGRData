@@ -1,3 +1,4 @@
+---@class XQueue 队列
 XQueue = XClass(nil, "XQueue")
 
 function XQueue:Ctor()

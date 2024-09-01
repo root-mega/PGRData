@@ -14,6 +14,7 @@ function XUiStrongholdDeploy:OnAwake()
     self:AutoAddListener()
 
     self.GridDeployTeam.gameObject:SetActiveEx(false)
+    self.TxtTool1.supportRichText = true
 end
 
 function XUiStrongholdDeploy:OnStart(groupId)
@@ -111,10 +112,14 @@ function XUiStrongholdDeploy:InitView()
 end
 
 function XUiStrongholdDeploy:UpdateElectric()
-    local useElectric = XDataCenter.StrongholdManager.GetTotalUseElectricEnergy(self.TeamList)
-    local totalElectric = XDataCenter.StrongholdManager.GetTotalCanUseElectricEnergy(self.GroupId)
-    self.TxtTool1.text = useElectric .. "/" .. totalElectric
-    self.TxtTool1.color = CONDITION_COLOR[useElectric > totalElectric]
+    local groupId = self.GroupId
+    local teamList = XDataCenter.StrongholdManager.GetFighterTeamListTemp(self.TeamList, groupId)
+    local useElectric = XDataCenter.StrongholdManager.GetTotalUseElectricEnergy(teamList)
+    local totalElectric = XDataCenter.StrongholdManager.GetTotalCanUseElectricEnergy(groupId)
+    local chapterId = XStrongholdConfigs.GetChapterIdByGroupId(groupId)
+    local color = XDataCenter.StrongholdManager.GetSuggestElectricColor(groupId, teamList)
+    self.TxtTool1.text = string.format("%s/%s", useElectric, totalElectric)
+    self.TxtTool1.color = color
 end
 
 function XUiStrongholdDeploy:UpdateTeamList()
@@ -122,6 +127,7 @@ function XUiStrongholdDeploy:UpdateTeamList()
     local teamList = self.TeamList
 
     local isPrefab = self:IsPrefab()
+    self.ImgPjzlBg.gameObject:SetActiveEx(not isPrefab)
     self.BtnSupport.gameObject:SetActiveEx(not isPrefab)
     self.BtnFight.gameObject:SetActiveEx(not isPrefab)
     self.BtnAutoTeam.gameObject:SetActiveEx(isPrefab)
@@ -134,6 +140,22 @@ function XUiStrongholdDeploy:UpdateTeamList()
         local isSupportActive = XDataCenter.StrongholdManager.CheckGroupSupportAcitve(groupId, teamList)
         self.TxtOn.gameObject:SetActiveEx(isSupportActive)
         self.TxtOff.gameObject:SetActiveEx(not isSupportActive)
+
+        --完美战术的平均战力
+        local supportId = XDataCenter.StrongholdManager.GetGroupSupportId(groupId)
+        local conditionIds = XStrongholdConfigs.GetSupportConditionIds(supportId)
+        local requireAbility = 0
+        for _, conditionId in ipairs(conditionIds) do
+            local config = XConditionManager.GetConditionTemplate(conditionId)
+            if config.Type == 10134 then
+                requireAbility = config.Params[1]
+                break
+            end
+        end
+        local isfinished, averageAbility = XDataCenter.StrongholdManager.CheckTeamListAverageAbility(requireAbility, teamList)
+        local color = isfinished and "000000" or "d92f2f"
+        self.TxtPjzl.text = CsXTextManagerGetText("StrongholdDeployTxtPjzl", color, requireAbility, math.floor(averageAbility))
+        self.ImgPjzlBg.gameObject:SetActiveEx(not isSupportActive)
     end
 
     local requireTeamIds = XDataCenter.StrongholdManager.GetGroupRequireTeamIds(groupId)
@@ -260,8 +282,7 @@ function XUiStrongholdDeploy:IsPrefab()
 end
 
 function XUiStrongholdDeploy:OnClickBtnTool1()
-    local itemId = XDataCenter.StrongholdManager.GetBatteryItemId()
-    XLuaUiManager.Open("UiTip", itemId)
+    XLuaUiManager.Open("UiStrongholdPowerusageTips", self.GroupId, self.TeamList)
 end
 
 -- 在不允许支援的关卡，将支援角色踢出队伍

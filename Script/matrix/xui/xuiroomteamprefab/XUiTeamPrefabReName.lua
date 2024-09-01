@@ -11,6 +11,14 @@ function XUiTeamPrefabReName:OnStart(confirmCb)
     self.ConfirmCb = confirmCb
 end
 
+function XUiTeamPrefabReName:OnEnable()
+
+end
+
+function XUiTeamPrefabReName:OnDisable()
+
+end
+
 function XUiTeamPrefabReName:AddListener()
     self.BtnClose.CallBack = function()
         self:Close()

@@ -161,7 +161,7 @@ function XUiOnLineTranscript:Refresh(stage)
     self.TxtTitle.text = stage.Name
     self.TxtDesc.text = stage.Description
     self.TxtLevelVal.text = stage.RequireLevel
-    self.TxtATNums.text = stage.RequireActionPoint
+    self.TxtATNums.text = XDataCenter.FubenManager.GetRequireActionPoint(stage.StageId)
     local leastPlayer = stage.OnlinePlayerLeast <= 0 and 1 or stage.OnlinePlayerLeast
     self.TxtPeople.text = leastPlayer
 

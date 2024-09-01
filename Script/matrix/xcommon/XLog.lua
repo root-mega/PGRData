@@ -1,5 +1,7 @@
 XLog = XLog or {}
 
+local IsDebugBuild = CS.XApplication.Debug
+
 local MAX_DEPTH = 15
 
 local Type = type
@@ -12,6 +14,7 @@ local DebugTraceback = debug.traceback
 local XLogDebug = CS.XLog.Debug
 local XLogWarning = CS.XLog.Warning
 local XLogError = CS.XLog.Error
+local XLogBugly = CS.XLog.BuglyLog
 
 local Pairs = function(arr)
     local meta_t = getmetatable(arr)
@@ -149,6 +152,9 @@ local Print = function(...)
 end
 
 XLog.Debug = function(...)
+    if not IsDebugBuild then
+        return
+    end
     local content = Print(...)
     if content then
         XLogDebug(content .. "\n" .. DebugTraceback())
@@ -158,6 +164,9 @@ XLog.Debug = function(...)
 end
 
 XLog.Warning = function(...)
+    if not IsDebugBuild then
+        return
+    end
     local content = Print(...)
     if content then
         XLogWarning(content .. "\n" .. DebugTraceback())
@@ -172,6 +181,15 @@ XLog.Error = function(...)
         XLogError(content .. "\n" .. DebugTraceback())
     else
         XLogError("nil\n" .. DebugTraceback())
+    end
+end
+
+XLog.BuglyLog = function (moduleName, ...)
+    local content = Print(moduleName, ...)
+    if content then
+        XLogBugly(content .. "\n" .. DebugTraceback())
+    else
+        XLogBugly("nil\n" .. DebugTraceback())
     end
 end
 

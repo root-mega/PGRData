@@ -4,7 +4,8 @@ local type = type
 local pairs = pairs
 local Vector3 = CS.UnityEngine.Vector3
 
---陷阱对象
+---推箱子陷阱对象
+---@class XRpgMakerGameTrap:XRpgMakerGameObject
 local XRpgMakerGameTrap = XClass(XRpgMakerGameObject, "XRpgMakerGameTrap")
 
 function XRpgMakerGameTrap:Ctor(id, gameObject)

@@ -1,6 +1,9 @@
---- 角色对象
+
 local XSceneObject = require("XHome/XSceneObject")
 
+---@class XHomeCharObj : XSceneObject 角色对象
+---@field CharData XClientDormCharacter 服务器数据
+---@field Room XHomeRoomObj 服务器数据
 local XHomeCharObj = XClass(XSceneObject, "XHomeCharObj")
 
 --设置数据
@@ -60,12 +63,14 @@ function XHomeCharObj:OnLoadComplete()
     end
 
     self.Agent.Proxy.LuaAgentProxy:SetHomeCharObj(self)
-
+    self.RenderingUIProxy = CS.XNPCRendingUIProxy.GetNPCRendingUIProxy(self.GameObject)
+    self.HeadPos = self.Transform:Find("Bip001/Bip001Pelvis/Bip001Spine/Bip001Spine1/Bip001Neck/Bip001Head")
 
     self.Animator = self.GameObject:GetComponent(typeof(CS.UnityEngine.Animator))
     self.DormPutOnAnimaTime = CS.XGame.ClientConfig:GetFloat("DormPutOnAnimaTime")
     self.IsPressing = false
     self.FondleType = 0
+
 
     --寻路组件
     -- self.NavMeshAgent = CS.XNavMeshUtility.AddNavMeshAgent(self.GameObject)
@@ -177,7 +182,6 @@ function XHomeCharObj:DoPathFind(minDistance, maxDistance)
     self.Agent:SetVarDicByKey("Destination", pos)
 end
 
-
 --改变状态机
 function XHomeCharObj:ChangeStateMachine(stateM)
     if self.StateMachine and self.StateMachine.name == stateM then
@@ -193,7 +197,6 @@ function XHomeCharObj:ChangeStateMachine(stateM)
 
     self.StateMachine:Execute()
 end
-
 
 --改变状态
 function XHomeCharObj:ChangeStatus(state)
@@ -231,7 +234,14 @@ end
 
 --播放特效
 function XHomeCharObj:PlayEffect(effectId, bindWorldPos)
-    XEventManager.DispatchEvent(XEventId.EVENT_CHARACTER_SHOW_3DIOBJ, self.Id, effectId, self.Transform, bindWorldPos)
+    XEventManager.DispatchEvent(XEventId.EVENT_CHARACTER_SHOW_3DIOBJ, self.Id, effectId, self.Transform, bindWorldPos, self.RenderingUIProxy, self.HeadPos)
+end
+
+function XHomeCharObj:PlayFurnitureEffect(effectId)
+    if self.Furniture ~= nil then
+        self.Furniture:DoEffectNode(effectId)
+    end
+    return true
 end
 
 --隐藏特效
@@ -243,7 +253,6 @@ end
 function XHomeCharObj:SetObstackeEnable(obstackeEnable)
     self.NavMeshAgent.IsObstacle = obstackeEnable
 end
-
 
 --播放事件奖励
 function XHomeCharObj:ShowEventReward()
@@ -303,7 +312,6 @@ function XHomeCharObj:CheckEventCompleted(completeType, callBack)
     XDataCenter.DormManager.RequestDormitoryCharacterOperate(self.Id, self.CharData.DormitoryId, temp.EventId, 1, callBack)
     return true
 end
-
 
 --检测任务存在
 function XHomeCharObj:CheckEventExist(eventId)
@@ -424,6 +432,10 @@ end
 --长按
 function XHomeCharObj:OnPress(pressTime)
     if not self.IsSelf then
+        return
+    end
+
+    if self.CharLongPressTrigger ~= nil and self.CharLongPressTrigger == false then
         return
     end
 
@@ -611,6 +623,13 @@ function XHomeCharObj:InteractFurniture()
     return true
 end
 
+function XHomeCharObj:PlayFurnitureAction(actionId, needFadeCross, crossDuration, needReplayAnimation)
+    if self.Furniture ~= nil then
+        self.Furniture:DoActionNode(actionId, needFadeCross, crossDuration)
+    end
+    return true
+end
+
 -- 播放关联家具动画
 function XHomeCharObj:PlayInteractFurnitureAnimation()
     if self.Furniture == nil or not self.InteractInfo then
@@ -676,7 +695,6 @@ function XHomeCharObj:DisInteractFurniture()
     return true
 end
 
-
 --检测是否可以取消家具关联
 function XHomeCharObj:CheckDisInteractFurniture()
     if self.Furniture == nil then
@@ -734,7 +752,6 @@ function XHomeCharObj:DequeueFondleType()
         self.FondleType = 0
     end
 end
-
 
 --获取爱抚类型
 function XHomeCharObj:GetFondleType()
@@ -820,7 +837,6 @@ function XHomeCharObj:OnShow(isResetPosition)
     self:ReBorn()
 end
 
-
 function XHomeCharObj:OnHide()
     if not self.Visible then
         return
@@ -847,7 +863,6 @@ function XHomeCharObj:CheckRayCastFurnitureNode()
     return self.IsRayCastFurniture
 end
 
-
 --面向交互的构造体
 function XHomeCharObj:InteractWith(charObj)
     local direction = charObj.Transform.position - self.Transform.position
@@ -855,7 +870,6 @@ function XHomeCharObj:InteractWith(charObj)
     local eulerAngle = CS.UnityEngine.Quaternion.LookRotation(direction).eulerAngles
     self.Agent:SetVarDicByKey("TurnTo", eulerAngle)
 end
-
 
 --交互家具面向方向调整
 function XHomeCharObj:SetForwardToFurniture(forward)
@@ -869,6 +883,7 @@ function XHomeCharObj:SetForwardToFurniture(forward)
 
     local interact = furniture:GetInteract(info.GridPos.x, info.GridPos.y)
     local eulerAngle = interact.InteractPos.transform.eulerAngles
+
     if forward < 0 then
         eulerAngle = eulerAngle + CS.UnityEngine.Vector3(0, 180, 0)
     end
@@ -876,10 +891,15 @@ function XHomeCharObj:SetForwardToFurniture(forward)
     return true
 end
 
-
 --设置构造体交互开关
 function XHomeCharObj:SetCharInteractTrigger(isOn)
     self.CharInteractTrigger = isOn
+end
+
+--设置构造体长按开关
+function XHomeCharObj:SetCharLongPressTrigger(isOn)
+    self.CharLongPressTrigger = isOn
+    return true
 end
 
 --检测构造体是否在坐标索引上

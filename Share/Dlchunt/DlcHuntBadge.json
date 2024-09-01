@@ -1,0 +1,191 @@
+[
+    {
+        "Id": 1,
+        "GroupId": 1,
+        "Level": 1,
+        "Name": "Butcher I",
+        "Des": "Deals massive DMG to data.",
+        "Icon": "Assets/Product/Texture/Image/UiDlcHunt/UiDlcHuntBadge5.png",
+        "Condition": 1500001
+    },
+    {
+        "Id": 2,
+        "GroupId": 1,
+        "Level": 2,
+        "Name": "Butcher II",
+        "Des": "Deals massive DMG to data.",
+        "Icon": "Assets/Product/Texture/Image/UiDlcHunt/UiDlcHuntBadge6.png",
+        "Condition": 1500002
+    },
+    {
+        "Id": 3,
+        "GroupId": 1,
+        "Level": 3,
+        "Name": "Butcher III",
+        "Des": "Deals massive DMG to data.",
+        "Icon": "Assets/Product/Texture/Image/UiDlcHunt/UiDlcHuntBadge4.png",
+        "Condition": 1500003
+    },
+    {
+        "Id": 4,
+        "GroupId": 2,
+        "Level": 1,
+        "Name": "Hunter I",
+        "Des": "Successfully [hunts] down data.",
+        "Icon": "Assets/Product/Texture/Image/UiDlcHunt/UiDlcHuntBadge2.png",
+        "Condition": 1500007
+    },
+    {
+        "Id": 5,
+        "GroupId": 2,
+        "Level": 2,
+        "Name": "Hunter II",
+        "Des": "Successfully [hunts] down data.",
+        "Icon": "Assets/Product/Texture/Image/UiDlcHunt/UiDlcHuntBadge3.png",
+        "Condition": 1500008
+    },
+    {
+        "Id": 6,
+        "GroupId": 2,
+        "Level": 3,
+        "Name": "Hunter III",
+        "Des": "Successfully [hunts] down data.",
+        "Icon": "Assets/Product/Texture/Image/UiDlcHunt/UiDlcHuntBadge1.png",
+        "Condition": 1500009
+    },
+    {
+        "Id": 7,
+        "GroupId": 3,
+        "Level": 1,
+        "Name": "Finisher",
+        "Des": "Successfully kills data.",
+        "Icon": "Assets/Product/Texture/Image/UiDlcHunt/UiDlcHuntBadge7.png",
+        "Condition": 1500016
+    },
+    {
+        "Id": 8,
+        "GroupId": 3,
+        "Level": 2,
+        "Name": "Spear Control II",
+        "Des": "Perform Spear QTE 3 times",
+        "Icon": null,
+        "Condition": 1500008
+    },
+    {
+        "Id": 9,
+        "GroupId": 3,
+        "Level": 3,
+        "Name": "Spear Control III",
+        "Des": "Perform Spear QTE 5 times",
+        "Icon": null,
+        "Condition": 1500009
+    },
+    {
+        "Id": 10,
+        "GroupId": 4,
+        "Level": 1,
+        "Name": "Lifesaver I",
+        "Des": "Help teammates once",
+        "Icon": null,
+        "Condition": 1500010
+    },
+    {
+        "Id": 11,
+        "GroupId": 4,
+        "Level": 2,
+        "Name": "Lifesaver II",
+        "Des": "Help teammates 3 times",
+        "Icon": null,
+        "Condition": 1500011
+    },
+    {
+        "Id": 12,
+        "GroupId": 4,
+        "Level": 3,
+        "Name": "Lifesaver III",
+        "Des": "Help teammates 5 times",
+        "Icon": null,
+        "Condition": 1500012
+    },
+    {
+        "Id": 13,
+        "GroupId": 5,
+        "Level": 1,
+        "Name": "DMG Taken I",
+        "Des": "Receive 1000 DMG",
+        "Icon": null,
+        "Condition": 1500013
+    },
+    {
+        "Id": 14,
+        "GroupId": 5,
+        "Level": 2,
+        "Name": "DMG Taken II",
+        "Des": "Receive 3000 DMG",
+        "Icon": null,
+        "Condition": 1500014
+    },
+    {
+        "Id": 15,
+        "GroupId": 5,
+        "Level": 3,
+        "Name": "DMG Taken III",
+        "Des": "Receive 5000 DMG",
+        "Icon": null,
+        "Condition": 1500015
+    },
+    {
+        "Id": 16,
+        "GroupId": 6,
+        "Level": 1,
+        "Name": "Final Blow",
+        "Des": "Inflict the final blow on the boss",
+        "Icon": null,
+        "Condition": 1500016
+    },
+    {
+        "Id": 17,
+        "GroupId": 7,
+        "Level": 1,
+        "Name": "Team Carries",
+        "Des": "The rest of your teammates clear the stage after you die",
+        "Icon": null,
+        "Condition": 1500017
+    },
+    {
+        "Id": 18,
+        "GroupId": 8,
+        "Level": 1,
+        "Name": "Tough Victory I",
+        "Des": "Clear a stage with less than 1% HP",
+        "Icon": null,
+        "Condition": 1500018
+    },
+    {
+        "Id": 19,
+        "GroupId": 8,
+        "Level": 2,
+        "Name": "Tough Victory II",
+        "Des": "Clear a stage with less than 5% HP",
+        "Icon": null,
+        "Condition": 1500019
+    },
+    {
+        "Id": 20,
+        "GroupId": 8,
+        "Level": 3,
+        "Name": "Tough Victory III",
+        "Des": "Clear a stage with less than 10% HP",
+        "Icon": null,
+        "Condition": 1500020
+    },
+    {
+        "Id": 21,
+        "GroupId": 9,
+        "Level": 1,
+        "Name": "Breaking Parts",
+        "Des": "Break a boss part",
+        "Icon": null,
+        "Condition": 1500021
+    }
+]

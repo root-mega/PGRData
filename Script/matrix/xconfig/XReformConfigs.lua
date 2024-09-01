@@ -1,4 +1,21 @@
-XReformConfigs = XReformConfigs or {}
+XReformConfigs = XConfigCenter.CreateTableConfig(XReformConfigs, "XReformConfigs", "Fuben/Reform")
+--=============
+--配置表枚举
+--TableName : 表名，对应需要读取的表的文件名字，不写即为枚举的Key字符串
+--TableDefindName : 表定于名，默认同表名
+--ReadFuncName : 读取表格的方法，默认为ReadByIntKey
+--ReadKeyName : 读取表格的主键名，默认为Id
+--DirType : 读取的文件夹类型XConfigCenter.DirectoryType，默认是Share
+--LogKey : GetCfgByIdKey方法idKey找不到时所输出的日志信息，默认是唯一Id
+--=============
+XReformConfigs.TableKey = enum({
+    ReformAffixGroup = { TableDefindName = "XTableReformGroup" },
+    ReformAffixSource = {},
+    ReformTimeEnvGroup = { TableDefindName = "XTableReformGroup" },
+    ReformTimeEnvSource = {},
+    ReformClientConfig = { ReadFuncName = "ReadByStringKey", ReadKeyName = "Key", DirType = XConfigCenter.DirectoryType.Client },
+
+})
 -- 配置表路径
 local SHARE_TABLE_ROOT_PATH = "Share/Fuben/Reform/"
 local CLIENT_TABLE_ROOT_PATH = "Client/Fuben/Reform/"
@@ -8,12 +25,25 @@ XReformConfigs.EntityType = {
     Entity = 1,
     Add = 2,
 }
+
 -- 改造页签类型
 XReformConfigs.EvolvableGroupType = {
     Enemy = 1,
     Environment = 2,
     Buff = 3,
     Member = 4,
+    EnemyBuff = 5, -- 改造敌人buff
+    StageTime = 6, -- 改造关卡通关时间
+}
+
+XReformConfigs.StageType = {
+    Normal = 1,
+    Challenge = 2,
+}
+
+XReformConfigs.EnemyGroupType = {
+    NormanEnemy = 1,
+    ExtraEnemy = 2,
 }
 
 -- 表现相关配置
@@ -102,6 +132,16 @@ function XReformConfigs.GetStageConfigIds()
     return XReformConfigs.__StageConfigIds
 end
 
+function XReformConfigs.GetHardStageConfigFirstId()
+    local configIds = XReformConfigs.GetStageConfigIds()
+    for _, id in ipairs(configIds) do
+        if XReformConfigs.GetStageConfigById(id).StageType == XReformConfigs.StageType.Challenge then
+            return id
+        end
+    end
+    return configIds[1]
+end
+
 function XReformConfigs.GetStageConfigById(id)
     return XReformConfigs.GetStageConfig()[id]
 end
@@ -130,5 +170,28 @@ function XReformConfigs.GetBaseStageMaxDiffCount(id)
             result = result + 1
         end
     end
+    return result
+end
+
+function XReformConfigs.GetEnemyTargetConfigById(id)
+    if id == nil then return nil end
+    return XReformConfigs.GetEnemyTargetConfig(id)
+end
+
+function XReformConfigs.GetTaskIdDicByStageType(stageType)
+    if XReformConfigs.__TaskIdDic == nil then XReformConfigs.__TaskIdDic = {} end
+    local result = XReformConfigs.__TaskIdDic[stageType]
+    if result then return result end
+    local values = nil
+    if stageType == XReformConfigs.StageType.Normal then
+        values = XReformConfigs.GetCfgByIdKey(XReformConfigs.TableKey.ReformClientConfig, "NormalTaskIds").Values
+    elseif stageType == XReformConfigs.StageType.Challenge then
+        values = XReformConfigs.GetCfgByIdKey(XReformConfigs.TableKey.ReformClientConfig, "ChallengeTaskIds").Values
+    end
+    result = {}
+    for _, strId in ipairs(values) do
+        result[tonumber(strId)] = true
+    end
+    XReformConfigs.__TaskIdDic[stageType] = result
     return result
 end

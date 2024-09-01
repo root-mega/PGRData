@@ -21,10 +21,8 @@ end
 
 function XUiGridSkillItem:AutoInitUi()
     self.PanelIconTip = XUiHelper.TryGetComponent(self.Transform, "PanelIconTip", nil)
-    self.PanelLock = XUiHelper.TryGetComponent(self.Transform, "PanelIconTip/PanelLock", nil)
     self.ImgUpgradeTip = XUiHelper.TryGetComponent(self.Transform, "PanelIconTip/ImgUpgradeTip", "Image")
-    self.TxtTotalPoint = XUiHelper.TryGetComponent(self.Transform, "TxtTotalPoint", "Text")
-    self.TxtSkillName = XUiHelper.TryGetComponent(self.Transform, "TxtSkillName", "Text")
+    self.TxtSkillName = XUiHelper.TryGetComponent(self.Transform, "BtnIconBg/ImgBg/TxtSkillName", "Text")
     self.RImgSkillIcon = XUiHelper.TryGetComponent(self.Transform, "RImgSkillIcon", "RawImage")
     self.BtnIconBg = XUiHelper.TryGetComponent(self.Transform, "BtnIconBg", "Button")
 end
@@ -78,24 +76,7 @@ function XUiGridSkillItem:UpdateInfo(characterId, skill)
     self.TxtSkillName.text = skill.Name
     self.RImgSkillIcon:SetRawImage(skill.Icon)
 
-    local addLevel = 0
-    for _, skillId in pairs(skill.SkillIdList) do
-        addLevel = addLevel + XDataCenter.CharacterManager.GetSkillPlusLevel(characterId, skillId)
-    end
-
-    if addLevel > 0 then
-        self.TxtTotalPoint.text = CS.XTextManager.GetText("CharacterResonanceSkillDes", skill.TotalLevel, addLevel)
-    else
-        self.TxtTotalPoint.text = CS.XTextManager.GetText("HostelDeviceLevel") .. ':' .. skill.TotalLevel
-    end
-
     self.ImgUpgradeTip.gameObject:SetActive(false)
-    self.PanelLock.gameObject:SetActive(false)
-
-    if (skill.TotalLevel <= 0) then
-        self.PanelLock.gameObject:SetActive(true)
-        return
-    end
 
     local canUpdate = false
     for _, subSkill in ipairs(skill.subSkills) do

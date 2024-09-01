@@ -8,7 +8,6 @@ function XRedPointConditionCharacter.GetSubConditions()
         XRedPointConditions.Types.CONDITION_CHARACTER_GRADE ,
         XRedPointConditions.Types.CONDITION_CHARACTER_QUALITY,
         XRedPointConditions.Types.CONDITION_CHARACTER_UNLOCK,
-        XRedPointConditions.Types.CONDITION_CHARACTER_ENHANCESKILL,
         XRedPointConditions.Types.CONDITION_EXHIBITION_NEW,
     }
     return SubCondition
@@ -32,12 +31,6 @@ function XRedPointConditionCharacter.Check(characterId)
     end
 
     if XRedPointConditionExhibitionNew.Check(characterId) then
-        return true
-    end
-    
-    if XRedPointConditionCharacterEnhanceSkill.Check(characterId) and
-       XCharacterConfigs.GetCharacterType(characterId) == XCharacterConfigs.CharacterType.Normal --过滤独域角色补强技能
-    then
         return true
     end
 

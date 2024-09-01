@@ -87,13 +87,13 @@ function XUiPanelNierCharacterFoster:OnDynamicGridClick(index)
             XLuaUiManager.Open("UiFashion", self.CharacterData:GetRobotCharacterId(), true, true, XUiConfigs.OpenUiType.NieRCharacterUI)
         elseif data.Type == XNieRConfigs.AbilityType.Weapon then
             local equipId = config.WeaponId
-            XLuaUiManager.Open("UiEquipDetail", equipId, true, nil, nil, nil, XUiConfigs.OpenUiType.NieRCharacterUI)
+            XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipDetail(equipId, true, nil, nil, nil, XUiConfigs.OpenUiType.NieRCharacterUI)
         elseif data.Type == XNieRConfigs.AbilityType.FourWafer then
             local equipId = config.WaferId[1]
-            XLuaUiManager.Open("UiEquipDetail", equipId, true, nil, nil, nil, XUiConfigs.OpenUiType.NieRCharacterUI)
+            XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipDetail(equipId, true, nil, nil, nil, XUiConfigs.OpenUiType.NieRCharacterUI)
         elseif data.Type == XNieRConfigs.AbilityType.TwoWafer then
             local equipId = config.WaferId[1]
-            XLuaUiManager.Open("UiEquipDetail", equipId, true, nil, nil, nil, XUiConfigs.OpenUiType.NieRCharacterUI)
+            XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipDetail(equipId, true, nil, nil, nil, XUiConfigs.OpenUiType.NieRCharacterUI)
         end
     else
         XUiManager.TipMsg(desc)

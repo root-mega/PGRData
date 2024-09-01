@@ -2,6 +2,7 @@ local XGoldenMinerItemBase = require("XEntity/XGoldenMiner/XGoldenMinerItemBase"
 local type = type
 
 --黄金矿工商店随机出的商品
+---@class XGoldenMinerCommodityDb:XGoldenMinerItemBase
 local XGoldenMinerCommodityDb = XClass(XGoldenMinerItemBase, "XGoldenMinerCommodityDb")
 
 local Default = {

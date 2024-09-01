@@ -111,4 +111,12 @@ function XUiPanelSetBirthday:OnBtnBirCancelClick()
     self.Base:HidePanelSetBirthday()
 end
 
+function XUiPanelSetBirthday:AddPcListener()
+    XDataCenter.UiPcManager.OnUiEnable(self, "OnBtnBirCancelClick")
+end
+
+function XUiPanelSetBirthday:RemovePcListener()
+    XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
+end
+
 return XUiPanelSetBirthday

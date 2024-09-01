@@ -413,12 +413,32 @@ XPassportManagerCreator = function()
 
     --批量领取任务奖励
     function XPassportManager.FinishMultiTaskRequest(taskType)
-        local taskIds = XPassportManager.GetPassportAchievedTaskIdList(taskType)
-        if XTool.IsTableEmpty(taskIds) then
+        XPassportManager.FinishAllTaskRequest()
+        -- local taskIds = XPassportManager.GetPassportAchievedTaskIdList(taskType)
+        -- if XTool.IsTableEmpty(taskIds) then
+        --     return
+        -- end
+
+        -- XDataCenter.TaskManager.FinishMultiTaskRequest(taskIds, function(rewardGoodsList)
+        --     local horizontalNormalizedPosition = 0
+        --     XUiManager.OpenUiObtain(rewardGoodsList, nil, nil, nil, horizontalNormalizedPosition)
+        -- end)
+    end
+
+    -- v1.29 【通行证】优化任务页签一键领取逻辑，改为点击后领取全部任务页签的奖励
+    function XPassportManager.FinishAllTaskRequest()
+        local allTaskIds = {}
+        for name, taskType in pairs(XPassportConfigs.TaskType) do
+            local taskIds = XPassportManager.GetPassportAchievedTaskIdList(taskType)
+            for i = 1, #taskIds do
+                allTaskIds[#allTaskIds + 1] = taskIds[i]
+            end
+        end
+        if XTool.IsTableEmpty(allTaskIds) then
             return
         end
 
-        XDataCenter.TaskManager.FinishMultiTaskRequest(taskIds, function(rewardGoodsList)
+        XDataCenter.TaskManager.FinishMultiTaskRequest(allTaskIds, function(rewardGoodsList)
             local horizontalNormalizedPosition = 0
             XUiManager.OpenUiObtain(rewardGoodsList, nil, nil, nil, horizontalNormalizedPosition)
         end)

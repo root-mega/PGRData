@@ -1,0 +1,114 @@
+[
+    {
+        "Id": 1,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 6,
+        "desc": "The Base and the bar restore HP"
+    },
+    {
+        "Id": 2,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 1,
+        "desc": "Training Field"
+    },
+    {
+        "Id": 3,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 9,
+        "desc": "Mine"
+    },
+    {
+        "Id": 4,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 4,
+        "desc": "Normal Victory"
+    },
+    {
+        "Id": 5,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 5,
+        "desc": "Seckill Victory"
+    },
+    {
+        "Id": 6,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 10,
+        "desc": "Construction Cost"
+    },
+    {
+        "Id": 101,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 11,
+        "desc": "Question Bubble"
+    },
+    {
+        "Id": 102,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 12,
+        "desc": "Angry Bubble"
+    },
+    {
+        "Id": 103,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 1,
+        "desc": "Happy Bubble"
+    },
+    {
+        "Id": 104,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 2,
+        "desc": "Sad Bubble"
+    },
+    {
+        "Id": 105,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 3,
+        "desc": "Dead Bubble"
+    },
+    {
+        "Id": 106,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 6,
+        "desc": "Love Bubble"
+    },
+    {
+        "Id": 107,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 13,
+        "desc": "Story Sad Bubble"
+    },
+    {
+        "Id": 108,
+        "IntervalTime": 0,
+        "TriggerLimitCount": 1000,
+        "Duration": 3,
+        "BubbleResId": 14,
+        "desc": "Story Star Ore"
+    }
+]

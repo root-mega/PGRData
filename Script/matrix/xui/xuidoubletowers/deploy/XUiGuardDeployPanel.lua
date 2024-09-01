@@ -80,7 +80,7 @@ function XUiGuardDeployPanel:UpdateSlot()
         end
         slotGrid:Refresh(plugIdList[i])
         slotGrid.GameObject:SetActiveEx(true)
-        if self.CurSelectSlotIndex == -1 and i == 1then
+        if self.CurSelectSlotIndex == -1 and i == 1 then
             self:UpdateSlotSelect(slotGrid)
         end
     end

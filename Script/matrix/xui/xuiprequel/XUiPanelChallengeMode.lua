@@ -1,3 +1,4 @@
+-- (2.2)该脚本已废弃，碎片关已单独拆出ui UiPrequelFragment
 XUiPanelChallengeMode = XClass(nil, "XUiPanelChallengeMode")
 local ANICHALLENGEMODEBEGIN = "AniChallengeModeBegin"
 
@@ -37,6 +38,7 @@ function XUiPanelChallengeMode:AutoInitUi()
     self.TxtTotalNum = self.Transform:Find("PanelMode/PanelOpenItem/TxtTotalNum"):GetComponent("Text")
     self.RImgCostIcon = self.Transform:Find("PanelMode/PanelOpenItem/RImgCostIcon"):GetComponent("RawImage")
     self.BtnActDesc = self.Transform:Find("PanelMode/BtnActDesc"):GetComponent("Button")
+    self.TxtChapterName = self.Transform:Find("PanelMode/PanelBt/TxtChapterName"):GetComponent("Text")
 end
 
 function XUiPanelChallengeMode:RegisterClickEvent(uiNode, func)
@@ -106,6 +108,8 @@ end
 
 function XUiPanelChallengeMode:UpdateChallengeStages()
     if not self.CurrentCover then return end
+    self.TxtChapterName.text = self.CurrentCover.CoverVal.CoverName
+
     for _, v in pairs(self.ChallengeList) do
         v:Hide()
     end

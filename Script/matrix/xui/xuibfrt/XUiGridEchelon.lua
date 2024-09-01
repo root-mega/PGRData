@@ -5,11 +5,13 @@ local CONDITION_COLOR = {
 local MAX_ECHELON_MEMBER_COUNT = 3  --梯队最大成员数量
 local XUiGridEchelonMember = require("XUi/XUiBfrt/XUiGridEchelonMember")
 local XUiGridEchelonStageBuff = require("XUi/XUiBfrt/XUiGridEchelonStageBuff")
+---@class XUiGridEchelon
 local XUiGridEchelon = XClass(nil, "XUiGridEchelon")
 
 function XUiGridEchelon:Ctor(rootUi, ui, data)
     self.GameObject = ui.gameObject
     self.Transform = ui.transform
+    ---@type XUiBfrtDeploy
     self.RootUi = rootUi
     XTool.InitUiObject(self)
     self:InitAutoScript()

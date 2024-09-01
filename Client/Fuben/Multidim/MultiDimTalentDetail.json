@@ -1,0 +1,596 @@
+[
+    {
+        "Id": 1,
+        "ClassId": 1,
+        "TalentType": 1,
+        "Level": 0,
+        "NextLevel": 1.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon1.png"
+    },
+    {
+        "Id": 2,
+        "ClassId": 1,
+        "TalentType": 1,
+        "Level": 1,
+        "NextLevel": 2.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon1.png"
+    },
+    {
+        "Id": 3,
+        "ClassId": 1,
+        "TalentType": 1,
+        "Level": 2,
+        "NextLevel": 3.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon1.png"
+    },
+    {
+        "Id": 4,
+        "ClassId": 1,
+        "TalentType": 1,
+        "Level": 3,
+        "NextLevel": 4.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon1.png"
+    },
+    {
+        "Id": 5,
+        "ClassId": 1,
+        "TalentType": 1,
+        "Level": 4,
+        "NextLevel": 5.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon1.png"
+    },
+    {
+        "Id": 6,
+        "ClassId": 1,
+        "TalentType": 1,
+        "Level": 5,
+        "NextLevel": null,
+        "IsHighLevel": 1,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon1.png"
+    },
+    {
+        "Id": 7,
+        "ClassId": 1,
+        "TalentType": 2,
+        "Level": 0,
+        "NextLevel": 1.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon6.png"
+    },
+    {
+        "Id": 8,
+        "ClassId": 1,
+        "TalentType": 2,
+        "Level": 1,
+        "NextLevel": 2.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon6.png"
+    },
+    {
+        "Id": 9,
+        "ClassId": 1,
+        "TalentType": 2,
+        "Level": 2,
+        "NextLevel": 3.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon6.png"
+    },
+    {
+        "Id": 10,
+        "ClassId": 1,
+        "TalentType": 2,
+        "Level": 3,
+        "NextLevel": 4.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon6.png"
+    },
+    {
+        "Id": 11,
+        "ClassId": 1,
+        "TalentType": 2,
+        "Level": 4,
+        "NextLevel": 5.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon6.png"
+    },
+    {
+        "Id": 12,
+        "ClassId": 1,
+        "TalentType": 2,
+        "Level": 5,
+        "NextLevel": null,
+        "IsHighLevel": 1,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerNewBookIcon6.png"
+    },
+    {
+        "Id": 13,
+        "ClassId": 1,
+        "TalentType": 3,
+        "Level": 0,
+        "NextLevel": 1.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32111.png"
+    },
+    {
+        "Id": 14,
+        "ClassId": 1,
+        "TalentType": 3,
+        "Level": 1,
+        "NextLevel": 2.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32111.png"
+    },
+    {
+        "Id": 15,
+        "ClassId": 1,
+        "TalentType": 3,
+        "Level": 2,
+        "NextLevel": 3.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32111.png"
+    },
+    {
+        "Id": 16,
+        "ClassId": 1,
+        "TalentType": 3,
+        "Level": 3,
+        "NextLevel": 4.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32111.png"
+    },
+    {
+        "Id": 17,
+        "ClassId": 1,
+        "TalentType": 3,
+        "Level": 4,
+        "NextLevel": 5.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32111.png"
+    },
+    {
+        "Id": 18,
+        "ClassId": 1,
+        "TalentType": 3,
+        "Level": 5,
+        "NextLevel": null,
+        "IsHighLevel": 1,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32111.png"
+    },
+    {
+        "Id": 19,
+        "ClassId": 1,
+        "TalentType": 4,
+        "Level": 0,
+        "NextLevel": 1.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiMultiDim/UiMultiDimIconType3.png"
+    },
+    {
+        "Id": 20,
+        "ClassId": 1,
+        "TalentType": 4,
+        "Level": 1,
+        "NextLevel": 2.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiMultiDim/UiMultiDimIconType3.png"
+    },
+    {
+        "Id": 21,
+        "ClassId": 1,
+        "TalentType": 4,
+        "Level": 2,
+        "NextLevel": 3.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiMultiDim/UiMultiDimIconType3.png"
+    },
+    {
+        "Id": 22,
+        "ClassId": 1,
+        "TalentType": 4,
+        "Level": 3,
+        "NextLevel": null,
+        "IsHighLevel": 1,
+        "Icon": "Assets/Product/Texture/Image/UiMultiDim/UiMultiDimIconType3.png"
+    },
+    {
+        "Id": 23,
+        "ClassId": 2,
+        "TalentType": 1,
+        "Level": 0,
+        "NextLevel": 1.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10031.png"
+    },
+    {
+        "Id": 24,
+        "ClassId": 2,
+        "TalentType": 1,
+        "Level": 1,
+        "NextLevel": 2.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10031.png"
+    },
+    {
+        "Id": 25,
+        "ClassId": 2,
+        "TalentType": 1,
+        "Level": 2,
+        "NextLevel": 3.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10031.png"
+    },
+    {
+        "Id": 26,
+        "ClassId": 2,
+        "TalentType": 1,
+        "Level": 3,
+        "NextLevel": 4.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10031.png"
+    },
+    {
+        "Id": 27,
+        "ClassId": 2,
+        "TalentType": 1,
+        "Level": 4,
+        "NextLevel": 5.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10031.png"
+    },
+    {
+        "Id": 28,
+        "ClassId": 2,
+        "TalentType": 1,
+        "Level": 5,
+        "NextLevel": null,
+        "IsHighLevel": 1,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon10031.png"
+    },
+    {
+        "Id": 29,
+        "ClassId": 2,
+        "TalentType": 2,
+        "Level": 0,
+        "NextLevel": 1.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22031.png"
+    },
+    {
+        "Id": 30,
+        "ClassId": 2,
+        "TalentType": 2,
+        "Level": 1,
+        "NextLevel": 2.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22031.png"
+    },
+    {
+        "Id": 31,
+        "ClassId": 2,
+        "TalentType": 2,
+        "Level": 2,
+        "NextLevel": 3.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22031.png"
+    },
+    {
+        "Id": 32,
+        "ClassId": 2,
+        "TalentType": 2,
+        "Level": 3,
+        "NextLevel": 4.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22031.png"
+    },
+    {
+        "Id": 33,
+        "ClassId": 2,
+        "TalentType": 2,
+        "Level": 4,
+        "NextLevel": 5.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22031.png"
+    },
+    {
+        "Id": 34,
+        "ClassId": 2,
+        "TalentType": 2,
+        "Level": 5,
+        "NextLevel": null,
+        "IsHighLevel": 1,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22031.png"
+    },
+    {
+        "Id": 35,
+        "ClassId": 2,
+        "TalentType": 3,
+        "Level": 0,
+        "NextLevel": 1.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21161.png"
+    },
+    {
+        "Id": 36,
+        "ClassId": 2,
+        "TalentType": 3,
+        "Level": 1,
+        "NextLevel": 2.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21161.png"
+    },
+    {
+        "Id": 37,
+        "ClassId": 2,
+        "TalentType": 3,
+        "Level": 2,
+        "NextLevel": 3.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21161.png"
+    },
+    {
+        "Id": 38,
+        "ClassId": 2,
+        "TalentType": 3,
+        "Level": 3,
+        "NextLevel": 4.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21161.png"
+    },
+    {
+        "Id": 39,
+        "ClassId": 2,
+        "TalentType": 3,
+        "Level": 4,
+        "NextLevel": 5.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21161.png"
+    },
+    {
+        "Id": 40,
+        "ClassId": 2,
+        "TalentType": 3,
+        "Level": 5,
+        "NextLevel": null,
+        "IsHighLevel": 1,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21161.png"
+    },
+    {
+        "Id": 41,
+        "ClassId": 2,
+        "TalentType": 4,
+        "Level": 0,
+        "NextLevel": 1.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiMultiDim/UiMultiDimIconType1.png"
+    },
+    {
+        "Id": 42,
+        "ClassId": 2,
+        "TalentType": 4,
+        "Level": 1,
+        "NextLevel": 2.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiMultiDim/UiMultiDimIconType1.png"
+    },
+    {
+        "Id": 43,
+        "ClassId": 2,
+        "TalentType": 4,
+        "Level": 2,
+        "NextLevel": 3.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiMultiDim/UiMultiDimIconType1.png"
+    },
+    {
+        "Id": 44,
+        "ClassId": 2,
+        "TalentType": 4,
+        "Level": 3,
+        "NextLevel": null,
+        "IsHighLevel": 1,
+        "Icon": "Assets/Product/Texture/Image/UiMultiDim/UiMultiDimIconType1.png"
+    },
+    {
+        "Id": 45,
+        "ClassId": 3,
+        "TalentType": 1,
+        "Level": 0,
+        "NextLevel": 1.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21131.png"
+    },
+    {
+        "Id": 46,
+        "ClassId": 3,
+        "TalentType": 1,
+        "Level": 1,
+        "NextLevel": 2.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21131.png"
+    },
+    {
+        "Id": 47,
+        "ClassId": 3,
+        "TalentType": 1,
+        "Level": 2,
+        "NextLevel": 3.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21131.png"
+    },
+    {
+        "Id": 48,
+        "ClassId": 3,
+        "TalentType": 1,
+        "Level": 3,
+        "NextLevel": 4.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21131.png"
+    },
+    {
+        "Id": 49,
+        "ClassId": 3,
+        "TalentType": 1,
+        "Level": 4,
+        "NextLevel": 5.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21131.png"
+    },
+    {
+        "Id": 50,
+        "ClassId": 3,
+        "TalentType": 1,
+        "Level": 5,
+        "NextLevel": null,
+        "IsHighLevel": 1,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21131.png"
+    },
+    {
+        "Id": 51,
+        "ClassId": 3,
+        "TalentType": 2,
+        "Level": 0,
+        "NextLevel": 1.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21051.png"
+    },
+    {
+        "Id": 52,
+        "ClassId": 3,
+        "TalentType": 2,
+        "Level": 1,
+        "NextLevel": 2.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21051.png"
+    },
+    {
+        "Id": 53,
+        "ClassId": 3,
+        "TalentType": 2,
+        "Level": 2,
+        "NextLevel": 3.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21051.png"
+    },
+    {
+        "Id": 54,
+        "ClassId": 3,
+        "TalentType": 2,
+        "Level": 3,
+        "NextLevel": 4.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21051.png"
+    },
+    {
+        "Id": 55,
+        "ClassId": 3,
+        "TalentType": 2,
+        "Level": 4,
+        "NextLevel": 5.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21051.png"
+    },
+    {
+        "Id": 56,
+        "ClassId": 3,
+        "TalentType": 2,
+        "Level": 5,
+        "NextLevel": null,
+        "IsHighLevel": 1,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21051.png"
+    },
+    {
+        "Id": 57,
+        "ClassId": 3,
+        "TalentType": 3,
+        "Level": 0,
+        "NextLevel": 1.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21081.png"
+    },
+    {
+        "Id": 58,
+        "ClassId": 3,
+        "TalentType": 3,
+        "Level": 1,
+        "NextLevel": 2.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21081.png"
+    },
+    {
+        "Id": 59,
+        "ClassId": 3,
+        "TalentType": 3,
+        "Level": 2,
+        "NextLevel": 3.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21081.png"
+    },
+    {
+        "Id": 60,
+        "ClassId": 3,
+        "TalentType": 3,
+        "Level": 3,
+        "NextLevel": 4.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21081.png"
+    },
+    {
+        "Id": 61,
+        "ClassId": 3,
+        "TalentType": 3,
+        "Level": 4,
+        "NextLevel": 5.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21081.png"
+    },
+    {
+        "Id": 62,
+        "ClassId": 3,
+        "TalentType": 3,
+        "Level": 5,
+        "NextLevel": null,
+        "IsHighLevel": 1,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21081.png"
+    },
+    {
+        "Id": 63,
+        "ClassId": 3,
+        "TalentType": 4,
+        "Level": 0,
+        "NextLevel": 1.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiMultiDim/UiMultiDimIconType2.png"
+    },
+    {
+        "Id": 64,
+        "ClassId": 3,
+        "TalentType": 4,
+        "Level": 1,
+        "NextLevel": 2.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiMultiDim/UiMultiDimIconType2.png"
+    },
+    {
+        "Id": 65,
+        "ClassId": 3,
+        "TalentType": 4,
+        "Level": 2,
+        "NextLevel": 3.0,
+        "IsHighLevel": 0,
+        "Icon": "Assets/Product/Texture/Image/UiMultiDim/UiMultiDimIconType2.png"
+    },
+    {
+        "Id": 66,
+        "ClassId": 3,
+        "TalentType": 4,
+        "Level": 3,
+        "NextLevel": null,
+        "IsHighLevel": 1,
+        "Icon": "Assets/Product/Texture/Image/UiMultiDim/UiMultiDimIconType2.png"
+    }
+]

@@ -56,7 +56,7 @@ end
 function XUiSpecialTrainBreakthroughExchange:UpdateGrid(index)
     local grid = self.DynamicTable:GetGridByIndex(index)
     local robotId = self._RobotIdList[index]
-    if robotId then
+    if robotId and grid then
         grid:UpdateGrid(robotId)
         local isSelected = self._SelectedIndex == index
         grid:SetSelected(isSelected)

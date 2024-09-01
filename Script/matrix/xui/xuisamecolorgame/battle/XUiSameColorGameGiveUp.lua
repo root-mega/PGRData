@@ -13,10 +13,14 @@ function XUiSameColorGameGiveUp:OnEnable()
 end
 
 function XUiSameColorGameGiveUp:UpdateSkill()
-    local damage = self.BattleManager:GetDamageCount() or 0
-    local step = self.BattleManager:GetBattleStep(self.Boss)
+    local isRoundType = self.Boss:IsRoundType()
+    self.TxtStep.gameObject:SetActiveEx(isRoundType)
+    if isRoundType then
+        local step = self.BattleManager:GetBattleStep(self.Boss)
+        self.TxtStep.text = CSTextManagerGetText("SCStepText", step)
+    end
 
-    self.TxtStep.text = CSTextManagerGetText("SCStepText", step)
+    local damage = self.BattleManager:GetDamageCount() or 0
     self.TxtDamage.text = CSTextManagerGetText("SCDamageText", damage)
     self.RankIcon:SetRawImage(self.Boss:GetCurGradeIcon(damage))
 end

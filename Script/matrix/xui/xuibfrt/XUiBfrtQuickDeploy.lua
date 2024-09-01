@@ -22,6 +22,7 @@ end
 
 function XUiBfrtQuickDeploy:OnEnable()
     self:UpdateView()
+    XDataCenter.UiPcManager.OnUiEnable(self)
 end
 
 function XUiBfrtQuickDeploy:OnDisable()
@@ -33,6 +34,7 @@ function XUiBfrtQuickDeploy:OnDisable()
         self.LastSelectGrid:SetSelect(false)
         self.LastSelectGrid = nil
     end
+    XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
 end
 
 function XUiBfrtQuickDeploy:GetTeamCharacterType(team)

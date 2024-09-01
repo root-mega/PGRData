@@ -29,6 +29,7 @@ end
 
 function XUiSameColorGameChangeColor:SetButtonCallBack()
     self.BtnCancel.CallBack = function() self:OnClickBtnBack() end
+    self.BtnClose.CallBack = function() self:OnClickBtnBack() end
 end
 
 function XUiSameColorGameChangeColor:OnClickBtnBack()

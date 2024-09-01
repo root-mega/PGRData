@@ -4,30 +4,25 @@ XKillZoneManagerCreator = function()
     local tonumber = tonumber
     local stringFormat = string.format
 
+    ---@class XKillZoneManager
     local XKillZoneManager = {}
 
     -----------------活动入口 begin----------------
     local _ActivityId = XKillZoneConfigs.GetDefaultActivityId() --当前开放活动Id
-    local _ActivityEnd = false --活动是否结束
 
     local function UpdateActivityId(activityId)
-        XCountDown.RemoveTimer(XCountDown.GTimerName.KillZone)
-
         if not XTool.IsNumberValid(activityId) then
             _ActivityId = XKillZoneConfigs.GetDefaultActivityId()
             return
         end
 
         _ActivityId = activityId
-
-        local nowTime = XTime.GetServerNowTimestamp()
-        local leftTime = XKillZoneManager.GetEndTime() - nowTime
-        if leftTime > 0 then
-            XCountDown.CreateTimer(XCountDown.GTimerName.KillZone, leftTime)
-        end
     end
 
     function XKillZoneManager.GetActivityName()
+        if not XTool.IsNumberValid(_ActivityId) then
+            return ""
+        end
         return XKillZoneConfigs.GetActivityName(_ActivityId)
     end
 
@@ -54,10 +49,16 @@ XKillZoneManagerCreator = function()
     end
 
     function XKillZoneManager.GetStartTime()
+        if not XTool.IsNumberValid(_ActivityId) then
+            return 0
+        end
         return XKillZoneConfigs.GetActivityStartTime(_ActivityId) or 0
     end
 
     function XKillZoneManager.GetEndTime()
+        if not XTool.IsNumberValid(_ActivityId) then
+            return 0
+        end
         return XKillZoneConfigs.GetActivityEndTime(_ActivityId) or 0
     end
 
@@ -65,20 +66,7 @@ XKillZoneManagerCreator = function()
         return XKillZoneManager.GetStartTime(), XKillZoneManager.GetEndTime()
     end
 
-    function XKillZoneManager.SetActivityEnd()
-        _ActivityEnd = true
-
-        CsXGameEventManager.Instance:Notify(XEventId.EVENT_KILLZONE_ACTIVITY_END)
-        CsXGameEventManager.Instance:Notify(XEventId.EVENT_ACTIVITY_ON_RESET, XDataCenter.FubenManager.StageType.KillZone)
-    end
-
-    function XKillZoneManager.ClearActivityEnd()
-        _ActivityEnd = nil
-    end
-
     function XKillZoneManager.OnActivityEnd()
-        if not _ActivityEnd then return false end
-
         if CS.XFight.IsRunning
         or XLuaUiManager.IsUiLoad("UiLoading")
         or XLuaUiManager.IsUiLoad("UiSettleLose")
@@ -86,13 +74,8 @@ XKillZoneManagerCreator = function()
             return false
         end
 
-        --延迟是为了防止打断UI动画
-        XScheduleManager.ScheduleOnce(function()
-            XUiManager.TipText("KillZoneActivityEnd")
-            XLuaUiManager.RunMain()
-        end, 1000)
-
-        XKillZoneManager.ClearActivityEnd()
+        XLuaUiManager.RunMain()
+        XUiManager.TipText("KillZoneActivityEnd")
 
         return true
     end
@@ -117,7 +100,13 @@ XKillZoneManagerCreator = function()
     -----------------关卡相关 begin------------------
     local XKillZoneStage = require("XEntity/XKillZone/XKillZoneStage")
 
+    ---@type table<number, XKillZoneStage>
     local _FinishStageDic = {} --关卡通关记录
+    local _DailyStageChapter = 0 -- 每日挑战关卡所在的章节
+    
+    local function UpdateDailyStageChapter(value)
+        _DailyStageChapter = value or _DailyStageChapter
+    end
 
     local function InitStageType(stageId)
         stageId = tonumber(stageId)
@@ -185,6 +174,15 @@ XKillZoneManagerCreator = function()
         return stageInfo:IsFinishedPerfect()
     end
 
+    --是否是每日挑战关卡
+    function XKillZoneManager.IsDailyStageId(stageId)
+        if not XTool.IsNumberValid(_ActivityId) then
+            return false
+        end
+        local dailyStageIds = XKillZoneConfigs.GetAllDailyStageId(_ActivityId, XKillZoneConfigs.Difficult.Normal)
+        return table.contains(dailyStageIds, stageId)
+    end
+
     --获取关卡最高击杀数
     function XKillZoneManager.GetStageMaxKillNum(stageId)
         local stageInfo = GetStageInfo(stageId)
@@ -196,6 +194,32 @@ XKillZoneManagerCreator = function()
         local stageInfo = GetStageInfo(stageId)
         if not stageInfo then return 0, XKillZoneConfigs.GetStageMaxStar(stageId) end
         return stageInfo:GetStar(), stageInfo:GetMaxStar()
+    end
+
+    -- 获取关卡最高分数
+    function XKillZoneManager.GetStageMaxScore(stageId)
+        local stageInfo = GetStageInfo(stageId)
+        return stageInfo and stageInfo:GetMaxScore() or 0
+    end
+
+    -- 获取关卡携带BuffId
+    function XKillZoneManager.GetStageRandomFightEventId(stageId)
+        local stageInfo = GetStageInfo(stageId)
+        return stageInfo and stageInfo:GetRandomFightEventId() or 0
+    end
+
+    function XKillZoneManager.GetStageBuffIds(stageId)
+        local buffIds = {}
+        local isDailyStage = XKillZoneManager.IsDailyStageId(stageId)
+        if isDailyStage then
+            local randomFightEventId = XKillZoneManager.GetStageRandomFightEventId(stageId)
+            if XTool.IsNumberValid(randomFightEventId) then
+                buffIds = { randomFightEventId }
+            end
+        else
+            buffIds = XKillZoneConfigs.GetStageBuffIds(stageId)
+        end
+        return buffIds
     end
 
     --获取该难度下所有关卡星数（当前，最高）
@@ -214,6 +238,9 @@ XKillZoneManagerCreator = function()
 
     --获取该难度下所有章节Id
     function XKillZoneManager.GetChapterIds(diff)
+        if not XTool.IsNumberValid(_ActivityId) then
+            return {}
+        end
         return XKillZoneConfigs.GetChapterIdsByDiff(_ActivityId, diff)
     end
 
@@ -255,6 +282,21 @@ XKillZoneManagerCreator = function()
         local startTime = XFunctionManager.GetStartTimeByTimeId(timeId)
         local nowTime = XTime.GetServerNowTimestamp()
         return startTime - nowTime
+    end
+
+    -- 通过章节id获取关卡ids
+    function XKillZoneManager.GetStageIdsByChpaterId(chapterId)
+        -- 关卡ids
+        local stageIds = XKillZoneConfigs.GetChapterStageIds(chapterId)
+        -- 最新章节Id
+        local isNewChapterId = _DailyStageChapter
+        if XTool.IsNumberValid(isNewChapterId) and isNewChapterId == chapterId then
+            local dailyStageId = XKillZoneConfigs.GetChapterDailyStageId(chapterId)
+            if XTool.IsNumberValid(dailyStageId) and not XKillZoneManager.IsStageFinished(dailyStageId) then
+                tableInsert(stageIds, 1, dailyStageId)
+            end
+        end
+        return stageIds
     end
 
     local function GetCookieKeyDiffAndChapterId()
@@ -404,15 +446,22 @@ XKillZoneManagerCreator = function()
         for _, chapterId in pairs(chapterIds) do
             local preStageId = XKillZoneConfigs.GetChapterPreStageId(chapterId)
             if not XKillZoneManager.IsStageFinished(preStageId) then
-                return false, preStageId
+                return false, preStageId, chapterId
+            end
+            if not XKillZoneManager.IsChapterUnlock(chapterId) then --这是不在活动事件
+                return false, 0, chapterId
             end
         end
-        return true, 0
+        return true, 0, 0
     end
 
     --获取关卡总进度
     function XKillZoneManager.GetStageProcess()
         local finishCount, totalCount = 0, 0
+
+        if not XTool.IsNumberValid(_ActivityId) then
+            return finishCount, totalCount
+        end
 
         local totalStageIds = XKillZoneConfigs.GetTotalStageIdsByDiff(_ActivityId, XKillZoneConfigs.Difficult.Normal)
         for _, stageId in pairs(totalStageIds) do
@@ -423,6 +472,80 @@ XKillZoneManagerCreator = function()
         end
 
         return finishCount, totalCount
+    end
+
+    -- 新副本界面进度
+    function XKillZoneManager.GetProgressTips()
+        local curStarCount = 0
+        local maxStarCount = 0
+        for _, v in pairs(XKillZoneConfigs.Difficult) do
+            local star, maxStar = XKillZoneManager.GetTotalStageStarByDiff(v)
+            curStarCount = curStarCount + star
+            maxStarCount = maxStarCount + maxStar
+        end
+        return XUiHelper.GetText("KillZoneProcess", curStarCount, maxStarCount)
+    end
+    
+    -- 检查当前章节id是否是每日关卡的章节id
+    function XKillZoneManager.CheckIsDailyChapterId(chapterId)
+        if XTool.IsNumberValid(_DailyStageChapter) and _DailyStageChapter == chapterId then
+            return true
+        end
+        return false
+    end
+
+    -- 检查当前关卡是否是每日刷新的每日关卡
+    function XKillZoneManager.CheckIsDailyStageId(chapterId, stageId)
+        if XKillZoneManager.CheckIsDailyChapterId(chapterId) then
+            local dailyStageId = XKillZoneConfigs.GetChapterDailyStageId(chapterId)
+            if XTool.IsNumberValid(dailyStageId) and dailyStageId == stageId then
+                return true
+            end
+        end
+        return false
+    end
+
+    -- 检查每日关卡红点
+    function XKillZoneManager.CheckDailyStageRedPoint(chapterId)
+        if XKillZoneManager.CheckIsDailyChapterId(chapterId) and not XKillZoneManager.GetCookieDailyStageClicked() then
+            return true
+        end
+        return false
+    end
+
+    local function GetCookieKeyDailyStageClicked()
+        if not XTool.IsNumberValid(_ActivityId) then
+            return
+        end
+        local nextFreshTime = XKillZoneManager.GetSeverNextRefreshTime()
+        return stringFormat("%s_%s_%s_XKillZoneManager_CookieKeyDailyStageClicked", XPlayer.Id, _ActivityId, nextFreshTime)
+    end
+
+    function XKillZoneManager.GetSeverNextRefreshTime()
+        local nextRefreshTime
+
+        local dayRefreshTime = XTime.GetSeverTodayFreshTime()
+        local nowTime = XTime.GetServerNowTimestamp()
+        nextRefreshTime = nowTime >= dayRefreshTime and XTime.GetSeverTomorrowFreshTime() or dayRefreshTime
+
+        return nextRefreshTime
+    end
+
+    -- 设置每日关卡已点击标记缓存（点击每日关卡时）
+    function XKillZoneManager.SetCookieDailyStageClicked()
+        local key = GetCookieKeyDailyStageClicked()
+        local data = XSaveTool.GetData(key) or 0
+        if data == 1 then
+            return
+        end
+        XSaveTool.SaveData(key, 1)
+    end
+
+    --获取每日关卡已点击标记缓存
+    function XKillZoneManager.GetCookieDailyStageClicked()
+        local key = GetCookieKeyDailyStageClicked()
+        local data = XSaveTool.GetData(key) or 0
+        return data == 1
     end
     -----------------关卡相关 end------------------
     -----------------奖励相关 begin------------------
@@ -519,6 +642,9 @@ XKillZoneManagerCreator = function()
     end
 
     function XKillZoneManager.GetAllDailyStarRewardIds()
+        if not XTool.IsNumberValid(_ActivityId) then
+            return {}
+        end
         return XKillZoneConfigs.GetAllDailyStarRewardIds(_ActivityId)
     end
 
@@ -584,6 +710,7 @@ XKillZoneManagerCreator = function()
     -----------------插件相关 begin------------------
     local XKillZonePlugin = require("XEntity/XKillZone/XKillZonePlugin")
 
+    ---@type table<number, XKillZonePlugin>
     local _Plugins = {} --插件信息
     local _UnlockPluginSlotDic = {} --已解锁插件槽
 
@@ -712,7 +839,7 @@ XKillZoneManagerCreator = function()
         return plugin and plugin:GetLevel() or 0
     end
 
-    --获取插件展示等级（包含未解锁/未激活/正常/最大等级）
+    --获取插件展示等级（包含未解锁/正常/最大等级）
     function XKillZoneManager.GetPluginShowLevelStr(pluginId)
         local plugin = GetPlugin(pluginId)
         return plugin and plugin:GetShowLevelStr() or ""
@@ -734,26 +861,9 @@ XKillZoneManagerCreator = function()
         return true
     end
 
-    --插件是否未激活
-    function XKillZoneManager.IsPluginUnActive(pluginId)
-        local plugin = GetPlugin(pluginId)
-        return plugin and plugin:IsUnActive()
-    end
-
-    --插件是否可激活（满足消耗）
-    function XKillZoneManager.IsPluginCanActive(pluginId)
-        if not XKillZoneManager.IsPluginUnActive(pluginId) then return false end
-        local itemId, itemCount = XKillZoneConfigs.GetPluginUnActiveCost(pluginId)
-        if XTool.IsNumberValid(itemId) then
-            return XDataCenter.ItemManager.CheckItemCountById(itemId, itemCount)
-        end
-        return true
-    end
-
     --插件是否可升级
     function XKillZoneManager.CheckPluginCanLevelUp(pluginId)
         return not XKillZoneManager.IsPluginLock(pluginId)
-        and not XKillZoneManager.IsPluginUnActive(pluginId)
         and not XKillZoneManager.IsPluginMaxLevel(pluginId)
     end
 
@@ -805,6 +915,9 @@ XKillZoneManagerCreator = function()
 
     --获取插件重置总消耗
     function XKillZoneManager.GetPluginsResetCost(pluginIds)
+        if not XTool.IsNumberValid(_ActivityId) then
+            return 0
+        end
         return XKillZoneConfigs.GetPluginsResetCost(pluginIds, _ActivityId)
     end
 
@@ -816,14 +929,9 @@ XKillZoneManagerCreator = function()
         local itemId, itemCount
         for _, pluginId in pairs(pluginIds) do
             if not XKillZoneManager.IsPluginLock(pluginId) then
-                --计算激活+升级消耗
+                --计算解锁+升级消耗
                 local level = XKillZoneManager.GetPluginLevel(pluginId)
                 itemId, itemCount = XKillZoneConfigs.GetPluginLevelUpCostTotal(pluginId, 1, level)
-                itemDic[itemId] = itemDic[itemId] or 0
-                itemDic[itemId] = itemDic[itemId] + itemCount
-
-                --计算解锁消耗
-                itemId, itemCount = XKillZoneConfigs.GetPluginUnlockCost(pluginId)
                 itemDic[itemId] = itemDic[itemId] or 0
                 itemDic[itemId] = itemDic[itemId] + itemCount
             end
@@ -850,11 +958,10 @@ XKillZoneManagerCreator = function()
         return pluginIds
     end
 
-    --是否有插件可解锁/激活/升级（满足消耗）
+    --是否有插件可解锁/升级（满足消耗）
     function XKillZoneManager.IsAnyPluginCanOperate()
         for pluginId in pairs(_Plugins) do
             if XKillZoneManager.IsPluginCanLevelUp(pluginId)
-            or XKillZoneManager.IsPluginCanActive(pluginId)
             or XKillZoneManager.IsPluginCanUnlock(pluginId)
             then
                 return true
@@ -898,7 +1005,6 @@ XKillZoneManagerCreator = function()
 
     --主动检查插件待检查Cookie（每日）
     local function TryCheckPluginOperateCookie()
-        XEventManager.AddEventListener(XEventId.EVENT_ITEM_COUNT_UPDATE_PREFIX .. XKillZoneConfigs.ItemIdCoinA, SetCookiePluginOperate)
         XEventManager.AddEventListener(XEventId.EVENT_ITEM_COUNT_UPDATE_PREFIX .. XKillZoneConfigs.ItemIdCoinB, SetCookiePluginOperate)
 
         if XKillZoneManager.CheckCookiePluginOperateChecked() then return end
@@ -939,7 +1045,6 @@ XKillZoneManagerCreator = function()
             ResetPlugins(pluginIds)
 
             local rewardGoods = {}
-            tableInsert(rewardGoods, XRewardManager.CreateRewardGoods(XKillZoneConfigs.ItemIdCoinA, res.AddCoinA))
             tableInsert(rewardGoods, XRewardManager.CreateRewardGoods(XKillZoneConfigs.ItemIdCoinB, res.AddCoinB))
 
             if cb then cb(rewardGoods) end
@@ -989,7 +1094,7 @@ XKillZoneManagerCreator = function()
         end)
     end
 
-    --请求激活/升级插件
+    --请求升级插件
     function XKillZoneManager.KillZoneUpgradePluginRequest(pluginId, cb)
         local req = { PluginId = pluginId }
         XNetwork.Call("KillZoneUpgradePluginRequest", req, function(res)
@@ -1005,9 +1110,12 @@ XKillZoneManagerCreator = function()
     end
     -----------------插件相关 end------------------
     ---------------------副本相关 begin------------------
+    local XTeam = require("XEntity/XTeam/XTeam")
+    ---@type XTeam
+    local _CurrentTeam -- 当前编队
+    
     function XKillZoneManager.InitStageInfo()
         XKillZoneManager.InitStageType()
-        XKillZoneManager.RegisterEditBattleProxy()
     end
 
     function XKillZoneManager.CheckPassedByStageId(stageId)
@@ -1021,14 +1129,52 @@ XKillZoneManagerCreator = function()
         XLuaUiManager.Open("UiKillZoneSettleWin", winData, closeCb)
     end
 
-    function XKillZoneManager.RegisterEditBattleProxy()
-        XUiNewRoomSingleProxy.RegisterProxy(XDataCenter.FubenManager.StageType.KillZone,
-        require("XUi/XUiKillZone/XUiKillZoneNewRoomSingle"))
+    function XKillZoneManager.PreFight(stage, teamId, isAssist, challengeCount, challengeId)
+        local preFight = {}
+        preFight.CardIds = { 0, 0, 0 }
+        preFight.RobotIds = { 0, 0, 0 }
+        preFight.StageId = stage.StageId
+        preFight.IsHasAssist = isAssist and true or false
+        preFight.ChallengeCount = challengeCount or 1
+        local teamData = XKillZoneManager.GetTeam(stage.StageId)
+        for pos, id in pairs(teamData:GetEntityIds()) do
+            local isRobot = XEntityHelper.GetIsRobot(id)
+            preFight.RobotIds[pos] = isRobot and id or 0
+            preFight.CardIds[pos] = isRobot and 0 or id
+        end
+        preFight.CaptainPos = teamData:GetCaptainPos()
+        preFight.FirstFightPos = teamData:GetFirstFightPos()
+        return preFight
     end
 
     local function GetCookieKeyTeam()
         if not XTool.IsNumberValid(_ActivityId) then return end
         return stringFormat("XKillZoneManager_CookieKeyTeam_%d_%d", XPlayer.Id, _ActivityId)
+    end
+
+    function XKillZoneManager.GetTeam(stageId)
+        if not _CurrentTeam then
+            local teamId = GetCookieKeyTeam()
+            _CurrentTeam = XTeam.New(teamId)
+        end
+        local lookupTable = {}
+        local robotIdList = XKillZoneConfigs.GetStageRobotIds(stageId)
+        for _, id in pairs(robotIdList) do
+            lookupTable[id] = id
+        end
+        for index, id in pairs(_CurrentTeam:GetEntityIds()) do
+            if XRobotManager.CheckIsRobotId(id) then
+                if not XTool.IsNumberValid(lookupTable[id]) then
+                    _CurrentTeam:UpdateEntityTeamPos(0, index, true)
+                end
+            else
+                --清库之后本地缓存角色失效
+                if not XDataCenter.CharacterManager.IsOwnCharacter(id) then
+                    _CurrentTeam:UpdateEntityTeamPos(0, index, true)
+                end
+            end
+        end
+        return _CurrentTeam
     end
 
     -- 保存编队信息
@@ -1043,8 +1189,6 @@ XKillZoneManagerCreator = function()
     end
     ---------------------副本相关 end------------------
     local function ResetData()
-        XKillZoneManager.SetActivityEnd()
-
         _ActivityId = 0 --当前开放活动Id
         _FinishStageDic = {} --关卡通关记录
         _FarmRewardObtainCount = 0 --复刷奖励已领取次数
@@ -1053,6 +1197,7 @@ XKillZoneManagerCreator = function()
         _StarRewardObtainDic = {} --星级奖励领取记录
         _Plugins = {} --插件信息
         _UnlockPluginSlotDic = {} --已解锁插件槽
+        _DailyStageChapter = 0 -- 每日挑战关卡所在的章节
 
         InitPlugins()
     end
@@ -1060,12 +1205,18 @@ XKillZoneManagerCreator = function()
     function XKillZoneManager.NotifyKillZoneActivityData(data)
         local data = data.KillZoneDb
 
+        if not data or not XTool.IsNumberValid(data.ActivityId) then
+            ResetData()
+            return
+        end
+
         if XTool.IsNumberValid(_ActivityId)
         and data.ActivityId ~= _ActivityId then
             ResetData()
         end
 
         UpdateActivityId(data.ActivityId)
+        UpdateDailyStageChapter(data.DailyStageChapter)
         UpdateFinishedStages(data.StageDbs)
         UpdateFarmRewardObtainCount(data.TakeFarmRewardCount)
         UpdateStarRewardRecord(data.DiffStarReward)
@@ -1079,6 +1230,8 @@ XKillZoneManagerCreator = function()
 
     --每日重置
     function XKillZoneManager.NotifyKillZoneActivityDailyReset(data)
+        UpdateDailyStageChapter(data.DailyStageChapter)
+        UpdateFinishedStages(data.StageDbs)
         UpdateFarmRewardObtainCount(data.TakeFarmRewardCount)
         UpdateDailyStarRewardIndex(data.DailyStarRewardIndex, data.YesterdayStar)
 

@@ -6,11 +6,12 @@ function XUiCharacterOwnedInfo:OnAwake()
     self:AddListener()
 end
 
-function XUiCharacterOwnedInfo:OnStart(forbidGotoEquip, clickCb, isSupport, supportData)
+function XUiCharacterOwnedInfo:OnStart(forbidGotoEquip, clickCb, isSupport, supportData, ui)
     self.ForbidGotoEquip = forbidGotoEquip
     self.IsSupport = isSupport
     self.ClickCb = clickCb
     self.SupportData = supportData
+    self.ParentUi = ui
 
     self.BtnLevelUp.gameObject:SetActiveEx(not forbidGotoEquip and not self.IsSupport)
     self.BtnJoin.gameObject:SetActiveEx(forbidGotoEquip ~= nil)
@@ -26,6 +27,11 @@ end
 
 function XUiCharacterOwnedInfo:OnEnable()
     self:UpdateView(self.CharacterId)
+
+end
+
+function XUiCharacterOwnedInfo:OnDisable()
+
 end
 
 function XUiCharacterOwnedInfo:PreSetCharacterId(characterId)
@@ -52,9 +58,14 @@ function XUiCharacterOwnedInfo:UpdateView(characterId)
     self.RImgTypeIcon:SetRawImage(XCharacterConfigs.GetNpcTypeIcon(character.Type))
     self.TxtLv.text = math.floor(character.Ability)
 
-    self.WeaponGrid = self.WeaponGrid or XUiGridEquip.New(self.GridWeapon, nil, self)
+    self.WeaponGrid = self.WeaponGrid or XUiGridEquip.New(self.GridWeapon, self, nil, true)
     local usingWeaponId = XDataCenter.EquipManager.GetCharacterWearingWeaponId(characterId)
     self.WeaponGrid:Refresh(usingWeaponId)
+    
+    -- 可以进入装备界面才检测触发引导
+    if not self.ParentUi.ForbidGotoEquip then
+        XDataCenter.EquipManager.CheckOverrunGuide(usingWeaponId)
+    end
 
     local partner = XDataCenter.PartnerManager.GetCarryPartnerEntityByCarrierId(characterId)
     if partner then
@@ -63,8 +74,9 @@ function XUiCharacterOwnedInfo:UpdateView(characterId)
     self.PartnerIcon.gameObject:SetActiveEx(partner ~= nil)
 
     self.WearingAwarenessGrids = self.WearingAwarenessGrids or {}
+    local curr = 0
     for _, equipSite in pairs(XEquipConfig.EquipSite.Awareness) do
-        self.WearingAwarenessGrids[equipSite] = self.WearingAwarenessGrids[equipSite] or XUiGridEquip.New(CS.UnityEngine.Object.Instantiate(self.GridAwareness), nil, self)
+        self.WearingAwarenessGrids[equipSite] = self.WearingAwarenessGrids[equipSite] or XUiGridEquip.New(CS.UnityEngine.Object.Instantiate(self.GridAwareness), self, nil, true)
         self.WearingAwarenessGrids[equipSite].Transform:SetParent(self["PanelAwareness" .. equipSite], false)
 
         local equipId = XDataCenter.EquipManager.GetWearingEquipIdBySite(characterId, equipSite)
@@ -76,6 +88,18 @@ function XUiCharacterOwnedInfo:UpdateView(characterId)
             self["BtnAwarenessReplace" .. equipSite].transform:SetAsLastSibling()
             self["PanelNoAwareness" .. equipSite].gameObject:SetActiveEx(false)
             self.WearingAwarenessGrids[equipSite]:Refresh(equipId)
+
+            -- 检查有多少个激活的公约标识
+            local chapterData = XDataCenter.FubenAwarenessManager.GetChapterDataBySiteNum(equipSite)
+            if chapterData and chapterData:IsOccupy() then
+                for i = 1, XEquipConfig.MAX_RESONANCE_SKILL_COUNT do
+                    local bindCharId = XDataCenter.EquipManager.GetResonanceBindCharacterId(equipId, i)
+                    local awaken = XDataCenter.EquipManager.IsEquipPosAwaken(equipId, i)
+                    if awaken and bindCharId == characterId then
+                        curr = curr + 1
+                    end
+                end
+            end
         end
     end
 
@@ -92,6 +116,9 @@ function XUiCharacterOwnedInfo:UpdateView(characterId)
         end
     end
 
+    -- 公约加成
+    self.TxtOcuupyHarm.text =  CS.XTextManager.GetText("AwarenessTotalHarm", curr)
+
     XRedPointManager.Check(self.RedPointId, characterId)
 
     self:UpdateSupport(characterId)
@@ -100,6 +127,8 @@ end
 --------支援相关 begin---------
 function XUiCharacterOwnedInfo:UpdateSupport(characterId)
     local supportData = self.SupportData
+    local openRecommend = XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.EquipGuideRecommend)
+    self.BtnRecommend.gameObject:SetActiveEx(not XUiManager.IsHideFunc and openRecommend)
     if XTool.IsTableEmpty(supportData) then return end
 
     self.BtnLevelUp.gameObject:SetActiveEx(false)
@@ -109,6 +138,8 @@ function XUiCharacterOwnedInfo:UpdateSupport(characterId)
 
     local showSupportCancel = supportData.CanSupportCancel and supportData.CheckInSupportCb(characterId)
     self.BtnSupportCancel.gameObject:SetActiveEx(showSupportCancel)
+
+    self.BtnRecommend.gameObject:SetActiveEx(not supportData.HideBtnRecommend and not XUiManager.IsHideFunc and openRecommend)
 end
 --------支援相关 end---------
 function XUiCharacterOwnedInfo:AddListener()
@@ -122,10 +153,12 @@ function XUiCharacterOwnedInfo:AddListener()
     self:RegisterClickEvent(self.BtnWeaponReplace, self.OnBtnWeaponReplaceClick)
     self:RegisterClickEvent(self.BtnJoin, self.OnBtnJoinClick)
     self:RegisterClickEvent(self.BtnCareerTips, self.OnBtnCareerTipsClick)
+    self:RegisterClickEvent(self.BtnAwarenessOcuupy, self.OnBtnAwarenessOcuupyClick)
     self.BtnElementDetail.CallBack = function() self:OnBtnElementDetailClick() end
     self.BtnSupport.CallBack = function() self:OnBtnSupportClick() end
     self.BtnSupportCancel.CallBack = function() self:OnBtnSupportCancelClick() end
     self.BtnCarryPartner.CallBack = function() self:OnCarryPartnerClick() end
+    self.BtnRecommend.CallBack = function() XDataCenter.EquipGuideManager.OpenEquipGuideView(self.CharacterId) end
 end
 
 function XUiCharacterOwnedInfo:OnBtnAwarenessReplace5Click()
@@ -157,7 +190,7 @@ function XUiCharacterOwnedInfo:OnAwarenessClick(site)
     if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.Equip) then
         return
     end
-    XLuaUiManager.Open("UiEquipAwarenessReplace", self.CharacterId, site)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipAwarenessReplace(self.CharacterId, site)
 end
 
 function XUiCharacterOwnedInfo:OnBtnCareerTipsClick()
@@ -169,7 +202,7 @@ function XUiCharacterOwnedInfo:OnBtnWeaponReplaceClick()
     if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.Equip) then
         return
     end
-    XLuaUiManager.Open("UiEquipReplaceNew", self.CharacterId)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipReplace(self.CharacterId)
 end
 
 function XUiCharacterOwnedInfo:OnBtnLevelUpClick()
@@ -213,4 +246,8 @@ function XUiCharacterOwnedInfo:OnBtnSupportCancelClick()
             self.SupportData.CancelCharacterCb(characterId)
         end
     end
+end
+
+function XUiCharacterOwnedInfo:OnBtnAwarenessOcuupyClick()
+    XLuaUiManager.Open("UiAwarenessOccupyProgress", self.CharacterId)
 end

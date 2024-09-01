@@ -1,6 +1,9 @@
 local XGDComponet = require("XEntity/XGuildDorm/Components/XGDComponet")
+---@class XGDSyncToServerComponent : XGDComponet
 local XGDSyncToServerComponent = XClass(XGDComponet, "XGDSyncToServerComponent")
 
+---@param role XGuildDormRole
+---@param room XGuildDormRoom
 function XGDSyncToServerComponent:Ctor(role, room)
     self.Role = role
     self.Room = room

@@ -609,6 +609,31 @@ function XUiPanelGraphicsSet:SaveChange()
     end
 
     self.Dirty = false
+
+    local dict = {}
+    --画质等级
+    dict["graphics_level"] = self.QualitySettings["GraphicsLevel"]
+    --分辨率等级
+    dict["resolution_level"] = self.QualitySettings["ResolutionLevel"]
+    --阴影等级
+    dict["shadow_level"] = self.QualitySettings["ShadowLevel"]
+    --自身特效
+    dict["effect_level"] = self.QualitySettings["EffectLevel"]
+    --其他特效
+    dict["other_effect_level"] = self.QualitySettings["OtherEffectLevel"]
+    --镜面等级
+    dict["mirror_level"] = self.QualitySettings["MirrorLevel"]
+    --游戏帧率
+    dict["frame_rate_level"] = self.QualitySettings["FrameRateLevel"]
+    --辉光等级
+    dict["bloom_level"] = self.QualitySettings["BloomLevel"]
+    --扭曲等级
+    dict["distortion_level"] = self.QualitySettings["DistortionLevel"]
+    --开启HDR
+    dict["use_hdr"] = self.QualitySettings["UseHdr"]
+    --开启矿锯齿
+    dict["use_fxaa"] = self.QualitySettings["UseFxaa"]
+    XDataCenter.SetManager.SystemSettingBuriedPoint(dict)
 end
 
 --取消保存

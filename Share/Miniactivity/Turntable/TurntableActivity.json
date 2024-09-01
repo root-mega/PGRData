@@ -1,0 +1,57 @@
+[
+    {
+        "Id": 1,
+        "TimeId": 20501,
+        "ConsumeItemId": 97010,
+        "ConsumeItemCount": 10,
+        "MaxDrawNum": 10,
+        "TaskGroup": [
+            null,
+            253,
+            254
+        ],
+        "RecordNum": 10,
+        "AccumulateNums": [
+            null,
+            2,
+            5,
+            8,
+            11,
+            14,
+            17,
+            20,
+            23,
+            26,
+            29,
+            32,
+            35,
+            38
+        ],
+        "AccumulateRewardIds": [
+            null,
+            61554,
+            61555,
+            61556,
+            61557,
+            61558,
+            61560,
+            61562,
+            61559,
+            61561,
+            61566,
+            61565,
+            61564,
+            61563
+        ],
+        "BaseRuleTitles": [
+            null,
+            "Event Details",
+            "Obtain Tokens"
+        ],
+        "BaseRules": [
+            null,
+            "Summer Lucky Star rewards can only be drawn once. Spend Celica Lottery Tickets to participate in the event, and drawn a certain number of times to earn additional rewards.",
+            "Complete event missions during the event to obtain Celica Lottery Tickets. The tickets will be automatically recycled after the event ends."
+        ]
+    }
+]

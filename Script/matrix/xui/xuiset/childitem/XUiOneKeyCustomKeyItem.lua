@@ -14,13 +14,14 @@ function XUiOneKeyCustomKeyItem:Refresh(data, cb, resetTextOnly, curOperationTyp
         local operationTypeToEnum = CS.XOperationType.__CastFrom(self.CurOperationType)
         self.GroupRecommend.gameObject:SetActiveEx(not isKeyboard)
 
-        local isCustom = XInputManager.IsCustomKey(operationKey, 0)
-        self.BtnKeyItem.enabled = isCustom
+        local keyCodeType = CS.XInputManager.GetKeyCodeTypeByInt(operationKey, self.CurOperationType)
+        local isCustom = CS.XCustomUi.PCForceSetKeyCode or XInputManager.IsCustomKey(operationKey, 0, self._KeySetType, self.CurOperationType)
+        local oneKeyIsCustom = (keyCodeType == XSetConfigs.KeyCodeType.KeyMouseCustom or keyCodeType == XSetConfigs.KeyCodeType.OneKeyCustom) and not CS.XCustomUi.PCForceSetKeyCode
+        self.BtnKeyItem.enabled = isCustom or oneKeyIsCustom
         local name = XInputManager.GetKeyCodeString(self._KeySetType, operationTypeToEnum, operationKey, CS.PressKeyIndex.One)
         self.BtnKeyItem:SetName(name)
-        if isCustom then
+        if isCustom or oneKeyIsCustom then
             self.BtnKeyItem.CallBack = function()
-                local keyCodeType = CS.XInputManager.GetKeyCodeTypeByInt(operationKey, self.CurOperationType)
                 if keyCodeType == XSetConfigs.KeyCodeType.KeyMouseCustom and not CS.XCustomUi.PCForceSetKeyCode then
                     XLuaUiManager.Open("UiMouseButtonConfig")
                 elseif keyCodeType == XSetConfigs.KeyCodeType.OneKeyCustom and not CS.XCustomUi.PCForceSetKeyCode then
@@ -31,7 +32,7 @@ function XUiOneKeyCustomKeyItem:Refresh(data, cb, resetTextOnly, curOperationTyp
             end
         end
         
-        isCustom = XInputManager.IsCustomKey(operationKey, 1)
+        isCustom = XInputManager.IsCustomKey(operationKey, 1, self._KeySetType, self.CurOperationType)
         self.BtnKeyItem2.enabled = isCustom
         name = XInputManager.GetKeyCodeString(self._KeySetType, operationTypeToEnum, operationKey, CS.PressKeyIndex.Two)
         self.BtnKeyItem2:SetName(name)

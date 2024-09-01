@@ -76,7 +76,8 @@ function XUiGridLikeAudioItem:UpdateLockStatus(isLock)
     self.AudioLock.gameObject:SetActiveEx(isLock)
     if isLock and self.AudioData then
         self.TxtLockTitle.text = self.AudioData.Name
-        self.TxtLock.text = self.AudioData.ConditionDescript
+        -- en1.32 en不需要处理换行空格
+        self.TxtLock.text = self.AudioData.ConditionDescript -- XUiHelper.ConvertSpaceToLineBreak(self.AudioData.ConditionDescript)
     end
 end
 

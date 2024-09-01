@@ -13,6 +13,7 @@ local TABLE_ITEM_PATH = "Share/Item/Item.tab"
 local TABLE_BUY_ASSET_PATH = "Share/Item/BuyAsset.tab"
 local TABLE_BUY_ASSET_CONFIG_PATH = "Share/Item/BuyAssetConfig.tab"
 local TABLE_UI_BUY_ASSET_PATH = "Share/Item/UiBuyAsset.tab"
+local TABLE_ITEM_COLLECTION_PATH = "Share/ItemCollection/ItemCollection.tab"
 
 local BuyAssetTemplates = {}                    -- 购买资源配置表
 local BuyAssetDailyLimit = {}                   -- 购买资源每日限制
@@ -24,6 +25,8 @@ local BuyAssetUis = {}                          -- 可以开启快捷购买的�
 local BuyAssetTotalLimit = {}                   -- 最大购买数量限制
 local BuyAssetTimeId = {}                       -- 购买时间限制
 -- local BuyAssetDiscountShow = {}                 -- 购买打折展示
+local ItemCollectionTemplates = {}              -- 道具收藏配置表
+local ItemCollectionDefaultCollect = {}         -- 默认解锁收藏道具
 
 XItemConfigs.SuitAllType = {
     DefaultAll = 0,
@@ -51,7 +54,7 @@ XItemConfigs.ItemType = {
     Fragment = 1 << 3, -- 碎片
     Gift = 1 << 4, -- 礼包
     WeaponFashion = 1 << 5, -- 武器时装增加时限道具
-
+    DlcMaterial = 1 << 6, -- DlcHunt相关
     CardExp = 1 << 11 | 1 << 2, -- 卡牌exp
     EquipExp = 1 << 12 | 1 << 2, -- 装备exp 4100
     EquipExpNotInBag = 1 << 12 | 1 << 3, -- 装备exp(不显示在背包中) 4104
@@ -68,6 +71,7 @@ XItemConfigs.ItemType = {
     PlayingItem = 1 << 22 | 1 << 2, -- 玩法系统道具
     TRPGItem = 1 << 23 | 1 << 2, --跑图系统道具
     PartnerExp = 1 << 25 | 1 << 2, -- 宠物exp
+    DlcItem = 1 << 6 | 1 << 0, -- Dlc道具
     
 }
 
@@ -94,6 +98,15 @@ XItemConfigs.PageType = {
     Fragment = 4, --碎片
     Awareness = 5, --意识
     Partner = 6, --伙伴
+}
+
+--收藏道具类型
+XItemConfigs.ItemCollectionType = {
+    --默认收藏
+    DefaultCollect = 1,
+
+    --奖励收藏
+    RewardCollect = 2,
 }
 
 function XItemConfigs.Init()
@@ -154,6 +167,14 @@ function XItemConfigs.Init()
         end)
 
         BuyAssetTemplates[id] = configs
+    end
+
+    ItemCollectionDefaultCollect = {}
+    ItemCollectionTemplates = XTableManager.ReadByIntKey(TABLE_ITEM_COLLECTION_PATH, XTable.XTableItemCollection, "Id")
+    for id, template in pairs(ItemCollectionTemplates) do
+        if template.Type == XItemConfigs.ItemCollectionType.DefaultCollect then
+            tableInsert(ItemCollectionDefaultCollect, id)
+        end
     end
 end
 
@@ -221,6 +242,22 @@ function XItemConfigs.GetItemIconById(id)
     return ItemTemplates[id].Icon
 end
 
+function XItemConfigs.GetQualityById(id)
+    if not ItemTemplates[id] then
+        return nil
+    end
+
+    return ItemTemplates[id].Quality
+end
+
+function XItemConfigs.GetItemSubTypeParams(id)
+    if not ItemTemplates[id] then
+        return nil
+    end
+
+    return ItemTemplates[id].SubTypeParams
+end
+
 function XItemConfigs.GetBuyAssetTotalLimit(id)
     return BuyAssetTotalLimit[id] or 0
 end
@@ -232,3 +269,17 @@ end
 -- function XItemConfigs.GetDiscountShow(id)
 --     return BuyAssetDiscountShow[id] or 0
 -- end
+
+function XItemConfigs.GetDefaultCollectList()
+    return ItemCollectionDefaultCollect
+end 
+
+function XItemConfigs.GetItemCollectTemplate(id)
+    local template = ItemCollectionTemplates[id]
+    if not template then
+        XLog.ErrorTableDataNotFound("XItemConfigs.GetItemCollectTemplate", 
+                "ItemCollection", TABLE_ITEM_COLLECTION_PATH, "Id", id)
+        return {}
+    end
+    return template
+end 

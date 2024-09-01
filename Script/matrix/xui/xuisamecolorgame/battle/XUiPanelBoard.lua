@@ -7,11 +7,22 @@ local Vector3 = CS.UnityEngine.Vector3
 local Vector2 = CS.UnityEngine.Vector2
 local MinSize = 4
 local MaxSize = 6
-function XUiPanelBoard:Ctor(ui,base, role)
+local NoneAniDelayTime = 0
+local AniDelayTime = 400
+local PrepareTime = 3 -- 限时关卡预备3秒
+local Instantiate = CS.UnityEngine.Object.Instantiate
+local ShowScoreTime = 600 -- 显示分数item的时间
+local RemoveEffectWaitTime = 150
+local CsTime = CS.UnityEngine.Time
+local ComboEffectInterval = 0.3 -- combo特效播放间隔
+local CSXAudioManager = CS.XAudioManager
+
+function XUiPanelBoard:Ctor(ui, base, role, boss)
     self.GameObject = ui.gameObject
     self.Transform = ui.transform
     self.Base = base
     self.Role = role
+    self.Boss = boss
     XTool.InitUiObject(self)
 
     self.BattleManager = XDataCenter.SameColorActivityManager.GetBattleManager()
@@ -20,7 +31,12 @@ function XUiPanelBoard:Ctor(ui,base, role)
     self.ComboSoundIndex = 1
     self.OldCombo = 0
     self.OldComboLevel = 0
+    self.OldComboTime = 0
+    self.ScoreItemDic = {}
     self.PanelCombo.gameObject:SetActiveEx(false)
+    self.ScoreItem.gameObject:SetActiveEx(false)
+    self.BoardMask.gameObject:SetActiveEx(false)
+    self.TextCountDown.gameObject:SetActiveEx(false)
     self:InitEffect()
     self:InitPos()
 end
@@ -38,6 +54,7 @@ function XUiPanelBoard:AddEventListener()
     XEventManager.AddEventListener(XEventId.EVENT_SC_UNPREP_SKILL, self.UnSelectBall, self)
     XEventManager.AddEventListener(XEventId.EVENT_SC_PREP_SKILL, self.UnSelectBall, self)
     XEventManager.AddEventListener(XEventId.EVENT_SC_ACTION_ACTIONLIST_OVER, self.CloseCombo, self)
+    XEventManager.AddEventListener(XEventId.EVENT_SC_ACTION_MAPRESET, self.ResetBall, self)
 end
 
 function XUiPanelBoard:RemoveEventListener()
@@ -53,6 +70,15 @@ function XUiPanelBoard:RemoveEventListener()
     XEventManager.RemoveEventListener(XEventId.EVENT_SC_UNPREP_SKILL, self.UnSelectBall, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_SC_PREP_SKILL, self.UnSelectBall, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_SC_ACTION_ACTIONLIST_OVER, self.CloseCombo, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_SC_ACTION_MAPRESET, self.ResetBall, self)
+end
+
+function XUiPanelBoard:OnDisable()
+    self:StopBallTween()
+    self:ClearCountDown()
+    self:ClearScoreTimer()
+    self:ClearRefreshGridTimer()
+    self:ClearSelectEffectTimer()
 end
 
 local GetTruePos = function(row, col, IsMiniRow, IsMiniCol, MaxSize)
@@ -129,6 +155,8 @@ function XUiPanelBoard:ShowCombo(count)
     
     if count > 1 then
         self.PanelCombo.gameObject:SetActiveEx(true)
+        self.ComboCountText.gameObject:SetActiveEx(true)
+        self.ComboTitle.gameObject:SetActiveEx(true)
         self.Base:PlayAnimation("ComboTextEnable")
         self:ShowComboEffect(comboLevel)
     end
@@ -147,9 +175,11 @@ function XUiPanelBoard:CloseCombo()
         return
     end
 
-    self.Base:PlayAnimation("ComboTextDisable")
+    self.Base:PlayAnimation("ComboTextDisable", function ()
+        self.ComboCountText.gameObject:SetActiveEx(false)
+        self.ComboTitle.gameObject:SetActiveEx(false)
+    end)
     self.ComboFlagDic = {}
-    self.OldComboLevel = 0
     self.OldCombo = 0
 end
 
@@ -160,17 +190,22 @@ function XUiPanelBoard:ShowBallEffect()
 end
 
 function XUiPanelBoard:ShowComboEffect(comboLevel)
-    if self.OldComboLevel ~= comboLevel then
-        for index,effect in pairs(self.EffectCombo or {}) do
-            effect.gameObject:SetActiveEx(false)
-            effect.gameObject:SetActiveEx(index == comboLevel)
-        end
+    local now = CsTime.realtimeSinceStartup
+    if self.OldComboLevel == comboLevel and (now - self.OldComboTime < ComboEffectInterval) then
+        return
     end
+
     self.OldComboLevel = comboLevel
+    self.OldComboTime = now
+    for index, effect in pairs(self.EffectCombo or {}) do
+        effect.gameObject:SetActiveEx(false)
+        effect.gameObject:SetActiveEx(index == comboLevel)
+    end
 end
 
 -----------------------------------------BallEvent-------------------------------------------------
 function XUiPanelBoard:InitBall(data)
+    self.BallCount = {}
     local ballList = data.BallList
     for index,ballData in pairs(ballList or {}) do
         local gridBall = self.GridBallList[index]
@@ -182,6 +217,10 @@ function XUiPanelBoard:InitBall(data)
             gridBall:EqualPosToGridPos(gridPos)
         end
     end
+
+    if self.Boss:IsTimeType() then
+        self:OpenCountDown()
+    end
     self.BattleManager:DoActionFinish(data.ActionType)
 end
 
@@ -189,33 +228,67 @@ function XUiPanelBoard:RemoveBall(data)
     local ballList = data.RemoveBallList
     local gridBallList = {}
 
+    local time = NoneAniDelayTime
+    local aniBallList = {}
+
+    local animNotMask = false -- 动画是否不阻塞流程
+    local preSkill = self.BattleManager:GetPrepSkill()
+    if preSkill then
+        local skillId = preSkill:GetSkillId()
+        if XSameColorGameConfigs.AnimNotMaskSkill[skillId] then
+            animNotMask = true
+        end
+    end
+
     for _,ballData in pairs(ballList or {}) do
         local gridBall = self:GetBallGrid(ballData.PositionX, ballData.PositionY)
         table.insert(gridBallList, gridBall)
+        -- 收集具有特殊移除动画的球
+        if ballData.ItemType ~= XSameColorGameConfigs.BallRemoveType.None then
+            if XTool.IsTableEmpty(aniBallList[ballData.ItemType]) then
+                aniBallList[ballData.ItemType] = {}
+            end
+            table.insert(aniBallList[ballData.ItemType], gridBall)
+        end
     end
     
-    self:PlayBallWait(gridBallList, "RemoveBall", "Before", function ()
-            local combo = self.BattleManager:GetCountCombo()
-            self:ShowCombo(combo)
+    if not XTool.IsTableEmpty(aniBallList) then
+        time = AniDelayTime
+        self:DoAniBeforeRemoveBall(aniBallList)
+    end
+    XScheduleManager.ScheduleOnce(function()
+        self:DoRemoveBall(data, gridBallList, ballList, animNotMask)
+    end, time)
 
-            self.BallCount = {}
-            for _,ballData in pairs(ballList or {}) do
-                local removePosKey = XSameColorGameConfigs.CreatePosKey(ballData.PositionX, ballData.PositionY)
-                local removeGridPos = self.GridPosDic[removePosKey]
-                removeGridPos:ShowRemoveEffect()
-
-                self.BallCount[ballData.PositionX] = self.BallCount[ballData.PositionX] and self.BallCount[ballData.PositionX] + 1 or 1
-                local gridBall = self:GetBallGrid(ballData.PositionX, ballData.PositionY)
-                local tagPosKey = XSameColorGameConfigs.CreatePosKey(ballData.PositionX, -self.BallCount[ballData.PositionX])
-                local tagGridPos = self.GridPosDic[tagPosKey]
-                gridBall:CloseEffect()
-                gridBall:EqualPosToGridPos(tagGridPos)
+    -- 计算消球列表位于最中心的球
+    local centerItem = nil
+    local centerLength = nil -- 距离其他球的总距离
+    for _, item in ipairs(ballList) do
+        local length = 0
+        for _, item2 in ipairs(ballList) do
+            if item ~= item2 then
+                length = length + math.abs(item2.PositionX - item.PositionX) + math.abs(item2.PositionY - item.PositionY)
             end
+        end
+        if centerLength == nil or length <= centerLength then
+            centerItem = item
+            centerLength = length
+        end
+    end
+    local localPos = self:GetBallGridPosition(centerItem.PositionX, centerItem.PositionY)
 
-            self:PlayBallWait(gridBallList, "RemoveBall", "After", function ()
-                    self.BattleManager:DoActionFinish(data.ActionType)
-                end)
-        end)
+    -- 显示消除分数
+    local scoreItem = self:GetScoreItem()
+    scoreItem.transform.localPosition = Vector3(localPos.x, localPos.y, 0)
+    scoreItem:TextToSprite(tostring(data.CurrentScore), 0)
+
+    -- 消球音效
+    --CSXAudioManager.PlaySound(XSameColorGameConfigs.Sound.RemoveBall)
+
+    -- 动画不阻塞流程
+    if animNotMask then 
+        self.BattleManager:DoActionFinish(data.ActionType)
+    end
 end
 
 function XUiPanelBoard:DropBall(data)
@@ -243,6 +316,7 @@ function XUiPanelBoard:AddBall(data)
             table.insert(ballData, tmepBall)
         end
     end
+    self.BallCount = {}
     self:SetBallId(ballData)
     self:MoveBall(ballData, "AddBall", function ()
             self.BattleManager:DoActionFinish(data.ActionType)
@@ -261,14 +335,80 @@ function XUiPanelBoard:SwapBall(data)
         end)
 end
 
-function XUiPanelBoard:ChangeBall(data)
+function XUiPanelBoard:ChangeBall(data, isPlayQieHuanAnim)
+    for _, gridBall in pairs(self.GridBallList) do
+        gridBall:CloseEffect()
+        if isPlayQieHuanAnim then 
+            gridBall:PlayQieHuanAnim()
+        end
+    end
+
+    -- 播切换动画时
     local ballList = data.BallList
+    if isPlayQieHuanAnim then
+        -- 延迟刷新球
+        self:ClearRefreshGridTimer()
+        self.RefreshGridTimer = XScheduleManager.ScheduleOnce(function()
+            self:RefreshBallList(ballList)
+            self.RefreshGridTimer = nil
+        end, 300)
+
+        -- 刷新特效
+        self:ClearSelectEffectTimer()
+        self.SelectEffectTimer = XScheduleManager.ScheduleOnce(function()
+            self:RefreshBallListEffect(ballList)
+            self.SelectEffectTimer = nil
+            self.BattleManager:DoActionFinish(data.ActionType)
+        end, 400)
+    else
+        self:RefreshBallList(ballList)
+        self:RefreshBallListEffect(ballList)
+        self.BattleManager:DoActionFinish(data.ActionType)
+    end
+end
+
+function XUiPanelBoard:ClearRefreshGridTimer()
+    if self.RefreshGridTimer then 
+        XScheduleManager.UnSchedule(self.RefreshGridTimer)
+        self.RefreshGridTimer = nil
+    end
+end
+
+function XUiPanelBoard:ClearSelectEffectTimer()
+    if self.SelectEffectTimer then
+        XScheduleManager.UnSchedule(self.SelectEffectTimer)
+        self.SelectEffectTimer = nil
+    end
+end
+
+function XUiPanelBoard:RefreshBallList(ballList)
     for _,ballData in pairs(ballList or {}) do
         local gridBall = self:GetBallGrid(ballData.PositionX, ballData.PositionY)
+        if not gridBall then 
+            gridBall = self:GetBallFromRecycleBall(ballData.PositionX, ballData.PositionY)
+        end
         gridBall:UpdateGrid(self.Role:GetBall(ballData.ItemId))
+    end
+end
+
+function XUiPanelBoard:RefreshBallListEffect(ballList)
+    for _,ballData in pairs(ballList or {}) do
+        local gridBall = self:GetBallGrid(ballData.PositionX, ballData.PositionY)
+        if not gridBall then 
+            gridBall = self:GetBallFromRecycleBall(ballData.PositionX, ballData.PositionY)
+        end
+        local ballId = gridBall:GetBallId()
+        local showSelectEffect = XSameColorGameConfigs.ShowSelectEffectBall[ballId]
+        if showSelectEffect then
+            gridBall:ShowSelect(true)
+        end
+
         gridBall:SelectEffect()
     end
-    self.BattleManager:DoActionFinish(data.ActionType)
+end
+
+function XUiPanelBoard:ResetBall(data)
+    self:ChangeBall(data, true)
 end
 
 function XUiPanelBoard:ShuffleBall(data)
@@ -287,6 +427,21 @@ function XUiPanelBoard:GetBallGrid(x, y)
     return
 end
 
+-- 从回收的球里取
+-- 触发消球但是不落球的技能结束之后，刷新球，取不到对应位置的球，从回收的球里取
+function XUiPanelBoard:GetBallFromRecycleBall(x, y)
+    if self.BallCount[x] then
+        local posY = -self.BallCount[x]
+        self.BallCount[x] = self.BallCount[x] - 1
+        local gridBall = self:GetBallGrid(x, posY)
+        local tagPosKey = XSameColorGameConfigs.CreatePosKey(x, y)
+        local tagGridPos = self.GridPosDic[tagPosKey]
+        gridBall:EqualPosToGridPos(tagGridPos)
+        return gridBall
+    end
+    return
+end
+
 function XUiPanelBoard:SetBallId(ballList)
     for index,ballData in pairs(ballList or {}) do
         local gridBall = self:GetBallGrid(ballData.StartX, ballData.StartY)
@@ -296,6 +451,84 @@ function XUiPanelBoard:SetBallId(ballList)
         end
     end
 
+end
+
+function XUiPanelBoard:GetBallGridPosition(x, y)
+    local tagPosKey = XSameColorGameConfigs.CreatePosKey(x, y)
+    local tagGridPos = self.GridPosDic[tagPosKey]
+    if tagGridPos then
+        return tagGridPos.Transform.localPosition
+    end
+end
+
+-- 能交换但不同球(服务端不能发送同色邻球交换)
+function XUiPanelBoard:IsCanRequset(ball)
+    if self.SelectedBall and self.SelectedBall ~= ball then
+        local startPos = {PositionX = self.SelectedBall.Col, PositionY = self.SelectedBall.Row}
+        local endPos = {PositionX = ball.Col, PositionY = ball.Row}
+        return XSameColorGameConfigs.CheckPosIsAdjoin(startPos, endPos) and self.SelectedBall:GetBallId() ~= ball:GetBallId(), startPos, endPos
+    else
+        return false
+    end
+end
+
+-- 能交换且是同球交换
+function XUiPanelBoard:IsCanRequsetButSameBall(ball)
+    if self.SelectedBall and self.SelectedBall ~= ball then
+        local startPos = {PositionX = self.SelectedBall.Col, PositionY = self.SelectedBall.Row}
+        local endPos = {PositionX = ball.Col, PositionY = ball.Row}
+        return XSameColorGameConfigs.CheckPosIsAdjoin(startPos, endPos) and self.SelectedBall:GetBallId() == ball:GetBallId()
+    else
+        return false
+    end
+end
+
+-- 直接执行三消除球行为
+function XUiPanelBoard:DoRemoveBall(data, gridBallList, ballList, animNotMask)
+    -- 消除特效
+    XScheduleManager.ScheduleOnce(function()
+        self:ShowRemoveEffect(ballList)
+    end, RemoveEffectWaitTime)
+
+    self:PlayBallWait(gridBallList, "RemoveBall", "Before", function ()
+        local combo = self.BattleManager:GetCountCombo()
+        self:ShowCombo(combo)
+
+        for _,ballData in pairs(ballList or {}) do
+            local removePosKey = XSameColorGameConfigs.CreatePosKey(ballData.PositionX, ballData.PositionY)
+            local removeGridPos = self.GridPosDic[removePosKey]
+
+            self.BallCount[ballData.PositionX] = self.BallCount[ballData.PositionX] and self.BallCount[ballData.PositionX] + 1 or 1
+            local gridBall = self:GetBallGrid(ballData.PositionX, ballData.PositionY)
+            local tagPosKey = XSameColorGameConfigs.CreatePosKey(ballData.PositionX, -self.BallCount[ballData.PositionX])
+            local tagGridPos = self.GridPosDic[tagPosKey]
+            gridBall:CloseEffect()
+            gridBall:EqualPosToGridPos(tagGridPos)
+        end
+
+        local cb = not animNotMask and function()
+            self.BattleManager:DoActionFinish(data.ActionType)
+        end
+        self:PlayBallWait(gridBallList, "RemoveBall", "After", cb)
+    end)
+end
+
+-- 显示消球移除特效
+function XUiPanelBoard:ShowRemoveEffect(ballList)
+    for _,ballData in pairs(ballList or {}) do
+        local removePosKey = XSameColorGameConfigs.CreatePosKey(ballData.PositionX, ballData.PositionY)
+        local removeGridPos = self.GridPosDic[removePosKey]
+        removeGridPos:ShowRemoveEffect()
+    end
+end
+
+-- 移除球前播放动画
+function XUiPanelBoard:DoAniBeforeRemoveBall(aniBallList)
+    for removeType, ballList in ipairs(aniBallList) do
+        for _, ball in ipairs(ballList) do
+            ball:PlayAniByRemoveType(removeType)
+        end
+    end
 end
 
 function XUiPanelBoard:MoveBall(ballList, countKey, cb)
@@ -331,6 +564,77 @@ function XUiPanelBoard:PlayBallWait(gridballList, countKey, waitName, cb)
 
 end
 
+-- v1.31 检查球周围四个方向是否有球
+function XUiPanelBoard:CheckAroundSideIsHaveBall(ball)
+    local x = ball.Col
+    local y = ball.Row
+    local isHaveLeftBall = self:GetBallGrid(x - 1, y)
+    local isHaveRightBall = self:GetBallGrid(x + 1, y)
+    local isHaveUpBall = self:GetBallGrid(x, y - 1)
+    local isHaveDownBall = self:GetBallGrid(x, y + 1)
+    return isHaveLeftBall, isHaveRightBall, isHaveUpBall, isHaveDownBall
+end
+
+-- v1.31 按下手指选择球
+function XUiPanelBoard:DoStartSelectBall(ball)
+    local prepSkill = self.BattleManager:GetPrepSkill()
+    if not prepSkill then
+        self:StartSelectBall(ball)
+    end
+end
+
+function XUiPanelBoard:StartSelectBall(ball)
+    if not self.SelectedBall then
+        self.SelectedBall = ball
+        ball:ShowSelect(true)
+    else
+        if self.SelectedBall ~= ball then
+            if self:IsCanRequsetButSameBall(ball) then
+                self:DoMoveSameBall(self.SelectedBall, ball)
+                self:CancelSelectBall()
+            else
+                self.SelectedBall:ShowSelect(false)
+                self.SelectedBall = ball
+                ball:ShowSelect(true)
+            end
+        end
+    end
+end
+
+function XUiPanelBoard:CancelSelectBall()
+    if self.SelectedBall then
+        self.SelectedBall:ShowSelect(false)
+        self.SelectedBall = nil
+    end
+end
+
+function XUiPanelBoard:IsBallSelect(ball)
+    if self.SelectedBall then
+        return self.SelectedBall == ball
+    else
+        return false
+    end
+end
+
+-- v1.31 一样的球交换
+function XUiPanelBoard:DoMoveSameBall(ball, targetBall)
+    local ballList = {}
+    local swapBackList = {}
+    ballList[1] = {StartX = ball.Col, StartY = ball.Row,
+        EndX = targetBall.Col, EndY = targetBall.Row}
+    ballList[2] = {StartX = targetBall.Col, StartY = targetBall.Row,
+        EndX = ball.Col, EndY = ball.Row}
+    swapBackList[1] = ballList[2]
+    swapBackList[2] = ballList[1]
+    XLuaUiManager.SetMask(true)
+    self:MoveBall(ballList, "SwapBall", function ()
+        self:MoveBall(swapBackList, "SwapBall", function ()
+            XLuaUiManager.SetMask(false)
+        end)
+    end)
+end
+
+-- v1.31 抬起手指选择球
 function XUiPanelBoard:DoSelectBall(ball)
     local prepSkill = self.BattleManager:GetPrepSkill()
 
@@ -348,17 +652,22 @@ function XUiPanelBoard:NormalSelect(ball)
     else
         local IsCanRequset = true
         if self.SelectedBall ~= ball then
-            local startPos = {PositionX = self.SelectedBall.Col, PositionY = self.SelectedBall.Row}
-            local endPos = {PositionX = ball.Col, PositionY = ball.Row}
-            IsCanRequset = XSameColorGameConfigs.CheckPosIsAdjoin(startPos, endPos) and self.SelectedBall:GetBallId() ~= ball:GetBallId()
+            --CSXAudioManager.PlaySound(XSameColorGameConfigs.Sound.SwapBall)
+            local startPos, endPos
+            IsCanRequset, startPos, endPos = self:IsCanRequset(ball)
             if IsCanRequset then
                 XDataCenter.SameColorActivityManager.RequestSwapBall(startPos, endPos, function ()
                         self.BattleManager:CheckActionList()
                     end)
             else
-                self.SelectedBall:ShowSelect(false)
-                self.SelectedBall = ball
-                ball:ShowSelect(true)
+                if self:IsCanRequsetButSameBall(ball) then
+                    self:DoMoveSameBall(self.SelectedBall, ball)
+                    self:CancelSelectBall()
+                else
+                    self.SelectedBall:ShowSelect(false)
+                    self.SelectedBall = ball
+                    ball:ShowSelect(true)
+                end
             end
         end
 
@@ -387,7 +696,21 @@ function XUiPanelBoard:DoOneBallSkill(ball, skillGroupId, skillId)
         PositionX = ball.Col,
         PositionY = ball.Row
     }
-    XDataCenter.SameColorActivityManager.RequestUseItem(skillGroupId, skillId, {Item1 = ball_1, Item2 = {}})
+    local useItemParam = {Item1 = ball_1, Item2 = {}}
+    local cb
+
+    -- 是否作为开启技能
+    local prepSkill = self.BattleManager:GetPrepSkill()
+    local isOpenSkill = XSameColorGameConfigs.NeedOpenSkill[skillId] and prepSkill:GetUsedCount() == 0
+    if isOpenSkill then
+        useItemParam = nil
+        cb = function()
+            -- 关闭技能描述
+            XEventManager.DispatchEvent(XEventId.EVENT_SC_BATTLESHOW_CLOSE_BLACKSCENE_TIPS)
+        end
+    end
+    
+    XDataCenter.SameColorActivityManager.RequestUseItem(skillGroupId, skillId, useItemParam, cb)
 end
 
 function XUiPanelBoard:DoTwoBallSkill(ball, skillGroupId, skillId)
@@ -452,4 +775,72 @@ function XUiPanelBoard:CheckFinishCount(maxCount, key, cb)
         if cb then cb() end
     end
 end
+
+-- 打开倒计时
+function XUiPanelBoard:OpenCountDown()
+    self:ClearCountDown()
+
+    self.Base:ShowBossAtkMask(true)
+    self.CountDown = PrepareTime
+    self.BoardMask.gameObject:SetActiveEx(true)
+    self.TextCountDown.gameObject:SetActiveEx(true)
+    self.TextCountDown:TextToSprite(self.CountDown, 0)
+    self.CountDownTimer = XScheduleManager.ScheduleForever(function()
+        self.CountDown = self.CountDown - 1
+        if self.CountDown > 0 then
+            self.TextCountDown:TextToSprite(self.CountDown, 0)
+        else
+            XDataCenter.SameColorActivityManager.RequestCountDown()
+            self:ClearCountDown()
+        end
+    end, XScheduleManager.SECOND)
+end
+
+-- 清除倒计时
+function XUiPanelBoard:ClearCountDown()
+    if self.CountDownTimer then
+        self.Base:ShowBossAtkMask(false)
+        XScheduleManager.UnSchedule(self.CountDownTimer)
+        self.CountDownTimer = nil
+        self.BoardMask.gameObject:SetActiveEx(false)
+        self.TextCountDown.gameObject:SetActiveEx(false)
+    end
+end
+
+-- 获取一个消除分数item
+function XUiPanelBoard:GetScoreItem()
+    local scoreItem
+    for item, timerId in pairs(self.ScoreItemDic) do
+        local canUse = timerId == 0
+        if canUse then
+            scoreItem = item
+            break
+        end
+    end
+    if not scoreItem then
+        local go = Instantiate(self.ScoreItem, self.PanelScore)
+        scoreItem = go:GetComponent("XUiSpriteText")
+    end
+
+    scoreItem.transform.gameObject:SetActiveEx(true)
+    self.ScoreItemDic[scoreItem] = XScheduleManager.ScheduleOnce(function()
+        self:RecycleScoreItem(scoreItem)
+    end, ShowScoreTime)
+    return scoreItem
+end
+
+-- 回收一个消除分数item
+function XUiPanelBoard:RecycleScoreItem(scoreItem)
+    self.ScoreItemDic[scoreItem] = 0
+    scoreItem.transform.gameObject:SetActiveEx(false)
+end
+
+-- 清除所有分数Item的定时器
+function XUiPanelBoard:ClearScoreTimer()
+    for item, timerId in pairs(self.ScoreItemDic) do
+        XScheduleManager.UnSchedule(timerId)
+        self.ScoreItemDic[item] = 0
+    end
+end
+
 return XUiPanelBoard

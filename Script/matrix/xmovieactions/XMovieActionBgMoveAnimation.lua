@@ -9,9 +9,15 @@ function XMovieActionBgMoveAnimation:Ctor(actionData)
         self.Pos = CS.UnityEngine.Vector3.zero
     end
     self.Duration = tonumber(params[2])
+    self.IsPanelSpine = tonumber(params[3]) == 1
 end
 
 function XMovieActionBgMoveAnimation:OnRunning()
+    if self.IsPanelSpine then
+        self.UiRoot.PanelSpine.transform:DOLocalMove(self.Pos, self.Duration)
+        return
+    end
+
     ---@type UnityEngine.UI.RawImage
     local bg1 = self.UiRoot.RImgBg1
     ---@type UnityEngine.UI.RawImage

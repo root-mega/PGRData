@@ -1,9 +1,11 @@
+---@class XLottoDrawEntity
 local XLottoDrawEntity = XClass(nil, "XLottoDrawEntity")
 local XLottoRewardEntity = require("XEntity/XLotto/XLottoRewardEntity")
 
 function XLottoDrawEntity:Ctor(id)
     self.Id = id
     self.ExtraRewardState = XLottoConfigs.ExtraRewardState.CanNotGet--额外奖励状态
+    ---@type XLottoRewardEntity[]
     self.RewardDataList = {}
     self.LottoRecords = {}
     self.LottoRewards = {}
@@ -134,6 +136,17 @@ end
 function XLottoDrawEntity:GetEndTime()
     local time = XFunctionManager.GetEndTimeByTimeId(self:GetTimeId())
     return time
+end
+
+function XLottoDrawEntity:GetCoreRewardTemplateId()
+    local rewardDataList = self:GetRewardDataList()
+    local rewardId
+    for _, rewardData in ipairs(rewardDataList) do
+        if rewardData:GetRareLevel() == XLottoConfigs.RareLevel.One then
+            rewardId = rewardData:GetTemplateId()
+        end
+    end
+    return rewardId
 end
 
 return XLottoDrawEntity

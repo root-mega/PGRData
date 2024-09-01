@@ -48,9 +48,27 @@ function XUiMultiplayerInviteFriend:Refresh()
             end
         end
         table.sort(self.FriendList, function(a, b)
-            if a.OnlineFlag >= b.OnlineFlag then
-                return a.OnlineFlag
+            if a.OnlineFlag == b.OnlineFlag then
+                return false
             end
+
+            return a.OnlineFlag > b.OnlineFlag
+        end)
+    elseif self.MultipleRoomType==MultipleRoomType.FubenPhoto then
+        local friends =  XDataCenter.SocialManager.GetFriendList()
+        local levelLimit=XDataCenter.FubenSpecialTrainManager.GetOpenLevelLimit()
+        for _, member in pairs(friends) do
+            if member.Level >= levelLimit then
+                member.OnlineFlag=member.IsOnline and 1 or 0
+                table.insert(self.FriendList, member)
+            end
+        end
+        table.sort(self.FriendList, function(a, b)
+            if a.OnlineFlag == b.OnlineFlag then
+                return false
+            end
+            
+            return a.OnlineFlag > b.OnlineFlag
         end)
     else
         self.FriendList = XDataCenter.SocialManager.GetFriendList()

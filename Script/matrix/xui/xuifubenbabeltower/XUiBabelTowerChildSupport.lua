@@ -1,3 +1,4 @@
+---@class UiBabelTowerChildSupport : XLuaUi
 local XUiBabelTowerChildSupport = XLuaUiManager.Register(XLuaUi, "UiBabelTowerChildSupport")
 
 local XUiBabelMemberHead = require("XUi/XUiFubenBabelTower/XUiBabelMemberHead")
@@ -179,6 +180,7 @@ function XUiBabelTowerChildSupport:OnBtnGoClick()
         self.TeamList = inTeam:GetEntityIds()
         self.CaptainPos = inTeam:GetCaptainPos()
         self.FirstFightPos = inTeam:GetFirstFightPos()
+        self:ReportTeamList()
     end)
     XLuaUiManager.Open("UiBattleRoleRoom",
             self.StageId,

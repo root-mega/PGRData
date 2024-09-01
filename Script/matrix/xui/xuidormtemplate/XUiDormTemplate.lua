@@ -89,12 +89,12 @@ function XUiDormTemplate:OnSelectedTog(index)
     self:PlayAnimation("QieHuan")
 
     self.CurSelectIndex = index
-    local teamplateInfo = self.InfoList[index]
+    local templateData = self.InfoList[index]
     self.PageDatas = {}
-    self.RoomType = teamplateInfo.DormType
+    self.RoomType = templateData.DormType
 
     if self.RoomType == XDormConfig.DormDataType.Template then
-        self.PageDatas = XDataCenter.DormManager.GetTemplateDormitoryData(XDormConfig.DormDataType.Template, teamplateInfo.DormId)
+        self.PageDatas = XDataCenter.DormManager.GetTemplateDormitoryData(XDormConfig.DormDataType.Template, templateData.DormId)
     elseif self.RoomType == XDormConfig.DormDataType.Collect then
         local datas = XDataCenter.DormManager.GetTemplateDormitoryData(XDormConfig.DormDataType.Collect)
         local collectCfgs = XDormConfig.GetDormTemplateCollectList()

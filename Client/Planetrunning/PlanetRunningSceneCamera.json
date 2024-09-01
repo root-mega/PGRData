@@ -1,0 +1,189 @@
+[
+    {
+        "Id": 1,
+        "Fov": 10,
+        "Position": [
+            null,
+            49.2,
+            45.1,
+            36.5
+        ],
+        "Rotation": [
+            null,
+            29.4,
+            -130.3,
+            41.8
+        ],
+        "desc": "Main Screen Scene"
+    },
+    {
+        "Id": 2,
+        "Fov": 10,
+        "Position": [
+            null,
+            20.8,
+            16.2,
+            33.4
+        ],
+        "Rotation": [
+            null,
+            22.0,
+            -148.6,
+            0.0
+        ],
+        "desc": "Follow-Up Scene"
+    },
+    {
+        "Id": 3,
+        "Fov": 10,
+        "Position": [
+            null,
+            -0.5,
+            -71.4,
+            -123.4
+        ],
+        "Rotation": [
+            null,
+            329.55,
+            -0.14,
+            -0.2
+        ],
+        "desc": "Free Mode Scene (Farthest View)"
+    },
+    {
+        "Id": 4,
+        "Fov": 10,
+        "Position": [
+            null,
+            -2.6,
+            -73.1,
+            -34.5
+        ],
+        "Rotation": [
+            null,
+            290.0,
+            3.8,
+            1.3
+        ],
+        "desc": "Free Mode Scene (Closest View)"
+    },
+    {
+        "Id": 5,
+        "Fov": 10,
+        "Position": [
+            null,
+            27.5,
+            0.0,
+            -305.0
+        ],
+        "Rotation": [
+            null,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "desc": "Chapter Scene"
+    },
+    {
+        "Id": 6,
+        "Fov": 10,
+        "Position": [
+            null,
+            8.69,
+            2.04,
+            -200.0
+        ],
+        "Rotation": [
+            null,
+            0.0,
+            0.0,
+            0.0
+        ],
+        "desc": "Stage Selection Scene"
+    },
+    {
+        "Id": 7,
+        "Fov": 10,
+        "Position": [
+            null,
+            30.0,
+            28.574,
+            -22.436
+        ],
+        "Rotation": [
+            null,
+            41.545,
+            -68.467,
+            103.427
+        ],
+        "desc": null
+    },
+    {
+        "Id": 8,
+        "Fov": 10,
+        "Position": [
+            null,
+            20.8,
+            16.2,
+            33.4
+        ],
+        "Rotation": [
+            null,
+            22.0,
+            -148.6,
+            0.0
+        ],
+        "desc": "Follow-Up Scene (Overhead View)"
+    },
+    {
+        "Id": 9,
+        "Fov": 10,
+        "Position": [
+            null,
+            4.7,
+            3.3,
+            15.9
+        ],
+        "Rotation": [
+            null,
+            8.83,
+            -161.0,
+            5.35
+        ],
+        "desc": "Stage Result Calculation Scene"
+    },
+    {
+        "Id": 10,
+        "Fov": 10,
+        "Position": [
+            null,
+            15.5,
+            7.5,
+            7.4
+        ],
+        "Rotation": [
+            null,
+            22.3,
+            -116.8,
+            3.0
+        ],
+        "desc": "Story Scene"
+    },
+    {
+        "Id": 11,
+        "Fov": 10,
+        "Position": [
+            null,
+            20.8,
+            16.2,
+            33.4
+        ],
+        "Rotation": [
+            null,
+            22.0,
+            -148.6,
+            0.0
+        ],
+        "desc": "Boss Arriving Scene"
+    }
+]

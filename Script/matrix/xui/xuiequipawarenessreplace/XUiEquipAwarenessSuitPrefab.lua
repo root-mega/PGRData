@@ -11,6 +11,7 @@ local CSUnityEngineObjectInstantiate = CS.UnityEngine.Object.Instantiate
 local CUR_SUIT_PREFAB_INDEX = 0
 local MAX_MERGE_ATTR_COUNT = 4
 local MAX_RESONANCE_SKILL_COUNT = 6
+local MAX_SUIT_SKILL_COUNT = 4
 local ShowPropertyIndex = {
     Attr = 1,
     SuitSkill = 2,
@@ -98,6 +99,7 @@ function XUiEquipAwarenessSuitPrefab:OnSelectType(index)
         self.CurPrefabIndex = CUR_SUIT_PREFAB_INDEX
 
         self:Refresh()
+        self:PlayAnimation("QieHuan")
     end
 end
 
@@ -169,7 +171,7 @@ function XUiEquipAwarenessSuitPrefab:OnBtnEquip()
     end)
 
     local equipFunc = function()
-        XDataCenter.EquipManager.EquipSuitPrefabEquip(self.CurPrefabIndex, self.CharacterId, function()
+        XMVCA:GetAgency(ModuleId.XEquip):EquipSuitPrefabEquip(self.CurPrefabIndex, self.CharacterId, function()
             self.CurPrefabIndex = CUR_SUIT_PREFAB_INDEX
         end)
     end
@@ -218,7 +220,7 @@ function XUiEquipAwarenessSuitPrefab:InitCurEquipGrids()
     self.GridCurAwareness.gameObject:SetActiveEx(false)
     for _, equipSite in pairs(XEquipConfig.EquipSite.Awareness) do
         local item = CS.UnityEngine.Object.Instantiate(self.GridCurAwareness)
-        self.CurEquipGirds[equipSite] = XUiGridEquip.New(item, clickCb)
+        self.CurEquipGirds[equipSite] = XUiGridEquip.New(item, self, clickCb, true)
         self.CurEquipGirds[equipSite]:InitRootUi(self)
         self.CurEquipGirds[equipSite].Transform:SetParent(self["PanelPos" .. equipSite], false)
     end
@@ -294,10 +296,10 @@ end
 
 function XUiEquipAwarenessSuitPrefab:UpdateCurEquipSkill()
     local suitPrefabInfo = self:GetShowingPrefabInfo()
-    local activeSkillDesInfoList = XDataCenter.EquipManager.GetSuitMergeActiveSkillDesInfoList(suitPrefabInfo:GetEquipIds())
+    local activeSkillDesInfoList = XDataCenter.EquipManager.GetSuitMergeActiveSkillDesInfoList(suitPrefabInfo:GetEquipIds(), self.CharacterId)
     local skillCount = 0
 
-    for i = 1, XEquipConfig.MAX_SUIT_SKILL_COUNT do
+    for i = 1, MAX_SUIT_SKILL_COUNT do
         if not activeSkillDesInfoList[i] then
             self["TxtSkillDes" .. i].gameObject:SetActiveEx(false)
         else

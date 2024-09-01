@@ -74,8 +74,9 @@ function XUiBabelTowerMainNew:OnEnable()
         , XFubenBabelTowerConfigs.ActivityType.Normal)
     -- 如果正常的到期了，复刻开启，直接打开复刻
     if not self.FubenBabelTowerManager.GetIsOpen() or self.ActivityType == XFubenBabelTowerConfigs.ActivityType.Extra then
-        self:OnBtnUiReprintClicked() 
+        self:OnBtnUiReprintClicked()
     else
+        self:UpdateReprintBtnState()
         -- 检查按钮小红点
         XRedPointManager.CheckOnceByButton(self.BtnUiReprint
             , { XRedPointConditions.Types.CONDITION_ACTIVITYBRIE_BABELTOWER_REWARD }, XFubenBabelTowerConfigs.ActivityType.Extra)
@@ -149,6 +150,14 @@ function XUiBabelTowerMainNew:OnBeginDrag(eventData)
     self.PreY = self.PanelTaskList.verticalNormalizedPosition
 end
 
+function XUiBabelTowerMainNew:UpdateReprintBtnState()
+    if self.ReproduceManager:GetIsOpen() then
+        self.BtnUiReprint:SetDisable(false)
+    else
+        self.BtnUiReprint:SetDisable(true)
+    end
+end
+
 function XUiBabelTowerMainNew:OnBtnUiReprintClicked()
     -- 检查是否已开放
     if not self.ReproduceManager:GetIsOpen(true) then
@@ -182,6 +191,7 @@ function XUiBabelTowerMainNew:OnReproduceUiHide()
     -- 检查按钮小红点
     XRedPointManager.CheckOnceByButton(self.BtnUiReprint
     , { XRedPointConditions.Types.CONDITION_ACTIVITYBRIE_BABELTOWER_REWARD }, XFubenBabelTowerConfigs.ActivityType.Extra)
+    self:UpdateReprintBtnState()
 end
 
 function XUiBabelTowerMainNew:OnBtnRankClick()

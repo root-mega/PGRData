@@ -93,7 +93,7 @@ end
 
 function XUiPurchaseHKExchangeTop:OnBtnBuyClicked()
     if self.CurrentData.ConsumeCount > XDataCenter.ItemManager.GetCount(self.CurrentData.ConsumeId) then
-        XUiManager.TipText("PurchaseBuyHongKaCountTips")
+        XUiHelper.OpenPurchaseBuyHongKaCountTips()
         if self.NotEnoughCb then
             self.NotEnoughCb(XPurchaseConfigs.TabsConfig.Pay)
         end

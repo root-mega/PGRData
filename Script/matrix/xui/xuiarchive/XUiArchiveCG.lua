@@ -56,6 +56,9 @@ function XUiArchiveCG:SetButtonCallBack()
     self.BtnMainUi.CallBack = function()
         self:OnBtnMainUiClick()
     end
+    self.BtnCustomLoading.CallBack = function()
+        XLuaUiManager.Open("UiLoadingSet")
+    end
 end
 
 function XUiArchiveCG:InitTypeButton()

@@ -150,15 +150,13 @@ function XUiBodyCombineGamePlay:OnStart(stage)
 end
 
 function XUiBodyCombineGamePlay:OnEnable()
-    XEventManager.AddEventListener(XEventId.EVENT_BODYCOMBINEGAME_ACTIVITY_END, function()
-        XDataCenter.BodyCombineGameManager.OnActivityEnd()
-    end, self)
+    XEventManager.AddEventListener(XEventId.EVENT_BODYCOMBINEGAME_ACTIVITY_END, 
+        XDataCenter.BodyCombineGameManager.OnActivityEnd)
 end
 
 function XUiBodyCombineGamePlay:OnDisable()
-    XEventManager.RemoveEventListener(XEventId.EVENT_BODYCOMBINEGAME_ACTIVITY_END, function()
-        XDataCenter.BodyCombineGameManager.OnActivityEnd()
-    end, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_BODYCOMBINEGAME_ACTIVITY_END, 
+        XDataCenter.BodyCombineGameManager.OnActivityEnd)
 end
 
 function XUiBodyCombineGamePlay:InitUI()

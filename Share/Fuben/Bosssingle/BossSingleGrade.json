@@ -1,0 +1,102 @@
+[
+    {
+        "LevelType": 1,
+        "Offline": null,
+        "MinPlayerLevel": 1,
+        "MaxPlayerLevel": 54,
+        "PreLevel": null,
+        "NeedScore": null,
+        "Icon": "Assets/Product/Texture/Image/IconType/IconRank1.png",
+        "LevelName": "Basic",
+        "HideBossOpen": 0,
+        "ChallengeCount": 4,
+        "WeekChallengeCount": 8,
+        "StaminaCount": 5,
+        "BaseRankNum": 100,
+        "DistributeId": 1,
+        "GroupId": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ],
+        "RankTimeId": 505.0,
+        "RewardGroupId": 1
+    },
+    {
+        "LevelType": 2,
+        "Offline": null,
+        "MinPlayerLevel": 55,
+        "MaxPlayerLevel": 79,
+        "PreLevel": null,
+        "NeedScore": null,
+        "Icon": "Assets/Product/Texture/Image/IconType/IconRank2.png",
+        "LevelName": "Intermediate",
+        "HideBossOpen": 0,
+        "ChallengeCount": 4,
+        "WeekChallengeCount": 8,
+        "StaminaCount": 5,
+        "BaseRankNum": 100,
+        "DistributeId": 2,
+        "GroupId": [
+            null,
+            3,
+            4,
+            5.0,
+            null
+        ],
+        "RankTimeId": 505.0,
+        "RewardGroupId": 1
+    },
+    {
+        "LevelType": 3,
+        "Offline": null,
+        "MinPlayerLevel": 80,
+        "MaxPlayerLevel": 120,
+        "PreLevel": null,
+        "NeedScore": null,
+        "Icon": "Assets/Product/Texture/Image/IconType/IconRank3.png",
+        "LevelName": "Advanced",
+        "HideBossOpen": 0,
+        "ChallengeCount": 4,
+        "WeekChallengeCount": 8,
+        "StaminaCount": 5,
+        "BaseRankNum": 100,
+        "DistributeId": 3,
+        "GroupId": [
+            null,
+            6,
+            7,
+            8.0,
+            null
+        ],
+        "RankTimeId": null,
+        "RewardGroupId": 1
+    },
+    {
+        "LevelType": 4,
+        "Offline": null,
+        "MinPlayerLevel": 80,
+        "MaxPlayerLevel": 120,
+        "PreLevel": 3.0,
+        "NeedScore": 1000000.0,
+        "Icon": "Assets/Product/Texture/Image/IconType/IconRank4.png",
+        "LevelName": "Ultimate",
+        "HideBossOpen": 0,
+        "ChallengeCount": 4,
+        "WeekChallengeCount": 8,
+        "StaminaCount": 5,
+        "BaseRankNum": 100,
+        "DistributeId": 8,
+        "GroupId": [
+            null,
+            9,
+            10,
+            11.0,
+            null
+        ],
+        "RankTimeId": null,
+        "RewardGroupId": 1
+    }
+]

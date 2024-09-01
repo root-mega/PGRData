@@ -1,11 +1,8 @@
 local XUiGridEquip = require("XUi/XUiEquipAwarenessReplace/XUiGridEquip")
-local XUiPanelEquipScroll = XClass(nil, "XUiPanelEquipScroll")
+local XUiPanelEquipScroll = XClass(XUiNode, "XUiPanelEquipScroll")
 
 --multiSelect复用
-function XUiPanelEquipScroll:Ctor(rootUi, ui, gridTouchCb, gridReloadCb, multiSelect, gridSelectCheckCb)
-    self.RootUi = rootUi
-    self.GameObject = ui.gameObject
-    self.Transform = ui.transform
+function XUiPanelEquipScroll:OnStart(gridTouchCb, gridReloadCb, multiSelect, gridSelectCheckCb)
     self.GridTouchCb = gridTouchCb
     self.GridReloadCb = gridReloadCb
     self.MultiSelect = multiSelect
@@ -16,7 +13,7 @@ end
 function XUiPanelEquipScroll:InitDynamicTable()
     self.DynamicTable = XDynamicTableNormal.New(self.GameObject)
     self.DynamicTable:SetDelegate(self)
-    self.DynamicTable:SetProxy(XUiGridEquip)
+    self.DynamicTable:SetProxy(XUiGridEquip, self)
     self.LastSelectIds = {}
 end
 
@@ -32,10 +29,10 @@ end
 
 function XUiPanelEquipScroll:OnDynamicTableEvent(event, index, grid)
     if event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_INIT then
-        grid:InitRootUi(self.RootUi)
+        grid:InitRootUi(self.Parent)
     elseif event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_ATINDEX then
         local equipId = self.EquipIdList[index]
-        grid:Refresh(equipId, self.RootUi.SelectedEquipIdList)
+        grid:Refresh(equipId, self.Parent.SelectedEquipIdList)
 
         if self.LastSelectIds[equipId] then
             grid:SetSelected(true)

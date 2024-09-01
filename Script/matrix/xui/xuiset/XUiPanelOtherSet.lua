@@ -11,6 +11,7 @@ function XUiPanelOtherSet:Ctor(ui, parent)
 
     self.MaxOff = CS.XGame.ClientConfig:GetFloat("SpecialScreenOff")
     self.SetConfigs = XSetConfigs
+    self._IsInitFocusTypeDlcHunt = false
 end
 
 function XUiPanelOtherSet:InitUi()
@@ -24,12 +25,39 @@ function XUiPanelOtherSet:InitUi()
     local damageNumSizeTypes = {self.TogGraphics_0, self.TogGraphics_1, self.TogGraphics_2, self.TogGraphics_3}
     self.TGroupResolution:Init(damageNumSizeTypes, handler(self, self.OnDamageNumSizeTypeChanged))
 
-    local focusTypes = {self.TogFocusType1, self.TogFocusType2}
+    --region focus
+    local focusTypes = {self.TogFocusType1, self.TogFocusType2, self.TogFocusType3}
     self.TGroupFocusType:Init(focusTypes, handler(self, self.OnFocusTypeChanged))
 
-    self.TxtFocusType1.text = CsXTextManagerGetText("FocusType1")
-    self.TxtFocusType2.text = CsXTextManagerGetText("FocusType2")
+    for _, focusType in pairs(XSetConfigs.FocusType) do
+        local index = self:GetFocusIndex(focusType)
+        if self["TxtFocusType"..index] then
+            self["TxtFocusType"..index].text = CsXTextManagerGetText("FocusType" .. focusType)
+        end
+    end
+    if self.TogFocusButton1 then
+        self.TogFocusButton1.gameObject:SetActiveEx(false)
+    end
+    --endregion focus
 
+    --region focus dlcHunt
+    if self.TGroupFocusTypeDlcHunt then --en1.32特有, 原因是OtherSetPc上没有这个节点, en2.0版本和UI说下增加这个节点
+        local focusTypesDlcHunt = {self.TogTypeDlcHunt1, self.TogTypeDlcHunt2, self.TogTypeDlcHunt3}
+        self.TGroupFocusTypeDlcHunt:Init(focusTypesDlcHunt, handler(self, self.OnFocusTypeDlcHuntChanged))
+        for _, focusType in pairs(XSetConfigs.FocusTypeDlcHunt) do
+            local index = self:GetFocusIndex(focusType)
+            self["TxtFocusTypeDlcHunt"..index].text = CsXTextManagerGetText("FocusTypeDlcHunt" .. focusType)
+        end
+        -- self.TogFocusDlcHuntButton1.gameObject:SetActiveEx(false)
+        self.TogFocusDlcHuntButton3.gameObject:SetActiveEx(false)
+        
+        if not XDataCenter.DlcHuntManager.IsOpen() then
+            self.DlcHuntFocus.gameObject:SetActiveEx(false)
+        end
+    end
+
+    --endregion focus dlcHunt
+    
     local weaponTransTypes = {self.TogWeaponTransType1, self.TogWeaponTransType2}
     self.TGroupWeaponTransType:Init(weaponTransTypes, handler(self, self.OnWeaponTransTypeChanged))
 
@@ -41,7 +69,7 @@ function XUiPanelOtherSet:InitUi()
 
     self.TxtRechargeType1.text = CsXTextManagerGetText("RechargeType1")
     self.TxtRechargeType2.text = CsXTextManagerGetText("RechargeType2")
-
+    
     self:AddListener()
     self:ShowAgreement()
 end
@@ -50,7 +78,22 @@ function XUiPanelOtherSet:AddListener()
     self.Slider.onValueChanged:AddListener(handler(self, self.OnSliderValueChanged))
     self.TogFriEffects.onValueChanged:AddListener(handler(self, self.OnTogFriEffectsValueChanged))
     self.TogFriNum.onValueChanged:AddListener(handler(self, self.OnTogFriNumValueChanged))
-    self.TogFocusButton.onValueChanged:AddListener(handler(self, self.OnTogFocusButtonChanged))
+    --region focus
+    if self.TogFocusButton2 then
+        self.TogFocusButton2.onValueChanged:AddListener(handler(self, self.OnTogFocusButtonChanged2))
+    end
+    if self.TogFocusButton3 then
+        self.TogFocusButton3.onValueChanged:AddListener(handler(self, self.OnTogFocusButtonChanged3))
+    end
+    --endregion focus
+    
+    --region focus dlcHunt
+    if self.TogFocusDlcHuntButton1 and self.TogFocusDlcHuntButton2 and self.TogFocusDlcHuntButton3 then
+        self.TogFocusDlcHuntButton1.onValueChanged:AddListener(handler(self, self.OnTogFocusDlcHuntButtonChanged1))
+        self.TogFocusDlcHuntButton2.onValueChanged:AddListener(handler(self, self.OnTogFocusDlcHuntButtonChanged2))
+        self.TogFocusDlcHuntButton3.onValueChanged:AddListener(handler(self, self.OnTogFocusDlcHuntButtonChanged3))
+    end
+    --endregion focus dlcHunt
     self.TogOnlineInvite.onValueChanged:AddListener(handler(self, self.OnTogOnlineButtonChanged))
     self.BtnLoadingSet.CallBack = function()
         XLuaUiManager.Open("UiLoadingSet")
@@ -58,6 +101,9 @@ function XUiPanelOtherSet:AddListener()
 end
 
 function XUiPanelOtherSet:ShowAgreement()
+    if self.BtnProtocolSetting then --海外先屏蔽库洛SDK隐私查看按钮
+        self.BtnProtocolSetting.gameObject:SetActiveEx(false)
+    end
     self.BtnUserAgreement.CallBack = function()
         XUiManager.OpenPopWebview(CS.XGame.ClientConfig:GetString("UserAgreementUrl"))
     end
@@ -84,14 +130,31 @@ function XUiPanelOtherSet:GetCache()
     self.SaveFriendNumState = self.FriendNumState
     self.SaveFriendEffectEnumState = self.FriendEffectEnumState
     self.SaveScreenOffValue = self.ScreenOffValue
+    --region focus
     self.FocusType = XDataCenter.SetManager.FocusType
-    self.TGroupFocusType:SelectIndex(self.FocusType)
-    self.FocusButton = XDataCenter.SetManager.FocusButton
+    self.FocusButton = XTool.Clone(XDataCenter.SetManager.FocusButton)
+    self.TGroupFocusType:SelectIndex(self:GetFocusIndex(self.FocusType))
+    self:UpdateUiFocusButton()
+    --endregion focus
+    --region focus dlcHunt
+    if self.TGroupFocusTypeDlcHunt then
+        self.FocusTypeDlcHunt = XDataCenter.SetManager.FocusTypeDlcHunt
+        self.FocusButtonDlcHunt = XTool.Clone(XDataCenter.SetManager.FocusButtonDlcHunt)
+        self._IsInitFocusTypeDlcHunt = true
+        self.FocusTypeDlcHunt = XMath.Clamp(self.FocusTypeDlcHunt, 1, 2)
+        self.TGroupFocusTypeDlcHunt:SelectIndex(self:GetFocusIndex(self.FocusTypeDlcHunt))
+        self._IsInitFocusTypeDlcHunt = false
+        self:UpdateUiFocusButtonDlcHunt()
+    end
+    --endregion focus dlcHunt
     self.InviteButton = XDataCenter.SetManager.InviteButton
-    self.TogFocusButton.isOn = self.FocusButton == 1
     self.TogOnlineInvite.isOn = self.InviteButton == 1
     self.WeaponTransType = XDataCenter.SetManager.WeaponTransType
-    self.TGroupWeaponTransType:SelectIndex(self.WeaponTransType)
+    if self.WeaponTransType <= self.TGroupWeaponTransType.TabBtnList.Count then
+        self.TGroupWeaponTransType:SelectIndex(self.WeaponTransType)
+    else
+        self.TGroupWeaponTransType:SelectIndex(1)
+    end
     self.RechargeType = XDataCenter.SetManager.RechargeType
     self.TGroupRechargeType:SelectIndex(self.RechargeType)
 end
@@ -108,10 +171,28 @@ function XUiPanelOtherSet:ResetToDefault()
     self.TGroupResolution:SelectIndex(self.DamageNumState)
     self.ScreenOffValue = 0
     self.Slider.value = 0
+    --region focus
     self.FocusType = self.SetConfigs.DefaultFocusType
-    self.TGroupFocusType:SelectIndex(self.FocusType)
-    self.FocusButton = self.SetConfigs.DefaultFocusButton
-    self.TogFocusButton.isOn = self.FocusButton == 1
+    self.TGroupFocusType:SelectIndex(self:GetFocusIndex(self.FocusType))
+    self.FocusButton = {
+        [XSetConfigs.FocusType.Manual] = self.SetConfigs.DefaultFocusButton,
+        [XSetConfigs.FocusType.Auto] = self.SetConfigs.DefaultFocusButton,
+        [XSetConfigs.FocusType.SemiAuto] = self.SetConfigs.DefaultFocusButton,
+    }
+    self:UpdateUiFocusButton()
+    --endregion focus
+    --region focus dlcHunt
+    self.FocusTypeDlcHunt = self.SetConfigs.DefaultFocusTypeDlcHunt
+    if self.TGroupFocusTypeDlcHunt then
+        self.TGroupFocusTypeDlcHunt:SelectIndex(self:GetFocusIndexDlcHunt(self.FocusTypeDlcHunt))
+        self.FocusButtonDlcHunt = {
+            [XSetConfigs.FocusTypeDlcHunt.Manual] = self.SetConfigs.DefaultFocusButtonDlcHunt,
+            [XSetConfigs.FocusTypeDlcHunt.Auto] = self.SetConfigs.DefaultFocusButtonDlcHunt,
+            --[XSetConfigs.FocusTypeDlcHunt.SemiAuto] = self.SetConfigs.DefaultFocusButtonDlcHunt,
+        }
+        self:UpdateUiFocusButtonDlcHunt()
+    end
+    --endregion focus dlcHunt
     self.InviteButton = self.SetConfigs.DefaultInviteButton
     self.TogOnlineInvite.isOn = self.InviteButton == 1
     self.WeaponTransType = self.SetConfigs.DefaultWeaponTransType
@@ -135,11 +216,30 @@ function XUiPanelOtherSet:SaveChange()
     XDataCenter.SetManager.SetAllyDamage(self.FriendNumState == self.SetConfigs.FriendNumEnum.Open)
     XDataCenter.SetManager.SetAllyEffect(self.FriendEffectEnumState == self.SetConfigs.FriendEffectEnum.Open)
 
+    --region focus
     XDataCenter.SetManager.SetFocusType(self.FocusType)
-    XDataCenter.SetManager.SetFocusButtonActive(self.FocusButton == 1)
+    XDataCenter.SetManager.SetFocusButtonActive(XSetConfigs.FocusType.Manual, self.FocusButton[XSetConfigs.FocusType.Manual] == 1)
+    XDataCenter.SetManager.SetFocusButtonActive(XSetConfigs.FocusType.SemiAuto, self.FocusButton[XSetConfigs.FocusType.SemiAuto] == 1)
+    --endregion focus
+    --region focus dlcHunt
+    if self.FocusTypeDlcHunt then
+        XDataCenter.SetManager.SetFocusTypeDlcHunt(self.FocusTypeDlcHunt)
+        XDataCenter.SetManager.SetFocusButtonActiveDlcHunt(XSetConfigs.FocusTypeDlcHunt.Manual, self.FocusButtonDlcHunt[XSetConfigs.FocusTypeDlcHunt.Manual] == 1)
+        XDataCenter.SetManager.SetFocusButtonActiveDlcHunt(XSetConfigs.FocusTypeDlcHunt.Auto, self.FocusButtonDlcHunt[XSetConfigs.FocusTypeDlcHunt.Auto] == 1)
+    end
+    --endregion focus dlcHunt
     XDataCenter.SetManager.SetInviteButtonActive(self.InviteButton == 1)
     XDataCenter.SetManager.SetWeaponTransType(self.WeaponTransType)
     XDataCenter.SetManager.SetRechargeType(self.RechargeType)
+    
+    local dict = {}
+    dict["screen_off_value"] = math.floor(self.ScreenOffValue * 100)
+    dict["custom_load_state"] = self.CustomLoadState
+    dict["damage_num_state"] = self.DamageNumState
+    dict["friend_damage_state"] = self.FriendNumState == 2
+    dict["friend_effect_state"] = self.FriendEffectEnumState == 2
+    dict["focus_type"] = self.FocusType
+    XDataCenter.SetManager.SystemSettingBuriedPoint(dict)
 end
 
 function XUiPanelOtherSet:CheckDataIsChange()
@@ -149,10 +249,26 @@ function XUiPanelOtherSet:CheckDataIsChange()
             self.SaveFriendNumState ~= self.FriendNumState or
             self.SaveFriendEffectEnumState ~= self.FriendEffectEnumState or
             self.SaveScreenOffValue ~= self.ScreenOffValue or
+            --region focus
             self.FocusType ~= XDataCenter.SetManager.FocusType or
-            self.FocusButton ~=XDataCenter.SetManager.FocusButton or
+            self:IsFocusButtonChanged() or
+            --endregion focus
+            --region focus dlcHunt
+            -- self.FocusTypeDlcHunt ~= XDataCenter.SetManager.FocusTypeDlcHunt or --en1.32临时屏蔽 en2.0版本需要UI修改
+            -- self:IsFocusButtonChangedDlcHunt() or
+            --endregion focus dlcHunt
             self.InviteButton ~=XDataCenter.SetManager.InviteButton or
             self.WeaponTransType ~= XDataCenter.SetManager.WeaponTransType
+end
+
+function XUiPanelOtherSet:IsFocusButtonChanged()
+    return self.FocusButton[XSetConfigs.FocusType.Manual] ~=XDataCenter.SetManager.FocusButton[XSetConfigs.FocusType.Manual] or
+            self.FocusButton[XSetConfigs.FocusType.SemiAuto] ~=XDataCenter.SetManager.FocusButton[XSetConfigs.FocusType.SemiAuto]
+end
+
+function XUiPanelOtherSet:IsFocusButtonChangedDlcHunt()
+    return self.FocusButtonDlcHunt[XSetConfigs.FocusTypeDlcHunt.Manual] ~=XDataCenter.SetManager.FocusButtonDlcHunt[XSetConfigs.FocusTypeDlcHunt.Manual] or
+            self.FocusButtonDlcHunt[XSetConfigs.FocusTypeDlcHunt.Auto] ~=XDataCenter.SetManager.FocusButtonDlcHunt[XSetConfigs.FocusTypeDlcHunt.Auto]
 end
 
 function XUiPanelOtherSet:CancelChange()
@@ -188,8 +304,24 @@ function XUiPanelOtherSet:OnTogFriNumValueChanged(value)
     self.FriendNumState = value and enum.Open or enum.Close
 end
 
-function XUiPanelOtherSet:OnTogFocusButtonChanged(value)
-    self.FocusButton = value and 1 or 0
+function XUiPanelOtherSet:OnTogFocusButtonChanged2(value)
+    self.FocusButton[self:GetFocusType(2)] = value and 1 or 0
+end
+
+function XUiPanelOtherSet:OnTogFocusButtonChanged3(value)
+    self.FocusButton[self:GetFocusType(3)] = value and 1 or 0
+end
+
+function XUiPanelOtherSet:OnTogFocusDlcHuntButtonChanged1(value)
+    self.FocusButtonDlcHunt[self:GetFocusTypeDlcHunt(1)] = value and 1 or 0
+end
+
+function XUiPanelOtherSet:OnTogFocusDlcHuntButtonChanged2(value)
+    self.FocusButtonDlcHunt[self:GetFocusTypeDlcHunt(2)] = value and 1 or 0
+end
+
+function XUiPanelOtherSet:OnTogFocusDlcHuntButtonChanged3(value)
+    self.FocusButtonDlcHunt[self:GetFocusTypeDlcHunt(3)] = value and 1 or 0
 end
 
 function XUiPanelOtherSet:OnTogOnlineButtonChanged(value)
@@ -198,7 +330,7 @@ end
 
 function XUiPanelOtherSet:OnLoadingTypeChanged(index)
     if index == self.SetConfigs.LoadingType.Custom
-            and not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.Archive) then
+            and not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.Archive, nil, true) then
         self.TGroupLoadingType:SelectIndex(self.SetConfigs.LoadingType.Default)
         return
     end
@@ -215,10 +347,41 @@ end
 
 function XUiPanelOtherSet:OnFocusTypeChanged(index)
     if index == 0 then return end
-    self.FocusType = index
+    self.FocusType = self:GetFocusType(index)
     self.DescriptionFocusType1.gameObject:SetActiveEx(index == 1)
     self.DescriptionFocusType2.gameObject:SetActiveEx(index == 2)
-    self.TogFocusButton.gameObject:SetActiveEx(index == 2)
+    if self.DescriptionFocusType3 then
+        self.DescriptionFocusType3.gameObject:SetActiveEx(index == 3)
+    end
+    if self.TogFocusButton2 then
+        self.TogFocusButton2.gameObject:SetActiveEx(index == 2)
+    end
+    if self.TogFocusButton3 then
+        self.TogFocusButton3.gameObject:SetActiveEx(index == 3)
+    end
+    self:UpdateUiFocusButton()
+end
+
+function XUiPanelOtherSet:OnFocusTypeDlcHuntChanged(index)
+    if XDataCenter.DlcRoomManager.IsInTutorialWorld() then
+        local teachingIndex = self:GetFocusIndexDlcHunt(XSetConfigs.FocusTypeDlcHunt.Auto)
+        if teachingIndex ~= index then
+            self.TGroupFocusTypeDlcHunt:SelectIndex(teachingIndex)
+            if not self._IsInitFocusTypeDlcHunt then
+                XUiManager.TipText("FocusTypeDlcHuntTeaching")
+            end
+        end
+        return
+    end
+    if index == 0 then return end
+    self.FocusTypeDlcHunt = self:GetFocusTypeDlcHunt(index)
+    self.DescriptionFocusDlcHuntType1.gameObject:SetActiveEx(index == 1)
+    self.DescriptionFocusDlcHuntType2.gameObject:SetActiveEx(index == 2)
+    self.DescriptionFocusDlcHuntType3.gameObject:SetActiveEx(index == 3)
+    self.TogFocusDlcHuntButton1.gameObject:SetActiveEx(false)--index == 1)
+    self.TogFocusDlcHuntButton2.gameObject:SetActiveEx(index == 2)
+    --self.TogFocusDlcHuntButton3.gameObject:SetActiveEx(index == 3)
+    self:UpdateUiFocusButtonDlcHunt()
 end
 
 function XUiPanelOtherSet:OnWeaponTransTypeChanged(index)
@@ -247,6 +410,66 @@ end
 function XUiPanelOtherSet:HidePanel()
     self.IsShow = false
     self.GameObject:SetActive(false)
+end
+
+-- 由于ui位置上, 新增的半自动锁定插到了中间, 所以type2和type3的index是反的
+function XUiPanelOtherSet:GetFocusType(focusIndex)
+    if focusIndex == 2 then
+        return 3
+    end
+    if focusIndex == 3 then
+        return 2
+    end
+    return focusIndex
+end
+
+function XUiPanelOtherSet:GetFocusIndex(focusType)
+    if focusType == 2 then
+        return 3
+    end
+    if focusType == 3 then
+        return 2
+    end
+    return focusType
+end
+
+function XUiPanelOtherSet:UpdateUiFocusButton()
+    for _, focusType in pairs(XSetConfigs.FocusType) do
+        local index = self:GetFocusIndex(focusType)
+        if self["TogFocusButton"..index] then
+            self["TogFocusButton"..index].isOn = self.FocusButton[focusType] == 1
+        end
+    end
+end
+
+-- 2不存在，dlc没有进阶锁定
+function XUiPanelOtherSet:GetFocusTypeDlcHunt(focusIndex)
+    if focusIndex == 2 then
+        return 3
+    end
+    if focusIndex == 3 then
+        return 2
+    end
+    return focusIndex
+end
+
+function XUiPanelOtherSet:GetFocusIndexDlcHunt(focusType)
+    if focusType == 2 then
+        return 3
+    end
+    if focusType == 3 then
+        return 2
+    end
+    return focusType
+end
+
+function XUiPanelOtherSet:UpdateUiFocusButtonDlcHunt()
+    for _, focusType in pairs(XSetConfigs.FocusTypeDlcHunt) do
+        local index = self:GetFocusIndexDlcHunt(focusType)
+        if self["TogFocusDlcHuntButton"..index] then
+            self["TogFocusDlcHuntButton"..index].isOn = self.FocusButtonDlcHunt[focusType] == 1
+        end
+    end
 end
 
 return XUiPanelOtherSet

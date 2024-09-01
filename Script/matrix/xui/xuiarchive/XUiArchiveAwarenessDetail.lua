@@ -118,7 +118,7 @@ function XUiArchiveAwarenessDetail:UpdateSpecialIcon()
 end
 
 function XUiArchiveAwarenessDetail:UpdateSites()
-    local templateIdList = XEquipConfig.GetEquipTemplateIdsBySuitId(self.SuitId)
+    local templateIdList = XEquipConfig.GetEquipTemplateIdsListBySuitId(self.SuitId)
     table.sort(templateIdList, function(aId, bId)
             local aSite = XDataCenter.EquipManager.GetEquipSiteByTemplateId(aId)
             local bSite = XDataCenter.EquipManager.GetEquipSiteByTemplateId(bId)

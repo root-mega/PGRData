@@ -39,6 +39,7 @@ function XUiPanelScoreInfo:Init()
 end
 
 function XUiPanelScoreInfo:ShowPanel(bossSingleData)
+    XDataCenter.UiPcManager.OnUiEnable(self, "OnBtnBlockClick")
     self.BossSingleData = bossSingleData
     self:Rrefrsh()
     self.GameObject:SetActive(true)
@@ -96,6 +97,7 @@ function XUiPanelScoreInfo:OnBtnBlockClick()
 end
 
 function XUiPanelScoreInfo:HidePanel(isAniam)
+    XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
     if isAniam then
         self.RootUi:PlayAnimation("AnimScoreInfoDisable", function()
                 self.GameObject:SetActive(false)

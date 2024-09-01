@@ -1,10 +1,10 @@
 local XUiMainLeftMid = XClass(nil, "XUiMainLeftMid")
 local TextManager = CS.XTextManager
 
-function XUiMainLeftMid:Ctor(rootUi)
-    self.Transform = rootUi.PanelLeftMid.gameObject.transform
-    XTool.InitUiObject(self)
-    self.RootUi = rootUi
+function XUiMainLeftMid:OnStart(rootUi)
+    -- self.Transform = rootUi.PanelLeftMid.gameObject.transform
+    -- XTool.InitUiObject(self)
+    -- self.RootUi = rootUi
     --ClickEvent
     self.BtnGiftExpire.CallBack = function() self:OnBtnGiftExpire() end
     self.BtnYKExpire.CallBack = function() self:OnBtnYKExpire() end

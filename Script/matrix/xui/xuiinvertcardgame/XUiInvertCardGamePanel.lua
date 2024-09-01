@@ -231,24 +231,25 @@ function XUiInvertGamePanel:PlayCardsChangedAnimation(stageEntity, invertCardIdx
     local AsynPlayClearCardAnimation = asynTask(self.PlayClearCardAnimation, self)
     local AsynPlayFinishStageAnimation = asynTask(self.PlayFinishStageAnimation, self)
         RunAsyn(function()
-        self.RootUi:SetFullCoverActiveEx(true) -- 打开全局遮罩
-        AsynPlayTurnOnAnimation(invertCardIdx)
-        if punishCardIdxs and next(punishCardIdxs) then
-            AsynPlayPunishAnimation(punishCardIdxs)
-        end
-         if clearCardIdxs and next(clearCardIdxs) then
-             AsynPlayClearCardAnimation(clearCardIdxs)
-         end
-        --self:PlayClearCardAnimation(clearCardIdxs)
-        if stageEntity:GetStatus() == XInvertCardGameConfig.InvertCardGameStageStatusType.Finish then
-            self:RefreshGamePanelWithFinish(true)
-            AsynPlayFinishStageAnimation()
-        end
-        self:RefreshMessagePanel()
-        self.RootUi:RefreshBtnTab()
-        self.RootUi.RewardPanel:Refresh(stageEntity)
-        self.RootUi:SetFullCoverActiveEx(false) -- 关闭全局遮罩
-    end)
+            self.RootUi:SetFullCoverActiveEx(true) -- 打开全局遮罩
+            AsynPlayTurnOnAnimation(invertCardIdx)
+            if punishCardIdxs and next(punishCardIdxs) then
+                AsynPlayPunishAnimation(punishCardIdxs)
+            end
+            if clearCardIdxs and next(clearCardIdxs) then
+                AsynPlayClearCardAnimation(clearCardIdxs)
+            end
+            --self:PlayClearCardAnimation(clearCardIdxs)
+            if stageEntity:GetStatus() == XInvertCardGameConfig.InvertCardGameStageStatusType.Finish then
+                self:RefreshGamePanelWithFinish(true)
+                AsynPlayFinishStageAnimation()
+            end
+            self:RefreshMessagePanel()
+            self.RootUi:RefreshBtnTab()
+            self.RootUi.RewardPanel:Refresh(stageEntity)
+            self.RootUi:SetFullCoverActiveEx(false) -- 关闭全局遮罩
+            XEventManager.DispatchEvent(XEventId.EVENT_INVERT_CARD_GAME_CARD_CHANGED)
+        end)
 end
 
 function XUiInvertGamePanel:PlayTurnOnAnimation(cardIndex, cb)

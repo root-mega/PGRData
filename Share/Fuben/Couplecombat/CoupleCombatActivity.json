@@ -1,0 +1,66 @@
+[
+    {
+        "Id": 1,
+        "TimeId": null,
+        "ChapterIds": [
+            null,
+            1,
+            2,
+            null,
+            null,
+            null
+        ],
+        "FightEventId": 200023,
+        "Name": "Spectroscopic Binary Star",
+        "BannerBg": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner40.png",
+        "GridPrefab": "Assets/Product/Ui/ComponentPrefab/GridStage/GridStageCoupleCombat.prefab"
+    },
+    {
+        "Id": 2,
+        "TimeId": null,
+        "ChapterIds": [
+            null,
+            1,
+            2,
+            3.0,
+            4.0,
+            null
+        ],
+        "FightEventId": 200023,
+        "Name": "Spectroscopic Binary Star",
+        "BannerBg": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner40.png",
+        "GridPrefab": "Assets/Product/Ui/ComponentPrefab/GridStage/GridStageCoupleCombat.prefab"
+    },
+    {
+        "Id": 3,
+        "TimeId": null,
+        "ChapterIds": [
+            null,
+            1,
+            2,
+            3.0,
+            4.0,
+            5.0
+        ],
+        "FightEventId": 200023,
+        "Name": "Spectroscopic Binary Star",
+        "BannerBg": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner68.png",
+        "GridPrefab": "Assets/Product/Ui/ComponentPrefab/GridStage/GridStageCoupleCombat.prefab"
+    },
+    {
+        "Id": 4,
+        "TimeId": null,
+        "ChapterIds": [
+            null,
+            1,
+            2,
+            3.0,
+            null,
+            null
+        ],
+        "FightEventId": 200023,
+        "Name": "Spectroscopic Binary Star",
+        "BannerBg": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner68.png",
+        "GridPrefab": "Assets/Product/Ui/ComponentPrefab/GridStage/GridStageCoupleCombatFenGuan.prefab"
+    }
+]

@@ -8,12 +8,13 @@ function XUiEquipResonanceSelectAfter:OnAwake()
     self.EffectAwakeGo = sceneRootTrans:FindTransform("EffectAwakeGo").gameObject
 end
 
-function XUiEquipResonanceSelectAfter:OnStart(equipId, pos, characterId, isAwakeDes, forceShowBindCharacter)
+function XUiEquipResonanceSelectAfter:OnStart(equipId, pos, characterId, isAwakeDes, forceShowBindCharacter, callback)
     self.CharacterId = characterId
     self.EquipId = equipId
     self.Pos = pos
     self.IsAwakeDes = isAwakeDes
     self.ForceShowBindCharacter = forceShowBindCharacter
+    self.Callback = callback
 
     self:InitClassifyPanel()
 end
@@ -45,6 +46,9 @@ function XUiEquipResonanceSelectAfter:OnNotify(evt, ...)
     if equipId ~= self.EquipId then return end
 
     if evt == XEventId.EVENT_EQUIP_RESONANCE_ACK_NOTYFY then
+        if self.Callback then
+            self.Callback()
+        end
         self:Close()
     end
 end
@@ -173,13 +177,16 @@ function XUiEquipResonanceSelectAfter:AutoAddListener()
 end
 -- auto
 function XUiEquipResonanceSelectAfter:OnBtnConfirmClick()
+    if self.Callback then
+        self.Callback()
+    end
     self:Close()
 end
 
 function XUiEquipResonanceSelectAfter:OnBtnChangeClick()
-    XDataCenter.EquipManager.ResonanceConfirm(self.EquipId, self.Pos, true)
+    XMVCA:GetAgency(ModuleId.XEquip):ResonanceConfirm(self.EquipId, self.Pos, true)
 end
 
 function XUiEquipResonanceSelectAfter:OnBtnRemainClick()
-    XDataCenter.EquipManager.ResonanceConfirm(self.EquipId, self.Pos, false)
+    XMVCA:GetAgency(ModuleId.XEquip):ResonanceConfirm(self.EquipId, self.Pos, false)
 end

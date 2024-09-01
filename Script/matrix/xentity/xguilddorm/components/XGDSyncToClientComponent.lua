@@ -2,8 +2,11 @@ local MathLerp = CS.UnityEngine.Mathf.Lerp
 local XGDComponet = require("XEntity/XGuildDorm/Components/XGDComponet")
 local Quaternion = CS.UnityEngine.Quaternion
 local Vector3 = CS.UnityEngine.Vector3
+---@class XGDSyncToClientComponent : XGDComponet
 local XGDSyncToClientComponent = XClass(XGDComponet, "XGDSyncToClientComponent")
 
+---@param role XGuildDormRole
+---@param room XGuildDormRoom
 function XGDSyncToClientComponent:Ctor(role, room)
     self.Role = role 
     self.Room = room

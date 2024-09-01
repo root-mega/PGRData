@@ -56,3 +56,9 @@ end
 function XUiEnhanceSkillActivation:OnBtnDetermineClick()
     self:Close()
 end
+
+function XUiEnhanceSkillActivation:OnDestroy()
+    if self.Resource then
+        CS.XResourceManager.Unload(self.Resource)
+    end
+end

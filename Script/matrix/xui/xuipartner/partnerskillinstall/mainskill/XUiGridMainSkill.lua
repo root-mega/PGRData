@@ -37,6 +37,8 @@ function XUiGridMainSkill:OnBtnSelectClick()
         grid:ShowGrid()
     end
 
+    self:ShowSelectEffect()
+
     --self:ChangeState(State.Select)
 end
 
@@ -144,6 +146,10 @@ function XUiGridMainSkill:AutoInitUi()
     if (temp) then
         temp.gameObject:SetActiveEx(false)
     end
+end
+
+function XUiGridMainSkill:ShowSelectEffect()
+    self.Select:GetObject("SelectEffect").gameObject:SetActiveEx(true)
 end
 
 return XUiGridMainSkill

@@ -7,7 +7,6 @@ local CSXTextManagerGetText = CS.XTextManager.GetText
 
 XKillZoneConfigs = XKillZoneConfigs or {}
 
-XKillZoneConfigs.ItemIdCoinA = 62411 --货币A
 XKillZoneConfigs.ItemIdCoinB = 62412 --货币B
 
 -----------------活动相关 begin-----------------
@@ -127,6 +126,11 @@ function XKillZoneConfigs.GetChapterTimeId(chapterId)
     return config.OpenTimeId
 end
 
+function XKillZoneConfigs.GetChapterDailyStageId(chapterId)
+    local config = GetChapterConfig(chapterId)
+    return config.DailyStageId or 0
+end
+
 function XKillZoneConfigs.GetChapterStageIds(chapterId)
     local stageIds = {}
     local config = GetChapterConfig(chapterId)
@@ -178,6 +182,18 @@ function XKillZoneConfigs.GetChapterIdByStageId(stageId)
         end
     end
     return 0
+end
+
+function XKillZoneConfigs.GetAllDailyStageId(activityId, diff)
+    local dailyStageIds = {}
+    local chapterIds = XKillZoneConfigs.GetChapterIdsByDiff(activityId, diff)
+    for _, chapterId in pairs(chapterIds) do
+        local stageId = XKillZoneConfigs.GetChapterDailyStageId(chapterId)
+        if XTool.IsNumberValid(stageId) then
+            tableInsert(dailyStageIds, stageId)
+        end
+    end
+    return dailyStageIds
 end
 -----------------章节相关 end-------------------
 -----------------关卡相关 begin-------------------
@@ -282,8 +298,8 @@ end
 function XKillZoneConfigs.GetStageBuffIds(stageId)
     local buffIds = {}
     local config = GetStageConfig(stageId)
-    for _, buffId in ipairs(config.BuffId) do
-        if XTool.IsNumberValid(buffId) then
+    for _, buffId in ipairs(config.FightEventIds) do
+        if XTool.IsNumberValid(buffId) and XKillZoneConfigs.CheckBuffConfig(buffId) then
             tableInsert(buffIds, buffId)
         end
     end
@@ -312,6 +328,11 @@ end
 function XKillZoneConfigs.GetBuffIcon(buffId)
     local config = GetBuffConfig(buffId)
     return config.Icon
+end
+
+function XKillZoneConfigs.CheckBuffConfig(buffId)
+    local config = StageBuffConfig[buffId]
+    return config and true or false
 end
 -----------------关卡相关 end-------------------
 -----------------星级奖励 begin-------------------
@@ -564,12 +585,6 @@ end
 
 --获取插件解锁消耗
 function XKillZoneConfigs.GetPluginUnlockCost(pluginId)
-    local config = GetPluginConfig(pluginId)
-    return XKillZoneConfigs.ItemIdCoinA, config.UnlockSpend
-end
-
---获取插件激活消耗
-function XKillZoneConfigs.GetPluginUnActiveCost(pluginId)
     local config = GetPluginLevelConfig(pluginId, 1)
     return XKillZoneConfigs.ItemIdCoinB, config.UnlockSpend
 end

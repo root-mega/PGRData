@@ -42,7 +42,7 @@ end
 
 function XUiGridArchiveAwareness:UpdateCollectedCount()
     local suitId = self.SuitId
-    local templateIdList = XEquipConfig.GetEquipTemplateIdsBySuitId(suitId)
+    local templateIdList = XEquipConfig.GetEquipTemplateIdsListBySuitId(suitId)
     local sumCount = #templateIdList
     local curCount = XDataCenter.ArchiveManager.GetAwarenessCountBySuitId(suitId)
     self.TxtSumCount.text = sumCount

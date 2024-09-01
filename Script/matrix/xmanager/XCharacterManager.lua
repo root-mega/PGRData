@@ -10,7 +10,8 @@ XCharacterManagerCreator = function()
     local mathMax = math.max
     local stringFormat = string.format
     local CsXTextManagerGetText = CsXTextManagerGetText
-
+    ---@class XCharacterManager
+    ---@class XCharacterManager
     local XCharacterManager = {}
 
     -- service config begin --
@@ -89,6 +90,10 @@ XCharacterManagerCreator = function()
 
         return a.Id > b.Id
     end
+    
+    function XCharacterManager.GetDefaultSortFunc()
+        return DefaultSort
+    end
 
     --==============================--
     --desc: 获取卡牌列表(获得)
@@ -129,31 +134,33 @@ XCharacterManagerCreator = function()
             end
         end
 
-        tableSort(characterList, function(a, b)
-            local isInteamA = XDataCenter.TeamManager.CheckInTeam(a.Id)
-            local isInteamB = XDataCenter.TeamManager.CheckInTeam(b.Id)
+        -- tableSort(characterList, function(a, b)
+        --     local isInteamA = XDataCenter.TeamManager.CheckInTeam(a.Id)
+        --     local isInteamB = XDataCenter.TeamManager.CheckInTeam(b.Id)
 
-            if isInteamA ~= isInteamB then
-                return isInteamA
-            end
+        --     if isInteamA ~= isInteamB then
+        --         return isInteamA
+        --     end
 
-            if isUseNewSort then
-                return XDataCenter.RoomCharFilterTipsManager.GetSort(a.Id, b.Id, characterType, isAscendOrder)
-            end
-            return DefaultSort(a, b)
-        end)
+        --     if isUseNewSort then
+        --         return XDataCenter.RoomCharFilterTipsManager.GetSort(a.Id, b.Id, characterType, isAscendOrder)
+        --     end
+        --     return DefaultSort(a, b)
+        -- end)
 
-        tableSort(unOwnCharList, function(a, b)
-            if isUseNewSort then
-                return XDataCenter.RoomCharFilterTipsManager.GetSort(a.Id, b.Id, characterType, isAscendOrder)
-            end
-            return DefaultSort(a, b)
-        end)
+        -- tableSort(unOwnCharList, function(a, b)
+        --     if isUseNewSort then
+        --         return XDataCenter.RoomCharFilterTipsManager.GetSort(a.Id, b.Id, characterType, isAscendOrder)
+        --     end
+        --     return DefaultSort(a, b)
+        -- end)
 
         -- 合并列表
         for _, char in pairs(unOwnCharList) do
             tableInsert(characterList, char)
         end
+        -- v1.30 使用新的排序
+        characterList = XDataCenter.CommonCharacterFiltManager.DoSort(characterList)
 
         return characterList
     end
@@ -285,16 +292,16 @@ XCharacterManagerCreator = function()
         return characterList
     end
 
-    function XCharacterManager.GetRobotAndCharacterIdList(robotIdList, characterType)
-        local characterList = XCharacterManager.GetOwnCharacterList(characterType)
-        local idList = XRobotManager.GetRobotIdFilterListByCharacterType(robotIdList, characterType)
+    function XCharacterManager.GetRobotAndCharacterIdList(robotIdList)
+        local characterList = XCharacterManager.GetOwnCharacterList()
+        local idList = XRobotManager.GetRobotIdFilterListByCharacterType(robotIdList)
         for _, char in pairs(characterList) do
             table.insert(idList, char.Id)
         end
         return idList
     end
 
-    --根据robotIdList返回已拥有的角色列表
+    --根据robotIdList返回已拥有的角色Id列表
     function XCharacterManager.GetRobotCorrespondCharacterIdList(robotIdList, characterType)
         if XTool.IsNumberValid(characterType) then
             robotIdList = XRobotManager.GetRobotIdFilterListByCharacterType(robotIdList, characterType)
@@ -309,6 +316,23 @@ XCharacterManagerCreator = function()
             end
         end
         return ownCharacterIdList
+    end
+
+    --根据robotIdList返回已拥有的角色列表
+    function XCharacterManager.GetRobotCorrespondCharacterList(robotIdList, characterType)
+        if XTool.IsNumberValid(characterType) then
+            robotIdList = XRobotManager.GetRobotIdFilterListByCharacterType(robotIdList, characterType)
+        end
+
+        local ownCharacterList = {}
+        for _, robotId in ipairs(robotIdList) do
+            local charId = XRobotManager.GetCharacterId(robotId)
+            local char  = XCharacterManager.GetCharacter(charId)
+            if char then
+                table.insert(ownCharacterList, char)
+            end
+        end
+        return ownCharacterList
     end
 
     --根据robotIdList返回试玩和已拥有的角色列表
@@ -560,7 +584,11 @@ XCharacterManagerCreator = function()
         --伙伴战力
         local partnerAbility = XDataCenter.PartnerManager.GetCarryPartnerAbilityByCarrierId(character.Id)
 
-        return baseAbility + skillAbility + resonanceSkillAbility + plusSkillAbility + equipAbility + partnerAbility + enhanceSkillAbility
+        --武器超限战力
+        local equip = XDataCenter.EquipManager.GetCharacterWearingWeapon(character.Id)
+        local overrunAbility = equip and equip:GetOverrunAbility() or 0
+
+        return baseAbility + skillAbility + resonanceSkillAbility + plusSkillAbility + equipAbility + partnerAbility + enhanceSkillAbility + overrunAbility
     end
 
     -- partner : XPartner
@@ -596,7 +624,16 @@ XCharacterManagerCreator = function()
         end
         -- 宠物战力
         local partnerAbility = XDataCenter.PartnerManager.GetCarryPartnerAbility(partner)
-        return baseAbility + skillAbility + resonanceSkillAbility + plusSkillAbility + equipAbility + partnerAbility + enhanceSkillAbility
+
+        --武器超限战力
+        local overrunAbility = 0
+        for _, equip in pairs(equipList) do
+            if equip then 
+                overrunAbility = overrunAbility + equip:GetOverrunAbility()
+            end
+        end
+
+        return baseAbility + skillAbility + resonanceSkillAbility + plusSkillAbility + equipAbility + partnerAbility + enhanceSkillAbility + overrunAbility
     end
 
     -- 根据id获得身上角色战力
@@ -719,7 +756,7 @@ XCharacterManagerCreator = function()
             return false
         end
 
-        if character.Star >= XCharacterConfigs.MAX_QUALITY_STAR then
+        if character.Star >= XEnumConst.CHARACTER.MAX_QUALITY_STAR then
             return false
         end
 
@@ -745,9 +782,9 @@ XCharacterManagerCreator = function()
             return
         end
 
-        if star < 1 or star > XCharacterConfigs.MAX_QUALITY_STAR then
+        if star < 1 or star > XEnumConst.CHARACTER.MAX_QUALITY_STAR then
             local tmpStr = "XCharacterManager.IsCharQualityStarUseItemEnough函数错误: 参数star不能小于1或者大于"
-            XLog.Error(tmpStr .. XCharacterConfigs.MAX_QUALITY_STAR .. ", 参数star是: " .. star)
+            XLog.Error(tmpStr .. XEnumConst.CHARACTER.MAX_QUALITY_STAR .. ", 参数star是: " .. star)
             return
         end
 
@@ -848,11 +885,11 @@ XCharacterManagerCreator = function()
     end
 
     function XCharacterManager.GetCharSmallHeadIcon(templateId, isNotSelf, headFashionId, headFashionType) --获得角色小头像
-        local characterId = XFubenSpecialTrainConfig.GetCharacterIdByNpcId(templateId)
+        local characterId = XCharacterCuteConfig.GetCharacterIdByNpcId(templateId)
         if characterId then
-            local stageType = XDataCenter.FubenManager.GetCurrentStageType()
-            if XDataCenter.FubenSpecialTrainManager.IsStageTypeCute(stageType) then
-                return XFubenSpecialTrainConfig.GetCuteModelSmallHeadIcon(characterId)
+            local stageId = XDataCenter.FubenManager.GetCurrentStageId()
+            if XDataCenter.FubenSpecialTrainManager.IsStageCute(stageId) then
+                return XCharacterCuteConfig.GetCuteModelSmallHeadIcon(characterId)
             end
             templateId = characterId
         end
@@ -912,16 +949,23 @@ XCharacterManagerCreator = function()
             return
         end
 
-        local isAchieveMaxLiberation = not liberateLv and XDataCenter.ExhibitionManager.IsAchieveMaxLiberation(templateId) or
-        XDataCenter.ExhibitionManager.IsMaxLiberationLevel(liberateLv)
+        -- local isAchieveMaxLiberation = not liberateLv and XDataCenter.ExhibitionManager.IsAchieveLiberation(templateId, XCharacterConfigs.GrowUpLevel.Higher) 
+        -- or (liberateLv > XCharacterConfigs.GrowUpLevel.Higher)
+        local isAchieveMaxLiberation = nil
+        if liberateLv then
+            isAchieveMaxLiberation = liberateLv >= XCharacterConfigs.GrowUpLevel.Higher
+        else
+            isAchieveMaxLiberation = XDataCenter.ExhibitionManager.IsAchieveLiberation(templateId, XCharacterConfigs.GrowUpLevel.Higher)
+        end
+
         local result = isAchieveMaxLiberation and XDataCenter.FashionManager.GetFashionRoundnessNotItemHeadIconLiberation(fashionId) or
         XDataCenter.FashionManager.GetFashionRoundnessNotItemHeadIcon(fashionId)
         return result
     end
 
-    function XCharacterManager.GetFightCharHeadIcon(character) --获得战斗角色头像
+    function XCharacterManager.GetFightCharHeadIcon(character, characterId) --获得战斗角色头像
         local fashionId = character.FashionId
-        local isAchieveMaxLiberation = XDataCenter.ExhibitionManager.IsMaxLiberationLevel(character.LiberateLv)
+        local isAchieveMaxLiberation = XDataCenter.ExhibitionManager.IsAchieveLiberation(characterId or character.Id, XCharacterConfigs.GrowUpLevel.Higher)
         if isAchieveMaxLiberation then
             return XDataCenter.FashionManager.GetFashionRoundnessNotItemHeadIconLiberation(fashionId)
         else
@@ -1043,6 +1087,28 @@ XCharacterManagerCreator = function()
         end
 
         return XCharacterManager.IsUseItemEnough(itemKey, itemCount)
+    end
+
+    -- 查看有没有设置过超解球颜色，并返回球的颜色
+    function XCharacterManager.CheckHasSuperExhibitionBallColor(charId)
+        local character  = XCharacterManager.GetCharacter(charId)
+        if not character then
+            return nil
+        end
+
+        local magicIdColorBallList = CS.XGame.Config:GetString("HigherLiberateLvMagicId")
+        magicIdColorBallList = string.Split(magicIdColorBallList, "|")
+
+        local magicList = character.MagicList
+        for k, v in pairs(magicList or {}) do
+            for k2, magicId in pairs(magicIdColorBallList) do
+                if v.Id == tonumber(magicId)  then
+                    return k2 -- 球的颜色 具体看枚举 XCharacterConfigs.CharacterLiberateBallColorType
+                end
+            end
+        end
+
+        return nil
     end
 
     function XCharacterManager.CheckCanUpdateSkill(charId, subSkillId, subSkillLevel)
@@ -1238,7 +1304,7 @@ XCharacterManagerCreator = function()
                 XUiHelper.PushInFirstGetIdList(templateId, XArrangeConfigs.Types.Character)
             end
 
-            XEventManager.DispatchEvent(XEventId.EVENT_CHARACTER_FIRST_GET, templateId)
+            -- XEventManager.DispatchEvent(XEventId.EVENT_CHARACTER_FIRST_GET, templateId)
 
             return
         end
@@ -1294,7 +1360,7 @@ XCharacterManagerCreator = function()
             return
         end
 
-        if character.Star >= XCharacterConfigs.MAX_QUALITY_STAR then
+        if character.Star >= XEnumConst.CHARACTER.MAX_QUALITY_STAR then
             XUiManager.TipCode(XCode.CharacterManagerActivateStarMaxStar)
             return
         end
@@ -1345,7 +1411,7 @@ XCharacterManagerCreator = function()
             return
         end
 
-        if character.Star < XCharacterConfigs.MAX_QUALITY_STAR then
+        if character.Star < XEnumConst.CHARACTER.MAX_QUALITY_STAR then
             XUiManager.TipCode(XCode.CharacterManagerPromoteQualityStarNotEnough)
             return
         end
@@ -1555,8 +1621,8 @@ XCharacterManagerCreator = function()
             growUpLevel = XDataCenter.ExhibitionManager.GetCharacterGrowUpLevel(characterId)
         end
 
-        --解放等级达到满级
-        local isAchieveMaxLiberation = XDataCenter.ExhibitionManager.IsMaxLiberationLevel(growUpLevel)
+        --解放等级达到终解
+        local isAchieveMaxLiberation = growUpLevel >= XCharacterConfigs.GrowUpLevel.Higher
         if not isAchieveMaxLiberation then
             return
         end
@@ -1637,7 +1703,7 @@ XCharacterManagerCreator = function()
         end
 
         --最大星级时可以进化到下一阶
-        if character.Star == XCharacterConfigs.MAX_QUALITY_STAR then
+        if character.Star == XEnumConst.CHARACTER.MAX_QUALITY_STAR then
             return XCharacterManager.IsCanPromoted(character.Id)
         end
 
@@ -1765,6 +1831,15 @@ XCharacterManagerCreator = function()
         return ownCharacter and ownCharacter.Level or 0
     end
 
+    -- 角色当前阶级
+    function XCharacterManager.GetCharacterGrade(characterId)
+        local ownCharacter = XCharacterManager.GetCharacter(characterId)
+        if ownCharacter then
+            return ownCharacter.Grade or 1
+        end
+    end
+
+    -- 角色当前品质
     function XCharacterManager.GetCharacterQuality(characterId)
         if XRobotManager.CheckIsRobotId(characterId) then
             return XRobotManager.GetRobotCharacterQuality(characterId)
@@ -1773,7 +1848,37 @@ XCharacterManagerCreator = function()
         if ownCharacter then
             return ownCharacter.Quality or 0
         end
-        return XCharacterConfigs.GetCharacterQualityCfg(characterId)
+        return XCharacterConfigs.GetCharMinQuality(characterId)
+    end
+
+    -- 角色初始品质(不是自己的角色也可以用)
+    function XCharacterManager.GetCharacterInitialQuality(characterId)
+        if XRobotManager.CheckIsRobotId(characterId) then
+            characterId = XRobotManager.GetCharacterId(characterId)
+        end
+        return XCharacterConfigs.GetCharMinQuality(characterId)
+    end
+
+    -- 职业类型(不是自己的角色也可以用)
+    function XCharacterManager.GetCharacterCareer(characterId)
+        local detailConfig = XCharacterConfigs.GetCharDetailTemplate(characterId)
+        if not detailConfig then
+            return
+        end
+
+        local careerConfig = XCharacterConfigs.GetNpcTypeTemplate(detailConfig.Career)
+        if not careerConfig then
+            return
+        end
+        return careerConfig.Type
+    end
+
+    -- 元素类型(物理为纯物，不读elementList)(不是自己的角色也可以用)
+    function XCharacterManager.GetCharacterElement(characterId)
+        if XRobotManager.CheckIsRobotId(characterId) then
+            characterId = XRobotManager.GetCharacterId(characterId)
+        end
+        return XCharacterConfigs.GetCharacterElement(characterId)
     end
 
     function XCharacterManager.GetCharacterHaveRobotAbilityById(characterId)
@@ -1784,7 +1889,7 @@ XCharacterManagerCreator = function()
         return ownCharacter and ownCharacter.Ability or 0
     end
 -----------------------------------------------补强技能相关--------------------------------------------- 
-    function XCharacterManager.CheckCharacterShowRed(characterId)
+    function XCharacterManager.CheckCharacterEnhanceSkillShowRed(characterId)
         local character = OwnCharacters[characterId]
         if not character then
             return false
@@ -1865,6 +1970,6 @@ XCharacterManagerCreator = function()
     return XCharacterManager
 end
 
-XRpc.NotifyCharacterDataList = function(data)
-    XDataCenter.CharacterManager.NotifyCharacterDataList(data)
-end
+-- XRpc.NotifyCharacterDataList = function(data)
+--     XDataCenter.CharacterManager.NotifyCharacterDataList(data)
+-- end

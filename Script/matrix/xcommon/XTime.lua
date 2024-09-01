@@ -38,6 +38,9 @@ local WeekLength = 7
 local sec_of_a_day = 24 * 60 * 60
 local sec_of_one_hour = 60 * 60
 local sec_of_refresh_time = 7 * 60 * 60
+XTime.Seconds = {
+    Day = sec_of_a_day --86400
+}
 
 --==============================--
 --desc: 获取服务器当前时间戳
@@ -46,6 +49,14 @@ local sec_of_refresh_time = 7 * 60 * 60
 function XTime.GetServerNowTimestamp()
     local sinceStartup = CsTime.realtimeSinceStartup
     return floor(ServerTimeWhenStartupAverage + sinceStartup)
+end
+
+--==============================
+ ---@desc 获取本地时间戳
+ ---@return 长整型时间戳，单位（秒）
+--==============================
+function XTime.GetLocalNowTimestamp()
+    return CS.XDateUtil.GetNowTimestamp()
 end
 
 --==============================--
@@ -357,4 +368,22 @@ function XTime.IsToday(formTime, toTime)
     local toYear = toDateTime.Year
 
     return formDay == toDay and formMonth == toMonth and formYear == toYear
-end 
+end
+
+---判断今天距某个时间戳隔了多少天 正为已过X天 负为还有X天
+---@param toTime number|nil
+---@param isBaseServer boolean
+---@return number
+function XTime.GetDayCountUntilTime(toTime, isBaseServer)
+    if toTime == nil then
+        return 0
+    end
+    local from_time = XTime.GetServerNowTimestamp()
+    local to_Time = isBaseServer and XTime.GetTimeDayFreshTime(toTime) or toTime
+    local fromDateTime = CS.XDateUtil.GetGameDateTime(from_time)
+    local toDateTime = CS.XDateUtil.GetGameDateTime(to_Time)
+    local fromSpan = CS.System.TimeSpan(fromDateTime.Ticks)
+    local toSpan = CS.System.TimeSpan(toDateTime.Ticks)
+    return math.floor(fromSpan.TotalDays - toSpan.TotalDays)
+    -- 服务端刷新时间为基准点
+end

@@ -376,6 +376,14 @@ function XArchiveConfigs.GetMonsterNpcDataById(Id)
     return MonsterNpcDatas[Id] or {}
 end
 
+function XArchiveConfigs.GetMonsterNpcIdByModelId(modelId)
+    for npcId, data in pairs(MonsterNpcDatas) do
+        if data.ModelId == modelId then
+            return data.Id
+        end
+    end
+    return false
+end
 
 -----------------------------怪物图鉴----------------------------
 function XArchiveConfigs.SetArchiveTagAllList()
@@ -522,7 +530,7 @@ end
 function XArchiveConfigs.CreateAwarenessShowedStatusDic()
     local templateIdList
     for suitId, _ in pairs(AwarenessGroup) do
-        templateIdList = XEquipConfig.GetEquipTemplateIdsBySuitId(suitId)
+        templateIdList = XEquipConfig.GetEquipTemplateIdsListBySuitId(suitId)
         for _, templateId in ipairs(templateIdList) do
             AwarenessShowedStatusDic[templateId] = true
         end

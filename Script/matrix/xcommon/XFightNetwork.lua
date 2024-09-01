@@ -26,3 +26,21 @@ function XFightNetwork.Call(handler, request, reply)
         reply(response)
     end)
 end
+
+--region Dlc
+function XFightNetwork.IsConnected()
+    return CS.XFightNetwork.IsConnected
+end
+
+function XFightNetwork.Connect(ipAddress, port, cb, reconnect, disconnectCb)
+    CS.XFightNetwork.Connect(ipAddress, port, cb, reconnect, disconnectCb)
+end
+
+function XFightNetwork.DoHeartbeat()
+    CS.XFightNetwork.DoHeartbeat()
+end
+
+function XFightNetwork.ConnectKcp(ip, port, conv, cb)
+    CS.XFightNetwork.ConnectKcp(ip, port, conv, cb)
+end
+--endregion Dlc

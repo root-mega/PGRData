@@ -21,11 +21,11 @@ function XReformMemberGroup:UpdateReplaceIdDic(replaceIdDic, isUpdateChallengeSc
             if memberTargetConfig then
                 memberSourceConfig = XReformConfigs.GetMemberSourceConfig(sourceId)
                 if memberSourceConfig.RobotId == 0 then
-                    result = result - memberSourceConfig.SubScore
+                    result = result + memberSourceConfig.AddScore
                 end
-                result = result - memberTargetConfig.SubScore
+                result = result + memberTargetConfig.AddScore
             end
-        end    
+        end
         self.CurrentChallengeScore = result
     end
 end
@@ -34,11 +34,26 @@ function XReformMemberGroup:GetMaxChallengeScore()
     if self.__MaxChallengeScore == nil then
         local result = 0
         for _, source in ipairs(self.Sources) do
-            result = result - source:GetMaxTargetScore()
+            result = result + source:GetMaxTargetScore()
         end
         self.__MaxChallengeScore = result
     end
     return self.__MaxChallengeScore
+end
+
+function XReformMemberGroup:GetTeamMaxChallengeScore()
+    if self.__TeamMaxChallengeScore == nil then
+        self.__TeamMaxChallengeScore = 0
+        table.sort(self.Sources, function(sourceA, sourceB)
+            return sourceA:GetScore() > sourceB:GetScore()
+        end)
+        for i = 1, 3 do
+            if self.Sources[i] then
+                self.__TeamMaxChallengeScore = self.__TeamMaxChallengeScore + self.Sources[i]:GetScore()
+            end
+        end
+    end
+    return self.__TeamMaxChallengeScore
 end
 
 function XReformMemberGroup:GetName()
@@ -74,6 +89,15 @@ function XReformMemberGroup:CheckSourcesWithSameCharacterId(id)
         end
     end
     return result, sourceId
+end
+
+function XReformMemberGroup:GetRoleScoreByCharacterId(value)
+    for _, source in ipairs(self.Sources) do
+        if source:GetCharacterId() == value then
+            return source:GetScore()
+        end
+    end
+    return 0
 end
 
 --######################## 私有方法 ########################

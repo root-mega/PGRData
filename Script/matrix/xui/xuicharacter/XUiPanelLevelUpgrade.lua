@@ -4,6 +4,10 @@ function XUiPanelLevelUpgrade:Ctor(ui, parent)
     self.GameObject = ui.gameObject
     self.Transform = ui.transform
     self.Parent = parent
+    ---@type XCharacterAgency
+    local ag = XMVCA:GetAgency(ModuleId.XCharacter)
+    self.CharacterAgency = ag
+
     self:InitAutoScript()
 end
 
@@ -33,6 +37,8 @@ function XUiPanelLevelUpgrade:AutoInitUi()
     self.TxtCurLevelA = self.Transform:Find("BtnBg/PanelTxtLevel/TxtCurLevel"):GetComponent("Text")
     self.TxtOldLevel = self.Transform:Find("BtnBg/PanelTxtLevel/TxtOldLevel"):GetComponent("Text")
     self.BtnDarkBg = self.Transform:Find("BtnDarkBg"):GetComponent("Button")
+    self.TxtOldBattlePower = self.Transform:Find("BtnBg/Properties/PanelCharBattlePower/TxtOldBattlePower"):GetComponent("Text") -- fixme 2.5等验收完恢复提交
+    self.TxtCurBattlePower = self.Transform:Find("BtnBg/Properties/PanelCharBattlePower/TxtCurBattlePower"):GetComponent("Text")
 end
 
 function XUiPanelLevelUpgrade:RegisterClickEvent(uiNode, func)
@@ -80,6 +86,7 @@ function XUiPanelLevelUpgrade:HideLevelInfo()
 end
 
 function XUiPanelLevelUpgrade:OldCharUpgradeInfo(character)
+    self.TxtOldBattlePower.text = self.CharacterAgency:GetCharacterHaveRobotAbilityById(character.Id)
     self.TxtOldAttack.text = XMath.ToMinInt(FixToDouble(character.Attribs[XNpcAttribType.AttackNormal]) or 0)
     self.TxtOldLife.text = XMath.ToMinInt(FixToDouble(character.Attribs[XNpcAttribType.Life]) or 0)
     self.TxtOldDefense.text = XMath.ToMinInt(FixToDouble(character.Attribs[XNpcAttribType.DefenseNormal]) or 0)
@@ -88,6 +95,7 @@ function XUiPanelLevelUpgrade:OldCharUpgradeInfo(character)
 end
 
 function XUiPanelLevelUpgrade:CurCharUpgradeInfo(character)
+    self.TxtCurBattlePower.text = self.CharacterAgency:GetCharacterHaveRobotAbilityById(character.Id)
     self.TxtCurAttack.text = XMath.ToMinInt(FixToDouble(character.Attribs[XNpcAttribType.AttackNormal]) or 0)
     self.TxtCurLife.text = XMath.ToMinInt(FixToDouble(character.Attribs[XNpcAttribType.Life]) or 0)
     self.TxtCurDefense.text = XMath.ToMinInt(FixToDouble(character.Attribs[XNpcAttribType.DefenseNormal]) or 0)

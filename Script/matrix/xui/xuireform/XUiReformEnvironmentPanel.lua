@@ -109,7 +109,6 @@ end
 
 function XUiReformEnvironmentPanel:OnDynamicTableEvent(event, index, grid)
     if index <= 0 or index > #self.DynamicTable.DataSource then return end
-    local environmentGroup = self.EvolvableStage:GetEvolvableGroupByType(XReformConfigs.EvolvableGroupType.Environment)
     local environment = self.DynamicTable.DataSource[index]
     self.GridDic[environment:GetId()] = grid
     if event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_ATINDEX then

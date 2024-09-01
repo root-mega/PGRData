@@ -66,7 +66,7 @@ function XUiPartnerTeachingFightDetail:Refresh(stageId, chapterId)
 
     -- 需要的消耗体力
     self.ImgCostIcon:SetRawImage(XDataCenter.ItemManager.GetItemIcon(XDataCenter.ItemManager.ItemId.ActionPoint))
-    self.TxtATNums.text = XFubenConfigs.GetRequireActionPoint(stageId)
+    self.TxtATNums.text = XDataCenter.FubenManager.GetRequireActionPoint(stageId)
 
     self:UpdateRewards()
 end
@@ -113,6 +113,14 @@ function XUiPartnerTeachingFightDetail:UpdateRewards()
     for j = rewardCount + 1, #self.GridList do
         self.GridList[j].GameObject:SetActiveEx(false)
     end
+end
+
+function XUiPartnerTeachingFightDetail:OnEnable()
+
+end
+
+function XUiPartnerTeachingFightDetail:OnDisable()
+
 end
 
 function XUiPartnerTeachingFightDetail:CloseDetailWithAnimation()

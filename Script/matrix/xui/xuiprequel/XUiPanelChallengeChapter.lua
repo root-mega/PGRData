@@ -91,6 +91,10 @@ function XUiPanelChallengeChapter:OnChallengeItemClick(i)
 end
 
 function XUiPanelChallengeChapter:OnPrequelDetailClosed()
+    if XTool.UObjIsNil(self.GameObject) or XTool.UObjIsNil(self.SViewChallenge) then
+        return
+    end
+    
     self.SViewChallenge.movementType = CS.UnityEngine.UI.ScrollRect.MovementType.Elastic
 end
 

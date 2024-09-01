@@ -51,7 +51,7 @@ function XUiNewAutoFightDialog:InitUI(stageId, stage)
         maxChallengeNum = autoFightCfg.Limit
     end
 
-    self.RequireAP = stageCfg.RequireActionPoint
+    self.RequireAP = XDataCenter.FubenManager.GetRequireActionPoint(stageId)
     self.LeftTimes = maxChallengeNum
     self.RecordTime = self.StageData.LastRecordTime
 

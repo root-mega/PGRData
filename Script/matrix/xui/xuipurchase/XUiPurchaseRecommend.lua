@@ -14,6 +14,7 @@ function XUiPanelRecommend:SetUi(ui)
     for _, btnName in ipairs(self.BtnGiftNameList) do
         self[btnName] = nil
     end
+    self.ImgSellOut = nil
     XUiHelper.InitUiClass(self, ui)
 end
 
@@ -24,6 +25,7 @@ function XUiPanelRecommend:SetData(data, skipFunc, buyFinished)
     
     -- v1.28-采购优化-根据PurchasePackageId注册跳转方式
     local isHavePackageId = XTool.IsNumberValid(#self.Recommend:GetPurchasePackageIdList())
+    local allSellOut = true
     if isHavePackageId and self.BtnGiftBuy1 then  -- 配了PurchasePackageId且拥有礼包按钮
         --self.BtnBuy.gameObject:SetActiveEx(false)
         for index, _ in ipairs(self.Recommend:GetPurchasePackageIdList()) do
@@ -36,8 +38,15 @@ function XUiPanelRecommend:SetData(data, skipFunc, buyFinished)
                 -- 保存已有Btn引用
                 self.BtnGiftNameList[index] = btnName
                 -- 设置礼包状态
+                if package:GetIsHave() then 
+                    self[btnName]:SetDisable(true)
+                    self:ShowBuyBtnSoldOutOrOwned(self[btnName].transform, false)
+                end
                 if package:GetIsSellOut() then
                     self[btnName]:SetDisable(true)
+                    self:ShowBuyBtnSoldOutOrOwned(self[btnName].transform, true)
+                else
+                    allSellOut = false
                 end
                 -- 注册礼包购买
                 XUiHelper.RegisterClickEvent(self, self[btnName], function ()
@@ -62,6 +71,11 @@ function XUiPanelRecommend:SetData(data, skipFunc, buyFinished)
     --     self.BtnBuy.gameObject:SetActiveEx(true)
     --     XUiHelper.RegisterClickEvent(self, self.BtnBuy, self.OnBtnBuyClicked)
     end
+
+    if self.ImgSellOut then 
+        self.ImgSellOut.gameObject:SetActiveEx(allSellOut)
+    end
+
     XUiHelper.RegisterClickEvent(self, self.BtnBuy, self.OnBtnBuyClicked)
 
     -- self.TxtTime.gameObject:SetActiveEx(data:GetIsShowTimeTip())
@@ -72,7 +86,11 @@ end
 function XUiPanelRecommend:OnBtnBuyClicked()
     local skipSteps = self.Recommend:GetSkipSteps()
     if #skipSteps > 0 then
-        self.SkipFunc(skipSteps[1], skipSteps[2])
+        if skipSteps[1] == XPurchaseConfigs.RecommendSkipType.Lb then
+            self.SkipFunc(skipSteps[2], skipSteps[3])
+        elseif skipSteps[1] == XPurchaseConfigs.RecommendSkipType.SkipId then
+            XFunctionManager.SkipInterface(skipSteps[2])
+        end
         return
     end
     if self.Recommend:GetIsSellOut() then
@@ -86,6 +104,31 @@ function XUiPanelRecommend:PlayEnableAnim()
         self.AnimEnable:Stop()
         self.AnimEnable:Play()
     end    
+end
+
+-- v1.31显示购买按钮已售罄或者已拥有
+function XUiPanelRecommend:ShowBuyBtnSoldOutOrOwned(btn, isSoldOut)
+    local uiObject = btn:GetComponent("UiObject")
+    if uiObject == nil then 
+        return
+    end
+
+    local txtSoldOut= uiObject:GetObject("TxtSoldOut")
+    if txtSoldOut then
+        txtSoldOut.gameObject:SetActiveEx(isSoldOut)
+    end
+    local rImgSoldOut= uiObject:GetObject("RImgSoldOut")
+    if rImgSoldOut then
+        rImgSoldOut.gameObject:SetActiveEx(isSoldOut)
+    end
+    local txtOwned= uiObject:GetObject("TxtOwned")
+    if txtOwned then
+        txtOwned.gameObject:SetActiveEx(not isSoldOut)
+    end
+    local rImgOwned= uiObject:GetObject("RImgOwned")
+    if rImgOwned then
+        rImgOwned.gameObject:SetActiveEx(not isSoldOut)
+    end
 end
 
 --######################## XUiRecommendGrid ########################
@@ -112,6 +155,9 @@ function XUiRecommendGrid:PlayEnableAnim()
 end
 
 --######################## XUiPurchaseRecommend ########################
+---@class XUiPurchaseRecommend
+---@field GameObject UnityEngine.GameObject
+---@field RootUi XUiPurchase
 local XUiPurchaseRecommend = XClass(nil, "XUiPurchaseRecommend")
 
 function XUiPurchaseRecommend:Ctor(ui, rootUi, skipFunc)
@@ -129,13 +175,16 @@ function XUiPurchaseRecommend:Ctor(ui, rootUi, skipFunc)
 end
 
 function XUiPurchaseRecommend:OnRefresh(uiType)
-    self:ShowPanel()
+    if self.RootUi.TabGroup.CurSelectId == self.RootUi:GetTabIndexByTabType(XPurchaseConfigs.TabsConfig.Recommend) then
+        self:ShowPanel()
+    end
     -- 页签按钮
     self.Recommends = self.RecommendManager:GetRecommends()
     if #self.Recommends <= 0 then
         local index = self.RootUi:GetTabIndexByTabType(XPurchaseConfigs.TabsConfig.Recommend)
         local button = self.RootUi.TabGroup:GetButtonByIndex(index)
         button.gameObject:SetActiveEx(false)
+        self:HidePanel()
         self.SkipFunc(XPurchaseConfigs.TabsConfig.LB)
         return
     end
@@ -191,6 +240,11 @@ function XUiPurchaseRecommend:ShowPanel()
     if self.RootUi.PanelTjTabEx then
         self.RootUi.PanelTjTabEx.gameObject:SetActiveEx(true)
     end
+    if self.ListenersAdded then return end
+    if self.GameObject.activeInHierarchy then
+        self.ListenersAdded = true
+        XEventManager.AddEventListener(XEventId.EVENT_PURCAHSE_BUYUSERIYUAN, self.OnRefresh, self)
+    end
 end
 
 function XUiPurchaseRecommend:HidePanel()
@@ -198,6 +252,9 @@ function XUiPurchaseRecommend:HidePanel()
     if self.RootUi.PanelTjTabEx then
         self.RootUi.PanelTjTabEx.gameObject:SetActiveEx(false)
     end
+    if not self.ListenersAdded then return end
+    XEventManager.RemoveEventListener(XEventId.EVENT_PURCAHSE_BUYUSERIYUAN, self.OnRefresh, self)
+    self.ListenersAdded = false
 end
 
 function XUiPurchaseRecommend:OnBtnTabClicked(index)
@@ -208,6 +265,7 @@ function XUiPurchaseRecommend:OnBtnTabClicked(index)
     local button = self.PanelTabGroup:GetButtonByIndex(index)
     button:ShowReddot(false)
     XEventManager.DispatchEvent(XEventId.EVENT_PURCHASE_RECOMMEND_RED)
+    --[[
     local isActiveSellOut = recommend:GetIsSellOut()
     if isActiveSellOut then
         self.RootUi.ImgSellOutDisable:Stop()
@@ -221,6 +279,7 @@ function XUiPurchaseRecommend:OnBtnTabClicked(index)
         end
     end
     self._LastActiveSellOut = isActiveSellOut
+    ]]
     local grid = self.DynamicTable:GetGridByIndex(index - 1)
     if grid then
         grid:PlayEnableAnim()

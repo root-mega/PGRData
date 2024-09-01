@@ -1,24 +1,32 @@
 [
     {
         "Key": "ShopIds",
-        "Desc": "\u5546\u5e97id\u5217\u8868",
+        "Desc": "Shop ID List",
         "Params": [
+            null,
             "1254",
-            1255.0
+            1255.0,
+            null
         ]
     },
     {
         "Key": "TaskGroupIds",
-        "Desc": "\u4efb\u52a1\u7ec4id\u5217\u8868",
+        "Desc": "Task Force ID List",
         "Params": [
-            "208"
+            null,
+            "208",
+            null,
+            null
         ]
     },
     {
         "Key": "HelpKey",
-        "Desc": "\u5f15\u5bfc\u7684key",
+        "Desc": "Guide Key",
         "Params": [
-            "Maverick2Help"
+            null,
+            "Maverick2Help",
+            null,
+            null
         ]
     }
 ]

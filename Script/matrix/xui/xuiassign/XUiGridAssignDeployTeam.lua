@@ -14,8 +14,37 @@ end
 function XUiGridAssignDeployTeam:InitComponent()
     self.MemberGridList = {}
     self.BtnLeader.CallBack = function() self:OnBtnLeaderClick() end
+    self.BtnReset.CallBack = function() self:OnBtnResetClick() end
+    self.BtnFight.CallBack = function() self:OnBtnFightClick() end
     self.GridDeployMember.gameObject:SetActiveEx(false)
     self.ImgNotPassCondition.gameObject:SetActiveEx(false)
+end
+
+function XUiGridAssignDeployTeam:OnBtnFightClick()
+    local allTeamHasMember, teamCharList, captainPosList, firstFightPosList = XDataCenter.FubenAssignManager.TryGetFightTeamCharList(self.GroupId)
+    if not allTeamHasMember then
+        XUiManager.TipMsg(CS.XTextManager.GetText("AssignFightNoMember"))
+        return
+    end
+    -- 设置队伍
+    XDataCenter.FubenAssignManager.AssignSetTeamRequest(self.GroupId, teamCharList, captainPosList, firstFightPosList, function()
+        local targetIndex = self.TeamOrder
+        local groupData = XDataCenter.FubenAssignManager.GetGroupDataById(self.GroupId)
+        local stageIdList = groupData:GetStageId()
+        local targetStageId = stageIdList[targetIndex]
+
+        -- 进入战斗
+        local chapterId = XFubenAssignConfigs.GetChapterIdByGroupId(self.GroupId)
+        local chapterData = XDataCenter.FubenAssignManager.GetChapterDataById(chapterId)
+        XDataCenter.FubenAssignManager.SetEnterLoadingData(targetIndex, teamCharList[targetIndex], groupData, chapterData)
+        XDataCenter.FubenManager.EnterAssignFight(targetStageId, teamCharList[targetIndex], captainPosList[targetStageId], nil, nil, firstFightPosList[targetIndex])
+    end)
+end
+
+function XUiGridAssignDeployTeam:OnBtnResetClick()
+    XDataCenter.FubenAssignManager.AssignResetStageRequest(self.GroupId, self.StageId , function ()
+        self:RefreshVictoryState(self.StageId)
+    end)
 end
 
 function XUiGridAssignDeployTeam:OnBtnLeaderClick()
@@ -38,6 +67,7 @@ end
 function XUiGridAssignDeployTeam:Refresh(groupId, teamOrder, teamInfoId)
     self.TeamOrder = teamOrder
     self.TeamInfoId = teamInfoId
+    self.GroupId = groupId
 
     local teamData = XDataCenter.FubenAssignManager.GetTeamDataById(teamInfoId)
     self.TxtTitle.text = CS.XTextManager.GetText("AssignTeamTitle", self.TeamOrder) -- 作战梯队1
@@ -57,7 +87,16 @@ function XUiGridAssignDeployTeam:Refresh(groupId, teamOrder, teamInfoId)
         grid:Refresh(groupId, teamOrder, teamData, i)
     end
 
+    local groupData = XDataCenter.FubenAssignManager.GetGroupDataById(groupId)
+    local stageId = groupData:GetStageId()[teamOrder]
+    self.StageId = stageId
+    self:RefreshVictoryState(self.StageId)
     -- self.ImgNotPassCondition.gameObject:SetActiveEx(not teamData:IsEnoughAbility())
+end
+
+function XUiGridAssignDeployTeam:RefreshVictoryState(stageId)
+    local isFinish = XDataCenter.FubenAssignManager.CheckStageFinish(stageId)
+    self.PanelVictory.gameObject:SetActiveEx(isFinish)
 end
 
 return XUiGridAssignDeployTeam

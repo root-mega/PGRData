@@ -35,7 +35,7 @@ function XReformMemberTarget:GetStarLevel()
 end
 
 function XReformMemberTarget:GetScore()
-    return self.Config.SubScore
+    return self.Config.AddScore
 end
 
 function XReformMemberTarget:GetSmallHeadIcon()

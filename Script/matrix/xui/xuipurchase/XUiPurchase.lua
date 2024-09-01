@@ -20,6 +20,8 @@ local XUiPurchaseHKExchangeTop = require("XUi/XUiPurchase/XUiPurchaseHKExchangeT
 local XUiPurchaseCoatingLB = require("XUi/XUiPurchase/XUiPurchaseCoatingLB")
 local XUiPurchaseRecommend = require("XUi/XUiPurchase/XUiPurchaseRecommend")
 
+local lastTab = nil;    -- PC端屏蔽充值
+
 -- BtnLzcj = 累计充值、LB = 礼包、YK = 月卡、HK = 虹卡
 
 function XUiPurchase:OnAwake()
@@ -71,6 +73,9 @@ function XUiPurchase:OnStart(tab, isClearData, childTabIndex)
     end
 
     XDataCenter.PurchaseManager.GetRecommendManager():RequestServerData(function()
+        if not self.TabGroup then
+            return
+        end
         local recommendManager = XDataCenter.PurchaseManager.GetRecommendManager()
         local index = self:GetTabIndexByTabType(XPurchaseConfigs.TabsConfig.Recommend)
         local button = self.TabGroup:GetButtonByIndex(index)
@@ -171,6 +176,14 @@ function XUiPurchase:InitUi()
         end
     end
 
+    -- if XDataCenter.UiPcManager.IsPc() then
+    --     local pcIndex = self:GetTabIndexByTabType(XPurchaseConfigs.TabsConfig.Pay)
+    --     local btn = self.TabGroup:GetButtonByIndex(pcIndex)
+    --     if btn then
+    --         btn:SetButtonState(CS.UiButtonState.Disable)
+    --     end
+    -- end
+
     self.UiPanel = {}
     self.UiPanel[PanelNameConfig.PanelRecharge] = XUiPurchasePay.New(self.PanelRecharge,self,XPurchaseConfigs.TabExConfig.Sample)
     self.UiPanel[PanelNameConfig.PanelLb] = XUiPurchaseLB.New(self.PanelLb,self, purchaseLBCb)
@@ -240,6 +253,20 @@ function XUiPurchase:CheckChildCount(childs, names)
 end
 
 function XUiPurchase:TabSkip(tab)
+    
+    -- if XDataCenter.UiPcManager.IsPc() then 
+    --     if tab == self:GetTabIndexByTabType(XPurchaseConfigs.TabsConfig.Pay) then
+    --         XUiManager.TipText("PcRechargeCloseTip")
+    --         if self.CurGroupTab then
+    --             self.TabGroup:SelectIndex(self.CurGroupTab);
+    --         else
+    --             XLog.Debug("从设置界面外部跳入, 直接关闭自身")
+    --             self:Close()
+    --         end
+    --         return
+    --     end
+    -- end
+
     if self.CurGroupTab == tab then
         return
     end
@@ -348,8 +375,7 @@ function XUiPurchase:AccumulateRedPoint(result)
         self.BtnLjcz:ShowReddot(result >= 0)
     end
 
-    local index = self:GetTabIndexByTabType(XPurchaseConfigs.TabsConfig.Pay)
-    local button = self.TabGroup:GetButtonByIndex(index)
+    local button = self.TabGroup:GetButtonByIndex(5)
     button:ShowReddot(result >= 0)
 end
 

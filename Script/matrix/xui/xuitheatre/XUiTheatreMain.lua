@@ -50,6 +50,7 @@ function XUiTheatreMain:CheckRedPoint()
     self:CheckAlbumRedPoint()
     self:CheckDecorationRedPoint()
     self:CheckFavorRedPoint()
+    self:CheckAdventureRedPoint()
 end
 
 --势力好感红点
@@ -76,6 +77,12 @@ function XUiTheatreMain:CheckTaskRedPoint()
         XDataCenter.TheatreManager.CheckTaskStartTimeOpen() or
         XDataCenter.TheatreManager.CheckWeeklyTaskRedPoint()
     self.BtnTask:ShowReddot(isShowRedPoint)
+end
+
+function XUiTheatreMain:CheckAdventureRedPoint()
+    if self.BtnAdventureRed then
+        self.BtnAdventureRed.gameObject:SetActiveEx(XDataCenter.TheatreManager.CheckSPModeRedPoint())
+    end
 end
 
 --检查功能解锁自动弹窗
@@ -161,6 +168,13 @@ function XUiTheatreMain:Refresh()
     local isOpen = XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.ShopCommon)
     or XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.ShopActive)
     self.BtnShop:SetDisable(not isOpen)
+    
+    -- 冒险模式
+    if self.BtnAdventure then
+        local isShowAdventure = XDataCenter.TheatreManager.CheckSPModeIsOpen() and not XDataCenter.TheatreManager.CheckHasAdventure()
+        self.BtnAdventure.gameObject:SetActiveEx(isShowAdventure)
+        self.BtnAdventure.isOn = XDataCenter.TheatreManager.GetSPMode()
+    end
 
     self:UpdateTask()
     self:UpdateSceneUrl()
@@ -239,6 +253,9 @@ function XUiTheatreMain:InitButtonCallBack()
     self:RegisterClickEvent(self.BtnTask, self.OnBtnTaskClick)          --任务
     self:RegisterClickEvent(self.BtnDecoration, self.OnBtnDecorationClick)  --装修改造
     self:RegisterClickEvent(self.BtnFavor, self.OnBtnFavorClick)        --好感度
+    if self.BtnAdventure then
+        self:RegisterClickEvent(self.BtnAdventure, self.OnBtnAdventureClick)    -- 冒险模式
+    end
 end
 
 function XUiTheatreMain:OnBtnTaskClick()
@@ -284,3 +301,10 @@ function XUiTheatreMain:OnBtnFavorClick()
     end
     XLuaUiManager.Open("UiTheatreFavorability")
 end
+
+function XUiTheatreMain:OnBtnAdventureClick()
+    local isOn = self.BtnAdventure.isOn
+    XDataCenter.TheatreManager.SetSPMode(isOn, true)
+    XDataCenter.TheatreManager.SetSPModeRedPoint()
+    self:CheckAdventureRedPoint()
+end 

@@ -74,6 +74,7 @@ local CharacterSendGift = {}
 local CharacterGiftReward = {}
 local likeReward = {}
 local CharacterAction = {}
+local CharacterActionKeySignBoardActionId = {}
 local CharacterActionUnlockLv = {}
 local CharacterCollaboration = {}
 local CharacterLikeTrustItem = {}
@@ -214,26 +215,28 @@ function XFavorabilityConfigs.Init()
 
     local likeVoice = XTableManager.ReadByIntKey(TABLE_LIKE_VOICE, XTable.XTableCharacterVoice, "Id")
     for _, v in pairs(likeVoice) do
+        local data = {
+            Id = v.Id,
+            CharacterId = v.CharacterId,
+            Name = v.Name,
+            CvId = v.CvId,
+            UnlockLv = v.UnlockLv,
+            UnlockCondition = v.UnlockCondition,
+            ConditionDescript = v.ConditionDescript,
+            SoundType = v.SoundType,
+            IsShow = v.IsShow,
+        }
         if v.IsShow == 1 then
             if CharacterVoice[v.CharacterId] == nil then
                 CharacterVoice[v.CharacterId] = {}
             end
-            table.insert(CharacterVoice[v.CharacterId], {
-                Id = v.Id,
-                CharacterId = v.CharacterId,
-                Name = v.Name,
-                CvId = v.CvId,
-                UnlockLv = v.UnlockLv,
-                ConditionDescript = v.ConditionDescript,
-                SoundType = v.SoundType,
-                IsShow = v.IsShow,
-            })
+            table.insert(CharacterVoice[v.CharacterId],data)
         end
+        
         if CharacterVoiceUnlockLv[v.CharacterId] == nil then
             CharacterVoiceUnlockLv[v.CharacterId] = {}
         end
-        CharacterVoiceUnlockLv[v.CharacterId][v.Id] = v.UnlockLv
-
+        CharacterVoiceUnlockLv[v.CharacterId][v.Id] = data
     end
     for _, v in pairs(CharacterVoice) do
         table.sort(v, XFavorabilityConfigs.SortVoice)
@@ -241,21 +244,25 @@ function XFavorabilityConfigs.Init()
 
     local likeAction = XTableManager.ReadByIntKey(TABLE_LIKE_ACTION, XTable.XTableCharacterAction, "Id")
     for _, v in pairs(likeAction) do
-        if CharacterAction[v.CharacterId] == nil then
-            CharacterAction[v.CharacterId] = {}
-        end
-        table.insert(CharacterAction[v.CharacterId], {
+        local data = {
             Id = v.Id,
             CharacterId = v.CharacterId,
             Name = v.Name,
             SignBoardActionId = v.SignBoardActionId,
             UnlockLv = v.UnlockLv,
+            UnlockCondition = v.UnlockCondition,
             ConditionDescript = v.ConditionDescript,
-        })
+        }
+        if CharacterAction[v.CharacterId] == nil then
+            CharacterAction[v.CharacterId] = {}
+        end
+        table.insert(CharacterAction[v.CharacterId],data)
+        CharacterActionKeySignBoardActionId[v.SignBoardActionId] = data
+        
         if CharacterActionUnlockLv[v.CharacterId] == nil then
             CharacterActionUnlockLv[v.CharacterId] = {}
         end
-        CharacterActionUnlockLv[v.CharacterId][v.Id] = v.UnlockLv
+        CharacterActionUnlockLv[v.CharacterId][v.Id] = data
     end
     for _, v in pairs(CharacterAction) do
         table.sort(v, function(item1, item2)
@@ -399,6 +406,12 @@ end
 function XFavorabilityConfigs.GetCharacterAction()
     return CharacterAction
 end
+
+--通过SignBoardActionId获取动作数据
+function XFavorabilityConfigs.GetCharacterActionBySignBoardActionId(id)
+    return CharacterActionKeySignBoardActionId[id]
+end
+
 
 -- [好感度档案-动作]
 function XFavorabilityConfigs.GetCharacterActionById(characterId)

@@ -3,11 +3,14 @@
         "Id": 1,
         "GroupName": "Class",
         "Tags": [
+            null,
             101,
             102,
             103,
             104.0,
-            105.0
+            105.0,
+            null,
+            null
         ],
         "Order": 1
     },
@@ -15,12 +18,14 @@
         "Id": 2,
         "GroupName": "Energy",
         "Tags": [
+            null,
             201,
             202,
             203,
             204.0,
             205.0,
-            206.0
+            206.0,
+            null
         ],
         "Order": 2
     },
@@ -28,9 +33,14 @@
         "Id": 3,
         "GroupName": "Level",
         "Tags": [
+            null,
             301,
             302,
-            303
+            303,
+            null,
+            null,
+            null,
+            null
         ],
         "Order": 4
     },
@@ -38,11 +48,14 @@
         "Id": 4,
         "GroupName": "Class",
         "Tags": [
+            null,
             401,
             402,
             403,
             404.0,
-            405.0
+            405.0,
+            null,
+            null
         ],
         "Order": 5
     },
@@ -50,9 +63,14 @@
         "Id": 5,
         "GroupName": "Initial Rank",
         "Tags": [
+            null,
             501,
             502,
-            503
+            503,
+            null,
+            null,
+            null,
+            null
         ],
         "Order": 3
     }

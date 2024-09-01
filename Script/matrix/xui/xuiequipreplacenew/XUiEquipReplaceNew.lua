@@ -1,6 +1,7 @@
 local XUiGridEquip = require("XUi/XUiEquipAwarenessReplace/XUiGridEquip")
 local XUiGridEquipReplaceAttr = require("XUi/XUiEquipReplaceNew/XUiGridEquipReplaceAttr")
 local XUiGridResonanceSkill = require("XUi/XUiEquipResonanceSkill/XUiGridResonanceSkill")
+local XUiEquipOverrunDetail = require("XUi/XUiEquipOverrun/XUiEquipOverrunDetail")
 
 local XUiEquipReplaceNew = XLuaUiManager.Register(XLuaUi, "UiEquipReplaceNew")
 
@@ -91,7 +92,7 @@ end
 
 function XUiEquipReplaceNew:InitDynamicTable()
     self.DynamicTable = XDynamicTableNormal.New(self.PanelEquipScroll)
-    self.DynamicTable:SetProxy(XUiGridEquip)
+    self.DynamicTable:SetProxy(XUiGridEquip, self)
     self.DynamicTable:SetDelegate(self)
 end
 
@@ -124,6 +125,9 @@ function XUiEquipReplaceNew:OnPutOnEquip()
     self:UpdateCompareAttr()
     self:UpdateBtnEquipStatus()
     self:SelectSortType()
+    if self.UiEquipOverrunDetail then
+        self.UiEquipOverrunDetail:Refresh()
+    end
 end
 
 function XUiEquipReplaceNew:OnEquipLockStatusChange(equipId)
@@ -221,6 +225,16 @@ function XUiEquipReplaceNew:UpdateSelectEquip()
             self["ImgStar" .. i].gameObject:SetActive(false)
         end
     end
+
+    -- 武器超限
+    local canOverrun  = equip:CanOverrun()
+    self.PanelEquipOverrun.gameObject:SetActiveEx(canOverrun)
+    if canOverrun then 
+        if not self.UiEquipOverrunDetail then 
+            self.UiEquipOverrunDetail = XUiEquipOverrunDetail.New(self, self.OverrunDetail)
+        end
+        self.UiEquipOverrunDetail:SetEquipId(self.SelectEquipId, self.CharacterId)
+    end
 end
 
 function XUiEquipReplaceNew:UpdateCompareAttr()
@@ -289,7 +303,7 @@ function XUiEquipReplaceNew:OnBtnUnlockClick()
 end
 
 function XUiEquipReplaceNew:OnBtnStrengthenClick()
-    XLuaUiManager.Open("UiEquipDetail", self.SelectEquipId, nil, self.CharacterId)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipDetail(self.SelectEquipId, nil, self.CharacterId)
 end
 
 function XUiEquipReplaceNew:OnBtnTakeOnClick()
@@ -307,11 +321,19 @@ function XUiEquipReplaceNew:OnBtnTakeOnClick()
         local fullName = XCharacterConfigs.GetCharacterFullNameStr(characterId)
         local content = CS.XTextManager.GetText("EquipReplaceTip", fullName)
         XUiManager.DialogTip(CS.XTextManager.GetText("TipTitle"), content, XUiManager.DialogType.Normal, function() end, function()
-            XDataCenter.EquipManager.PutOn(self.CharacterId, self.SelectEquipId)
+            XMVCA:GetAgency(ModuleId.XEquip):PutOn(self.CharacterId, self.SelectEquipId)
+            self.ChangeEquipSuccess = true
+        end)
+    
+    -- 检测这个角色穿戴是否意识不匹配
+    elseif not equip:IsOverrunBlindMatch(self.CharacterId) then
+        local content = CS.XTextManager.GetText("EquipOverrunBlindNotMatchTips")
+        XUiManager.DialogTip(CS.XTextManager.GetText("TipTitle"), content, XUiManager.DialogType.Normal, function() end, function()
+            XMVCA:GetAgency(ModuleId.XEquip):PutOn(self.CharacterId, self.SelectEquipId)
             self.ChangeEquipSuccess = true
         end)
     else
-        XDataCenter.EquipManager.PutOn(self.CharacterId, self.SelectEquipId)
+        XMVCA:GetAgency(ModuleId.XEquip):PutOn(self.CharacterId, self.SelectEquipId)
         self.ChangeEquipSuccess = true
     end
 end

@@ -1,4 +1,6 @@
 -- 猜拳小游戏关卡管理器
+---@class XFingerGuessingStageManager
+---@field Stages table<number, XFingerGuessingStage>
 local XFingerGuessingStageManager = XClass(nil, "XFingerGuessingStageManager")
 
 local SortStagesByStageId = function(stage1, stage2)

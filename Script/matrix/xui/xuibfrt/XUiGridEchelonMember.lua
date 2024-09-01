@@ -1,8 +1,11 @@
+local XUiBfrtBattleRoomDetailRoleGrid = require("XUi/XUiBfrt/XUiBfrtBattleRoomDetailRoleGrid")
+
 local CONDITION_COLOR = {
     [true] = CS.UnityEngine.Color.white,
     [false] = CS.UnityEngine.Color.red,
 }
 
+---@class XUiGridEchelonMember
 local XUiGridEchelonMember = XClass(nil, "XUiGridEchelonMember")
 
 --位置对应的颜色框
@@ -15,6 +18,7 @@ local MEMBER_POS_COLOR = {
 function XUiGridEchelonMember:Ctor(rootUi, ui, data)
     self.GameObject = ui.gameObject
     self.Transform = ui.transform
+    ---@type XUiGridEchelon
     self.RootUi = rootUi
     XTool.InitUiObject(self)
     self:InitAutoScript()
@@ -168,23 +172,27 @@ function XUiGridEchelonMember:GetProxyInstance(viewData)
         AOPCloseBefore = function(proxy, rootUi)
             self.RootUi:UpdateTeamInfo(rootUi.Team:GetEntityIds())
         end,
-        AOPOnDynamicTableEventAfter = function(proxy, rootUi, event, index, grid)
-            local entity = rootUi.DynamicTable.DataSource[index]
-            local inEchelonIndex, inEchelonType = self.RootUi:CheckIsInTeamList(entity:GetId())
-            if event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_ATINDEX then
-                grid.ImgInTeam.gameObject:SetActiveEx(false)
-                grid.PanelTeamSupport.gameObject:SetActiveEx(false)
-                if inEchelonIndex then
-                    if inEchelonType == XDataCenter.BfrtManager.EchelonType.Fight then
-                        grid.TxtInTeam.text = CS.XTextManager.GetText("BfrtFightEchelonTitleSimple", inEchelonIndex)
-                        grid.ImgInTeam.gameObject:SetActiveEx(true)
-                    elseif inEchelonType == XDataCenter.BfrtManager.EchelonType.Logistics then
-                        grid.TxtTeamSupport.text = CS.XTextManager.GetText("BfrtLogisticEchelonTitleSimple", inEchelonIndex)
-                        grid.PanelTeamSupport.gameObject:SetActiveEx(true)
-                    end
-                end
-            end
-        end,
+        --v2.6 新编队角色筛选器不用AOP
+        --AOPOnDynamicTableEventAfter = function(proxy, rootUi, event, index, grid)
+            --local entity = rootUi.DynamicTable.DataSource[index]
+            --if not entity then
+            --    return
+            --end
+            --local inEchelonIndex, inEchelonType = self.RootUi:CheckIsInTeamList(entity:GetId())
+            --if event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_ATINDEX then
+            --    grid.ImgInTeam.gameObject:SetActiveEx(false)
+            --    grid.PanelTeamSupport.gameObject:SetActiveEx(false)
+            --    if inEchelonIndex then
+            --        if inEchelonType == XDataCenter.BfrtManager.EchelonType.Fight then
+            --            grid.TxtInTeam.text = CS.XTextManager.GetText("BfrtFightEchelonTitleSimple", inEchelonIndex)
+            --            grid.ImgInTeam.gameObject:SetActiveEx(true)
+            --        elseif inEchelonType == XDataCenter.BfrtManager.EchelonType.Logistics then
+            --            grid.TxtTeamSupport.text = CS.XTextManager.GetText("BfrtLogisticEchelonTitleSimple", inEchelonIndex)
+            --            grid.PanelTeamSupport.gameObject:SetActiveEx(true)
+            --        end
+            --    end
+            --end
+        --end,
         AOPOnBtnJoinTeamClickedBefore = function(proxy, rootUi)
             local inEchelonIndex, inEchelonType = self.RootUi:CheckIsInTeamList(rootUi.CurrentEntityId)
             if inEchelonIndex and inEchelonType then
@@ -222,6 +230,18 @@ function XUiGridEchelonMember:GetProxyInstance(viewData)
         end,
         GetIsShowRoleDetail = function()
             return false
+        end,
+        GetGridProxy = function()
+            return XUiBfrtBattleRoomDetailRoleGrid
+        end,
+        GetGridExParams = function()
+            return {function(characterId)
+                return self.RootUi:CheckIsInTeamList(characterId)
+            end}
+        end,
+        -- v2.6 新编队角色筛选器
+        GetFilterControllerConfig = function()
+            return
         end
     }
 end

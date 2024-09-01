@@ -311,9 +311,9 @@ function XUiNewRoomSingle:AutoAddListener()
     self:RegisterClickEvent(self.BtnChar2, self.OnBtnChar2Click)
     self:RegisterClickEvent(self.BtnChar3, self.OnBtnChar3Click)
 
-    self.CharacterPets1:GetObject("BtnClick").CallBack = function() self:OnBtnChar1Click() end
-    self.CharacterPets2:GetObject("BtnClick").CallBack = function() self:OnBtnChar2Click() end
-    self.CharacterPets3:GetObject("BtnClick").CallBack = function() self:OnBtnChar3Click() end
+    self.CharacterPets1:GetObject("BtnClick").CallBack = function() self:HandlePartnerClick(CHAR_POS1) end
+    self.CharacterPets2:GetObject("BtnClick").CallBack = function() self:HandlePartnerClick(CHAR_POS2) end
+    self.CharacterPets3:GetObject("BtnClick").CallBack = function() self:HandlePartnerClick(CHAR_POS3) end
 
     self.BtnEnterFight.CallBack = function() self:OnBtnEnterFightClick() end
     self.BtnSupportToggle.CallBack = function(state) self:OnBtnAssistToggleClick(state) end
@@ -589,7 +589,7 @@ function XUiNewRoomSingle:InitTeamData()
 
     for i = 1, MAX_CHAR_COUNT do
         local teamCfg = XTeamConfig.GetTeamCfgById(i)
-        if teamCfg then
+        if teamCfg and not string.IsNilOrEmpty(teamCfg.EffectPath) then
             self.PanelCharacterInfo[i].PanelRoleEffect:LoadPrefab(teamCfg.EffectPath, false)
         end
     end
@@ -1119,6 +1119,14 @@ function XUiNewRoomSingle:HandleCharClick(charPos)
     else
         self:HandleCharClickByProxy(charPos)
     end
+end
+
+-- 进入辅助机选择
+function XUiNewRoomSingle:HandlePartnerClick(charPos)
+    local stageId = self.CurrentStageId
+    if not self:CheckCharCanClickByProxy(stageId) then return end
+
+    self:HandlePartnerClickByProxy(charPos)
 end
 
 function XUiNewRoomSingle:OnBtnChar1Click()
@@ -2302,6 +2310,17 @@ function XUiNewRoomSingle:HandleCharClickByProxy(charPos)
         return
     end
     self.Proxy.HandleCharClick(self, charPos, self.CurrentStageId)
+end
+
+--================
+--当点击角色辅助机时
+--================
+function XUiNewRoomSingle:HandlePartnerClickByProxy(charPos)
+    if (not self.Proxy) or (not self.Proxy.HandlePartnerClick) then
+        self:HandleCharClick(charPos)
+        return
+    end
+    self.Proxy.HandlePartnerClick(self, charPos, self.CurrentStageId)
 end
 
 --================

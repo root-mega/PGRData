@@ -7,12 +7,13 @@ function XUiEquipCultureConfirm:OnAwake()
     self.GridAttackChange.gameObject:SetActiveEx(false)
 end
 
-function XUiEquipCultureConfirm:OnStart(templateId, originLevelUnit, targetLevelUnit, realTargetLevel, confirmCb)
-    self.TemplateId = templateId
+function XUiEquipCultureConfirm:OnStart(equipId, originLevelUnit, targetLevelUnit, realTargetLevel, operations)
+    self.EquipId = equipId
+    self.TemplateId = XMVCA:GetAgency(ModuleId.XEquip):GetEquipTemplateId(self.EquipId)
     self.OriginLevelUnit = originLevelUnit
     self.TargetLevelUnit = targetLevelUnit
     self.RealTargetLevel = realTargetLevel
-    self.ConfirmCb = confirmCb
+    self.Operations = operations
     self.GridCostItems = {}
 
     self:InitView()
@@ -91,12 +92,11 @@ function XUiEquipCultureConfirm:AutoAddListener()
     self.BtnClose.CallBack = handler(self, self.Close)
     self.BtnCloseMask.CallBack = handler(self, self.Close)
     self.BtnCancel.CallBack = handler(self, self.Close)
-    self.BtnDetermine.CallBack = handler(self, self.OnClickBtnEvoConfirm)
+    self.BtnDetermine.CallBack = handler(self, self.OnClickBtnConfirm)
 end
 
-function XUiEquipCultureConfirm:OnClickBtnEvoConfirm()
-    if self.ConfirmCb then 
-        self.ConfirmCb()
-    end
+function XUiEquipCultureConfirm:OnClickBtnConfirm()
+    local targetBreakthrough, targetLevelUnit = XDataCenter.EquipManager.ConvertToBreakThroughAndLevel(self.TemplateId, self.TargetLevelUnit)
+    XMVCA:GetAgency(ModuleId.XEquip):EquipOneKeyFeedRequest(self.EquipId, targetBreakthrough, targetLevelUnit, self.Operations)
     self:Close()
 end

@@ -16,6 +16,10 @@
         "PrefabPath": "Assets/Product/Ui/UiFightPrefab/UiFightTips/PanelAssistTip.prefab"
     },
     {
+        "Type": 5,
+        "PrefabPath": "Assets/Product/Ui/UiFightPrefab/UiFightTips/PanelInfomation.prefab"
+    },
+    {
         "Type": 6,
         "PrefabPath": "Assets/Product/Ui/UiFightPrefab/UiFightTips/PanelBattleTutorial.prefab"
     },
@@ -52,7 +56,23 @@
         "PrefabPath": "Assets/Product/Ui/UiFightPrefab/UiFightTips/PanelCountdown.prefab"
     },
     {
-        "Type": 16,
+        "Type": 15,
         "PrefabPath": "Assets/Product/Ui/UiFightPrefab/UiFightTips/PanelStageCommonTip.prefab"
+    },
+    {
+        "Type": 16,
+        "PrefabPath": "Assets/Product/Ui/UiFightPrefab/UiFightTips/PanelStageCommonTipWithBtn.prefab"
+    },
+    {
+        "Type": 17,
+        "PrefabPath": "Assets/Product/Ui/UiFightPrefab/UiFightTips/PanelFightMovieVerticalTips.prefab"
+    },
+    {
+        "Type": 18,
+        "PrefabPath": "Assets/Product/Ui/UiFightPrefab/UiFightTips/PanelCountdownNew.prefab"
+    },
+    {
+        "Type": 19,
+        "PrefabPath": "Assets/Product/Ui/UiFightPrefab/UiFightTips/PanelFightNoteBook.prefab"
     }
 ]

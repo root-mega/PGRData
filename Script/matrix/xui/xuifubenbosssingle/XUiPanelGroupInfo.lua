@@ -34,14 +34,16 @@ end
 
 function XUiPanelGroupInfo:Init()
     self.GridBoss.gameObject:SetActiveEx(false)
+    -- v2.4 Boss刷新规则改变,策划需求不显示
+    if not XTool.UObjIsNil(self.TxtInfo) then
+        self.TxtInfo.gameObject:SetActiveEx(false)
+    end
 end
 
 function XUiPanelGroupInfo:ShowBossGroupInfo(groupId)
     self.RootUi:PlayAnimation("GroupInfoEnable")
     local groupInfo = XFubenBossSingleConfigs.GetBossSingleGroupById(groupId)
     self.TxtGroupName.text = groupInfo.GroupName
-
-    self.TxtInfo.gameObject:SetActiveEx(XDataCenter.FubenBossSingleManager.IsInLevelTypeExtreme())
 
     for _, grid in pairs(self.GridBosList) do
         grid.gameObject:SetActiveEx(false)

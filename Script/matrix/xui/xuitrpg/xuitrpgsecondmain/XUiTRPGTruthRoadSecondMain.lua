@@ -1,5 +1,5 @@
 local Object
-
+local XUiPanelStoryJump = require("XUi/XUiFubenMainLineChapter/XUiPanelStoryJump")
 local XUiTRPGTruthRoadSecondMainStages = require("XUi/XUiTRPG/XUiTRPGSecondMain/XUiTRPGTruthRoadSecondMainStages")
 
 --常规主线的关卡界面
@@ -29,14 +29,17 @@ function XUiTRPGTruthRoadSecondMain:OnStart(secondMainId)
 
     self:OnCheckRedPoint()
     self:InitStagesMap()
+    self:InitPanelStoryJump()
 end
 
 function XUiTRPGTruthRoadSecondMain:OnEnable()
     self:Refresh()
+    self.PanelStoryJump:Refresh(XDataCenter.FubenMainLineManager.TRPGChapterId, XFubenConfigs.ChapterType.MainLine, self.SecondMainId)
 end
 
 function XUiTRPGTruthRoadSecondMain:OnDestroy()
     XEventManager.RemoveEventListener(XEventId.EVENT_TRPG_GET_REWARD, self.OnCheckRedPoint, self)
+
 end
 
 function XUiTRPGTruthRoadSecondMain:InitStagesMap()
@@ -61,6 +64,7 @@ function XUiTRPGTruthRoadSecondMain:AutoAddListener()
     self:RegisterClickEvent(self.BtnMask, self.OnBtnMaskClick)
     self:RegisterClickEvent(self.BtnEnterStory, self.OnBtnEnterStoryClick)
     self:RegisterClickEvent(self.BtnEnterFight, self.OnBtnEnterFightClick)
+
 end
 
 function XUiTRPGTruthRoadSecondMain:OnBtnEnterStoryClick()
@@ -173,4 +177,9 @@ end
 
 function XUiTRPGTruthRoadSecondMain:SetCurrSelectSecondMainStageId(currSelectSecondMainStageId)
     self.CurrSelectSecondMainStageId = currSelectSecondMainStageId
+end
+
+function XUiTRPGTruthRoadSecondMain:InitPanelStoryJump()
+    ---@type XUiPanelStoryJump
+    self.PanelStoryJump = XUiPanelStoryJump.New(self.PanelStoryJumpBottom, self)
 end

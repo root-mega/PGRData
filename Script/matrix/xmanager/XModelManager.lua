@@ -4,8 +4,10 @@ local Ui_MODEL_TRANSFORM_PATH = "Client/Ui/UiModelTransform.tab"
 local Ui_SCENE_TRANSFORM_PATH = "Client/Ui/UiSceneTransform.tab"
 local MODEL_TABLE_PATH = "Client/ResourceLut/Model/Model.tab"
 local UIMODEL_TABLE_PATH = "Client/ResourceLut/Model/UIModel.tab"
+local DLC_MODEL_TABLE_PATH = "Client/StatusSyncFight/ResourceLut/Model/Model.tab"
 local SPECIAL_UIMODEL_PATH = "Client/ResourceLut/Model/SpecialUiModel.tab"
 local Ui_MODEL_CAMERA_PATH = "Client/Ui/UiModelCamera.tab"
+local UI_MODEL_NODE_ACTIVE_PATH = "Client/Ui/UiModelBoneActive.tab"
 local XEquipModel = require("XEntity/XEquip/XEquipModel")
 local Vector3 = CS.UnityEngine.Vector3
 
@@ -55,10 +57,11 @@ XModelManager.MODEL_UINAME = {
     XUiSameColorGameBattle = "UiSameColorGameBattle",
     XUiSuperSmashBrosCharacter = "UiSuperSmashBrosCharacter",
     XUiAreaWarBoss = "UiAreaWarBoss",
-    XUiReviewActivity = "UiReviewActivity",
+    UiReviewActivityAnniversary = "UiReviewActivityAnniversary",
     XUiConsumeActivityLuckyBag = "UiConsumeActivityLuckyBag",
     XUiGoldenMinerMain3D = "UiGoldenMinerMain3D",
     XUiMultiDimMain = "UiMultiDimMain",
+    UiBrilliantWalkMain = "UiBrilliantWalkMain",
 }
 
 --local RoleModelPool = {} --保存模型
@@ -67,14 +70,17 @@ local UiModelCameraTemplates = {} -- Ui模型相机配置表
 local UiSceneTransformTemplates = {} -- Ui模型位置配置表
 local ModelTemplates = {} -- 模型相关配置
 local UIModelTemplates = {} -- UI模型相关配置
+local DlcModelTemplates = {} --Dlc 模型
 local SpecialUiModel = {}
 local LuaBehaviourDict = {} -- 武器生命周期对象
 local CameraDefaultDic = {} -- 相机默认参数字典
+local UiModelNodeActiveMap = {} --uiName + modelId -> Id
 
 --角色Model配置表
 function XModelManager.Init()
     ModelTemplates = XTableManager.ReadByStringKey(MODEL_TABLE_PATH, XTable.XTableModel, "Id")
     UIModelTemplates = XTableManager.ReadByStringKey(UIMODEL_TABLE_PATH, XTable.XTableUiModel, "Id")
+    DlcModelTemplates = XTableManager.ReadByStringKey(DLC_MODEL_TABLE_PATH, XTable.XTableUiModel, "Id")
     local specialModels = XTableManager.ReadAllByIntKey(SPECIAL_UIMODEL_PATH, XTable.XTableSpecialUiModel, "Id")
     for _, cfg in pairs( (specialModels or {})) do
         if not SpecialUiModel[cfg.ModelId] then
@@ -116,11 +122,20 @@ function XModelManager.Init()
         end
         table.insert(UiModelCameraTemplates[config.UiName][config.ModelName], config)
     end
+
+    UiModelNodeActiveMap = {}
+    local uiModelNodeActive = XTableManager.ReadByIntKey(UI_MODEL_NODE_ACTIVE_PATH, XTable.XTableUiModelBoneActive, "Id")
+    for _, template in pairs(uiModelNodeActive) do
+        local uiName, modelId = template.UiName, template.ModelName
+        UiModelNodeActiveMap[uiName] = UiModelNodeActiveMap[uiName] or {}
+        UiModelNodeActiveMap[uiName][modelId] = template
+    end
 end
 
 local function GetUiModelConfig(modelId)
     local config = UIModelTemplates[modelId]--UI模型配置
     or ModelTemplates[modelId]--战斗模型配置（保底配置）
+    or DlcModelTemplates[modelId] --DLC模型
     if not config then
         XLog.Error("XModelManager GetUiModelConfig error: 模型配置不存在, modelId: " .. modelId .. " ,配置路径: " .. UIMODEL_TABLE_PATH)
         return
@@ -195,6 +210,38 @@ function XModelManager.GetMinorModelId(modelId, uiName)
     return nil
 end
 
+--- 处理Ui模型上节点的显隐
+---@param uiName string
+---@param modelId string
+---@param model UnityEngine.GameObject
+--------------------------
+function XModelManager.HandleUiModelNodeActive(uiName, modelId, model)
+    if XTool.UObjIsNil(model) then
+        return
+    end
+    local map = UiModelNodeActiveMap[uiName]
+    if XTool.IsTableEmpty(map) then
+        return
+    end
+    local template = map[modelId]
+    if not template then
+        return
+    end
+    local hideNodes, showNodes = template.HideNodes, template.ShowNodes
+    
+    local function setActive(nodes, active) 
+        nodes = nodes or {}
+        for _, name in ipairs(nodes) do
+            local go = model:FindTransform(name)
+            if not XTool.UObjIsNil(go) then
+                go.gameObject:SetActiveEx(active)
+            end
+        end
+    end
+    setActive(hideNodes, false)
+    setActive(showNodes, true)
+end
+
 ------UI调用 begin --------
 function XModelManager.GetUiModelPath(modelId)
     local config = GetUiModelConfig(modelId)
@@ -233,14 +280,21 @@ function XModelManager.GetLowModelPath(modelId)
     return config.LowModelPath
 end
 
-function XModelManager.GetControllerPath(modelId)
+function XModelManager.GetControllerPath(modelId, level)
     local config = GetModelConfig(modelId)
+    if level and level > 0 then
+        if config.LevelControllerPath and config.LevelControllerPath[level] then
+            return config.LevelControllerPath[level]
+        else
+            XLog.Error("Model:" .. modelId .. " doesnt has levelController:" .. level .." please check Client\\ResourceLut\\Model\\Model.tab")
+        end
+    end
     return config.ControllerPath
 end
 ------战斗C#调用 end --------
 function XModelManager.GetRoleModelConfig(uiName, modelName)
     if not uiName or not modelName then
-        XLog.Error("XModelManager.GetRoleMoadelConfig 函数错误: 参数uiName和modelName都不能为空")
+        XLog.Error("XModelManager.GetRoleModelConfig 函数错误: 参数uiName和modelName都不能为空")
         return
     end
 
@@ -251,7 +305,7 @@ end
 
 function XModelManager.GetRoleCameraConfigList(uiName, modelName)
     if not uiName or not modelName then
-        XLog.Error("XModelManager.GetRoleMoadelConfig 函数错误: 参数uiName和modelName都不能为空")
+        XLog.Error("XModelManager.GetRoleCameraConfigList 函数错误: 参数uiName和modelName都不能为空")
         return
     end
 
@@ -319,9 +373,62 @@ local setModelCamera = function(target, config)
     if not target or not config then
         return
     end
+    
+    if config.FieldOfView > 0 then
+        ---@type Cinemachine.CinemachineVirtualCamera
+        local virtualCamera = target.gameObject:GetComponent("CinemachineVirtualCamera")
+        if XTool.UObjIsNil(virtualCamera) then
+            XLog.Error(string.format("未能找到虚拟相机组件, 相机名：%s 模型名：%s", target.gameObject.name, config.ModelName))
+        else
+            local newLens = virtualCamera.m_Lens
+            newLens.FieldOfView = config.FieldOfView
+            virtualCamera.m_Lens = newLens
+        end
+    end
 
     target.transform.localPosition = CS.UnityEngine.Vector3(config.PositionX, config.PositionY, config.PositionZ)
     target.transform.localEulerAngles = CS.UnityEngine.Vector3(config.RotationX, config.RotationY, config.RotationZ)
+end
+
+--- 复原虚拟相机设置
+---@param target UnityEngine.GameObject 虚拟相机节点
+---@param position UnityEngine.Vector3 相机位置
+---@param rotation UnityEngine.Quaternion 相机旋转四元数
+---@param fov number 视角大小
+--------------------------
+local restoreCamera = function(target, position, rotation, fov, eulerAngles)
+    if XTool.UObjIsNil(target) then
+        return
+    end
+
+    target.transform.position = position
+    target.transform.rotation = rotation
+    target.transform.rotation.eulerAngles = eulerAngles
+    local virtualCamera = target.gameObject:GetComponent("CinemachineVirtualCamera")
+    if XTool.UObjIsNil(virtualCamera) then
+        return
+    end
+    
+    local newLens = virtualCamera.m_Lens
+    newLens.FieldOfView = fov
+    virtualCamera.m_Lens = newLens
+end
+
+--- 获取虚拟相机的视角大小
+---@param target UnityEngine.GameObject 虚拟相机节点
+---@return number
+--------------------------
+local getVirtualCameraFov = function(target)
+    if XTool.UObjIsNil(target) then
+        return
+    end
+    
+    local virtualCamera = target.gameObject:GetComponent("CinemachineVirtualCamera")
+    if XTool.UObjIsNil(virtualCamera) then
+        return
+    end
+    
+    return virtualCamera.m_Lens.FieldOfView
 end
 
 function XModelManager.SetSceneTransform(sceneUrl, target, uiName)
@@ -359,16 +466,23 @@ function XModelManager.SetRoleTransform(name, target, uiName)
     setModeTransform(target, config)
 end
 
+---@type table<string, UnityEngine.Transform>
+local curCamRoot = { }
 function XModelManager.SetRoleCamera(name, cameraRoot, uiName)
-    if not uiName then
+    if not uiName or XTool.UObjIsNil(cameraRoot) then
         return
+    end
+
+    -- 标记场景有没有重载，如果镜头节点重载了重置默认镜头参数
+    if XTool.UObjIsNil(curCamRoot[uiName]) then
+        curCamRoot[uiName] = cameraRoot
+        CameraDefaultDic[uiName] = nil
     end
 
     for cameraName, cameraDefault in pairs(CameraDefaultDic[uiName] or {}) do
         local camera = cameraRoot:FindTransform(cameraName)
         if camera then
-            camera.transform.position = cameraDefault.Position
-            camera.transform.rotation = cameraDefault.Rotation
+            restoreCamera(camera, cameraDefault.Position, cameraDefault.Rotation, cameraDefault.VirtualFov, cameraDefault.EulerAngles)
         end
     end
     CameraDefaultDic[uiName] = nil
@@ -386,6 +500,8 @@ function XModelManager.SetRoleCamera(name, cameraRoot, uiName)
                 CameraDefaultDic[uiName][config.CameraName] = {
                     Position = camera.transform.position,
                     Rotation = camera.transform.rotation,
+                    EulerAngles = camera.transform.rotation.eulerAngles,
+                    VirtualFov = getVirtualCameraFov(camera)
                 }
             end
             setModelCamera(camera, config)
@@ -401,15 +517,24 @@ function XModelManager.CheckAnimatorAction(animator, actionName)
         return false
     end
 
-    local animationClips = animator.runtimeAnimatorController.animationClips
-    for i = 0, animationClips.Length - 1 do
-        local tempClip = animationClips[i]
-        if tempClip:Exist() and tempClip.name == actionName then
-            return true
-        end
+    -- Animator.Play使用的是状态机里的stateName，而不是资源动作名
+    --local animationClips = animator.runtimeAnimatorController.animationClips
+    --for i = 0, animationClips.Length - 1 do
+    --    local tempClip = animationClips[i]
+    --    if tempClip:Exist() and tempClip.name == actionName then
+    --        return true
+    --    end
+    --end
+    --XLog.Warning(animator.runtimeAnimatorController.name .. "  不存在動作ID：" .. actionName)
+    --return true
+
+    local stateId = CS.UnityEngine.Animator.StringToHash(actionName)
+    local layer = 0
+    if not animator:HasState(layer, stateId) then
+        XLog.Warning(animator.runtimeAnimatorController.name .. "  不存在動作ID：" .. actionName)
+        return false
     end
-    XLog.Warning(animator.runtimeAnimatorController.name .. "  不存在動作ID：" .. actionName)
-    return false
+    return true
 end
 
 --==============================--
@@ -465,7 +590,7 @@ function XModelManager.LoadWeaponModel(modelId, target, transformConfig, uiName,
     -- 旋转逻辑
     if gameObject and not (param and param.noRotation) then
         if (param.IsDragRotation) then
-            XModelManager.DragRotateWeapon(panelDrag, model, modelId, gameObject)
+            XModelManager.DragRotateWeapon(panelDrag, model, modelId, gameObject, nil, nil, param.AntiClockwise)
         else
             XModelManager.AutoRotateWeapon(target, model, modelId, gameObject)
         end
@@ -478,20 +603,20 @@ function XModelManager.LoadWeaponModel(modelId, target, transformConfig, uiName,
     end
 end
 
-function XModelManager.AutoRotateWeapon(target, model, modelId, go)
+function XModelManager.AutoRotateWeapon(target, model, modelId, go, notWeapon, center)
     local equipModelObj = XModelManager.GetOrCreateLuaBehaviour(go)
-    equipModelObj:AutoRotateWeapon(target, model, modelId)
+    equipModelObj:AutoRotateWeapon(target, model, modelId, notWeapon, center)
 end
 
-function XModelManager.DragRotateWeapon(panelDrag, model, modelId, go)
+function XModelManager.DragRotateWeapon(panelDrag, model, modelId, go, notWeapon, center, antiClockwise)
     local equipModelObj = XModelManager.GetOrCreateLuaBehaviour(go)
-    equipModelObj:DragRotateWeapon(panelDrag, model, modelId)
+    equipModelObj:DragRotateWeapon(panelDrag, model, modelId, center, notWeapon, antiClockwise)
 end
 
 -- 播放变形动画及音效
 --  param参数见 XModelManager.LoadWeaponModel
 function XModelManager.PlayWeaponShowing(target, modelId, uiName, go, param)
-
+    
     local usage = param and param.usage or XEquipConfig.WeaponUsage.Show
     local noShowing = param and param.noShowing
     local noSound = param and param.noSound
@@ -608,22 +733,39 @@ end
 --@roleModel: 角色模型
 --@equipModelIdList: 武器模型id列表
 --==============================--
-function XModelManager.LoadRoleWeaponModel(roleModel, equipModelIdList, refName, cb, hideEffect, go, roleModelId)
+function XModelManager.LoadRoleWeaponModel(roleModel, equipModelIdList, refName, cb, hideEffect, go, roleModelId, equipUsage)
     if not roleModel then
         return
     end
 
     local isShowing = (XDataCenter.SetManager.WeaponTransType == XSetConfigs.WeaponTransEnum.Open)
-
+    
+    local newCb = function(model)
+        --新角色，武器同步骨骼
+        local component = model.gameObject:GetComponent(typeof(CS.XBoneTransformSync))
+        if component then
+            component:SetTarget(roleModel.transform)
+        end
+        if cb then cb(model) end
+    end
+    
     local usage = XEquipConfig.WeaponUsage.Role
+
+    if equipUsage and equipUsage > 0 then
+        usage = equipUsage
+    end
+    
     for i = 1, #equipModelIdList do
         local modelId = equipModelIdList[i]
         if modelId then
-            local weaponCase = roleModel.transform.FindTransform(roleModel.transform, "WeaponCase" .. i)
+            local weaponCase = roleModel.transform.FindTransform(roleModel.transform, "WeaponCase" .. i)  
             if not weaponCase then
                 XLog.Warning("XModelManager.LoadRoleWeaponModel warning, " .. "WeaponCase" .. i .. " not found")
             else
-                XModelManager.LoadWeaponModel(modelId, weaponCase, nil, refName, cb, { showEffect = not hideEffect, noShowing = not isShowing, noRotation = true, usage = usage, gameObject = go, noSound = true, roleModelId = roleModelId })
+                XModelManager.LoadWeaponModel(modelId, weaponCase, nil, refName, newCb, {
+                    showEffect = not hideEffect, noShowing = not isShowing, noRotation = true,
+                    usage = usage, gameObject = go, noSound = true, roleModelId = roleModelId
+                })
             end
         end
     end
@@ -642,6 +784,14 @@ function XModelManager.LoadRoleWeaponModelByFight(roleModel, fightNpcData, refNa
 
     local isShowing = (XDataCenter.SetManager.WeaponTransType == XSetConfigs.WeaponTransEnum.Open)
 
+    local newCb = function(model)
+        --新角色，武器同步骨骼
+        local component = model.gameObject:GetComponent(typeof(CS.XBoneTransformSync))
+        if component then
+            component:SetTarget(roleModel.transform)
+        end
+    end
+
     local usage = XEquipConfig.WeaponUsage.Role
     local idList = XDataCenter.EquipManager.GetEquipModelIdListByFight(fightNpcData)
     for i, modelId in ipairs(idList) do
@@ -649,7 +799,7 @@ function XModelManager.LoadRoleWeaponModelByFight(roleModel, fightNpcData, refNa
         if not weaponCase then
             XLog.Warning("XModelManager.LoadRoleWeaponModel warning, " .. "WeaponCase" .. i .. " not found")
         else
-            XModelManager.LoadWeaponModel(modelId, weaponCase, nil, refName, nil, { noShowing = not isShowing, noRotation = true, usage = usage, gameObject = go, noSound = true, roleModelId = roleModelId })
+            XModelManager.LoadWeaponModel(modelId, weaponCase, nil, refName, newCb, { noShowing = not isShowing, noRotation = true, usage = usage, gameObject = go, noSound = true, roleModelId = roleModelId })
         end
     end
 end

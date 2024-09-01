@@ -4,6 +4,7 @@ local XSCBoss = XClass(nil, "XSCBoss")
 function XSCBoss:Ctor(id)
     self.Config = XSameColorGameConfigs.GetBossConfig(id)
     self.MaxScore = 0
+    self.MaxCombo = 0
     -- 该boss最后挑战的角色id
     self.LastRoleId = 0
     -- self.LastRoleSkillIds = {}
@@ -15,7 +16,8 @@ function XSCBoss:Ctor(id)
 end
 
 function XSCBoss:GetLocalSaveKey()
-    return XDataCenter.SameColorActivityManager.GetLocalSaveKey() .. self.Config.Id
+    -- v1.31 三期要求选择角色后每个boss统一角色
+    return XDataCenter.SameColorActivityManager.GetLocalSaveKey() .. "Boss"--self.Config.Id
 end
 
 function XSCBoss:LoadLocalData()
@@ -34,6 +36,7 @@ end
 
 function XSCBoss:InitWithServerData(data)
     self.MaxScore = data.MaxPoint
+    self.MaxCombo = data.MaxCombo or 0
     -- self.LastRoleId = data.LastRoleId or 0
     -- self.LastRoleSkillIds = data.LastRoleSkillId or {}
 end
@@ -42,11 +45,17 @@ function XSCBoss:UpdateMaxScore(value)
     self.MaxScore = math.max(value or 0, self.MaxScore)
 end
 
+function XSCBoss:UpdateMaxCombo(value)
+    self.MaxCombo = math.max(value or 0, self.MaxCombo)
+end
+
 function XSCBoss:GetId()
     return self.Config.Id
 end
 
 function XSCBoss:GetLastRoleId()
+    -- v1.31 三期要求选择角色后每个boss统一角色
+    self:LoadLocalData()
     return self.LastRoleId
 end
 
@@ -62,6 +71,21 @@ end
 -- 获取boss行动点数
 function XSCBoss:GetMaxRound()
     return self.Config.MaxRound
+end
+
+-- 是否回合类型
+function XSCBoss:IsRoundType()
+    return self.Config.MaxRound ~= 0
+end
+
+-- 获取boss行动时间
+function XSCBoss:GetMaxTime()
+    return self.Config.MaxTime
+end
+
+-- 是否时间类型
+function XSCBoss:IsTimeType()
+    return self.Config.MaxTime ~= 0
 end
 
 -- 获取boss全身像图标
@@ -84,6 +108,11 @@ end
 -- 获取最高记录分数
 function XSCBoss:GetMaxScore()
     return self.MaxScore
+end
+
+-- 获取最高记录combo数
+function XSCBoss:GetMaxCombo()
+    return self.MaxCombo
 end
 
 -- 获取分数评级字典
@@ -122,6 +151,14 @@ function XSCBoss:GetIsOpen()
     end
     if not self:GetIsInTime() then
         return false, self:GetOpenTimeStr()
+    end
+
+    if self.Config.PreBossId ~= 0 then
+        local bossManager = XDataCenter.SameColorActivityManager.GetBossManager()
+        local boss = bossManager:GetBoss(self.Config.PreBossId)
+        if not boss:IsPass() then
+            return false, self.Config.PreBossUnlockTips
+        end 
     end
     return self:CheckCondition()
 end
@@ -201,6 +238,10 @@ function XSCBoss:CreateAllSkillList()
     table.sort(self.AllSkillList,function (a, b)
         return a:GetTriggerRound() < b:GetTriggerRound()
     end)
+end
+
+function XSCBoss:IsPass()
+    return self.MaxScore ~= 0
 end
 
 -- function XSCBoss:GetSkillManager()

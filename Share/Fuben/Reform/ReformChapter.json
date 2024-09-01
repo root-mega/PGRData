@@ -1,0 +1,74 @@
+[
+    {
+        "Id": 1,
+        "ChapterDesc": "Material Sourcing",
+        "OpenTime": 28,
+        "Order": 0,
+        "ChapterEventId": 1,
+        "ChapterEventDesc": "A Kuroro will keep summoning enemies into the battle. Defeat it to stop the summoning.",
+        "ChapterStageId": [
+            30162522,
+            30162523
+        ]
+    },
+    {
+        "Id": 2,
+        "ChapterDesc": "Processing",
+        "OpenTime": 28,
+        "Order": 1,
+        "ChapterEventId": 1,
+        "ChapterEventDesc": "Enemies of the same color in the same wave will be enhanced.",
+        "ChapterStageId": [
+            30162524,
+            30162525
+        ]
+    },
+    {
+        "Id": 3,
+        "ChapterDesc": "Cutting",
+        "OpenTime": 28,
+        "Order": 2,
+        "ChapterEventId": 1,
+        "ChapterEventDesc": "The enemy gains high Resistance but lose 2% of Resistance each time when they are damaged (the Resistance can be reduced to negative values).",
+        "ChapterStageId": [
+            30162526,
+            30162527
+        ]
+    },
+    {
+        "Id": 4,
+        "ChapterDesc": "Assembling",
+        "OpenTime": 28,
+        "Order": 3,
+        "ChapterEventId": 1,
+        "ChapterEventDesc": "The more enemies on the battlefield, the higher your Extra DMG Bonus.",
+        "ChapterStageId": [
+            30162528,
+            30162529
+        ]
+    },
+    {
+        "Id": 5,
+        "ChapterDesc": "Checking",
+        "OpenTime": 28,
+        "Order": 4,
+        "ChapterEventId": 1,
+        "ChapterEventDesc": "Enemies come in groups of two. When an enemy is defeated, if their teammate is still alive, they will revive in 45s. (In this chapter, each wave has 2 enemies.)",
+        "ChapterStageId": [
+            30162530,
+            30162531
+        ]
+    },
+    {
+        "Id": 6,
+        "ChapterDesc": "Completion",
+        "OpenTime": 28,
+        "Order": 5,
+        "ChapterEventId": 1,
+        "ChapterEventDesc": "Let's roll!",
+        "ChapterStageId": [
+            30162532,
+            30162533
+        ]
+    }
+]

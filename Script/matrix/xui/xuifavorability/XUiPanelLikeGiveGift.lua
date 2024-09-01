@@ -282,7 +282,7 @@ function XUiPanelLikeGiveGift:OnBtnUseClick()
     local trustLv = XDataCenter.FavorabilityManager.GetCurrCharacterFavorabilityLevel(characterId)
     local curExp = tonumber(XDataCenter.FavorabilityManager.GetCurrCharacterExp(characterId))
     local IsDoCommunication = false
-    local IsGivenItem = XDataCenter.FavorabilityManager.IsInGivenItemCharacterIdList(characterId)
+    
     local args = {}
 
     args.CharacterId = characterId
@@ -319,7 +319,12 @@ function XUiPanelLikeGiveGift:OnBtnUseClick()
         XDataCenter.FavorabilityManager.OnSendCharacterGift(args, function()
             self.ParentUi:DoFillAmountTween(trustLv, curExp, addExp)
             self:RefreshDatas()
-            if IsOpen and IsDoCommunication and not IsGivenItem then
+            local isActive = IsOpen and IsDoCommunication
+            local IsGivenItem = true
+            if isActive then
+                IsGivenItem = XDataCenter.FavorabilityManager.IsInGivenItemCharacterIdList(characterId)
+            end
+            if isActive and not IsGivenItem then
                 XDataCenter.CommunicationManager.ShowItemCommunication(args.CharacterId)
                 XDataCenter.FavorabilityManager.AddGivenItemCharacterId(args.CharacterId)
             end
@@ -329,13 +334,16 @@ function XUiPanelLikeGiveGift:OnBtnUseClick()
             else
                 text = CS.XTextManager.GetText("FavorabilityAddExp", tostring(args.CharacterName), addExp)
             end
-            XUiManager.TipMsg(text)
+            XUiManager.TipMsg(text, nil, function()
+                XEventManager.DispatchEvent(XEventId.EVENT_CHARACTER_TOWER_CONDITION_LISTENING, XFubenCharacterTowerConfigs.ListeningType.Favorability, { CharacterId = characterId })
+            end)
         end)
     end
 
     local isMaxLevel = self:ChekCharacterIsMaxLevel()
 
     if IsDoCommunication and IsOpen then
+        local IsGivenItem = XDataCenter.FavorabilityManager.IsInGivenItemCharacterIdList(characterId)
         if IsGivenItem and isMaxLevel then
             XUiManager.TipText("GivenAndOverGiftText")
             return

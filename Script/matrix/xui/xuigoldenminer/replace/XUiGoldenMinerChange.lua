@@ -1,6 +1,7 @@
 local XUiReplaceGrid = require("XUi/XUiGoldenMiner/Replace/XUiReplaceGrid")
 
---黄金矿工更换成员界面
+---黄金矿工更换成员界面
+---@class XUiGoldenMinerChange : XLuaUi
 local XUiGoldenMinerChange = XLuaUiManager.Register(XLuaUi, "UiGoldenMinerChange")
 
 function XUiGoldenMinerChange:OnAwake()
@@ -17,18 +18,28 @@ end
 
 function XUiGoldenMinerChange:OnEnable()
     self.CurSelectGrid = nil
-    self.DynamicTable:ReloadDataSync()
+    self:UpdateDynamicList()
 end
 
+function XUiGoldenMinerChange:OnDisable()
+    XDataCenter.GoldenMinerManager.ClearAllNewRoleTag()
+end
+
+--region Ui - CharacterGrid DynamicTable
 function XUiGoldenMinerChange:InitDynamicList()
-    self.CharacterIdList = XDataCenter.GoldenMinerManager.GetCharacterIdList()
     self.DynamicTable = XDynamicTableNormal.New(self.PanelScrollView)
     self.DynamicTable:SetProxy(XUiReplaceGrid)
     self.DynamicTable:SetDelegate(self)
-    self.DynamicTable:SetDataSource(self.CharacterIdList)
     self.GridCharacterNew.gameObject:SetActiveEx(false)
 end
 
+function XUiGoldenMinerChange:UpdateDynamicList()
+    self.CharacterIdList = XDataCenter.GoldenMinerManager.GetCharacterIdList()
+    self.DynamicTable:SetDataSource(self.CharacterIdList)
+    self.DynamicTable:ReloadDataSync()
+end
+
+---@param grid XUiReplaceGrid
 function XUiGoldenMinerChange:OnDynamicTableEvent(event, index, grid)
     if event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_ATINDEX then
         grid.RootUi = self.RootUi
@@ -43,15 +54,18 @@ function XUiGoldenMinerChange:OnDynamicTableEvent(event, index, grid)
         local characterId = self.CharacterIdList[index]
         if not XDataCenter.GoldenMinerManager.IsCharacterUnLock(characterId) then
             local conditionId = XGoldenMinerConfigs.GetCharacterCondition(characterId)
-            local isOpen, desc = XConditionManager.CheckCondition(conditionId)
+            local isOpen, desc = XConditionManager.CheckCondition(conditionId, characterId)
             XUiManager.TipError(desc)
             return
         end
-
-        if not self.CurSelectGrid or self:IsCurSelectCharacter(characterId) then
+        
+        XDataCenter.GoldenMinerManager.ClearNewRoleTag(characterId)
+        if self:IsCurSelectCharacter(characterId) then
             return
         end
-        self.CurSelectGrid:SetSelectActive(false)
+        if self.CurSelectGrid then
+            self.CurSelectGrid:SetSelectActive(false)
+        end
         grid:SetSelectActive(true)
         self.CurSelectGrid = grid
         self.UseCharacterId = grid:GetCharacterId()
@@ -64,7 +78,10 @@ end
 function XUiGoldenMinerChange:IsCurSelectCharacter(characterId)
     return self.UseCharacterId == characterId
 end
+--endregion
 
+
+--region Ui - BtnListener
 function XUiGoldenMinerChange:RegisterButtonEvent()
     self:RegisterClickEvent(self.BtnCancel, self.OnBtnCancelClick)
     self:RegisterClickEvent(self.BtnChange, self.OnBtnChangeClick)
@@ -83,3 +100,4 @@ function XUiGoldenMinerChange:OnBtnCancelClick()
         self.CloseCb()
     end
 end
+--endregion

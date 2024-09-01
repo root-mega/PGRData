@@ -23,8 +23,8 @@ end
 -- 先分类后排序
 function XUiPurchaseCoatingLB:OnSortFun(data)
     self.SellOutList = {}--买完了
+    self.SellHaveList = {}--已拥有
     self.SellingList = {}--在上架中
-    self.SellOffList = {}--下架了
     self.SellWaitList = {}--待上架中
     self.ListData = {}
 
@@ -32,11 +32,13 @@ function XUiPurchaseCoatingLB:OnSortFun(data)
     for _,v in pairs(data)do
         if v and not v.IsSelloutHide then
             if v.TimeToUnShelve > 0 and v.TimeToUnShelve <= nowTime then--下架了
-                table.insert(self.SellOffList,v)
+                --不显示
             elseif v.TimeToShelve > 0 and v.TimeToShelve > nowTime then--待上架中
                 table.insert(self.SellWaitList,v)
             elseif v.BuyTimes > 0 and v.BuyLimitTimes > 0 and v.BuyTimes >= v.BuyLimitTimes then--买完了
                 table.insert(self.SellOutList,v)
+            elseif XDataCenter.PurchaseManager.IsLBHave(v) then--已拥有
+                table.insert(self.SellHaveList,v)
             else                                                       --在上架中,还能买。
                 table.insert(self.SellingList,v)
             end
@@ -67,18 +69,23 @@ function XUiPurchaseCoatingLB:OnSortFun(data)
         end
     end
 
-    --下架了
-    if Next(self.SellOffList) then
-        table.sort(self.SellOffList, XUiPurchaseCoatingLB.SortByPriority)
-        for _,v in pairs(self.SellOffList) do
+    --已拥有
+    if Next(self.SellHaveList) then
+        table.sort(self.SellHaveList, XUiPurchaseCoatingLB.SortByPriority)
+        for _,v in pairs(self.SellHaveList) do
             table.insert(self.ListData, v)
         end
     end
-
 end
 
 function XUiPurchaseCoatingLB.SortByPriority(a,b)
-    return a.Priority < b.Priority
+    if a.Priority < b.Priority then
+        return true
+    elseif a.Priority > b.Priority then
+        return false
+    elseif a.Priority == b.Priority then
+        return a.Id < b.Id
+    end
 end
 
 function XUiPurchaseCoatingLB:StartLBTimer()
@@ -210,10 +217,13 @@ function XUiPurchaseCoatingLB:OpenUiView(data)
 	    local disCountValue = XDataCenter.PurchaseManager.GetLBDiscountValue(data)
             
 	    local buyData = {}
-        -- 全部拥有才算购买过该礼包
-	    buyData.IsHave = XRewardManager.CheckRewardGoodsListIsOwnWithAll(data.RewardGoodsList)
-	    buyData.ItemIcon = XDataCenter.ItemManager.GetItemIcon(data.ConsumeId)
-	    buyData.ItemCount = math.modf(data.ConsumeCount * disCountValue)
+        --buyData.IsHave = XDataCenter.PurchaseManager.IsLBHave(data)
+        if data.BuyLimitTimes and data.BuyLimitTimes > 0 and data.BuyTimes == data.BuyLimitTimes then
+            buyData.IsHave = true
+        else
+            buyData.IsHave = XRewardManager.CheckRewardGoodsListIsOwnWithAll(data.RewardGoodsList)
+        end
+	    buyData.ItemCount = math.modf(data.ConvertSwitch * disCountValue)
 	    buyData.BuyCallBack = function() self:FashionDetailBuyCB() end
         buyData.FashionLabel = data.FashionLabel
         -- v1.28-采购优化-赠品队列过滤涂装
@@ -224,6 +234,8 @@ function XUiPurchaseCoatingLB:OpenUiView(data)
             end
         end
         buyData.GiftRewardId = #graftRewartdIds > 0 and graftRewartdIds or nil
+        -- v1.31折价礼包拥有一部分之后，ConvertSwitch会小于ConsumeCount
+        buyData.IsConvert = data.ConvertSwitch < data.ConsumeCount
 	    XLuaUiManager.Open("UiFashionDetail", templateId, isWeaponFashion, buyData)
 	else
         XLuaUiManager.Open("UiPurchaseBuyTips", data, self.CheckBuyFun, self.UpdateCb, self.BeforeBuyReqFun, XPurchaseConfigs.GetLBUiTypesList())
@@ -258,27 +270,27 @@ function XUiPurchaseCoatingLB:CheckBuy(count, disCountCouponIndex)
 
     if self.CurData.BuyLimitTimes > 0 and self.CurData.BuyTimes == self.CurData.BuyLimitTimes then --卖完了，不管。
         XUiManager.TipText("PurchaseLiSellOut")
-        return false
+        return 0
     end
 
     if self.CurData.TimeToShelve > 0 and self.CurData.TimeToShelve > XTime.GetServerNowTimestamp() then --没有上架
         XUiManager.TipText("PurchaseBuyNotSet")
-        return false
+        return 0
     end
 
     if self.CurData.TimeToUnShelve > 0 and self.CurData.TimeToUnShelve < XTime.GetServerNowTimestamp() then --下架了
         XUiManager.TipText("PurchaseSettOff")
-        return false
+        return 0
     end
 
     if self.CurData.TimeToInvalid > 0 and self.CurData.TimeToInvalid < XTime.GetServerNowTimestamp() then --失效了
         XUiManager.TipText("PurchaseSettOff")
-        return false
+        return 0
     end
 
     if self.CurData.ConsumeCount > 0 and self.CurData.ConvertSwitch <= 0 then -- 礼包内容全部拥有
         XUiManager.TipText("PurchaseRewardAllHaveErrorTips")
-        return false
+        return 0
     end
 
     local consumeCount = self.CurData.ConsumeCount
@@ -297,18 +309,22 @@ function XUiPurchaseCoatingLB:CheckBuy(count, disCountCouponIndex)
     end
 
     if consumeCount > 0 and consumeCount > XDataCenter.ItemManager.GetCount(self.CurData.ConsumeId) then --钱不够
-        local name = XDataCenter.ItemManager.GetItemName(self.CurData.ConsumeId) or ""
-        local tips = CSXTextManagerGetText("PurchaseBuyKaCountTips", name)
+        -- local name = XDataCenter.ItemManager.GetItemName(self.CurData.ConsumeId) or ""
+        -- local tips = CSXTextManagerGetText("PurchaseBuyKaCountTips", name)
+        if XUiHelper.CanBuyInOtherPlatformHongKa(consumeCount) then
+            return 2
+        end
+        local tips = XUiHelper.GetCountNotEnoughTips(self.CurData.ConsumeId)
         XUiManager.TipMsg(tips,XUiManager.UiTipType.Wrong)
         if self.CurData.ConsumeId == XDataCenter.ItemManager.ItemId.PaidGem then
             self.CallBack(XPurchaseConfigs.TabsConfig.HK)
         elseif self.CurData.ConsumeId == XDataCenter.ItemManager.ItemId.HongKa then
             self.CallBack(XPurchaseConfigs.TabsConfig.Pay)
         end
-        return false
+        return 0
     end
 
-    return true
+    return 1
 end
 
 function XUiPurchaseCoatingLB:CheckIsOpenBuyTips(successCb)

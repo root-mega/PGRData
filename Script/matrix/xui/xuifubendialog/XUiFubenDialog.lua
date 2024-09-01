@@ -107,3 +107,11 @@ function XUiFubenDialog:CancelBtnClick()
     self.OkCallBack = nil
     self.CancelCallBack = nil
 end
+
+function XUiFubenDialog:OnEnable()
+
+end
+
+function XUiFubenDialog:OnDisable()
+
+end

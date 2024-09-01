@@ -79,7 +79,24 @@ function XUiRpgMakerGamePlayScene:Init()
 end
 
 function XUiRpgMakerGamePlayScene:InitCamera()
-    self.Camera = self.GameObject.transform:Find("Camera"):GetComponent("Camera")
+    --镜头角度与地图适配
+    local row = XRpgMakerGameConfigs.GetRpgMakerGameRow(self:GetMapId())
+    local cameras = {}
+    for i = 8, 10, 1 do
+        local cameraName = "Camera" .. i
+        local camera = self.GameObject.transform:Find(cameraName)
+        if not XTool.UObjIsNil(camera) then
+            table.insert(cameras, camera)
+            if i == row then
+                self.Camera = camera:GetComponent("Camera")
+            end
+            camera.gameObject:SetActiveEx(false)
+        end
+    end
+    if XTool.UObjIsNil(self.Camera) then
+        self.Camera = self.GameObject.transform:Find("Camera"):GetComponent("Camera")
+    end
+    self.Camera.gameObject:SetActiveEx(true)
     self.PhysicsRaycaster = self.Camera.gameObject:AddComponent(typeof(CS.UnityEngine.EventSystems.PhysicsRaycaster))
 end
 

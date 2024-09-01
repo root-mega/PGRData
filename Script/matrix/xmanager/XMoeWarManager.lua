@@ -309,7 +309,7 @@ XMoeWarManagerCreator = function()
 	end
 	
 	function MoeWarManager.NotifyMoeWarVoteShowChange(data)
-		if not data then return end
+		if not data or not CurMatchEntity then return end
 		CurMatchEntity:UpdateInfo(data.Match)
 		CsXGameEventManager.Instance:Notify(XEventId.EVENT_MOE_WAR_UPDATE)
 	end

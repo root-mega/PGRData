@@ -15,8 +15,8 @@ function XUiPanelPlayerInfoEx:Ctor(uiPrefab, rootUi)
     self:InitAutoScript()
     self.PlayAnimation = function(s, ...) rootUi:PlayAnimation(...) end
     self.ShowSetting = function() rootUi:ShowSetting() end
-    self.PanelSetNameInst = XUiPanelSetName.New(self.PanelSetName, self)
-    self.PanelSetBirthdayInst = XUiPanelSetBirthday.New(self.PanelSetBirthday, self)
+    self.PanelSetNameInst = XUiPanelSetName.New(self.PanelSetName.gameObject, self)
+    self.PanelSetBirthdayInst = XUiPanelSetBirthday.New(self.PanelSetBirthday.gameObject, self)
     self.PanelSetHeadPortraitInst = XUiPanelSetHeadPortrait.New(self.PanelSetHeadPortrait, self)
 
     self.DefaultText = CS.XTextManager.GetText("CharacterSignTip")
@@ -161,13 +161,15 @@ function XUiPanelPlayerInfoEx:AutoAddListener()
     self.BtnFeedback.CallBack = function() self:OnBtnFeedbackClick() end
     self.BtnServerInfo.CallBack = function() self:SetPanelServerInfoShow(true) end
     self.BtnCloseServerInfo.CallBack = function() self:SetPanelServerInfoShow(false) end
-    self:RegisterClickEvent(self.BtnDetails, self.OnBtnDetailsClick)
     --self.BtnExhibition.gameObject:SetActiveEx(not XFunctionManager.CheckFunctionFitter(XFunctionManager.FunctionName.CharacterExhibition))
     --self.BtnArchive.gameObject:SetActiveEx(not XFunctionManager.CheckFunctionFitter(XFunctionManager.FunctionName.Archive))
     if XUiManager.IsHideFunc then
+        self.BtnDetails.gameObject:SetActiveEx(false)
         self.BtnAchievement.gameObject:SetActiveEx(false)
         self.BtnExhibition.gameObject:SetActiveEx(false)
         self.BtnArchive.gameObject:SetActiveEx(false)
+    else
+        self:RegisterClickEvent(self.BtnDetails, self.OnBtnDetailsClick)
     end
 end
 -- auto
@@ -215,6 +217,8 @@ end
 
 function XUiPanelPlayerInfoEx:OnBtnSignCancelClick()
     if self.PanelSetSign ~= nil then
+        XDataCenter.UiPcManager.RemoveCustomUI(self.PanelSetSign.gameObject)
+        XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
         self.PanelSetSign.gameObject:SetActiveEx(false)
     end
 end
@@ -229,11 +233,13 @@ function XUiPanelPlayerInfoEx:OnBtnRoleHeadImgClick()
     end
     self.PanelSetHeadPortrait.gameObject:SetActiveEx(true)
     self.PanelSetHeadPortraitInst:Reset()
+    self.PanelSetHeadPortraitInst:OnEnable()
     self:PlayAnimation("SetHeadPotraitEnable")
 end
 
 function XUiPanelPlayerInfoEx:OnBtnBirModifyClick()
-    self.PanelSetBirthday.gameObject:SetActiveEx(true)
+    self.PanelSetBirthdayInst:AddPcListener()
+    self.PanelSetBirthdayInst.GameObject:SetActiveEx(true)
     self:PlayAnimation("SetBirthdayEnable")
 end
 
@@ -250,11 +256,14 @@ function XUiPanelPlayerInfoEx:OnBtnCopyClick()
 end
 
 function XUiPanelPlayerInfoEx:OnBtnNameClick()
+    self.PanelSetNameInst:AddPcListener()
     self.PanelSetNameInst.GameObject:SetActiveEx(true)
     self:PlayAnimation("SetNameEnable")
 end
 
 function XUiPanelPlayerInfoEx:OnBtnSignClick()
+    --XDataCenter.UiPcManager.AddCustomUI(self.PanelSetSign.gameObject)
+    XDataCenter.UiPcManager.OnUiEnable(self, "OnBtnSignCancelClick")
     self.PanelSetSign.gameObject:SetActiveEx(true)
     self.InFSigm.text = ""
     self:PlayAnimation("SetSignEnable")
@@ -341,18 +350,34 @@ function XUiPanelPlayerInfoEx:OnBtnGenghuanClick()
 end
 
 function XUiPanelPlayerInfoEx:OnBtnFeedbackClick()
-    if FeedBackUrl and FeedBackUrl ~= "" then
-        local playerName = CSNetWebRequest.EscapeURL(XPlayer.Name)
-        local playerId = CSNetWebRequest.EscapeURL(tostring(XPlayer.Id))
-        local documentVersion = CSNetWebRequest.EscapeURL(tostring(CS.XRemoteConfig.DocumentVersion))
-        local os = CSNetWebRequest.EscapeURL(tostring(CS.UnityEngine.SystemInfo.operatingSystem))
-        local device = CSNetWebRequest.EscapeURL(tostring(CS.UnityEngine.SystemInfo.deviceModel))
-        local resStr = "%s?playerName=%s&playerId=%s&type=%s&os=%s&documentVersion=%s"
-        local targetUrl = string.format(resStr, FeedBackUrl, playerName, playerId, device, os, documentVersion)
-        targetUrl = string.gsub(targetUrl, "+", ".")
-        XLog.Debug(targetUrl)
-        CS.UnityEngine.Application.OpenURL(targetUrl)
+    -- if FeedBackUrl and FeedBackUrl ~= "" then
+    --     local playerName = CSNetWebRequest.EscapeURL(XPlayer.Name)
+    --     local playerId = CSNetWebRequest.EscapeURL(tostring(XPlayer.Id))
+    --     local documentVersion = CSNetWebRequest.EscapeURL(tostring(CS.XRemoteConfig.DocumentVersion))
+    --     local os = CSNetWebRequest.EscapeURL(tostring(CS.UnityEngine.SystemInfo.operatingSystem))
+    --     local device = CSNetWebRequest.EscapeURL(tostring(CS.UnityEngine.SystemInfo.deviceModel))
+    --     local serverId = CS.XHeroBdcAgent.ServerId
+    --     local resStr = "%s?source=%s&game_id=%s&language=%s&channel_id=%s&channel_name=%s"
+    --     local temp = string.format("playerName:%sldevice:%s", playerName, device)
+    --     local targetUrl = string.format(resStr, FeedBackUrl, "url", "G143", "ja", playerId, temp)
+    --     targetUrl = string.gsub(targetUrl, "+", ".")
+    --     XLog.Debug(targetUrl)
+    --     CS.UnityEngine.Application.OpenURL(targetUrl)
+    -- end
+    local customerServiceUrl = "https://web-static.kurogame.net/shared/cs/index.html"
+    local token = XUserManager.Token or ""
+    if customerServiceUrl then
+        local loginUrl = customerServiceUrl .. 
+        "?from=" .. XEnumConst.FeedBackType.From.Unknown ..
+        "&game_id=" .. "G143" ..
+        "&language=" .. "en" ..
+        "&isLogin=" .. "0" .. 
+        "role_id=" .. XPlayer.Id ..
+        "server_id=" .. XServerManager.Id
+        XLog.Debug(loginUrl);
+        CS.UnityEngine.Application.OpenURL(loginUrl)
     end
+
 end
 
 function XUiPanelPlayerInfoEx:ChangeSignCallback()
@@ -362,6 +387,8 @@ function XUiPanelPlayerInfoEx:ChangeSignCallback()
         self:SetSign(XPlayer.Sign)
     end
     if self.PanelSetSign.gameObject ~= nil then
+        XDataCenter.UiPcManager.RemoveCustomUI(self.PanelSetSign.gameObject)
+        XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
         self.PanelSetSign.gameObject:SetActiveEx(false)
     end
 end
@@ -373,11 +400,13 @@ function XUiPanelPlayerInfoEx:ChangeNameCallback()
 end
 
 function XUiPanelPlayerInfoEx:HidePanelSetName()
+    self.PanelSetNameInst:RemovePcListener()
     self.PanelSetNameInst.GameObject:SetActiveEx(false)
 end
 
 function XUiPanelPlayerInfoEx:HidePanelSetHeadPortrait()
     self.PanelSetHeadPortrait.gameObject:SetActiveEx(false)
+    self.PanelSetHeadPortraitInst:OnDisable()
     XUiPLayerHead.InitPortrait(XPlayer.CurrHeadPortraitId, XPlayer.CurrHeadFrameId, self.Head)
 end
 
@@ -387,7 +416,8 @@ function XUiPanelPlayerInfoEx:ChangeBirthdayCallback()
 end
 
 function XUiPanelPlayerInfoEx:HidePanelSetBirthday()
-    self.PanelSetBirthday.gameObject:SetActiveEx(false)
+    self.PanelSetBirthdayInst:RemovePcListener()
+    self.PanelSetBirthdayInst.GameObject:SetActiveEx(false)
 end
 
 function XUiPanelPlayerInfoEx:OnDestroy()

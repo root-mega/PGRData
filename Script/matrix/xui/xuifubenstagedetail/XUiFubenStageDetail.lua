@@ -34,6 +34,11 @@ function XUiFubenStageDetail:OnEnable()
     self:UpdateRepeatChallenge()
     self:UpdateDifficulty()
     self:UpdateStageFightControl()--更新战力限制提示
+
+end
+
+function XUiFubenStageDetail:OnDisable()
+
 end
 
 -- auto

@@ -31,7 +31,7 @@ function XUiGridResonanceSkillOther:AutoInitUi()
     self.PanelBindCharacter = XUiHelper.TryGetComponent(self.Transform, "PanelBindCharacter", nil)
     self.RImgHead = XUiHelper.TryGetComponent(self.Transform, "PanelBindCharacter/RImgHead", "RawImage")
     self.RImgResonanceSkill = XUiHelper.TryGetComponent(self.Transform, "RImgResonanceSkill", "RawImage")
-
+    self.ImgNotResonance = XUiHelper.TryGetComponent(self.Transform, "ImgNotResonance", "Image")
     self.BtnClick = XUiHelper.TryGetComponent(self.Transform, "BtnClick", "Button")
 end
 

@@ -404,21 +404,22 @@ end
 local function AddServerFunction()
     local version = 0
     Panel:AddInput(
-        "版本号数字",
+        CS.XInfo.Version,
         function(value)
-            version = tonumber(value) or 0
+            version = value
         end
     )
     Panel:AddButton(
         "改版本号",
         function()
-            local newVersion = string.format("1.%d.0", version)
+            local reset = version == ""
+            local newVersion = reset and CS.XInfo.Version or version
             CS.XRemoteConfig.SetVersion(newVersion)
             UpdateVersionInfo()
-            if version == 0 then
-                XUiManager.TipMsgEnqueue("版本号被改为" .. newVersion .. '主干。如需切换到分支，输入单个数字即可，例如输入20表示"1.20分支"')
+            if newVersion == "1.0.0" then
+                XUiManager.TipMsgEnqueue("版本号被改为" .. newVersion .. '主干!(主干1.0.0，或不填重置)')
             else
-                XUiManager.TipMsgEnqueue("版本号被改为" .. newVersion .. "分支。如需切换到主干，输入0即可")
+                XUiManager.TipMsgEnqueue("版本号被改为" .. newVersion .. "分支!(主干1.0.0，或不填重置)")
             end
         end
     )
@@ -570,6 +571,33 @@ local function AddDebugUse()
     Panel:AddButton("还原镜头刷新", function()
         xlua.hotfix(CS.XCamera, 'Update', CS.XCamera.Update)
     end)
+    local videoId
+    Panel:AddInput(
+        "VideoId:",
+        function(value)
+            videoId = tonumber(value)
+        end
+    )
+
+    Panel:AddButton(
+        "播放视频",
+        function()
+            if videoId then
+                local fight = CS.XFight.Instance
+                XLog.Debug("PlayVideo " .. (fight and "In Fight" or "") .. ", VideoId:" .. tostring(videoId), type(videoId))
+                if fight then
+                    local uiFightVideoPlayer = fight.UiManager:GetUi(typeof(CS.XUiFightVideoPlayer))
+                    if uiFightVideoPlayer == nil then
+                        fight.UiManager:GetUi(typeof(CS.XUiFight)):OpenChildUi("UiFightVideoPlayer", fight)
+                        uiFightVideoPlayer = fight.UiManager:GetUi(typeof(CS.XUiFightVideoPlayer))
+                    end
+                    uiFightVideoPlayer:PlayVideo(videoId, 0)
+                else
+                    XDataCenter.VideoManager.PlayMovie(videoId, nil, true, true)
+                end
+            end
+        end
+    )
 end
 
 local function AddTestUse()
@@ -582,9 +610,17 @@ local function AddTestUse()
     )
 
     Panel:AddButton(
-        "手动开启引导",
+        "开启引导(强制)",
         function()
             XDataCenter.GuideManager:PlayGuide(guideId)
+        end
+    )
+
+    Panel:AddButton(
+        "开启引导",
+        function()
+            local guide = XGuideConfig.GetGuideGroupTemplatesById(guideId)
+            XDataCenter.GuideManager.TryActiveGuide(guide)
         end
     )
 
@@ -665,6 +701,48 @@ local function AddTestUse()
         end
     )
     ---------LUA内存 end------------
+
+    ---------帧率 begin------------
+    local frameDefault = 5
+    local frame = tostring(frameDefault)
+    Panel:AddInput(
+            frameDefault,
+            function(value)
+                frame = value
+            end
+    )
+    Panel:AddButton(
+            "改帧率",
+            function()
+                local reset = frame == ""
+                local newFrame = reset and frameDefault or frame
+                CS.UnityEngine.Application.targetFrameRate = newFrame
+                local frameRate = CS.XGraphicManager.RenderConst.QualitySettingsData.FrameRate
+                frameRate.HigherFrameRate = newFrame
+                frameRate.HighestFrameRate = newFrame
+                frameRate.MiddleFrameRate = newFrame
+                frameRate.LowFrameRate = newFrame
+                frameRate.HighFrameRate = newFrame
+                UpdateVersionInfo()
+                XUiManager.TipMsgEnqueue("帧率被改为" .. newFrame)
+            end
+    )
+    Panel:AddButton(
+            "60帧",
+            function()
+                local newFrame = 60
+                CS.UnityEngine.Application.targetFrameRate = newFrame
+                local frameRate = CS.XGraphicManager.RenderConst.QualitySettingsData.FrameRate
+                frameRate.HigherFrameRate = newFrame
+                frameRate.HighestFrameRate = newFrame
+                frameRate.MiddleFrameRate = newFrame
+                frameRate.LowFrameRate = newFrame
+                frameRate.HighFrameRate = newFrame
+                XUiManager.TipMsgEnqueue("帧率被改为" .. newFrame)
+            end
+    )
+    ---------帧率 end------------
+    
     ---------机器人配置调试 begin------------
     --[[    
     显示武器共鸣技能、意识共鸣技能、意识超频技能增加的生命/会心/防御/攻击数值
@@ -729,14 +807,23 @@ local function AddTestUse()
     ---------机器人配置调试 end------------
 end
 
+local function AddActivityUse() 
+    
+    Panel:AddToggle(
+            "全境性能测试", function(value) 
+                XDataCenter.AreaWarManager.SetPerformanceTesting(value)
+            end
+    )
+end
+
 local function AddPlannerUse()
     local cueId
     local typeId
     Panel:AddInput(
-            "音频类型",
-            function(value)
-                typeId = tonumber(value)
-            end
+        "音频类型",
+        function(value)
+            typeId = tonumber(value)
+        end
     )
 
     Panel:AddInput(
@@ -793,11 +880,13 @@ local function AddPlannerUse()
             end
         end
     )
-    Panel:AddInput(
-            "摇杆触发阈值",
-            function(value)
-                CS.XUiFightJoystick.TriggerThreshold = tonumber(value)
-            end)
+
+    Panel:AddButton(
+        "音频配置重载",
+        function()
+            CS.XAudioManager.InitConfig()
+        end
+    )
 end
 local function AddFightUse()
     local uiName = "UiMultiDimFight"
@@ -846,17 +935,149 @@ local function AddGuildDormUse()
     Panel:AddToggle("重新生成导航障碍", function(res)
         XDataCenter.GuildDormManager.ResetRoomNavmeshObstacle()
     end)
+    Panel:AddToggle("切换新旧公会入口", function(res)
+        XGuildDormConfig.DebugOpenOldUi = res
+    end)
 end
 --------------Ui组件创建 begin----------------
 function XGmTestManager.Init()
     Panel = CS.XDebugManager.DebuggerGm
+    Panel:AddSubMenu("本地测试", XGmTestManager.TestFunc)
     Panel:AddSubMenu("当前信息", AddInfo, true)
     Panel:AddSubMenu("服务器", AddServerFunction, true)
     Panel:AddSubMenu("开发专用", AddDebugUse)
     Panel:AddSubMenu("测试专用", AddTestUse)
+    Panel:AddSubMenu("活动测试", AddActivityUse)
     Panel:AddSubMenu("策划专用", AddPlannerUse)
     Panel:AddSubMenu("归档功能", AddArchiveFunction)
     Panel:AddSubMenu("战斗测试", AddFightUse)
     Panel:AddSubMenu("公会宿舍", AddGuildDormUse)
+    Panel:AddButton("新旧副本入口切换", function()
+        XFubenConfigs.DebugOpenOldMainUi = not XFubenConfigs.DebugOpenOldMainUi
+    end)
+    Panel:AddButton("新旧成员界面切换", function()
+        XEnumConst.CHARACTER.IS_NEW_CHARACTER = not XEnumConst.CHARACTER.IS_NEW_CHARACTER
+    end)
+    Panel:AddButton("新旧装备界面切换", function()
+        XEnumConst.EQUIP.IS_TEST_V2P6 = not XEnumConst.EQUIP.IS_TEST_V2P6
+    end)
 end
 --------------Ui组件创建 end----------------
+
+function XGmTestManager.TestFunc()
+    --XLoginManager.ResetHearbeatInterval()
+    XLoginManager.SpeedUpHearbeatInterval()
+do return end
+    local DocumentFilePath = CS.UnityEngine.Application.persistentDataPath .. "/document"
+    local files = CS.XFileTool.GetFiles(DocumentFilePath .. "/" .. "matrix")
+    local appFiles = CS.XFileTool.GetFiles(DocumentFilePath .. "/" .. "launch")
+    local filesLength = files.Length
+    local appFilesLength = appFiles.Length
+    local INDEX = "index"
+    XLog.Debug("11 files:" .. filesLength .. ",files：", files)
+    XLog.Debug("11 appFiles:" .. appFilesLength)
+    -- files:AddRangeWithoutGC(appFiles)
+    -- XLog.Debug("22 files:" .. filesLength)
+    local UpdateTable = {}
+    local length = filesLength + appFilesLength
+    -- for index = 0, length - 1 do
+    for i = 0, length - 1 do
+        -- local i = index
+        local file
+        if i < filesLength then
+            file = files[i]
+            print("111 i: " .. tostring(i) .. ", " .. file)
+            local name = CS.XFileTool.GetFileName(file)
+            UpdateTable[name] = true
+        else
+            i = i - filesLength -- 此处i会在迭代器中被重新复制
+            file = appFiles[i]
+            print("222 i: " .. tostring(i) .. ", " .. file)
+        end
+    end
+
+    XLog.Debug("UpdateTable", UpdateTable)
+    
+    for i = 0, appFilesLength - 1 do
+        local file = appFiles[i]
+        local name = CS.XFileTool.GetFileName(file)
+        print("i :" .. tostring(i)..", name:" .. name .. ", file:" .. file)
+        if name == INDEX then
+            goto CONTINUE
+        end
+
+        local info = UpdateTable[name] -- 更新文件已存在
+        if info then
+            print("已经更新：" .. name)
+            goto CONTINUE
+        end
+        :: CONTINUE ::
+    end
+
+do return end
+    local CsTool = CS.XTool
+    local CsApplication = CS.XApplication
+    local CsGameEventManager = CS.XGameEventManager.Instance
+    local cb = function()end
+    local documentPath = CS.UnityEngine.Application.persistentDataPath .. "/document"
+    -- string.Utf8Len
+    
+    local files = CS.System.IO.Directory.GetFiles(documentPath, "*.zip", CS.System.IO.SearchOption.TopDirectoryOnly)
+    print("[Unzip] DocumentPath:" .. tostring(documentPath) .. ", files.length:" .. tostring(files.Length))
+    local length = files.Length
+    local function UnzipFile(index)
+        if index >= length then
+            if index > 0 then
+                CsApplication.SetProgress(1)
+                print("[Unzip] Finished.")
+            end
+            cb()
+            return
+        end
+        local file = files[index]
+        local nextIndex = index + 1
+        if string.find(file, "_resource") then
+            local overwrite = true
+            local password = nil
+            local totalCount = CS.ZipUtility.GetZipEntityCount(file, password)
+            print("[Unzip] Start File: " .. tostring(file))
+
+            if (totalCount > 0) then
+                local cancelCB = function()
+                    UnzipFile(nextIndex)
+                end
+                local confirmCB = function()
+                    local needUnit = false
+                    CsGameEventManager:Notify(CS.XEventId.EVENT_LAUNCH_START_DOWNLOAD, totalCount, needUnit)
+                    CsApplication.SetProgress(0)
+
+                    local progressCB = function(counter, name)
+                        local progress = counter / totalCount
+                        CsApplication.SetProgress(progress)
+
+                        print("[Unzip]  progress:" .. tostring(counter) .. "/" .. tostring(totalCount) .. ", name:" .. tostring(name) .. ", zipFile: " .. tostring(file) .. ", outputPath:" .. tostring(documentPath))
+                    end
+
+                    local finishCB = function(counter)
+                        if counter >= totalCount then
+                            print("[Unzip] Completed file:" .. tostring(file))
+                            CS.XFileTool.DeleteFile(file)
+                            UnzipFile(nextIndex)
+                        end
+                    end
+                    CS.ZipUtility.UnzipFile(file, documentPath, progressCB, finishCB, overwrite, password)
+                end
+                local text = "检查到本地压缩文件" .. CS.XFileTool.GetFileNameWithoutExtension(file) .. ", 是否进行解压?"
+                CsTool.WaitCoroutine(CsApplication.CoDialog(CsApplication.GetText("Tip"), text, cancelCB, confirmCB))
+            else
+                print("[Unzip] count <= 0, zipFile: " .. tostring(file))
+                UnzipFile(nextIndex)
+            end
+        else
+            print("[Unzip] name not Contains '_resource', zipFile: " .. tostring(file))
+            UnzipFile(nextIndex)
+        end
+    end
+    local index = 0
+    UnzipFile(index)
+end

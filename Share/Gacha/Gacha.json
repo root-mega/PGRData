@@ -1,8 +1,7 @@
 [
     {
         "Id": 1,
-        "StartTimeStr": "2020/11/26 5:00",
-        "EndTimeStr": "2021/1/4 5:00",
+        "TimeId": null,
         "ConsumeId": 60901,
         "ConsumeCount": 1,
         "BtnGachaCount": [
@@ -16,19 +15,29 @@
         "PropAdd": 10000,
         "PropAddGroupId": 3,
         "GroupId": [
+            null,
             3,
-            4.0
+            4.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             375,
-            9625.0
+            9625.0,
+            null,
+            null
         ],
-        "GachaIcon": null
+        "GachaIcon": null,
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 2,
-        "StartTimeStr": "2020/12/5 10:00",
-        "EndTimeStr": "2021/1/2 9:59",
+        "TimeId": null,
         "ConsumeId": 60903,
         "ConsumeCount": 1,
         "BtnGachaCount": [
@@ -42,19 +51,29 @@
         "PropAdd": 10000,
         "PropAddGroupId": 5,
         "GroupId": [
+            null,
             5,
-            6.0
+            6.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             100,
-            9900.0
+            9900.0,
+            null,
+            null
         ],
-        "GachaIcon": null
+        "GachaIcon": null,
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 3,
-        "StartTimeStr": "2021/3/1 10:00",
-        "EndTimeStr": "2021/5/6 9:59",
+        "TimeId": null,
         "ConsumeId": 62504,
         "ConsumeCount": 360,
         "BtnGachaCount": [
@@ -68,19 +87,29 @@
         "PropAdd": 500,
         "PropAddGroupId": 8,
         "GroupId": [
+            null,
             8,
-            7.0
+            7.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             2200,
-            7800.0
+            7800.0,
+            null,
+            null
         ],
-        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine1.png"
+        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine1.png",
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 4,
-        "StartTimeStr": "2021/3/1 10:00",
-        "EndTimeStr": "2021/5/6 9:59",
+        "TimeId": null,
         "ConsumeId": 62504,
         "ConsumeCount": 360,
         "BtnGachaCount": [
@@ -94,19 +123,29 @@
         "PropAdd": 500,
         "PropAddGroupId": 10,
         "GroupId": [
+            null,
             10,
-            9.0
+            9.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             2200,
-            7800.0
+            7800.0,
+            null,
+            null
         ],
-        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine2.png"
+        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine2.png",
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 5,
-        "StartTimeStr": "2021/3/1 10:00",
-        "EndTimeStr": "2021/5/6 9:59",
+        "TimeId": null,
         "ConsumeId": 62504,
         "ConsumeCount": 360,
         "BtnGachaCount": [
@@ -120,19 +159,29 @@
         "PropAdd": 500,
         "PropAddGroupId": 12,
         "GroupId": [
+            null,
             12,
-            11.0
+            11.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             2200,
-            7800.0
+            7800.0,
+            null,
+            null
         ],
-        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine3.png"
+        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine3.png",
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 6,
-        "StartTimeStr": "2021/3/1 10:00",
-        "EndTimeStr": "2021/5/6 9:59",
+        "TimeId": null,
         "ConsumeId": 62504,
         "ConsumeCount": 360,
         "BtnGachaCount": [
@@ -146,19 +195,29 @@
         "PropAdd": 500,
         "PropAddGroupId": 14,
         "GroupId": [
+            null,
             14,
-            13.0
+            13.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             2200,
-            7800.0
+            7800.0,
+            null,
+            null
         ],
-        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine4.png"
+        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine4.png",
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 7,
-        "StartTimeStr": "2022/11/17 2:00",
-        "EndTimeStr": "2022/12/22 1:59",
+        "TimeId": null,
         "ConsumeId": 62802,
         "ConsumeCount": 150,
         "BtnGachaCount": [
@@ -172,19 +231,29 @@
         "PropAdd": 200,
         "PropAddGroupId": 16,
         "GroupId": [
+            null,
             16,
-            15.0
+            15.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             800,
-            9200.0
+            9200.0,
+            null,
+            null
         ],
-        "GachaIcon": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerBox02.png"
+        "GachaIcon": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerBox02.png",
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 8,
-        "StartTimeStr": "2022/11/17 2:00",
-        "EndTimeStr": "2022/12/22 1:59",
+        "TimeId": null,
         "ConsumeId": 62802,
         "ConsumeCount": 150,
         "BtnGachaCount": [
@@ -198,19 +267,29 @@
         "PropAdd": 200,
         "PropAddGroupId": 18,
         "GroupId": [
+            null,
             18,
-            17.0
+            17.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             500,
-            9500.0
+            9500.0,
+            null,
+            null
         ],
-        "GachaIcon": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerBox02.png"
+        "GachaIcon": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerBox02.png",
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 9,
-        "StartTimeStr": "2022/11/17 2:00",
-        "EndTimeStr": "2022/12/22 1:59",
+        "TimeId": null,
         "ConsumeId": 62802,
         "ConsumeCount": 150,
         "BtnGachaCount": [
@@ -224,19 +303,29 @@
         "PropAdd": 500,
         "PropAddGroupId": 20,
         "GroupId": [
+            null,
             20,
-            19.0
+            19.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             800,
-            9200.0
+            9200.0,
+            null,
+            null
         ],
-        "GachaIcon": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerBox02.png"
+        "GachaIcon": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerBox02.png",
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 10,
-        "StartTimeStr": "2023/7/13 2:00",
-        "EndTimeStr": "2023/8/21 6:59",
+        "TimeId": null,
         "ConsumeId": 62514,
         "ConsumeCount": 700,
         "BtnGachaCount": [
@@ -250,19 +339,29 @@
         "PropAdd": 500,
         "PropAddGroupId": 22,
         "GroupId": [
+            null,
             22,
-            21.0
+            21.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             2200,
-            7800.0
+            7800.0,
+            null,
+            null
         ],
-        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine1.png"
+        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine1.png",
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 11,
-        "StartTimeStr": "2023/7/13 2:00",
-        "EndTimeStr": "2023/8/21 6:59",
+        "TimeId": null,
         "ConsumeId": 62514,
         "ConsumeCount": 700,
         "BtnGachaCount": [
@@ -276,19 +375,29 @@
         "PropAdd": 500,
         "PropAddGroupId": 24,
         "GroupId": [
+            null,
             24,
-            23.0
+            23.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             2200,
-            7800.0
+            7800.0,
+            null,
+            null
         ],
-        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine2.png"
+        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine2.png",
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 12,
-        "StartTimeStr": "2023/7/13 2:00",
-        "EndTimeStr": "2023/8/21 6:59",
+        "TimeId": null,
         "ConsumeId": 62514,
         "ConsumeCount": 700,
         "BtnGachaCount": [
@@ -302,19 +411,29 @@
         "PropAdd": 500,
         "PropAddGroupId": 26,
         "GroupId": [
+            null,
             26,
-            25.0
+            25.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             2200,
-            7800.0
+            7800.0,
+            null,
+            null
         ],
-        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine3.png"
+        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine3.png",
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 13,
-        "StartTimeStr": "2023/7/13 2:00",
-        "EndTimeStr": "2023/8/21 6:59",
+        "TimeId": null,
         "ConsumeId": 62514,
         "ConsumeCount": 700,
         "BtnGachaCount": [
@@ -328,19 +447,65 @@
         "PropAdd": 500,
         "PropAddGroupId": 28,
         "GroupId": [
+            null,
             28,
-            27.0
+            27.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             2200,
-            7800.0
+            7800.0,
+            null,
+            null
         ],
-        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine4.png"
+        "GachaIcon": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarIconMachine4.png",
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
+    },
+    {
+        "Id": 14,
+        "TimeId": null,
+        "ConsumeId": 50108,
+        "ConsumeCount": 1,
+        "BtnGachaCount": [
+            1,
+            10
+        ],
+        "OrganizeId": null,
+        "PreGachaId": null,
+        "OrganizeSort": null,
+        "PropStartTimes": 20,
+        "PropAdd": 10000,
+        "PropAddGroupId": 29,
+        "GroupId": [
+            null,
+            29,
+            30.0,
+            null,
+            null
+        ],
+        "Weight": [
+            null,
+            100,
+            9900.0,
+            null,
+            null
+        ],
+        "GachaIcon": null,
+        "ExchangeId": 1.0,
+        "CourseRewardId": 1.0,
+        "FestivalActivityId": 28.0,
+        "TargetTemplateId": 6002505.0,
+        "GachaShowGroupId": 2.0
     },
     {
         "Id": 10001,
-        "StartTimeStr": "2021/6/16 5:00",
-        "EndTimeStr": "2021/7/27 5:00",
+        "TimeId": null,
         "ConsumeId": 60901,
         "ConsumeCount": 1,
         "BtnGachaCount": [
@@ -354,19 +519,29 @@
         "PropAdd": 10000,
         "PropAddGroupId": 100001,
         "GroupId": [
+            null,
             100001,
-            100002.0
+            100002.0,
+            null,
+            null
         ],
         "Weight": [
+            null,
             375,
-            9625.0
+            9625.0,
+            null,
+            null
         ],
-        "GachaIcon": null
+        "GachaIcon": null,
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 10002,
-        "StartTimeStr": "2021/12/4 10:00",
-        "EndTimeStr": "2021/12/22 23:59",
+        "TimeId": null,
         "ConsumeId": 260001,
         "ConsumeCount": 250,
         "BtnGachaCount": [
@@ -380,17 +555,29 @@
         "PropAdd": 0,
         "PropAddGroupId": 100,
         "GroupId": [
-            100
+            null,
+            100,
+            null,
+            null,
+            null
         ],
         "Weight": [
-            10000
+            null,
+            10000,
+            null,
+            null,
+            null
         ],
-        "GachaIcon": null
+        "GachaIcon": null,
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 10003,
-        "StartTimeStr": "2022/12/31 10:00",
-        "EndTimeStr": "2023/1/29 5:00",
+        "TimeId": null,
         "ConsumeId": 270027,
         "ConsumeCount": 250,
         "BtnGachaCount": [
@@ -404,17 +591,65 @@
         "PropAdd": 0,
         "PropAddGroupId": 100003,
         "GroupId": [
-            100003
+            null,
+            100003,
+            null,
+            null,
+            null
         ],
         "Weight": [
-            10000
+            null,
+            10000,
+            null,
+            null,
+            null
         ],
-        "GachaIcon": null
+        "GachaIcon": null,
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
+    },
+    {
+        "Id": 10004,
+        "TimeId": 2121102.0,
+        "ConsumeId": 270031,
+        "ConsumeCount": 250,
+        "BtnGachaCount": [
+            1,
+            5
+        ],
+        "OrganizeId": null,
+        "PreGachaId": null,
+        "OrganizeSort": null,
+        "PropStartTimes": 0,
+        "PropAdd": 0,
+        "PropAddGroupId": 100004,
+        "GroupId": [
+            null,
+            100004,
+            null,
+            null,
+            null
+        ],
+        "Weight": [
+            null,
+            10000,
+            null,
+            null,
+            null
+        ],
+        "GachaIcon": null,
+        "ExchangeId": null,
+        "CourseRewardId": 10001.0,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     },
     {
         "Id": 11002,
-        "StartTimeStr": "2023/7/15 8:00",
-        "EndTimeStr": "2023/8/12 7:59",
+        "TimeId": null,
         "ConsumeId": 400070,
         "ConsumeCount": 250,
         "BtnGachaCount": [
@@ -428,11 +663,60 @@
         "PropAdd": 0,
         "PropAddGroupId": 11002,
         "GroupId": [
-            11002
+            null,
+            11002,
+            null,
+            null,
+            null
         ],
         "Weight": [
-            10000
+            null,
+            10000,
+            null,
+            null,
+            null
         ],
-        "GachaIcon": null
+        "GachaIcon": null,
+        "ExchangeId": null,
+        "CourseRewardId": null,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
+    },
+    {
+        "Id": 11003,
+        "TimeId": 2160302.0,
+        "ConsumeId": 400074,
+        "ConsumeCount": 250,
+        "BtnGachaCount": [
+            1,
+            5
+        ],
+        "OrganizeId": null,
+        "PreGachaId": null,
+        "OrganizeSort": null,
+        "PropStartTimes": 0,
+        "PropAdd": 0,
+        "PropAddGroupId": 11003,
+        "GroupId": [
+            null,
+            11003,
+            null,
+            null,
+            null
+        ],
+        "Weight": [
+            null,
+            10000,
+            null,
+            null,
+            null
+        ],
+        "GachaIcon": null,
+        "ExchangeId": null,
+        "CourseRewardId": 11003.0,
+        "FestivalActivityId": null,
+        "TargetTemplateId": null,
+        "GachaShowGroupId": null
     }
 ]

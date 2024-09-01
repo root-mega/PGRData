@@ -131,6 +131,18 @@ XPurchaseConfigs.UiType = {
     CoatingLB = 8, -- 皮肤补给包
 }
 
+XPurchaseConfigs.RecommendSkipType = {
+    Lb = 1, -- 礼包页签跳转
+    SkipId = 2, -- 配置SkilId跳转
+}
+
+XPurchaseConfigs.YKType =
+{
+    Day = 14,   --日卡
+    --Week = 13,  --周卡
+    Month = 2,  --月卡
+}
+
 XPurchaseConfigs.LjczLookStateKey = "LJCZ_LOOK_STATE_KEY"
 XPurchaseConfigs.PurchaseLJCZDefaultLookStateKey = "PurchaseLJCZDefaultLookState"
 
@@ -148,6 +160,7 @@ function XPurchaseConfigs.Init()
     AccumulatedPayConfig = XTableManager.ReadByIntKey(TABLE_ACCUMULATED_PAY, XTable.XTableAccumulatedPay, "Id")
     AccumulatedPayRewardConfig = XTableManager.ReadByIntKey(TABLE_ACCUMULATED_PAY_REWARD, XTable.XTableAccumulatedPayReward, "Id")
     -- PurchaseLBByPassConfig = XTableManager.ReadByIntKey(TABLE_LB_BY_PASS, XTable.XTablePurchaseLBByPass, "Id")
+
 
     XConfigCenter.CreateGetPropertyByFunc(XPurchaseConfigs, "PurchasePackageYKUiConfig", function()
         return XTableManager.ReadByIntKey(TABLE_PACKAGE_YK_CLIENT_CONFIG, XTable.XTablePurchasePackageYKUiConfig, "Id")
@@ -199,7 +212,7 @@ end
 function XPurchaseConfigs.GetGroupConfigType()
     if not PurchaseTabGroupConfig then
         PurchaseTabGroupConfig = {}
-        local isHideFunc = XUiManager.IsHideFunc
+        local isHideFunc = false --海外不屏蔽礼包
         -- PurchaseTabControlConfig : PurchaseTabControl
         for _, v in pairs(PurchaseTabControlConfig) do
             if v.IsOpen == 1 and not (isHideFunc and v.UiType ~= XPurchaseConfigs.UiType.Pay) then -- 仅保留充值入口

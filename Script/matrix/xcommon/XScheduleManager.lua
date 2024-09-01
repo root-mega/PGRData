@@ -31,6 +31,10 @@ function XScheduleManager.ScheduleOnce(func, delay)
     return CSXScheduleManager.ScheduleOnce(func, delay, name)
 end
 
+function XScheduleManager.ScheduleNextFrame(func)
+    CSXScheduleManager.ScheduleNextFrame(func)
+end
+
 -- /// <summary>
 -- /// 启动指定时间单次定时器
 -- /// </summary>

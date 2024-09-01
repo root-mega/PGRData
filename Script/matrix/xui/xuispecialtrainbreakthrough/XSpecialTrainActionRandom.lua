@@ -16,16 +16,23 @@ function XSpecialTrainActionRandom:Ctor()
     self._CrossFadeConflictProtectTime = 1
 end
 
+---@param animator UnityEngine.Animator
+---@param actionArray string[]|nil 当状态机配置好Parameters时可不传, By zlb
 function XSpecialTrainActionRandom:SetAnimator(animator, actionArray, panelRoleModel)
     self._Animator = animator
-    self._ActionArray = actionArray
+    local actionArrayFromParam = self:_GetActionArrayByParam(animator)
+    if #actionArrayFromParam > 0 then
+        self._ActionArray = actionArrayFromParam
+    else
+        self._ActionArray = actionArray
+    end
     self._PanelRoleModel = panelRoleModel
 end
 
 function XSpecialTrainActionRandom:Play()
-    self:RandomIdleDuration()
-    self:PlayRandomAnimation()
-    self._IdleActionName = self:GetRunningActionName(self._Animator)
+    self:_RandomIdleDuration()
+    self:_PlayRandomAnimation()
+    self._IdleActionName = self:_GetRunningActionName(self._Animator)
     -- 第一次播放，间隔总是1秒
     self._IdleTime = self._TimeToPlayAction - 1
 end
@@ -46,31 +53,36 @@ function XSpecialTrainActionRandom:Stop()
 end
 
 -- 策划做了状态机，里面放了要使用的多组动作
-function XSpecialTrainActionRandom:PlayRandomAnimation()
+function XSpecialTrainActionRandom:_PlayRandomAnimation()
     if self._AnimatorTimer then
         return
     end
     local animator = self._Animator
     self._AnimatorTimer = XScheduleManager.ScheduleForever(function()
-        local currentName, animatorClipInfo = self:GetRunningActionName(animator)
+        if not animator or XTool.UObjIsNil(animator) then
+            self:Stop()
+            return
+        end
+
+        local currentName, animatorClipInfo = self:_GetRunningActionName(animator)
         if currentName == self._IdleActionName then
             self._IdleTime = self._IdleTime + CS.UnityEngine.Time.deltaTime
             if self._IdleTime > self._TimeToPlayAction then
                 -- 融合时间内有事件冲突
-                if not self:IsAnimatorEventConflict(animator, animatorClipInfo) or
+                if not self:_IsAnimatorEventConflict(animator, animatorClipInfo) or
                     -- 冲突时间过久，强制播放
                     (self._IdleTime > self._TimeToPlayAction + self._CrossFadeConflictProtectTime) then
                     self._IdleTime = 0
-                    self:PlayNextAction()
-                    self:RandomIdleDuration()
+                    self:_PlayNextAction()
+                    self:_RandomIdleDuration()
                 end
             end
         end
     end, 0)
 end
 
-function XSpecialTrainActionRandom:PlayNextAction()
-    local nextActionName = self:GetNextAction()
+function XSpecialTrainActionRandom:_PlayNextAction()
+    local nextActionName = self:_GetNextAction()
     if not nextActionName then
         return false
     end
@@ -80,7 +92,7 @@ function XSpecialTrainActionRandom:PlayNextAction()
     return true
 end
 
-function XSpecialTrainActionRandom:GetNextAction()
+function XSpecialTrainActionRandom:_GetNextAction()
     local length = #self._ActionArray
     if length == 1 then
         return self._ActionArray[1]
@@ -88,30 +100,30 @@ function XSpecialTrainActionRandom:GetNextAction()
     if length == 0 then
         return false
     end
-    self._LastIndex = self:GetDifferentIndex()
+    self._LastIndex = self:_GetDifferentIndex()
     return self._ActionArray[self._LastIndex]
 end
 
-function XSpecialTrainActionRandom:GetDifferentIndex()
+function XSpecialTrainActionRandom:_GetDifferentIndex()
     local index = math.random(1, #self._ActionArray)
     if index == self._LastIndex then
-        return self:GetDifferentIndex()
+        return self:_GetDifferentIndex()
     end
     return index
 end
 
-function XSpecialTrainActionRandom:GetRunningActionName(animator)
-    local animatorClipInfo, name = self:GetRunningActionClipInfo(animator)
+function XSpecialTrainActionRandom:_GetRunningActionName(animator)
+    local animatorClipInfo, name = self:_GetRunningActionClipInfo(animator)
     return name, animatorClipInfo
 end
 
 -- 由于使用了crossFade，融合时会同时触发两个动作的事件，导致之前动作的表情，覆盖了之后动作的表情
 -- 检查动画事件是否在两个动作融合时间内触发
-function XSpecialTrainActionRandom:IsAnimatorEventConflict(animator, animatorClipInfo)
+function XSpecialTrainActionRandom:_IsAnimatorEventConflict(animator, animatorClipInfo)
     if not animatorClipInfo then
         return false
     end
-    local passedActionTime = self:GetPassedActionTime(animator)
+    local passedActionTime = self:_GetPassedActionTime(animator)
     for i = 0, animatorClipInfo.clip.events.Length - 1 do
         local animationEvent = animatorClipInfo.clip.events[i]
         local animationEventTime = animationEvent.time
@@ -123,17 +135,17 @@ function XSpecialTrainActionRandom:IsAnimatorEventConflict(animator, animatorCli
 end
 
 -- 当前动作已播放时间
-function XSpecialTrainActionRandom:GetPassedActionTime(animator)
+function XSpecialTrainActionRandom:_GetPassedActionTime(animator)
     local layer = 0
     local stateInfo = animator:GetCurrentAnimatorStateInfo(layer)
     return stateInfo.normalizedTime * stateInfo.length
 end
 
-function XSpecialTrainActionRandom:RandomIdleDuration()
+function XSpecialTrainActionRandom:_RandomIdleDuration()
     self._TimeToPlayAction = math.random(30, 50) / 10
 end
 
-function XSpecialTrainActionRandom:GetRunningActionClipInfo(animator)
+function XSpecialTrainActionRandom:_GetRunningActionClipInfo(animator)
     local layer = 0
     local stateInfo = animator:GetCurrentAnimatorStateInfo(layer)
     local animatorClipInfos = animator:GetCurrentAnimatorClipInfo(layer)
@@ -148,6 +160,17 @@ function XSpecialTrainActionRandom:GetRunningActionClipInfo(animator)
         end
     end
     return nil
+end
+
+function XSpecialTrainActionRandom:_GetActionArrayByParam(animator)
+    local actionArray = {}
+    local parameters = animator.parameters
+    for i = 0, parameters.Length - 1 do
+        local param = parameters[i]
+        local name = param.name
+        actionArray[#actionArray + 1] = name
+    end
+    return actionArray
 end
 
 return XSpecialTrainActionRandom

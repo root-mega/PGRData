@@ -1,3 +1,4 @@
+---@class XLottoRewardEntity
 local XLottoRewardEntity = XClass(nil, "XLottoRewardEntity")
 
 function XLottoRewardEntity:Ctor(id)

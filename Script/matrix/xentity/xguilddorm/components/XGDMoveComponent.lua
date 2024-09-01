@@ -2,10 +2,11 @@ local Vector3 = CS.UnityEngine.Vector3
 local Mathf = CS.UnityEngine.Mathf
 local Quaternion = CS.UnityEngine.Quaternion
 local XGDComponet = require("XEntity/XGuildDorm/Components/XGDComponet")
+---@class XGDMoveComponent : XGDComponet
 local XGDMoveComponent = XClass(XGDComponet, "XGDMoveComponent")
 
+---@param role XGuildDormRole
 function XGDMoveComponent:Ctor(role)
-    -- XGuildDormRole
     self.Role = role
     -- 角色控制器
     self.CharacterController = nil
@@ -14,6 +15,7 @@ function XGDMoveComponent:Ctor(role)
     self.Speed = XGuildDormConfig.GetRoleMoveSpeed()
     self.AngleSpeed = XGuildDormConfig.GetRoleAngleSpeed()
     self.IsZeroDirection = false
+    ---@type XGuildDormScene
     self.Scene = XDataCenter.GuildDormManager.SceneManager.GetCurrentScene()
 end
 

@@ -2,7 +2,9 @@ XHomeCharManager = XHomeCharManager or {}
 
 local XHomeCharObj = require("XHome/XDorm/XHomeCharObj")
 
+---@type table<number, XHomeCharObj>
 local ActiveCharacter = {}
+---@type XHomeCharObj
 local CurrentSelected = {}
 
 local EventRewards = {}
@@ -55,7 +57,7 @@ function XHomeCharManager.OnEvent(evt, ...)
         if not charObj or not charObj.IsSelf then
             return
         end
-
+ 
         local event = XHomeCharManager.GetCharacterEvent(charId, true)
         if event == nil then
             XLog.Error("找不到事件", charId)
@@ -100,12 +102,16 @@ function XHomeCharManager.OnHomeCharChangeStatus()
 
 end
 
---设置当前选中角色
+--- 设置当前选中角色
+---@param homeChar XHomeCharObj
+--------------------------
 function XHomeCharManager.SetSelectCharacter(homeChar)
     CurrentSelected = homeChar
 end
 
---获取当前选中角色
+--- 获取当前选中角色
+---@return XHomeCharObj
+--------------------------
 function XHomeCharManager.GetSelectCharacter()
     return CurrentSelected
 end
@@ -115,7 +121,11 @@ function XHomeCharManager.PreLoadHomeCharacterById()
     -- XHomeCharManager.CreateHomeCharacter(charId)
 end
 
---创建构造体
+--- 创建构造体
+---@param charId number 角色id
+---@param root UnityEngine.Transform 绑定角色根节点
+---@return XHomeCharObj
+--------------------------
 function XHomeCharManager.CreateHomeCharacter(charId, root)
     local charStyleConfig = XDormConfig.GetCharacterStyleConfigById(charId)
 
@@ -125,7 +135,11 @@ function XHomeCharManager.CreateHomeCharacter(charId, root)
     return homeChar
 end
 
---从池里面获取构造体模型
+--- 从池里面获取构造体模型
+---@param charId number 角色id
+---@param root UnityEngine.Transform 绑定角色根节点
+---@return XHomeCharObj
+--------------------------
 function XHomeCharManager.SpawnHomeCharacter(charId, root)
     local charObj = XHomeCharManager.CreateHomeCharacter(charId, root)
     ActiveCharacter[charId] = charObj
@@ -142,7 +156,10 @@ function XHomeCharManager.DespawnHomeCharacter(charId, charObj)
     ActiveCharacter[charId] = nil
 end
 
---获取活跃中的角色
+--- 获取活跃中的角色
+---@param charId number 角色id
+---@return XHomeCharObj
+--------------------------
 function XHomeCharManager.GetActiveCharacter(charId)
     if not ActiveCharacter[charId] then
         XLog.Warning("ActiveCharacter not exist ", charId)
@@ -152,7 +169,11 @@ function XHomeCharManager.GetActiveCharacter(charId)
     return ActiveCharacter[charId]
 end
 
---获取事件
+--- 获取事件
+---@param charId number 角色id
+---@param isSelf boolean 是否是自己的角色
+---@return XTable.XTableDormCharacterEvent
+--------------------------
 function XHomeCharManager.GetCharacterEvent(charId, isSelf)
     local charData
     if isSelf then
@@ -209,7 +230,11 @@ function XHomeCharManager.CheckCharacterEventExist(charId, eventId, isSelf)
     return false
 end
 
----检测事件是否能完成
+--- 检测事件是否能完成
+---@param charId number 角色id
+---@param completeType number 类型
+---@return XTable.XTableDormCharacterEvent
+--------------------------
 function XHomeCharManager.CheckCharacterEventCompleted(charId, completeType, isSelf)
     local charData
 
@@ -241,8 +266,6 @@ function XHomeCharManager.CheckCharacterEventCompleted(charId, completeType, isS
 
     return EventTemp
 end
-
-
 
 --检测人物交互
 function XHomeCharManager.CheckCharacterInteracter(charId)
@@ -299,7 +322,6 @@ function XHomeCharManager.CheckCharacterInteracter(charId)
     return false
 end
 
-
 --检测家具交互
 function XHomeCharManager.CheckFurnitureInteract(charId)
     local charObj = XHomeCharManager.GetActiveCharacter(charId)
@@ -310,7 +332,7 @@ function XHomeCharManager.CheckFurnitureInteract(charId)
     local time = XTime.GetServerNowTimestamp()
     local lastTime = FurnitureLastInteractTime[charId]
     if lastTime and lastTime + FURNITURE_INTERACT_CD > time then
-        return
+        return false
     end
 
     local interactFurniture = nil
@@ -352,7 +374,6 @@ function XHomeCharManager.ShowEventReward(charId)
     EventRewards[charId] = nil
 end
 
-
 --设置奖励
 function XHomeCharManager.SetEventReward(charId, rewards)
     EventRewards[charId] = rewards
@@ -360,7 +381,7 @@ end
 
 --隐藏所有
 function XHomeCharManager.HideAllCharacter()
-    if not ActiveCharacter then
+    if XTool.IsTableEmpty(ActiveCharacter) then
         return
     end
 
@@ -372,10 +393,20 @@ function XHomeCharManager.HideAllCharacter()
     end
 end
 
+function XHomeCharManager.ReleaseAllCharLongPressTrigger()
+    if XTool.IsTableEmpty(ActiveCharacter) then
+        return
+    end
+    for _, v in pairs(ActiveCharacter) do
+        if not XTool.UObjIsNil(v.GameObject) then
+            v:SetCharLongPressTrigger(true)
+        end
+    end
+end
 
 --隐藏所有
 function XHomeCharManager.ShowAllCharacter(isResetPosition)
-    if not ActiveCharacter then
+    if XTool.IsTableEmpty(ActiveCharacter) then
         return
     end
 
@@ -387,10 +418,9 @@ function XHomeCharManager.ShowAllCharacter(isResetPosition)
     end
 end
 
-
 --隐藏所有除了
 function XHomeCharManager.HideAllCharacterBut(charId)
-    if not ActiveCharacter then
+    if XTool.IsTableEmpty(ActiveCharacter) then
         return
     end
 
@@ -403,10 +433,9 @@ function XHomeCharManager.HideAllCharacterBut(charId)
     end
 end
 
-
 --显示
 function XHomeCharManager.ShowCharacter(charId)
-    if not ActiveCharacter then
+    if XTool.IsTableEmpty(ActiveCharacter) then
         return
     end
 
@@ -422,7 +451,6 @@ function XHomeCharManager.SetFurnitureInteractTime(charId)
     local time = XTime.GetServerNowTimestamp()
     FurnitureLastInteractTime[charId] = time
 end
-
 
 --设置上任务交互时间
 function XHomeCharManager.SetCharacterInteractTime(charId1, charId2)

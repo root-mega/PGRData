@@ -1,3 +1,4 @@
+local XExFubenSimulationChallengeManager = require("XEntity/XFuben/XExFubenSimulationChallengeManager")
 XBfrtManagerCreator = function()
 
     local pairs = pairs
@@ -12,7 +13,8 @@ XBfrtManagerCreator = function()
     local CloseLoadingCb
 
     -- 据点战管理器
-    local XBfrtManager = {}
+    ---@class XBfrtManager
+    local XBfrtManager = XExFubenSimulationChallengeManager.New(XFubenConfigs.ChapterType.Bfrt)
 
     --据点战梯队类型
     XBfrtManager.EchelonType = {
@@ -292,6 +294,22 @@ XBfrtManagerCreator = function()
 
             for orderId, taskId in ipairs(chapterCfg.TaskId) do
                 TaskIdToOrderIdDic[taskId] = orderId
+            end
+        end
+    end
+
+    local function RefreshChapterPassed()
+        for chapterId, chapterCfg in pairs(BfrtChapterTemplates) do
+            local info = ChapterInfos[chapterId]
+            if info then
+                local allPassed = true
+                for k, v in pairs(chapterCfg.GroupId) do
+                    local groupInfo = GroupInfos[v]
+                    if not groupInfo.Passed then
+                        allPassed = false
+                    end
+                end
+                info.Passed = allPassed
             end
         end
     end
@@ -994,6 +1012,37 @@ XBfrtManagerCreator = function()
         InitTeamRecords()
     end
     ----------------------服务端协议end----------------------
+
+    ------------------副本入口扩展 start-------------------------
+    -- 获取进度提示
+    function XBfrtManager:ExGetProgressTip() 
+        RefreshChapterPassed()
+
+        local strProgress = ""
+        if not self:ExGetIsLocked() then
+            -- 进度
+            local passCount = 0
+            local allCount = 0
+            for k, info in pairs(ChapterInfos) do
+                if info.Passed then
+                    passCount = passCount + 1
+                end
+                allCount = allCount + 1
+            end
+            strProgress = CS.XTextManager.GetText("BfrtAllChapterProgress", passCount, allCount)
+        end
+
+        return strProgress
+    end
+
+    function XBfrtManager:ExOpenMainUi()
+        if XFunctionManager.DetectionFunction(self:ExGetFunctionNameType()) then
+            XLuaUiManager.Open("UiNewFubenChapterBfrt")
+        end
+    end
+    
+    ------------------副本入口扩展 end-------------------------
+
     XBfrtManager.Init()
     return XBfrtManager
 end

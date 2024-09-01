@@ -48,7 +48,6 @@ function XUiFashionStoryStageStoryDetail:OnBtnEnterClick()
                 XEventManager.DispatchEvent(XEventId.EVENT_FASHION_STORY_CHAPTER_REFRESH, true)
             end
         end)
-        self:Close()
     end
 
     local isPassed = XDataCenter.FubenManager.CheckStageIsPass(self.StageId)

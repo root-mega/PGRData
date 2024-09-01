@@ -66,6 +66,12 @@ function ProxyName:GetBattleTeamData(newRoomSingleUi)
 function ProxyName:HandleCharClick(newRoomSingleUi, charPos)
 
 --================
+--当点击角色模型时
+--@param charPos:点击的角色的辅助机位置
+--================
+function ProxyName:HandlePartnerClick(newRoomSingleUi, charPos)
+
+--================
 --当点击主界面按钮时
 --================
 function ProxyName:HandleBtnMainUiClick()

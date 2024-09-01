@@ -1,23 +1,25 @@
 local XUiPanelSignBoard = require("XUi/XUiMain/XUiChildView/XUiPanelSignBoard")
 
-local XUiMainOther = XClass(nil, "XUiMainOther")
+local XUiMainPanelBase = require("XUi/XUiMain/XUiMainPanelBase")
+---@class XUiMainOther:XUiMainPanelBase
+local XUiMainOther = XClass(XUiMainPanelBase, "XUiMainOther")
 
-function XUiMainOther:Ctor(rootUi)
-    self.Transform = rootUi.PanelOther.gameObject.transform
-    XTool.InitUiObject(self)
+function XUiMainOther:OnStart(rootUi)
+    -- self.Transform = rootUi.PanelOther.gameObject.transform
+    -- XTool.InitUiObject(self)
     self.RootUi = rootUi
-    self.SignBoard = XUiPanelSignBoard.New(self.PanelSignBoard, self.RootUi, XUiPanelSignBoard.SignBoardOpenType.MAIN)
-
-    --ClickEvent
-    self.BtnScreenShot.CallBack = function() self:OnBtnScreenShot() end
+    --self.SignBoard = XUiPanelSignBoard.New(self.PanelSignBoard, self.RootUi, XUiPanelSignBoard.SignBoardOpenType.MAIN)
+    
     --RedPoint
+
+    XEventManager.AddEventListener(XEventId.EVENT_PHOTO_SYNC_CHANGE_TO_MAIN, self.OnChangeSync, self)
 end
 
 function XUiMainOther:OnEnable()
-    self.BtnScreenShot.gameObject:SetActiveEx(not XUiManager.IsHideFunc)
 
     if self.SignBoard then
-        local displayCharacterId = XDataCenter.DisplayManager.GetDisplayChar().Id
+        local displayCharacterId = XDataCenter.DisplayManager.GetRandomDisplayCharByList().Id
+        XDataCenter.DisplayManager.SetNextDisplayChar(nil)
         self.SignBoard:SetDisplayCharacterId(displayCharacterId)
         self.SignBoard:OnEnable()
     end
@@ -33,13 +35,39 @@ function XUiMainOther:OnDestroy()
     if self.SignBoard then
         self.SignBoard:OnDestroy()
     end
+    self.SignBoard = nil
+
+    XEventManager.RemoveEventListener(XEventId.EVENT_PHOTO_SYNC_CHANGE_TO_MAIN, self.OnChangeSync, self)
 end
 
---拍照分享按钮
-function XUiMainOther:OnBtnScreenShot()
-    if XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.Photograph) then
-        XLuaUiManager.Open("UiPhotograph")
+function XUiMainOther:Stop()
+    if not self.SignBoard then
+        return
     end
+    self.SignBoard:Stop()
+end
+
+function XUiMainOther:SetSignBoardEnable(enable)
+    if not self.SignBoard then
+        return
+    end
+    self.SignBoard:SetEnable(enable)
+end
+
+function XUiMainOther:SafeCreateSignBoard()
+    if self.SignBoard then
+        return
+    end
+    ---@type XUiPanelSignBoard
+    self.SignBoard = XUiPanelSignBoard.New(self.PanelSignBoard, self.RootUi, XUiPanelSignBoard.SignBoardOpenType.MAIN)
+    self:OnEnable()
+end
+
+function XUiMainOther:OnChangeSync()
+    if self.SignBoard then
+        self.SignBoard:OnDestroy()
+    end
+    self.SignBoard = nil
 end
 
 return XUiMainOther

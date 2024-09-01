@@ -14,7 +14,7 @@ function XUiGridYuanXiaoFightItem:Ctor(ui, parent)
     XUiHelper.RegisterClickEvent(self, self.BtnAddFriend, self.OnBtnAddFriendClick)
 
     self:SwitchDisabledLike()
-    self.DataItemNames = { XUiHelper.GetText("YuanXiaoText1"), XUiHelper.GetText("YuanXiaoText2"), XUiHelper.GetText("YuanXiaoText3") }
+    self.DataItemNames = { XUiHelper.GetText("YuanXiaoText4"), XUiHelper.GetText("YuanXiaoText2"), XUiHelper.GetText("YuanXiaoText5") }
 end
 
 function XUiGridYuanXiaoFightItem:GetDataItemNames()
@@ -79,7 +79,7 @@ end
 
 function XUiGridYuanXiaoFightItem:RefreshDataItem(data)
     if data then
-        self.GridFightDataList[1]:Refresh(data.IsRankingMvp, data.Rank)
+        self.GridFightDataList[1]:Refresh(data.IsRankingMvp, data.StageScore)
         self.GridFightDataList[2]:Refresh(data.IsRoundMvp, data.Round)
         self.GridFightDataList[3]:Refresh(data.IsScoreMvp, data.Score)
     else
@@ -118,7 +118,8 @@ function XUiGridYuanXiaoFightItem:SwitchAlreadyLike()
 end
 
 function XUiGridYuanXiaoFightItem:GetHeadIcon(characterId, ...) 
-    return XDataCenter.CharacterManager.GetCharSmallHeadIcon(characterId, ...)
+    --return XDataCenter.CharacterManager.GetCharSmallHeadIcon(characterId, ...)
+    return XCharacterCuteConfig.GetCuteModelSmallHeadIcon(characterId)
 end
 
 return XUiGridYuanXiaoFightItem

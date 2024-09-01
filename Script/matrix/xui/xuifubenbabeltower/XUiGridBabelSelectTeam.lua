@@ -17,7 +17,8 @@ end
 function XUiGridBabelSelectTeam:Refresh(stageId, teamId)
     self.StageId = stageId
     self.TeamId = teamId
-
+    -- V1.30 巴别塔的编队2与编队3由原本的通关解锁改为取消锁定状态
+    --[[
     local unlockTeamNum = XDataCenter.FubenBabelTowerManager.GetStageUnlockTeamNum(stageId)
     local teamNum = unlockTeamNum + 1
     -- 解锁多编队
@@ -41,15 +42,24 @@ function XUiGridBabelSelectTeam:Refresh(stageId, teamId)
         self.PanelNor.gameObject:SetActiveEx(false)
         self.PanelLock.gameObject:SetActiveEx(true)
     end
+    ]]
+    local isReset = XDataCenter.FubenBabelTowerManager.IsTeamReseted(stageId, teamId)
+    local isPassed = XDataCenter.FubenBabelTowerManager.IsStageTeamHasRecord(stageId, teamId)
 
+    self.BtnRecover.gameObject:SetActiveEx(isReset)
+    self.BtnReset.gameObject:SetActiveEx(not isReset and isPassed)
+    self.TxtRecord.gameObject:SetActiveEx(false)
+
+    self.PanelNor.gameObject:SetActiveEx(true)
+    self.PanelLock.gameObject:SetActiveEx(false)
+    
     local characterIds = XDataCenter.FubenBabelTowerManager.GetTeamCharacterIds(stageId, teamId)
     for i = 1, MAX_CHARACTER_NUM do
         local rImg = self["RImgRoleIcon" .. i]
 
-        local characterId = characterIds[i]
-        if characterId and characterId > 0 then
-            local icon = XDataCenter.CharacterManager.GetCharSmallHeadIcon(characterId)
-            rImg:SetRawImage(icon)
+        local characterViewModel = XEntityHelper.GetCharacterViewModelByEntityId(characterIds[i])
+        if characterViewModel then
+            rImg:SetRawImage(characterViewModel:GetSmallHeadIcon())
             rImg.gameObject:SetActiveEx(true)
         else
             rImg.gameObject:SetActiveEx(false)

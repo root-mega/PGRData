@@ -1,7 +1,10 @@
+local XSignBoardCamAnim = require("XEntity/XSignBoard/XSignBoardCamAnim")
 local SignBoardCondition = {
     --邮件
     [XSignBoardEventType.MAIL] = function()
-        return XDataCenter.MailManager.GetHasUnDealMail() > 0
+        ---@type XMailAgency
+        local mailAgency = XMVCA:GetAgency(ModuleId.XMail)
+        return mailAgency:GetHasUnDealMail() > 0
     end,
 
     --任务
@@ -118,6 +121,11 @@ local SignBoardCondition = {
         return true
     end,
 }
+
+local REQUEST_NAME = { --请求协议
+    ClickRequest = "TouchBoardMutualRequest",
+}
+
 
 --看板互动
 XSignBoardManagerCreator = function()
@@ -258,6 +266,7 @@ XSignBoardManagerCreator = function()
             return
         end
 
+        elements = XSignBoardManager.FitterPlayElementByUnlockCondition(elements)
         elements = XSignBoardManager.FitterPlayElementByStandType(elements)
         elements = XSignBoardManager.FitterPlayElementByShowTime(elements)
         elements = XSignBoardManager.FitterPlayElementByFavorLimit(elements, displayCharacterId)
@@ -328,6 +337,7 @@ XSignBoardManagerCreator = function()
         configs = XSignBoardManager.FitterPlayElementByStandType(configs)
         configs = XSignBoardManager.FitterCurLoginPlayed(configs)
 
+        configs = XSignBoardManager.FitterPlayElementByUnlockCondition(configs)
         configs = XSignBoardManager.FitterPlayElementByShowTime(configs)
         configs = XSignBoardManager.FitterPlayElementByFavorLimit(configs, displayCharacterId)
         configs = XSignBoardManager.FitterPlayed(configs)
@@ -348,6 +358,7 @@ XSignBoardManagerCreator = function()
         configs = XSignBoardManager.FitterPlayElementByStandType(configs)
         configs = XSignBoardManager.FitterCurLoginPlayed(configs)
 
+        configs = XSignBoardManager.FitterPlayElementByUnlockCondition(configs)
         configs = XSignBoardManager.FitterPlayElementByShowTime(configs)
         configs = XSignBoardManager.FitterPlayElementByFavorLimit(configs, displayCharacterId)
         configs = XSignBoardManager.FitterPlayed(configs)
@@ -504,26 +515,37 @@ XSignBoardManagerCreator = function()
 
     --通过好感度过滤
     function XSignBoardManager.FitterPlayElementByFavorLimit(elements, displayCharacterId)
+        if not elements or #elements <= 0 then
+            return
+        end
+        local configs = {}
+        for _, v in ipairs(elements) do
+            local isUnlock , conditionDescript = XDataCenter.FavorabilityManager.CheckCharacterActionUnlockBySignBoardActionId(v.Id)
+            if isUnlock then
+                table.insert(configs, v)
+            end
+        end
 
+        return configs
+    end
+
+    -- 通过unlockCondition过滤
+    function XSignBoardManager.FitterPlayElementByUnlockCondition(elements)
         if not elements or #elements <= 0 then
             return
         end
 
-        local favor = XDataCenter.FavorabilityManager.GetCurrCharacterFavorabilityLevel(displayCharacterId)
         local configs = {}
 
         for _, v in ipairs(elements) do
-            if not v.FavorLimit then
-                table.insert(configs, v)
-            else
-                local showTime = string.Split(v.FavorLimit, "|")
-                if #showTime == 2 then
-                    local start = tonumber(showTime[1])
-                    local stop = tonumber(showTime[2])
-                    if favor >= start and favor <= stop then
-                        table.insert(configs, v)
-                    end
+            local isElementPass = true
+            for k, condId in pairs(v.UnlockCondition) do
+                if not XConditionManager.CheckCondition(condId, tonumber(v.RoleId)) then -- 不知道为什么这个角色id在配表初期时使用string，这里将错就错转number
+                    isElementPass = false
                 end
+            end
+            if isElementPass then
+                table.insert(configs, v)
             end
         end
 
@@ -592,6 +614,135 @@ XSignBoardManagerCreator = function()
         return key
     end
 
+    -- v1.32 角色特殊动作动画相关
+    --================================================================================
+    local sceneAnim = XSignBoardCamAnim.New()
+    local sceneAnimPrefab
+
+    -- 场景动画
+    ----------------------------------------------------------------------------------
+
+    function XSignBoardManager.LoadSceneAnim(rootNode, farCam, nearCam, sceneId, signBoardId, ui)
+        if not XSignBoardConfigs.CheckIsHaveSceneAnim(signBoardId) then
+            return
+        end
+        if not sceneAnim:CheckIsSameAnim(sceneId, signBoardId, rootNode) then
+            XSignBoardManager.UnLoadAnim()
+            -- 由于LoadPrefab()加载同url的是相同的gameobject，当不同signBoardId配置相同prefab url时unloadanim会报错
+            local prefabName = XSignBoardConfigs.GetSignBoardSceneAnim(signBoardId)
+            sceneAnimPrefab = CS.XResourceManager.Load(prefabName)
+            local animPrefab = XUiHelper.Instantiate(sceneAnimPrefab.Asset, rootNode)
+
+            sceneAnim:UpdateData(sceneId, signBoardId, ui)
+            sceneAnim:UpdateAnim(animPrefab, farCam, nearCam)
+        end
+    end
+
+    function XSignBoardManager.UnLoadAnim()
+        if sceneAnimPrefab then
+            CS.XResourceManager.Unload(sceneAnimPrefab)
+        end
+        if not sceneAnim then
+            sceneAnim = XSignBoardCamAnim.New()
+        else
+            sceneAnim:UnloadAnim()
+        end
+    end
+
+    function XSignBoardManager.SceneAnimPlay()
+        if sceneAnim then
+            sceneAnim:Play()
+            XEventManager.DispatchEvent(XEventId.EVENT_ACTION_HIDE_UI, sceneAnim:GetNodeTransform())
+        end
+    end
+
+    function XSignBoardManager.SceneAnimPause()
+        if sceneAnim then
+            sceneAnim:Pause()
+        end
+    end
+
+    function XSignBoardManager.SceneAnimResume()
+        if sceneAnim then
+            sceneAnim:Resume()
+        end
+    end
+
+    function XSignBoardManager.SceneAnimStop()
+        if sceneAnim then
+            sceneAnim:Close()
+        end
+    end
+    ----------------------------------------------------------------------------------
+
+
+    -- 打断动画播放相关
+    local Timer = nil
+    local StopTime = 0
+    local Delay = 10
+    function XSignBoardManager.OnBreakClick()
+        --垃圾unity
+        --安卓模拟器不模拟Input:GetMouseButtonDown(0)
+        --安卓不模拟Input:GetTouch(0)，还得加个touchCount判空
+        local touchCount = CS.UnityEngine.Input.touchCount
+        if CS.UnityEngine.Input.GetMouseButtonDown(0) or (touchCount >= 1 and CS.UnityEngine.Input.GetTouch(0)) then
+            XSignBoardManager.StopBreakTimer()
+            XEventManager.DispatchEvent(XEventId.EVENT_ROLE_ACTION_UIANIM_BREAK)
+        end
+    end
+
+    -- 监控打断
+    function XSignBoardManager.StartBreakTimer(stopTime)
+        XSignBoardManager.StopBreakTimer()
+        StopTime = stopTime
+        Timer = XScheduleManager.ScheduleForeverEx(function ()
+            if StopTime < 0 then
+                XSignBoardManager.StopBreakTimer()
+                return
+            end
+            StopTime = StopTime - Delay / 1000
+            XSignBoardManager.OnBreakClick()
+        end, Delay)
+    end
+
+    function XSignBoardManager.StopBreakTimer()
+        if Timer then
+            XScheduleManager.UnSchedule(Timer)
+            Timer = nil
+        end
+        StopTime = 0
+    end
+
+    -- 添加特殊动作Ui播放事件监听
+    -- Ui:LuaUi对象
+    function XSignBoardManager.AddRoleActionUiAnimListener(ui)
+        XEventManager.AddEventListener(XEventId.EVENT_ROLE_ACTION_UIANIM_START, ui.PlayRoleActionUiDisableAnim, ui)
+        XEventManager.AddEventListener(XEventId.EVENT_ROLE_ACTION_UIANIM_END, ui.PlayRoleActionUiEnableAnim, ui)
+        XEventManager.AddEventListener(XEventId.EVENT_ROLE_ACTION_UIANIM_BREAK, ui.PlayRoleActionUiBreakAnim, ui)
+    end
+
+    -- 移除特殊动作Ui播放事件监听
+    -- Ui:LuaUi对象
+    function XSignBoardManager.RemoveRoleActionUiAnimListener(ui)
+        XEventManager.RemoveEventListener(XEventId.EVENT_ROLE_ACTION_UIANIM_START, ui.PlayRoleActionUiDisableAnim, ui)
+        XEventManager.RemoveEventListener(XEventId.EVENT_ROLE_ACTION_UIANIM_END, ui.PlayRoleActionUiEnableAnim, ui)
+        XEventManager.RemoveEventListener(XEventId.EVENT_ROLE_ACTION_UIANIM_BREAK, ui.PlayRoleActionUiBreakAnim, ui)
+    end
+    --================================================================================
+
+    --发送周年回顾记录点击角色版请求
+    local RequestTouchBoardLock = false;
+    function XSignBoardManager.RequestTouchBoard(characterId)
+        if RequestTouchBoardLock then return end
+        RequestTouchBoardLock = true
+        XScheduleManager.ScheduleOnce(function()
+            RequestTouchBoardLock = false;
+        end, XScheduleManager.SECOND)
+        XNetwork.Call(REQUEST_NAME.ClickRequest, {
+            CharacterId = characterId
+        } , function(response) end)
+    end
+    
     XSignBoardManager.Init()
     return XSignBoardManager
 end

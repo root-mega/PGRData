@@ -135,7 +135,7 @@ function XUiEquipStrengthen:InitEquipScroll()
     end
 
     self.EquipScroll =
-        XUiPanelEquipScroll.New(self, self.PanelEquipScroll, equipTouchCb, gridReloadCb, true, addCountCheckCb)
+        XUiPanelEquipScroll.New(self.PanelEquipScroll, self, equipTouchCb, gridReloadCb, true, addCountCheckCb)
 end
 
 function XUiEquipStrengthen:InitItemScroll()
@@ -205,7 +205,7 @@ function XUiEquipStrengthen:UpdateEquipInfo()
     local curAttrMap = XDataCenter.EquipManager.GetEquipAttrMap(self.EquipId)
     for attrIndex, attrInfo in pairs(curAttrMap) do
         if self.AttrGridList[attrIndex] then
-            self.AttrGridList[attrIndex]:UpdateData(attrInfo.Value)
+            self.AttrGridList[attrIndex]:UpdateData(attrInfo.Value, nil, nil, attrInfo.Name)
         end
     end
 
@@ -246,7 +246,7 @@ function XUiEquipStrengthen:UpdateEquipPreView()
     local preAttrMap = XDataCenter.EquipManager.GetEquipAttrMap(equipId, preLevel)
     for attrIndex, attrInfo in pairs(preAttrMap) do
         if self.AttrGridList[attrIndex] then
-            self.AttrGridList[attrIndex]:UpdateData(nil, attrInfo.Value, true)
+            self.AttrGridList[attrIndex]:UpdateData(nil, attrInfo.Value, true, attrInfo.Name)
         end
     end
 
@@ -345,7 +345,7 @@ function XUiEquipStrengthen:OnBtnStrengthenClick()
     local curLevel = self.PreLevel
     local curExp = self.PreExp
     local curMaxExp = XDataCenter.EquipManager.GetNextLevelExp(equipId, curLevel)
-    XDataCenter.EquipManager.LevelUp(
+    XMVCA:GetAgency(ModuleId.XEquip):LevelUp(
         self.EquipId,
         self.SelectEquipIds,
         self.SelectItemDic,
@@ -357,7 +357,7 @@ end
 
 function XUiEquipStrengthen:OnBtnSourceClick()
     local eatType = self:IsEquipView() and XEquipConfig.EatType.Equip or XEquipConfig.EatType.Item
-    local skipIds = XDataCenter.EquipManager.GetEquipSkipIds(eatType, self.EquipId)
+    local skipIds = XDataCenter.EquipManager.GetEquipEatSkipIds(eatType, self.EquipId)
     XLuaUiManager.Open("UiEquipStrengthenSkip", skipIds)
 end
 

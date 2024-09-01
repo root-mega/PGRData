@@ -184,7 +184,7 @@ XAutoFightManagerCreator = function()
     function AutoFightManager.RecordFightBeginData(stageId, times, cardIds)
         BeginData = {
             CharExp = {},
-            RoleLevel = XPlayer.Level,
+            RoleLevel = XPlayer.GetLevelOrHonorLevel(),
             RoleExp = XPlayer.Exp,
             StageId = stageId,
             Times = times,

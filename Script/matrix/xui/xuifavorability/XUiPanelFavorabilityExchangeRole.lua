@@ -1,3 +1,4 @@
+---@class XUiPanelFavorabilityExchangeRole
 XUiPanelFavorabilityExchangeRole = XClass(nil, "XUiPanelFavorabilityExchangeRole")
 
 function XUiPanelFavorabilityExchangeRole:Ctor(ui, uiRoot)
@@ -106,6 +107,7 @@ function XUiPanelFavorabilityExchangeRole:OnChangeCharacter()
         return
     end
 
+    self.UiRoot:StopCvContent()
     self.UiRoot:SetCurrFavorabilityCharacter(self.CurCharacter.Id)
     self.UiRoot:UpdateCamera(false)
     self.UiRoot:CloseChangeRoleView()

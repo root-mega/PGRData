@@ -1,5 +1,8 @@
+local XExFubenBaseManager = require("XEntity/XFuben/XExFubenBaseManager")
+local XChapterViewModel = require("XEntity/XFuben/XChapterViewModel")
+
 XFubenDailyManagerCreator = function()
-    local XFubenDailyManager = {}
+    local XFubenDailyManager = XExFubenBaseManager.New(XFubenConfigs.ChapterType.Daily)
 
     local METHOD_NAME = {
         ReceiveDailyReward = "ReceiveDailyRewardRequest",
@@ -279,6 +282,77 @@ XFubenDailyManagerCreator = function()
             DailyRecord[dailyDungeonId] = stageId
         end
     end
+    ------------------副本入口扩展(带ChapterViewModel) start-------------------------
+    function XFubenDailyManager:ExGetFunctionNameType()
+        return XFunctionManager.FunctionName.FubenDaily
+    end
+
+    -- 检查是否展示红点
+    function XFubenDailyManager:ExCheckIsShowRedPoint()
+        for _, viewModel in ipairs(self:ExGetChapterViewModels()) do
+            if viewModel:CheckHasRedPoint() then
+                return true
+            end
+        end
+   
+        return false
+    end
+    
+    function XFubenDailyManager:ExGetChapterViewModels()
+        if self.__ChapterViewModelDic == nil then self.__ChapterViewModelDic = {} end
+        if next(self.__ChapterViewModelDic) then return self.__ChapterViewModelDic end
+        local chapterConfigs = XDailyDungeonConfigs.GetDailyDungeonRulesList()
+        for _, config in pairs(chapterConfigs) do
+            local id = config.Id
+            local chapterMainId = XFubenShortStoryChapterConfigs.GetChapterMainIdByChapterId(id)
+            table.insert(self.__ChapterViewModelDic, CreateAnonClassInstance({
+                GetProgress = function(proxy)
+                    return nil
+                end,
+                CheckHasRedPoint = function(proxy)
+                    return false
+                end,
+                GetIsLocked = function(proxy)
+                    return XFubenDailyManager.GetConditionData(id).IsLock
+                end,
+                GetLockTip = function(proxy)
+                    local tmpCon = XFubenDailyManager.GetConditionData(config.Id)
+                    return XFunctionManager.GetFunctionOpenCondition(tmpCon.functionNameId)
+                end,
+                GetOpenDayString = function(proxy)
+                    return XFubenDailyManager.GetOpenDayString(config)
+                end,
+                IsDayLock = function(proxy)
+                    return XFubenDailyManager.IsDayLock(id)
+                end,
+                CheckHasTimeLimitTag = function(proxy) -- 这个就是资源商店标签，用这个接口名顶替
+                    local shopId = XDailyDungeonConfigs.GetFubenDailyShopId(id)
+                    local tagName = ""
+                    if shopId > 0 then
+                        tagName = XShopManager.GetShopTypeDataById(XShopManager.ShopType.FubenDaily).Desc
+                    end
+                    return (shopId > 0 and not proxy:GetIsLocked()), tagName
+                end,
+                OpenUi = function(proxy)
+                    XLuaUiManager.Open("UiFubenDaily", config)
+                end,
+
+            }, XChapterViewModel
+            , {
+                Id = id,
+                ExtralName = config.Title,
+                Name = config.Title,
+                Desc = config.Describe,
+                Icon = config.Icon,
+                ExtralData = config,
+            }))
+            table.sort(self.__ChapterViewModelDic, function (a, b)
+                return a:GetExtralData().Priority < b:GetExtralData().Priority
+            end)
+        end
+        return self.__ChapterViewModelDic
+    end
+    ------------------副本入口扩展 end-------------------------
 
     XFubenDailyManager.Init()
     return XFubenDailyManager

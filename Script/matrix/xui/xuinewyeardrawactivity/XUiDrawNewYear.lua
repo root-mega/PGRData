@@ -208,9 +208,9 @@ function XUiDrawNewYear:InitPanelPreview()
     self:SetPreviewData(gachaInfo, self.GridDrawActivity, nil, nil, self.PreviewList[type.OUT], type.OUT)
 
     --奖励预览界面的已获得描述
-    self.AllPreviewPanel.TxetFuwenben.text = string.format("%d%s%d", XDataCenter.GachaManager.GetCurCountOfAll(), '/', XDataCenter.GachaManager.GetMaxCountOfAll())--CS.XTextManager.GetText("AlreadyobtainedCount", XDataCenter.GachaManager.GetCurCountOfAll(), XDataCenter.GachaManager.GetMaxCountOfAll())
+    self.AllPreviewPanel.TxetFuwenben.text = string.format("%d%s%d", XDataCenter.GachaManager.GetCurCountOfAll(self.GachaId), '/', XDataCenter.GachaManager.GetMaxCountOfAll(self.GachaId))--CS.XTextManager.GetText("AlreadyobtainedCount", XDataCenter.GachaManager.GetCurCountOfAll(), XDataCenter.GachaManager.GetMaxCountOfAll())
     --主界面的已获得
-    self.TxtNumber.text = string.format("%d%s%d", XDataCenter.GachaManager.GetCurCountOfAll(), '/', XDataCenter.GachaManager.GetMaxCountOfAll())
+    self.TxtNumber.text = string.format("%d%s%d", XDataCenter.GachaManager.GetCurCountOfAll(self.GachaId), '/', XDataCenter.GachaManager.GetMaxCountOfAll(self.GachaId))
     --活动名字
     self.TxtActivityTime.text = CS.XTextManager.GetText("NewYearChouJiang")
 end
@@ -289,8 +289,8 @@ function XUiDrawNewYear:UpDataPreviewData()
             v:Refresh(tmpData, nil, nil, nil, gachaInfo[k].CurCount)
         end
     end
-    self.AllPreviewPanel.TxetFuwenben.text = CS.XTextManager.GetText("AlreadyobtainedCount", XDataCenter.GachaManager.GetCurCountOfAll(), XDataCenter.GachaManager.GetMaxCountOfAll())
-    self.TxtNumber.text = XDataCenter.GachaManager.GetCurCountOfAll() .. "/" .. XDataCenter.GachaManager.GetMaxCountOfAll()
+    self.AllPreviewPanel.TxetFuwenben.text = CS.XTextManager.GetText("AlreadyobtainedCount", XDataCenter.GachaManager.GetCurCountOfAll(self.GachaId), XDataCenter.GachaManager.GetMaxCountOfAll(self.GachaId))
+    self.TxtNumber.text = XDataCenter.GachaManager.GetCurCountOfAll(self.GachaId) .. "/" .. XDataCenter.GachaManager.GetMaxCountOfAll(self.GachaId)
 end
 
 --显示抽奖完成展示界面
@@ -349,7 +349,7 @@ function XUiDrawNewYear:OnBtnDrawClick(btn, gachaCount, index)
     local ownItemCount = XDataCenter.ItemManager.GetItem(self.GachaCfg.ConsumeId).Count
     local lackItemCount = self.GachaCfg.ConsumeCount * gachaCount - ownItemCount
     if lackItemCount > 0 then
-        local leftTimes = XDataCenter.GachaManager.GetMaxCountOfAll() - XDataCenter.GachaManager.GetCurCountOfAll()
+        local leftTimes = XDataCenter.GachaManager.GetMaxCountOfAll(self.GachaId) - XDataCenter.GachaManager.GetCurCountOfAll(self.GachaId)
         if  gachaCount > leftTimes then
             XUiManager.TipText("DrawNewYearLeftTimes")
             return
@@ -407,7 +407,7 @@ end
 
 --硬币滑动结束后开始抽奖
 function XUiDrawNewYear:OnStartDraw(gachaCount)
-    local dtCount = XDataCenter.GachaManager.GetMaxCountOfAll() - XDataCenter.GachaManager.GetCurCountOfAll()
+    local dtCount = XDataCenter.GachaManager.GetMaxCountOfAll(self.GachaId) - XDataCenter.GachaManager.GetCurCountOfAll(self.GachaId)
     if dtCount < gachaCount then
         XUiManager.TipMsg(CS.XTextManager.GetText("GachaIsNotEnough"))
         return

@@ -14,11 +14,11 @@ function XUiPartnerCompose:OnDestroy()
 end
 
 function XUiPartnerCompose:OnEnable()
-    XEventManager.AddEventListener(XEventId.EVENT_PARTNER_OBTAIN, self.GoPartnerMain, self)
+    XEventManager.AddEventListener(XEventId.EVENT_PARTNER_OBTAIN, self.OnComposeSuccess, self)
 end
 
 function XUiPartnerCompose:OnDisable()
-    XEventManager.RemoveEventListener(XEventId.EVENT_PARTNER_OBTAIN, self.GoPartnerMain, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_PARTNER_OBTAIN, self.OnComposeSuccess, self)
 end
 
 function XUiPartnerCompose:SetButtonCallBack()
@@ -53,6 +53,14 @@ function XUiPartnerCompose:UpdatePanel(data)
     if data then
         local IsShowRed = XDataCenter.PartnerManager.CheckComposeRedByTemplateId(self.Data:GetTemplateId())
         self.BtnCompose:ShowReddot(IsShowRed)
+    end
+end
+
+function XUiPartnerCompose:OnComposeSuccess(partnerList)
+    if self.Base.isComposePanelOpenByStar then
+        self.Base:BackFromComposePanel()
+    else
+        self:GoPartnerMain(partnerList)
     end
 end
 

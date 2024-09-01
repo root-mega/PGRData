@@ -29,6 +29,11 @@ function XUiBossSingleBattleRoleRoom:GetRoleDetailProxy()
         end,
         GetGridProxy = function()
             return XUiBossSingleRoleGrid
+        end,
+        GetFilterControllerConfig = function ()
+            ---@type XCharacterAgency
+            local ag = XMVCA:GetAgency(ModuleId.XCharacter)
+            return ag:GetModelCharacterFilterController()["UiFubenBossSingle"]
         end
     }
 end

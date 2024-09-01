@@ -21,7 +21,7 @@ function XUiTabBtnGroup:Ctor(btnList, callback, clickCheck, isLockClick, tabType
     end
 end
 
-function XUiTabBtnGroup:SelectIndex(index)
+function XUiTabBtnGroup:SelectIndex(index, needCallBack)
 
     if self.ClickCheck then
         local success = false
@@ -49,6 +49,9 @@ function XUiTabBtnGroup:SelectIndex(index)
         end
     end
 
+    if needCallBack == false then
+        return
+    end
     if (self.Callback) then
         self.Callback(index)
     end

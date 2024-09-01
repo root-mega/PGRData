@@ -9,8 +9,9 @@ end
 
 function XUiGuildWarBossReaults:OnStart(closeCallBack)
     self.CloseCallBack = closeCallBack
-    self.TxtDesc.text = XUiHelper.GetText("GuildWarBossSettleTip", self.GuildWarManager.GetDifficultyName(
-        self.BattleManager:GetDifficultyId()))
+    --self.TxtDesc.text = XUiHelper.GetText("GuildWarBossSettleTip", self.GuildWarManager.GetDifficultyName(
+    --    self.BattleManager:GetDifficultyId()))
+    self.TxtDesc.text = XUiHelper.GetText("GuildWarBossSettleTip")
 end
 
 function XUiGuildWarBossReaults:RegisterUiEvents()

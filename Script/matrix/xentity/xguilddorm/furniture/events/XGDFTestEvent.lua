@@ -1,4 +1,5 @@
 local XGDFBaseEvent = require("XEntity/XGuildDorm/Furniture/Events/XGDFBaseEvent")
+---@class XGDFTestEvent : XGDFBaseEvent
 local XGDFTestEvent = XClass(XGDFBaseEvent, "XGDFTestEvent")
 function XGDFTestEvent:Init()
     self:StartEntryBtnListener()

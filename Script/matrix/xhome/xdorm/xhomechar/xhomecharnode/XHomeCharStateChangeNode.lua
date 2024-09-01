@@ -16,7 +16,13 @@ end
 
 
 function XHomeCharStateChangeNode:OnEnter()
-    self.AgentProxy:ChangeStatus(self.State)
+    if self.AgentProxy.Role then --工会
+        local isIgnore=not XDataCenter.GuildDormManager.CheckNpcIsStatic(self.AgentProxy.Role.RefreshId)
+        self.AgentProxy:ChangeStatus(self.State,isIgnore)
+    else --宿舍
+        self.AgentProxy:ChangeStatus(self.State)
+    end
+    
     self.Node.Status = CsNodeStatus.SUCCESS
 end
 

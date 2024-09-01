@@ -1,6 +1,7 @@
 --===================
 --基础角色数据(同时用于Robot和Character)
 --===================
+---@class XBaseRole
 local XBaseRole = XClass(nil, "XBaseRole")
 
 function XBaseRole:Ctor(rawData)

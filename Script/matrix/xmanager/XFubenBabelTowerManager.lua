@@ -3,6 +3,7 @@ local XBabelTowerStageData = require("XEntity/XBabelTower/XBabelTowerStageData")
 local XBabelTowerReproduceManager = require("XEntity/XBabelTower/XBabelTowerReproduceManager")
 
 XFubenBabelTowerManagerCreator = function()
+    ---@class XFubenBabelTowerManager
     local XFubenBabelTowerManager = {}
 
     local RequestRpc = {
@@ -50,6 +51,7 @@ XFubenBabelTowerManagerCreator = function()
 
     local CurrentMainUiType = XFubenBabelTowerConfigs.ActivityType.Normal
 
+    ---@return XBabelTowerStageData[]
     local function GetStageDatas()
         local stageDatas = BabelActivityStages[CurrentActivityNo]
         if not stageDatas then
@@ -58,6 +60,7 @@ XFubenBabelTowerManagerCreator = function()
         return stageDatas
     end
 
+    ---@return XBabelTowerStageData
     local function GetStageData(stageId)
         local stageDatas = GetStageDatas()
         local stageData = stageDatas and stageDatas[stageId]
@@ -67,6 +70,7 @@ XFubenBabelTowerManagerCreator = function()
         return stageData
     end
 
+    ---@return XBabelTowerTeamData
     local function GetTeamData(stageId, teamId)
         local stageData = GetStageData(stageId)
         local teamData = stageData and stageData:GetTeamData(teamId)
@@ -109,7 +113,7 @@ XFubenBabelTowerManagerCreator = function()
         end
 
         XFubenBabelTowerManager.RefreshStagePassed()
-        XLuaUiManager.Open("UiFightBabelTower", winData.SettleData.StageId, XFubenBabelTowerConfigs.BattleEnd)
+        XLuaUiManager.Open("UiFightBabelTower", winData.SettleData.StageId, XFubenBabelTowerConfigs.BattleEnd, winData.SettleData.BabelTowerSettleResult)
     end
 
     function XFubenBabelTowerManager.FinishFight(settle)
@@ -313,6 +317,10 @@ XFubenBabelTowerManagerCreator = function()
 
     -- 当前角色是否被锁定
     function XFubenBabelTowerManager.IsCharacterLockByStageId(cid, curStageId, curTeamId)
+        -- 机器人id转换为角色id
+        if XEntityHelper.GetIsRobot(cid) then
+            cid = XRobotManager.GetCharacterId(cid)
+        end
         local currentStageData = GetStageData(curStageId)
         local currentActivityType = currentStageData:GetActivityType()
         local stageDatas = GetStageDatas()
@@ -537,10 +545,19 @@ XFubenBabelTowerManagerCreator = function()
     -- RPC
     -- 选择关卡
     function XFubenBabelTowerManager.SelectBabelTowerStage(stageId, guideId, teamList, challengeBuffInfos, supportBuffInfos, func, stageLevel, teamId)
+        local cardIds = {}
+        local robotIds = {}
+        for i, v in pairs(teamList) do
+            local isRobot = XEntityHelper.GetIsRobot(v)
+            cardIds[i] = isRobot and 0 or v
+            robotIds[i] = isRobot and v or 0
+        end
+        
         local req = {
             StageId = stageId,
             GuideId = guideId,
-            TeamList = teamList,
+            TeamList = cardIds,
+            TeamRobotList = robotIds,
             ChallengeBuffInfos = challengeBuffInfos,
             SupportBuffInfos = supportBuffInfos,
             StageLevel = stageLevel,
@@ -1083,7 +1100,11 @@ XFubenBabelTowerManagerCreator = function()
         end)
         return not XTool.IsTableEmpty(resultList) and resultList[1] or nil
     end
-    
+
+    function XFubenBabelTowerManager.GetProgressTips()
+        return XUiHelper.GetText("BabelTowerStageShowDesc", XFubenBabelTowerManager.GetCurrentActivityMaxScore())
+    end
+
     return XFubenBabelTowerManager
 end
 

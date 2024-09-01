@@ -5,8 +5,34 @@
         "ChallengeType": 1,
         "ConditionId": null,
         "IsOpen": null,
-        "Groups": [],
+        "Groups": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "StageId": [
+            null,
             30100103.0,
             30100203.0,
             30100303.0,
@@ -22,11 +48,41 @@
         "ChallengeType": 2,
         "ConditionId": null,
         "IsOpen": null,
-        "Groups": [],
+        "Groups": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "StageId": [
+            null,
             30100701.0,
             30100702.0,
-            30100703.0
+            30100703.0,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -35,8 +91,42 @@
         "ChallengeType": 2,
         "ConditionId": null,
         "IsOpen": 1.0,
-        "Groups": [],
-        "StageId": []
+        "Groups": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "StageId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 4,
@@ -45,6 +135,7 @@
         "ConditionId": null,
         "IsOpen": 1.0,
         "Groups": [
+            null,
             1061003.0,
             1031003.0,
             1011003.0,
@@ -61,9 +152,24 @@
             1531004.0,
             1051004.0,
             1071004.0,
-            1041004.0
+            1041004.0,
+            1011004.0,
+            1091003.0,
+            1021005.0,
+            1221003.0,
+            1261003.0,
+            1271003.0
         ],
-        "StageId": []
+        "StageId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 5,
@@ -72,6 +178,7 @@
         "ConditionId": null,
         "IsOpen": 1.0,
         "Groups": [
+            null,
             1021001.0,
             1031001.0,
             1051001.0,
@@ -89,9 +196,23 @@
             1131002.0,
             1161002.0,
             1211002.0,
-            1221002.0
+            1221002.0,
+            1231002.0,
+            1241002.0,
+            1251002.0,
+            null,
+            null
         ],
-        "StageId": []
+        "StageId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 6,
@@ -100,15 +221,41 @@
         "ConditionId": null,
         "IsOpen": 1.0,
         "Groups": [
+            null,
             1511003.0,
             1521003.0,
             1531003.0,
             1541003.0,
             1551003.0,
             1561003.0,
-            1571003.0
+            1571003.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "StageId": []
+        "StageId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 7,
@@ -117,10 +264,40 @@
         "ConditionId": null,
         "IsOpen": 1.0,
         "Groups": [
+            null,
             1201003.0,
             1181003.0,
-            1191003.0
+            1191003.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "StageId": []
+        "StageId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     }
 ]

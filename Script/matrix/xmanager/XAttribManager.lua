@@ -53,12 +53,14 @@ function XAttribManager.RegisterPromotedIdInterface(inter)
 end
 
 ---属性计算
-local function CreateAttribArray()
+local function CreateAttribArray(isInit)
     local array = {}
-    -- 初始化时不申请全部内存，改用字典
-    -- for _ = 1, AttribCount - 1 do
-    --     tableInsert(array, fix.zero)
-    -- end
+    -- 初始化时默认不申请全部内存，改用字典
+    if isInit then
+        for _ = 1, AttribCount - 1 do
+            tableInsert(array, fix.zero)
+        end
+    end
     return array
 end
 
@@ -614,6 +616,49 @@ local function TryGetNpcAttribs(npcData)
     return Fix2XAttrib(attribs)
 end
 
+--region 装备属性
+--获取单个装备基础属性
+--包括 突破属性, 成长属性
+local function GetNpcEquipBaseAttribs(npcData, equipSite)
+    local attribIds = {}
+    local code = XFightEquipManager.AddBreakthroughAttribIdByEquipSite(npcData, equipSite, attribIds)
+    if (code ~= XCode.Success) then
+        return code
+    end
+
+    local attribs = CreateAttribArray(true)
+    local numericAttribs
+    code, numericAttribs = GetTotalNumericAttribs(attribIds)
+    if code ~= XCode.Success then
+        return code
+    end
+
+    DoAddAttribs(attribs, numericAttribs)
+
+    attribIds = {}
+    local trainedLevels = {}
+    XFightEquipManager.AddPromotedAttribIdByEquipSite(npcData, equipSite, attribIds, trainedLevels)
+
+    local promotedAttribs
+    code, promotedAttribs = GetTotalPromotedAttribs(attribIds, trainedLevels)
+    if code ~= XCode.Success then
+        return code
+    end
+
+    DoAddAttribs(attribs, promotedAttribs)
+
+    return XCode.Success, attribs
+end
+
+local function TryGetNpcEquipBaseAttribs(npcData, equipSite)
+    local code, attribs = GetNpcEquipBaseAttribs(npcData, equipSite)
+    if code ~= XCode.Success then
+        return
+    end
+    return Fix2XAttrib(attribs)
+end
+--endregion 装备属性
+
 -------------------------------------------------------------------------------------------
 XAttribManager.GetAttribAbility = function(attribs)
     if not attribs then
@@ -940,6 +985,7 @@ function XAttribManager.Init()
     CS.XFightDelegate.GetNpcBaseAttrib = TryGetNpcBaseAttribs
     CS.XFightDelegate.GetNpcAttrib = TryGetNpcAttribs
     CS.XFightDelegate.GetPartnerAttrib = TryGetPartnerAttribs
+    CS.XFightDelegate.GetNpcEquipBaseAttrib = TryGetNpcEquipBaseAttribs
     LoadAttribConfig()
 
     _IsInited = true

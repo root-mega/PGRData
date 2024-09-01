@@ -64,6 +64,84 @@ local function GetEquipAwakeTemplate(templateId)
 
     return XCode.Success, template
 end
+
+local function GetWeaponOverrunTemplate(templateId)
+    local cfg = XEquipConfig.GetWeaponOverrunSuitCfgByTemplateId(templateId)
+    if cfg then 
+        return XCode.Success, cfg
+    else
+        return XCode.EquipWeaponOverrunCfgNotFound
+    end
+end
+
+local function GetCharacterTemplate(templateId)
+    local cfg = XCharacterConfigs.GetCharacterTemplate(templateId)
+    if cfg then 
+        return XCode.Success, cfg
+    else
+        return XCode.CharacterManagerGetCharacterTemplateNotFound
+    end
+end
+
+local function GetSuitCharacterType(suitId)
+    local suitCharType = XEquipConfig.GetSuitCharacterType(suitId)
+    return suitCharType
+end
+
+local function GetOverrunCfgs(templateId)
+    local cfgs = XEquipConfig.GetWeaponOverrunCfgsByTemplateId(templateId)
+    if cfgs then 
+        return XCode.Success, cfgs
+    else
+        return XCode.EquipWeaponOverrunCfgNotFound
+    end
+end
+
+----获取套装数量
+local function GetEquipSuitCount(equips, equipSuitCountDict)
+    for _, equip in pairs(equips) do
+        local code, template = GetEquipTemplate(equip.TemplateId)
+        if code ~= XCode.Success then
+            return code
+        end
+
+        -- 武器超限选择的套装
+        local choseOverrunSuit = equip.WeaponOverrunData and equip.WeaponOverrunData.ChoseSuit or 0
+        if choseOverrunSuit > 0 then
+            local overrunTemplate
+            code, overrunTemplate = GetWeaponOverrunTemplate(equip.TemplateId)
+            if code ~= XCode.Success then
+                return code
+            end
+
+            local characterTemplate
+            code, characterTemplate = GetCharacterTemplate(equip.CharacterId)
+            if code ~= XCode.Success then
+                return code
+            end
+
+            -- 意识套装与当前角色匹配才生效
+            local suitCharType = GetSuitCharacterType(choseOverrunSuit)
+            if suitCharType == characterTemplate.Type then 
+                if not equipSuitCountDict[choseOverrunSuit] then
+                    equipSuitCountDict[choseOverrunSuit] = 2
+                else
+                    equipSuitCountDict[choseOverrunSuit] = equipSuitCountDict[choseOverrunSuit] + 2
+                end
+            end
+        end
+
+        if template.SuitId > 0 then
+            if not equipSuitCountDict[template.SuitId] then
+                equipSuitCountDict[template.SuitId] = 1
+            else
+                equipSuitCountDict[template.SuitId] = equipSuitCountDict[template.SuitId] + 1
+            end
+        end
+    end
+
+    return XCode.Success
+end
 -----------------------------------------Attribs Begin---------------------------------------
 ---突破属性成长加成
 ---@param equipData userdata 装备数据
@@ -82,6 +160,18 @@ local function DoAddBreakthroughPromotedAttribId(equipData, attribIds, trainedLe
         tableInsert(trainedLevels, trainedLevel)
     end
 
+    return XCode.Success
+end
+
+local function DoAddBreakthroughAttribId(equipData, characterId, attribIds)
+    local code, template = GetBreakthroughTemplate(equipData.TemplateId, equipData.Breakthrough)
+    if code ~= XCode.Success then
+        return code
+    end
+
+    if template.AttribId > 0 then
+        tableInsert(attribIds, template.AttribId)
+    end
     return XCode.Success
 end
 
@@ -181,7 +271,7 @@ local function DoAddAwakeAttribId(equipData, characterId, attribIds)
     return XCode.Success
 end
 
---- 属性计算
+--- 属性计算, 所有装备
 --- 1、突破提供基础属性
 --- 2、共鸣属性计算
 --- 3、觉醒提供属性
@@ -200,13 +290,9 @@ local function AddNumericAttribId(npcData, attribIds)
     end
 
     for _, equipData in pairs(equips) do
-        local code, template = GetBreakthroughTemplate(equipData.TemplateId, equipData.Breakthrough)
+        local code = DoAddBreakthroughAttribId(equipData, npcData.Character.Id, attribIds)
         if code ~= XCode.Success then
             return code
-        end
-
-        if template.AttribId > 0 then
-            tableInsert(attribIds, template.AttribId)
         end
 
         if equipData.ResonanceInfo then
@@ -225,6 +311,41 @@ local function AddNumericAttribId(npcData, attribIds)
     end
 
     return XCode.Success
+end
+
+local function GetEquipDataFromFightNpcDataByEquipSite(npcData, equipSite)
+    local equips = npcData.Equips
+    if equips.Count == 0 then
+        return
+    end
+
+    if type(equips) == "userdata" then
+        equips = XTool.CsList2LuaTable(equips)
+    end
+
+    for _, equipData in pairs(equips) do
+        local code, template = GetEquipTemplate(equipData.TemplateId)
+        if code == XCode.Success and template.Site == equipSite then
+            return equipData
+        end
+    end
+end
+
+function XFightEquipManager.AddBreakthroughAttribIdByEquipSite(npcData, equipSite, attribIds)
+    local equipData = GetEquipDataFromFightNpcDataByEquipSite(npcData, equipSite)
+    if equipData == nil then
+        return XCode.Success
+    end
+
+    return DoAddBreakthroughAttribId(equipData, npcData.Character.Id, attribIds)
+end
+
+function XFightEquipManager.AddNumericAttribIdByEquipSite(npcData, equipSite, attribIds)
+    local equipData = GetEquipDataFromFightNpcDataByEquipSite(npcData, equipSite)
+    if equipData == nil then
+        return XCode.Success
+    end
+    return AddNumericAttribIdByEquip(npcData, equipData, attribIds)
 end
 
 --- 属性百分比加成
@@ -279,6 +400,16 @@ local function AddPromotedAttribId(npcData, attribIds, trainedLevels)
     end
 
     return XCode.Success
+end
+
+function XFightEquipManager.AddPromotedAttribIdByEquipSite(npcData, equipSite, attribIds, trainedLevels)
+    local equipData = GetEquipDataFromFightNpcDataByEquipSite(npcData, equipSite)
+    if not equipData then
+        return XCode.Success
+    end
+    
+    local code = DoAddBreakthroughPromotedAttribId(equipData, attribIds, trainedLevels)
+    return code
 end
 -----------------------------------------Attribs End-----------------------------------------
 -----------------------------------------Skill Begin-----------------------------------------
@@ -357,19 +488,9 @@ local function DoGetSuitSkillLevel(equips, levelMap)
         equips = XTool.CsList2LuaTable(equips)
     end
 
-    for _, equip in pairs(equips) do
-        local code, template = GetEquipTemplate(equip.TemplateId)
-        if code ~= XCode.Success then
-            return code
-        end
-
-        if template.SuitId > 0 then
-            if not suitCount[template.SuitId] then
-                suitCount[template.SuitId] = 1
-            else
-                suitCount[template.SuitId] = suitCount[template.SuitId] + 1
-            end
-        end
+    local code = GetEquipSuitCount(equips, suitCount)
+    if code ~= XCode.Success then
+        return code
     end
 
     for suitId, count in pairs(suitCount) do
@@ -529,6 +650,33 @@ local function DoGetResonanceBornMagicLevel(equipData, characterId, levelMap)
     return XCode.Success
 end
 
+----武器超限魔法属性
+----@param equipData userdata 装备数据
+----@param levelMap table 技能等级集合
+local function DoGetOverrunBornMagicLevel(equipData, levelMap)
+    if equipData.WeaponOverrunData == nil or equipData.WeaponOverrunData.Level <= 0 then
+        return XCode.Success
+    end
+
+    local code, overrunCfgs = GetOverrunCfgs(equipData.TemplateId)
+    if code ~= XCode.Success then
+        return code
+    end
+
+    for i = 1, equipData.WeaponOverrunData.Level do
+        for _, overrunCfg in ipairs(overrunCfgs) do
+            if overrunCfg.Level == i and overrunCfg.MagicIds then 
+                for _, magicId in ipairs(overrunCfg.MagicIds) do
+                    local magicCnt = levelMap[magicId] or 0
+                    magicCnt = magicCnt + 1
+                    levelMap[magicId] = magicCnt
+                end
+            end
+        end
+    end
+    return XCode.Success
+end
+
 ---套装出生魔法等级集合
 ---套装出生魔法等级都为1级
 ---@param equips userdata 装备数据
@@ -541,23 +689,14 @@ local function DoGetSuitBornMagicLevel(equips, levelMap)
         equips = XTool.CsList2LuaTable(equips)
     end
 
-    for _, equip in pairs(equips) do
-        local code, template = GetEquipTemplate(equip.TemplateId)
-        if code ~= XCode.Success then
-            return code
-        end
-
-        if template.SuitId > 0 then
-            if not suitCount[template.SuitId] then
-                suitCount[template.SuitId] = 1
-            else
-                suitCount[template.SuitId] = suitCount[template.SuitId] + 1
-            end
-        end
+    local code = GetEquipSuitCount(equips, suitCount)
+    if code ~= XCode.Success then
+        return code
     end
 
     for suitId, count in pairs(suitCount) do
-        local code, template = GetSuitTemplate(suitId)
+        local template
+        code, template = GetSuitTemplate(suitId)
         if code ~= XCode.Success then
             return code
         end
@@ -614,8 +753,9 @@ end
 --- 出生魔法属性等级
 --- 1、武器技能加成
 --- 2、共鸣提供加成
---- 3、套装技能加成
---- 4、武器额外技能加成
+--- 3、武器超限加成
+--- 4、套装技能加成
+--- 5、武器额外技能加成
 local function GetBornMagicLevel(npcData, levelMap)
     local code
     local equips = npcData.Equips
@@ -631,6 +771,11 @@ local function GetBornMagicLevel(npcData, levelMap)
         end
 
         code = DoGetResonanceBornMagicLevel(equipData, npcData.Character.Id, levelMap)
+        if code ~= XCode.Success then
+            return code
+        end
+
+        code = DoGetOverrunBornMagicLevel(equipData, levelMap)
         if code ~= XCode.Success then
             return code
         end
@@ -674,15 +819,16 @@ local function DoGetEquipAttribIds(equipData, numericIds, promotedIds, trainedLe
     DoAddBreakthroughPromotedAttribId(equipData, promotedIds, trainedLevels)
 end
 
-function XFightEquipManager.GetEquipAttribs(equipData, preLevel)
+function XFightEquipManager.GetEquipAttribs(equipData, preBreakthrough, preLevel)
     local numericIds = {}
     local trainedLevels = {}
     local promotedIds = {}
+    local breakthrough = preBreakthrough or equipData.Breakthrough
     local equipLevel = preLevel or equipData.Level
 
     DoGetEquipAttribIds({
         TemplateId = equipData.TemplateId,
-        Breakthrough = equipData.Breakthrough,
+        Breakthrough = breakthrough,
         Level = equipLevel
     }, numericIds, promotedIds, trainedLevels)
 

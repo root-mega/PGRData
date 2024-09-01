@@ -112,7 +112,7 @@
     {
         "Index": 23,
         "Attrib": "DefenseNormal",
-        "Name": "Defense"
+        "Name": "DEF"
     },
     {
         "Index": 24,
@@ -406,8 +406,8 @@
     },
     {
         "Index": 82,
-        "Attrib": "HackAutoRecovery",
-        "Name": "Execution Auto Regen"
+        "Attrib": "HackExecuteSkillTriggerP",
+        "Name": "Remaining gauge that can activate Finishing Move"
     },
     {
         "Index": 83,
@@ -453,5 +453,10 @@
         "Index": 91,
         "Attrib": "ReduceDynamicScoringScoreWhenBeDamagedChangeV",
         "Name": "Dynamic scoring decreased once injured up"
+    },
+    {
+        "Index": 92,
+        "Attrib": "DamageAmplificationFactorP",
+        "Name": "DMG Boost"
     }
 ]

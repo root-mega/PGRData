@@ -3,7 +3,8 @@ XTaskConfig = XTaskConfig or {}
 XTaskConfig.ActivenessRewardType = {
     Daily = 1,
     Weekly = 2,
-    Newbie = 3
+    Newbie = 3,
+    NewbieTwo = 4, -- 新手任务二期
 }
 
 XTaskConfig.PANELINDEX = {
@@ -16,6 +17,7 @@ local TaskActivenessTemplate = {}
 local NewPlayerTaskGroupTemplate = {}
 local NewPlayerTaskTalkTemplate = {}
 local TaskNewbieActivenessTemplate = {}
+local NewbieTaskTwoActivenessTemplate = {}
 local CourseTemplate = {}
 local DailyActivenessTemplate = {}
 local WeeklyActivenessTemplate = {}
@@ -24,6 +26,7 @@ local TimeLimitDailyTasksCheckTable = {}
 local TimeLimitWeeklyTasksCheckTable = {}
 local TaskConditionTemplate = {}
 local AlarmClockTemplate = {}
+local TaskBackFlowTemplate = {}
 
 local DailyActivenessTotal = 0
 
@@ -35,6 +38,7 @@ local TABLE_TASK_COURSE_PATH = "Share/Task/Course.tab"
 local TABLE_TASK_TIME_LIMIT_PATH = "Share/Task/TaskTimeLimit.tab"
 local TABLE_TASK_CONDITION_PATH = "Share/Task/Condition.tab"
 local TABLE_ALARMCLOCK_PATH = "Share/AlarmClock/AlarmClock.tab"
+local TABLE_TASK_BACK_FLOW_PATH = "Share/Task/BackFlow.tab"
 local NextTaskIds = {}
 
 local function SetNextTaskId()
@@ -65,11 +69,13 @@ function XTaskConfig.Init()
     CourseTemplate = XTableManager.ReadByIntKey(TABLE_TASK_COURSE_PATH, XTable.XTableCourse, "StageId")
     TimeLimitTaskTemplate = XTableManager.ReadByIntKey(TABLE_TASK_TIME_LIMIT_PATH, XTable.XTableTaskTimeLimit, "Id")
     AlarmClockTemplate = XTableManager.ReadByIntKey(TABLE_ALARMCLOCK_PATH, XTable.XTableAlarmClock, "ClockId")
+    TaskBackFlowTemplate = XTableManager.ReadByIntKey(TABLE_TASK_BACK_FLOW_PATH, XTable.XTableBackFlow, "Id")
     InitTimeLimitWithRefreshableTasks()
 
     DailyActivenessTemplate = TaskActivenessTemplate[XTaskConfig.ActivenessRewardType.Daily]
     WeeklyActivenessTemplate = TaskActivenessTemplate[XTaskConfig.ActivenessRewardType.Weekly]
     TaskNewbieActivenessTemplate = TaskActivenessTemplate[XTaskConfig.ActivenessRewardType.Newbie]
+    NewbieTaskTwoActivenessTemplate = TaskActivenessTemplate[XTaskConfig.ActivenessRewardType.NewbieTwo]
 
     local count = #DailyActivenessTemplate.Activeness
     DailyActivenessTotal = DailyActivenessTemplate.Activeness[count]
@@ -80,12 +86,17 @@ function XTaskConfig.GetTaskTemplate()
     return TaskTemplate
 end
 
+---@return XTableTask
 function XTaskConfig.GetTaskCfgById(id)
     return TaskTemplate[id]
 end
 
 function XTaskConfig.GetTaskRewardId(id)
     return TaskTemplate[id].RewardId
+end
+
+function XTaskConfig.GetTaskGroupId(id)
+    return TaskTemplate[id].GroupId
 end
 
 function XTaskConfig.GetCourseTemplate()
@@ -102,6 +113,10 @@ end
 
 function XTaskConfig.GetTaskNewbieActivenessTemplate()
     return TaskNewbieActivenessTemplate
+end
+-- 新手任务二期
+function XTaskConfig.GetNewbieTaskTwoActivenessTemplate()
+    return NewbieTaskTwoActivenessTemplate
 end
 
 ----------------------------------------- 配置表对外暴露的get方法结束 -----------------------------------------
@@ -224,4 +239,18 @@ function XTaskConfig.GetTaskConfigById(id)
     end
 
     return taskCfg
+end
+
+function XTaskConfig.GetProgress(taskId)
+    local config = XTaskConfig.GetTaskCfgById(taskId)
+    return config.Result
+end
+
+function XTaskConfig.GetBackFlowById(id)
+    local template = TaskBackFlowTemplate[id]
+    if not template then
+        XLog.ErrorTableDataNotFound("XTaskConfig.GetBackFlowById", "BackFlow", TABLE_TASK_BACK_FLOW_PATH, "Id", tostring(id))
+        return
+    end
+    return template
 end

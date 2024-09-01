@@ -51,6 +51,11 @@ function XUiGuildChangePosition:OnBtnCancelClick()
     self:Close()
 end
 
+function XUiGuildChangePosition:Close()
+    self:EmitSignal("Close", self.TargetMember)
+    self.Super.Close(self)
+end
+
 function XUiGuildChangePosition:OnBtnConfirmClick()
     if not XDataCenter.GuildManager.IsGuildAdminister() then
         XUiManager.TipMsg(CSXTextManagerGetText("GuildNotAdministor"))

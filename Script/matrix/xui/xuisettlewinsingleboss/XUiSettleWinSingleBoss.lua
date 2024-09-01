@@ -51,6 +51,8 @@ function XUiSettleWinSingleBoss:ShowPanel(data)
     local bossLoseHpScore = stageInfo and stageInfo.BossLoseHpScore or 0
     local leftTimeScore = stageInfo and stageInfo.LeftTimeScore or 0
     local leftHpScore = stageInfo and stageInfo.LeftHpScore or 0
+    local curBossTotalScore = XDataCenter.FubenBossSingleManager.GetBossCurSettleScore(data.StageId, result.TotalScore)
+    local curBossMaxScore = XDataCenter.FubenBossSingleManager.GetBossMaxScoreByStageId(data.StageId)
 
     self.CurAllScore = result.TotalScore
     self.TxtBossAllLoseHpScore.text = CS.XTextManager.GetText("BossSingleAutoFightDesc10", result.MaxBossDamageScore)
@@ -76,6 +78,7 @@ function XUiSettleWinSingleBoss:ShowPanel(data)
         local charLeftHpScoreText = '+' .. math.floor(f * result.HpScore)
         local allScoreText = math.floor(f * result.TotalScore)
         local historyScoreText = math.floor(f * myTotalHistory) .. "/" .. bossTotalScore
+        local curSettleBossSocreText = math.floor(f * curBossTotalScore) .. "/" .. curBossMaxScore
 
         self.TxtStageTime.text = totalTimeText
         self.TxtBossLoseHp.text = bossLoseHpText
@@ -86,6 +89,7 @@ function XUiSettleWinSingleBoss:ShowPanel(data)
         self.TxtCharLeftHpScore.text = charLeftHpScoreText
         self.TxtAllScore.text = allScoreText
         self.TxtHistoryScore.text = historyScoreText
+        self.TxtHistoryScore2.text = curSettleBossSocreText
 
     end, function()
         if XTool.UObjIsNil(self.Transform) or XTool.UObjIsNil(self.PanelNewTag) then
@@ -118,6 +122,7 @@ function XUiSettleWinSingleBoss:SetDefaultText()
     self.TxtCharLeftHpScore.text = '+' .. 0
     self.TxtAllScore.text = 0
     self.TxtHistoryScore.text = 0
+    self.TxtHistoryScore2.text = 0
 end
 
 function XUiSettleWinSingleBoss:StopAudio()

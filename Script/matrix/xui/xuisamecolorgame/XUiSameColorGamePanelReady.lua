@@ -39,6 +39,7 @@ function XUiSkillGrid:SetSelectStatus(value)
 end
 
 function XUiSkillGrid:OnBtnSelfClicked(playAnim)
+    playAnim = false  -- v4.0不需要播动画
     if self.ClickCallBack then
         self.ClickCallBack(self.Skill, self, playAnim)
     end
@@ -59,11 +60,12 @@ function XUiSelectSkillGrid:Ctor(ui)
 end
 
 -- skill : XSCRoleSkill
-function XUiSelectSkillGrid:SetData(skill, index)
+function XUiSelectSkillGrid:SetData(skill, index, isForbid)
     self.Index = index
     self.RImgIcon:SetRawImage(skill:GetIcon())
     self.TxtName.text = skill:GetName()
     self.PanelSelected.gameObject:SetActiveEx(false)
+    self.PanelDisable.gameObject:SetActiveEx(isForbid)
 end
 
 function XUiSelectSkillGrid:SetSelectStatus(value)
@@ -118,7 +120,7 @@ function XUiSameColorGamePanelReady:SetData(role, boss)
     self.Role = role
     self.Boss = boss
     self.CurrentSelectSkillIndex = nil
-    local usingSkillGroupIds = role:GetUsingSkillGroupIds()
+    local usingSkillGroupIds = role:GetUsingSkillGroupIds(nil, self.Boss:IsTimeType())
     self:RefreshRoleSkills(usingSkillGroupIds)
     self:RefreshSelectSkills()
     -- 设置默认选中的技能
@@ -166,7 +168,7 @@ function XUiSameColorGamePanelReady:OnSkillGridClicked(skill, grid, playAnim)
     -- 设置技能选中状态
     self.CurrentEquipSkillIndex = self:ActiveGridSelectStatus(grid)
     if not skill then return end
-    XLuaUiManager.Open("UiSameColorGamePopupTwo", self.Role, skill, self.CurrentEquipSkillIndex, handler(self, self.OnPopupCloseCallBack))
+    XLuaUiManager.Open("UiSameColorGamePopupTwo", self.Role, skill, self.CurrentEquipSkillIndex, self.Boss:IsTimeType(), handler(self, self.OnPopupCloseCallBack))
 end
 
 function XUiSameColorGamePanelReady:OnPopupCloseCallBackWithEquip(isUpdated, skillGroupId)
@@ -190,7 +192,7 @@ function XUiSameColorGamePanelReady:OnPopupCloseCallBack(isUpdated, skillGroupId
         self:RefreshRoleSkills()
     end
     self.CurrentSelectSkillIndex = nil
-    for _, v in ipairs(self.DynamicTable:GetGrids()) do
+    for _, v in pairs(self.DynamicTable:GetGrids()) do
         v:SetSelectStatus(false)
     end
 end
@@ -242,14 +244,21 @@ end
 function XUiSameColorGamePanelReady:OnDynamicTableEvent(event, index, grid)
     local skill = self.SelectSkills[index]
     if event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_ATINDEX then
-        grid:SetData(skill, index)
+        local isForbid = self.Boss:IsTimeType() and skill:IsForbidInTime()
+        grid:SetData(skill, index, isForbid)
         grid:SetSelectStatus(self.CurrentSelectSkillIndex == index)
     elseif event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_TOUCHED then
+        local isForbid = self.Boss:IsTimeType() and skill:IsForbidInTime()
+        if isForbid then
+            XUiManager.TipText("SameColorGameForbidSkillTips")
+            return
+        end
+
         self.CurrentSelectSkillIndex = index
-        for _, v in ipairs(self.DynamicTable:GetGrids()) do
+        for _, v in pairs(self.DynamicTable:GetGrids()) do
             v:SetSelectStatus(v:GetIndex() == self.CurrentSelectSkillIndex)
         end
-        XLuaUiManager.Open("UiSameColorGamePopup", self.Role, skill, self.CurrentEquipSkillIndex, handler(self, self.OnPopupCloseCallBackWithEquip))
+        XLuaUiManager.Open("UiSameColorGamePopup", self.Boss, self.Role, skill, self.CurrentEquipSkillIndex, handler(self, self.OnPopupCloseCallBackWithEquip))
     end
 end
 

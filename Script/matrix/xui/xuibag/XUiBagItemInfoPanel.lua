@@ -8,7 +8,7 @@ function XUiBagItemInfoPanel:OnAwake()
     self:InitAutoScript()
 end
 
-function XUiBagItemInfoPanel:OnStart(itemData, useCb, isShowUse)
+function XUiBagItemInfoPanel:OnStart(itemData, useCb, isShowUse, closeCb)
     self:CheckChangeBtnUseListener(useCb)
 
     self.SelectCount = 0
@@ -32,6 +32,7 @@ function XUiBagItemInfoPanel:OnStart(itemData, useCb, isShowUse)
     self.IsUseable = isShowUse or XDataCenter.ItemManager.IsUseable(id)
     self:SetupContent()
     self:SetBtnShowOfActionPointOverLimit()
+    self.CloseCb = closeCb
 end
 
 function XUiBagItemInfoPanel:SetupContent()
@@ -90,6 +91,9 @@ end
 
 function XUiBagItemInfoPanel:OnBtnCloseClick()
     self:Close()
+    if self.CloseCb then
+        self.CloseCb()
+    end
 end
 
 function XUiBagItemInfoPanel:OnBtnGetClick()

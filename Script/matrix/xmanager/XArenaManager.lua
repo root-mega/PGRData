@@ -1,9 +1,10 @@
+local XExFubenSimulationChallengeManager = require("XEntity/XFuben/XExFubenSimulationChallengeManager")
 ---
 --- 竞技副本管理器
 ---
 
 XArenaManagerCreator = function()
-    local XArenaManager = {}
+    local XArenaManager = XExFubenSimulationChallengeManager.New(XFubenConfigs.ChapterType.ARENA)
 
     local SYNC_RANK_LIST_SECOND = 60        --获取排行榜List请求保护时间
     local SYNC_HALL_SECOND = 5              --获取其他请求保护时间
@@ -45,7 +46,7 @@ XArenaManagerCreator = function()
     --竞技排行数据
     local PlayerResultRankList = {}         -- 该段位玩家排行
     local PlayerLoaclResultRanlList = nil   -- 该段位玩家排行(本地数据)
-    local PlayerLastResultRanlList = nil    -- 该段位上一期玩家排行
+    local PlayerLastResultRanlList = {}    -- 该段位上一期玩家排行
     local TeamRankChallengeId = 0           -- 队伍排行榜的挑战ID
     local TeamRankData = {}                 -- 队伍排行
     local TeamResultList = {}               -- 该段位队员成绩
@@ -123,6 +124,14 @@ XArenaManagerCreator = function()
     
     function XArenaManager.GetGroupFightEvent()
         return GroupFightEvent
+    end
+    
+    function XArenaManager.GetActivityNo()
+        return ActivityNo
+    end
+    
+    function XArenaManager.GetChallengeId()
+        return ChallengeId
     end
 
     -- 检测竞技奖励界面
@@ -852,7 +861,7 @@ XArenaManagerCreator = function()
 
     -- 获取玩家上一期竞技信息
     function XArenaManager.GetPlayerLastArenaInfo()
-        for _, info in ipairs(TeamLastResultList) do
+        for _, info in ipairs(TeamLastResultList or {}) do
             if info.Id == XPlayer.Id then
                 return info
             end
@@ -938,7 +947,7 @@ XArenaManagerCreator = function()
     -- 获取队员上一期竞技信息列表
     function XArenaManager.GetPlayerLastArenaTeamMemberInfo()
         local list = {}
-        for _, info in ipairs(TeamLastResultList) do
+        for _, info in ipairs(TeamLastResultList or {}) do
             if info.Id ~= XPlayer.Id then
                 table.insert(list, info)
             end
@@ -960,7 +969,7 @@ XArenaManagerCreator = function()
     -- 获取队伍上一期竞技总分
     function XArenaManager.GetLastArenaTeamTotalPoint()
         local point = 0
-        for _, info in ipairs(TeamLastResultList) do
+        for _, info in ipairs(TeamLastResultList or {}) do
             point = point + info.Point
         end
 
@@ -981,19 +990,23 @@ XArenaManagerCreator = function()
         rankData.DownList = {}
 
         for i, info in ipairs(PlayerResultRankList) do
+            local Data = {
+                Rank = i,
+                PlayerInfo = info
+            }
             if info.Point > 0 then
                 if (i - challengeCfg.DanUpRank <= 0) then
-                    table.insert(rankData.UpList, info)
+                    table.insert(rankData.UpList, Data)
                 elseif (i - challengeCfg.DanKeepRank <= 0) then
-                    table.insert(rankData.KeepList, info)
+                    table.insert(rankData.KeepList, Data)
                 else
-                    table.insert(rankData.DownList, info)
+                    table.insert(rankData.DownList, Data)
                 end
             else
                 if challengeCfg.ArenaLv <= 1 then
-                    table.insert(rankData.KeepList, info)
+                    table.insert(rankData.KeepList, Data)
                 else
-                    table.insert(rankData.DownList, info)
+                    table.insert(rankData.DownList, Data)
                 end
             end
         end
@@ -1014,19 +1027,23 @@ XArenaManagerCreator = function()
         rankData.DownList = {}
 
         for i, info in ipairs(PlayerLastResultRanlList) do
+            local Data = {
+                Rank = i,
+                PlayerInfo = info
+            }
             if info.Point > 0 then
                 if (i - challengeCfg.DanUpRank <= 0) then
-                    table.insert(rankData.UpList, info)
+                    table.insert(rankData.UpList, Data)
                 elseif (i - challengeCfg.DanKeepRank <= 0) then
-                    table.insert(rankData.KeepList, info)
+                    table.insert(rankData.KeepList, Data)
                 else
-                    table.insert(rankData.DownList, info)
+                    table.insert(rankData.DownList, Data)
                 end
             else
                 if challengeCfg.ArenaLv <= 1 then
-                    table.insert(rankData.KeepList, info)
+                    table.insert(rankData.KeepList, Data)
                 else
-                    table.insert(rankData.DownList, info)
+                    table.insert(rankData.DownList, Data)
                 end
             end
         end
@@ -1263,7 +1280,7 @@ XArenaManagerCreator = function()
         if ActivityStatus == XArenaActivityStatus.Over then
             IsJoinActivity = false
             WaveLastRate = nil
-            PlayerLastResultRanlList = nil
+            PlayerLastResultRanlList = {}
             TeamLastResultList = nil
             LastChallengeId = nil
             LastActivityNo = nil
@@ -1396,15 +1413,17 @@ XArenaManagerCreator = function()
     end
 
     -- 请求区域信息
-    function XArenaManager.RequestAreaData(cb)
+    function XArenaManager.RequestAreaData(cb, failCb)
         if ActivityStatus ~= XArenaActivityStatus.Fight then
             XUiManager.TipText("ArenaActivityStatusWrong")
+            if failCb then failCb() end
             return
         end
 
         XNetwork.Call(ArenaRequest.RequestAreaData, nil, function(res)
             if res.Code ~= XCode.Success then
-                XUiManager.TipCode(res.Code)
+                -- XUiManager.TipCode(res.Code)
+                if failCb then failCb() end
                 return
             end
 
@@ -1583,9 +1602,118 @@ XArenaManagerCreator = function()
             return 0
         end
     end
+    
+    -- 获取当前挑战任务
+    function XArenaManager.GetCurChallengeTasks()
+        local tasks = {}
+        local dailyTasks = XDataCenter.TaskManager.GetArenaChallengeTaskList()
+        local challengeCfg = XArenaConfigs.GetChallengeArenaCfgById(ChallengeId)
+        if challengeCfg then
+            for _, cfgTaskId in pairs(challengeCfg.TaskId or {}) do
+                for _, dailyTask in pairs(dailyTasks) do
+                    if cfgTaskId == dailyTask.Id then
+                        table.insert(tasks, dailyTask)
+                    end
+                end
+            end
+        end
+        return tasks
+    end
 
     --XArenaManager.Init()
     ----------------------------Arena start--------------------------
+
+    ------------------副本入口扩展 start-------------------------
+    function XArenaManager:ExGetChapterType()
+        return XDataCenter.FubenManager.ChapterType.ARENA
+    end
+    
+    function XArenaManager:ExGetProgressTip()
+        local status = XDataCenter.ArenaManager.GetArenaActivityStatus()
+        if status == XArenaActivityStatus.Rest then
+            return CS.XTextManager.GetText("ArenaTeamDescription")
+        elseif status == XArenaActivityStatus.Fight then
+            local isJoin = XDataCenter.ArenaManager.GetIsJoinActivity()
+            if isJoin then
+                return CS.XTextManager.GetText("ArenaFightJoinDescription")
+            else
+                return CS.XTextManager.GetText("ArenaFightNotJoinDescription")
+            end
+        elseif status == XArenaActivityStatus.Over then
+            return CS.XTextManager.GetText("ArenaOverDescription")
+        end
+        return ""
+    end
+    
+    function XArenaManager:ExGetRunningTimeStr()
+        local remainTime = CountDownTime - XTime.GetServerNowTimestamp()
+        local state = XDataCenter.ArenaManager.GetArenaActivityStatus()
+        local timeText = ""
+        if state == XArenaActivityStatus.Rest then
+            timeText = CS.XTextManager.GetText("ArenaActivityBeginCountDown") .. XUiHelper.GetTime(remainTime, XUiHelper.TimeFormatType.CHALLENGE)
+        elseif state == XArenaActivityStatus.Fight then
+            timeText = CS.XTextManager.GetText("ArenaActivityEndCountDown", XUiHelper.GetTime(remainTime, XUiHelper.TimeFormatType.CHALLENGE))
+        elseif state == XArenaActivityStatus.Over then
+            timeText = CS.XTextManager.GetText("ArenaActivityResultCountDown") .. XUiHelper.GetTime(remainTime, XUiHelper.TimeFormatType.CHALLENGE)
+        end
+        return timeText
+    end
+
+    function XArenaManager:ExCheckIsFinished(cb)
+        local state = XDataCenter.ArenaManager.GetArenaActivityStatus()
+        if state ~= XArenaActivityStatus.Fight then -- 特殊，只要不在战斗期就一定显示Clear
+            self.IsClear = true
+            if cb then
+                cb(true)
+            end
+            return
+        end
+        self.IsClear = false
+        -- 检测完成的数据必现先报名战区并请求下发数据，不然会弹提示。所以把提示关掉
+        XArenaManager.RequestAreaData(function()
+            local isHasAreaUnlock = false   --有战区未解锁
+            local isHasArealock = false     --有战区已解锁
+            local isAreaUnLockButHasStageUnpassed = false   --解锁的区有关卡没打
+            for k, areaInfo in pairs(AreaDatas) do
+                if areaInfo.Lock == 1 and not isHasAreaUnlock then
+                    isHasAreaUnlock = true
+                end
+    
+                if areaInfo.Lock == 0  then
+                    if not isHasArealock then
+                        isHasArealock = true
+                    end
+    
+                    if areaInfo.StageInfos and #areaInfo.StageInfos < 3 then
+                        isAreaUnLockButHasStageUnpassed = true
+                    end
+                end
+            end
+
+            local result = true
+            if (isHasAreaUnlock and UnlockCount > 0) -- 有次数且未解锁区
+                    or (isHasArealock and isAreaUnLockButHasStageUnpassed)  -- 有战区已解锁 且 解锁的区有关卡没打
+                    or XRedPointManager.CheckConditions({"CONDITION_ARENA_MAIN_TASK"}) -- 有奖励未领取
+                    or self:ExGetIsLocked()
+            then
+                result = false
+            end
+
+            self.IsClear = result
+            if cb then
+                cb(result)
+            end
+        end, cb)
+    end
+
+    function XArenaManager:ExOpenMainUi()
+        if XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.FubenArena) then
+            XArenaManager.RequestSignUpArena(function()
+                XLuaUiManager.Open("UiArena", XFubenConfigs.GetChapterBannerByType(XDataCenter.FubenManager.ChapterType.ARENA))
+            end)
+        end
+    end
+    ------------------副本入口扩展 end-------------------------
 
     return XArenaManager
 end

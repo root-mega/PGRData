@@ -19,12 +19,33 @@ XUiPcManagerCreator = function()
         -- )
     end
 
+   
+    function XUiPcManager.OnUiEnable()
+        -- todo 删除
+    end
+
+    function XUiPcManager.OnUiDisable()
+        XDataCenter.BackManager.OnUiDisable()
+    end
+
+    function XUiPcManager.OnUiDisableAbandoned()
+        -- todo 删除
+    end
+
     XUiPcManager.OnEscBtnClick = function()
         XQuitHandler.OnEscBtnClick()
     end
 
     XUiPcManager.IsPc = function()
         return CS.XUiPc.XUiPcManager.IsPcMode()
+    end
+
+    XUiPcManager.IsOverSea = function()
+        return false
+    end
+
+    XUiPcManager.IsPcServer = function()
+        return CS.XUiPc.XUiPcManager.IsPcModeServer()
     end
 
     -- 设备分辨率,非游戏分辨率
@@ -78,7 +99,7 @@ XUiPcManagerCreator = function()
     end
 
     XUiPcManager.SetEditingKeyState = function(editing)
-        CS.XPc.XCursorHelper.ForceResponse = not editing
+        CS.XJoystickLSHelper.ForceResponse = not editing
         XQuitHandler.SetEditingKeyState(editing)
         CS.XGameEventManager.Instance:Notify(XEventId.EVENT_EDITING_KEYSET, editing)
     end
@@ -274,6 +295,14 @@ XUiPcManagerCreator = function()
         CS.UnityEngine.PlayerPrefs.SetInt("LastFullScreen", fullScreen and 1 or 0)
         CS.UnityEngine.PlayerPrefs.Save()
     end 
+
+    XUiPcManager.AddCustomUI = function(root)
+        CS.XUiManagerExtension.AddCustomUI(root)
+    end
+
+    XUiPcManager.RemoveCustomUI = function(root)
+        CS.XUiManagerExtension.RemoveCustomUI(root)
+    end
 
     XUiPcManager.Init()
     return XUiPcManager

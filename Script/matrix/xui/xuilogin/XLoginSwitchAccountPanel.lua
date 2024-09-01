@@ -20,6 +20,8 @@ function this.InitUI()
     this.HuaweiGroup.gameObject:SetActiveEx(CS.XHgSdkAgent.IsHuaiwei())
     this.OppoGroup.gameObject:SetActiveEx(CS.XHgSdkAgent.IsOppo())
     --TODO 华为屏蔽
+    --目前仅安卓增加邮箱登录
+    -- this.MailGroup.gameObject:SetActiveEx(CS.XRemoteConfig.EmailLoginEnabled);
 end
 
 function this.AutoAddListeners()
@@ -32,6 +34,7 @@ function this.AutoAddListeners()
     this.LoginOppoBtn.onClick:AddListener(this.OppoLoginAgent)
     this.LoginVisitorBtn.onClick:AddListener(this.VisitorLoginAgent)
     this.LoginTwitterBtn.transform.parent.gameObject:SetActiveEx(false)
+    this.LoginGoogleBtn.onClick:AddListener(this.GoogleLoginAgent)
 end
 
 function this.SwitchAccountAgent(loginCall)

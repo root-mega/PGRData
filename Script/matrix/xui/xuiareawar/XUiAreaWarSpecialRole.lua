@@ -22,10 +22,10 @@ function XUiAreaWarSpecialRole:OnAwake()
     self:AutoAddListener()
 end
 
-function XUiAreaWarSpecialRole:OnStart(areaId)
-    self.AreaIds = XAreaWarConfigs.GetAllAreaIds()
-    areaId = areaId or XDataCenter.AreaWarManager.GetBranchNewAreaId()
-    self.SelectIndex = self:GetBtnIndexByAreaId(areaId)
+function XUiAreaWarSpecialRole:OnStart(chapterId)
+    self.ChapterIds = XAreaWarConfigs.GetChapterIds()
+    chapterId = chapterId or XDataCenter.AreaWarManager.GetBranchNewChapterId()
+    self.SelectIndex = self:GetBtnIndexByAreaId(chapterId)
     self.RewardIds = XAreaWarConfigs.GetAllSpecialRoleUnlockRewardIds()
     self.Btns = {}
     self.RoleGridList = {}
@@ -85,7 +85,7 @@ end
 function XUiAreaWarSpecialRole:InitView()
     self.TxtTips.text = CsXTextManagerGetText("AreaWarSpecialRoleTips")
 
-    for index, areaId in ipairs(self.AreaIds) do
+    for index, chapterId in ipairs(self.ChapterIds) do
         local btn = self.Btns[index]
         if not btn then
             local go =
@@ -116,19 +116,19 @@ function XUiAreaWarSpecialRole:UpdateAssets()
 end
 
 function XUiAreaWarSpecialRole:UpdateAreas()
-    for index, areaId in ipairs(self.AreaIds) do
+    for index, chapterId in ipairs(self.ChapterIds) do
         local btn = self.Btns[index]
         if btn then
-            local areaName = XAreaWarConfigs.GetAreaName(areaId)
-            btn:SetNameByGroup(0, areaName)
+            local chapterName = XAreaWarConfigs.GetChapterName(chapterId)
+            btn:SetNameByGroup(0, chapterName)
 
             local tipStr = ""
-            local isUnlock = XDataCenter.AreaWarManager.IsAreaUnlock(areaId)
+            local isUnlock = XDataCenter.AreaWarManager.IsChapterUnlock(chapterId)
             if isUnlock then
-                local unlockCount, totalCount = XDataCenter.AreaWarManager.GetAreaSpecialRolesUnlockProgress(areaId)
+                local unlockCount, totalCount = XDataCenter.AreaWarManager.GetAreaSpecialRolesUnlockProgress(chapterId)
                 tipStr = CsXTextManagerGetText("AreaWarAreaSpeicalRoleUnlockProgress", unlockCount, totalCount)
             else
-                local leftTime = XDataCenter.AreaWarManager.GetAreaUnlockLeftTime(areaId)
+                local leftTime = XDataCenter.AreaWarManager.GetChapterUnlockLeftTime(chapterId)
                 if leftTime > 0 then
                     tipStr =
                         CsXTextManagerGetText(
@@ -147,7 +147,7 @@ function XUiAreaWarSpecialRole:UpdateAreas()
 end
 
 function XUiAreaWarSpecialRole:OnClickTabBtn(index)
-    local isUnlock = XDataCenter.AreaWarManager.IsAreaUnlock(self.AreaIds[index])
+    local isUnlock = XDataCenter.AreaWarManager.IsChapterUnlock(self.ChapterIds[index])
     if not isUnlock then
         return
     end
@@ -162,8 +162,8 @@ function XUiAreaWarSpecialRole:OnClickTabBtn(index)
 end
 
 function XUiAreaWarSpecialRole:UpdateSpecialRoles()
-    local areaId = self:GetAreaId()
-    local roleIds = XAreaWarConfigs.GetAreaSpecialRoleIds(areaId)
+    local areaId = self:GetChapterId()
+    local roleIds = XAreaWarConfigs.GetChapterSpecialRoleIds(areaId)
     for index, roleId in ipairs(roleIds) do
         local grid = self.RoleGridList[index]
         if not grid then
@@ -182,8 +182,8 @@ function XUiAreaWarSpecialRole:UpdateSpecialRoles()
 end
 
 function XUiAreaWarSpecialRole:OnClickRole(roleId)
-    local areaId = self:GetAreaId()
-    local roleIds = XAreaWarConfigs.GetAreaSpecialRoleIds(areaId)
+    local chapterId = self:GetChapterId()
+    local roleIds = XAreaWarConfigs.GetChapterSpecialRoleIds(chapterId)
     for index, grid in pairs(self.RoleGridList) do
         grid:SetSelect(roleId == roleIds[index])
     end
@@ -205,15 +205,17 @@ function XUiAreaWarSpecialRole:UpdateRewardProgress()
 
     --全部未达成，滑到最左
     --有已领取的，则上滑到已领取里档位最高的在最左第一格，直到无法再右滑
-    local selectIndex = -1
-    for index = #self.RewardIds, 1, -1 do
-        if XDataCenter.AreaWarManager.IsSpecialRoleRewardHasGot(self.RewardIds[index]) then
-            selectIndex = index
-            break
-        end
-    end
+    --当期活动策划不需要这个功能了
+    --local selectIndex = -1
+    --for index = #self.RewardIds, 1, -1 do
+    --    if XDataCenter.AreaWarManager.IsSpecialRoleRewardHasGot(self.RewardIds[index]) then
+    --        selectIndex = index
+    --        break
+    --    end
+    --end
     self.DynamicTable:SetDataSource(self.RewardIds)
-    self.DynamicTable:ReloadDataSync(selectIndex)
+    --self.DynamicTable:ReloadDataSync(selectIndex)
+    self.DynamicTable:ReloadDataSync()
 end
 
 function XUiAreaWarSpecialRole:OnDynamicTableEvent(event, index, grid)
@@ -251,12 +253,12 @@ function XUiAreaWarSpecialRole:OnClickSpecialRoleReward(rewardId)
     end
 end
 
-function XUiAreaWarSpecialRole:GetAreaId()
-    return self.AreaIds[self.SelectIndex]
+function XUiAreaWarSpecialRole:GetChapterId()
+    return self.ChapterIds[self.SelectIndex]
 end
 
 function XUiAreaWarSpecialRole:GetBtnIndexByAreaId(areaId)
-    for index, inAreaId in pairs(self.AreaIds) do
+    for index, inAreaId in pairs(self.ChapterIds) do
         if inAreaId == areaId then
             return index
         end

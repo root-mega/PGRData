@@ -1,5 +1,6 @@
 local XUiGridStoryChapterDP = require("XUi/XUiFubenShortStory/XUiGridStoryChapterDP")
 local XUiGridExploreChapterDP = require("XUi/XUiFubenShortStory/XUiGridExploreChapterDP")
+local XUiPanelStoryJump = require("XUi/XUiFubenMainLineChapter/XUiPanelStoryJump")
 local XUiFubenMainLineChapterDP = XLuaUiManager.Register(XLuaUi,"UiFubenMainLineChapterDP")
 local XUiFubenMainLineQuickJumpBtnDP = require("XUi/XUiFubenShortStory/XUiFubenMainLineQuickJumpBtnDP")
 local XUiGridTreasureGradeDP = require("XUi/XUiFubenShortStory/XUiGridTreasureGradeDP")
@@ -7,6 +8,7 @@ function XUiFubenMainLineChapterDP:OnAwake()
     self:AddListener()
 end
 
+-- 浮点纪实
 function XUiFubenMainLineChapterDP:OnStart(chapterId, stageId, hideDiffTog)
     if self.LastData then
         self.ChapterId = self.LastData.ChapterId or chapterId
@@ -72,6 +74,7 @@ function XUiFubenMainLineChapterDP:OnStart(chapterId, stageId, hideDiffTog)
         self.PanelTopDifficult.gameObject:SetActiveEx(false)
     end
     self:InitPanelBottom()
+    self:InitPanelStoryJump()
 end
 
 function XUiFubenMainLineChapterDP:OnEnable()
@@ -118,6 +121,11 @@ function XUiFubenMainLineChapterDP:InitPanelBottom()
 
     self.PanelExploreBottom.BtnNormalJump.gameObject:SetActiveEx(false)
     self.PanelExploreBottom.BtnHardlJump.gameObject:SetActiveEx(false)
+end
+
+function XUiFubenMainLineChapterDP:InitPanelStoryJump()
+    ---@type XUiPanelStoryJump
+    self.PanelStoryJump = XUiPanelStoryJump.New(self.PanelStoryJumpBottom, self)
 end
 
 function XUiFubenMainLineChapterDP:GoToLastPassStage()
@@ -167,7 +175,14 @@ function XUiFubenMainLineChapterDP:EnterFight(stage)
     if not XDataCenter.FubenManager.CheckPreFight(stage) then
         return
     end
-    XLuaUiManager.Open("UiBattleRoleRoom", stage.StageId)
+    local team = nil
+    local proxy = nil
+    if stage.HideAction == 1 then
+        team = XDataCenter.TeamManager.GetXTeamByStageId(stage.StageId)
+        team:UpdateEntityIds(XTool.Clone(stage.RobotId))
+        proxy = require("XUi/XUiFubenShortStory/BattleRole/XUiShortStoryBattleRoleRoom")
+    end
+    XLuaUiManager.Open("UiBattleRoleRoom", stage.StageId, team, proxy)
 end
 
 -- 是否显示红点
@@ -349,6 +364,35 @@ function XUiFubenMainLineChapterDP:SetBtnToggleActive(isNormal, isHard)
         self.PanelHardOn.gameObject:SetActiveEx(hardOpen)
         self.PanelHardOff.gameObject:SetActiveEx(not hardOpen)
     end
+
+    -- 刷新蓝点 redpoint
+    -- 普通剧情下
+    local chapterIds = XFubenShortStoryChapterConfigs.GetShortStoryChapterIds(self.ChapterMainId)
+    local normalChapterId = chapterIds[1]
+    local hideChapterId = chapterIds[2]
+    if self.CurDiff == XDataCenter.FubenManager.DifficultNormal then
+        if hideChapterId then
+            local viewModel = XDataCenter.ShortStoryChapterManager:ExGetChapterViewModelById(self.ChapterId, XDataCenter.FubenManager.DifficultHard)
+            local isUnFinAndUnEnter = XDataCenter.FubenManagerEx.CheckHideChapterRedPoint(viewModel) --v1.30 新入口红点规则，未完成隐藏且没点击过
+            local hardRed = XRedPointConditionShortStoryChapterReward.Check(hideChapterId) or isUnFinAndUnEnter
+
+            self.BtnNormal:ShowReddot(not isHard and hardRed)
+            self.BtnHard:ShowReddot(hardRed) 
+        else
+            self.BtnHard:ShowReddot(false)
+            self.BtnNormal:ShowReddot(false)
+        end
+    -- 隐藏模式下
+    elseif self.CurDiff == XDataCenter.FubenManager.DifficultHard then
+        if normalChapterId then
+            local normalRed = XRedPointConditionShortStoryChapterReward.Check(normalChapterId)
+            self.BtnHard:ShowReddot(not isNormal and normalRed)
+            self.BtnNormal:ShowReddot(normalRed)
+        else
+            self.BtnNormal:ShowReddot(false)
+            self.BtnHard:ShowReddot(false)
+        end
+    end
 end
 
 function XUiFubenMainLineChapterDP:RefreshForChangeDiff(IsAutoMove)
@@ -383,6 +427,9 @@ function XUiFubenMainLineChapterDP:UpdateCurChapter(chapterId)
     if not chapterId then
         return
     end
+
+    -- 不判断是不是隐藏关卡了，都存，因为只有隐藏关在取 v1.30 新隐藏关红点规则
+    XDataCenter.FubenManagerEx.SaveHideChapterIsOpen(chapterId)
     
     self.ChapterId = chapterId
     self.IsExploreMod = XFubenShortStoryChapterConfigs.CheckChapterTypeIsExplore(self.ChapterId)
@@ -450,8 +497,8 @@ function XUiFubenMainLineChapterDP:UpdateCurChapter(chapterId)
                                 self.TxtChapter.color = color
                                 self.TxtChapterName.color = color
                                 self.Text_1.color = color
-                                self.BtnBack.transform:Find("TextBack"):GetComponent("Text").color = color
-                                self.BtnMainUi.transform:Find("TextMainUi"):GetComponent("Text").color = color
+                                self.BtnBack:SetColor(color)
+                                self.BtnMainUi:SetColor(color)
                             end
                         end
 
@@ -512,8 +559,8 @@ function XUiFubenMainLineChapterDP:UpdateCurChapter(chapterId)
                 self.TxtChapter.color = color
                 self.TxtChapterName.color = color
                 self.Text_1.color = color
-                self.BtnBack.transform:Find("TextBack"):GetComponent("Text").color = color
-                self.BtnMainUi.transform:Find("TextMainUi"):GetComponent("Text").color = color
+                self.BtnBack:SetColor(color)
+                self.BtnMainUi:SetColor(color)
             end
         end
       
@@ -530,6 +577,7 @@ function XUiFubenMainLineChapterDP:UpdateCurChapter(chapterId)
     self:UpdateExploreBottom()
     self:SetPanelBottomActive(true)
     self:UpdateFubenExploreItem()
+    self.PanelStoryJump:Refresh(self.ChapterId, XFubenConfigs.ChapterType.ShortStory)
 end
 
 function XUiFubenMainLineChapterDP:UpdateColor()
@@ -763,6 +811,14 @@ function XUiFubenMainLineChapterDP:OnBtnTreasureClick()
     self.PanelTop.gameObject:SetActiveEx(true)
     self:SetPanelBottomActive(true)
     self:PlayAnimation("TreasureEnable")
+end
+
+function XUiFubenMainLineChapterDP:PcClose()
+    if self.PanelTreasure.gameObject.activeSelf then
+        self:OnBtnTreasureBgClick()
+        return
+    end
+    self:Close()
 end
 
 function XUiFubenMainLineChapterDP:CloseStageDetail()

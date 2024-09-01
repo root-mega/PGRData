@@ -7,7 +7,8 @@ local Default = {
     _OpenStatus = 0,       --状态，1开启，0关闭
 }
 
---终点对象
+---推箱子终点对象
+---@class XRpgMakerGameEndPoint : XRpgMakerGameObject
 local XRpgMakerGameEndPoint = XClass(XRpgMakerGameObject, "XRpgMakerGameEndPoint")
 
 function XRpgMakerGameEndPoint:Ctor(id)
@@ -20,16 +21,26 @@ function XRpgMakerGameEndPoint:Ctor(id)
     end
 end
 
-function XRpgMakerGameEndPoint:InitData(mapId)
+function XRpgMakerGameEndPoint:InitData(mapObjData)
     self.StatusIsChange = false  --新的状态是否和旧的不同
-    local endPointId = XRpgMakerGameConfigs.GetRpgMakerGameEndPointId(mapId)
-    local pointX = XRpgMakerGameConfigs.GetRpgMakerGameEndPointX(endPointId)
-    local pointY = XRpgMakerGameConfigs.GetRpgMakerGameEndPointY(endPointId)
-    local endPointType = XRpgMakerGameConfigs.GetRpgMakerGameEndPointType(endPointId)
+    -- local endPointId = XRpgMakerGameConfigs.GetRpgMakerGameEndPointId(mapId)
+    -- local pointX = XRpgMakerGameConfigs.GetRpgMakerGameEndPointX(endPointId)
+    -- local pointY = XRpgMakerGameConfigs.GetRpgMakerGameEndPointY(endPointId)
+    -- local endPointType = XRpgMakerGameConfigs.GetRpgMakerGameEndPointType(endPointId)
+    -- self:SetId(endPointId)
 
-    self:SetId(endPointId)
+    self.MapObjData = mapObjData
+    local pointX = mapObjData:GetX()
+    local pointY = mapObjData:GetY()
+    local endPointType = mapObjData:GetParams()[1]
+
     self:UpdatePosition({PositionX = pointX, PositionY = pointY})
     self:UpdateData({OpenStatus = endPointType})
+end
+
+---@return XMapObjectData
+function XRpgMakerGameEndPoint:GetMapObjData()
+    return self.MapObjData
 end
 
 function XRpgMakerGameEndPoint:UpdateData(data)

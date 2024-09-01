@@ -35,7 +35,7 @@ function XUiActivityBossSingleDetail:InitCommon()
     self.RImgNandu:SetRawImage(nanDuIcon)
     self.TxtTitle.text = stageCfg.Name
     self.TxtLevelVal.text = stageCfg.RecommandLevel
-    self.TxtATNums.text = stageCfg.RequireActionPoint
+    self.TxtATNums.text = XDataCenter.FubenManager.GetRequireActionPoint(stageId)
     self.PanelNums.gameObject:SetActive(maxChallengeNum > 0)
     self.PanelNoLimitCount.gameObject:SetActive(maxChallengeNum <= 0)
     self.BtnAddNum.gameObject:SetActive(buyChallengeCount > 0)

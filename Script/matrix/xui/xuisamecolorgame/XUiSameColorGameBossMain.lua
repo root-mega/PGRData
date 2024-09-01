@@ -18,18 +18,28 @@ function XUiBossGrid:SetData(boss, index)
     self.TxtName.text = boss:GetName()
     self.TxtName2.text = boss:GetName()
     local maxScore = boss:GetMaxScore()
-    self.TxtMaxScore.text = XUiHelper.GetText("SCBossMaxScoreText", maxScore)
-    self.TxtMaxScore2.text = XUiHelper.GetText("SCBossMaxScoreText", maxScore)
     self.RImgGrade:SetRawImage(boss:GetMaxGradeIcon())
     self.RImgGrade2:SetRawImage(boss:GetMaxGradeIcon())
     self.RImgIcon:SetRawImage(boss:GetFullBodyIcon())
     self.RImgIcon2:SetRawImage(boss:GetFullBodyIcon())
     self.RImgLock:SetRawImage(boss:GetFullBodyIcon())
     local showGradeInfo = self.Boss:GetIsOpen() and maxScore > 0
+    self.TxtName.gameObject:SetActiveEx(not showGradeInfo)
+    self.TxtName2.gameObject:SetActiveEx(not showGradeInfo)
+    --self.TxtMaxCombo.gameObject:SetActiveEx(showGradeInfo)
+    --self.TxtMaxCombo2.gameObject:SetActiveEx(showGradeInfo)
     self.TxtMaxScore.gameObject:SetActiveEx(showGradeInfo)
     self.TxtMaxScore2.gameObject:SetActiveEx(showGradeInfo)
     self.RImgGrade.gameObject:SetActiveEx(showGradeInfo)
     self.RImgGrade2.gameObject:SetActiveEx(showGradeInfo)
+    if showGradeInfo then
+        self.TxtMaxCombo.text = boss:GetMaxCombo()
+        self.TxtMaxCombo2.text = boss:GetMaxCombo()
+        self.TxtMaxScore.text = maxScore
+        self.TxtMaxScore2.text = maxScore
+    end
+    local isTimeType = boss:IsTimeType()
+    self.PanelLabel.gameObject:SetActiveEx(isTimeType)
     self:RefreshStatus()
 end
 
@@ -47,7 +57,6 @@ function XUiBossGrid:OnBtnSelfClicked()
         XUiManager.TipError(desc)
         return 
     end
-    self.RootUi:SetCurrentIndex(self.Index)
     XLuaUiManager.Open("UiSameColorGameBoss", self.Boss)
 end
 
@@ -58,14 +67,14 @@ function XUiSameColorGameBossMain:OnAwake()
     self.SameColorGameManager = XDataCenter.SameColorActivityManager
     self.BossManager = self.SameColorGameManager.GetBossManager()
     self.Bosses = nil
-    self.CurrentIndex = 1
     -- boss列表
-    self.DynamicTable = XDynamicTableNormal.New(self.PanelArchiveList)
-    self.DynamicTable:SetProxy(XUiBossGrid, self)
-    self.DynamicTable:SetDelegate(self)
-    self.GridArchiveNpc.gameObject:SetActiveEx(false)
+    self.BossGridList = {}
     -- 资源栏
-    XUiHelper.NewPanelActivityAsset(self.SameColorGameManager.GetAssetItemIds(), self.PanelAsset)
+    local itemIds = self.SameColorGameManager.GetAssetItemIds()
+    XUiHelper.NewPanelActivityAsset(itemIds, self.PanelAsset, nil , function(uiSelf, index)
+        local itemId = itemIds[index]
+        XLuaUiManager.Open("UiSameColorGameSkillDetails", nil, itemId)
+    end)
     self:RegisterUiEvents()
 end
 
@@ -77,7 +86,7 @@ function XUiSameColorGameBossMain:OnStart()
             self.SameColorGameManager.HandleActivityEndTime()
         else
             self:RefreshTimeText()
-            for _, grid in pairs(self.DynamicTable:GetGrids()) do
+            for _, grid in pairs(self.BossGridList) do
                 grid:RefreshStatus()
             end
         end
@@ -87,12 +96,12 @@ end
 function XUiSameColorGameBossMain:OnEnable()
     XUiSameColorGameBossMain.Super.OnEnable(self)
     XRedPointManager.CheckOnceByButton(self.BtnTask, { XRedPointConditions.Types.CONDITION_SAMECOLOR_TASK })
-    self:RefreshBossList(self.CurrentIndex)
+    self:RefreshBossList()
     self.SameColorGameManager.SetMainUiModelInfo(self.UiModel, self.UiModelGo, self.UiSceneInfo)
-end
 
-function XUiSameColorGameBossMain:SetCurrentIndex(value)
-    self.CurrentIndex = value
+    self:PlayAnimation("Enable", function()
+        self:PlayAnimation("Loop", nil, nil, CS.UnityEngine.Playables.DirectorWrapMode.Loop)
+    end)
 end
 
 function XUiSameColorGameBossMain:OnDestroy()
@@ -143,19 +152,21 @@ function XUiSameColorGameBossMain:RefreshTimeText()
         result = seconds
         desc = XUiHelper.GetText("Second")
     end
-    self.TxtTime.text = string.format("<color=#ffffff>%s</color>%s", result, desc)
+    self.TxtTime.text = XUiHelper.GetText("SCActivityTimeText", result, desc)
 end
 
-function XUiSameColorGameBossMain:RefreshBossList(index)
+function XUiSameColorGameBossMain:RefreshBossList()
     self.Bosses = self.BossManager:GetBosses()
-    self.DynamicTable:SetDataSource(self.Bosses)
-    self.DynamicTable:ReloadDataSync(index)
-end
 
-function XUiSameColorGameBossMain:OnDynamicTableEvent(event, index, grid)
-    local boss = self.Bosses[index]
-    if event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_ATINDEX then
-        grid:SetData(boss, index)
+    for i, boss in ipairs(self.Bosses) do
+        local bossGrid = self.BossGridList[i]
+        if not bossGrid then
+            local go = self["GridArchiveNpc" .. i]
+            bossGrid = XUiBossGrid.New(go, self)
+            self.BossGridList[i] = bossGrid
+        end
+
+        bossGrid:SetData(boss, i)
     end
 end
 

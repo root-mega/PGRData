@@ -7,6 +7,11 @@ function XUiGridCharacter:Ctor(ui, rootUi, character, clickCallback)
     self.Character = character
     self.ClickCallback = clickCallback
     self.RectTransform = ui:GetComponent("RectTransform")
+
+    ---@type XCharacterAgency
+    local ag = XMVCA:GetAgency(ModuleId.XCharacter)
+    self.CharacterAgency = ag
+
     self:InitAutoScript()
     XTool.InitUiObject(self)
 
@@ -103,12 +108,32 @@ function XUiGridCharacter:UpdateGrid(character, selectCharacterId)
     end
     if not self.Character then return end
 
+    if not self.Character.Id then
+        return
+    end
+
     self:SetSelect(selectCharacterId == self.Character.Id)
 
+    self:UpdataBaseInfo()
     if self.Character.IsRobot then
         self:UpdateRobotGrid()
     else
         self:UpdateNormalGrid()
+    end
+end
+
+function XUiGridCharacter:UpdataBaseInfo()
+    -- 独域
+    if self.PanelUniframe then
+        self.PanelUniframe.gameObject:SetActiveEx(self.CharacterAgency:GetIsIsomer(self.Character.Id))
+    end
+
+    -- 初始品质
+    if self.PanelInitQuality then
+        self.PanelInitQuality.gameObject:SetActiveEx(true)
+        local initQuality = self.CharacterAgency:GetCharacterInitialQuality(self.Character.Id)
+        local icon = self.CharacterAgency:GetModelCharacterQualityIcon(initQuality).IconCharacterInit
+        self.ImgInitQuality:SetSprite(icon)
     end
 end
 
@@ -117,7 +142,7 @@ function XUiGridCharacter:UpdateRobotGrid()
     local robotTemplate = XRobotManager.GetRobotTemplate(robotId)
     local level = robotTemplate.CharacterLevel
     local quality = XCharacterConfigs.GetCharacterQualityIcon(robotTemplate.CharacterQuality)
-    local head = XDataCenter.CharacterManager.GetCharSmallHeadIcon(robotTemplate.CharacterId, true)
+    local head = self.CharacterAgency:GetCharSmallHeadIcon(robotTemplate.CharacterId, true)
     local grade = XCharacterConfigs.GetCharGradeIcon(robotTemplate.CharacterId, robotTemplate.CharacterGrade)
     local ability = self.Character.Ability or XRobotManager.GetRobotAbility(robotId)
 
@@ -146,16 +171,18 @@ function XUiGridCharacter:UpdateRobotGrid()
         self.TxtFight.text = math.floor(ability)
     end
 
-    local detailConfig = XCharacterConfigs.GetCharDetailTemplate(robotTemplate.CharacterId)
-    local elementList = detailConfig.ObtainElementList
-    for i = 1, 3 do
-        local rImg = self["RImgCharElement" .. i]
-        if elementList[i] then
-            rImg.gameObject:SetActiveEx(true)
-            local elementConfig = XCharacterConfigs.GetCharElement(elementList[i])
-            rImg:SetRawImage(elementConfig.Icon)
-        else
-            rImg.gameObject:SetActiveEx(false)
+    if self.PanelCharElement then
+        local detailConfig = XCharacterConfigs.GetCharDetailTemplate(robotTemplate.CharacterId)
+        local elementList = detailConfig.ObtainElementList
+        for i = 1, 3 do
+            local rImg = self["RImgCharElement" .. i]
+            if elementList[i] then
+                rImg.gameObject:SetActiveEx(true)
+                local elementConfig = XCharacterConfigs.GetCharElement(elementList[i])
+                rImg:SetRawImage(elementConfig.Icon)
+            else
+                rImg.gameObject:SetActiveEx(false)
+            end
         end
     end
 
@@ -171,7 +198,7 @@ function XUiGridCharacter:UpdateRobotGrid()
 end
 
 function XUiGridCharacter:UpdateNormalGrid()
-    local isOwn = XDataCenter.CharacterManager.IsOwnCharacter(self.Character.Id)
+    local isOwn = self.CharacterAgency:IsOwnCharacter(self.Character.Id)
     XRedPointManager.CheckOnce(self.OnCheckCharacterRedPoint, self, { XRedPointConditions.Types.CONDITION_CHARACTER }, self.Character.Id)
 
     if self.PanelLevel then
@@ -230,11 +257,18 @@ function XUiGridCharacter:UpdateNormalGrid()
     self:CheckSameRoleTag()
 end
 
+function XUiGridCharacter:UpdateRecommendTag(stageId)
+    if self.PanelRecommend then
+        local isStageRecomend = XFubenConfigs.IsStageRecommendCharacterType(stageId, self.Character.Id)
+        self.PanelRecommend.gameObject:SetActiveEx(isStageRecomend)
+    end
+end
+
 function XUiGridCharacter:UpdateUnOwnInfo()
     local characterId = self.Character.Id
 
     if self.TxtCurCount then
-        self.TxtCurCount.text = XDataCenter.CharacterManager.GetCharUnlockFragment(characterId)
+        self.TxtCurCount.text = self.CharacterAgency:GetCharUnlockFragment(characterId)
     end
 
     local bornQuality = XCharacterConfigs.GetCharMinQuality(characterId)
@@ -245,7 +279,7 @@ function XUiGridCharacter:UpdateUnOwnInfo()
     end
 
     if self.RImgHeadIcon then
-        self.RImgHeadIcon:SetRawImage(XDataCenter.CharacterManager.GetCharSmallHeadIcon(characterId))
+        self.RImgHeadIcon:SetRawImage(self.CharacterAgency:GetCharSmallHeadIcon(characterId))
     end
 end
 
@@ -267,7 +301,7 @@ function XUiGridCharacter:UpdateOwnInfo()
     end
 
     if self.RImgHeadIcon then
-        self.RImgHeadIcon:SetRawImage(XDataCenter.CharacterManager.GetCharSmallHeadIcon(self.Character.Id))
+        self.RImgHeadIcon:SetRawImage(self.CharacterAgency:GetCharSmallHeadIcon(self.Character.Id))
     end
 
     if self.TxtTradeName then

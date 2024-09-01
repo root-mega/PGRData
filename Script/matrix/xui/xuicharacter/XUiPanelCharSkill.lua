@@ -1,21 +1,13 @@
-local XUiPanelSkillLevelDetail = require("XUi/XUiCharacter/XUiPanelSkillLevelDetail")
-
 XUiPanelCharSkill = XClass(nil, "XUiPanelCharSkill")
 
-local MAX_SKILL_COUNT = 5
 XUiPanelCharSkill.BUTTON_SKILL_TEACH_ACTIVE = false -- 角色详情界面的教学按钮显示状态
+XUiPanelCharSkill.BUTTON_SKILL_DETAILS_ACTIVE = true -- 角色技能详情按钮状态
 
 function XUiPanelCharSkill:Ctor(ui, parent)
     self.Parent = parent
     self.GameObject = ui.gameObject
     self.Transform = ui.transform
     self:InitAutoScript()
-
-    self.SkillInfoPanel = XUiPanelSkillInfo.New(self.PanelSkillInfo, self, self.Parent)
-    self.SkillInfoPanel.GameObject:SetActive(false)
-
-    self.LevelDetailPanel = XUiPanelSkillLevelDetail.New(self.PanelSkillDetails)
-    self.LevelDetailPanel.GameObject:SetActive(false)
 end
 
 -- auto
@@ -28,7 +20,6 @@ end
 
 function XUiPanelCharSkill:AutoInitUi()
     self.PanelSkillItems = self.Transform:Find("PanelSkillItems")
-    self.GridSkillItem5 = self.Transform:Find("PanelSkillItems/GridSkillItem5")
     self.GridSkillItem4 = self.Transform:Find("PanelSkillItems/GridSkillItem4")
     self.GridSkillItem3 = self.Transform:Find("PanelSkillItems/GridSkillItem3")
     self.GridSkillItem2 = self.Transform:Find("PanelSkillItems/GridSkillItem2")
@@ -65,7 +56,6 @@ end
 function XUiPanelCharSkill:ShowPanel(characterId)
     self.CharacterId = characterId or self.CharacterId
     self.BtnSkillTeach.gameObject:SetActive(XUiPanelCharSkill.BUTTON_SKILL_TEACH_ACTIVE)
-    self.SkillInfoPanel:HidePanel()
     self.IsShow = true
     self.GameObject:SetActive(true)
     self:ShowSkillItemPanel()
@@ -78,48 +68,31 @@ function XUiPanelCharSkill:UpdateSkill()
     -- local character = XDataCenter.CharacterManager.GetCharacter(characterId)
     local skills = XCharacterConfigs.GetCharacterSkills(characterId)
     if (self.SkillGrids and #self.SkillGrids > 0) then
-        for i = 1, MAX_SKILL_COUNT do
+        for i = 1, XCharacterConfigs.MAX_SHOW_SKILL_POS do
             self.SkillGrids[i]:SetClickCallback(
             function()
                 self:HideSkillItemPanel()
                 self.BtnSkillTeach.gameObject:SetActive(false)
-                self.SkillInfoPanel:ShowPanel(characterId, skills, i)
+                XLuaUiManager.Open("UiSkillDetailsParentV2P6", self.CharacterId, XCharacterConfigs.SkillDetailsType.Normal, i)
             end)
             self.SkillGrids[i]:UpdateInfo(characterId, skills[i])
         end
     else
         self.SkillGrids = {}
-        for i = 1, MAX_SKILL_COUNT do
+        for i = 1, XCharacterConfigs.MAX_SHOW_SKILL_POS do
             self.SkillGrids[i] = XUiGridSkillItem.New(self.Parent, self["GridSkillItem" .. i], skills[i], characterId,
             function()
                 self:HideSkillItemPanel()
                 self.BtnSkillTeach.gameObject:SetActive(false)
-                self.SkillInfoPanel:ShowPanel(characterId, skills, i)
+                XLuaUiManager.Open("UiSkillDetailsParentV2P6", self.CharacterId, XCharacterConfigs.SkillDetailsType.Normal, i)
             end
             )
         end
     end
 end
 
---人物属性界面统一刷新接口
-function XUiPanelCharSkill:Refresh()
-    -- 刷新技能信息界面
-    if self.PanelSkillInfo.gameObject.activeSelf then
-        self.SkillInfoPanel:RefreshPanel()
-    end
-end
-
-function XUiPanelCharSkill:OnSelectSkill(i)
-    local characterId = self.CharacterId
-    local skills = XCharacterConfigs.GetCharacterSkills(characterId)
-    self:HideSkillItemPanel()
-    self.BtnSkillTeach.gameObject:SetActive(false)
-    self.SkillInfoPanel:ShowPanel(characterId, skills, i)
-end
-
 function XUiPanelCharSkill:HidePanel()
     self.BtnSkillTeach.gameObject:SetActive(XUiPanelCharSkill.BUTTON_SKILL_TEACH_ACTIVE)
-    self.SkillInfoPanel:HidePanel()
     self.IsShow = false
     self.GameObject:SetActive(false)
     self:HideSkillItemPanel()
@@ -135,13 +108,3 @@ function XUiPanelCharSkill:ShowSkillItemPanel()
     self.BtnSkillTeach.gameObject:SetActive(XUiPanelCharSkill.BUTTON_SKILL_TEACH_ACTIVE)
     self.SkillItemsQiehuan:PlayTimelineAnimation()
 end
-
-function XUiPanelCharSkill:ShowLevelDetail(skillId)
-    local characterId = self.CharacterId
-    self.LevelDetailPanel:Refresh(characterId, skillId)
-    self.LevelDetailPanel.GameObject:SetActiveEx(true)
-end
-
-function XUiPanelCharSkill:HideLevelDetail()
-    self.LevelDetailPanel.GameObject:SetActiveEx(false)
-end 

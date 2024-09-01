@@ -2,6 +2,8 @@ local CSTextManagerGetText = CS.XTextManager.GetText
 local tableInsert = table.insert
 local tableSort = table.sort
 
+local XPhotographSet = require("XEntity/XPhotograph/XPhotographSet")
+
 XPhotographManagerCreator = function()
     local XPhotographManager = {}
     local SceneIdList = {} -- 场景Id列表
@@ -14,12 +16,18 @@ XPhotographManagerCreator = function()
     local CurSceneId = 0
     local CurSelectSceneId = 0 -- 当前选中的场景ID
     local DirPath = "" -- 准备分享的照片保存路径
+    local PhotographSetKey = string.format("PhotographSetKey_%s_Setting", XPlayer.Id)
+    local PhotographSetData
 
     local PHOTOGRAPH_PROTO = {
         ChangeDisplayRequest = "ChangeDisplayRequest",
         ShareBackgroundRequest = "ShareBackgroundRequest", -- 分享消息
         PhotoBackgroundRequest = "PhotoBackgroundRequest", -- 拍照消息
     }
+
+    -- 背景场景预览状态
+    local PreviewState = XPhotographConfigs.BackGroundState.Full
+    local PreviewSceneId = nil
 
     function XPhotographManager.Init()
         for id in pairs(XPhotographConfigs.GetSceneTemplates()) do
@@ -37,6 +45,22 @@ XPhotographManagerCreator = function()
         else
             DirPath = CS.UnityEngine.Application.persistentDataPath .. "/"
         end
+        local cacheData = XSaveTool.GetData(PhotographSetKey)
+        PhotographSetData = XPhotographSet.New()
+        if cacheData then
+            PhotographSetData:Update(cacheData.LogoValue, cacheData.InfoValue, cacheData.OpenLevel, cacheData.OpenUId)
+        end
+    end
+    
+    function XPhotographManager.GetSetData()
+        return PhotographSetData
+    end
+    
+    function XPhotographManager.SaveSetData()
+        if not PhotographSetData then
+            return
+        end
+        XSaveTool.SaveData(PhotographSetKey, PhotographSetData:GetSampleData())
     end
 
     function XPhotographManager.InitSharePlatform(list)
@@ -70,6 +94,11 @@ XPhotographManagerCreator = function()
     function XPhotographManager.HandlerAddPhotoScene(data)
         HasSceneIdDic[data.BackgroundId] = data.BackgroundId
         XPhotographManager.SortSceneIdList()
+        --获得新场景时打开提示窗
+        XLuaUiManager.Open('UiSceneSettingObtain',data)
+        --新获得场景需要刷新终端红点
+        XEventManager.DispatchEvent(XEventId.EVENT_MAINUI_TERMINAL_STATUS_CHANGE)
+        CsXGameEventManager.Instance:Notify(XEventId.EVENT_MAINUI_TERMINAL_STATUS_CHANGE)
     end
 
     function XPhotographManager.GetSceneIdList()
@@ -93,24 +122,29 @@ XPhotographManagerCreator = function()
     end
 
     function XPhotographManager.SortSceneIdList()
+        --tableSort(SceneIdList, function(idA, idB)
+        --    if idA ~= CurSelectSceneId and idB ~= CurSelectSceneId then
+        --        local isSceneAHave = XPhotographManager.CheckSceneIsHaveById(idA)
+        --        local isSceneBHave = XPhotographManager.CheckSceneIsHaveById(idB)
+        --        if isSceneAHave == isSceneBHave then
+        --            local priorityA = XPhotographManager.GetSceneTemplateById(idA).Priority
+        --            local priorityB = XPhotographManager.GetSceneTemplateById(idB).Priority
+        --            if priorityA == priorityB then
+        --                return idA < idB
+        --            else
+        --                return priorityA > priorityB
+        --            end
+        --        else
+        --            return isSceneAHave
+        --        end
+        --    else
+        --        return idA == CurSelectSceneId
+        --    end
+        --end)
         tableSort(SceneIdList, function(idA, idB)
-            if idA ~= CurSelectSceneId and idB ~= CurSelectSceneId then
-                local isSceneAHave = XPhotographManager.CheckSceneIsHaveById(idA)
-                local isSceneBHave = XPhotographManager.CheckSceneIsHaveById(idB)
-                if isSceneAHave == isSceneBHave then
-                    local priorityA = XPhotographManager.GetSceneTemplateById(idA).Priority
-                    local priorityB = XPhotographManager.GetSceneTemplateById(idB).Priority
-                    if priorityA == priorityB then
-                        return idA < idB
-                    else
-                        return priorityA > priorityB
-                    end
-                else
-                    return isSceneAHave
-                end
-            else
-                return idA == CurSelectSceneId
-            end
+            local priorityA = XPhotographManager.GetSceneTemplateById(idA).Priority
+            local priorityB = XPhotographManager.GetSceneTemplateById(idB).Priority
+            return priorityA > priorityB
         end)
     end
 
@@ -127,13 +161,13 @@ XPhotographManagerCreator = function()
     end
 
     function XPhotographManager.InitCharacterList()
-        local allCharDatas = XDataCenter.CharacterManager.GetCharacterList()
+        local allCharDatas = XMVCA.XCharacter:GetCharacterList()
         local curAssistantId = XDataCenter.DisplayManager.GetDisplayChar().Id
 
         OwnCharDatas = {}
         for _, v in pairs(allCharDatas or {}) do
             local characterId = v.Id
-            local isOwn = XDataCenter.CharacterManager.IsOwnCharacter(characterId)
+            local isOwn = XMVCA.XCharacter:IsOwnCharacter(characterId)
             if isOwn then
                 local name = XCharacterConfigs.GetCharacterName(characterId)
                 local tradeName = XCharacterConfigs.GetCharacterTradeName(characterId)
@@ -208,7 +242,7 @@ XPhotographManagerCreator = function()
     end
 
     function XPhotographManager.GetCurSceneId()
-        return CurSceneId
+        return PreviewSceneId or CurSceneId
     end
 
     function XPhotographManager.GetSceneIndexById(sceneId)
@@ -235,15 +269,24 @@ XPhotographManagerCreator = function()
         return nil
     end
 
-    function XPhotographManager.GetFashionIndexByFashionList(charId, fashionList)
-        local curFashionId = XDataCenter.FashionManager.GetFashionIdByCharId(charId)
-        for index, fashionId in ipairs(fashionList) do
-            if curFashionId == fashionId then
+    function XPhotographManager.GetFashionIndexByFashionList(fashionId, fashionList)
+        for index, fId in ipairs(fashionList) do
+            if fId == fashionId then
                 return index
             end
         end
 
         return nil
+    end
+    
+    function XPhotographManager.GetFashionIndexById(charId, fashionId)
+        local list = XDataCenter.FashionManager.GetCurrentTimeFashionByCharId(charId)
+        for i, fId in ipairs(list or {}) do
+            if fashionId == fId then
+                return i
+            end
+        end
+        return 0
     end
 
     function XPhotographManager.SharePhoto(photoName, texture, platformType, shareText)
@@ -252,9 +295,10 @@ XPhotographManagerCreator = function()
         end
 
         local writeDesc = CS.XTextManager.GetText("PremissionWriteDesc")
+        local tipFunc = XLuaUiManager.IsUiShow("UiPhotographPortrait") and XUiManager.TipPortraitText or XUiManager.TipText
         XPermissionManager.TryGetPermission(CS.XPermissionEnum.WRITE_EXTERNAL_STORAGE, writeDesc, function(isWriteGranted, dontTip)
             if not isWriteGranted then
-                XUiManager.TipText("PremissionDesc", XUiManager.UiTipType.Tip)
+                tipFunc("PremissionDesc")
                 XLog.Debug("获取权限错误_NotisWriteGranted")
                 return
             end
@@ -262,7 +306,7 @@ XPhotographManagerCreator = function()
             if not XPhotographManager.IsInTextureCache(photoName) then
                 CS.XTool.SavePhotoAlbumImg(photoName, texture, function(errorCode)
                     if errorCode > 0 then
-                        XUiManager.TipText("PremissionDesc", XUiManager.UiTipType.Tip) -- ios granted总是true, 权限未开通code返回1
+                        tipFunc("PremissionDesc") -- ios granted总是true, 权限未开通code返回1
                         XLog.Debug("照片保存失败 Code："..errorCode)
                         return
                     end
@@ -276,8 +320,9 @@ XPhotographManagerCreator = function()
     end
     local SharePhotoName
     function XPhotographManager.DoShare(photoName, platformType, shareText)
+        local tipFunc = XLuaUiManager.IsUiShow("UiPhotographPortrait") and XUiManager.TipPortraitText or XUiManager.TipText
         if platformType == XPlatformShareConfigs.PlatformType.Local then -- 本地保存
-            XUiManager.TipText("PhotoModeSaveSuccess", XUiManager.UiTipType.Tip)
+            tipFunc("PhotoModeSaveSuccess")
         else
             local cfg = XPhotographConfigs.GetShareInfoByType(platformType)
             local fileFullPath = string.format("%s%s%s", DirPath, photoName, ".png")
@@ -293,13 +338,14 @@ XPhotographManagerCreator = function()
 
     function XPhotographManager.ShareCallback(result)
         -- XLog.Debug("ShareCallback result:", result)
+        local tipFunc = XLuaUiManager.IsUiShow("UiPhotographPortrait") and XUiManager.TipPortraitText or XUiManager.TipText
         if result == XPlatformShareConfigs.ShareResult.Successful then
-            XUiManager.TipText("PhotoModeShareSuccess", XUiManager.UiTipType.Tip)
+            tipFunc("PhotoModeShareSuccess")
             XEventManager.DispatchEvent(XEventId.EVENT_PHOTO_SHARE_SUCCESS, SharePhotoName)
         elseif result == XPlatformShareConfigs.ShareResult.Canceled then
-            XUiManager.TipText("PhotoModeShareCancel", XUiManager.UiTipType.Tip)
+            tipFunc("PhotoModeShareCancel")
         elseif result == XPlatformShareConfigs.ShareResult.Failed then
-            XUiManager.TipText("PhotoModeShareFailed", XUiManager.UiTipType.Tip)
+            tipFunc("PhotoModeShareFailed")
         end
         SharePhotoName = nil
     end
@@ -356,13 +402,15 @@ XPhotographManagerCreator = function()
             XPhotographManager.SortSceneIdList()
 
             local curDisplayCharId = XDataCenter.DisplayManager.GetDisplayChar().Id
-            if curDisplayCharId ~= charId then
-                XDataCenter.SignBoardManager.ChangeDisplayCharacter(charId)
-            end
-            XDataCenter.DisplayManager.SetDisplayCharByCharacterId(charId)
-            XPlayer.SetDisplayCharId(charId)
-
-            XUiManager.TipMsg(CSTextManagerGetText("PhotoModeChangeSuccess"))
+            -- if curDisplayCharId ~= charId then
+            --     XDataCenter.SignBoardManager.ChangeDisplayCharacter(charId)
+            -- end
+            -- XDataCenter.DisplayManager.SetDisplayCharByCharacterId(charId)
+            -- XPlayer.SetDisplayCharId(charId)
+            XPlayer.SetDisplayCharIdList(res.DisplayCharIdList)
+            --下一次拿看板娘队列不要进行随机
+            XDataCenter.DisplayManager.SetNextDisplayChar(charId)
+            XEventManager.DispatchEvent(XEventId.EVENT_PHOTO_SYNC_CHANGE_TO_MAIN)
             if cb then
                 cb()
             end
@@ -387,7 +435,7 @@ XPhotographManagerCreator = function()
             sceneId = CurSceneId
         end
         CurSelectSceneId = sceneId
-        XPhotographManager.SortSceneIdList()
+        --XPhotographManager.SortSceneIdList()
     end
 
     function XPhotographManager.GetCurSelectSceneId()
@@ -396,6 +444,55 @@ XPhotographManagerCreator = function()
 
     function XPhotographManager.SendPhotoGraphRequest()
         XNetwork.Send(PHOTOGRAPH_PROTO.PhotoBackgroundRequest, {})
+    end
+    
+    -- 设置场景预览状态
+    function XPhotographManager.SetDefaultPreviewState()
+        PreviewState = XPhotographConfigs.BackGroundState.Full
+    end
+
+    -- 切换场景预览状态
+    --@ fitterEvent: 是否仅修改状态的值而不进行事件广播
+    function XPhotographManager.UpdatePreviewState(isFull,fitterEvent)
+        if isFull then
+            PreviewState = XPhotographConfigs.BackGroundState.Full
+        else
+            PreviewState = XPhotographConfigs.BackGroundState.Low
+        end
+        if not fitterEvent then
+            XEventManager.DispatchEvent(XEventId.EVENT_SCENE_PREVIEW_STATE_CHANGE)
+        end
+    end
+
+    -- 获取场景预览状态
+    function XPhotographManager.GetPreviewState()
+        return PreviewState
+    end
+
+    -- 设置场景预览的场景Id
+    function XPhotographManager.SetPreviewSceneId(sceneId)
+        PreviewSceneId = sceneId
+    end
+
+    -- 清空场景预览Id防止返回UiMain场景错误
+    function XPhotographManager.ClearPreviewSceneId()
+        PreviewSceneId = nil
+    end
+    
+    -- 获取场景预览状态相关键名
+    function XPhotographManager.GetSceneStateKey(sceneId)
+        return tostring(XPlayer.Id)..'scene_'..tostring(sceneId)..'_use_state'
+    end
+
+    -- 打开指定场景的预览界面
+    function XPhotographManager.OpenScenePreview(sceneId)
+        if not sceneId or not XTool.IsNumberValid(sceneId) then return end
+
+        XDataCenter.PhotographManager.SetPreviewSceneId(sceneId)
+        XDataCenter.GuideManager.SetDisableGuide(true)
+        XEventManager.DispatchEvent(XEventId.EVENT_SCENE_UIMAIN_RIGHTMIDTYPE_CHANGE, 1) --1即UiMain的Main状态
+        XLuaUiManager.Open("UiMain")
+        XLuaUiManager.Open("UiSceneMainPreview", sceneId,XPhotographConfigs.PreviewOpenType.SceneSetting)
     end
 
     XPhotographManager.Init()

@@ -122,9 +122,7 @@ function XUiCoupleCombatRoomCharacter.SetPanelEmptyList(roomCharacterUi, isEmpty
     if not roomCharacterUi.PanelFeatureStage then
         roomCharacterUi.PanelFeatureStage = XUiPanelFeature.New(roomCharacterUi, roomCharacterUi.StageFeature)
         roomCharacterUi.PanelFeatureCharacter = XUiPanelFeature.New(roomCharacterUi, roomCharacterUi.CharacterFeature)
-        local stageInterInfo = XFubenCoupleCombatConfig.GetStageInfo(roomCharacterUi.StageId)
-        if not stageInterInfo then return end
-        roomCharacterUi.PanelFeatureStage:Refresh(stageInterInfo.Feature, {})
+        roomCharacterUi.PanelFeatureStage:Refresh(XDataCenter.FubenCoupleCombatManager.GetStageFeatureIdList(roomCharacterUi.StageId), {})
 
         --重写按钮回调
         roomCharacterUi.BtnPartner.CallBack = function()
@@ -176,7 +174,11 @@ end
 function XUiCoupleCombatRoomCharacter.UpdatePanelEmptyList(roomCharacterUi, charId)
     local characterId = XRobotManager.GetCharacterId(charId)
     local features = XFubenCoupleCombatConfig.GetCharacterFeature(characterId)
-    roomCharacterUi.PanelFeatureCharacter:Refresh(features, {}, characterId)
+    
+    --v1.32 角色特性与推荐特性重合刷新高亮
+    local matchDic = XDataCenter.FubenCoupleCombatManager.GetFeatureMatchOneChar(roomCharacterUi.StageId, characterId)
+    roomCharacterUi.PanelFeatureCharacter:Refresh(features, matchDic, characterId)
+    roomCharacterUi.PanelFeatureStage:Refresh(XDataCenter.FubenCoupleCombatManager.GetStageFeatureIdList(roomCharacterUi.StageId), matchDic)
 end
 
 function XUiCoupleCombatRoomCharacter.UpdateTeamBtn(roomCharacterUi, charId)

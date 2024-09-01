@@ -383,3 +383,11 @@ function XUiPlayerInfo:TipDialog(cancelCb, confirmCb, TextKey)
     XLuaUiManager.Open("UiDialog", CS.XTextManager.GetText("TipTitle"), CS.XTextManager.GetText(TextKey),
     XUiManager.DialogType.Normal, cancelCb, confirmCb)
 end
+
+function XUiPlayerInfo:OnEnable()
+
+end
+
+function XUiPlayerInfo:OnDisable()
+
+end

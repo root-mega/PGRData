@@ -22,7 +22,12 @@ XFubenNewCharConfig.NewCharType =
     Pulao = 7,
     Qishi = 8,
     Hakama = 9,
-    SuperKarenina = 10,
+    SuperKarenina = 10, -- v1.28
+    Noan = 11,          -- v1.29
+    SuperBianca = 12,   -- v1.30
+    Bombinata = 13,     -- v1.31
+    Lee = 14,           -- v1.32
+    Ayla = 15,          -- v2.0
 }
 
 XFubenNewCharConfig.KoroPanelType =
@@ -107,7 +112,7 @@ function XFubenNewCharConfig.GetNewCharKoroCfg()
 
     if NewCharTeachAct then
         for _, v in pairs(NewCharTeachAct) do
-            if v.NewCharType == XFubenNewCharConfig.NewCharType.KoroChar then
+            if v.TimeId and v.TimeId ~= 0 and XFunctionManager.CheckInTimeByTimeId(v.TimeId) then
                 cfg = v
                 break
             end

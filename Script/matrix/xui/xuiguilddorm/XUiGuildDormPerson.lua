@@ -40,6 +40,7 @@ end
 
 function XUiGuildDormPerson:OnStart()
     -- 设置默认显示全部角色
+    -- 移除Humen标签 如果预制体改了, 就接着改序号 不必过于纠结
     self.DropdownType.value = 0
     self:RefreshDynamicSelectTable(0)
 end

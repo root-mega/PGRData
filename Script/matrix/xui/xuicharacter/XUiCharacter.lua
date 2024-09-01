@@ -1,5 +1,6 @@
 local XUiGridCharacterNew = require("XUi/XUiCharacter/XUiGridCharacterNew")
 local XUiPanelRoleModel = require("XUi/XUiCharacter/XUiPanelRoleModel")
+local XSpecialTrainActionRandom = require("XUi/XUiSpecialTrainBreakthrough/XSpecialTrainActionRandom")
 
 local CSXTextManagerGetText = CS.XTextManager.GetText
 
@@ -19,7 +20,7 @@ local XUiCharacter = XLuaUiManager.Register(XLuaUi, "UiCharacter")
 function XUiCharacter:OnAwake()
     self:InitDynamicTable()
     self:AutoAddListener()
-
+    self.FiltSortListTypeDic = {} --记录筛选排序缓存列表(根据独域和泛用机体类型储存)
     self.AssetPanel = XUiPanelAsset.New(self, self.PanelAsset, XDataCenter.ItemManager.ItemId.FreeGem, XDataCenter.ItemManager.ItemId.ActionPoint, XDataCenter.ItemManager.ItemId.Coin)
     self.GridCharacterNew.gameObject:SetActiveEx(false)
     self.PanelTeamBtn.gameObject:SetActiveEx(false)
@@ -33,7 +34,16 @@ function XUiCharacter:OnAwake()
     end
     self.OnUiSceneLoadedCB = function(lastSceneUrl) self:OnUiSceneLoaded(lastSceneUrl) end
 
-    XDataCenter.RoomCharFilterTipsManager.Reset()
+    XDataCenter.RoomCharFilterTipsManager.Reset()   -- 旧筛选器的清除也加上，有些界面的旧筛选器还没有替换成新的
+    XDataCenter.CommonCharacterFiltManager.ClearCacheData() --清除筛选缓存数据
+
+    self:SetBtnTeachingActive(true)
+    self:SetBtnFashionActive(true)
+    if XUiManager.IsHideFunc then
+        self.BthPaixu.gameObject:SetActiveEx(false)
+        self.BtnShaixuan.gameObject:SetActiveEx(false)
+        self.BtnSort.gameObject:SetActiveEx(false)
+    end
 end
 
 function XUiCharacter:OnStart(characterId, _, openFromTeamInfo, forbidGotoEquip, skipToProperty, isSupport, supportData, propertyIndex)
@@ -47,13 +57,13 @@ function XUiCharacter:OnStart(characterId, _, openFromTeamInfo, forbidGotoEquip,
 
     if forbidGotoEquip then
         self.BtnOwnedDetail.gameObject:SetActiveEx(false)
-        self.BtnFashion.gameObject:SetActiveEx(false)
+        self:SetBtnFashionActive(false)
         self.ForbidGotoEquip = true
     end
 
     if isSupport then
         self.BtnOwnedDetail.gameObject:SetActiveEx(false)
-        self.BtnFashion.gameObject:SetActiveEx(false)
+        self:SetBtnFashionActive(false)
         self.IsSupport = true
     end
 
@@ -134,7 +144,15 @@ end
 
 function XUiCharacter:OnDestroy()
     LastSelectTabBtnIndex = self.SelectTabBtnIndex
-    XDataCenter.RoomCharFilterTipsManager.Reset()
+    -- XDataCenter.RoomCharFilterTipsManager.Reset()
+    self.FiltSortListTypeDic = nil
+    XDataCenter.CommonCharacterFiltManager.ClearCacheData() --清除筛选缓存数据
+    --界面销毁如果有正在播放的角色语音，则停止播放
+    XDataCenter.FavorabilityManager.StopCv()
+
+    if self.CuteRandomController then
+        self.CuteRandomController:Stop()
+    end
 end
 
 function XUiCharacter:OnGetEvents()
@@ -178,6 +196,7 @@ function XUiCharacter:InitSceneRoot()
         root:FindTransform("UiCamNearEnhanceSkill"),
     }
     self.RoleModelPanel = XUiPanelRoleModel.New(self.PanelRoleModel, self.Name, nil, true, nil, true)
+    self.CuteRandomController = XSpecialTrainActionRandom.New()
 end
 
 function XUiCharacter:InitDynamicTable()
@@ -186,7 +205,8 @@ function XUiCharacter:InitDynamicTable()
     self.DynamicTable:SetDelegate(self)
 end
 
-function XUiCharacter:OnSelectCharacterType(index)
+-- doNotSort 默认不传，传true 则不会排序再刷新
+function XUiCharacter:OnSelectCharacterType(index, doNotSort)
     if index == TabBtnIndex.Isomer and not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.Isomer) then
         return
     end
@@ -195,15 +215,15 @@ function XUiCharacter:OnSelectCharacterType(index)
     if index == TabBtnIndex.Normal then
         self.ImgEffectLogoGouzao.gameObject:SetActiveEx(true)
         self.ImgEffectLogoGanran.gameObject:SetActiveEx(false)
-        self:UpdateCharacterList(self.LastSelectNormalCharacterId)
+        self:UpdateCharacterList(self.LastSelectNormalCharacterId, doNotSort)
     elseif index == TabBtnIndex.Isomer then
         self.ImgEffectLogoGouzao.gameObject:SetActiveEx(false)
         self.ImgEffectLogoGanran.gameObject:SetActiveEx(true)
-        self:UpdateCharacterList(self.LastSelectIsomerCharacterId)
+        self:UpdateCharacterList(self.LastSelectIsomerCharacterId, doNotSort)
     end
 end
 
-function XUiCharacter:UpdateCharacterList(characterId)
+function XUiCharacter:UpdateCharacterList(characterId, doNotSort)
     local characterType = CharacterTypeConvert[self.SelectTabBtnIndex]
     if characterId then
         --选中角色与当前类型页签不符时，强制选中对应角色类型页签
@@ -222,8 +242,16 @@ function XUiCharacter:UpdateCharacterList(characterId)
     end
 
     local index = 1
-    local characterList = self.SupportData and self.SupportData.GetCharacters and self.SupportData.GetCharacters(characterType) or
-    XDataCenter.CharacterManager.GetCharacterList(characterType, false, self.IsAscendOrder, true)
+    local characterList = self.FiltSortListTypeDic[characterType] or
+    (self.SupportData and self.SupportData.GetCharacters and self.SupportData.GetCharacters(characterType) or
+    XDataCenter.CharacterManager.GetCharacterList(characterType, false, self.IsAscendOrder, true)) 
+
+    -- 排序器回调后 这里不再排序(拿到列表后 在更新前进行一次排序)
+    if not doNotSort then
+        local selectTagType = XDataCenter.CommonCharacterFiltManager.GetSortData(characterType)
+        characterList = XDataCenter.CommonCharacterFiltManager.DoSort(characterList, selectTagType, self.IsAscendOrder) 
+    end
+
     local isSetCharacterId = true
     if characterId then
         for k, v in pairs(characterList) do
@@ -248,6 +276,8 @@ function XUiCharacter:UpdateCharacterList(characterId)
     end
 
     self:UpdateCurCharacterInfo(characterId)
+
+  
 
     self.CharacterList = characterList
     self.InTeamCheckTable = XDataCenter.TeamManager.GetInTeamCheckTable()
@@ -317,7 +347,7 @@ function XUiCharacter:UpdateCurCharacterInfo(characterId)
                 self:OpenOneChildUi("UiCharacterOwnedInfo", self.ForbidGotoEquip, function()
                     self:OpenOneChildUi("UiPanelCharProperty", self)
                     self.ChildOpen = true
-                end, self.IsSupport, self.SupportData)
+                end, self.IsSupport, self.SupportData, self)
             else
                 childUi:UpdateView(characterId)
                 childUi:PlayAnimation("AnimEnable")
@@ -373,7 +403,7 @@ end
 
 function XUiCharacter:OnUiSceneLoaded(lastSceneUrl)
     if lastSceneUrl ~= self.LastChacaterFashionSceneUrl then
-        self:SetGameObject()
+        --self:SetGameObject()
         self:InitSceneRoot()
         self.LastChacaterFashionSceneUrl = lastSceneUrl
     end
@@ -386,17 +416,30 @@ end
 
 --更新模型
 function XUiCharacter:UpdateRoleModel()
+    if self.CuteRandomController then
+        self.CuteRandomController:Stop()
+    end
+
     self.ImgEffectHuanren.gameObject:SetActiveEx(false)
     self.ImgEffectHuanren1.gameObject:SetActiveEx(false)
 
-    self.RoleModelPanel:UpdateCharacterModel(self.CharacterId, self.PanelRoleModel, XModelManager.MODEL_UINAME.XUiCharacter, function(model)
-        self.PanelDrag.Target = model.transform
-        if self.SelectTabBtnIndex == TabBtnIndex.Normal then
-            self.ImgEffectHuanren.gameObject:SetActiveEx(true)
-        elseif self.SelectTabBtnIndex == TabBtnIndex.Isomer then
-            self.ImgEffectHuanren1.gameObject:SetActiveEx(true)
-        end
-    end)
+    -- 愚人节检测
+    if XDataCenter.AprilFoolDayManager.IsInCuteModelTime() and XCharacterCuteConfig.CheckHasCuteModel(self.CharacterId) then
+        self.RoleModelPanel:UpdateCuteModel(nil, self.CharacterId, nil, nil, nil, nil, true, nil, self.Name)
+        
+        self.CuteRandomController:SetAnimator(self.RoleModelPanel:GetAnimator(), {}, self.RoleModelPanel)
+        self.CuteRandomController:Play()
+    else
+        self.RoleModelPanel:UpdateCharacterModel(self.CharacterId, self.PanelRoleModel, XModelManager.MODEL_UINAME.XUiCharacter, function(model)
+            self.PanelDrag.Target = model.transform
+            if self.SelectTabBtnIndex == TabBtnIndex.Normal then
+                self.ImgEffectHuanren.gameObject:SetActiveEx(true)
+            elseif self.SelectTabBtnIndex == TabBtnIndex.Isomer then
+                self.ImgEffectHuanren1.gameObject:SetActiveEx(true)
+            end
+        end)
+
+    end
 end
 
 function XUiCharacter:UpdateTeamBtn()
@@ -426,6 +469,7 @@ function XUiCharacter:AutoAddListener()
     self:RegisterClickEvent(self.BtnFashion, self.OnBtnFashionClick)
     self:RegisterClickEvent(self.BtnOwnedDetail, self.OnBtnOwnedDetailClick)
     self:RegisterClickEvent(self.BtnShaixuan, self.OnBtnShaixuanClick)
+    self:RegisterClickEvent(self.BtnSort, self.OnBtnSortClick)
     self:RegisterClickEvent(self.BtnShengxu, self.OnBtnOrderClick)
     self:RegisterClickEvent(self.BtnJiangxu, self.OnBtnOrderClick)
     self:RegisterClickEvent(self.BtnTeaching, self.OnBtnTeachingClick)
@@ -503,13 +547,33 @@ function XUiCharacter:OnBtnOwnedDetailClick()
     XLuaUiManager.Open("UiCharacterDetail", self.CharacterId)
 end
 
+-- 筛选要用导入该界面的源列表，排序要用当前界面的展示列表(self.CharacterList)
 function XUiCharacter:OnBtnShaixuanClick()
     local characterType = CharacterTypeConvert[self.SelectTabBtnIndex]
-    XLuaUiManager.Open("UiRoomCharacterFilterTips",
-    self,
-    XRoomCharFilterTipsConfigs.EnumFilterType.Common,
-    XRoomCharFilterTipsConfigs.EnumSortType.Common,
-    characterType)
+    -- XLuaUiManager.Open("UiRoomCharacterFilterTips",
+    -- self,
+    -- XRoomCharFilterTipsConfigs.EnumFilterType.Common,
+    -- XRoomCharFilterTipsConfigs.EnumSortType.Common,
+    -- characterType)
+    
+    -- 打开筛选器(v1.30新筛选器)
+    local characterList = self.SupportData and self.SupportData.GetCharacters and self.SupportData.GetCharacters(characterType) or
+    XDataCenter.CharacterManager.GetCharacterList(characterType, false, self.IsAscendOrder, true)
+
+    XLuaUiManager.Open("UiCommonCharacterFilterTipsOptimization", characterList, characterType, function (afterFiltList)
+        self.FiltSortListTypeDic[characterType] = afterFiltList
+        self:OnSelectCharacterType(self.SelectTabBtnIndex)
+    end, characterType)
+end
+
+-- 排序
+function XUiCharacter:OnBtnSortClick()
+    local characterType = CharacterTypeConvert[self.SelectTabBtnIndex]
+
+    XLuaUiManager.Open("UiCommonCharacterFilterTipsSort", self.CharacterList, characterType, self.IsAscendOrder, function (afterSortList)
+        self.FiltSortListTypeDic[characterType] = afterSortList -- 这里本可不记录，但是拆开了和 UpdateCharacterList 里的排序，所以要把这里的值传给 UpdateCharacterList 方法刷新列表
+        self:OnSelectCharacterType(self.SelectTabBtnIndex, true) -- 这边已经排序过一次了，所以刷新就不排了
+    end)
 end
 
 function XUiCharacter:OpenChangeCharacterView()
@@ -522,9 +586,9 @@ function XUiCharacter:OpenChangeCharacterView()
     self:UpdateCamera(XCharacterConfigs.XUiCharacter_Camera.EXCHANGE)
     self.SViewCharacterList.gameObject:SetActiveEx(false)
     self.PanelCharacterTypeBtns.gameObject:SetActiveEx(false)
-    self.BtnFashion.gameObject:SetActiveEx(false)
+    self:SetBtnFashionActive(false)
     self.BtnOwnedDetail.gameObject:SetActiveEx(false)
-    self.BtnTeaching.gameObject:SetActiveEx(false)
+    self:SetBtnTeachingActive(false)
 end
 
 function XUiCharacter:Filter(selectTagGroupDic, sortTagId, isThereFilterData)
@@ -550,6 +614,20 @@ function XUiCharacter:CheckBtnFilterActive()
 
     self.BtnShengxu.gameObject:SetActiveEx(self.IsAscendOrder)
     self.BtnJiangxu.gameObject:SetActiveEx(not self.IsAscendOrder)
+end
+
+function XUiCharacter:SetBtnTeachingActive(isActive)
+    if XUiManager.IsHideFunc then
+        isActive = false
+    end
+    self.BtnTeaching.gameObject:SetActiveEx(isActive)
+end
+
+function XUiCharacter:SetBtnFashionActive(isActive)
+    if XUiManager.IsHideFunc then
+        isActive = false
+    end
+    self.BtnFashion.gameObject:SetActiveEx(isActive)
 end
 
 --===========================================================================

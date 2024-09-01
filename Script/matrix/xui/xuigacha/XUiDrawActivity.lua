@@ -123,9 +123,9 @@ function XUiDrawActivity:InitPanelPreview()
     self:SetPreviewData(gachaRewardInfo, self.AllPreviewPanel.GridDrawActivity, self.AllPreviewPanel.PanelDrawItemSP, self.AllPreviewPanel.PanelDrawItemNA, self.PreviewList[type.IN], type.IN)
     self:SetPreviewData(gachaRewardInfo, self.GridDrawActivity, self.PreviewContent, nil, self.PreviewList[type.OUT], type.OUT, self.GachaRule.PreviewShowCount)
 
-    local countStr = CS.XTextManager.GetText("AlreadyobtainedCount", XDataCenter.GachaManager.GetCurCountOfAll(), XDataCenter.GachaManager.GetMaxCountOfAll())
-    self.AllPreviewPanel.PanelTxt.gameObject:SetActiveEx(not XDataCenter.GachaManager.GetIsInfinite())
-    self.PanelNumber.gameObject:SetActiveEx(not XDataCenter.GachaManager.GetIsInfinite())
+    local countStr = CS.XTextManager.GetText("AlreadyobtainedCount", XDataCenter.GachaManager.GetCurCountOfAll(self.GachaId), XDataCenter.GachaManager.GetMaxCountOfAll(self.GachaId))
+    self.AllPreviewPanel.PanelTxt.gameObject:SetActiveEx(not XDataCenter.GachaManager.GetIsInfinite(self.GachaId))
+    self.PanelNumber.gameObject:SetActiveEx(not XDataCenter.GachaManager.GetIsInfinite(self.GachaId))
     self.AllPreviewPanel.TxetFuwenben.text = countStr
     self.TxtNumber.text = countStr
     
@@ -151,7 +151,7 @@ function XUiDrawActivity:LoadModelScene()
     modelUrl = (modelUrl and modelUrl ~= "") and modelUrl or self:GetDefaultUiModelUrl()
     
     self:LoadUiScene(sceneUrl, modelUrl, function ()
-            self:SetGameObject()
+            --self:SetGameObject()
             self.Is3DSceneLoadFinish = true
             local groupBaseObj = self.UiSceneInfo.Transform:Find("GroupBase").gameObject
             XTool.DestroyChildren(groupBaseObj)
@@ -235,7 +235,7 @@ function XUiDrawActivity:UpDataPreviewData()
         end
     end
     
-    local countStr = CS.XTextManager.GetText("AlreadyobtainedCount", XDataCenter.GachaManager.GetCurCountOfAll(), XDataCenter.GachaManager.GetMaxCountOfAll())
+    local countStr = CS.XTextManager.GetText("AlreadyobtainedCount", XDataCenter.GachaManager.GetCurCountOfAll(self.GachaId), XDataCenter.GachaManager.GetMaxCountOfAll(self.GachaId))
     self.AllPreviewPanel.TxetFuwenben.text = countStr
     self.TxtNumber.text = countStr
 end

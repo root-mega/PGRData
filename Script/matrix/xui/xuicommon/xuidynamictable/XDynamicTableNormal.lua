@@ -1,6 +1,7 @@
+---@class XDynamicTableNormal
 XDynamicTableNormal = {}
 
-DYNAMIC_DELEGATE_EVENT = {
+    DYNAMIC_DELEGATE_EVENT = {
     DYNAMIC_GRID_RELOAD_COMPLETED = 1,--加载完成
     DYNAMIC_GRID_TOUCHED = 2,--点击
     DYNAMIC_GRID_ATINDEX = 3,--更新
@@ -11,6 +12,10 @@ DYNAMIC_DELEGATE_EVENT = {
     DYNAMIC_GRID_INIT = 100
 }
 
+--- 初始化动态列表
+---@param gameObject UnityEngine.GameObject
+---@return XDynamicTableNormal
+--------------------------
 function XDynamicTableNormal.New(gameObject)
     if gameObject == nil then
         XLog.Error("XDynamicTableNormal.New->gameObject == nil, Please check the object is instancing")
@@ -68,6 +73,18 @@ function XDynamicTableNormal:SetDelegate(delegate)
     self.Delegate = delegate
 end
 
+function XDynamicTableNormal:SetProxyDisplay(proxy, isShow)
+    if CheckClassSuper(proxy, XUiNode) then
+        if isShow then
+            proxy:Open()
+        else
+            if not XTool.UObjIsNil(proxy.GameObject) then
+                proxy:Close()
+            end
+        end
+    end
+end
+
 
 --事件回调
 function XDynamicTableNormal:OnDynamicTableEvent(event, index, grid)
@@ -111,10 +128,12 @@ function XDynamicTableNormal:OnDynamicTableEvent(event, index, grid)
         proxy.Index = index
         proxy.DynamicGrid = grid
         self.ProxyImpMap[index] = proxy
+        self:SetProxyDisplay(proxy, true)
     elseif event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_RECYCLE then
         proxy.Index = -1
         proxy.DynamicGrid = nil
         self.ProxyImpMap[index] = nil
+        self:SetProxyDisplay(proxy, false)
     elseif event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_RELOAD_COMPLETED then
         XEventManager.DispatchEvent(XEventId.EVENT_GUIDE_STEP_OPEN_EVENT, self.Imp.name)
     end
@@ -203,6 +222,17 @@ end
 
 --异步重载数据
 function XDynamicTableNormal:ReloadDataASync(startIndex, forceReload)
+    -- 刷新前进行等待 （因异步方式会导致表现空缺）
+    if XUiManager.IsBgAsyncLoading() then
+        XUiManager.WaitBgLoadComplete(function()
+            self:__ReloadDataASync(startIndex, forceReload)
+        end)
+    else
+        self:__ReloadDataASync(startIndex, forceReload)
+    end
+end
+
+function XDynamicTableNormal:__ReloadDataASync(startIndex, forceReload)
     startIndex = startIndex or -1
     if not self.Imp then
         return
@@ -301,8 +331,94 @@ function XDynamicTableNormal:SetGrid(grid)
     self.Imp.Grid = grid
 end
 
+function XDynamicTableNormal:GetGrid()
+    return self.Imp.Grid
+end
+
 function XDynamicTableNormal:GetData(index)
     return self.DataSource[index]
+end
+
+-- 获得当前使用的格子中第一个格子的index
+function XDynamicTableNormal:GetFirstUseGridIndexAndUseCount()
+    local minIndex = 1000
+    local useNum = 0
+    for index, grid in pairs(self:GetGrids()) do
+        if index < minIndex then
+            minIndex = index
+        end
+        useNum = useNum + 1
+    end
+
+    return minIndex, useNum
+end
+
+function XDynamicTableNormal:GetStartIndex()
+    if not self.Imp then
+        return
+    end
+    return self.Imp:GetStartIndex()
+end
+
+function XDynamicTableNormal:GetEndIndex()
+    if not self.Imp then
+        return
+    end
+    local totalCount = self.Imp.TotalCount
+    local endIndex = self:GetStartIndex() + self.Imp.AvailableViewCount - 1
+    endIndex = endIndex > totalCount and totalCount or endIndex
+    return endIndex
+end
+
+function XDynamicTableNormal:DynamicGridAtIndex(index)
+    if not self.Imp then
+        return
+    end
+    return self.Imp:DynamicGridAtIndex(index)
+end 
+
+---计算当前索引容器的开始位置
+---@return UnityEngine.Vector3
+function XDynamicTableNormal:CalulateStartPosByIndex(index)
+    if not self.Imp then
+        return
+    end
+    return self.Imp:CalulateStartPosByIndex(index)
+end
+
+function XDynamicTableNormal:ScrollToIndex(index, duration, beginCb, endCb)
+    if not self.Imp then
+        return
+    end
+    local pos = self.Imp:CalulateStartPosByIndex(index)
+    local newPosX = CS.UnityEngine.Mathf.Clamp01(pos.x)
+    local newPosY = CS.UnityEngine.Mathf.Clamp01(pos.y)
+    local oldPosX = self.Imp.ScrRect.horizontalNormalizedPosition
+    local oldPosY = self.Imp.ScrRect.verticalNormalizedPosition
+    if newPosX == oldPosX and newPosY == oldPosY then
+        return
+    end
+    if beginCb then
+        beginCb()
+    end
+    local timer
+    timer = XUiHelper.Tween(duration, function(f)
+        if XTool.UObjIsNil(self.Imp) then
+            XScheduleManager.UnSchedule(timer)
+            if endCb then
+                endCb()
+            end
+            return
+        end
+        self.Imp.ScrRect.horizontalNormalizedPosition = oldPosX + (newPosX - oldPosX) * f
+        self.Imp.ScrRect.verticalNormalizedPosition = oldPosY + (newPosY - oldPosY) * f
+    end, function()
+        self.Imp.ScrRect.horizontalNormalizedPosition = newPosX
+        self.Imp.ScrRect.verticalNormalizedPosition = newPosY
+        if endCb then
+            endCb()
+        end
+    end)
 end
 
 --todo 其他布局接口这里暂时不一一实现，因为布局属性在编辑阶段已经设置过

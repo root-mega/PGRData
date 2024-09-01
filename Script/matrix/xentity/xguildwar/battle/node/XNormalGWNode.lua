@@ -88,6 +88,9 @@ function XNormalGWNode:GetSweepCostEnergy()
 end
 
 function XNormalGWNode:GetStageId()
+    if self.Config.GuildWarStageId == 0 then
+        return 0
+    end
     return XGuildWarConfig.GetCfgByIdKey(XGuildWarConfig.TableKey.Stage
         , self.Config.GuildWarStageId).StageId
 end

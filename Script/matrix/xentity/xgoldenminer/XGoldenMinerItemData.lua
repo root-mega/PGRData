@@ -1,7 +1,8 @@
 local XGoldenMinerItemBase = require("XEntity/XGoldenMiner/XGoldenMinerItemBase")
 local type = type
 
---黄金矿工不可叠加的道具数据
+---黄金矿工不可叠加的道具数据
+---@class XGoldenMinerItemData:XGoldenMinerItemBase
 local XGoldenMinerItemData = XClass(XGoldenMinerItemBase, "XGoldenMinerItemData")
 
 local Default = {

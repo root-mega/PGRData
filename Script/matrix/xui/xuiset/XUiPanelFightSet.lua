@@ -249,6 +249,7 @@ function XUiPanelFightSet:RefreshJoystickPanel()
         self.UiRoot.BtnDefault.gameObject:SetActiveEx(true)
         self.UiRoot.BtnSave.gameObject:SetActiveEx(true)
         self.PanelGameControlOperationType.gameObject:SetActiveEx(true)
+        self:InitControllerPanel()
         if not isPc then
             self:SetEnableInputKeyboard(false)
         end

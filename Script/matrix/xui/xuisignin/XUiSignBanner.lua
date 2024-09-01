@@ -1,5 +1,6 @@
 local XUiSignBanner = XLuaUiManager.Register(XLuaUi, "UiSignBanner")
 local XUiSignPrefabContent = require("XUi/XUiSignIn/XUiSignPrefabContent")
+local XUiSClassConstructWelfare = require("XUi/XUiSClassConstructWelfare/XUiSClassConstructWelfare")
 local XUiSignFirstRecharge = require("XUi/XUiSignIn/XUiSignFirstRecharge")
 local XUiSignCard = require("XUi/XUiSignIn/XUiSignCard")
 local XUiWeekChallenge = require("XUi/XUiWeekChallenge/XUiWeekChallenge")
@@ -43,6 +44,13 @@ function XUiSignBanner:AddListener()
     self:RegisterClickEvent(self.BtnClose, self.OnBtnCloseClick)
 end
 
+function XUiSignBanner:PcClose()
+    if not self.BtnClose.gameObject.activeSelf then
+        return
+    end
+    self:OnBtnCloseClick()
+end
+
 function XUiSignBanner:OnBtnCloseClick()
     self:Close()
     XDataCenter.AutoWindowManager.NextAutoWindow()
@@ -50,6 +58,10 @@ end
 
 function XUiSignBanner:SetInfo(configId)
     local path = XSignInConfigs.GetPrefabPath(configId)
+    if not path then
+        XLog.Error("找不到预置体路径，检查Welfare表是否正确配置FunctionType，id", configId)
+        return
+    end
 
     self.Resource = CS.XResourceManager.Load(path)
     local prefab = CS.UnityEngine.Object.Instantiate(self.Resource.Asset)
@@ -58,6 +70,8 @@ function XUiSignBanner:SetInfo(configId)
 
     if self.Config.FunctionType == XAutoWindowConfigs.AutoFunctionType.Sign then
         self.SignPrefabContent = XUiSignPrefabContent.New(prefab, self)
+    elseif self.Config.FunctionType == XAutoWindowConfigs.AutoFunctionType.SClassConstructNovice then
+        self.SignPrefabContent = XUiSClassConstructWelfare.New(prefab, self)
     elseif self.Config.FunctionType == XAutoWindowConfigs.AutoFunctionType.FirstRecharge then
         self.SignPrefabContent = XUiSignFirstRecharge.New(prefab, self)
     elseif self.Config.FunctionType == XAutoWindowConfigs.AutoFunctionType.Card then

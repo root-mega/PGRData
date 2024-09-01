@@ -25,6 +25,7 @@ local TABLE_STRONGHOLD_GROUP_ELEMENT_PATH = "Client/Fuben/Stronghold/StrongholdG
 local TABLE_LEVEL_PATH = "Share/Fuben/Stronghold/StrongholdLevel.tab"
 local TABLE_RUNE_PATH = "Share/Fuben/Stronghold/StrongholdRune.tab"
 local TABLE_SUB_RUNE_PATH = "Share/Fuben/Stronghold/StrongholdSubRune.tab"
+local TABLE_REWARD_GROUP_PATH = "Client/Fuben/Stronghold/StrongholdRewardGroup.tab"
 
 local ActivityTemplate = {}
 local CommonConfig = {}
@@ -44,6 +45,7 @@ local StrongholdGroupElementConfig = {}
 local StrongholdLevelConfig = {}
 local StrongholdRuneConfig = {}
 local StrongholdSubRuneConfig = {}
+local StrongholdRewardGroupConfig = {}
 
 local DefaultActivityId = 1
 local ActivityIdList = {} --活动Id列表（倒序排布）
@@ -112,6 +114,7 @@ function XStrongholdConfigs.Init()
     StrongholdLevelConfig = XTableManager.ReadByIntKey(TABLE_LEVEL_PATH, XTable.XTableStrongholdLevel, "Id")
     StrongholdRuneConfig = XTableManager.ReadByIntKey(TABLE_RUNE_PATH, XTable.XTableStrongholdRune, "Id")
     StrongholdSubRuneConfig = XTableManager.ReadByIntKey(TABLE_SUB_RUNE_PATH, XTable.XTableStrongholdSubRune, "Id")
+    StrongholdRewardGroupConfig = XTableManager.ReadByIntKey(TABLE_REWARD_GROUP_PATH, XTable.XTableStrongholdRewardGroup, "RewardType")
 
     InitActivityConfig()
     InitElectricTeamConfig()
@@ -294,6 +297,17 @@ end
 function XStrongholdConfigs.GetChapterMaxElectricUse(chapterId)
     local config = GetChapterConfig(chapterId)
     return config.MaxElectricUse
+end
+
+--章节推荐电力
+function XStrongholdConfigs.GetChapterSuggestElectric(chapterId, sweepLevelId)
+    local config = GetChapterConfig(chapterId)
+    for index, id in ipairs(config.SweepLevelId) do
+        if sweepLevelId == id then
+            return config.SuggestElectric[index]
+        end
+    end
+    return 0
 end
 
 --章节是否禁用支援角色
@@ -505,7 +519,8 @@ end
 function XStrongholdConfigs.GetGroupCanUseRobotIds(groupId, characterType, levelId)
     local config = GetGroupConfig(groupId)
     local roubotGroupId = config.RobotGroup[levelId]
-    return XStrongholdConfigs.GetRobotGroupRobotIds(roubotGroupId, characterType)--修改为整个玩法通用试玩角色
+    local robotIds, robotIdDic = XStrongholdConfigs.GetRobotGroupRobotIds(roubotGroupId, characterType)--修改为整个玩法通用试玩角色 
+    return robotIds, robotIdDic
 end
 
 function XStrongholdConfigs.GetGroupStageIdGroupIndex(groupId, stageId)
@@ -520,6 +535,16 @@ function XStrongholdConfigs.GetGroupStageIdGroupIndex(groupId, stageId)
             end
         end
     end
+end
+
+function XStrongholdConfigs.GetGroupSweepCondition(groupId, sweepLevelId)
+    local config = GetGroupConfig(groupId)
+    for index, id in ipairs(config.SweepLevelId) do
+        if sweepLevelId == id then
+            return config.SweepCondition[index]
+        end
+    end
+    return 0
 end
 -----------------副本相关 end--------------------
 -----------------词缀相关 begin--------------------
@@ -610,13 +635,18 @@ local function CheckRewardOffline(rewardId)
     return IsNumberValid(config.Offline)
 end
 
-function XStrongholdConfigs.GetAllRewardIds(levelId)
+function XStrongholdConfigs.GetAllRewardIds(levelId, rewardType)
     local ids = {}
     local rewardIds = LevelIdToRewardIdsDic[levelId] or {}
     for _, id in pairs(rewardIds) do
-        if not CheckRewardOffline(id) then
-            tableInsert(ids, id)
+        if XTool.IsNumberValid(rewardType) and XStrongholdConfigs.GetRewardType(id) ~= rewardType then
+            goto continue
         end
+        if CheckRewardOffline(id) then
+            goto continue
+        end
+        tableInsert(ids, id)
+        :: continue ::
     end
     return ids
 end
@@ -640,6 +670,11 @@ function XStrongholdConfigs.GetRewardGoodsId(rewardId)
     local config = GetRewardConfig(rewardId)
     return config.RewardId
 end
+
+function XStrongholdConfigs.GetRewardType(rewardId)
+    local config = GetRewardConfig(rewardId)
+    return config.RewardType
+end
 -----------------奖励（任务）相关 end--------------------
 -----------------队伍相关 begin--------------------
 local MAX_TEAM_NUM = 6 --最大队伍数量
@@ -662,22 +697,24 @@ local function GetRobotGroupConfig(roubotGroupId)
 end
 
 function XStrongholdConfigs.GetRobotGroupRobotIds(roubotGroupId, characterType)
-    local robotIds = {}
     local config = GetRobotGroupConfig(roubotGroupId)
 
     local num, index
     local robotIds = {}
+    local robotIdDic = {}
     for _, robotId in pairs(config.RobotId) do
         if IsNumberValid(characterType) then
             local robotType = XRobotManager.GetRobotCharacterType(robotId)
-            if robotType == characterType then
+            if (characterType and robotType == characterType) or not characterType then
                 tableInsert(robotIds, robotId)
+                robotIdDic[robotId] = true
             end
         else
             tableInsert(robotIds, robotId)
+            robotIdDic[robotId] = true
         end
     end
-    return robotIds
+    return robotIds, robotIdDic
 end
 
 
@@ -865,7 +902,8 @@ function XStrongholdConfigs.GetLevelInitEndurance(levelId)
     return config.InitEndurance
 end
 
-function XStrongholdConfigs.GetAllChapterIds(chapterType)
+--ignoreNotSuggestElectric：为true时，忽略未配置SuggestElectric或MaxElectricUse的id
+function XStrongholdConfigs.GetAllChapterIds(chapterType, ignoreNotSuggestElectric)
     local ids = {}
 
     local levelId = XDataCenter.StrongholdManager.GetLevelId()
@@ -875,6 +913,8 @@ function XStrongholdConfigs.GetAllChapterIds(chapterType)
     for _, id in ipairs(config.Chapter) do
         if IsNumberValid(id)
         and (not chapterType or XStrongholdConfigs.GetChapterType(id) == chapterType)
+        and (not ignoreNotSuggestElectric or XTool.IsNumberValid(XStrongholdConfigs.GetChapterSuggestElectric(id, XDataCenter.StrongholdManager.GetLevelId()))
+        or XTool.IsNumberValid(XStrongholdConfigs.GetChapterMaxElectricUse(id)))
         then
             tableInsert(ids, id)
         end
@@ -953,3 +993,27 @@ function XStrongholdConfigs.GetSubRuneDesc(subRuneId)
     return XUiHelper.ConvertLineBreakSymbol(config.Desc)
 end
 -----------------符文 end--------------------
+
+-----------------StrongholdRewardGroupConfig 奖励（任务）组 begin--------------------
+local function GetRewardGroupConfig(rewardType)
+    local config = StrongholdRewardGroupConfig[rewardType]
+    if not config then
+        XLog.Error("XStrongholdConfigs GetRewardGroupConfig error:配置不存在, rewardType: " .. rewardType .. ", 配置路径: " .. TABLE_REWARD_GROUP_PATH)
+        return
+    end
+    return config
+end
+
+function XStrongholdConfigs.GetRewardGroupList()
+    local rewardGroupList = {}
+    for rewardType in pairs(StrongholdRewardGroupConfig) do
+        table.insert(rewardGroupList, rewardType)
+    end
+    return rewardGroupList
+end
+
+function XStrongholdConfigs.GetRewardGroupName(rewardType)
+    local config = GetRewardGroupConfig(rewardType)
+    return config.Name
+end
+-----------------StrongholdRewardGroupConfig 奖励（任务）组 end----------------------

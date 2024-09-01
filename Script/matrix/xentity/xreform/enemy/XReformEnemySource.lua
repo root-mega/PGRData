@@ -4,6 +4,7 @@ local XReformEnemySource = XClass(nil, "XReformEnemySource")
 -- config : XReformConfigs.EnemySourceConfig
 function XReformEnemySource:Ctor(config)
     self.Config = config
+    self.DefaultTarget = nil
     -- XReformEnemyTarget
     self.Targets = {}
     -- key : id value : XReformEnemyTarget
@@ -33,7 +34,7 @@ function XReformEnemySource:UpdateTargetId(targetId)
 end
 
 function XReformEnemySource:GetEntityType()
-    if self.Config.NpcId == 0 then
+    if self:GetNpcId() == 0 then
         return XReformConfigs.EntityType.Add
     end
     return XReformConfigs.EntityType.Entity
@@ -65,7 +66,11 @@ function XReformEnemySource:GetIcon()
     if target then
         return target:GetIcon()
     end
-    return self.Config.HeadIcon
+    target = self:GetDefaultTarget()
+    if target then
+        return target:GetIcon()
+    end
+    return
 end
 
 function XReformEnemySource:GetIsActive()
@@ -77,7 +82,11 @@ function XReformEnemySource:GetName()
     if target then
         return target:GetName()
     end
-    return self.Config.Name
+    target = self:GetDefaultTarget()
+    if target then
+        return target:GetName()
+    end
+    return "unknow"
 end
 
 function XReformEnemySource:GetLevel()
@@ -85,7 +94,17 @@ function XReformEnemySource:GetLevel()
     if target then
         return target:GetLevel()
     end
-    return self.Config.Level
+    if self.DefaultTarget then
+        return self.DefaultTarget:GetLevel()
+    end
+    return 0
+end
+
+function XReformEnemySource:GetNpcId()
+    if self.DefaultTarget then
+        return self.DefaultTarget:GetNpcId()
+    end
+    return 0
 end
 
 function XReformEnemySource:GetShowLevel()
@@ -93,25 +112,32 @@ function XReformEnemySource:GetShowLevel()
     if target then
         return target:GetShowLevel()
     end
-    return self.Config.ShowLevel
+    target = self:GetDefaultTarget()
+    if target then
+        return target:GetShowLevel()
+    end
+    return 0
 end
 
 function XReformEnemySource:GetBuffDetailViewModels()
     local result = {}
     local buffIdDic = {}
-    local target = self:GetCurrentTarget()
-    if target then
-        for _, buffId in ipairs(target:GetBuffIds()) do
-            if buffId ~= 0 then
-                buffIdDic[buffId] = true
-            end
-        end
-    end
-    for _, buffId in ipairs(self.Config.BuffIds) do
-        if buffId ~= 0 then
-            buffIdDic[buffId] = true
-        end
-    end
+    -- -- 改造的不显示
+    -- local target = self:GetCurrentTarget()
+    -- if target then
+    --     for _, buffId in ipairs(target:GetBuffIds()) do
+    --         if buffId ~= 0 then
+    --             buffIdDic[buffId] = true
+    --         end
+    --     end
+    -- end
+    -- if self.DefaultTarget then
+    --     for _, buffId in ipairs(self.DefaultTarget:GetBuffIds()) do
+    --         if buffId ~= 0 then
+    --             buffIdDic[buffId] = true
+    --         end
+    --     end
+    -- end
     local data = nil
     for buffId, _ in pairs(buffIdDic) do
         data = XReformConfigs.GetEnemyBuffDetail(buffId)
@@ -123,11 +149,29 @@ function XReformEnemySource:GetBuffDetailViewModels()
             })
         end
     end
+    -- 敌人词缀改造的buff
+    local target = self:GetCurrentTarget() or self.DefaultTarget
+    if target then
+        appendArray(result, target:GetReformBuffDetailViewModels())
+    end
     return result
 end
 
 function XReformEnemySource:GetScore()
     return self.Config.AddScore
+end
+
+function XReformEnemySource:GetMaxTargetBuffScore()
+    if self.__MaxTagerBuffScore == nil then
+        self.__MaxTagerBuffScore = 0
+        for _, target in ipairs(self.Targets) do
+            self.__MaxTagerBuffScore = math.max( self.__MaxTagerBuffScore, target:GetMaxBuffScore() )
+        end
+        if self.DefaultTarget then
+            self.__MaxTagerBuffScore = math.max( self.__MaxTagerBuffScore, self.DefaultTarget:GetMaxBuffScore())
+        end
+    end
+    return self.__MaxTagerBuffScore
 end
 
 function XReformEnemySource:GetMaxTagerScore()
@@ -156,9 +200,21 @@ function XReformEnemySource:GetMonsterEntity()
         return target:GetMonsterEntity()
     end
     if self.MonsterEntity == nil then
-        self.MonsterEntity = XDataCenter.ArchiveManager.GetArchiveMonsterEntityByNpcId(self.Config.NpcId)
+        self.MonsterEntity = XDataCenter.ArchiveManager.GetArchiveMonsterEntityByNpcId(self:GetNpcId())
     end
     return self.MonsterEntity
+end
+
+function XReformEnemySource:CheckIsCanReform()
+    return #self.Targets > 0
+end
+
+function XReformEnemySource:CheckIsReformed()
+    return self:GetCurrentTarget() ~= nil
+end
+
+function XReformEnemySource:GetDefaultTarget()
+    return self.DefaultTarget
 end
 
 --######################## 私有方法 ########################
@@ -172,6 +228,12 @@ function XReformEnemySource:InitTargets()
             data = XReformEnemyTarget.New(config)
             table.insert(self.Targets, data)
             self.TargetDic[data:GetId()] = data
+        end
+    end
+    if self.Config.DefaultTargetId > 0 then
+        config = XReformConfigs.GetEnemyTargetConfig(self.Config.DefaultTargetId)
+        if config then
+            self.DefaultTarget = XReformEnemyTarget.New(config)
         end
     end
 end

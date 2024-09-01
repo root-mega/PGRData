@@ -13,6 +13,7 @@ XActivityManagerCreator = function()
     local SortedActivityGroupInfos = {}
     local HaveReadActivityIds = {}
     local SavedTimeDataDic = {}
+    local BackFlowEndTime = 0
 
     local METHOD_NAME = {
         LinkTaskFinished = "DoClientTaskEventRequest"
@@ -111,6 +112,16 @@ XActivityManagerCreator = function()
                 return true
             end
             return false
+        elseif activityType == XActivityConfigs.ActivityType.BackFlowLink then
+            local endTime = XDataCenter.ActivityManager.GetBackFlowEndTime()
+            if not XTool.IsNumberValid(endTime) then
+                return false
+            end
+            local nowTime = XTime.GetServerNowTimestamp()
+            if nowTime < endTime then
+                return true
+            end
+            return false
         end
 
         return XFunctionManager.CheckInTimeByTimeId(activityCfg.TimeId)
@@ -187,18 +198,24 @@ XActivityManagerCreator = function()
             --接受邀请活动有自己的红点判断
         elseif activityCfg.ActivityType == XActivityConfigs.ActivityType.AcceptInvitation then
             return XDataCenter.RegressionManager.IsAcceptInvitationHaveRedPoint()
-        elseif activityCfg.ActivityType == XActivityConfigs.ActivityType.Link then
+        elseif activityCfg.ActivityType == XActivityConfigs.ActivityType.Link or activityCfg.ActivityType == XActivityConfigs.ActivityType.BackFlowLink then
             --取得链接公告对应的链接内容
             local linkCfg = XActivityConfigs.GetActivityLinkCfg(activityCfg.Params[1])
             --如果已经领取过了，那么就不会再显示红点了
-            local TaskData = XDataCenter.TaskManager.GetTimeLimitTaskListByGroupId(activityCfg.Params[2])
-            if not TaskData or not TaskData[1] then
+            local TaskData
+            if activityCfg.ActivityType == XActivityConfigs.ActivityType.BackFlowLink then
+                TaskData = XDataCenter.TaskManager.GetTaskDataById(activityCfg.Params[2])
+            else
+                local TaskDatas = XDataCenter.TaskManager.GetTimeLimitTaskListByGroupId(activityCfg.Params[2])
+                TaskData = TaskDatas[1] or nil
+            end
+            if not TaskData then
                 return false
             end
-            if TaskData[1].State == XDataCenter.TaskManager.TaskState.Achieved then
+            if TaskData.State == XDataCenter.TaskManager.TaskState.Achieved then
                 return true
             end
-            if XDataCenter.TaskManager.IsTaskFinished(TaskData[1].Id) then
+            if XDataCenter.TaskManager.IsTaskFinished(TaskData.Id) then
                 return false
             end
             if linkCfg.RedPointType == 1 then
@@ -215,9 +232,10 @@ XActivityManagerCreator = function()
         -- 跳转活动需要特殊红点显示时
         elseif activityCfg.ActivityType == XActivityConfigs.ActivityType.Skip then 
             local redPointCondition = XActivityBriefConfigs.GetRedPointConditionsBySkipId(activityCfg.Params[1])
+            local redPointParam = XActivityBriefConfigs.GetRedPointParamBySkipId(activityCfg.Params[1])
             if redPointCondition then
                 for _, red in pairs(redPointCondition) do
-                    if XRedPointConditions[red]:Check() then
+                    if XRedPointConditions[red].Check(redPointParam) then
                         return true
                     end
                 end
@@ -383,6 +401,18 @@ XActivityManagerCreator = function()
                     cb()
                 end
             end)
+    end
+    
+    --回流问卷结束时间
+    function XActivityManager.SetBackFlowEndTime(data)
+        if not data then
+            return
+        end
+        BackFlowEndTime = data.BackFlowEndTime or 0
+    end
+    
+    function XActivityManager.GetBackFlowEndTime()
+        return BackFlowEndTime
     end
 
     -- [ 海外新增(Rooot活动)

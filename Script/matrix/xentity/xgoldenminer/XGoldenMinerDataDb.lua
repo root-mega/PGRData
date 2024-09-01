@@ -2,9 +2,12 @@ local XGoldenMinerItemData = require("XEntity/XGoldenMiner/XGoldenMinerItemData"
 local XGoldenMinerStrengthenDb = require("XEntity/XGoldenMiner/XGoldenMinerStrengthenDb")
 local XGoldenMinerCommodityDb = require("XEntity/XGoldenMiner/XGoldenMinerCommodityDb")
 local XGoldenMinerStageMapInfo = require("XEntity/XGoldenMiner/XGoldenMinerStageMapInfo")
+local XGoldenMinerHideTaskInfo = require("XEntity/XGoldenMiner/Settle/XGoldenMinerHideTaskInfo")
+local XGoldenMinerDisplayData = require("XEntity/XGoldenMiner/Game/XGoldenMinerDisplayData")
 local type = type
 
 --黄金矿工数据
+---@class XGoldenMinerDataDb
 local XGoldenMinerDataDb = XClass(nil, "XGoldenMinerDataDb")
 
 local Default = {
@@ -23,6 +26,9 @@ local Default = {
     _MinerShopDbs = {}, --商店刷新商品
     _ItemBuyRecord = {}, --商品购买记录
 	_StageMapInfos = {}, --随机到的关卡信息
+    _TotalPlayCount = 0, --游玩的次数
+    _HideTaskInfo = {}, -- 隐藏任务信息
+    _HideStageCount = 0,-- 隐藏关卡数量
 }
 
 function XGoldenMinerDataDb:Ctor()
@@ -44,13 +50,21 @@ function XGoldenMinerDataDb:ResetData()
     self._CurrentPlayStage = 0
     self._StageScores = 0
     self._FinishStageId = {}
-    self._ItemColumns = {}
-    self._UpgradeStrengthens = {}
-    self._MinerShopDbs = {}
     self._ItemBuyRecord = {}
+    ---@type XGoldenMinerItemData[]
+    self._ItemColumns = {}
+    ---@type XGoldenMinerStrengthenDb[]
+    self._UpgradeStrengthens = {}
+    ---@type XGoldenMinerCommodityDb[]
+    self._MinerShopDbs = {}
+    ---@type XGoldenMinerStageMapInfo[]
     self._StageMapInfos = {}
+    ---@type XGoldenMinerItemData[]
     self._BuffColumns = {}
+    ---@type XGoldenMinerItemData[]
     self._ItemColumnsBackups = {}
+    ---@type XGoldenMinerHideTaskInfo[]
+    self._HideTaskInfo = {}
 
     for _, strengthenDb in pairs(self._UpgradeStrengthens) do
         strengthenDb:UpdateLevelIndex(-1)
@@ -60,10 +74,11 @@ end
 function XGoldenMinerDataDb:UpdateData(data)
     self._ActivityId = data.ActivityId
     self._CharacterId = data.CharacterId
-    self._TotalMaxScoresCharacter = data.TotalMaxScoresCharacter
     self._ItemBuyRecord = data.ItemBuyRecord
+    self:UpdateTotalPlayCount(data.TotalPlayCount)
     self:UpdateCurrentPlayStage(data.CurrentPlayStage)
     self:UpdateTotalMaxScores(data.TotalMaxScores)
+    self:UpdateTotalMaxScoresCharacter(data.TotalMaxScoresCharacter)
     self:UpdateItemColumns(data.ItemColumns)
     self:UpdateBuffColumns(data.BuffColumns)
     self:UpdateUpgradeStrengthens(data.UpgradeStrengthens)
@@ -73,6 +88,12 @@ function XGoldenMinerDataDb:UpdateData(data)
     self:UpdateNewCharacter(data.CharacterDbs)
     self:UpdateFinishStageIds(data.FinishStageId)
     self:UpdateRedEnvelopeProgress(data.RedEnvelopeProgress)
+    self:UpdateHideTaskInfo(data.HideTaskInfo)
+    self:UpdateHideStageCount(data.HideStageCount)
+end
+
+function XGoldenMinerDataDb:UpdateTotalPlayCount(totalPlayCount)
+    self._TotalPlayCount = totalPlayCount
 end
 
 function XGoldenMinerDataDb:UpdateCurrentPlayStage(currentPlayStage)
@@ -129,6 +150,15 @@ function XGoldenMinerDataDb:UpdateUpgradeStrengthenLevel(strengthenId, levelInde
     strengthenDb:UpdateLevelIndex(levelIndex)
 end
 
+function XGoldenMinerDataDb:UpdateUpgradeStrengthenAlreadyBuy(strengthenId, serverLevelIndex)
+    local strengthenDb = self:GetUpgradeStrengthen(strengthenId)
+    if not strengthenDb then
+        XLog.Error("黄金矿工更新飞碟等级错误，找不到数据，strengthenId：", strengthenId)
+        return
+    end
+    strengthenDb:AddAlreadyBuys(serverLevelIndex)
+end
+
 function XGoldenMinerDataDb:UpdateBuffColumns(buffColumns)
     self._BuffColumns = {}
     for i, v in pairs(buffColumns or {}) do
@@ -180,7 +210,6 @@ end
 function XGoldenMinerDataDb:IsUseItem(useItemIndex)
     local itemColumn = self:GetItemColumnByIndex(useItemIndex)
     if not itemColumn then
-        XLog.Error("黄金矿工道具不存在，道具所在的下标为：", useItemIndex)
         return false
     end
 
@@ -203,7 +232,9 @@ function XGoldenMinerDataDb:UseItem(useItemIndex)
         XLog.Error("黄金矿工使用的道具不存在，道具所在的下标为：", useItemIndex)
         return false
     end
-    itemColumn:SetStatus(XGoldenMinerConfigs.ItemChangeType.OnUse)
+    -- itemColumn:SetStatus(XGoldenMinerConfigs.ItemChangeType.OnUse)
+    -- 去除道具避免占位
+    self._ItemColumns[useItemIndex] = nil
 end
 
 function XGoldenMinerDataDb:UpdateNewCharacter(unlockCharacters)
@@ -220,6 +251,10 @@ function XGoldenMinerDataDb:UpdateTotalMaxScores(totalMaxScores)
     self._TotalMaxScores = totalMaxScores
 end
 
+function XGoldenMinerDataDb:UpdateTotalMaxScoresCharacter(totalMaxScoresCharacter)
+    self._TotalMaxScoresCharacter = totalMaxScoresCharacter or self._TotalMaxScoresCharacter
+end
+
 function XGoldenMinerDataDb:GetCurStageId()
     local stageMapInfos = self:GetStageMapInfos()
     local stageId
@@ -228,6 +263,29 @@ function XGoldenMinerDataDb:GetCurStageId()
         if not self:IsStageFinish(stageId) then
             return stageId, index
         end
+    end
+end
+
+---在主界面显示的
+function XGoldenMinerDataDb:GetCurShowStageIndex()
+    local stageMapInfos = self:GetStageMapInfos()
+    local stageId, curIndex
+    local stageCount = 0
+    for index, stageMapInfo in ipairs(stageMapInfos) do
+        stageId = stageMapInfo:GetStageId()
+        stageCount = stageCount + 1
+        if not self:IsStageFinish(stageId) then
+            curIndex = index
+            break
+        end
+    end
+    if not curIndex then
+        curIndex = stageCount
+    end
+    if XTool.IsNumberValid(self._CurrentPlayStage) then
+        return curIndex
+    else
+        return math.max(1, curIndex - 1)
     end
 end
 
@@ -278,6 +336,7 @@ function XGoldenMinerDataDb:GetLastFinishStageId()
     return self.LastFinishStageId
 end
 
+---@return XGoldenMinerItemData[]
 function XGoldenMinerDataDb:GetItemColumns()
     return self._ItemColumns
 end
@@ -290,7 +349,12 @@ function XGoldenMinerDataDb:GetBuffColumns()
     return self._BuffColumns
 end
 
+function XGoldenMinerDataDb:GeTotalPlayCount()
+    return self._TotalPlayCount
+end
+
 --获得所有等级不为0的强化属性
+---@return XGoldenMinerStrengthenDb[]
 function XGoldenMinerDataDb:GetAllUpgradeStrengthenList()
     local upgradeStrengthenList = {}
     for _, v in pairs(self._UpgradeStrengthens) do
@@ -347,8 +411,14 @@ function XGoldenMinerDataDb:IsItemAlreadyBuy(index)
     return XTool.IsNumberValid(shopDb:GetBuyStatus())
 end
 
+---@return XGoldenMinerStageMapInfo[]
 function XGoldenMinerDataDb:GetStageMapInfos()
     return self._StageMapInfos
+end
+
+---@return XGoldenMinerStageMapInfo
+function XGoldenMinerDataDb:GetStageMapInfo(stageId)
+    return self._StageMapInfos[stageId]
 end
 
 function XGoldenMinerDataDb:GetTotalMaxScores()
@@ -390,6 +460,61 @@ function XGoldenMinerDataDb:GetCurStageTargetScore()
     return targetScore
 end
 
+--region HideTask
+function XGoldenMinerDataDb:UpdateHideTaskInfo(hideTaskInfoList)
+    self._HideTaskInfo = {}
+    if XTool.IsTableEmpty(hideTaskInfoList) then
+        return
+    end
+    for _, data in ipairs(hideTaskInfoList) do
+        ---@type XGoldenMinerHideTaskInfo
+        local hideTaskInfo = XGoldenMinerHideTaskInfo.New(data.Id)
+        hideTaskInfo:SetCurProgress(data.Progress)
+        self._HideTaskInfo[#self._HideTaskInfo + 1] = hideTaskInfo
+    end
+end
+
+function XGoldenMinerDataDb:UpdateHideStageCount(hideStageCount)
+    self._HideStageCount = hideStageCount
+end
+
+---@return XGoldenMinerHideTaskInfo[]
+function XGoldenMinerDataDb:GetHideTaskInfo()
+    return self._HideTaskInfo
+end
+
+function XGoldenMinerDataDb:GetFinishHideTaskCount()
+    local result = 0
+    if XTool.IsTableEmpty(self._HideTaskInfo) then
+        return result
+    end
+    for _, hideTaskInfo in ipairs(self._HideTaskInfo) do
+        if hideTaskInfo:IsFinish() then
+            result = result + 1
+        end
+    end
+    return result
+end
+
+function XGoldenMinerDataDb:GetHideStageCount()
+    return self._HideStageCount
+end
+--endregion
+
+--region DisplayData
+---@return XGoldenMinerDisplayData
+function XGoldenMinerDataDb:GetDisplayData()
+    ---@type XGoldenMinerDisplayData
+    local displayData = XGoldenMinerDisplayData.New()
+    
+    displayData:SetCharacterId(self:GetCharacterId())
+    displayData:SetDisplayUpgrade(self._UpgradeStrengthens)
+    displayData:SetDisplayItem(self._ItemColumns)
+    displayData:SetDisplayBuff(self._BuffColumns)
+    return displayData
+end
+--endregion
+
 ------------通关结算数据 begin--------------
 function XGoldenMinerDataDb:ResetCurClearData()
     --所有关卡通关或中途退出的数据
@@ -403,9 +528,9 @@ end
 
 function XGoldenMinerDataDb:UpdateCurClearData(totalScore, isWin)
     totalScore = totalScore or 0
-    local lastStagefinishCount = isWin and 1 or 0   --最后一关后端不会给通关结果，前端自己判断增加
+    local lastStageFinishCount = isWin and 1 or 0   --最后一关后端不会给通关结果，前端自己判断增加
     self.CurClearData = {
-        ClearStageCount = self:GetFinishStageCount() + lastStagefinishCount,
+        ClearStageCount = self:GetFinishStageCount() + lastStageFinishCount,
         TotalScore = totalScore,
         IsNew = totalScore > self:GetTotalMaxScores(),
         IsShow = true

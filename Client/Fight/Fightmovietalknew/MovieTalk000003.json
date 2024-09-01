@@ -1,0 +1,1807 @@
+[
+    {
+        "Id": 1,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "LSH",
+        "Text": "2.5 Main Story",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/HanyingNormal01.png",
+        "Name": "Guy on the Left",
+        "Text": "Dialogue Here 1",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/HanyingNormal01.png",
+        "Name": "<color=#7FFF00>Guy on the Left</color>",
+        "Text": "<color=#7FFF00>Dialogue Here 1 (Reversed Sprite)</color>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            1.0
+        ]
+    },
+    {
+        "Id": 12,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/HanyingNormal01.png",
+        "Name": "<size=30>Guy on the Left</size>",
+        "Text": "<size=30>Dialogue Here 1 (playalone on)</size>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            1.0,
+            null
+        ]
+    },
+    {
+        "Id": 13,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/HanyingNormal01.png",
+        "Name": "Guy on the Left",
+        "Text": "Dialogue Here 1 (Reversed Sprite: playalone on)",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            1.0,
+            1.0
+        ]
+    },
+    {
+        "Id": 14,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/BiancaTheatreShashibierNormal01.png",
+        "Name": "Guy on the Right",
+        "Text": "Dialogue Here 2",
+        "Duration": null,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/BiancaTheatreShashibierNormal01.png",
+        "Name": "Guy on the Right",
+        "Text": "Dialogue Here 2 (Reversed Sprite)",
+        "Duration": null,
+        "Params": [
+            null,
+            1.0,
+            null,
+            1.0
+        ]
+    },
+    {
+        "Id": 16,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V250ylsNormal03.png",
+        "Name": "Insert a guy on the left",
+        "Text": "Dialogue Here 3 (playalone on)",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            1.0,
+            null
+        ]
+    },
+    {
+        "Id": 17,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V250ylsNormal02.png",
+        "Name": "Insert a guy on the right",
+        "Text": "Dialogue Here 4 (playalone on)",
+        "Duration": null,
+        "Params": [
+            null,
+            1.0,
+            1.0,
+            null
+        ]
+    },
+    {
+        "Id": 20,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal01.png",
+        "Name": null,
+        "Text": "<color=#7FFF00>Top Left Dialogue 1</color>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 21,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal02.png",
+        "Name": null,
+        "Text": "<size=30>Top Left Dialogue 2</size>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 22,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal03.png",
+        "Name": null,
+        "Text": "Top Left Dialogue 3 (1s)",
+        "Duration": 1.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 23,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal04.png",
+        "Name": null,
+        "Text": "Top Left Dialogue 4 (3s)",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "<color=#7FFF00>Cutscene Animation 1</color>",
+        "Text": "<color=#7FFF00>Dialogue Here 1</color>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 31,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": null,
+        "Text": "<size=30>Dialogue Here 2</size>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 32,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Cutscene Animation 3",
+        "Text": "Dialogue Here 3 (3s)",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 40,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "<color=#7FFF00>Connection Dialogue A</color>",
+        "Text": "<color=#7FFF00>Connection Dialogue 123</color>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 41,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": null,
+        "Text": "Connection Dialogue 234 (3s)",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 42,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Connection Dialogue With Only Names",
+        "Text": null,
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 50,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal01.png",
+        "Name": "<color=#7FFF00>Custom Chat Box</color>",
+        "Text": "<size=30>Custom Chat Box 1</size>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 51,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal02.png",
+        "Name": "<size=15>Custom Chat Box</size>",
+        "Text": "<color=#7FFF00>Custom Chat Box 2</color>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 52,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V210aefNormal03.png",
+        "Name": "Custom Chat Box",
+        "Text": "Custom Chat Box 3 (3s)",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10250101,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Notes",
+        "Text": "2.5 Main Story Stage 1 Content",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500101,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V250lnNormal02.png",
+        "Name": "Lena",
+        "Text": "Don't look back! Keep running!",
+        "Duration": null,
+        "Params": [
+            null,
+            1.0,
+            null,
+            1.0
+        ]
+    },
+    {
+        "Id": 102500102,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V250lnNormal02.png",
+        "Name": "Lena",
+        "Text": "Weren't you going to pursue your justice? Weren't you... going to end this darkness?!",
+        "Duration": null,
+        "Params": [
+            null,
+            1.0,
+            null,
+            1.0
+        ]
+    },
+    {
+        "Id": 102500103,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V250lnNormal02.png",
+        "Name": "Lena",
+        "Text": "You have to get away from here. You... have to get away!",
+        "Duration": null,
+        "Params": [
+            null,
+            1.0,
+            null,
+            1.0
+        ]
+    },
+    {
+        "Id": 102500201,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyonggouzaotiNomal01.png",
+        "Name": null,
+        "Text": "Intruder in the lab area!",
+        "Duration": 7.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500202,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyonggouzaotiNomal01.png",
+        "Name": null,
+        "Text": "Requesting support!",
+        "Duration": 5.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500203,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyonggouzaotiNomal01.png",
+        "Name": null,
+        "Text": "Central Lab Area requesting support!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500204,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "What's wrong?",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500205,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "What in the world is going on?!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500206,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyonggouzaotiNomal01.png",
+        "Name": null,
+        "Text": "Captain, there was an unidentified explosion at the lab!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500207,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyonggouzaotiNomal01.png",
+        "Name": null,
+        "Text": "Squad 1 is setting off for investigation!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500208,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyonggouzaotiNomal01.png",
+        "Name": null,
+        "Text": "Cause has not been confirmed yet!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500209,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyonggouzaotiNomal02.png",
+        "Name": null,
+        "Text": "Intruders! Intruders!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500210,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyonggouzaotiNomal02.png",
+        "Name": null,
+        "Text": "Intruders in the rear lab!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500211,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyonggouzaotiNomal02.png",
+        "Name": null,
+        "Text": "Emergency landing of the rear flying fortress!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500212,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyonggouzaotiNomal04.png",
+        "Name": null,
+        "Text": "Retreat!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500213,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyonggouzaotiNomal04.png",
+        "Name": null,
+        "Text": "All researchers in the lab",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500214,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/TongyonggouzaotiNomal04.png",
+        "Name": null,
+        "Text": "Retreat back to the safe passage!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500215,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "Squad 1 ready to attack the intruders!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500216,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "Squad 2 and 3, evacuate residents and researchers!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500301,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "Cecily!",
+        "Duration": 2.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500302,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Armor",
+        "Text": "\u2585\u2582\u2586\u2586\u2587...",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500303,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "Lena said there's a commotion in the labs, so not as many guards are pursuing us.",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500304,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "Now's the best chance to leave.",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500305,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Armor",
+        "Text": "\u2587\u2586\u2587\u2582\u2586...",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500306,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "This is the first time we have fought together, isn't it...",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500307,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Armor",
+        "Text": "\u2585\u2582\u2586\u2582\u2586\u2587...",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500308,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "I trust that you have my back, Cecily!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500309,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "Cecily... Wait for me!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500310,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "I will show no mercy this time!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500401,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "<color=#7FFF00>Target</color>",
+        "Text": "<color=#7FFF00>Central Platform</color>",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500402,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Base Guard",
+        "Text": "What a shitty job to watch the test subject.",
+        "Duration": 2.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500403,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Base Guard",
+        "Text": "Coming back here at a time like this...",
+        "Duration": 2.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500404,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Base Guard",
+        "Text": "I'll have someone else to do this next time... Hmm?",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500405,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Base Guard",
+        "Text": "Who's there?",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500501,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250lnNormal01.png",
+        "Name": "Lena            In Call",
+        "Text": "Alisa, the area around the lab is a mess... Listen to me, we don't have much time left.",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500502,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250lnNormal01.png",
+        "Name": "Lena            In Call",
+        "Text": "You need to get your armor and get out of here following the path we discussed before.",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500503,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250lnNormal01.png",
+        "Name": "Lena            In Call",
+        "Text": "From this platform, you can jump to the area between the two shields.",
+        "Duration": 2.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500504,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250lnNormal01.png",
+        "Name": "Lena            In Call",
+        "Text": "To catch you, they will have to shut down the shields, and you can take the opportunity to break the siege.",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500505,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250lnNormal01.png",
+        "Name": "Lena            In Call",
+        "Text": "We don't have much time... Hurry!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102500506,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 5,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250lnNormal01.png",
+        "Name": "Lena            In Call",
+        "Text": "Tsk... They are coming back! Careful!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10250113,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Notes",
+        "Text": "2.5 Main Story Stage 13 Content",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501101,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V250ylsNormal02.png",
+        "Name": "Echo",
+        "Text": "Argh... The M.I.N.D...",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            1.0
+        ]
+    },
+    {
+        "Id": 102501102,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 1,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleStory/V250ylsNormal02.png",
+        "Name": "Echo",
+        "Text": "Cecily...",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            1.0
+        ]
+    },
+    {
+        "Id": 102501201,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "Cannons ready!",
+        "Duration": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501202,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "3",
+        "Duration": 1.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501203,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "2",
+        "Duration": 1.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501204,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "1",
+        "Duration": 1.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501205,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "Fire!",
+        "Duration": 1.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501206,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "The flying fortress has taken off!",
+        "Duration": 5.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501207,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "You can't escape, Alisa!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501208,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "Watch out for the test subject!",
+        "Duration": 5.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501209,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "Squad 2, stand by!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501210,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "...",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501211,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "Got it, Dr. Pickman.",
+        "Duration": 5.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501212,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "Transport vehicles ready!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501213,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "This won't work. She will destroy the flying fortress...",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501214,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "Squad 2, speed up and climb!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501215,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 2,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": "Assets/Product/Texture/Image/RoleCharacter/V250jgnpcNormal01.png",
+        "Name": null,
+        "Text": "Get rid of her!!!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501301,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "You should stop being stubborn.",
+        "Duration": 2.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501302,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "Time to wake up from this... empty dream!",
+        "Duration": 2.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501303,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "This is bad. It's that Aurora Bastion with M.I.N.D. disruptor...",
+        "Duration": 2.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501304,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "Cecily, be careful!",
+        "Duration": 2.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501305,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "They're getting more reinforcements...",
+        "Duration": 2.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501306,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "Are you ready! Here we go, Cecily!",
+        "Duration": 2.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501307,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "Cecily!",
+        "Duration": 2.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501308,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 3,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Echo",
+        "Text": "Uh... This is no good...",
+        "Duration": 2.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501401,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Aurora Captain",
+        "Text": "Alisa, stop being stubborn!",
+        "Duration": 5.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501402,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Aurora Captain",
+        "Text": "Utopia is the best place to be!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501403,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Aurora Captain",
+        "Text": "Long time no see, you've improved a lot, Alisa.",
+        "Duration": 5.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501404,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Aurora Captain",
+        "Text": "Aurora Bastion ready!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501405,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Aurora Captain",
+        "Text": "...Damn! You made me do this...",
+        "Duration": 5.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102501406,
+        "IsMask": null,
+        "MaskTarget": null,
+        "ClickKey": null,
+        "Type": 4,
+        "UiType": 1,
+        "PrefabPath": null,
+        "Icon": null,
+        "Name": "Aurora Captain",
+        "Text": "Squad 2! Get transport vehicles ready for support!",
+        "Duration": 3.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    }
+]

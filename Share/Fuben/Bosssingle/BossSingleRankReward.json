@@ -1,0 +1,308 @@
+[
+    {
+        "Id": 1,
+        "LevelType": 1,
+        "MinRank": 0.0,
+        "MaxRank": 0.01,
+        "MailID": 11000,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo1.png",
+        "RewardGroupId": null
+    },
+    {
+        "Id": 2,
+        "LevelType": 1,
+        "MinRank": 0.01,
+        "MaxRank": 0.05,
+        "MailID": 11001,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo2.png",
+        "RewardGroupId": null
+    },
+    {
+        "Id": 3,
+        "LevelType": 1,
+        "MinRank": 0.05,
+        "MaxRank": 0.1,
+        "MailID": 11002,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo3.png",
+        "RewardGroupId": null
+    },
+    {
+        "Id": 4,
+        "LevelType": 1,
+        "MinRank": 0.1,
+        "MaxRank": 0.3,
+        "MailID": 11003,
+        "RankIcon": null,
+        "RewardGroupId": null
+    },
+    {
+        "Id": 5,
+        "LevelType": 1,
+        "MinRank": 0.3,
+        "MaxRank": 0.95,
+        "MailID": 11004,
+        "RankIcon": null,
+        "RewardGroupId": null
+    },
+    {
+        "Id": 12,
+        "LevelType": 2,
+        "MinRank": 0.0,
+        "MaxRank": 0.01,
+        "MailID": 12000,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo1.png",
+        "RewardGroupId": null
+    },
+    {
+        "Id": 13,
+        "LevelType": 2,
+        "MinRank": 0.01,
+        "MaxRank": 0.05,
+        "MailID": 12001,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo2.png",
+        "RewardGroupId": null
+    },
+    {
+        "Id": 14,
+        "LevelType": 2,
+        "MinRank": 0.05,
+        "MaxRank": 0.1,
+        "MailID": 12002,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo3.png",
+        "RewardGroupId": null
+    },
+    {
+        "Id": 15,
+        "LevelType": 2,
+        "MinRank": 0.1,
+        "MaxRank": 0.3,
+        "MailID": 12003,
+        "RankIcon": null,
+        "RewardGroupId": null
+    },
+    {
+        "Id": 16,
+        "LevelType": 2,
+        "MinRank": 0.3,
+        "MaxRank": 0.95,
+        "MailID": 12004,
+        "RankIcon": null,
+        "RewardGroupId": null
+    },
+    {
+        "Id": 23,
+        "LevelType": 3,
+        "MinRank": 0.0,
+        "MaxRank": 0.01,
+        "MailID": 13000,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo1.png",
+        "RewardGroupId": null
+    },
+    {
+        "Id": 24,
+        "LevelType": 3,
+        "MinRank": 0.01,
+        "MaxRank": 0.05,
+        "MailID": 13001,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo2.png",
+        "RewardGroupId": null
+    },
+    {
+        "Id": 25,
+        "LevelType": 3,
+        "MinRank": 0.05,
+        "MaxRank": 0.1,
+        "MailID": 13002,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo3.png",
+        "RewardGroupId": null
+    },
+    {
+        "Id": 26,
+        "LevelType": 3,
+        "MinRank": 0.1,
+        "MaxRank": 0.3,
+        "MailID": 13003,
+        "RankIcon": null,
+        "RewardGroupId": null
+    },
+    {
+        "Id": 27,
+        "LevelType": 3,
+        "MinRank": 0.3,
+        "MaxRank": 0.95,
+        "MailID": 13004,
+        "RankIcon": null,
+        "RewardGroupId": null
+    },
+    {
+        "Id": 28,
+        "LevelType": 4,
+        "MinRank": 0.0,
+        "MaxRank": 0.01,
+        "MailID": 14000,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo1.png",
+        "RewardGroupId": null
+    },
+    {
+        "Id": 29,
+        "LevelType": 4,
+        "MinRank": 0.01,
+        "MaxRank": 0.05,
+        "MailID": 14001,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo2.png",
+        "RewardGroupId": null
+    },
+    {
+        "Id": 30,
+        "LevelType": 4,
+        "MinRank": 0.05,
+        "MaxRank": 0.1,
+        "MailID": 14002,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo3.png",
+        "RewardGroupId": null
+    },
+    {
+        "Id": 31,
+        "LevelType": 4,
+        "MinRank": 0.1,
+        "MaxRank": 0.3,
+        "MailID": 14003,
+        "RankIcon": null,
+        "RewardGroupId": null
+    },
+    {
+        "Id": 32,
+        "LevelType": 4,
+        "MinRank": 0.3,
+        "MaxRank": 1.0,
+        "MailID": 14004,
+        "RankIcon": null,
+        "RewardGroupId": null
+    },
+    {
+        "Id": 71,
+        "LevelType": 3,
+        "MinRank": 0.0,
+        "MaxRank": 0.01,
+        "MailID": 13005,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo1.png",
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 72,
+        "LevelType": 3,
+        "MinRank": 0.01,
+        "MaxRank": 0.05,
+        "MailID": 13006,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo2.png",
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 73,
+        "LevelType": 3,
+        "MinRank": 0.05,
+        "MaxRank": 0.1,
+        "MailID": 13007,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo3.png",
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 74,
+        "LevelType": 3,
+        "MinRank": 0.1,
+        "MaxRank": 0.3,
+        "MailID": 13008,
+        "RankIcon": null,
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 75,
+        "LevelType": 3,
+        "MinRank": 0.3,
+        "MaxRank": 0.5,
+        "MailID": 13009,
+        "RankIcon": null,
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 76,
+        "LevelType": 3,
+        "MinRank": 0.5,
+        "MaxRank": 0.7,
+        "MailID": 13010,
+        "RankIcon": null,
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 77,
+        "LevelType": 3,
+        "MinRank": 0.7,
+        "MaxRank": 1.0,
+        "MailID": 13011,
+        "RankIcon": null,
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 81,
+        "LevelType": 4,
+        "MinRank": 0.0,
+        "MaxRank": 0.01,
+        "MailID": 14005,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo1.png",
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 82,
+        "LevelType": 4,
+        "MinRank": 0.01,
+        "MaxRank": 0.05,
+        "MailID": 14006,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo2.png",
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 83,
+        "LevelType": 4,
+        "MinRank": 0.05,
+        "MaxRank": 0.1,
+        "MailID": 14007,
+        "RankIcon": "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo3.png",
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 84,
+        "LevelType": 4,
+        "MinRank": 0.1,
+        "MaxRank": 0.3,
+        "MailID": 14008,
+        "RankIcon": null,
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 85,
+        "LevelType": 4,
+        "MinRank": 0.3,
+        "MaxRank": 0.5,
+        "MailID": 14009,
+        "RankIcon": null,
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 86,
+        "LevelType": 4,
+        "MinRank": 0.5,
+        "MaxRank": 0.7,
+        "MailID": 14010,
+        "RankIcon": null,
+        "RewardGroupId": 1.0
+    },
+    {
+        "Id": 87,
+        "LevelType": 4,
+        "MinRank": 0.7,
+        "MaxRank": 1.0,
+        "MailID": 14011,
+        "RankIcon": null,
+        "RewardGroupId": 1.0
+    }
+]

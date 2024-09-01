@@ -1,3 +1,4 @@
+-- V1.29 角色技能优化 该类不在使用 具体使用在 UiSkillDetailsTips
 --######################## XGridSkill 技能格子 ########################
 local XGridSkill = XClass(nil, "XGridSkill")
 

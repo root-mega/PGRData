@@ -34,7 +34,9 @@ XArenaAppraiseType = {
     C = 4,
     D = 5,
 }
-
+-- 英雄小队
+XArenaConfigs.ArenaHeroLv = 6
+ 
 XArenaConfigs.ArenaTimerName = "FubenArenaActivityTimer"
 XArenaConfigs.SHOP_ID = CS.XGame.ClientConfig:GetInt("AreanShopId")
 

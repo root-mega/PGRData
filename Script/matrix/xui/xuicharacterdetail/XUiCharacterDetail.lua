@@ -12,53 +12,7 @@ local CHILD_UI_TEAM = "UiPanelTeamInfo"
 -- auto
 -- Automatic generation of code, forbid to edit
 function XUiCharacterDetail:InitAutoScript()
-    self:AutoInitUi()
     self:AutoAddListener()
-end
-
-function XUiCharacterDetail:AutoInitUi()
-    self.BtnBack = self.Transform:Find("SafeAreaContentPane/CharTopButton/BtnBack"):GetComponent("Button")
-    self.PanelDetailInfo = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo")
-    self.PanelContent = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent")
-    self.RImgRoleIcon = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/Left/RImgRoleIcon"):GetComponent("RawImage")
-    self.PanelLeftInfo = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/Left/PanelLeftInfo")
-    self.RImgQuality = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/Left/PanelLeftInfo/RImgQuality"):GetComponent("RawImage")
-    self.BtnArchive = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/Left/PanelLeftInfo/BtnArchive"):GetComponent("Button")
-    self.BtnDetial = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/Left/PanelLeftInfo/BtnDetial"):GetComponent("Button")
-    self.PanelRight = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight")
-    self.PanelRightInfo = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo")
-    self.TxtElementDes2 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel2/layout/RootTxtPanel2/TxtElementDes2"):GetComponent("Text")
-    self.TxtElementValue1 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel2/layout/RootTxtPanel1/TxtElementValue1"):GetComponent("Text")
-    self.TxtCareerName = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel1/TxtCareerName"):GetComponent("Text")
-    self.ImgCareerIcon = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel1/ImgCareerIcon"):GetComponent("Image")
-    self.TxtElementDes1 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel2/layout/RootTxtPanel1/TxtElementDes1"):GetComponent("Text")
-    self.TxtSpecialDes2 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel3/layout/RootTxtPanel2/TxtSpecialDes2"):GetComponent("Text")
-    self.Txt1 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel3/layout/RootTxtPanel1/Txt1"):GetComponent("Text")
-    self.TxtSpecialDes1 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel3/layout/RootTxtPanel1/TxtSpecialDes1"):GetComponent("Text")
-    self.PanelEdgeRoot = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel4/Graph/PanelEdgeRoot")
-    self.PanelPointRoot = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel4/Graph/PanelPointRoot")
-    self.TxtElementValue2 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel2/layout/RootTxtPanel2/TxtElementValue2"):GetComponent("Text")
-    self.TxtElementDes3 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel2/layout/RootTxtPanel3/TxtElementDes3"):GetComponent("Text")
-    self.TxtElementValue3 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel2/layout/RootTxtPanel3/TxtElementValue3"):GetComponent("Text")
-    self.Txt2 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel3/layout/RootTxtPanel2/Txt2"):GetComponent("Text")
-    self.TxtSpecialDes3 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel3/layout/RootTxtPanel3/TxtSpecialDes3"):GetComponent("Text")
-    self.Txt3 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel3/layout/RootTxtPanel3/Txt3"):GetComponent("Text")
-    self.TxtGraphName1 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel4/Graph/RootGraphName/TxtGraphName1"):GetComponent("Text")
-    self.TxtGraphName2 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel4/Graph/RootGraphName/TxtGraphName2"):GetComponent("Text")
-    self.TxtGraphName3 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel4/Graph/RootGraphName/TxtGraphName3"):GetComponent("Text")
-    self.TxtGraphName4 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel4/Graph/RootGraphName/TxtGraphName4"):GetComponent("Text")
-    self.TxtGraphName5 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel4/Graph/RootGraphName/TxtGraphName5"):GetComponent("Text")
-    self.TxtGraphName6 = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/PanelRightInfo/RootPanel4/Graph/RootGraphName/TxtGraphName6"):GetComponent("Text")
-    self.BtnTeamRecomend = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/BtnTeamRecomend"):GetComponent("Button")
-    self.BtnEquipRecomend = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelRight/BtnEquipRecomend"):GetComponent("Button")
-    self.TxtCharacterDesName = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/Left/RootTxtPanel2/TxtCharacterDesName"):GetComponent("Text")
-    self.TxtCharacterName = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/Left/RootTxtPanel1/TxtCharacterName"):GetComponent("Text")
-    self.PanelArchiveTips = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelArchiveTips")
-    self.TxtArchiveTitle = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelArchiveTips/TxtArchiveTitle"):GetComponent("Text")
-    self.TxtArchIvesDes = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/PanelArchiveTips/TxtArchIvesDes"):GetComponent("Text")
-    self.PanelAsset = self.Transform:Find("SafeAreaContentPane/PanelAsset")
-    self.BtnMainUi = self.Transform:Find("SafeAreaContentPane/CharTopButton/BtnMainUi"):GetComponent("Button")
-    self.TxtCV = self.Transform:Find("SafeAreaContentPane/PanelDetailInfo/PanelContent/Left/RootTxtPanel3/TxtCV"):GetComponent("Text")
 end
 
 function XUiCharacterDetail:AutoAddListener()
@@ -72,23 +26,29 @@ end
 -- auto
 function XUiCharacterDetail:OnBtnTeamRecomendClick()
     self:SwitchView(CharDetailUiType.Parner)
+    self.Bg.gameObject:SetActiveEx(false)
+    self.Bg2.gameObject:SetActiveEx(false)
 end
 
 function XUiCharacterDetail:OnBtnEquipRecomendClick()
-    self:SwitchView(CharDetailUiType.Equip)
+    --self:SwitchView(CharDetailUiType.Equip)
+    local isOwn = XMVCA:GetAgency(ModuleId.XCharacter):IsOwnCharacter(self.CharacterId)
+    local isUnlock = XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.EquipGuideRecommend)
+    local canSet = isOwn and isUnlock
+    XDataCenter.EquipGuideManager.OpenEquipGuideRecommend(self.CharacterId, not canSet)
 end
 
 function XUiCharacterDetail:OnBtnDetialClick()
     XUiHelper.StopAnimation()
     self:PlayAnimation("QieHuanDisable")
-    self.BtnArchive.gameObject:SetActiveEx(true)
+    -- self.BtnArchive.gameObject:SetActiveEx(true)
     self.BtnDetial.gameObject:SetActiveEx(false)
 end
 
 function XUiCharacterDetail:OnBtnArchiveClick()
     XUiHelper.StopAnimation()
     self:PlayAnimation("QieHuan")
-    self.BtnArchive.gameObject:SetActiveEx(false)
+    -- self.BtnArchive.gameObject:SetActiveEx(false)
     self.BtnDetial.gameObject:SetActiveEx(true)
 end
 
@@ -140,9 +100,10 @@ function XUiCharacterDetail:OnStart(CharacterId)
     self.AssetPanel = XUiPanelAsset.New(self, self.PanelAsset, XDataCenter.ItemManager.ItemId.FreeGem, XDataCenter.ItemManager.ItemId.ActionPoint, XDataCenter.ItemManager.ItemId.Coin)
 
     self.PanelContentRtf = self.PanelContent:GetComponent("RectTransform")
-    self.BtnArchive.gameObject:SetActiveEx(true)
+    -- self.BtnArchive.gameObject:SetActiveEx(true)
     self.BtnDetial.gameObject:SetActiveEx(false)
     self.PanelAsset.gameObject:SetActiveEx(false)
+    self.BtnEquipRecomend.gameObject:SetActiveEx(XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.EquipGuideRecommend))
 
     self:SwitchView(CharDetailUiType.Detail)
 
@@ -261,22 +222,29 @@ function XUiCharacterDetail:UpdateRightElementView()
     self.TxtCharacterDesName.text = charConfig.TradeName
 
     local castName = XFavorabilityConfigs.GetCharacterCvById(self.CharacterId)
-    local cast = (castName ~= "") and CS.XTextManager.GetText("FavorabilityCast", tostring(castName)) or ""
+    local cast = (castName ~= "") and CS.XTextManager.GetText("FavorabilityCast")..castName or ""
     self.TxtCV.text = cast
+
+    -- 势力
+    local config = XExhibitionConfigs.GetExhibitionGroupByCharId(self.CharacterId)
+    local str = config and config.GroupNameEn
+    self.TxtGroup.text = string.IsNilOrEmpty(str) and CS.XTextManager.GetText("CharacterExhibitionGroupNullText") or str
 end
 
 function XUiCharacterDetail:OnBtnBackClick()
     if self.CurUiType == CharDetailUiType.Parner or self.CurUiType == CharDetailUiType.Equip then
         self:SwitchView(CharDetailUiType.Detail)
+        self.Bg.gameObject:SetActiveEx(true)
+        self.Bg2.gameObject:SetActiveEx(true)
     else
-        local tPos = self.PanelContentRtf.anchoredPosition
-        if tPos.x > -400 then
-            self.PanelContentRtf.anchoredPosition = CS.UnityEngine.Vector2(-450, tPos.y)
-            self.BtnArchive.gameObject:SetActiveEx(true)
-            self.BtnDetial.gameObject:SetActiveEx(false)
-        else
-            self:Close()
-        end
+        -- local tPos = self.PanelContentRtf.anchoredPosition
+        -- if tPos.x > -400 then
+        --     self.PanelContentRtf.anchoredPosition = CS.UnityEngine.Vector2(-450, tPos.y)
+        --     self.BtnArchive.gameObject:SetActiveEx(true)
+        --     self.BtnDetial.gameObject:SetActiveEx(false)
+        -- else
+        -- end
+        self:Close()
     end
 end
 

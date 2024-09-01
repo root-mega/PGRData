@@ -2,6 +2,7 @@ local XGoldenMinerRankPlayerInfo = require("XEntity/XGoldenMiner/XGoldenMinerRan
 local type = type
 
 --黄金矿工排行榜数据
+---@class XGoldenMinerRankData
 local XGoldenMinerRankData = XClass(nil, "XGoldenMinerRankData")
 
 local Default = {

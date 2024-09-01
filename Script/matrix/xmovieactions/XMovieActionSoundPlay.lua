@@ -50,6 +50,11 @@ function XMovieActionSoundPlay:OnRunning()
     CS.XTool.WaitForEndOfFrame(function()
         local soundType = self.SoundType
 
+        -- 加速播放时，BGM以外的音效均不播放
+        if XDataCenter.MovieManager.IsSpeedUp() and soundType ~= XSoundManager.SoundType.BGM then
+            return
+        end
+
         local cueId = self.CueId
         if soundType == XSoundManager.SoundType.CV then
             self:StopLastCv()
@@ -63,7 +68,6 @@ function XMovieActionSoundPlay:OnRunning()
             XSoundManager.SetVolumeByType(volume, soundType)
         end
     end)
-    
 end
 
 function XMovieActionSoundPlay:StopLastCv()

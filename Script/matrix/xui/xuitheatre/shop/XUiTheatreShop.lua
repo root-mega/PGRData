@@ -30,7 +30,7 @@ function XUiTheatreShop:OnStart()
     XShopManager.GetShopInfoList(self.ShopIdList, function()
         self.IsCanCheckLock = true
         self.PanelTabBtn:SelectIndex(BtnType.Normal)
-    end)
+    end, XShopManager.ActivityShopType.TheatreShop)
 end
 
 function XUiTheatreShop:InitDynamicTable()

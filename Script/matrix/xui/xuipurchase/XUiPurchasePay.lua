@@ -18,9 +18,20 @@ function XUiPurchasePay:Ctor(ui, uiRoot, tab)
     self:Init()
 end
 
+function XUiPurchasePay:OnUpdate()
+    if self.CurUitype then
+        self:OnRefresh(self.CurUitype)
+    end
+end
+
 -- 更新数据
-function XUiPurchasePay:OnRefresh(uiType)
+function XUiPurchasePay:OnRefresh(uiType, selectIndex)
+    -- if XDataCenter.UiPcManager.IsPc() then
+    --     XUiManager.TipText("PcRechargeCloseTip")
+    --     XLuaUiManager.RunMain();
+    -- end
     self.CurState = false
+    self.CurrentIndex = selectIndex or self.CurrentIndex
     self.PanelPurchase.gameObject:SetActive(false)
     
     local data = XDataCenter.PurchaseManager.GetDatasByUiType(uiType) or {}
@@ -45,9 +56,11 @@ end
 
 function XUiPurchasePay:HidePanel()
     self.GameObject:SetActive(false)
+    XEventManager.RemoveEventListener(XEventId.EVENT_PURCAHSE_BUYUSERIYUAN, self.OnUpdate, self)
 end
 
 function XUiPurchasePay:ShowPanel()
+    XEventManager.AddEventListener(XEventId.EVENT_PURCAHSE_BUYUSERIYUAN, self.OnUpdate, self)
     self.GameObject:SetActive(true)
 end
 
@@ -100,10 +113,10 @@ function XUiPurchasePay:SetListItemActive(index, grid)
     end
 
     local data = self.ListData[index] or {}
-    local price = data.Amount or ""
+    local price = data.DisplayAmount or ""
     local name = data.Name or ""
     self.BuyKey = data.Key
-    self.TxtTips.text = TextManager.GetText("PusrchaseBuyTips",price,name)
+    self.TxtTips.text = TextManager.GetText("PusrchaseBuyTips", price, name)
     CS.XAudioManager.PlaySound(1011)
 end
 

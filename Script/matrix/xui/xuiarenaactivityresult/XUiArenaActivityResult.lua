@@ -15,9 +15,7 @@ function XUiArenaActivityResult:OnStart(data, callBack, closeCb)
     self.CallBack = callBack
     self.CloseCb = closeCb
 
-    XDataCenter.ArenaManager.ScoreQueryReq(function()
-        self:Refresh()
-    end)
+    self:Refresh()
 end
 
 function XUiArenaActivityResult:AutoAddListener()
@@ -33,8 +31,10 @@ function XUiArenaActivityResult:OnBtnBgClick()
 end
 
 function XUiArenaActivityResult:OnBtnRankingClick()
-    self:Close()
-    XLuaUiManager.Open("UiArenaRank")
+    XDataCenter.ArenaManager.ScoreQueryReq(function()
+        self:Close()
+        XLuaUiManager.Open("UiArenaRank")
+    end)
 end
 
 function XUiArenaActivityResult:Refresh()
@@ -53,6 +53,11 @@ function XUiArenaActivityResult:Refresh()
             str = CS.XTextManager.GetText("ArenaActivityResultUp", arenaLevelCfg.Name)
         elseif self.Data.OldArenaLevel == self.Data.NewArenaLevel then
             str = CS.XTextManager.GetText("ArenaActivityResultKeep", arenaLevelCfg.Name)
+            -- 英雄小队
+            local challengeCfg = XArenaConfigs.GetChallengeArenaCfgById(self.Data.ChallengeId)
+            if challengeCfg.ArenaLv == XArenaConfigs.ArenaHeroLv and challengeCfg.DanUpRankCostContributeScore > 0 and self.Data.GroupRank <= challengeCfg.DanUpRank then
+                str = XUiHelper.GetText("ArenaActivityResultNotContributeScore", challengeCfg.DanUpRankCostContributeScore, arenaLevelCfg.Name)
+            end
         else
             str = CS.XTextManager.GetText("ArenaActivityResultDown", arenaLevelCfg.Name)
         end
@@ -84,8 +89,7 @@ function XUiArenaActivityResult:RewardGoodsList()
     end
 
     local challengeCfg = XArenaConfigs.GetChallengeArenaCfgById(self.Data.ChallengeId)
-    local selfInfo = XDataCenter.ArenaManager.GetPlayerLastArenaInfo()
-    local point = selfInfo and selfInfo.Point or 0
+    local point = self.Data.Point or 0
     local contributeScore = XDataCenter.ArenaManager.GetContributeScoreByCfg(self.Data.GroupRank, challengeCfg, point)
 
     --显示战区贡献积分

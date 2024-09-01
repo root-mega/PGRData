@@ -80,6 +80,7 @@ function XUiPanelAutoFight:OnBtnAutoFightClick()
 end
 
 function XUiPanelAutoFight:Close()
+    self:OnDisable()
     self.GameObject:SetActive(false)
 end
 
@@ -141,6 +142,15 @@ function XUiPanelAutoFight:Open(autoFightData, challengeCount, cfg, closeCb)
     end
 
     self.GameObject:SetActive(true)
+    self:OnEnable()
+end
+
+function XUiPanelAutoFight:OnEnable()
+    XDataCenter.UiPcManager.OnUiEnable(self, "OnBtnCloseClick")
+end
+
+function XUiPanelAutoFight:OnDisable()
+    XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
 end
 
 return XUiPanelAutoFight

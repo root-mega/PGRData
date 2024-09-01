@@ -2,7 +2,7 @@ XUiPanelSetName = XClass(nil, "XUiPanelSetName")
 local MaxNameLength = CS.XGame.ClientConfig:GetInt("MaxNameLength")
 
 function XUiPanelSetName:Ctor(ui, base)
-    self.GameObject = ui.gameObject
+    self.GameObject = ui
     self.Transform = ui.transform
     self.Base = base
     XTool.InitUiObject(self)
@@ -46,7 +46,7 @@ function XUiPanelSetName:AutoAddListener()
     self:RegisterClickEvent(self.BtnNameCancel, self.OnBtnNameCancelClick)
     self.BtnClose.CallBack = function()
         self:OnBtnNameCancelClick()
-    end
+    end   
 end
 -- auto
 
@@ -68,6 +68,14 @@ function XUiPanelSetName:OnBtnNameSureClick()
     else
         XUiManager.TipError(CS.XTextManager.GetText("RenameLengthError"))
     end
+end
+
+function XUiPanelSetName:AddPcListener()
+    XDataCenter.UiPcManager.OnUiEnable(self, "OnBtnNameCancelClick")
+end
+
+function XUiPanelSetName:RemovePcListener()
+    XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
 end
 
 function XUiPanelSetName:RefreshLimit()

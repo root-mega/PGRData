@@ -56,6 +56,7 @@ function XEquip:SyncData(protoData)
     self.CreateTime = protoData.CreateTime
     self.IsLock = protoData.IsLock
     self.IsRecycle = protoData.IsRecycle
+    self:SetOverrunData(protoData.WeaponOverrunData)
 
     if protoData.ResonanceInfo and next(protoData.ResonanceInfo) then
         self.ResonanceInfo = {}
@@ -171,9 +172,8 @@ function XEquip:IsEquipPosAwaken(slot)
 end
 
 function XEquip:GetEquipViewModel()
-    local isWeapon = XDataCenter.EquipManager.IsClassifyEqual(self.Id, XEquipConfig.Classify.Weapon)
     local viewModelScript
-    if isWeapon then
+    if self:IsWeapon() then
         viewModelScript = require("XEntity/XEquip/XWeaponViewModel")
     else
         viewModelScript = require("XEntity/XEquip/XEquipViewModel")
@@ -186,5 +186,223 @@ function XEquip:GetEquipViewModel()
     viewModel:UpdateWithData(data)
     return viewModel
 end
+
+-- 是否有穿戴在角色身上
+function XEquip:IsWearing()
+    return self.CharacterId and self.CharacterId > 0
+end
+
+-- 是否是装备
+function XEquip:IsWeapon()
+    local equipSite = XMVCA:GetAgency(ModuleId.XEquip):GetEquipSite(self.TemplateId)
+    local isWeapon = equipSite == XEnumConst.EQUIP.EQUIP_SITE.WEAPON
+    return isWeapon
+end
+
+-- 是否是意识
+-- 传site则判断是否是对应位置的意识
+function XEquip:IsAwareness(site)
+    local equipSite = XMVCA:GetAgency(ModuleId.XEquip):GetEquipSite(self.TemplateId)
+    if site then
+        return equipSite == site
+    else
+        local isAwareness = equipSite >= XEnumConst.EQUIP.EQUIP_SITE.AWARENESS.ONE and equipSite <= XEnumConst.EQUIP.EQUIP_SITE.AWARENESS.SIX
+        return isAwareness
+    end
+end
+
+-- 获取品质横图
+function XEquip:GetEquipQualityPath()
+    if self.OverrunData and self.OverrunData.Level > 0 then
+        local deregulateUICfg = XEquipConfig.GetWeaponDeregulateUICfg(self.OverrunData.Level)
+        return deregulateUICfg.IconQuality
+    end
+
+    return XDataCenter.EquipManager.GetEquipQualityPath(self.TemplateId)
+end
+
+-- 获取品质横特效
+function XEquip:GetEquipQualityEffectPath()
+    if self.OverrunData and self.OverrunData.Level > 0 then
+        local deregulateUICfg = XEquipConfig.GetWeaponDeregulateUICfg(self.OverrunData.Level)
+        return deregulateUICfg.IconQualityEffect
+    end
+
+    return
+end
+
+-- 获取品质竖图
+function XEquip:GetEquipBgPath()
+    if self.OverrunData and self.OverrunData.Level > 0 then
+        local deregulateUICfg = XEquipConfig.GetWeaponDeregulateUICfg(self.OverrunData.Level)
+        return deregulateUICfg.ItemsQuality
+    end
+
+    return XDataCenter.EquipManager.GetEquipBgPath(self.TemplateId)
+end
+
+-- 获取品质竖特效
+function XEquip:GetEquipBgEffectPath()
+    if self.OverrunData and self.OverrunData.Level > 0 then
+        local deregulateUICfg = XEquipConfig.GetWeaponDeregulateUICfg(self.OverrunData.Level)
+        return deregulateUICfg.ItemsQualityEffect
+    end
+
+    return
+end
+
+--#region 共鸣
+-- 获取共鸣数据表，key为Pos
+function XEquip:GetResonanceInfoDic()
+    return self.ResonanceInfo or {}
+end
+
+-- 获取对应位置的共鸣信息
+function XEquip:GetResonanceInfo(pos)
+    return self.ResonanceInfo and self.ResonanceInfo[pos] or nil
+end
+
+-- 是否共鸣过
+function XEquip:IsResonance()
+    return self.ResonanceInfo ~= nil and next(self.ResonanceInfo)
+end
+
+-- 获取共鸣的数量
+function XEquip:GetResonanceCount()
+    local count = 0
+    if self.ResonanceInfo then
+        for _, info in pairs(self.ResonanceInfo) do
+            if info then
+                count = count + 1
+            end
+        end
+    end
+
+    return count
+end
+
+-- 获取共鸣绑定的角色ID
+function XEquip:GetResonanceBindCharacterId(pos)
+    if self.ResonanceInfo and self.ResonanceInfo[pos] then
+        return self.ResonanceInfo[pos].CharacterId
+    else
+        return 0
+    end
+end
+
+-- 共鸣技能是否有绑定角色ID
+function XEquip:IsResonanceBindCharacter(characterId)
+    if not self.ResonanceInfo then
+        return false
+    end
+
+    for _, info in pairs(self.ResonanceInfo) do
+        if info.CharacterId == characterId then
+            return true
+        end
+    end
+
+    return false
+end
+
+--#endregion 共鸣
+
+--#region 武器超限
+-- 设置超限数据
+function XEquip:SetOverrunData(overrunData)
+    self.OverrunData = overrunData
+    self.OverrunCanBlindSuit = self:CheckCanBlindSuit()
+end
+
+-- 获取超限等级
+function XEquip:GetOverrunLevel()
+    return self.OverrunData and self.OverrunData.Level or 0
+end
+
+-- 获取超限选择的意识套装
+function XEquip:GetOverrunChoseSuit()
+    return self.OverrunData and self.OverrunData.ChoseSuit or 0
+end
+
+-- 获取超限已激活意识列表
+function XEquip:GetOverrunActiveSuits()
+    return self.OverrunData and self.OverrunData.ActiveSuits or {}
+end
+
+-- 是否可以超限
+function XEquip:CanOverrun()
+    return XEquipConfig.CanOverrunByTemplateId(self.TemplateId)
+end
+
+-- 是否已经超限
+function XEquip:IsOverrun()
+    return self:GetOverrunLevel() > 0
+end
+
+-- 是否可绑定意识套装
+function XEquip:IsOverrunCanBlindSuit()
+    return self.OverrunCanBlindSuit
+end
+
+-- 武器超限是否可绑定套装
+function XEquip:CheckCanBlindSuit()
+    local cfg = XEquipConfig.GetWeaponOverrunSuitCfgByTemplateId(self.TemplateId)
+    if not cfg then
+        return false
+    end
+    
+    return self:GetOverrunLevel() >= cfg.Level
+end
+
+-- 超限绑定的意识是否匹配角色类型
+-- 可传characterId判断与当前绑定的意识是否匹配
+function XEquip:IsOverrunBlindMatch(characterId)
+    local choseSuit = self:GetOverrunChoseSuit()
+    if choseSuit == 0 then
+        return true
+    end
+
+    if not self:IsWearing() and not characterId then
+        return true
+    end
+    
+    characterId = characterId or self.CharacterId
+    local charType = XCharacterConfigs.GetCharacterType(characterId)
+    local suitCharType = XEquipConfig.GetSuitCharacterType(choseSuit)
+    if suitCharType == XEquipConfig.UserType.All or suitCharType == charType then
+        return true
+    end
+
+    return false
+end
+
+-- 超限增加的战力
+function XEquip:GetOverrunAbility()
+    local lv = self:GetOverrunLevel()
+    if lv < 1 then
+        return 0
+    end
+
+    local ability = 0
+    local overrunCfgs = XEquipConfig.GetWeaponOverrunCfgsByTemplateId(self.TemplateId)
+    for _, overrunCfg in ipairs(overrunCfgs) do
+        if lv >= overrunCfg.Level then
+            if overrunCfg.OverrunType == XEquipConfig.WeaponOverrunUnlockType.Suit then
+                if self:GetOverrunChoseSuit() ~= 0 and self:IsOverrunBlindMatch() then 
+                    ability = ability + overrunCfg.Ability
+                end
+            else
+                ability = ability + overrunCfg.Ability
+            end
+        end
+    end
+    return ability
+end
+
+-- 是否显示超限红点
+function XEquip:IsShowOverrunRed()
+    return self:GetOverrunChoseSuit() == 0 and self:CheckCanBlindSuit()
+end
+--#endregion 武器超限
 
 return XEquip

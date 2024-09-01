@@ -112,8 +112,8 @@ function XUiPanelBossDetail:Refresh(bossSingleData)
 
     -- 刷新挑战次数
     local isHideBoss = self.CurBossStageCfg.DifficultyType == XFubenBossSingleConfigs.DifficultyType.Hide
-    self.TxtAllScore.text = isHideBoss and CS.XTextManager.GetText("BossSingleLevelHideBoss", self.BossSingleData.TotalScore)
-    or CS.XTextManager.GetText("BossSingleLevel", self.BossSingleData.TotalScore)
+    self.TxtAllScore.text = isHideBoss and CS.XTextManager.GetText("BossSingleLevelHideBoss", XDataCenter.FubenBossSingleManager.GetBossCurScore(self.BossId))
+    or CS.XTextManager.GetText("BossSingleLevel", XDataCenter.FubenBossSingleManager.GetBossCurScore(self.BossId))
     local allNums = XDataCenter.FubenBossSingleManager.GetChallengeCount()
     local leftNums = allNums - self.BossSingleData.ChallengeCount
     self.TxtChangeNums.text = isHideBoss and CS.XTextManager.GetText("BossSingleChallgeCountHB", leftNums, allNums)
@@ -233,7 +233,7 @@ function XUiPanelBossDetail:RefreshDesc()
     or CS.XTextManager.GetText("BossSingleFightCharCount", self.CurBossStageCfg.FightCharCount)
     self.TxtBossDes.text = sectionCfg.Desc
     self.TxtLevel.text = isHideBoss and CS.XTextManager.GetText("BossSingleLevelHideBoss", level) or CS.XTextManager.GetText("BossSingleLevel", level)
-    self.TxtATNums.text = stageCfg.RequireActionPoint
+    self.TxtATNums.text = XDataCenter.FubenManager.GetRequireActionPoint(stageId)
 
     local allNums = XDataCenter.FubenBossSingleManager.GetChallengeCount()
     local leftNums = allNums - self.BossSingleData.ChallengeCount
@@ -248,8 +248,8 @@ function XUiPanelBossDetail:RefreshDesc()
         self.TxtRepeatDesc.text = string.gsub(CS.XTextManager.GetText("BossSingleRepeartDesc"), "\\n", "\n")
     end
 
-    self.TxtAllScore.text = isHideBoss and CS.XTextManager.GetText("BossSingleLevelHideBoss", self.BossSingleData.TotalScore)
-    or CS.XTextManager.GetText("BossSingleLevel", self.BossSingleData.TotalScore)
+    self.TxtAllScore.text = isHideBoss and CS.XTextManager.GetText("BossSingleLevelHideBoss", XDataCenter.FubenBossSingleManager.GetBossCurScore(self.BossId))
+    or CS.XTextManager.GetText("BossSingleLevel", XDataCenter.FubenBossSingleManager.GetBossCurScore(self.BossId))
     self.ImagBossTileBg.gameObject:SetActiveEx(not isHideBoss)
     self.ImagBossTileBgHb.gameObject:SetActiveEx(isHideBoss)
     self.PanelEffectHb.gameObject:SetActiveEx(isHideBoss)
@@ -440,6 +440,8 @@ function XUiPanelBossDetail:OnBtnStartClick()
     else
         XDataCenter.FubenManager.OpenRoomSingle(stageCfg, data)
     end
+    
+    XDataCenter.FubenBossSingleManager.SetEnterBossInfo(self.BossId, self.CurBossStageCfg.DifficultyType)
 end
 
 function XUiPanelBossDetail:OnBtnClickClick()

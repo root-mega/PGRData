@@ -65,6 +65,41 @@
         "Value": "Assets/Product/Texture/Image/IconAffix/3.png"
     },
     {
+        "Key": "AffixLevel4",
+        "Type": "string",
+        "Value": "Assets/Product/Texture/Image/IconAffix/4.png"
+    },
+    {
+        "Key": "AffixLevel5",
+        "Type": "string",
+        "Value": "Assets/Product/Texture/Image/IconAffix/5.png"
+    },
+    {
+        "Key": "AffixLevel6",
+        "Type": "string",
+        "Value": "Assets/Product/Texture/Image/IconAffix/6.png"
+    },
+    {
+        "Key": "AffixLevel7",
+        "Type": "string",
+        "Value": "Assets/Product/Texture/Image/IconAffix/7.png"
+    },
+    {
+        "Key": "AffixLevel8",
+        "Type": "string",
+        "Value": "Assets/Product/Texture/Image/IconAffix/8.png"
+    },
+    {
+        "Key": "AffixLevel9",
+        "Type": "string",
+        "Value": "Assets/Product/Texture/Image/IconAffix/9.png"
+    },
+    {
+        "Key": "AffixLevel10",
+        "Type": "string",
+        "Value": "Assets/Product/Texture/Image/IconAffix/9.png"
+    },
+    {
         "Key": "FightOnlineMsgTime",
         "Type": "float",
         "Value": "10"
@@ -78,46 +113,6 @@
         "Key": "FightOnlineMsgAutoCloseTime",
         "Type": "float",
         "Value": "5"
-    },
-    {
-        "Key": "UiFighMarkMoving",
-        "Type": "string",
-        "Value": "Assets/Product/Texture/Image/UiFight/UiFighMarkMoving.png"
-    },
-    {
-        "Key": "UiFighMarkMovingBg",
-        "Type": "string",
-        "Value": "Assets/Product/Texture/Image/UiFight/UiFighMarkMovingBg.png"
-    },
-    {
-        "Key": "UiFighMarkMovingBtn",
-        "Type": "string",
-        "Value": "Assets/Product/Texture/Image/UiFight/UiFighMarkMovingBtn.png"
-    },
-    {
-        "Key": "UiFighMarkMovingPoint1",
-        "Type": "string",
-        "Value": "Assets/Product/Texture/Image/UiFight/UiFighMarkMovingPoint1.png"
-    },
-    {
-        "Key": "UiFighMarkMovingPoint2",
-        "Type": "string",
-        "Value": "Assets/Product/Texture/Image/UiFight/UiFighMarkMovingPoint2.png"
-    },
-    {
-        "Key": "UiFighMarkMovingPoint3",
-        "Type": "string",
-        "Value": "Assets/Product/Texture/Image/UiFight/UiFighMarkMovingPoint3.png"
-    },
-    {
-        "Key": "UiFighTeachingRyq",
-        "Type": "string",
-        "Value": "Assets/Product/Texture/Image/UiFight/FightRyq.png"
-    },
-    {
-        "Key": "UiFighTeachingArrows",
-        "Type": "string",
-        "Value": "Assets/Product/Texture/Image/UiFight/FightTypeUp.png"
     },
     {
         "Key": "SceneRollNumber",
@@ -135,9 +130,234 @@
         "Value": "0.2"
     },
     {
-        "Key": "DefaultViewDuration",
+        "Key": "BallOneSound",
+        "Type": "int",
+        "Value": "1001"
+    },
+    {
+        "Key": "BallTwoSound",
+        "Type": "int",
+        "Value": "1002"
+    },
+    {
+        "Key": "BallThreeSound",
+        "Type": "int",
+        "Value": "1003"
+    },
+    {
+        "Key": "DefaultAttackButtonImage",
+        "Type": "string",
+        "Value": "Assets/Product/Texture/Image/UiFight/FightBtnAttack.png"
+    },
+    {
+        "Key": "DefaultDodgeButtonImage",
+        "Type": "string",
+        "Value": "Assets/Product/Texture/Image/UiFight/FightIconDoge1.png"
+    },
+    {
+        "Key": "DefaultExSkillButtonImage",
+        "Type": "string",
+        "Value": "Assets/Product/Texture/Image/UiFight/FightSkillIconRLuxiya51.png"
+    },
+    {
+        "Key": "DefaultPartnerSkillIconImage0",
+        "Type": "string",
+        "Value": "Assets/Product/Texture/Image/UiFight/FightSkillIconCustom.png"
+    },
+    {
+        "Key": "DefaultPartnerSkillIconImage1",
+        "Type": "string",
+        "Value": "Assets/Product/Texture/Image/UiFight/FightSkillIconCustom.png"
+    },
+    {
+        "Key": "IndicatorToLocation",
+        "Type": "string",
+        "Value": "FxZhishi01"
+    },
+    {
+        "Key": "IndicatorToNpc",
+        "Type": "string",
+        "Value": "FxZhishi02"
+    },
+    {
+        "Key": "IndicatorRing",
+        "Type": "string",
+        "Value": "FxZhishiyuan"
+    },
+    {
+        "Key": "QteActivateEffect1",
+        "Type": "string",
+        "Value": "FxUiQTE0301"
+    },
+    {
+        "Key": "QteActivateEffect2",
+        "Type": "string",
+        "Value": "FxUiQTE0303"
+    },
+    {
+        "Key": "QteActivateEffect3",
+        "Type": "string",
+        "Value": "FxUiQTE0302"
+    },
+    {
+        "Key": "QteRunningEffect",
+        "Type": "string",
+        "Value": "FxUiQTE04"
+    },
+    {
+        "Key": "QteCoolDownEffect1",
+        "Type": "string",
+        "Value": "FxUiQTE0201"
+    },
+    {
+        "Key": "QteCoolDownEffect2",
+        "Type": "string",
+        "Value": "FxUiQTE0203"
+    },
+    {
+        "Key": "QteCoolDownEffect3",
+        "Type": "string",
+        "Value": "FxUiQTE0202"
+    },
+    {
+        "Key": "FlashLightEffect",
+        "Type": "string",
+        "Value": "FxUi008"
+    },
+    {
+        "Key": "SpEffect",
+        "Type": "string",
+        "Value": "FxUiQTE01"
+    },
+    {
+        "Key": "RebootRing",
+        "Type": "string",
+        "Value": "FxFuhuokuang01"
+    },
+    {
+        "Key": "RebootRingActive",
+        "Type": "string",
+        "Value": "FxFuhuokuang02"
+    },
+    {
+        "Key": "BallLayerHeight",
+        "Type": "float",
+        "Value": "80"
+    },
+    {
+        "Key": "JoystickTouchRange",
+        "Type": "int",
+        "Value": "107"
+    },
+    {
+        "Key": "HpBarShowTime",
+        "Type": "float",
+        "Value": "5"
+    },
+    {
+        "Key": "ComboShakeDuration",
+        "Type": "float",
+        "Value": "0.2"
+    },
+    {
+        "Key": "ComboShakeRange",
+        "Type": "float",
+        "Value": "5"
+    },
+    {
+        "Key": "CameraPerspectiveAlpha",
+        "Type": "float",
+        "Value": "0.5"
+    },
+    {
+        "Key": "CameraPerspectiveDurationTime",
+        "Type": "float",
+        "Value": "0.4"
+    },
+    {
+        "Key": "CameraPerspectiveEaseTime",
+        "Type": "float",
+        "Value": "0.2"
+    },
+    {
+        "Key": "CameraPerspectiveNpcDefaultHeight",
+        "Type": "float",
+        "Value": "2"
+    },
+    {
+        "Key": "RunTiltBufferCoefficient",
+        "Type": "float",
+        "Value": "0.93"
+    },
+    {
+        "Key": "RunTiltGravity",
+        "Type": "float",
+        "Value": "85"
+    },
+    {
+        "Key": "DefaultAnimationTransition",
+        "Type": "float",
+        "Value": "0.1"
+    },
+    {
+        "Key": "FightLowHpPercent",
+        "Type": "float",
+        "Value": "0.25"
+    },
+    {
+        "Key": "HpNormalDis",
+        "Type": "float",
+        "Value": "4"
+    },
+    {
+        "Key": "HpMinScale",
+        "Type": "float",
+        "Value": "0.7"
+    },
+    {
+        "Key": "HpMaxScale",
+        "Type": "float",
+        "Value": "1.5"
+    },
+    {
+        "Key": "FightLowHpScreenEffect",
+        "Type": "int",
+        "Value": "100002"
+    },
+    {
+        "Key": "FightHurtScreenEffect",
+        "Type": "int",
+        "Value": "100001"
+    },
+    {
+        "Key": "FightHurtPercent",
+        "Type": "float",
+        "Value": "0.05"
+    },
+    {
+        "Key": "OperationMinInterval",
+        "Type": "float",
+        "Value": "0.01"
+    },
+    {
+        "Key": "DelayRate",
         "Type": "float",
         "Value": "1"
+    },
+    {
+        "Key": "DelayFix",
+        "Type": "float",
+        "Value": "0"
+    },
+    {
+        "Key": "ReceiveRecordCount",
+        "Type": "int",
+        "Value": "30"
+    },
+    {
+        "Key": "DefaultViewDuration",
+        "Type": "float",
+        "Value": "1.5"
     },
     {
         "Key": "DefaultViewNoMouseMoveMaxTime",
@@ -177,11 +397,11 @@
     {
         "Key": "ControlCameraByMoveTip",
         "Type": "string",
-        "Value": "Switched to Free Mode: Camera will automatically follow your mouse"
+        "Value": "Switched to Classic Mode: POV will automatically moves according to the mouse."
     },
     {
         "Key": "OccupiedKeyCode",
         "Type": "string",
-        "Value": "This button is already occupied and cannot be used."
+        "Value": "The key is occupied and cannot be customized."
     }
 ]

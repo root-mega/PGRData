@@ -5,12 +5,17 @@ XAreaWarManagerCreator = function()
     local stringFormat = string.format
     local tableUnpack = table.unpack
 
-    local XAreaWarManager = {}
+    ---@class XAreaWarManager
+    local XAreaWarManager = require("XEntity/XFuben/XExFubenActivityManager").New(XFubenConfigs.ChapterType.AreaWar, "AreaWarManager")
 
     -----------------活动入口 begin----------------
     local _ActivityId = XAreaWarConfigs.GetDefaultActivityId() --当前开放活动Id
     local _IsOpening = false --活动是否开启中（根据服务端下发活动有效Id判断）
     local _ActivityEnd = false --活动是否结束
+    local _PerformanceTesting = false --性能测试
+    local _IsPlayMovie = false --是否播放开场剧情
+
+    local MAIN_UI_NEWBIE_GUIDE_ID = 61230 --主界面新手引导Id
 
     local function UpdateActivityId(activityId)
         XCountDown.RemoveTimer(XCountDown.GTimerName.AreaWar)
@@ -160,9 +165,18 @@ XAreaWarManagerCreator = function()
             XUiManager.TipText("AreaWarActivityNotOpen")
             return
         end
-
-        local asynBeforeOpenFunc = asynTask(beforeOpenUiCb)
+        
+        local beforeOpenUi = function(cb)
+            if beforeOpenUiCb then beforeOpenUiCb() end
+            if cb then cb() end
+        end
+        
+        local asynBeforeOpenFunc = asynTask(beforeOpenUi)
+        
         local asynReq = asynTask(XAreaWarManager.AreaWarGetActivityDataRequest)
+        --主动gc一次
+        LuaGC()
+        
         RunAsyn(
             function()
                 --检查CD，未过CD直接使用缓存信息打开界面
@@ -171,13 +185,25 @@ XAreaWarManagerCreator = function()
                     _LastTimeReqActivityData = XTime.GetServerNowTimestamp()
                 end
 
-                if asynBeforeOpenFunc then
-                    asynBeforeOpenFunc()
-                end
+                asynBeforeOpenFunc()
 
-                XLuaUiManager.Open("UiAreaWarMain")
+                local storyId = XAreaWarConfigs.GetFirstPlayStoryId()
+                if XAreaWarManager.CheckIsFirstPlay() and not string.IsNilOrEmpty(storyId) then
+                    _IsPlayMovie = true
+                    XDataCenter.MovieManager.PlayMovie(XAreaWarConfigs.GetFirstPlayStoryId(), function()
+                        XLuaUiManager.Open("UiAreaWarMain")
+                        XDataCenter.AreaWarManager.MarkFirstPlay()
+                    end, nil, nil, false)
+
+                else
+                    XLuaUiManager.Open("UiAreaWarMain")
+                end
             end
         )
+    end
+    
+    function XAreaWarManager.IsPlayMovieOnEnter()
+        return _IsPlayMovie
     end
 
     local _LastCameraFollowPointPos  --退出界面后记录相机上次滑动到的位置（本次登录有效）
@@ -189,6 +215,15 @@ XAreaWarManagerCreator = function()
     function XAreaWarManager.SaveLastCameraFollowPointPos(pos)
         _LastCameraFollowPointPos = pos
     end
+    
+    local _LastWarLogTabIndex = 1
+    function XAreaWarManager.GetLastWarLogTabIndex()
+        return _LastWarLogTabIndex
+    end
+    
+    function XAreaWarManager.SaveLastWarLogTabIndex(index)
+        _LastWarLogTabIndex = index
+    end
     -----------------活动入口 end------------------
     -----------------活动道具 begin------------------
     local _ActionPointItemId = XDataCenter.ItemManager.ItemId.AreaWarActionPoint --体力
@@ -196,6 +231,8 @@ XAreaWarManagerCreator = function()
     local _MaxActionPoint = CS.XGame.Config:GetInt("AreaWarMaxActionPoint") --自然恢复最大体力
     local _ToChallengeActionPoint = CS.XGame.ClientConfig:GetInt("AreaWarToChallengeActionPoint") --体力超过此值后活动入口显示可挑战标签
     local _CanBuyCoin = CS.XGame.ClientConfig:GetInt("AreaWarCanBuyCoin") --货币达到此值后显示红点
+    local _FirstOpenShop = "_FirstOpenShop"
+    local _ShopItemIdMap = {}
 
     --获取体力自然恢复上限
     function XAreaWarManager.GetMaxActionPoint()
@@ -215,6 +252,72 @@ XAreaWarManagerCreator = function()
     --检查货币是否达到配置的值
     function XAreaWarManager.CheckCoinReach()
         return XDataCenter.ItemManager.CheckItemCountById(_CoinItemId, _CanBuyCoin)
+    end
+    
+    local function UpdateShopRedPoint(checkCb)
+        local list = {}
+        for _, shopId in pairs(XAreaWarManager.GetActivityShopIds()) do
+            list = appendArray(list, XShopManager.GetShopGoodsList(shopId, nil, true))
+        end
+        _ShopItemIdMap = {}
+        for _, data in ipairs(list) do
+            local conditions = data.ConditionIds
+            --没有条件
+            if XTool.IsTableEmpty(conditions) then
+                _ShopItemIdMap[data.Id] = true
+            else
+                local unlock = true
+                for _, conditionId in ipairs(conditions) do
+                    local res, _ = XConditionManager.CheckCondition(conditionId)
+                    if not res then
+                        unlock = false
+                        break
+                    end
+                end
+                if unlock then
+                    _ShopItemIdMap[data.Id] = true
+                end
+            end
+        end
+        
+        local result = false
+        for id in pairs(_ShopItemIdMap) do
+            local key = XAreaWarManager.GetCookieKey(_FirstOpenShop .. id)
+            if not XSaveTool.GetData(key) then
+                result = true 
+                break
+            end
+        end
+
+        if checkCb then checkCb(result) end
+    end
+    
+    function XAreaWarManager.CheckShopRedPoint(checkCb)
+        if not XFunctionManager.JudgeOpen(XFunctionManager.FunctionName.ShopCommon) then
+            if checkCb then checkCb(false) end
+            return
+        end
+        local firstKey = XAreaWarManager.GetCookieKey(_FirstOpenShop)
+        if not XSaveTool.GetData(firstKey) then
+            if checkCb then checkCb(true) end
+            return
+        end
+        XShopManager.GetShopInfoList(XAreaWarManager.GetActivityShopIds(), function()
+            UpdateShopRedPoint(checkCb)
+        end, XShopManager.ActivityShopType.AreaWar)
+    end
+    
+    function XAreaWarManager.MarkShopRedPoint()
+        local firstKey = XAreaWarManager.GetCookieKey(_FirstOpenShop)
+        if not XSaveTool.GetData(firstKey) then
+            XSaveTool.SaveData(firstKey, true)
+        end
+        for id in pairs(_ShopItemIdMap or {}) do
+            local key = XAreaWarManager.GetCookieKey(_FirstOpenShop .. id)
+            if not XSaveTool.GetData(key) then
+                XSaveTool.SaveData(key, true)
+            end
+        end
     end
 
     --获取活动货币ItemId
@@ -296,7 +399,7 @@ XAreaWarManagerCreator = function()
         RunAsyn(
             function()
                 if not XTool.IsTableEmpty(shopIds) then
-                    asyncReq(shopIds, nil, XShopManager.ShopType.ActivityShopType)
+                    asyncReq(shopIds, nil, XShopManager.ActivityShopType.AreaWar)
                 end
 
                 XLuaUiManager.Open("UiAreaWarShop")
@@ -310,7 +413,6 @@ XAreaWarManagerCreator = function()
 
     local _SelfPurifyData = {} --净化等级数据
     local _PluginDic = {} --插件（aka：词缀）信息
-    local _PluginSlotDic = {0, 0, 0} --插件槽信息
 
     local function GetPlugin(pluginId)
         if not XTool.IsNumberValid(pluginId) then
@@ -354,32 +456,6 @@ XAreaWarManagerCreator = function()
         XEventManager.DispatchEvent(XEventId.EVENT_AREA_WAR_PLUGIN_UNLOCK)
     end
 
-    --装备插件到指定槽位
-    local function UsePlugin(pluginId, slot)
-        if not XTool.IsNumberValid(pluginId) or not CheckSlot(slot) then
-            return
-        end
-        _PluginSlotDic[slot] = pluginId
-    end
-
-    --脱下指定槽位插件
-    local function UnUsePlugin(slot)
-        if not CheckSlot(slot) then
-            return
-        end
-        _PluginSlotDic[slot] = 0
-    end
-
-    local function UpdateUsingPlugins(data)
-        if XTool.IsTableEmpty(data) then
-            return
-        end
-
-        for _, info in pairs(data) do
-            UsePlugin(info.BuffId, info.HoleId)
-        end
-    end
-
     local function InitSelfPurification()
         _SelfPurifyData = XAreaWarSelfPurification.New()
     end
@@ -388,44 +464,6 @@ XAreaWarManagerCreator = function()
         _SelfPurifyData:UpdateLevelExp(level, exp)
         XAreaWarManager.UpdateNewPurificationLevel(level)
         CsXGameEventManager.Instance:Notify(XEventId.EVENT_AREA_WAR_PURIFICATION_LEVEL_CHANGE)
-    end
-
-    --插件槽是否解锁
-    function XAreaWarManager.IsPluginSlotUnlock(slot)
-        if not CheckSlot(slot) then
-            return false
-        end
-        local pfLevel = XAreaWarManager.GetSelfPurificationLevel()
-        local curSlot = XAreaWarConfigs.GetPfLevelUnlockSlot(pfLevel)
-        return slot <= curSlot
-    end
-
-    --插件槽是否为空
-    function XAreaWarManager.IsPluginSlotEmpty(slot)
-        return not XTool.IsNumberValid(XAreaWarManager.GetSlotPluginId(slot))
-    end
-
-    --获取插件槽中已装备插件Id
-    function XAreaWarManager.GetSlotPluginId(slot)
-        if not CheckSlot(slot) then
-            return 0
-        end
-        return _PluginSlotDic[slot]
-    end
-
-    --获取下一个空的可使用插件槽
-    function XAreaWarManager.GetNextEmptyPluginSlot()
-        for slot in ipairs(_PluginSlotDic) do
-            if XAreaWarManager.IsPluginSlotUnlock(slot) and XAreaWarManager.IsPluginSlotEmpty(slot) then
-                return slot
-            end
-        end
-        return 0
-    end
-
-    --插件槽是否已满
-    function XAreaWarManager.IsPluginSlotFull()
-        return not XTool.IsNumberValid(XAreaWarManager.GetNextEmptyPluginSlot())
     end
 
     --是否有可解锁的插件
@@ -462,34 +500,17 @@ XAreaWarManagerCreator = function()
         end
         return GetPlugin(pluginId):IsUnlock()
     end
-
-    --获取插件进度（使用中插件槽数量，已解锁插件槽数量）
-    function XAreaWarManager.GetPluginProgress()
-        local usingCount, unlockCount = 0, 0
-        for slot in ipairs(_PluginSlotDic) do
-            if XAreaWarManager.IsPluginSlotUnlock(slot) then
-                if not XAreaWarManager.IsPluginSlotEmpty(slot) then
-                    usingCount = usingCount + 1
-                end
-                unlockCount = unlockCount + 1
+    
+    function XAreaWarManager.GetPluginUnlockCount()
+        local unlock = 0
+        for key, pluginData in pairs(_PluginDic) do
+            if pluginData._Unlock then
+                unlock = unlock + 1
             end
         end
-        return usingCount, unlockCount
+        return unlock
     end
-
-    --获取使用中的插件装备槽位
-    function XAreaWarManager.GetPluginUsingSlot(pluginId)
-        if not XTool.IsNumberValid(pluginId) then
-            return 0
-        end
-        for slot, inPluginId in pairs(_PluginSlotDic) do
-            if inPluginId == pluginId then
-                return slot
-            end
-        end
-        return 0
-    end
-
+    
     --插件是否使用中
     function XAreaWarManager.IsPluginUsing(pluginId)
         return XTool.IsNumberValid(XAreaWarManager.GetPluginUsingSlot(pluginId))
@@ -529,6 +550,14 @@ XAreaWarManagerCreator = function()
         end
         XLuaUiManager.Open("UiAreaWarJingHua")
     end
+    
+    --打开聊天界面
+    function XAreaWarManager.OpenUiChat()
+        if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.SocialChat) then
+            return
+        end
+        XLuaUiManager.Open("UiChatServeMain", false, ChatChannelType.World)
+    end
 
     --请求解锁插件
     function XAreaWarManager.AreaWarUnlockPurificationBuffRequest(pluginId, cb)
@@ -550,44 +579,7 @@ XAreaWarManagerCreator = function()
             end
         )
     end
-
-    --请求装载，卸下净化buff，卸下的话buffId发0
-    local function AreaWarPutOnPurificationBuffRequest(pluginId, slot, cb)
-        local req = {HoleId = slot, BuffId = pluginId}
-        XNetwork.Call(
-            "AreaWarPutOnPurificationBuffRequest",
-            req,
-            function(res)
-                if res.Code ~= XCode.Success then
-                    XUiManager.TipCode(res.Code)
-                    return
-                end
-
-                local isUse = pluginId > 0
-                if isUse then
-                    UsePlugin(pluginId, slot)
-                else
-                    UnUsePlugin(slot)
-                end
-
-                CsXGameEventManager.Instance:Notify(XEventId.EVENT_AREA_WAR_PLUGIN_USE_STATUS_CHANGE, slot, isUse)
-
-                if cb then
-                    cb()
-                end
-            end
-        )
-    end
-
-    --请求使用插件
-    function XAreaWarManager.RequestUsePluginInSlot(pluginId, slot, cb)
-        return AreaWarPutOnPurificationBuffRequest(pluginId, slot, cb)
-    end
-
-    --请求卸下指定槽位插件
-    function XAreaWarManager.RequestClearPluginSlot(slot, cb)
-        return AreaWarPutOnPurificationBuffRequest(0, slot, cb)
-    end
+    
     -----------------净化加成/插件相关 end------------------
     -----------------挂机收益 begin------------------
     local _HangUpRewardCount = 0 --挂机收益奖励数量（大于0时代表有奖励可领取，实际数量打开界面时请求）
@@ -804,6 +796,93 @@ XAreaWarManagerCreator = function()
 
         return blockIdDic
     end
+    
+    local IgnorePlayBlockId = {
+        [1] = 1, --屏蔽初始关
+        [2] = 2, --屏蔽第二关
+    }
+    function XAreaWarManager.GetNotPlayUnlockAnimBlockIds()
+        local ids = {}
+        local playId = 0
+        local chapterIds = XAreaWarConfigs.GetChapterIds()
+        for _, chapterId in ipairs(chapterIds) do
+            if XAreaWarManager.IsChapterUnlock(chapterId) then
+                local blockIds = XAreaWarConfigs.GetBlockIdsByChapterId(chapterId)
+                for _, blockId in ipairs(blockIds) do
+                    if not IgnorePlayBlockId[blockId] and XAreaWarManager.IsBlockUnlock(blockId) then
+                        local key = XAreaWarManager.GetCookieKey("UnlockAnim" .. blockId)
+                        if not XAreaWarManager.CheckCookieExist(key) then
+                            table.insert(ids, blockId)
+                            playId = math.max(playId, blockId)
+                        end
+                    end
+                end
+            end
+        end
+        return playId, ids
+    end
+    
+    function XAreaWarManager.MarkPlayUnlockAnimBlockId(blockId)
+        local key = XAreaWarManager.GetCookieKey("UnlockAnim" .. blockId)
+        if XAreaWarManager.CheckCookieExist(key) then
+            return
+        end
+        XAreaWarManager.SetCookie(key, 1)
+    end
+    
+    local IgnorePlayPlateId = {
+        [1] = 1, --屏蔽第一板块
+        [2] = 2, --屏蔽第二板块
+    }
+    local _PlateUpAnimKey = "PlateUpAnimKey"
+        function XAreaWarManager.CheckIsPlayPlateAnim(plateId)
+        if IgnorePlayPlateId[plateId] then
+            return false
+        end
+        if not XAreaWarManager.IsPlateUnlock(plateId) then
+            return false
+        end
+        local key = XAreaWarManager.GetCookieKey(_PlateUpAnimKey .. plateId)
+        if not XAreaWarManager.CheckCookieExist(key) then
+            return true
+        end
+        return false
+    end
+    
+    function XAreaWarManager.MarkPlayPlateAnim(plateId)
+        if IgnorePlayPlateId[plateId] then
+            return
+        end
+        if not XAreaWarManager.IsPlateUnlock(plateId) then
+            return
+        end
+        local key = XAreaWarManager.GetCookieKey(_PlateUpAnimKey .. plateId)
+        if XAreaWarManager.CheckCookieExist(key) then
+            return
+        end
+        XAreaWarManager.SetCookie(key, true)
+    end
+    
+    local _PopupRewardKey = "PopupRewardKey"
+    function XAreaWarManager.CheckNeedPopReward()
+        local key = XAreaWarManager.GetCookieKey(_PopupRewardKey)
+        if not XSaveTool.GetData(key) then
+            return true
+        end
+        local recordTime = XSaveTool.GetData(key)
+        local nextPopTime = XTime.GetSeverNextRefreshTime()
+        return recordTime ~= nextPopTime
+    end
+    
+    function XAreaWarManager.MarkPopReward()
+        local key = XAreaWarManager.GetCookieKey(_PopupRewardKey)
+        local recordTime = XSaveTool.GetData(key)
+        local nextPopTime = XTime.GetSeverNextRefreshTime()
+        if recordTime == nextPopTime then
+            return
+        end
+        XSaveTool.SaveData(key, nextPopTime)
+    end
 
     function XAreaWarManager.SetNewUnlockBlockIdDicCookie(blockIdDic)
         for blockId in pairs(blockIdDic) do
@@ -934,8 +1013,8 @@ XAreaWarManagerCreator = function()
         --检查灯塔类型
         if XAreaWarConfigs.CheckBlockShowType(blockId, XAreaWarConfigs.BlockShowType.NormalBeacon) then
             --照亮整个区域内所有区块
-            local areaId = XAreaWarConfigs.GetBlockAreaId(blockId)
-            local blockIds = XAreaWarConfigs.GetAreaBlockIds(areaId)
+            local chapterId = XAreaWarConfigs.GetBlockChapterId(blockId)
+            local blockIds = XAreaWarConfigs.GetBlockIdsByChapterId(chapterId)
             for _, inBlockId in pairs(blockIds) do
                 GetBlock(inBlockId):LightUp()
             end
@@ -1039,7 +1118,7 @@ XAreaWarManagerCreator = function()
 
     --获取区块解锁剩余时间(s)
     function XAreaWarManager.GetBlockUnlockLeftTime(blockId)
-        return XAreaWarManager.GetBlockUnlockTime(blockId) - XTime.GetServerNowTimestamp()
+        return XAreaWarConfigs.GetBlockOpenSeconds(blockId)
     end
 
     --获取区块解锁时间戳（活动开启时间 + 配置延迟时间）
@@ -1048,12 +1127,14 @@ XAreaWarManagerCreator = function()
             return 0
         end
 
-        local startTime = XAreaWarManager.GetStartTime()
-        if not XTool.IsNumberValid(startTime) then
-            return 0
-        end
-        local openSeconds = XAreaWarConfigs.GetBlockOpenSeconds(blockId)
-        return startTime + openSeconds
+        --local startTime = XAreaWarManager.GetStartTime()
+        --if not XTool.IsNumberValid(startTime) then
+        --    return 0
+        --end
+        --return XAreaWarConfigs.GetBlockOpenSeconds(blockId)
+        local chapterId = XAreaWarConfigs.GetBlockChapterId(blockId)
+        local timeId = XAreaWarConfigs.GetChapterTimeId(chapterId)
+        return XFunctionManager.GetStartTimeByTimeId(timeId)
     end
 
     --获取区块进度（已净化区块，总区块）
@@ -1070,6 +1151,30 @@ XAreaWarManagerCreator = function()
             end
         end
         return clearCount, totalCount
+    end
+    
+    --章节进度
+    function XAreaWarManager.GetChapterProgress(chapterId)
+        local blockIds = XAreaWarConfigs.GetBlockIdsByChapterId(chapterId) or {}
+        local value, total = 0, 0
+        for _, blockId in pairs(blockIds) do
+            --初始区块不算入净化进度
+            if XAreaWarConfigs.IsInitBlock(blockId) then
+                goto continue
+            end
+            local block = XAreaWarManager.GetBlock(blockId)
+            if not block then
+                goto continue
+            end
+            value = value + block:GetProgress()
+            total = total + 1
+            ::continue::
+        end
+
+        if total == 0 then
+            return 0
+        end
+        return math.min(1, value / total)
     end
 
     --区块是否净化
@@ -1101,12 +1206,21 @@ XAreaWarManagerCreator = function()
             return true
         end
         --灯塔和BOSS区块类型均可见
-        if
-            XAreaWarConfigs.CheckBlockShowType(blockId, XAreaWarConfigs.BlockShowType.NormalBeacon) or
-                XAreaWarConfigs.CheckBlockShowType(blockId, XAreaWarConfigs.BlockShowType.WorldBoss) or
-                XAreaWarConfigs.CheckBlockShowType(blockId, XAreaWarConfigs.BlockShowType.NormalBoss)
-         then
+        --if
+        --    XAreaWarConfigs.CheckBlockShowType(blockId, XAreaWarConfigs.BlockShowType.NormalBeacon) or
+        --        XAreaWarConfigs.CheckBlockShowType(blockId, XAreaWarConfigs.BlockShowType.WorldBoss) or
+        --        XAreaWarConfigs.CheckBlockShowType(blockId, XAreaWarConfigs.BlockShowType.NormalBoss)
+        -- then
+        --    return true
+        --end
+        --只显示灯塔
+        if XAreaWarConfigs.CheckBlockShowType(blockId, XAreaWarConfigs.BlockShowType.NormalBeacon) then
             return true
+        end
+        --板块区域解锁
+        local plateId = XAreaWarConfigs.GetPlateIdByBlockId(blockId)
+        if plateId and plateId > 0 and XAreaWarManager.IsPlateUnlock(plateId) then
+            return XAreaWarManager.IsPlateUnlock(plateId)
         end
         --特殊条件下未解锁区块也可见（受灯塔影响）
         return GetBlock(blockId):IsVisible()
@@ -1218,6 +1332,7 @@ XAreaWarManagerCreator = function()
     function XAreaWarManager.NotifyAreaWarBlockPurification(data)
         UpdateBlockSelfPurifications(data.BlockPurification)
     end
+    
     -----------------区块相关 end------------------
     -----------------排行榜（世界Boss排行/总净化度排行） begin------------------
     local XAreaWarRank = require("XEntity/XAreaWar/XAreaWarRank")
@@ -1340,40 +1455,131 @@ XAreaWarManagerCreator = function()
     end
     -----------------排行榜（世界Boss排行/总净化度排行） end------------------
     -----------------区域相关 begin------------------
-    --获取最新解锁的区域
-    function XAreaWarManager.GetBranchNewAreaId()
-        local areaIds = XAreaWarConfigs.GetAllAreaIds()
-        local newAreaId = areaIds[1]
-        for _, areaId in ipairs(areaIds) do
-            if not XAreaWarManager.IsAreaUnlock(areaId) then
-                break
-            end
-            newAreaId = areaId
+    --- 是否鞭尸期
+    ---@return boolean
+    --------------------------
+    function XAreaWarManager.IsRepeatChallengeTime()
+        local chapterIds = XAreaWarConfigs.GetChapterIds()
+        local chapterCount = #chapterIds
+        if chapterCount <= 0 then
+            return false
         end
-        return newAreaId
+        for i = chapterCount, 1, -1 do
+            local chapterId = chapterIds[i]
+            if not XAreaWarConfigs.CheckChapterInTime(chapterId) then
+                goto continue
+            end
+            local blockIds = XAreaWarConfigs.GetBlockIdsByChapterId(chapterId)
+            for _, blockId in pairs(blockIds) do
+                --非初始关卡 & 未净化
+                if not XAreaWarConfigs.IsInitBlock(blockId) and
+                        not XAreaWarManager.IsBlockClear(blockId) then
+                    return false
+                end
+            end
+            ::continue::
+        end
+
+        return true
     end
 
-    function XAreaWarManager.GetBranchNewAreaName()
-        local areaId = XAreaWarManager.GetBranchNewAreaId()
-        return XAreaWarConfigs.GetAreaName(areaId)
-    end
-
-    --区域是否解锁
-    function XAreaWarManager.IsAreaUnlock(areaId)
-        local blockId = XAreaWarConfigs.GetAreaUnlockBlockId(areaId)
-        if not XTool.IsNumberValid(blockId) then
+    --- 所有章节开启
+    ---@return boolean
+    --------------------------
+    function XAreaWarManager.IsAllChapterOpen()
+        local chapterIds = XAreaWarConfigs.GetChapterIds()
+        local chapterCount = #chapterIds
+        if chapterCount <= 0 then
             return true
         end
-        return XAreaWarManager.IsBlockUnlock(blockId)
+        for i = chapterCount, 1, -1 do
+            local chapterId = chapterIds[i]
+            if not XAreaWarManager.IsChapterUnlock(chapterId) then
+                return false
+            end
+        end
+        return true
+    end
+
+    --- 如果章节没全开启，获取首个未开启的章节Id
+    ---@return number
+    --------------------------
+    function XAreaWarManager.GetFirstNotOpenChapterId()
+        local chapterIds = XAreaWarConfigs.GetChapterIds()
+        for _, chapterId in ipairs(chapterIds) do
+            if not XAreaWarManager.IsChapterUnlock(chapterId) then
+                return chapterId
+            end
+        end
+    end
+
+    --- 获取最新解锁章节Id
+    ---@return number
+    --------------------------
+    function XAreaWarManager.GetBranchNewChapterId()
+        local chapterIds = XAreaWarConfigs.GetChapterIds()
+        local newId = chapterIds[1]
+        for _, chapterId in pairs(chapterIds) do
+            if not XAreaWarManager.IsChapterUnlock(chapterId) then
+                break
+            end
+            newId = chapterId
+        end
+        return newId
+    end
+
+    --- 获取最新解锁章节名
+    ---@return string
+    --------------------------
+    function XAreaWarManager.GetBranchNewChapterName()
+        local chapterId = XAreaWarManager.GetBranchNewChapterId()
+        return XAreaWarConfigs.GetChapterName(chapterId)
+    end
+
+    --章节是否解锁
+    function XAreaWarManager.IsChapterUnlock(chapterId)
+        local firstBlockId = XAreaWarConfigs.GetFirstBlockIdInChapter(chapterId)
+        if not XAreaWarManager.IsBlockUnlock(firstBlockId) then
+            return false
+        end
+        return XAreaWarConfigs.CheckChapterInTime(chapterId, false)
+    end
+    
+    --区块是否解锁 1.配置的Block全部通关 2.配置的Block全部可见
+    function XAreaWarManager.IsPlateUnlock(plateId)
+        local unlockBlockIds = XAreaWarConfigs.GetUnlockBlockIds(plateId)
+        local unlock = true
+        local visible = true
+        for _, blockId in pairs(unlockBlockIds) do
+            if not XAreaWarManager.IsBlockClear(blockId) then
+                unlock = false
+            end
+            local block = XAreaWarManager.GetBlock(blockId)
+            if not block or not block:IsVisible() then
+                visible = false
+            end
+        end
+        return unlock or visible
+    end
+    
+    function XAreaWarManager.IsPlateCanPlay(plateId)
+        if not XAreaWarManager.IsPlateUnlock(plateId) then
+            return false
+        end
+        local blockIds = XAreaWarConfigs.GetContainBlockIds(plateId)
+        for _, blockId in pairs(blockIds) do
+            if XAreaWarManager.IsBlockUnlock(blockId) then
+                return false
+            end
+        end
+        return true
     end
 
     --获取区域解锁剩余时间(s)
-    function XAreaWarManager.GetAreaUnlockLeftTime(areaId)
-        local blockId = XAreaWarConfigs.GetAreaUnlockBlockId(areaId)
-        if not XTool.IsNumberValid(blockId) then
-            return 0
-        end
-        return XAreaWarManager.GetBlockUnlockLeftTime(blockId)
+    function XAreaWarManager.GetChapterUnlockLeftTime(chapterId)
+        local timeOfNow = XTime.GetServerNowTimestamp()
+        local timeOfBgn = XFunctionManager.GetStartTimeByTimeId(XAreaWarConfigs.GetChapterTimeId(chapterId))
+        return math.max(0, timeOfBgn - timeOfNow)
     end
     -----------------区域相关 end------------------
     -----------------特攻角色 begin------------------
@@ -1507,7 +1713,7 @@ XAreaWarManagerCreator = function()
     --获取指定区域解锁特攻角色解锁进度（return:已解锁，全部）
     function XAreaWarManager.GetAreaSpecialRolesUnlockProgress(areaId)
         local unlockCount, totalCount = 0, 0
-        local roleIds = XAreaWarConfigs.GetAreaSpecialRoleIds(areaId)
+        local roleIds = XAreaWarConfigs.GetChapterSpecialRoleIds(areaId)
         for _, roleId in ipairs(roleIds) do
             if XAreaWarManager.IsSpecialRoleUnlock(roleId) then
                 unlockCount = unlockCount + 1
@@ -1555,26 +1761,48 @@ XAreaWarManagerCreator = function()
 
     --获取当前区块派遣条件
     function XAreaWarManager.GetDispatchConditions(blockId)
-        return _DispatchConditionDic[blockId]
+        return _DispatchConditionDic[blockId] or {}
     end
 
     --检查指定角色是否满足当前区块派遣条件
     function XAreaWarManager.CheckDispatchConditionsFitCharacter(blockId, characterId)
-        local conditionIdCheckDic = XAreaWarConfigs.GetDispatchCharacterCondtionIdCheckDic({characterId})
-        local conditionIds = XAreaWarManager.GetDispatchConditions(blockId)
-        for _, conditionId in pairs(conditionIds) do
-            if conditionIdCheckDic[conditionId] then
-                return true
-            end
-        end
-        return false
+        --2.5 版本去除角色条件判断
+        --local conditionIdCheckDic = XAreaWarConfigs.GetDispatchCharacterCondtionIdCheckDic({characterId})
+        --local conditionIds = XAreaWarManager.GetDispatchConditions(blockId)
+        --for _, conditionId in pairs(conditionIds) do
+        --    if conditionIdCheckDic[conditionId] then
+        --        return true
+        --    end
+        --end
+        --return false
+        return true
     end
 
     --获取派遣队伍缓存
     function XAreaWarManager.GetDispatchTeam()
         local teamId = XAreaWarManager.GetCookieKey(_DispatchTeamKey)
-        _DispatchTeam = _DispatchTeam or XTeam.New(teamId)
+        
+        --如果缓存为空，则找其他数据
+        if not _DispatchTeam then
+            --首先找队伍本地数据
+            local localXTeam=XTeam.New(teamId)
+            --判断本地数据是否存在
+            if not localXTeam:GetIsEmpty() then
+                _DispatchTeam=localXTeam
+            else
+                --获取作战队伍配置
+                _DispatchTeam=XAreaWarManager.GetTeam()
+            end
+        end
+        
         return _DispatchTeam
+    end
+    
+    function XAreaWarManager.SaveTeam()
+        if not _DispatchTeam then
+            return
+        end
+        _DispatchTeam:Save()
     end
 
     function XAreaWarManager.ClearDispatchTeam()
@@ -1618,16 +1846,8 @@ XAreaWarManagerCreator = function()
             return
         end
 
-        local asyncReq = asynTask(AreaWarOpenDetachRequest)
-        RunAsyn(
-            function()
-                if not CheckDispatchConditionExist(blockId) then
-                    asyncReq(blockId)
-                end
-
-                XLuaUiManager.Open("UiAreaWarDispatch", blockId)
-            end
-        )
+        XLuaUiManager.Open("UiAreaWarDispatch", blockId)
+        
     end
 
     --请求派遣(robotIds为上阵特攻角色对应的robotId，characterIds为上阵的自己拥有成员的characterId)
@@ -1656,7 +1876,7 @@ XAreaWarManagerCreator = function()
 
     function XAreaWarManager.InitStageInfo()
         XAreaWarManager.InitStageType()
-        XAreaWarManager.RegisterEditBattleProxy()
+        --XAreaWarManager.RegisterEditBattleProxy()
     end
 
     function XAreaWarManager.InitStageType()
@@ -1675,16 +1895,77 @@ XAreaWarManagerCreator = function()
             require("XUi/XUiAreaWar/XUiAreaWarNewRoomSingle")
         )
     end
+    
+    ---@return XTeam
+    function XAreaWarManager.GetTeam()
+        ---@type XTeam
+        local team = XAreaWarManager.GetCookie(_TeamCookieKey)
+        if not team then
+            team = XTeam.New(XAreaWarManager.GetCookieKey(_TeamCookieKey))
+        end
+        local lookUpTable = {}
+        
+        local robotIdList = XAreaWarManager.GetCanUseRobotIds()
+        for _, id in pairs(robotIdList) do
+            lookUpTable[id] = id
+        end
 
-    --保存编队信息
-    function XAreaWarManager.SaveTeamLocal(curTeam)
-        XAreaWarManager.SetCookie(_TeamCookieKey, curTeam)
+        for index, id in pairs(team:GetEntityIds()) do
+            if XRobotManager.CheckIsRobotId(id) then
+                if not XTool.IsNumberValid(lookUpTable[id]) then
+                    team:UpdateEntityTeamPos(0, index, true)
+                end
+            else
+                --清库之后本地缓存角色失效
+                if not XDataCenter.CharacterManager.IsOwnCharacter(id) then
+                    team:UpdateEntityTeamPos(0, index, true)
+                end
+            end
+        end
+        
+        return team
     end
-
-    --读取本地编队信息
-    function XAreaWarManager.LoadTeamLocal()
-        local team = XAreaWarManager.GetCookie(_TeamCookieKey) or XDataCenter.TeamManager.EmptyTeam
-        return XTool.Clone(team)
+    
+    --- 替换战斗前获取数据方法
+    function XAreaWarManager.PreFight(stage, teamId, isAssist, challengeCount, challengeId)
+        local preFight = {
+            CardIds  ={0, 0, 0},
+            RobotIds = {0, 0, 0},
+            StageId = stage.StageId,
+            IsHasAssist = isAssist and true or false,
+            ChallengeCount = challengeCount or 1,
+            CaptainPos = 0,
+            FirstFightPos = 0,
+        }
+        
+        local robotIds = stage.RobotId
+        -- 教学关适配
+        if not XTool.IsTableEmpty(robotIds) then
+            for i, id in ipairs(preFight.RobotIds) do
+                local robotId = robotIds[i]
+                if XTool.IsNumberValid(robotId) then
+                    preFight.CaptainPos = i
+                    preFight.FirstFightPos = i
+                    preFight.RobotIds[i] = robotId
+                else
+                    preFight.RobotIds[i] = 0
+                end
+            end
+        else
+            local team = XAreaWarManager.GetTeam()
+            local entities = team:GetEntityIds()
+            for pos, id in pairs(entities) do
+                if XRobotManager.CheckIsRobotId(id) then
+                    preFight.RobotIds[pos] = id
+                else
+                    preFight.CardIds[pos] = id
+                end
+            end
+            preFight.FirstFightPos = team:GetFirstFightPos()
+            preFight.CaptainPos = team:GetCaptainPos()
+        end
+        
+        return preFight
     end
 
     --请求作战（打开编队界面）
@@ -1696,7 +1977,13 @@ XAreaWarManagerCreator = function()
         end
 
         local stageId = XAreaWarConfigs.GetBlockStageId(blockId)
-        XLuaUiManager.Open("UiNewRoomSingle", stageId)
+        --XLuaUiManager.Open("UiNewRoomSingle", stageId)
+        XLuaUiManager.Open(
+                "UiBattleRoleRoom", 
+                stageId, 
+                XAreaWarManager.GetTeam(), 
+                require("XUi/XUiAreaWar/XUiAreaWarBattleRoleRoom")
+        )
     end
 
     -- 获取能够参战的角色数据
@@ -1780,6 +2067,297 @@ XAreaWarManagerCreator = function()
         XSaveTool.SaveData(key, value)
     end
     -----------------Cookie end------------------
+    
+    function XAreaWarManager.CheckIsFirstPlay()
+        local key = XAreaWarManager.GetCookieKey("FirstPlayAreaWar")
+        --非首次
+        if XSaveTool.GetData(key) then
+            return false
+        end
+        return true
+    end
+    
+    function XAreaWarManager.MarkFirstPlay()
+        local key = XAreaWarManager.GetCookieKey("FirstPlayAreaWar")
+        if XSaveTool.GetData(key) then
+            return
+        end
+        XSaveTool.SaveData(key, true)
+    end
+    
+    --region   ------------------全服战况 start-------------------
+    local XAreaWarArticleGroup = require("XEntity/XAreaWar/XAreaWarArticleGroup")
+    ---@type table<number, XAreaWarArticleGroup>
+    local _AreaWarArticleGroup = {}
+    local _LikedArticleMap
+    local _LastRequestOpenArticle = 0
+    local _RequestOpenArticleTimeInterval = 2
+    
+    local _AreaWarArticleKey = "AreaWarArticleKey_"
+    
+    local InitArticleGroup = function()
+        local map = XAreaWarConfigs.GetArticleGroupMap()
+        for groupId in pairs(map) do
+            _AreaWarArticleGroup[groupId] = XAreaWarArticleGroup.New(groupId)
+        end
+    end
+    
+    --打开全服战况
+    function XAreaWarManager.RequestWarLog(cb)
+        local timeOfNow = XTime.GetServerNowTimestamp()
+        if timeOfNow - _LastRequestOpenArticle < _RequestOpenArticleTimeInterval then
+            if cb then cb() end
+            return
+        end
+        
+        XNetwork.Call("AreaWarOpenArticleRequest", nil, function(res)
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+                return
+            end
+            local articleGroups = res.ArticleGroups or {}
+            for _, articleGroup in pairs(articleGroups) do
+                local group = _AreaWarArticleGroup[articleGroup.GroupId]
+                if not group then
+                    group = XAreaWarArticleGroup.New(articleGroup.GroupId)
+                    _AreaWarArticleGroup[articleGroup.GroupId] = group
+                end
+                group:Update(articleGroup.IsUnlock, articleGroup.Articles)
+            end
+
+            --已点赞的文章列表
+            local likeArticles = res.LikeArticleRecord or {}
+            _LikedArticleMap = {}
+            for _, articleId in pairs(likeArticles) do
+                _LikedArticleMap[articleId] = true
+            end
+            
+            --判断有没有文章解锁
+            local allLock = true
+            for _, group in pairs(_AreaWarArticleGroup) do
+                if group:CheckGroupIsUnlock() and not group:IsArticleEmpty() then
+                    allLock = false
+                    break
+                end
+            end
+            --没有一篇文章解锁
+            if allLock then
+                XUiManager.TipMsg(XAreaWarConfigs.GetArticleGroupLockTip())
+                return
+            end
+            
+            _LastRequestOpenArticle = timeOfNow
+            if cb then cb() end
+        end)
+    end
+    
+    --请求点赞文章
+    function XAreaWarManager.RequestLikeArticle(articleId, cb)
+        if not XAreaWarManager.CheckArticleUnlock(articleId) then
+            XUiManager.TipMsg(XAreaWarConfigs.GetArticleLockTips())
+            return
+        end
+        local groupId = XAreaWarConfigs.GetArticleGroupId(articleId)
+        XNetwork.Call("AreaWarLikeArticleRequest", { ArticleId = articleId }, function(res)
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+                return
+            end
+            local data = XAreaWarManager.GetArticleData(articleId)
+            if data then
+                data:Like()
+            end
+            _LikedArticleMap[articleId] = true
+            
+            if cb then cb() end
+        end)
+    end
+    
+    --文章组是否解锁
+    function XAreaWarManager.CheckArticleGroupUnlock(groupId)
+        local data = _AreaWarArticleGroup[groupId]
+        if not data then
+            return false
+        end
+        return data:CheckGroupIsUnlock()
+    end
+    
+    --文章是否解锁
+    function XAreaWarManager.CheckArticleUnlock(articleId)
+        local groupId = XAreaWarConfigs.GetArticleGroupId(articleId)
+        if not XAreaWarManager.CheckArticleGroupUnlock(groupId) then
+            return false
+        end
+        local blockId, progress = XAreaWarConfigs.GetArticleUnlockBlockIdAndProgress(articleId)
+        if XAreaWarConfigs.IsInitBlock(blockId) then
+            return true
+        end
+        local unlock = XAreaWarManager.IsBlockUnlock(blockId)
+        if not unlock then
+            return false
+        end
+        local block = XDataCenter.AreaWarManager.GetBlock(blockId)
+        if not block then
+            return false
+        end
+        return block:GetPercentProgress() >= progress
+    end
+    
+    --获取文章数据
+    function XAreaWarManager.GetArticleData(articleId)
+        local groupId = XAreaWarConfigs.GetArticleGroupId(articleId)
+        local data = _AreaWarArticleGroup[groupId]
+        if not data then
+            XLog.Error("获取文章组失败, 文章组数据不存在! GroupId = " .. tostring(groupId))
+            return
+        end
+        return data:GetArticleData(articleId)
+    end
+    
+    function XAreaWarManager.GetUnlockArticleList(groupId)
+        local data = _AreaWarArticleGroup[groupId]
+        if not data then
+            XLog.Error("获取文章组失败, 文章组数据不存在! GroupId = " .. tostring(groupId))
+            return
+        end
+        return data:GetUnlockArticleList()
+    end
+    
+    local function CheckSingleArticle(groupId, articleId)
+        local group = _AreaWarArticleGroup[groupId]
+        if not group or not group:CheckGroupIsUnlock() then
+            return false
+        end
+        local unlock = XAreaWarManager.CheckArticleUnlock(articleId)
+        if not unlock then
+            return false
+        end
+        
+        local key = XAreaWarManager.GetCookieKey(_AreaWarArticleKey .. tostring(articleId))
+        --已经展示过红点
+        if XSaveTool.GetData(key) then
+            return false
+        end
+        
+        return true
+    end
+    
+    function XAreaWarManager.CheckIsNewUnlockArticle(articleId)
+        if XTool.IsNumberValid(articleId) then
+            local groupId = XAreaWarConfigs.GetArticleGroupId(articleId)
+            if not XTool.IsNumberValid(groupId) then
+                return false
+            end
+            return CheckSingleArticle(groupId, articleId)
+        else
+            local map = XAreaWarConfigs.GetArticleGroupMap()
+            for groupId, articleIds in pairs(map) do
+                for _, articleId in pairs(articleIds) do
+                    if CheckSingleArticle(groupId, articleId) then
+                        return true
+                    end
+                end
+            end
+        end
+    end
+    
+    function XAreaWarManager.CheckIsNewUnlockArticleByGroupId(groupId)
+        if not XTool.IsNumberValid(groupId) then
+            return false
+        end
+        local data = _AreaWarArticleGroup[groupId]
+        if not data or not data:CheckGroupIsUnlock() then
+            return false
+        end
+        local map = XAreaWarConfigs.GetArticleGroupMap()
+        local list = map[groupId] or {}
+        for _, articleId in pairs(list) do
+            if CheckSingleArticle(groupId, articleId) then
+                return true
+            end
+        end
+        
+        return false
+    end
+    
+    --标记新解锁
+    function XAreaWarManager.MarkNewUnlockArticle(articleId)
+        local key = XAreaWarManager.GetCookieKey(_AreaWarArticleKey .. tostring(articleId))
+        if XSaveTool.GetData(key) then
+            return
+        end
+        XSaveTool.SaveData(key, true)
+    end
+    
+    --文章是否已经点赞
+    function XAreaWarManager.CheckIsLiked(articleId)
+        return _LikedArticleMap[articleId] and true or false
+    end
+    
+    --endregion------------------全服战况 finish------------------
+    
+    function XAreaWarManager:ExGetProgressTip()
+        return XAreaWarManager.GetBranchNewChapterName()
+    end
+    
+    local _NewChapterOpenKey = "NewChapterOpenKey_"
+    function XAreaWarManager.IsNewChapterOpen()
+        local chapterId = XAreaWarManager.GetBranchNewChapterId()
+        local key = XAreaWarManager.GetCookieKey(_NewChapterOpenKey .. tostring(chapterId))
+        if XSaveTool.GetData(key) then
+            return false
+        end
+        
+        return true
+    end
+    
+    function XAreaWarManager.MarkNewChapterOpen()
+        local chapterId = XAreaWarManager.GetBranchNewChapterId()
+        local key = XAreaWarManager.GetCookieKey(_NewChapterOpenKey .. tostring(chapterId))
+        if XSaveTool.GetData(key) then
+            return
+        end
+        
+        XSaveTool.SaveData(key, true)
+    end
+
+    --检测主界面的引导是否完成，策划需要在引导未完成时，不展示相关弹窗
+    function XAreaWarManager.IsMainUiGuideFinish()
+        return XDataCenter.GuideManager.CheckIsGuide(MAIN_UI_NEWBIE_GUIDE_ID)
+    end
+    
+    local _NewOpenHelpUi = "NewOpenHelpUi_"
+    --当期活动首次打开图文教程
+    function XAreaWarManager.IsFirstOpenHelp()
+        local key = XAreaWarManager.GetCookieKey(_NewOpenHelpUi)
+        if XSaveTool.GetData(key) then
+            return false
+        end
+        return true
+    end
+    
+    function XAreaWarManager.MarkFirstOpenHelp()
+        local key = XAreaWarManager.GetCookieKey(_NewOpenHelpUi)
+        if XSaveTool.GetData(key) then
+            return
+        end
+        XSaveTool.SaveData(key, true)
+    end
+    
+    --region   ------------------性能测试 start-------------------
+    
+    function XAreaWarManager.IsPerformanceTesting()
+        return XMain.IsDebug and _PerformanceTesting
+    end
+    
+    function XAreaWarManager.SetPerformanceTesting(value)
+        if not XMain.IsDebug then
+            return
+        end
+        _PerformanceTesting = value
+    end
+    --endregion------------------性能测试 finish------------------
+
     local function ResetData()
         XAreaWarManager.SetActivityEnd()
 
@@ -1792,13 +2370,11 @@ XAreaWarManagerCreator = function()
         _HangUpRewardCount = 0 --挂机收益奖励数量（大于0时代表有奖励可领取，实际数量打开界面时请求）
         _HangUpRewardFlag = false --挂机收益奖励数量是否有变更（服务端通知）
         _PluginDic = {} --插件（aka：词缀）信息
-        _PluginSlotDic = {0, 0, 0} --插件槽信息
+        --_PluginSlotDic = {0, 0, 0} --插件槽信息
         _DispatchConditionDic = {} --派遣条件（由服务端随机，和blockId绑定，当前区块条件未派遣成功之前不会改变，但不影响其他区块）
         _DispatchTeam = nil --派遣队伍
 
-        InitSelfPurification()
-        InitRecord()
-        InitRank()
+        XAreaWarManager.Init()
     end
 
     local function UpdateActivityData(data)
@@ -1824,7 +2400,7 @@ XAreaWarManagerCreator = function()
         UpdateActivityData(data.ActivityData)
         UpdateBlockSelfPurifications(data.BlockPurification)
         UpdateUnlockPlugins(data.UnlockBuffId)
-        UpdateUsingPlugins(data.MountBuff)
+        --UpdateUsingPlugins(data.MountBuff)
         UpdateUnlockSpecialRoleRewards(data.SpecialRoleReward)
     end
 
@@ -1832,19 +2408,19 @@ XAreaWarManagerCreator = function()
     function XAreaWarManager.AreaWarGetActivityDataRequest(cb)
         local req = nil
         XNetwork.Call(
-            "AreaWarGetActivityDataRequest",
-            req,
-            function(res)
-                if res.Code ~= XCode.Success then
-                    return
-                end
+                "AreaWarGetActivityDataRequest",
+                req,
+                function(res)
+                    if res.Code ~= XCode.Success then
+                        return
+                    end
 
-                UpdateActivityData(res.ActivityData)
+                    UpdateActivityData(res.ActivityData)
 
-                if cb then
-                    cb()
+                    if cb then
+                        cb()
+                    end
                 end
-            end
         )
     end
 
@@ -1858,6 +2434,7 @@ XAreaWarManagerCreator = function()
         InitSelfPurification()
         InitRecord()
         InitRank()
+        InitArticleGroup()
     end
 
     XAreaWarManager.Init()

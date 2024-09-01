@@ -1,3 +1,4 @@
+---@class XUiPanelActivityAsset
 XUiPanelActivityAsset = XClass(nil, "XUiPanelActivityAsset")
 
 function XUiPanelActivityAsset:Ctor(ui, deleteDes, base, hideAssetPanel, hideSkipBtn)
@@ -28,6 +29,16 @@ function XUiPanelActivityAsset:AutoAddListener()
         self:OnBtnClick3Click()
     end
 end
+
+-- custom 设置自定义按钮事件
+function XUiPanelActivityAsset:SetButtonCb(index, cb)
+    local btn = self["BtnClick"..index]
+    if not btn then
+        return
+    end
+    btn.CallBack = cb
+end
+
 -- auto
 function XUiPanelActivityAsset:OnBtnClick1Click()
     self:OnBtnClick(1)
@@ -68,7 +79,12 @@ function XUiPanelActivityAsset:OnBtnClick(index)
             data.Description = XGoodsCommonManager.GetGoodsDescription(itemId)
             data.WorldDesc = XGoodsCommonManager.GetGoodsWorldDesc(itemId)
         end
-        XLuaUiManager.Open("UiTip", data, self.HideSkipBtn)
+        if itemId == XDataCenter.ItemManager.ItemId.HongKa then
+            local count = XDataCenter.ItemManager.GetCount(itemId)
+            XLuaUiManager.Open("UiTip", itemId, false, "UiPurchase", 0, count, true)
+        else
+            XLuaUiManager.Open("UiTip", data, self.HideSkipBtn, self.RootUiName)
+        end
     end
 end
 
@@ -97,6 +113,11 @@ end
 function XUiPanelActivityAsset:SetQueryFunc(func)
     -- 用于构造本地数据时通过自定义查询器获取
     self.QueryFunc = func
+end
+
+-- (外部接口)设置显示快速交易按钮的界面名
+function XUiPanelActivityAsset:SetRootUiName(name)
+    self.RootUiName = name
 end
 
 function XUiPanelActivityAsset:Refresh(idlist, canBuyItemIds, maxCountDic)

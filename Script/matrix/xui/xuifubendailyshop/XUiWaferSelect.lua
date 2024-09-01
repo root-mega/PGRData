@@ -25,6 +25,14 @@ function XUiWaferSelect:OnStart(suitId, ShopItemList, suitShopItemDic, selectCal
     self:UpdateGridList()
 end
 
+function XUiWaferSelect:OnEnable()
+
+end
+
+function XUiWaferSelect:OnDisable()
+
+end
+
 function XUiWaferSelect:InitComponent()
     self.BtnConfirm.CallBack = function() self:OnBtnConfirmClick() end
     self.BtnClose.CallBack = function() self:OnBtnCloseClick() end

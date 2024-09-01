@@ -6,7 +6,7 @@ function XUiDrawResult:OnAwake()
     self:InitAutoScript()
 end
 
-function XUiDrawResult:OnStart(drawInfo, rewardList, backCb)
+function XUiDrawResult:OnStart(drawInfo, rewardList, backCb,background)
     local behaviour = self.GameObject:AddComponent(typeof(CS.XLuaBehaviour))
     if self.Update then
         behaviour.LuaUpdate = function() self:Update() end
@@ -35,6 +35,12 @@ function XUiDrawResult:OnStart(drawInfo, rewardList, backCb)
         self.AniResultGridGainLoop.extrapolationMode = MODE_LOOP
         self.StartShow = true
     end)
+    if not string.IsNilOrEmpty(background) then
+        local bg = self.GameObject:FindTransform("Bg1")
+        if bg then
+            bg.transform:GetComponent("RawImage"):SetRawImage(background)
+        end
+    end
 end
 
 function XUiDrawResult:Update()

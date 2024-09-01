@@ -4,6 +4,7 @@ local XUiPanelBossRankInfo = require("XUi/XUiFubenBossSingle/XUiPanelBossRankInf
 local XUiPanelBossDetail = require("XUi/XUiFubenBossSingle/XUiPanelBossDetail")
 local XUiPanelBossEnter = require("XUi/XUiFubenBossSingle/XUiPanelBossEnter")
 local XUiPanelRoleModel = require("XUi/XUiCharacter/XUiPanelRoleModel")
+local XUiModelUtility = require("XUi/XUiCharacter/XUiModelUtility")
 
 function XUiFubenBossSingle:OnAwake()
     self:AutoAddListener()
@@ -12,6 +13,7 @@ function XUiFubenBossSingle:OnAwake()
     self.ImgEffectHuanrenHideBoss = root:FindTransform("ImgEffectHuanren1")
     self.ImgEffectHuanren.gameObject:SetActiveEx(false)
     self.ImgEffectHuanrenHideBoss.gameObject:SetActiveEx(false)
+    ---@type XUiPanelRoleModel
     self.RoleModelPanel = XUiPanelRoleModel.New(root:FindTransform("PanelRoleModel"), self.Name, nil, true)
 end
 
@@ -143,8 +145,8 @@ function XUiFubenBossSingle:ShowBossRank(levelType, rankPlatform)
 end
 
 function XUiFubenBossSingle:RefreshModel(modelId, isHideBoss)
-    self.RoleModelPanel:UpdateBossModel(modelId, XModelManager.MODEL_UINAME.XUiBossSingle)
-    self.RoleModelPanel:ShowRoleModel()
+    XUiModelUtility.UpdateModelByArchive(self, self.RoleModelPanel, modelId, XModelManager.MODEL_UINAME.XUiBossSingle) 
+    
     if isHideBoss then
         self.ImgEffectHuanrenHideBoss.gameObject:SetActiveEx(false)
         self.ImgEffectHuanrenHideBoss.gameObject:SetActiveEx(true)

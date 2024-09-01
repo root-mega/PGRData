@@ -85,3 +85,8 @@ function XUiSuperSmashBrosMain:SetActivityTimeLimit()
             end
         end)
 end
+
+function XUiSuperSmashBrosMain:UpdateRewardAndTeamLevel()
+    Panels.PanelReward.UpdateDailyReward()
+    Panels.PanelCore.Refresh()
+end 

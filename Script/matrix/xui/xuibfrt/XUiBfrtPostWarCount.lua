@@ -160,12 +160,12 @@ function XUiBfrtPostWarCount:UpdatePanelPlayer()
     local curExp = XPlayer.Exp
     local maxExp = XPlayer:GetMaxExp()
     local baseStageId = XDataCenter.BfrtManager.GetBaseStage(self.GroupId)
-    local baseStageCfg = XDataCenter.FubenManager.GetStageCfg(baseStageId)
+    local teamExp = XDataCenter.FubenManager.GetTeamExp(baseStageId)
 
     if XPlayer.IsHonorLevelOpen() then
         self.TxtLevelName.text = CS.XTextManager.GetText("HonorLevel") 
     end
     self.TxtLevelA.text = curLevel
-    self.TxtAddExp.text = "+ " .. baseStageCfg.TeamExp
+    self.TxtAddExp.text = "+ " .. teamExp
     self.ImgExp.fillAmount = curExp / maxExp
 end

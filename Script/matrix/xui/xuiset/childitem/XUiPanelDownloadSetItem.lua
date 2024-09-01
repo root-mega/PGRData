@@ -20,17 +20,11 @@ function XUiPanelDownloadSetItem:Ctor(ui, parent)
     self.part3 = ui.transform:Find("part3")
 end
 
-local GetSizeAndUnit = function(size)
-        local unit = "KB"
-        local num = size / 1024
-        if (num > 100) then
-            unit = "MB"
-            num = num / 1024
-        end
-        return math.ceil(num),unit
-    end
-
-function XUiPanelDownloadSetItem:Setup(dlcItemData, index)
+--- 
+---@param dlcItemData XDLCItem
+---@return
+--------------------------
+function XUiPanelDownloadSetItem:Setup(dlcItemData, index, isCurrent)
    
     self.index = index
     self.isCurrent = isCurrent
@@ -38,12 +32,11 @@ function XUiPanelDownloadSetItem:Setup(dlcItemData, index)
     self.BtnSelf.CallBack = function()
         self.Parent:OnClickItem(index)
     end
-    self.txtTitle.text = dlcItemData:GetTitle()
-    local dlcIds = dlcItemData:GetDlcId()
-    local size = XDataCenter.DlcManager.GetDownloadSize(dlcIds)
-    local num, unit = GetSizeAndUnit(size)
-    self.txtSize.text = num .. unit
-
+    
+    self.txtTitle.text = dlcItemData:GetTitle() .. "," .. dlcItemData:GetId()
+    self.txtSize.text = string.format("%s/%s", dlcItemData:GetDownloadedSizeWithUnit(), dlcItemData:GetTotalSizeWithUnit())
+    
+    
     local hasDownload = dlcItemData:HasDownloaded()
 
     if self.CanDownloadTxt then
@@ -74,10 +67,7 @@ function XUiPanelDownloadSetItem:Setup(dlcItemData, index)
                 self.Parent:OnClickItem(index)
             end)
             self.BtnDownload.CallBack = function()
-                --XLog.Debug("click:"..index)
-                XDataCenter.DlcManager.DownloadDlc(dlcIds, nil,function()
-                    self.Parent:OnClickItem(index)
-                end)
+                dlcItemData:TryDownload()
             end
         end
       

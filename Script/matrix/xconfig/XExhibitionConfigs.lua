@@ -3,6 +3,7 @@ XExhibitionConfigs = XExhibitionConfigs or {}
 local TABLE_CHARACTER_EXHIBITION = "Client/Exhibition/Exhibition.tab"
 local TABLE_CHARACTER_EXHIBITION_LEVEL = "Client/Exhibition/ExhibitionLevel.tab"
 local TABLE_CHARACTER_GROW_TASK_INFO = "Share/Exhibition/ExhibitionReward.tab"
+local TABLE_EXHIBITIONLIMIT = "Share/Exhibition/ExhibitionLimit.tab"
 
 local DefaultPortraitImagePath = CS.XGame.ClientConfig:GetString("DefaultPortraitImagePath")
 local ExhibitionLevelPoint = {}
@@ -20,13 +21,18 @@ local ExhibitionConfigByTypeAndPort = {}
 local ExhibitionConfigByTypeAndGroup = {}
 local CharacterToExhibitionTypeTable = {}
 local InVisibleGroupTable = {}
+local ExhibitionlimitTable = {}
+local ExhibitionCharacterGroupDic = {}
+
 function XExhibitionConfigs.Init()
     CharacterExhibitionLevelConfig = XTableManager.ReadByIntKey(TABLE_CHARACTER_EXHIBITION_LEVEL, XTable.XTableExhibitionLevel, "LevelId")
+    ExhibitionlimitTable = XTableManager.ReadByIntKey(TABLE_EXHIBITIONLIMIT, XTable.XTableExhibitionLimit, "CharacterId")
     ExhibitionConfig = XTableManager.ReadByIntKey(TABLE_CHARACTER_EXHIBITION, XTable.XTableCharacterExhibition, "Id")
     for _, v in pairs(ExhibitionConfig) do
         if v.Port ~= nil then
             CharacterHeadPortrait[v.CharacterId] = v.HeadPortrait
             CharacterGraduationPortrait[v.CharacterId] = v.GraduationPortrait
+            ExhibitionCharacterGroupDic[v.CharacterId] = { GroupName = v.GroupName, GroupNameEn = v.GroupNameEn }
             ExhibitionGroupNameConfig[v.GroupId] = v.GroupName
             ExhibitionGroupLogoConfig[v.GroupId] = v.GroupLogo
             ExhibitionGroupDescConfig[v.GroupId] = v.GroupDescription
@@ -62,6 +68,7 @@ function XExhibitionConfigs.Init()
     ExhibitionLevelPoint[2] = CS.XGame.ClientConfig:GetInt("ExhibitionLevelPoint_02")
     ExhibitionLevelPoint[3] = CS.XGame.ClientConfig:GetInt("ExhibitionLevelPoint_03")
     ExhibitionLevelPoint[4] = CS.XGame.ClientConfig:GetInt("ExhibitionLevelPoint_04")
+    -- ExhibitionLevelPoint[5] = CS.XGame.ClientConfig:GetInt("ExhibitionLevelPoint_05")
 end
 
 function XExhibitionConfigs.GetDefaultPortraitImagePath()
@@ -74,8 +81,8 @@ end
 
 function XExhibitionConfigs.GetGrowUpLevelMax()
     local maxPoint = 0
-    for i = 1, 4 do
-        maxPoint = maxPoint + ExhibitionLevelPoint[i]
+    for _, value in pairs(ExhibitionLevelPoint) do
+        maxPoint = maxPoint + value
     end
     return maxPoint
 end
@@ -164,6 +171,10 @@ function XExhibitionConfigs.GetExhibitionLevelIconByLevel(level)
     return CharacterExhibitionLevelConfig[level].LevelIcon or ""
 end
 
+function XExhibitionConfigs.GetExhibitionGroupByCharId(charId)
+    return ExhibitionCharacterGroupDic[charId]
+end
+
 function XExhibitionConfigs.GetCharacterHeadPortrait(characterId)
     return CharacterHeadPortrait[characterId]
 end
@@ -174,6 +185,20 @@ end
 
 function XExhibitionConfigs.GetGrowUpTasksConfig()
     return GrowUpTasksConfig
+end
+
+function XExhibitionConfigs.GetCharacterExhibitonLimitCfgByCharacterId(id)
+    return ExhibitionlimitTable[id]
+end
+
+function XExhibitionConfigs.GetAureoleListByCharacterId(id)
+    local res = {}
+    local idList = ExhibitionlimitTable[id].AureoleIds
+    for k, id in pairs(idList) do
+        local aureoleCfg = XFashionConfigs.GetAllConfigs(XFashionConfigs.TableKey.FashionAureole)[id]
+        res[k] = aureoleCfg
+    end
+    return res
 end
 
 function XExhibitionConfigs.GetGrowUpTasksConfigByType(exhibitionType)

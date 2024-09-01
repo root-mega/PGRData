@@ -89,13 +89,13 @@ function XUiGameNotice:OnDestroy()
 end
 
 function XUiGameNotice:OnGetEvents()
-    return { XEventId.EVENT_UIDIALOG_VIEW_ENABLE, XEventId.EVENT_NOTICE_TYPE_CHANAGE, XEventId.EVENT_NOTICE_CONTENT_RESP }
+    return { XEventId.EVENT_UIDIALOG_VIEW_ENABLE, XEventId.EVENT_NOTICE_TYPE_CHANGE, XEventId.EVENT_NOTICE_CONTENT_RESP }
 end
 
 function XUiGameNotice:OnNotify(evt, ...)
     if evt == XEventId.EVENT_UIDIALOG_VIEW_ENABLE then
         self.RootUi:Close()
-    elseif evt == XEventId.EVENT_NOTICE_TYPE_CHANAGE then
+    elseif evt == XEventId.EVENT_NOTICE_TYPE_CHANGE then
         local arg = {...}
         self:UpdateLeftTabBtns(nil,nil, arg[1])
         self:OnSelectedTog()
@@ -330,23 +330,26 @@ function XUiGameNotice:OnBtnHrefClick(str)
             CS.UnityEngine.Application.OpenURL(str.."?uid="..uid.."&hostid=".. serverId) -- todo 服务器id
             return
         end
-    elseif string.find(str, "natsumatsuri") ~= nil then -- 夏日祭活动
-        local uid = XLoginManager.GetUserId()
+    elseif string.find(str, "pgr3rd") ~= nil then -- 日服H5拉人活动
+        --local uid = XLoginManager.GetUserId()
+        local uid = XPlayer.Id
         if uid and uid ~= "" then
-            CS.UnityEngine.Application.OpenURL(str.."?code_id="..uid)
+            CS.UnityEngine.Application.OpenURL(str.."?uid="..uid)
             return
         end
     elseif string.find(str, "seeed") ~= nil or string.find(str, "rooot") ~= nil then -- rooot活动的
         XDataCenter.ActivityManager.OpenRoootUrl(str)
     else
-        if string.find(str, "eden") ~= nil then -- 萌战网页活动接入需求
+        if string.find(str, "thewitchcafe") ~= nil then -- 萌战网页活动接入需求
             local uid = XUserManager.UserId
             local serverId = CS.XHeroBdcAgent.ServerId
             if uid and serverId then
                 CS.UnityEngine.Application.OpenURL(str.."?uid="..uid.."&serverId="..serverId)
+                return
             end
         else
             CS.UnityEngine.Application.OpenURL(str)
+            return
         end
     end
     CS.UnityEngine.Application.OpenURL(str)
@@ -378,7 +381,7 @@ function XUiGameNotice:UpdateWebView(url)
         end
         request:Dispose()
         
-        HtmlParagraphs[url] = XHtmlHandler.Deserilize(content)
+        HtmlParagraphs[url] = XHtmlHandler.Deserialize(content)
         if not HtmlParagraphs[url] then
             XLog.Error("content deserilized is nil, url:" .. tostring(url))
             return 

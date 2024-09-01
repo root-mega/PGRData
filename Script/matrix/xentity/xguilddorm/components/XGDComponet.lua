@@ -1,3 +1,4 @@
+---@class XGDComponet
 local XGDComponet = XClass(nil, "XGDComponet")
 
 function XGDComponet:Ctor()
@@ -30,6 +31,15 @@ function XGDComponet:CheckCanUpdate(dt)
     end
     return false
 end
+
+function XGDComponet:Dispose()
+    
+end
+
+-- 检查房间是否被显示
+-- function XGDComponet:CheckRoomIsShow(value)
+    
+-- end
 
 -- -- 每帧运行
 -- function XGDComponet:Update(deltaTime)

@@ -35,7 +35,7 @@ function XUiPracticeSingleDetail:UpdateCommon()
         self[string.format("TxtActive%d", i)].text = stageCfg.StarDesc[i]
     end
 
-    self.TxtATNums.text = stageCfg.RequireActionPoint or 0
+    self.TxtATNums.text = XDataCenter.FubenManager.GetRequireActionPoint(self.StageId)
 end
 
 function XUiPracticeSingleDetail:OnBtnEnterClick()

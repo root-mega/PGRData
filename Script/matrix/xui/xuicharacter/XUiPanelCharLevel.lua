@@ -7,6 +7,7 @@ function XUiPanelCharLevel:Ctor(ui, parent)
     XTool.InitUiObject(self)
     self:AutoAddListener()
     self.SelectLevelItems = XUiPanelSelectLevelItems.New(self.PanelSelectLevelItems, self.Parent, self)
+    self.BtnLiberation.gameObject:SetActiveEx(not XUiManager.IsHideFunc)
 end
 
 function XUiPanelCharLevel:AutoAddListener()

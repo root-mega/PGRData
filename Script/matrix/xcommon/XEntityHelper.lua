@@ -43,7 +43,9 @@ end
 
 function XEntityHelper.GetCharacterSmallIcon(entityId)
     local characterId = XEntityHelper.GetCharacterIdByEntityId(entityId)
-    return XDataCenter.CharacterManager.GetCharSmallHeadIcon(characterId, 0, true)
+    ---@type XCharacterAgency
+    local characterAgency = XMVCA:GetAgency(ModuleId.XCharacter)
+    return characterAgency:GetCharSmallHeadIcon(characterId, 0, true)
 end
 
 function XEntityHelper.GetCharacterType(entityId)
@@ -52,13 +54,17 @@ function XEntityHelper.GetCharacterType(entityId)
 end
 
 function XEntityHelper.GetCharacterAbility(entityId)
-    local ability = XEntityHelper.GetIsRobot(entityId) and XRobotManager.GetRobotAbility(entityId) or XDataCenter.CharacterManager.GetCharacterAbilityById(entityId)
+    ---@type XCharacterAgency
+    local characterAgency = XMVCA:GetAgency(ModuleId.XCharacter)
+    local ability = XEntityHelper.GetIsRobot(entityId) and XRobotManager.GetRobotAbility(entityId) or characterAgency:GetCharacterAbilityById(entityId)
     return math.ceil(ability)
 end
 
 function XEntityHelper.GetCharBigRoundnessNotItemHeadIcon(entityId)
     local characterId = XEntityHelper.GetCharacterIdByEntityId(entityId)
-    return XDataCenter.CharacterManager.GetCharBigRoundnessNotItemHeadIcon(characterId)
+    ---@type XCharacterAgency
+    local characterAgency = XMVCA:GetAgency(ModuleId.XCharacter)
+    return characterAgency:GetCharBigRoundnessNotItemHeadIcon(characterId)
 end
 
 -- 根据奖励Id获取第一个奖励的图标
@@ -93,7 +99,9 @@ end
 
 function XEntityHelper.GetCharacterHalfBodyImage(entityId)
     local characterId = XEntityHelper.GetCharacterIdByEntityId(entityId)
-    return XDataCenter.CharacterManager.GetCharHalfBodyImage(characterId)
+    ---@type XCharacterAgency
+    local characterAgency = XMVCA:GetAgency(ModuleId.XCharacter)
+    return characterAgency:GetCharHalfBodyImage(characterId)
 end
 
 -- 检查物品数量是否满足指定数量
@@ -175,11 +183,13 @@ end
 -- ids : 可包含机器人或角色Id，返回对应的机器人或角色实体
 function XEntityHelper.GetEntityByIds(ids)
     local result = {}
+    ---@type XCharacterAgency
+    local characterAgency = XMVCA:GetAgency(ModuleId.XCharacter)
     for _, id in ipairs(ids) do
         if XEntityHelper.GetIsRobot(id) then
             table.insert(result, XRobotManager.GetRobotById(id))
         else
-            table.insert(result, XDataCenter.CharacterManager.GetCharacter(id))
+            table.insert(result, characterAgency:GetCharacter(id))
         end
     end
     return result
@@ -191,4 +201,24 @@ function XEntityHelper.ClearErrorTeamEntityId(team, checkHasFunc)
             team:UpdateEntityTeamPos(entityId, pos, false)
         end
     end
+end
+
+---@return XCharacterViewModel
+function XEntityHelper.GetCharacterViewModelByEntityId(id)
+    if id > 0 then
+        local entity = nil
+        if XEntityHelper.GetIsRobot(id) then
+            entity = XRobotManager.GetRobotById(id)
+        else
+            ---@type XCharacterAgency
+            local characterAgency = XMVCA:GetAgency(ModuleId.XCharacter)
+            entity = characterAgency:GetCharacter(id)
+        end
+        if entity == nil then
+            XLog.Warning(string.format("找不到id%s的角色", id))
+            return
+        end
+        return entity:GetCharacterViewModel()
+    end
+    return nil
 end

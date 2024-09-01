@@ -9,6 +9,7 @@ function XUiRoleGrid:Ctor(ui, rootUi)
     -- XSCRole
     self.Role = nil
     self.BtnSelf.CallBack = function() self:OnBtnSelfClicked() end
+    self.PanelPurchase.gameObject:SetActiveEx(false)
 end
 
 -- role : XSCRole
@@ -20,12 +21,12 @@ function XUiRoleGrid:SetData(role, boss)
     self.PanelRecommend.gameObject:SetActiveEx(boss:CheckRoleIdIsSuggest(role:GetId()))
     -- 是否锁住
     self.PanelLock.gameObject:SetActiveEx(role:GetIsLock())
-    -- 是否可购买
-    self.PanelPurchase.gameObject:SetActiveEx(role:GetCanBuy())
 end
 
 function XUiRoleGrid:OnBtnSelfClicked()
-    self.RootUi:UpdateCurrentRole(self.Role)
+    if not self.Role:GetIsLock() then
+        self.RootUi:UpdateCurrentRole(self.Role)
+    end
 end
 
 function XUiRoleGrid:SetSelectStatusByRole(role)
@@ -74,10 +75,11 @@ end
 -- role : XSCRole
 -- boss : XSCBoss
 function XUiSameColorGamePanelRole:SetData(role, boss)
-    self:RefreshCurrentRole(role)
+    self.Role = role
     self.Boss = boss or self.Boss
     self.Roles = XDataCenter.SameColorActivityManager.GetRoleManager():GetRoles()
     self:RefreshRoles()
+    self:RefreshCurrentRole(role)
 end
 
 function XUiSameColorGamePanelRole:RefreshCurrentRole(role)
@@ -92,23 +94,38 @@ end
 
 function XUiSameColorGamePanelRole:RefreshSkillInfo()
     local mainSkill = self.MainSkill
-    local isOn = mainSkill:GetIsOn()
     self.RImgSkillIcon:SetRawImage(mainSkill:GetIcon())
     self.TxtSkillName.text = mainSkill:GetName()
-    self.TxtSkillCD.text = XUiHelper.GetText("SameColorGameRoleTip2", mainSkill:GetCD())
-    self.TxtSkillDesc.text = mainSkill:GetDesc()
-    self.TxtSkillDesc2.text = mainSkill:GetDesc()
+    local isTimeType = self.Boss:IsTimeType()
+    self.TxtSkillCD.text = XUiHelper.GetText("SameColorGameRoleTip2", mainSkill:GetCD(isTimeType))
+    self.TxtSkillDesc.text = mainSkill:GetDesc(isTimeType)
+    self.TxtSkillDesc2.text = mainSkill:GetDesc(isTimeType)
     self.TxtPower.text = XUiHelper.GetText("SameColorGameRoleTip3", mainSkill:GetEnergyCost())
-    self.TxtPower.gameObject:SetActiveEx(isOn)
-    self.TxtSkillDesc.gameObject:SetActiveEx(isOn)
-    self.TxtSkillDesc2.gameObject:SetActiveEx(not isOn)
-    self.BtnChange.gameObject:SetActiveEx(isOn)
-    self.BtnChange2.gameObject:SetActiveEx(not isOn)
-    local hasOn = mainSkill:GetIsHasOnSkill()
-    if not hasOn then
-        self.BtnChange.gameObject:SetActiveEx(false)
-        self.BtnChange2.gameObject:SetActiveEx(false)
+    -- 三期不需要切换逻辑
+    self.TxtPower.gameObject:SetActiveEx(true)
+    self.BtnChange.gameObject:SetActiveEx(false)
+    self.BtnChange2.gameObject:SetActiveEx(false)
+    -- 被动技能
+    local passiveSkillId = self.Role:GetPassiveSkillId()
+    local isShowPassive = passiveSkillId ~= 0
+    self.PanelPassiveSkill.gameObject:SetActiveEx(isShowPassive)
+    if isShowPassive then
+        local passiveSkill = XSameColorGameConfigs.GetPassiveSkillConfig(passiveSkillId)
+        self.TxtPassiveSkillTitle.text = passiveSkill.Name
+        self.TxtPassiveSkillDesc.text = passiveSkill.Desc
     end
+
+    -- local isOn = mainSkill:GetIsOn()
+    -- self.TxtPower.gameObject:SetActiveEx(isOn)
+    -- self.TxtSkillDesc.gameObject:SetActiveEx(isOn)
+    -- self.TxtSkillDesc2.gameObject:SetActiveEx(not isOn)
+    -- self.BtnChange.gameObject:SetActiveEx(isOn)
+    -- self.BtnChange2.gameObject:SetActiveEx(not isOn)
+    -- local hasOn = mainSkill:GetIsHasOnSkill()
+    -- if not hasOn then
+    --     self.BtnChange.gameObject:SetActiveEx(false)
+    --     self.BtnChange2.gameObject:SetActiveEx(false)
+    -- end
 end
 
 function XUiSameColorGamePanelRole:RefreshDamageFactors()
@@ -153,9 +170,8 @@ function XUiSameColorGamePanelRole:UpdateCurrentRole(role)
     self:RefreshCurrentRole(role)
     if self.RootUi:GetLastSelectableRole() == role then
         self.RootUi:SetIsSelected(true)
-        -- self.RootUi:SetBtnReadyNormalText(XUiHelper.GetText("SameColorGameReadyTip1"))
     else
-        self.RootUi:SetBtnReadyNormalText(XUiHelper.GetText("SameColorGameReadyTip3"))
+        self.RootUi:SetBtnChange()
     end
     self.RootUi:UpdateCurrentRole(role)
 end
@@ -163,10 +179,10 @@ end
 function XUiSameColorGamePanelRole:RegisterUiEvents()
     self.BtnBoss.CallBack = function() 
         self.RootUi:UpdateCurrentRole(self.RootUi:GetLastSelectableRole())
-        self.RootUi:UpdateChildPanel(XSameColorGameConfigs.UiBossChildPanelType.Main) 
+        self.RootUi:UpdateChildPanel(XSameColorGameConfigs.UiBossChildPanelType.Main)
     end
-    XUiHelper.RegisterClickEvent(self, self.BtnChange, self.OnBtnChangeClicked)
-    XUiHelper.RegisterClickEvent(self, self.BtnChange2, self.OnBtnChangeClicked)
+    -- XUiHelper.RegisterClickEvent(self, self.BtnChange, self.OnBtnChangeClicked)
+    -- XUiHelper.RegisterClickEvent(self, self.BtnChange2, self.OnBtnChangeClicked)
 end
 
 function XUiSameColorGamePanelRole:OnBtnChangeClicked()

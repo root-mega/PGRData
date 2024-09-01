@@ -21,6 +21,8 @@ function XUiPanelCharProperty:OnStart(parent, defaultIdx)
     self:InitBtnTabGroup()
     self:RegisterOtherEvent()
     self:RegisterRedPointEvent()
+
+    self.QualityToSkill = false
 end
 
 function XUiPanelCharProperty:OnEnable(parent, defaultIdx)
@@ -31,9 +33,9 @@ function XUiPanelCharProperty:OnEnable(parent, defaultIdx)
     self.IsSp = characterType ~= XCharacterConfigs.CharacterType.Normal
     self.Parent.PanelCharacterTypeBtns.gameObject:SetActiveEx(false)
     self.Parent.SViewCharacterList.gameObject:SetActiveEx(false)
-    self.Parent.BtnFashion.gameObject:SetActiveEx(false)
+    self.Parent:SetBtnFashionActive(false)
     self.Parent.BtnOwnedDetail.gameObject:SetActiveEx(false)
-    self.Parent.BtnTeaching.gameObject:SetActiveEx(false)
+    self.Parent:SetBtnTeachingActive(false)
     if self.SelectedIndex == PANEL_INDEX.EnhanceSkill then
         local functionId = self.IsSp and XFunctionManager.FunctionName.SpCharacterEnhanceSkill or XFunctionManager.FunctionName.CharacterEnhanceSkill
         local IsShowEnhanceSkill = self.CharEntity:GetIsHasEnhanceSkill() and
@@ -46,14 +48,21 @@ function XUiPanelCharProperty:OnEnable(parent, defaultIdx)
     else
         self.BtnTabEnhanceSkill:SetNameByGroup(0,CS.XTextManager.GetText("SpEnhanceSkillTab"))
     end
+    
+    if self.QualityToSkill then
+        self:OpenQualityPreview(self.CharacterId)
+        self.QualityToSkill = false
+    end
+
 end
 
 function XUiPanelCharProperty:OnDisable()
     self.Parent.PanelCharacterTypeBtns.gameObject:SetActiveEx(true)
     self.Parent.SViewCharacterList.gameObject:SetActiveEx(true)
-    self.Parent.BtnFashion.gameObject:SetActiveEx(true)
+    self.Parent:SetBtnFashionActive(true)
     self.Parent.BtnOwnedDetail.gameObject:SetActiveEx(true)
-    self.Parent.BtnTeaching.gameObject:SetActiveEx(true)
+    self.Parent:SetBtnTeachingActive(true)
+
 end
 
 function XUiPanelCharProperty:OnDestroy()
@@ -157,8 +166,6 @@ function XUiPanelCharProperty:OnClickTabCallBack(tabIndex)
         --self.Parent:PlayAnimation("EnhanceSkillBegan")-----------TODO张爽，动画非正式
     end
 
-    -- v1.28 分阶拆分 刷新品质预览判断
-    self.QualityToSkill = false
     self.SelectedIndex = tabIndex
     self:UpdateShowPanel()
 end
@@ -293,17 +300,6 @@ function XUiPanelCharProperty:RecoveryPanel()
         self.Parent:PlayAnimation("LevelBegan")
         return true
     end
-
-    local skillPanel = self.PanelsMap[PANEL_INDEX.Skill]
-    if skillPanel and skillPanel.SkillInfoPanel.IsShow and not self.QualityToSkill then
-        skillPanel.SkillInfoPanel:HidePanel()
-        skillPanel:ShowPanel()
-        self.Parent:PlayAnimation("SkillBegan")
-        return true
-    elseif self.QualityToSkill then
-        self:BackToQualityPreview()
-        return true
-    end
     
     local enhanceSkillPanel = self.PanelsMap[PANEL_INDEX.EnhanceSkill]
     if enhanceSkillPanel and enhanceSkillPanel:IsSelectPos() then
@@ -356,21 +352,10 @@ function XUiPanelCharProperty:OpenSkillInfo(characterId, skillId)
     for pos, group in ipairs(skillPosToGroupIdDic) do
         for gridIndex, id in ipairs(group) do
             if id == skillGroupId then
-                self.PanelPropertyButtons:SelectIndex(PANEL_INDEX.Skill)
-                self.PanelsMap[PANEL_INDEX.Skill]:OnSelectSkill(pos)
-                self.PanelsMap[PANEL_INDEX.Skill].SkillInfoPanel.SubSkillGrids[gridIndex]:OnBtnSubSkillIconBgClick()
+                XLuaUiManager.Open("UiSkillDetails", characterId, skills, pos, gridIndex)
                 self.QualityToSkill = true
                 return
             end
         end
     end
-end
-
---===========================================================================
---v1.28【角色】升阶拆分 - 从技能详情到品质预览
---===========================================================================
-function XUiPanelCharProperty:BackToQualityPreview()
-    self.PanelPropertyButtons:SelectIndex(PANEL_INDEX.Quality)
-    self:OpenQualityPreview(self.CharacterId)
-    self.QualityToSkill = false
 end

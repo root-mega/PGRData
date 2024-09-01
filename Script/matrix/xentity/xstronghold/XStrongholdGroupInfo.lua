@@ -13,13 +13,14 @@ local Default = {
     _SupportId = 0, --支援方案Id
     _StageIds = {}, --关卡Id列表
     _StageDatas = {}, --关卡数据
-    _PassUseElectric = 0 --通关当前据点使用电量
+    _PassUseElectric = -1, --通关当前据点使用电量
+    _UsedSystemElectricEnergy = -1, --通关当前据点使用的系统电量
 }
 
 --超级据点据点信息
 local XStrongholdGroupInfo = XClass(nil, "XStrongholdGroupInfo")
 
-function XStrongholdGroupInfo:Ctor(id)
+function XStrongholdGroupInfo:Ctor(id, isHistory)
     for key, value in pairs(Default) do
         if type(value) == "table" then
             self[key] = {}
@@ -29,7 +30,9 @@ function XStrongholdGroupInfo:Ctor(id)
     end
 
     self._Id = id
-    self._ChapterType = XStrongholdConfigs.GetChapterTypeByGroupId(id)
+    if not isHistory then
+        self._ChapterType = XStrongholdConfigs.GetChapterTypeByGroupId(id)
+    end
 end
 
 function XStrongholdGroupInfo:GetStageId(stageIndex)
@@ -76,13 +79,14 @@ function XStrongholdGroupInfo:InitStageData(stageIds, stageBuffIdDic, supportId)
 end
 
 --更新通关使用电量
-function XStrongholdGroupInfo:UpdatePassUseElectric(electric)
+function XStrongholdGroupInfo:UpdatePassUseElectric(electric, systemElectric)
     self._PassUseElectric = electric or self._PassUseElectric
+    self._UsedSystemElectricEnergy = systemElectric or self._UsedSystemElectricEnergy
 end
 
---更新通关使用电量
+--获得通关使用电量
 function XStrongholdGroupInfo:GetPassUseElectric()
-    return self._PassUseElectric
+    return self._PassUseElectric, self._UsedSystemElectricEnergy
 end
 
 function XStrongholdGroupInfo:UpdateFinishStages(finishStageIds)

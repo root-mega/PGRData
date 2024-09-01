@@ -20,6 +20,7 @@ function XUiBabelTowerChallengeChoice:Ctor(ui)
     self.BtnGuideMask.CallBack = function() self:OnBtnGuideMaskClick() end
 end
 
+---@param uiRoot UiBabelTowerChildChallenge
 function XUiBabelTowerChallengeChoice:Init(uiRoot)
     self.UiRoot = uiRoot
 end
@@ -62,7 +63,7 @@ function XUiBabelTowerChallengeChoice:InitChallengeList()
         self.ChallengeBtnCompList[i] = self.ChallengeItemList[i]:GetXUiButtonComp()
         self.ChallengeBtnCompList[i]:ShowTag(false)
 
-        local isLock = self:IsBuffLock(buffId)
+        local isLock = self.UiRoot.UiRoot:IsBuffLock(buffId)
         if isLock then
             self.ChallengeBtnCompList[i]:SetButtonState(UiButtonState.Disable)
         end
@@ -135,12 +136,14 @@ end
 -- buttonGroup方式选中
 function XUiBabelTowerChallengeChoice:OnChallengeChoiceItemClick(index)
     local currentSelectBuffId = self.BuffGroupTemplate.BuffId[index]
-    if self:IsBuffLock(currentSelectBuffId) then
+    local lockCallback = function()
         local openLevel = XFubenBabelTowerConfigs.GetStageDifficultLockBuffIdOpenLevel(self.StageId, currentSelectBuffId)
         openLevel = openLevel <= XFubenBabelTowerConfigs.Difficult.Count and openLevel + 1 or openLevel
         local diffName = XFubenBabelTowerConfigs.GetStageDifficultName(self.StageId, openLevel)
         local tip = CSXTextManagerGetText("BabelTowerStageLevelBuffLocked", diffName)
         XUiManager.TipMsg(tip)
+    end
+    if self.UiRoot.UiRoot:IsBuffLock(currentSelectBuffId, lockCallback) then
         return
     end
 
@@ -175,12 +178,6 @@ end
 
 function XUiBabelTowerChallengeChoice:IsBuffListOverCount()
     return false
-end
-
-function XUiBabelTowerChallengeChoice:IsBuffLock(buffId)
-    local selectDifficult = XDataCenter.FubenBabelTowerManager.GetTeamSelectDifficult(self.StageId, self.TeamId)
-    local openLevel = XFubenBabelTowerConfigs.GetStageDifficultLockBuffIdOpenLevel(self.StageId, buffId)
-    return openLevel and openLevel ~= 0 and selectDifficult <= openLevel or false
 end
 
 return XUiBabelTowerChallengeChoice

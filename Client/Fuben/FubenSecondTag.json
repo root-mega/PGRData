@@ -5,7 +5,12 @@
         "TagName": "Floating Record",
         "Order": 1,
         "ChapterType": [
-            76
+            null,
+            76,
+            null,
+            null,
+            null,
+            null
         ],
         "Bg": "Assets/Product/Texture/Image/UiNewFuBen/NewFuBenBg1.png"
     },
@@ -13,9 +18,14 @@
         "Id": 2,
         "FirstTagId": 3,
         "TagName": "Event Record",
-        "Order": 2,
+        "Order": 3,
         "ChapterType": [
-            75
+            null,
+            75,
+            null,
+            null,
+            null,
+            null
         ],
         "Bg": "Assets/Product/Texture/Image/UiNewFuBen/NewFuBenBg2.png"
     },
@@ -23,9 +33,14 @@
         "Id": 3,
         "FirstTagId": 3,
         "TagName": "Extra Story",
-        "Order": 3,
+        "Order": 4,
         "ChapterType": [
-            74
+            null,
+            74,
+            null,
+            null,
+            null,
+            null
         ],
         "Bg": "Assets/Product/Texture/Image/UiNewFuBen/NewFuBenBg3.png"
     },
@@ -33,9 +48,14 @@
         "Id": 4,
         "FirstTagId": 3,
         "TagName": "Interlude",
-        "Order": 4,
+        "Order": 5,
         "ChapterType": [
-            77
+            null,
+            77,
+            null,
+            null,
+            null,
+            null
         ],
         "Bg": "Assets/Product/Texture/Image/UiNewFuBen/NewFuBenBg4.png"
     },
@@ -45,10 +65,12 @@
         "TagName": "Study Course",
         "Order": 1,
         "ChapterType": [
+            null,
             72,
             14.0,
             47.0,
-            80.0
+            80.0,
+            null
         ],
         "Bg": "Assets/Product/Texture/Image/UiNewFuBen/NewFuBenYanxiBg1.png"
     },
@@ -58,7 +80,12 @@
         "TagName": "BP Training",
         "Order": 1,
         "ChapterType": [
-            73
+            null,
+            73,
+            null,
+            null,
+            null,
+            null
         ],
         "Bg": "Assets/Product/Texture/Image/UiNewFuBen/NewFuBenZiyuanBg1.png"
     },
@@ -68,7 +95,12 @@
         "TagName": "Character Shard",
         "Order": 2,
         "ChapterType": [
-            78
+            null,
+            78,
+            null,
+            null,
+            null,
+            null
         ],
         "Bg": "Assets/Product/Texture/Image/UiNewFuBen/NewFuBenZiyuanBg1.png"
     },
@@ -78,10 +110,12 @@
         "TagName": "Regular Challenge",
         "Order": 1,
         "ChapterType": [
+            null,
             5,
             7.0,
             10.0,
-            44.0
+            44.0,
+            91.0
         ],
         "Bg": "Assets/Product/Texture/Image/UiNewFuBen/NewFuBenTiaozhanBg1.png"
     },
@@ -91,10 +125,12 @@
         "TagName": "Special Challenge",
         "Order": 2,
         "ChapterType": [
+            null,
             71,
             9.0,
             28.0,
-            11.0
+            11.0,
+            86.0
         ],
         "Bg": "Assets/Product/Texture/Image/UiNewFuBen/NewFuBenTiaozhanBg1.png"
     },
@@ -104,9 +140,28 @@
         "TagName": "Alternative Interpretation",
         "Order": 3,
         "ChapterType": [
+            null,
             60,
-            81.0
+            81.0,
+            92.0,
+            null,
+            null
         ],
         "Bg": "Assets/Product/Texture/Image/UiNewFuBen/NewFuBenTiaozhanBg1.png"
+    },
+    {
+        "Id": 11,
+        "FirstTagId": 3,
+        "TagName": "Arcade Anima",
+        "Order": 2,
+        "ChapterType": [
+            null,
+            83,
+            null,
+            null,
+            null,
+            null
+        ],
+        "Bg": "Assets/Product/Texture/Image/UiNewFuBen/NewFuBenBg1.png"
     }
 ]

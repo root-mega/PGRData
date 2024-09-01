@@ -60,7 +60,9 @@ function XUiPivotCombatCenterSettle:Refresh()
         
     --播放音效
     self.AudioInfo = CS.XAudioManager.PlaySound(XSoundManager.UiBasicsMusic.UiSettle_Win_Number)
-    
+
+    self.BtnQuit.gameObject:SetActiveEx(false)
+    self.BtnReFight.gameObject:SetActiveEx(false)
     XUiHelper.Tween(time, function(delta) 
         
         --当前总分
@@ -73,6 +75,8 @@ function XUiPivotCombatCenterSettle:Refresh()
         
     end, function()
         self:StopAudio()
+        self.BtnQuit.gameObject:SetActiveEx(true)
+        self.BtnReFight.gameObject:SetActiveEx(true)
     end)
     
 end
@@ -148,8 +152,8 @@ function XUiPivotCombatCenterSettle:StopAudio()
 end
 
 function XUiPivotCombatCenterSettle:InitUI()
-    self.BtnQuit.gameObject:SetActiveEx(true)
-    self.BtnReFight.gameObject:SetActiveEx(true)
+    --self.BtnQuit.gameObject:SetActiveEx(true)
+    --self.BtnReFight.gameObject:SetActiveEx(true)
     self.GridWinRole.gameObject:SetActiveEx(false)
     self.BossLoseHp.gameObject:SetActiveEx(false)
     self.TxtAllRating = self.TxtHistoryScore.transform.parent:Find("TxtAllRating"):GetComponent("Text")

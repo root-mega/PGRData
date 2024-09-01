@@ -48,7 +48,7 @@ end
 
 function XUiPanelCharQualityOther:AutoInitUi()
     --星节点区域
-    for i = 1, XCharacterConfigs.MAX_QUALITY_STAR do
+    for i = 1, XEnumConst.CHARACTER.MAX_QUALITY_STAR do
         --Bg
         self["ImgLine" .. i] = self.Bg.transform:Find("ImgLine"..i):GetComponent("Image")
         --PanelWaferIcon-星节点
@@ -90,7 +90,7 @@ function XUiPanelCharQualityOther:InitIcon()
     self.SelectIcon = {}
     self.Line = {}
     self.StarColour = {}
-    for i = 1, XCharacterConfigs.MAX_QUALITY_STAR do
+    for i = 1, XEnumConst.CHARACTER.MAX_QUALITY_STAR do
         self.StarColour[i] = self["ImgWaferColour" .. i]
         self.StarIcon[i] = self["ImgWaferon" .. i]
         self.StarAttr[i] = self["TxtWaferName" .. i]
@@ -114,7 +114,7 @@ function XUiPanelCharQualityOther:HidePanel()
 end
 
 function XUiPanelCharQualityOther:RefreshPanel()
-    local maxStar = XCharacterConfigs.MAX_QUALITY_STAR
+    local maxStar = XEnumConst.CHARACTER.MAX_QUALITY_STAR
     local isMaxStar = self.Character.Star == maxStar
     
     self:UpdateWaferCircuit(self.Character)
@@ -136,7 +136,7 @@ end
 function XUiPanelCharQualityOther:UpdateWaferCircuit(character)
     local isMaxQuality = XDataCenter.CharacterManager.IsMaxQuality(character)
     local qualityIcon = XCharacterConfigs.GetCharacterQualityIcon(character.Quality)
-    local isMaxStar = character.Star == XCharacterConfigs.MAX_QUALITY_STAR
+    local isMaxStar = character.Star == XEnumConst.CHARACTER.MAX_QUALITY_STAR
 
     self.ImgPromoteQulityMax.gameObject:SetActive(isMaxQuality)
     self.RImgQuality.gameObject:SetActive(not isMaxQuality and not isMaxStar)
@@ -168,7 +168,7 @@ end
 --===========================================================================
 function XUiPanelCharQualityOther:UpdateStar(character)
     -- 刷新星节点图标
-    for i = 1, XCharacterConfigs.MAX_QUALITY_STAR do
+    for i = 1, XEnumConst.CHARACTER.MAX_QUALITY_STAR do
         local isSkillStar = XCharacterConfigs.GetCharSkillQualityApartDicByStar(self.CharacterId, character.Quality, i)
         if #isSkillStar > 0 then
             self.StarColour[i]:SetSprite(CharSkillQualityNorIcon)
@@ -188,7 +188,7 @@ function XUiPanelCharQualityOther:UpdateStar(character)
     end
 
     -- 未亮星节点
-    for i = XCharacterConfigs.MAX_QUALITY_STAR, character.Star + 1, -1 do
+    for i = XEnumConst.CHARACTER.MAX_QUALITY_STAR, character.Star + 1, -1 do
         self.StarIcon[i].gameObject:SetActive(false)
         self.Line[i].gameObject:SetActive(false)
         self.StarColour[i].gameObject:SetActive(true)

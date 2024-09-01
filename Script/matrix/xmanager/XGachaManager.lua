@@ -1,14 +1,20 @@
 XGachaManagerCreator = function()
     local GET_GACHA_DATA_INTERVAL = 15
     local XGachaManager = {}
-    local GachaRewardInfos = {}
+    local ParseToTimestamp = XTime.ParseToTimestamp 
+
+    -- 以下数据都要通过gachaId查找，因为可能同时开多个卡池 
+    local LastGetGachaRewardInfoTimes = {}
     local GachaProbShows = {}
     local GachaLogList = {}
-    local LastGetGachaRewardInfoTimes = {}
-    local CurCountOfAll = 0
-    local MaxCountOfAll = 0
-    local IsInfinite = false
-    local ParseToTimestamp = XTime.ParseToTimestamp 
+    local GachaRewardInfos = {}
+    local IsInfinite = {}
+    local CurCountOfAll = {}
+    local MaxCountOfAll = {}
+    local CurExchangeItemCount = {} -- 当前购买过的gacha币数量
+    local TotalGachaTimes = {}
+    local MissTimes = {} -- 保底次数
+    --
 
     -- 卡池组状态
     -- Key:number OrganizeId
@@ -19,25 +25,48 @@ XGachaManagerCreator = function()
         GetGachaInfo = "GetGachaInfoRequest",
         Gacha = "GachaRequest",
         GetGachaOrganizeInfo = "GetGachaOrganizeInfoRequest",
+        GachaItemExchangeRequest = "GachaItemExchangeRequest",
     }
 
     function XGachaManager.Init()
-        XGachaManager.SetGachaRewardInfo()
         XGachaManager.SetGachaProbShowInfo()
+        
+        local gachaCfg = XGachaConfigs.GetGachas()
+        for k, v in pairs(gachaCfg) do
+            XGachaManager.SetGachaRewardInfo(k)
+            IsInfinite[k] = false
+            CurCountOfAll[k] = 0
+            MaxCountOfAll[k] = 0
+            CurExchangeItemCount[k] = 0
+            TotalGachaTimes[k] = 0
+            MissTimes[k] = 0
+        end
+    end
+
+    function XGachaManager.GetMissTimes(gachaId)
+        return MissTimes[gachaId] or 0
+    end
+
+    function XGachaManager.GetCurExchangeItemCount(gachaId)
+        return CurExchangeItemCount[gachaId] or 0
+    end
+
+    function XGachaManager.GetTotalGachaTimes(gachaId)
+        return TotalGachaTimes[gachaId] or 0
     end
 
     function XGachaManager.GetGachaRewardInfoById(gaChaId)
         local gachaCfg = XGachaConfigs.GetGachas()
-        MaxCountOfAll = 0
-        CurCountOfAll = 0
-        IsInfinite = false
+        MaxCountOfAll[gaChaId] = 0
+        CurCountOfAll[gaChaId] = 0
+        IsInfinite[gaChaId] = false
         local groupIdList = {}
         for _, groupId in pairs(gachaCfg[gaChaId].GroupId) do
             table.insert(groupIdList, groupId)
         end
 
         local list = {}
-        for _, v in pairs(GachaRewardInfos) do
+        for _, v in pairs(GachaRewardInfos[gaChaId]) do
             for _, groupId in pairs(groupIdList) do
                 if v.GroupId == groupId then
                     table.insert(list, v)
@@ -48,10 +77,10 @@ XGachaManagerCreator = function()
         end
         for _, v in pairs(list) do
             if v.RewardType == XGachaConfigs.RewardType.NotCount then
-                IsInfinite = true
+                IsInfinite[gaChaId] = true
             end
-            MaxCountOfAll = MaxCountOfAll + v.UsableTimes
-            CurCountOfAll = CurCountOfAll + (v.UsableTimes - v.CurCount)
+            MaxCountOfAll[gaChaId]  = MaxCountOfAll[gaChaId]  + v.UsableTimes
+            CurCountOfAll[gaChaId]  = CurCountOfAll[gaChaId]  + (v.UsableTimes - v.CurCount)
         end
 
         table.sort(list, function(a, b)
@@ -62,6 +91,33 @@ XGachaManagerCreator = function()
             end
         end)
         return list
+    end
+
+    function XGachaManager.IsClearMinimumGuarantee(gaChaId)
+        local gachaCfg = XGachaConfigs.GetGachaCfgById(gaChaId)
+        local data = XGachaManager.GetGachaRewardInfoById(gaChaId)
+        local isAllClear = true
+        for k, v in pairs(data) do
+            if v.CurCount > 0 and v.GroupId == gachaCfg.PropAddGroupId then
+                isAllClear = false
+            end
+        end
+
+        return isAllClear
+    end
+    -- 1核心层，2第一层、、、
+    function XGachaManager.GetGachaRewardSplitByRareLevel(gaChaId)
+        local list = XGachaManager.GetGachaRewardInfoById(gaChaId)
+        local res = {}
+        for k, v in pairs(list) do
+            if XTool.IsNumberValid(v.Rarelevel) then
+                if not res[v.Rarelevel] then
+                    res[v.Rarelevel] = {}
+                end
+                table.insert(res[v.Rarelevel], v)
+            end
+        end
+        return res
     end
     
     function XGachaManager.GetGachaProbShowById(gaChaId)
@@ -81,16 +137,19 @@ XGachaManagerCreator = function()
         return gachaProbShowInfo
     end
 
-    function XGachaManager.GetCurCountOfAll()
-        return CurCountOfAll
+    function XGachaManager.GetCurCountOfAll(gachaId)
+        return CurCountOfAll[gachaId] or 0
     end
 
-    function XGachaManager.GetMaxCountOfAll()
-        return MaxCountOfAll
+    function XGachaManager.GetMaxCountOfAll(gachaId)
+        return MaxCountOfAll[gachaId] or 0
     end
     
-    function XGachaManager.GetIsInfinite()
-        return IsInfinite
+    function XGachaManager.GetIsInfinite(gachaId)
+        if IsInfinite[gachaId] then
+            return true
+        end
+        return false
     end
 
     function XGachaManager.GetGachaLogById(gachaId)
@@ -117,19 +176,16 @@ XGachaManagerCreator = function()
            return false
         end
         
-        local nowTime = XTime.GetServerNowTimestamp()
-        local startTime = ParseToTimestamp(gachaCfg[id].StartTimeStr)
-        local endTime = ParseToTimestamp(gachaCfg[id].EndTimeStr)
-        local IsClose = nowTime > endTime
-        local IsNotOpen = startTime > nowTime
-        if IsShowText and IsNotOpen then
-            local str = CS.XTextManager.GetText("GachaIsNotOpen", gachaCfg[id].StartTimeStr, gachaCfg[id].EndTimeStr)
+        local timeId = gachaCfg[id].TimeId
+        local IsInTime = XFunctionManager.CheckInTimeByTimeId(timeId)
+        if IsShowText and not IsInTime then
+            local str = CS.XTextManager.GetText("GachaIsClose")
             XUiManager.TipMsg(str)
         end
-        if IsShowText and IsClose then
-            XUiManager.TipText("GachaIsClose")
-        end
-        return (not IsClose) and (not IsNotOpen)
+        -- if IsShowText and IsClose then
+        --     XUiManager.TipText("GachaIsClose")
+        -- end
+        return IsInTime
     end
 
     ---
@@ -158,10 +214,10 @@ XGachaManagerCreator = function()
         return (not IsClose) and (not IsNotOpen)
     end
 
-    function XGachaManager.UpdateGachaRewardInfo(gridInfoList)
+    function XGachaManager.UpdateGachaRewardInfo(gridInfoList, gachaId)
         for _, v in pairs(gridInfoList or {}) do
-            if GachaRewardInfos[v.Id] then
-                GachaRewardInfos[v.Id].CurCount = GachaRewardInfos[v.Id].UsableTimes - v.Times
+            if GachaRewardInfos[gachaId][v.Id] then
+                GachaRewardInfos[gachaId][v.Id].CurCount = GachaRewardInfos[gachaId][v.Id].UsableTimes - v.Times
             end
         end
     end
@@ -171,14 +227,19 @@ XGachaManagerCreator = function()
         GachaLogList[gachaId] = logList
     end
 
-    function XGachaManager.SetGachaRewardInfo()
+    function XGachaManager.SetGachaRewardInfo(gachaId)
         local gachaRewardCfg = XGachaConfigs.GetGachaReward()
+        local tempGachaInfo = GachaRewardInfos[gachaId]
+        if not tempGachaInfo then
+            GachaRewardInfos[gachaId] = {}
+            tempGachaInfo = GachaRewardInfos[gachaId]
+        end
         for id, reward in pairs(gachaRewardCfg) do
-            GachaRewardInfos[id] = {}
+            tempGachaInfo[id] = {}
             for k, v in pairs(reward) do
-                GachaRewardInfos[id][k] = v
+                tempGachaInfo[id][k] = v
             end
-            GachaRewardInfos[id].CurCount = GachaRewardInfos[id].UsableTimes
+            tempGachaInfo[id].CurCount = tempGachaInfo[id].UsableTimes
         end
     end
 
@@ -201,13 +262,15 @@ XGachaManagerCreator = function()
                 XUiManager.TipCode(res.Code)
                 return
             end
-            XGachaManager.UpdateGachaRewardInfo(res.GridInfoList)
+            XGachaManager.UpdateGachaRewardInfo(res.GridInfoList, gaChaId)
             XGachaManager.UpdateGachaLog(gaChaId, res.GachaRecordList)
             LastGetGachaRewardInfoTimes[gaChaId] = XTime.GetServerNowTimestamp()
-            cb()
+            CurExchangeItemCount[gaChaId] = res.CurExchangeItemCount
+            TotalGachaTimes[gaChaId] = res.TotalTimes
+            MissTimes[gaChaId] = res.MissTimes
+            cb(res)
         end)
     end
-
 
     function XGachaManager.DoGacha(gaChaId, count, cb, errorCb, organizeId)
         XNetwork.Call(METHOD_NAME.Gacha, { Id = gaChaId, Times = count }, function(res)
@@ -218,8 +281,10 @@ XGachaManagerCreator = function()
                 end
                 return
             end
-            XGachaManager.UpdateGachaRewardInfo(res.GridInfoList)
+            XGachaManager.UpdateGachaRewardInfo(res.GridInfoList, gaChaId)
             XGachaManager.UpdateGachaLog(gaChaId, res.GachaRecordList)
+            TotalGachaTimes[gaChaId] = res.GachaCourseResult.TotalTimes
+            MissTimes[gaChaId] = res.MissTimes
 
             local newUnlockGachaId
             if organizeId then
@@ -241,7 +306,7 @@ XGachaManagerCreator = function()
                 return
             end
 
-            XGachaManager.UpdateGachaRewardInfo(res.GridInfoList)
+            XGachaManager.UpdateGachaRewardInfo(res.GridInfoList, organizeId)
             XGachaManager.UpdateGachaLog(res.CurrentId, res.GachaRecordList)
             XGachaManager.OpenUpdateOrganizeStatus(organizeId, res.CurrentId, res.OutOfStockIdList)
             if cb then
@@ -325,7 +390,7 @@ XGachaManagerCreator = function()
         local groupIdList = {}
 
         -- 是否无限次数
-        if IsInfinite then
+        if IsInfinite[DrawingGachaId] then
             isSoldOut = false
         else
             -- 找出DrawingGachaId的奖励
@@ -334,7 +399,7 @@ XGachaManagerCreator = function()
                 table.insert(groupIdList, groupId)
             end
 
-            for _, v in pairs(GachaRewardInfos) do
+            for _, v in pairs(GachaRewardInfos[DrawingGachaId]) do
                 -- 是否属于DrawingGachaId的奖励组
                 for _, groupId in pairs(groupIdList) do
                     if v.GroupId == groupId and v.CurCount ~= 0 then
@@ -406,6 +471,18 @@ XGachaManagerCreator = function()
         if status then
             return status, nextGachaId
         end
+    end
+
+    function XGachaManager.BuyTicket(gachaId, buyCount, ticketKey, cb)
+        XNetwork.Call(METHOD_NAME.GachaItemExchangeRequest, { Id = gachaId, ExchangeNum = buyCount, SelectIndex = ticketKey }, function(res)
+            if res.Code ~= XCode.Success then
+                XUiManager.TipCode(res.Code)
+                return
+            end
+            CurExchangeItemCount[gachaId] = res.CurExchangeItemCount
+            local reward = XRewardManager.CreateRewardGoodsByTemplate({ TemplateId = res.GainItemId, Count = res.GainItemCount })
+            if cb then cb({ reward }) end
+        end)
     end
     --------------------------------------------------------------------------------------------------------------------
 

@@ -16,12 +16,14 @@ function XUiPanelBossSkill:AddEventListener()
     XEventManager.AddEventListener(XEventId.EVENT_SC_ACTION_BOSSSKILL, self.BossSkillChange, self)
     XEventManager.AddEventListener(XEventId.EVENT_SC_ACTION_BOSSSKIPSKILL, self.BossSkillChange, self)
     XEventManager.AddEventListener(XEventId.EVENT_SC_ACTION_ROUND_CHANGE, self.DoSkillCountDown, self)
+    XEventManager.AddEventListener(XEventId.EVENT_SC_ACTION_BUFF_LEFTTIME_CHANGE, self.DoSkillCountDown, self)
 end
 
 function XUiPanelBossSkill:RemoveEventListener()
     XEventManager.RemoveEventListener(XEventId.EVENT_SC_ACTION_BOSSSKILL, self.BossSkillChange, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_SC_ACTION_BOSSSKIPSKILL, self.BossSkillChange, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_SC_ACTION_ROUND_CHANGE, self.DoSkillCountDown, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_SC_ACTION_BUFF_LEFTTIME_CHANGE, self.DoSkillCountDown, self)
 end
 
 function XUiPanelBossSkill:Init()

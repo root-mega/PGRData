@@ -1,237 +1,450 @@
 [
     {
         "Key": "MainViewShowRewardId",
-        "Comment": "\u4e3b\u754c\u9762\u5956\u52b1\u5c55\u793a",
+        "Comment": "Main Screen Reward Display",
         "Values": [
-            "550261"
+            null,
+            "61700",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "RewardTips",
-        "Comment": "\u5956\u52b1\u63d0\u793a",
+        "Comment": "Reward Tips",
         "Values": [
-            "\u5f53\u524d\u65e0\u53ef\u9886\u53d6\u5956\u52b1",
-            "\u6f14\u7b97\u6b63\u5728\u8fdb\u884c\u65f6\u65e0\u6cd5\u9886\u53d6\u5956\u52b1",
-            "\u8fbe\u5230\u7b49\u7ea7\u4e0a\u9650"
+            null,
+            "No claimable rewards found",
+            "Ongoing calculation. Unable to claim rewards.",
+            "Level limit reached",
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "HelpKey",
-        "Comment": "\u5e2e\u52a9Key",
+        "Comment": "Help Key",
         "Values": [
-            "BiancaTheatre"
+            null,
+            "UiTheatre3",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "StrengthenTreeMaxCount",
-        "Comment": "\u5929\u8d4b\u6811\u6700\u5927\u957f\u5ea6",
+        "Comment": "Max Talent Tree Length",
         "Values": [
-            "31"
+            null,
+            "31",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "StrengthenTreeTips",
-        "Comment": "\u5929\u8d4b\u6811\u63d0\u793a",
+        "Comment": "Talent Tree Tips",
         "Values": [
-            "\u8c03\u5236\u89e3\u8c03\u5668\u6570\u91cf\u4e0d\u8db3",
-            "\u6709\u5c1a\u672a\u5b8c\u6210\u7684\u6f14\u7b97\uff0c\u6f14\u7b97\u8fc7\u7a0b\u4e2d\u65e0\u6cd5\u6fc0\u6d3b\u5929\u8d4b",
-            "\u524d\u7f6e\u6f5c\u8d28\u672a\u89e3\u9501"
+            null,
+            "Insufficient Modems.",
+            "Unfinished calculation. Unable to activate during the calculation.",
+            "Prerequisite potential locked.",
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "StrengthenTreeBtnActiveName",
-        "Comment": "\u5929\u8d4b\u6811\u6fc0\u6d3b\u6309\u94ae\u6587\u672c",
+        "Comment": "Talent Tree Activation Button Text",
         "Values": [
-            "\u672a\u89e3\u9501",
-            "\u5df2\u6fc0\u6d3b",
-            "\u6fc0\u6d3b"
+            null,
+            "Locked",
+            "Activated",
+            "Activate",
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "CharacterLevelUpGetBuffDesc",
-        "Comment": "\u89d2\u8272\u5347\u7ea7\u83b7\u5f97Buff\u6587\u672c",
+        "Comment": "Character Upgrade Granted Buff Text",
         "Values": [
-            "\u8c03\u5236\u89e3\u8c03\u5668<color=#cc84d5>+%s</color>"
+            null,
+            "Modem <color=#cc84d5>+%s</color>",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "CharacterLevelMaxDesc",
-        "Comment": "\u89d2\u8272\u8fbe\u5230\u6700\u5927\u7b49\u7ea7\u63cf\u8ff0",
+        "Comment": "Character Max Level Description",
         "Values": [
-            "\u5df2\u8fbe\u5230\u6700\u5927\u7b49\u7ea7"
+            null,
+            "Max level reached",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "HandbookPropDetailLockTips",
-        "Comment": "\u56fe\u9274\u8be6\u60c5\u89e3\u9501\u63d0\u793a",
+        "Comment": "Codex Details Unlocking Tips",
         "Values": [
-            "\u6f14\u7b97\u4e2d\u83b7\u5f97\u85cf\u54c1\u540e\u53ef\u67e5\u770b\u8be6\u60c5",
-            "\u6f14\u7b97\u4e2d\u83b7\u5f97\u88c5\u5907\u540e\u53ef\u67e5\u770b\u8be6\u60c5"
+            null,
+            "Obtain the Artifact during the calculation to view details.",
+            "Obtain the equipment during the calculation to view details.",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "HandbookPropUnlockPercent",
-        "Comment": "\u56fe\u9274\u89e3\u9501\u8fdb\u5ea6",
+        "Comment": "Codex Unlock Progress",
         "Values": [
-            "\\n%d<color=#434f56>/%d</color>"
+            null,
+            "\\n%d<color=#434f56>/%d</color>",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "HandbookPropLockName",
-        "Comment": "\u56fe\u9274\u672a\u89e3\u9501\u7684\u540d\u79f0",
+        "Comment": "Locked Codex Name",
         "Values": [
-            "\u672a\u77e5"
+            null,
+            "Unknown",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Key": "HandbookPropDesc",
+        "Comment": "Codex Description",
+        "Values": [
+            null,
+            "Only unlocked Artifacts will appear in the calculation.",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3EntryProgressDesc",
-        "Comment": "\u5165\u53e3\u8fdb\u5ea6\u63cf\u8ff0",
+        "Comment": "Entry Progress Description",
         "Values": [
-            "\u5f53\u524d\u7b49\u7ea7: %s/%s"
+            null,
+            "Current Level: %s/%s",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3FirstEntryStoryId",
-        "Comment": "\u9996\u6b21\u64ad\u653e\u5267\u60c5Id",
+        "Comment": "First Played Cutscene ID",
         "Values": [
-            "RG00701BA"
+            null,
+            "RG00701BA",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3MainTaskCompleteDesc",
-        "Comment": "\u4e3b\u754c\u9762\u4efb\u52a1\u5165\u53e3\u663e\u793a",
+        "Comment": "Main Interface Mission Entrance Display",
         "Values": [
-            "\u5df2\u5b8c\u6210\u6240\u6709\u4efb\u52a1"
+            null,
+            "All mission completed",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3MainTaskCompleteTitle",
-        "Comment": "\u4e3b\u754c\u9762\u4efb\u52a1\u5165\u53e3\u663e\u793a",
+        "Comment": "Main Interface Mission Entrance Display",
         "Values": [
-            "\u4efb\u52a1"
+            null,
+            "Mission",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3EquipUseTypeIcon",
-        "Comment": "\u88c5\u5907\u7528\u9014\u7c7b\u578b",
+        "Comment": "Equipment Usage Type",
         "Values": [
+            null,
             "Assets/Product/Texture/Image/IconType/IconZY2.png",
-            "Assets/Product/Texture/Image/IconType/IconZY6.png"
+            "Assets/Product/Texture/Image/IconType/IconZY6.png",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3EquipPosTypeIcon",
-        "Comment": "\u88c5\u5907\u90e8\u4f4d\u7c7b\u578b",
+        "Comment": "Equipment Part Type",
         "Values": [
+            null,
             "Assets/Product/Texture/Image/IconTools/IconDlcHunt007.png",
             "Assets/Product/Texture/Image/IconTools/IconDlcHunt008.png",
-            "Assets/Product/Texture/Image/IconTools/IconDlcHunt009.png"
+            "Assets/Product/Texture/Image/IconTools/IconDlcHunt009.png",
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3EquipAttTypeIcon",
-        "Comment": "\u88c5\u5907\u5c5e\u6027\u7c7b\u578b",
+        "Comment": "Equipment Attribute Type",
         "Values": [
+            null,
             "Assets/Product/Texture/Image/IconType/IconTypeYsWuli.png",
             "Assets/Product/Texture/Image/IconType/IconTypeYsHuo.png",
             "Assets/Product/Texture/Image/IconType/IconTypeYsLei.png",
             "Assets/Product/Texture/Image/IconType/IconTypeYsBing.png",
-            "Assets/Product/Texture/Image/IconType/IconTypeYsAn.png"
+            "Assets/Product/Texture/Image/IconType/IconTypeYsAn.png",
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3GetRewardSound",
-        "Comment": "\u83b7\u5f97\u5956\u52b1\u97f3\u6548(1:\u9053\u5177\u7bb1 | 2:\u91d1\u5e01 | 3:\u88c5\u5907\u7bb1)",
+        "Comment": "Reward Sound Effect (1: Item Crate | 2: Coin | 3: Equipment Crate)",
         "Values": [
+            null,
             "2829",
             "2830",
-            "2831"
+            "2831",
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3NoneCharacterIcon",
-        "Comment": "\u7a7a\u89d2\u8272\u56fe\u6807",
-        "Values": []
+        "Comment": "Empty Character Icon",
+        "Values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Key": "Theatre3CharacterEndingLock",
-        "Comment": "\u7ed3\u5c40\u662f\u5426\u6fc0\u6d3b",
+        "Comment": "Ending Activated or Not",
         "Values": [
-            "\u5df2\u6fc0\u6d3b",
-            "\u672a\u6fc0\u6d3b"
+            null,
+            "Activated",
+            "Not Activated",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3EquipNotLockTips",
-        "Comment": "\u88c5\u5907\u672a\u89e3\u9501\u63d0\u793a",
+        "Comment": "Locked Equipment Tips",
         "Values": [
-            "%s\u672a\u89e3\u9501"
+            null,
+            "%s locked.",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3CharacterEndingLockTips",
-        "Comment": "\u7ed3\u5c40\u52a0\u6210\u672a\u6fc0\u6d3b\u63d0\u793a",
+        "Comment": "Inactivate Ending Bonus Tips",
         "Values": [
-            "%s\u672a\u6fc0\u6d3b"
+            null,
+            "%s not activated.",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "MainBtnIcon",
-        "Comment": "\u4e3b\u754c\u9762\u5f00\u59cb\u6e38\u620f\u6309\u94ae\u56fe\u6807",
+        "Comment": "Main Interface Game Start Button Icon",
         "Values": [
+            null,
             "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3MainContinue.png",
-            "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3MainStart.png"
+            "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3MainStart.png",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3EquipCapcityDesc",
-        "Comment": "\u88c5\u5907\u5bb9\u91cf\u63cf\u8ff0",
+        "Comment": "Equipment Capacity Description",
         "Values": [
+            null,
             "<color=#FFFFFF>%s/%s</color>",
-            "<color=#FF0000>%s/%s</color>"
+            "<color=#FF0000>%s/%s</color>",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3SlotEmptyIcon",
-        "Comment": "\u7a7a\u69fd\u4f4d\u56fe\u6807",
+        "Comment": "Empty Slot Icon",
         "Values": [
+            null,
             "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3Equiptouxiang001.png",
             "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3Equiptouxiang002.png",
-            "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3Equiptouxiang003.png"
+            "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3Equiptouxiang003.png",
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ShopItemCostColor",
-        "Comment": "\u5546\u5e97\u4ef7\u683c\u989c\u8272",
+        "Comment": "Shop Price Color",
         "Values": [
+            null,
             "424b54",
-            "b73a3a"
+            "b73a3a",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3SlotIndexIcon",
-        "Comment": "\u69fd\u4f4d\u7d22\u5f15\u56fe\u6807",
+        "Comment": "Slot Index Icon",
         "Values": [
+            null,
             "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3HeadBg01.png",
             "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3HeadBg02.png",
-            "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3HeadBg03.png"
+            "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3HeadBg03.png",
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "Theatre3CharacterIndexIcon",
-        "Comment": "\u89d2\u8272\u4f4d\u7d22\u5f15\u56fe\u6807",
+        "Comment": "Character Index Icon",
         "Values": [
+            null,
             "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3Number1.png",
             "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3Number2.png",
-            "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3Number3.png"
+            "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3Number3.png",
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "EquipUseTypeIcon",
         "Comment": null,
         "Values": [
+            null,
             "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3Equiphong.png",
-            "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3Equiplv.png"
+            "Assets/Product/Texture/Atlas/UiTheatre3/UiTheatre3Equiplv.png",
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Key": "FightRewardGetSound",
+        "Comment": "Sound Processing",
+        "Values": [
+            null,
+            "4089",
+            "4094",
+            "4088",
+            null,
+            null,
+            null,
+            null
         ]
     }
 ]

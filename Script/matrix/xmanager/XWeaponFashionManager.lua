@@ -46,7 +46,11 @@ XWeaponFashionManagerCreator = function()
         if not data or not next(data) then return end
         local rewards = {}
         tableInsert(rewards, { TemplateId = data.ItemId, Count = data.ItemCount })
-        XUiManager.OpenUiObtain(rewards)
+        if XDataCenter.LottoManager.GetIsInterceptUiObtain() then
+            XDataCenter.LottoManager.CacheWeaponFashionRewards(data)
+        else
+            XUiManager.OpenUiObtain(rewards)
+        end
     end
 
     function XWeaponFashionManager.GetIsNotifyWeaponFashionTransform()
@@ -260,6 +264,17 @@ XWeaponFashionManagerCreator = function()
 
             if cb then cb() end
         end)
+    end
+
+    function XWeaponFashionManager.GetEquipTypeByTemplateId(itemTemplateId)
+        local subTypeParams = XItemConfigs.GetItemSubTypeParams(itemTemplateId)
+        if subTypeParams and #subTypeParams > 0 then
+            local fashionId = subTypeParams[1]
+            if XWeaponFashionConfigs.IsWeaponFashion(fashionId) then
+                return XWeaponFashionConfigs.GetFashionEquipType(fashionId)
+            end
+        end
+        return nil
     end
 
     return XWeaponFashionManager

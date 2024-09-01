@@ -1,6 +1,7 @@
 --============
 --家具动画事件
 --============
+---@class XGuildDormFurnitureAnimationEvent
 local XGuildDormFurnitureAnimationEvent = XClass(nil, "XGuildDormFurnitureAnimationEvent")
 
 function XGuildDormFurnitureAnimationEvent:Ctor(eventType, cb)

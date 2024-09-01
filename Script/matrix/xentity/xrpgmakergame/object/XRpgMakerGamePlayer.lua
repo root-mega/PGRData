@@ -11,7 +11,8 @@ local Default = {
     _FaceDirection = 0,     --朝向
 }
 
---玩家对象
+---推箱子玩家对象
+---@class XRpgMakerGamePlayer : XRpgMakerGameObject
 local XRpgMakerGamePlayer = XClass(XRpgMakerGameObject, "XRpgMakerGamePlayer")
 
 function XRpgMakerGamePlayer:Ctor(id)
@@ -24,15 +25,25 @@ function XRpgMakerGamePlayer:Ctor(id)
     end
 end
 
-function XRpgMakerGamePlayer:InitData(mapId, roleId)
-    local startPointId = XRpgMakerGameConfigs.GetRpgMakerGameStartPointId(mapId)
-    local pointX = XRpgMakerGameConfigs.GetRpgMakerGameStartPointX(startPointId)
-    local pointY = XRpgMakerGameConfigs.GetRpgMakerGameStartPointY(startPointId)
-    local direction = XRpgMakerGameConfigs.GetRpgMakerGameStartPointDirection(startPointId)
+function XRpgMakerGamePlayer:InitData(mapObjData, roleId)
+    -- local startPointId = XRpgMakerGameConfigs.GetRpgMakerGameStartPointId(mapId)
+    -- local pointX = XRpgMakerGameConfigs.GetRpgMakerGameStartPointX(startPointId)
+    -- local pointY = XRpgMakerGameConfigs.GetRpgMakerGameStartPointY(startPointId)
+    -- local direction = XRpgMakerGameConfigs.GetRpgMakerGameStartPointDirection(startPointId)
+
+    self.MapObjData = mapObjData
+    local pointX = mapObjData:GetX()
+    local pointY = mapObjData:GetY()
+    local direction = mapObjData:GetParams()[1]
     self:SetId(roleId)
     self:SetFaceDirection(direction)
     self:SetCurrentHp(DefaultHp)
     self:UpdatePosition({PositionX = pointX, PositionY = pointY})
+end
+
+---@return XMapObjectData
+function XRpgMakerGamePlayer:GetMapObjData()
+    return self.MapObjData
 end
 
 function XRpgMakerGamePlayer:UpdateData(data)
@@ -87,6 +98,19 @@ function XRpgMakerGamePlayer:PlayMoveAction(action, cb, mapId)
             self:DieByDrown(mapId, action.EndPosition.PositionX, action.EndPosition.PositionY)
         elseif nextAction.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionPlayerTransfer then
             self:SetIsTranser(true)
+        end
+    end
+    local bubbleMoveActions = XDataCenter.RpgMakerGameManager.GetActionsNotRemove(XRpgMakerGameConfigs.RpgMakerGameActionType.ActionBubbleMove)
+    for _, temp in ipairs(bubbleMoveActions) do
+        if temp and temp.ShadowId == 0 then
+            local xDistance = action.EndPosition.PositionX - action.StartPosition.PositionX
+            local yDistance = action.EndPosition.PositionY - action.StartPosition.PositionY
+            if xDistance ~= 0 then
+                action.EndPosition.PositionX = xDistance> 0 and action.EndPosition.PositionX - 1 or action.EndPosition.PositionX + 1
+            end
+            if yDistance ~= 0 then
+                action.EndPosition.PositionY = yDistance> 0 and action.EndPosition.PositionY - 1 or action.EndPosition.PositionY + 1
+            end
         end
     end
 

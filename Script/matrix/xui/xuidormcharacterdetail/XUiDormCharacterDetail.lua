@@ -4,7 +4,7 @@ local XUiDormCharacterDetail = XLuaUiManager.Register(XLuaUi, "UiDormCharacterDe
 function XUiDormCharacterDetail:OnAwake()
     self:AddListener()
 
-    CS.XGlobalIllumination.SetSceneType(CS.XSceneType.Ui)
+    XUiHelper.SetSceneType(CS.XSceneType.Ui)
 
     XEventManager.AddEventListener(XEventId.EVENT_CHARACTER_MOOD_CHANGED, self.UpdateMoodInfo, self)
     XEventManager.AddEventListener(XEventId.EVENT_CHARACTER_VITALITY_CHANGED, self.UpdateVitalityInfo, self)
@@ -14,7 +14,7 @@ end
 
 function XUiDormCharacterDetail:OnDisable()
     XHomeDormManager.ShowOrHideBuilding(true)
-    CS.XGlobalIllumination.SetSceneType(CS.XSceneType.Dormitory)
+    XUiHelper.SetSceneType(CS.XSceneType.Dormitory)
 end
 
 
@@ -114,6 +114,7 @@ function XUiDormCharacterDetail:InitModelInfo()
     self.Model.transform:SetParent(target, false)
     self.Model.gameObject:SetLayerRecursively(target.gameObject.layer)
     self.PanelDrag.Target = self.Model.transform
+    CS.XShadowHelper.AddShadow(self.Model, true)
 
     local animator = self.Model:GetComponent("Animator")
     animator:SetInteger("State", 1)

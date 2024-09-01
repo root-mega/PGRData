@@ -1,0 +1,38 @@
+[
+    {
+        "Type": 1,
+        "Name": "ATK Boost: Stimulation",
+        "EnName": "Excitation",
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "BelongCareers": [
+            null,
+            " <color=#6495ED>Attacker</color> ",
+            " <color=#6495ED>Vanguard</color> "
+        ],
+        "Description": "Teammates <color=#6495ED>deal 10% more damage</color>. Meanwhile, <color=#6495ED>Extreme Dodges</color> and <color=#6495ED>3-Pings</color> will restore Reinforcement Energy."
+    },
+    {
+        "Type": 2,
+        "Name": "DEF Boost: Accretion",
+        "EnName": "Accretion",
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "BelongCareers": [
+            null,
+            " <color=#6495ED>Tank</color> ",
+            null
+        ],
+        "Description": "The enemy will <color=#6495ED>attack Tank characters first</color>. Allies will gain a <color=#6495ED>10% DMG Reduction</color>. And <color=#6495ED>Extreme Dodges</color> will restore Reinforcement Energy."
+    },
+    {
+        "Type": 3,
+        "Name": "Healing Enhancement: Diffraction",
+        "EnName": "Diffraction",
+        "Icon": "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+        "BelongCareers": [
+            null,
+            " <color=#6495ED>Support</color> ",
+            " <color=#6495ED>Amplifier</color> "
+        ],
+        "Description": "All ally characters <color=#6495ED>restore 1% max HP every second</color>. Meanwhile, the team will restore Reinforcement Energy when <color=#6495ED>causing healing</color>."
+    }
+]

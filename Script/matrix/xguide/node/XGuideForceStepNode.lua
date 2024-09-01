@@ -49,7 +49,8 @@ function GuideForceStepNode:OnEnter()
 
     elseif type == GuideForceStepType.OpenFubenUi then
 
-        XLuaUiManager.Open("UiFuben")
+        -- XLuaUiManager.Open("UiFuben")
+        XLuaUiManager.Open("UiNewFuben")
 
     elseif type == GuideForceStepType.ClickMainLineBanner then
 
@@ -89,7 +90,7 @@ function GuideForceStepNode:OnEnter()
 
     elseif type == GuideForceStepType.SetUpEquip then
 
-        XDataCenter.EquipManager.PutOn(self.Agent:GetVarDicByKey("UiEquipCharacterId"), self.Agent:GetVarDicByKey("UiEquipSelectEquipId"))
+        XMVCA:GetAgency(ModuleId.XEquip):PutOn(self.Agent:GetVarDicByKey("UiEquipCharacterId"), self.Agent:GetVarDicByKey("UiEquipSelectEquipId"))
 
     elseif type == GuideForceStepType.OpenAwarenessReplace then
 

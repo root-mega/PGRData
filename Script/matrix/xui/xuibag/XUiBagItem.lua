@@ -58,7 +58,7 @@ function XUiBagItem:InitUi()
     -- 选中Image
     self.ImgSelect        = XUiHelper.TryGetComponent(self.Transform, "ImgSelect",        "Image")
     -- 选中Image背景
-    self.ImgSelectBg        = XUiHelper.TryGetComponent(self.Transform, "ImgSelectBg",    "Image")
+    self.ImgSelectBg        = XUiHelper.TryGetComponent(self.Transform, "ImgSelect/ImgSelectBg",    "RawImage")
     -- 选择数量
     self.TxtSelect        = XUiHelper.TryGetComponent(self.Transform, "TxtSelect",        "Text")
     -- 选择数量     为0自动隐藏

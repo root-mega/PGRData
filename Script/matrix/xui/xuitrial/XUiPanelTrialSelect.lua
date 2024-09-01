@@ -54,7 +54,7 @@ function XUiPanelTrialSelect:UpdateView(itemData)
     self.TxtLevel.text = level
 
     -- 电量
-    local active = stagecfg.RequireActionPoint or 0
+    local active = XDataCenter.FubenManager.GetRequireActionPoint(self.StageId)
     self.TxtNums.text = active
 
     -- 设置战斗力

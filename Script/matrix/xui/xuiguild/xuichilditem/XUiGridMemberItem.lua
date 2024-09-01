@@ -1,11 +1,14 @@
 local XUiGridMemberItem = XClass(nil, "XUiGridMemberItem")
+local CsVector2 = CS.UnityEngine.Vector2
 
 function XUiGridMemberItem:Ctor(ui)
     self.GameObject = ui.gameObject
     self.Transform = ui.transform
     XTool.InitUiObject(self)
     self.CanSet = false
-    self.BtnDismiss.CallBack = function() self:OnBtnDismissClick() end
+
+    self.BtnDismiss.gameObject:SetActiveEx(false)
+    self.BtnDis.CallBack = function() self:OnBtnDismissClick() end
     self.BtnGift.CallBack = function() self:OnBtnGiftClick() end
     self.BtnKickOut.CallBack = function() self:OnBtnKickOut() end
     self.BtnChangePosition.CallBack = function() self:OnBtnChangePosition() end
@@ -51,6 +54,8 @@ function XUiGridMemberItem:SetMemberInfo(memberInfo, selectIndex)
     self.BtnGift:SetDisable(isPlayer, not isPlayer)
 
     self.LayoutNode:SetDirty()
+    --#115837特殊修改，移动端适配显示异常问题
+    self.PanelMemberInfo.sizeDelta = CsVector2(self.Transform.parent.transform.rect.width, self.PanelMemberInfo.rect.height)
 end
 
 function XUiGridMemberItem:UpdateDissmissState(memberInfo)
@@ -60,7 +65,9 @@ function XUiGridMemberItem:UpdateDissmissState(memberInfo)
     local canImpeach = XDataCenter.GuildManager.CanImpeachLeader()
     local isLeaderMyself = XDataCenter.GuildManager.IsGuildLeader()
     local memberIsLeader = memberInfo.RankLevel == XGuildConfig.GuildRankLevel.Leader
-    self.BtnDismiss.gameObject:SetActiveEx(canImpeach and not hasImpeach and not isLeaderMyself and memberIsLeader)
+    local showDis = canImpeach and not hasImpeach and not isLeaderMyself and memberIsLeader
+    self.BtnDis.gameObject:SetActiveEx(showDis)
+    self.PanelJob.gameObject:SetActiveEx(not showDis)
 end
 
 function XUiGridMemberItem:UpdateMemberJobInfo(memberInfo)
@@ -119,9 +126,14 @@ function XUiGridMemberItem:OnBtnKickOut()
     -- 职位变更
     if self:HasModifyGuildAccess() then return end
 
-    local title = CS.XTextManager.GetText("GuildDialogTitle")
+    local title = CS.XTextManager.GetText("GuildDialogKickMemberTitle")
     local content = CS.XTextManager.GetText("GuildIsKickMember")
 
+    --判断工会战是否开启 如果开启 置换踢出提示
+    if XDataCenter.GuildWarManager.CheckActivityIsInTime() then
+        content = CS.XTextManager.GetText("GuildIsKickMemberInGuildWarTime")
+    end
+    
     XUiManager.DialogTip(title, content, XUiManager.DialogType.Normal, function()
     end, function()
         XDataCenter.GuildManager.GuildKickMember(self.MemberInfo.Id, function()
@@ -139,7 +151,15 @@ function XUiGridMemberItem:OnBtnChangePosition()
     local memberList = XDataCenter.GuildManager.GetMemberList()
     local memberInfo = memberList[self.MemberInfo.Id]
     if memberInfo then
-        XLuaUiManager.Open("UiGuildChangePosition", XGuildConfig.TipsType.ChangePosition, memberInfo)
+        RunAsyn(function()
+            XLuaUiManager.Open("UiGuildChangePosition", XGuildConfig.TipsType.ChangePosition, memberInfo)
+            local signalCode, targetMemberInfo = XLuaUiManager.AwaitSignal("UiGuildChangePosition", "Close", self)
+            if signalCode ~= XSignalCode.SUCCESS then return end
+            self.MemberInfo = targetMemberInfo
+            local jobName = XDataCenter.GuildManager.GetRankNameByLevel(self.MemberInfo.RankLevel)
+            self.TxtJob.text = jobName
+        end)
+        
     end
 end
 

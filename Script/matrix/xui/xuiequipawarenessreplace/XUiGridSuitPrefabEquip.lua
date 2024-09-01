@@ -11,7 +11,7 @@ end
 
 function XUiGridSuitPrefabEquip:Refresh(conflictInfo)
     self.RImgHead:SetRawImage(XDataCenter.CharacterManager.GetCharRoundnessHeadIcon(conflictInfo.CharacterId))
-    local grid = XUiGridEquip.New(self.GridEquip)
+    local grid = XUiGridEquip.New(self.GridEquip, self.Parent, nil, true)
     grid:InitRootUi(self.Parent)
     grid:Refresh(conflictInfo.EquipId)
 end

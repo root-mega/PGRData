@@ -35,30 +35,7 @@ XFunctionEventManagerCreator = function()
     function XFunctionEventManager.HandlerFightResult()
         XFunctionEventManager.OnFunctionEventValueChange()
     end
-    function XFunctionEventManager.TryDoDeepLinkInfo()
-        local afdeeplink = CS.XAppsflyerEvent.GetDeepLinkValue()
-        XLog.Debug("afdeeplink: ".. tostring(afdeeplink))
-        local NewGuidePass = CS.XGame.ClientConfig:GetInt("DeepLinkCondition")
-        if CS.XRemoteConfig.DeepLinkEnabled and not string.IsNilOrEmpty(afdeeplink) and XConditionManager.CheckCondition(NewGuidePass) then
-            local endValuePos = afdeeplink:find("?af_qr=true", 1) or 0
-            if endValuePos-1 > 1 then
-                afdeeplink = afdeeplink:sub(1,endValuePos-1)
-            end
-            local afdeepInfo = string.Split(afdeeplink, "_")
-            XLog.Debug("afdeepInfo:", afdeepInfo);
-            CS.XAppsflyerEvent.ResetDeepLinkValue()
-            if afdeepInfo[1] == "i" then
-                local skipId = tonumber(afdeepInfo[2])
-                if XFunctionManager.IsAFDeepLinkCanSkipByShowTips(skipId) then
-                    XFunctionManager.SkipInterface(skipId)
-                    return true
-                end
-            end
-        elseif not XConditionManager.CheckCondition(NewGuidePass) then
-            CS.XAppsflyerEvent.ResetDeepLinkValue()
-        end
-        return false
-    end
+
     --处理等级提升
     function XFunctionEventManager.HandlerPlayerLevelChange()
         XFunctionEventManager.OnFunctionEventValueChange()
@@ -83,9 +60,9 @@ XFunctionEventManagerCreator = function()
 
         XDataCenter.CommunicationManager.SetCommunication()
         XDataCenter.CommunicationManager.SetFestivalCommunication()
-        -- 当前是否在主界面
-        InMainUi = XLuaUiManager.IsUiShow("UiMain")
-        if InMainUi and CS.XRemoteConfig.DeepLinkEnabled and XFunctionEventManager.TryDoDeepLinkInfo() then
+        -- 当前是否在主界面(同时在最上层，避免像三周年签到自动弹窗界面 场景预览 双开UiMain)
+        InMainUi = XLuaUiManager.IsUiShow("UiMain") and XLuaUiManager.GetTopUiName() == "UiMain"
+        if XDeeplinkManager.InvokeDeeplink() then
             FunctionState = FunctionEvenState.PLAYING
         elseif XLoginManager.CheckLimitLogin() then --登录限制（答题）
             FunctionState = FunctionEvenState.PLAYING

@@ -7,6 +7,7 @@ local pairs = pairs
 local tableInsert = table.insert
 local IsNumberValid = XTool.IsNumberValid
 local CSXResourceManagerLoad = CS.XResourceManager.Load
+local CSXResourceManagerUnLoad = CS.XResourceManager.Unload
 local Vector3 = CS.UnityEngine.Vector3
 local LookRotation = CS.UnityEngine.Quaternion.LookRotation
 local _ViewFront = XRpgMakerGameConfigs.XRpgMakerGameMonsterViewAreaType.ViewFront  --怪物的前方
@@ -49,7 +50,23 @@ end
 function XRpgMakerGameMonsterData:Dispose()
     self:RemoveViewAreaAndLine()
     self:RemoveSentry()
+    self:RemoveTriggerEffectResource()
+    self:RemoveViewAreaResource()
     XRpgMakerGameMonsterData.Super.Dispose(self)
+end
+
+function XRpgMakerGameMonsterData:RemoveTriggerEffectResource()
+    if self.TriggerEffectResource then
+        CSXResourceManagerUnLoad(self.TriggerEffectResource)
+        self.TriggerEffectResource = nil
+    end
+end
+
+function XRpgMakerGameMonsterData:RemoveViewAreaResource()
+    if self.ViewAreaResource then
+        CSXResourceManagerUnLoad(self.ViewAreaResource)
+        self.ViewAreaResource = nil
+    end
 end
 
 function XRpgMakerGameMonsterData:RemoveSentry()
@@ -83,15 +100,24 @@ end
 
 function XRpgMakerGameMonsterData:InitData()
     local monsterId = self:GetId()
-    local pointX = XRpgMakerGameConfigs.GetRpgMakerGameMonsterX(monsterId)
-    local pointY = XRpgMakerGameConfigs.GetRpgMakerGameMonsterY(monsterId)
+    -- local pointX = XRpgMakerGameConfigs.GetRpgMakerGameMonsterX(monsterId)
+    -- local pointY = XRpgMakerGameConfigs.GetRpgMakerGameMonsterY(monsterId)
+    -- self:UpdatePosition({PositionX = pointX, PositionY = pointY})
     local direction = XRpgMakerGameConfigs.GetRpgMakerGameMonsterDirection(monsterId)
-    self:UpdatePosition({PositionX = pointX, PositionY = pointY})
     self:SetFaceDirection(direction)
     self:SetCurrentHp(DefaultHp)
 
     self:RemoveViewAreaAndLine()
     self:InitSentryData()
+    if not XTool.IsTableEmpty(self.MapObjData) then
+        self:InitDataByMapObjData(self.MapObjData)
+    end
+end
+
+---@param mapObjData XMapObjectData
+function XRpgMakerGameMonsterData:InitDataByMapObjData(mapObjData)
+    self.MapObjData = mapObjData
+    self:UpdatePosition({PositionX = mapObjData:GetX(), PositionY = mapObjData:GetY()})
 end
 
 function XRpgMakerGameMonsterData:UpdateData(data)
@@ -186,7 +212,11 @@ function XRpgMakerGameMonsterData:SetGameObjectViewArea()
     
     local modelKey = XRpgMakerGameConfigs.ModelKeyMaps.ViewArea
     local effectPath = XRpgMakerGameConfigs.GetRpgMakerGameModelPath(modelKey)
-    local resource = CSXResourceManagerLoad(effectPath)
+    local resource = self.ViewAreaResource
+    if not resource then
+        resource = CSXResourceManagerLoad(effectPath)
+        self.ViewAreaResource = resource
+    end
 
     if resource == nil or not resource.Asset then
         XLog.Error(string.format("XRpgMakerGameMonsterData加载视野范围特效:%s失败", effectPath))
@@ -361,7 +391,11 @@ function XRpgMakerGameMonsterData:CheckLoadTriggerEndEffect()
     end
 
     local effectPath = XRpgMakerGameConfigs.GetRpgMakerGameModelPath(XRpgMakerGameConfigs.ModelKeyMaps.MonsterTriggerEffect)
-    local resource = CSXResourceManagerLoad(effectPath)
+    local resource = self.TriggerEffectResource
+    if not resource then
+        resource = CSXResourceManagerLoad(effectPath)
+        self.TriggerEffectResource = resource
+    end
     if resource == nil or not resource.Asset then
         XLog.Error(string.format("XRpgMakerGameMonsterData加载开启终点的指示特效:%s失败", effectPath))
         return
@@ -387,6 +421,15 @@ function XRpgMakerGameMonsterData:PlayKillPlayerAction(action, cb)
     self:PlayAtkAction(function()
         local playerObj = XDataCenter.RpgMakerGameManager.GetPlayerObj()
         playerObj:PlayBeAtkAction(cb)
+    end)
+end
+
+--杀死影子
+function XRpgMakerGameMonsterData:PlayKillShadowAction(action, cb)
+    local cb = cb
+    self:PlayAtkAction(function()
+        local shadowObj = XDataCenter.RpgMakerGameManager.GetShadowObj(action.ShadowId)
+        shadowObj:PlayBeAtkAction(cb)
     end)
 end
 

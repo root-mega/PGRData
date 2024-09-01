@@ -79,7 +79,7 @@ function XUiBtnKeyItem:Refresh(data, cb, resetTextOnly, curOperationType)
             end
         end
         
-        local isCustom = XInputManager.IsCustomKey(operationKey, 0)
+        local isCustom = XInputManager.IsCustomKey(operationKey, 0, self._KeySetType, self.CurOperationType)
         self.BtnKeyItem.enabled = isCustom
         self.BtnKeyItem.CallBack = function()
             self.Cb(operationKey, self)

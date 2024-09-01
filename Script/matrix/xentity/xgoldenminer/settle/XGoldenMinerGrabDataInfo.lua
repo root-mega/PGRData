@@ -1,6 +1,7 @@
 local type = type
 
 --抓取的黄金类的道具信息
+---@class XGoldenMinerGrabDataInfo
 local XGoldenMinerGrabDataInfo = XClass(nil, "XGoldenMinerGrabDataInfo")
 
 local Default = {
@@ -27,6 +28,23 @@ function XGoldenMinerGrabDataInfo:AddData(goldenMinerObj)
     self._Scores = self._Scores + goldenMinerObj:GetScore()
 
     local goldenMinerItemId = goldenMinerObj.GetItemId and goldenMinerObj:GetItemId()
+    if XTool.IsNumberValid(goldenMinerItemId) then
+        table.insert(self._AdditionalItem, goldenMinerItemId)
+    end
+end
+
+---@param stoneEntity XGoldenMinerEntityStone
+function XGoldenMinerGrabDataInfo:AddDataByStoneEntity(stoneEntity)
+    self._Count = self._Count + 1
+    self._Scores = self._Scores + stoneEntity.Stone.CurScore
+
+    local goldenMinerItemId
+    if stoneEntity.Data:GetType() == XGoldenMinerConfigs.StoneType.RedEnvelope then
+        goldenMinerItemId = stoneEntity.Stone.Score
+    end
+    if stoneEntity.CarryStone and stoneEntity.CarryStone.Data:GetType() == XGoldenMinerConfigs.StoneType.RedEnvelope then
+        goldenMinerItemId = stoneEntity.CarryStone.Stone.Score
+    end
     if XTool.IsNumberValid(goldenMinerItemId) then
         table.insert(self._AdditionalItem, goldenMinerItemId)
     end

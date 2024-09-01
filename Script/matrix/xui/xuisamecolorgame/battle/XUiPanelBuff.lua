@@ -16,12 +16,14 @@ function XUiPanelBuff:AddEventListener()
     XEventManager.AddEventListener(XEventId.EVENT_SC_ACTION_ADDBUFF, self.BuffChange, self)
     XEventManager.AddEventListener(XEventId.EVENT_SC_ACTION_SUBBUFF, self.BuffChange, self)
     XEventManager.AddEventListener(XEventId.EVENT_SC_ACTION_ROUND_CHANGE, self.DoBuffCountDown, self)
+    XEventManager.AddEventListener(XEventId.EVENT_SC_ACTION_BUFF_LEFTTIME_CHANGE, self.DoBuffCountDown, self)
 end
 
 function XUiPanelBuff:RemoveEventListener()
     XEventManager.RemoveEventListener(XEventId.EVENT_SC_ACTION_ADDBUFF, self.BuffChange, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_SC_ACTION_SUBBUFF, self.BuffChange, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_SC_ACTION_ROUND_CHANGE, self.DoBuffCountDown, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_SC_ACTION_BUFF_LEFTTIME_CHANGE, self.DoBuffCountDown, self)
 end
 
 function XUiPanelBuff:Init()

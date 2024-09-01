@@ -2,12 +2,14 @@ local CsXTextManager = CS.XTextManager
 
 local MAX_AWARENESS_ATTR_COUNT = 2 --不包括共鸣属性，最大有2条
 local XUiGridResonanceSkill = require("XUi/XUiEquipResonanceSkill/XUiGridResonanceSkill")
+local XUiEquipOverrunDetail = require("XUi/XUiEquipOverrun/XUiEquipOverrunDetail")
 
 local XUiEquipDetailChild = XLuaUiManager.Register(XLuaUi, "UiEquipDetailChild")
 
 XUiEquipDetailChild.BtnTabIndex = {
     SuitSkill = 1,
     ResonanceSkill = 2,
+    Overrun = 3,
 }
 
 function XUiEquipDetailChild:OnAwake()
@@ -16,8 +18,10 @@ function XUiEquipDetailChild:OnAwake()
     local tabGroupList = {
         self.BtnSuitSkill,
         self.BtnResonanceSkill,
+        self.BtnEquipOverrun,
     }
     self.TabGroupRight:Init(tabGroupList, function(tabIndex) self:OnClickTabCallBack(tabIndex) end)
+    self.CurTabIndex = XUiEquipDetailChild.BtnTabIndex.SuitSkill
 end
 
 function XUiEquipDetailChild:OnStart(equipId, isPreview, openUiType)
@@ -38,8 +42,7 @@ function XUiEquipDetailChild:OnEnable()
     self:UpdateEquipBreakThrough()
     self:UpdateEquipLock()
     self:UpdateEquipRecycle()
-    self:UpdateEquipSkillDes()
-    self:UpdateResonanceSkills()
+    self:OnClickTabCallBack(self.CurTabIndex)
 end
 
 function XUiEquipDetailChild:RefreshData(equipId,isPreview)
@@ -77,6 +80,7 @@ function XUiEquipDetailChild:OnNotify(evt, ...)
 end
 
 function XUiEquipDetailChild:OnClickTabCallBack(tabIndex)
+    self.CurTabIndex = tabIndex
     if tabIndex == XUiEquipDetailChild.BtnTabIndex.SuitSkill then
         self.PanelSuitSkill.gameObject:SetActive(true)
         self.PanelResonanceSkill.gameObject:SetActive(false)
@@ -89,11 +93,27 @@ function XUiEquipDetailChild:OnClickTabCallBack(tabIndex)
         self.PanelSuitSkill.gameObject:SetActive(false)
         self.PanelResonanceSkill.gameObject:SetActive(true)
         self:UpdateResonanceSkills()
-        self:PlayAnimation("ResonanceSkill")
+        self:PlayAnimation("SuitSkill")
+    elseif tabIndex == XUiEquipDetailChild.BtnTabIndex.Overrun then
+        if not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.EquipOverrun) then 
+            local tips = XFunctionManager.GetFunctionOpenCondition(XFunctionManager.FunctionName.EquipOverrun)
+            XUiManager.TipError(tips)
+            return
+        end
+        self.PanelSuitSkill.gameObject:SetActive(true)
+        self.PanelResonanceSkill.gameObject:SetActive(false)
+        self:PlayAnimation("SuitSkill")
+        self:UpdateOverrun()
     end
 end
 
 function XUiEquipDetailChild:InitTabBtns()
+    local canOverrun = XEquipConfig.CanOverrunByTemplateId(self.TemplateId) and not self.IsPreview
+    self.BtnEquipOverrun.gameObject:SetActiveEx(canOverrun)
+    if canOverrun then
+        self.BtnEquipOverrun:SetDisable(not XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.EquipOverrun))
+    end
+
     if not XDataCenter.EquipManager.CanResonanceByTemplateId(self.TemplateId) or (self.OpenUiType and self.OpenUiType == XUiConfigs.OpenUiType.NieRCharacterUI) then
         self.BtnResonanceSkill.gameObject:SetActive(false)
         self.BtnSuitSkill.gameObject:SetActive(false)
@@ -117,6 +137,7 @@ function XUiEquipDetailChild:InitClassifyPanel()
 end
 
 function XUiEquipDetailChild:UpdateEquipSkillDes()
+    self.PanelEquipOverrun.gameObject:SetActive(false)
     if XDataCenter.EquipManager.IsClassifyEqualByTemplateId(self.TemplateId, XEquipConfig.Classify.Weapon) then
         local weaponSkillInfo = XDataCenter.EquipManager.GetOriginWeaponSkillInfo(self.TemplateId)
         local noWeaponSkill = not weaponSkillInfo.Name and not weaponSkillInfo.Description
@@ -323,6 +344,17 @@ function XUiEquipDetailChild:UpdateResonanceSkill(pos)
         if grid then
             grid.GameObject:SetActive(false)
         end
+    end
+end
+
+function XUiEquipDetailChild:UpdateOverrun()
+    self.PanelWeaponSkillDes.gameObject:SetActive(false)
+    self.PanelEquipOverrun.gameObject:SetActive(true)
+    if not self.UiEquipOverrunDetail then
+        self.UiEquipOverrunDetail = XUiEquipOverrunDetail.New(self, self.OverrunDetail)
+        self.UiEquipOverrunDetail:SetEquipId(self.EquipId)
+    else
+        self.UiEquipOverrunDetail:Refresh()
     end
 end
 

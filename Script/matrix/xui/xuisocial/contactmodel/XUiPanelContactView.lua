@@ -53,6 +53,8 @@ function XUiPanelContactView:AutoInitUi()
     -- self.BtnDelete = self.Transform:Find("Share/BtnDelete"):GetComponent("XUiButton")
     -- self.BtnAllCharge = self.Transform:Find("PanelFriendList/BtnAllCharge"):GetComponent("XUiButton")
     -- self.BtnGroupThrow = self.Transform:Find("PanelFriendList/BtnGroupThrow"):GetComponent("XUiButton")
+
+    self.BtnGroupThrow.gameObject:SetActiveEx(false)
 end
 
 function XUiPanelContactView:GetAutoKey(uiNode, eventName)
@@ -94,7 +96,7 @@ function XUiPanelContactView:AutoAddListener()
     self.BtnDelete.CallBack = function() self:OnBtnDeleteClick() end
     self.BtnClose.CallBack = function() self:OnBtnCloseClick() end
     self.BtnAllCharge.CallBack = function() self:OnBtnAllChargeClick() end
-    self.BtnGroupThrow.CallBack = function() self:OnBtnGroupThrowClick() end
+    --self.BtnGroupThrow.CallBack = function() self:OnBtnGroupThrowClick() end
     self.BtnRemove.CallBack = function() self:OnBtnRemoveClick() end
 end
 -- auto

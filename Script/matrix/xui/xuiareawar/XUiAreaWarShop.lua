@@ -24,6 +24,9 @@ end
 function XUiAreaWarShop:OnStart()
     self.CurIndex = 1
     self.ShopIdList = XDataCenter.AreaWarManager.GetActivityShopIds()
+    XDataCenter.AreaWarManager.MarkShopRedPoint()
+    
+    self:InitView()
 end
 
 function XUiAreaWarShop:OnEnable()
@@ -60,6 +63,8 @@ function XUiAreaWarShop:InitShopButton()
             self:SelectShop(index)
         end
     )
+    
+    self.Btns = shopBtns
 end
 
 function XUiAreaWarShop:UpdateAssets()
@@ -82,13 +87,22 @@ function XUiAreaWarShop:SelectShop(index)
     self:UpdateShop()
 end
 
+function XUiAreaWarShop:InitView()
+    for i, shopId in ipairs(self.ShopIdList) do
+        local btn = self.Btns[i]
+        if btn then
+            btn:SetNameByGroup(0, XShopManager.GetShopName(shopId))
+        end
+    end
+end
+
 function XUiAreaWarShop:UpdateShop()
     local shopId = self:GetCurShopId()
 
     local leftTime = XShopManager.GetShopTimeInfo(shopId).ClosedLeftTime
-    if leftTime and leftTime > 0 then
+        if leftTime and leftTime > 0 then
         local timeStr = XUiHelper.GetTime(leftTime, XUiHelper.TimeFormatType.ACTIVITY)
-        self.TxtTime.text = CSXTextManagerGetText("AreaWarActivityShopLeftTime", timeStr)
+        self.TxtTime.text = timeStr --CSXTextManagerGetText("AreaWarActivityShopLeftTime", timeStr)
         self.TxtTime.gameObject:SetActiveEx(true)
     else
         self.TxtTime.gameObject:SetActiveEx(false)

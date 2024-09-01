@@ -1,17 +1,18 @@
----
---- 宿舍家具对象
----
+
 local TEST_FURNITURE_NAME = "Furniture003"  --Test
 local XSceneObject = require("XHome/XSceneObject")
 
+---@class XHomeFurnitureObj : XSceneObject 宿舍家具对象
+---@field
 local XHomeFurnitureObj = XClass(XSceneObject, "XHomeFurnitureObj")
 local Vector3 = CS.UnityEngine.Vector3
 local WallNum = 4
 local PutOnOffeY = 0.75
 
-function XHomeFurnitureObj:Ctor(data, room)
+function XHomeFurnitureObj:Ctor(data, room, onComplete)
     self.Data = data
     self.Room = room
+    self.OnComplete = onComplete
     self.ConfirmGridX = self.Data.GridX
     self.ConfirmGridY = self.Data.GridY
     self.ConfirmRotate = self.Data.RotateAngle
@@ -45,9 +46,12 @@ function XHomeFurnitureObj:Ctor(data, room)
     self.IsColliderBlock = false
 
     self.IsShowGlow = false
+    self.IsShowRedGlow = false
     self.IsAddDragComponent = false
     self.AninationIndex = 0
     self.RippleWater = nil
+
+    self.EffectObjs = {}
 end
 
 function XHomeFurnitureObj:Dispose()
@@ -169,6 +173,17 @@ function XHomeFurnitureObj:OnLoadComplete()
 
     self.Animator = self.GameObject:GetComponent(typeof(CS.UnityEngine.Animator))
     self:ChangeStatus(XHomeBehaviorStatus.IDLE, true)
+
+    --先更新状态
+    if self.OnComplete then self.OnComplete(self) end
+
+    --再确认是否需要加载材质
+    if not XDormConfig.IsTemplateRoom(self.Room.CurLoadType) and not self.IsShowRedGlow then
+        local isSelf = self.Room.Data:IsSelfData()
+        local dormDataType = isSelf and XDormConfig.DormDataType.Self or XDormConfig.DormDataType.Target
+        XHomeDormManager.ReplaceFurnitureMaterial(self, self.Data.Id, dormDataType)
+        XHomeDormManager.ReplaceFurnitureFx(self, self.Data.Id, dormDataType)
+    end
 end
 
 function XHomeFurnitureObj:SetData(data)
@@ -308,6 +323,7 @@ function XHomeFurnitureObj:GenerateInteractInfo(roomMap)
     for k=1, sumIndex do
         local stayPoint = self.GameObject:FindGameObject("StayPos" .. tostring(k))
         local interactPoint = self.GameObject:FindGameObject("Interactpos" .. tostring(k))
+        local ignorePoint = self.GameObject:FindGameObject("IgnoreBlock" .. tostring(k))
         if interactPoint == nil then
             if XMain.IsEditorDebug then 
                 XLog.Error(string.format("%s 缺少交互点%s号", self.Cfg.Name, k))
@@ -321,12 +337,12 @@ function XHomeFurnitureObj:GenerateInteractInfo(roomMap)
         local info = {}
         info.Index = k
         info.GridPos = gridPos
-        if isValid and (blockMask <= 0) then
+        if isValid and ((blockMask <= 0) or ignorePoint ~= nil) then
             info.UsedType = XFurnitureInteractUsedType.None
         else
             info.UsedType = XFurnitureInteractUsedType.Block
             if XMain.IsEditorDebug then 
-               -- XLog.Error(string.format("家具（%s）的%s号交互点被遮挡，网格坐标:%s,%s (仅作提示不卡流程)", self.Cfg.Name, k, gridPos.x, gridPos.y))
+               XLog.Error(string.format("家具（%s）的%s号交互点被遮挡，网格坐标:%s,%s (仅作提示不卡流程)", self.Cfg.Name, k, gridPos.x, gridPos.y))
             end
         end
 
@@ -734,7 +750,9 @@ function XHomeFurnitureObj:Storage(isMulti)
     self.IsSelected = false
     self.InteractInfoList = {}
     self:RippleClearChar()
-    self.GameObject:SetActive(false)
+    if not XTool.UObjIsNil(self.GameObject) then
+        self.GameObject:SetActiveEx(false)
+    end
     if not XTool.UObjIsNil(self.GridComponent) then
         CS.XGridManager.Instance:FreeGrid(self.GridComponent)
     end
@@ -743,7 +761,7 @@ function XHomeFurnitureObj:Storage(isMulti)
     if not isMulti then
         XHomeDormManager.RemoveFurniture(self.Room.Data.Id, self)
     end
-    CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_ONDRAGITEM_CHANGED, true, self.Data.Id)
+    CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_ONDRAG_ITEM_CHANGED, true, self.Data.Id)
 
     self:Dispose()
     self:HideInteractInfoGo()
@@ -766,7 +784,7 @@ function XHomeFurnitureObj:LocateFurniture()
     XHomeDormManager.AddFurniture(self.Room.Data.Id, self)
 
     self:ShowAttrTag()
-    CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_ONDRAGITEM_CHANGED, false, self.Data.Id)
+    CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_ONDRAG_ITEM_CHANGED, false, self.Data.Id)
 end
 
 function XHomeFurnitureObj:CancelSelect()
@@ -791,15 +809,21 @@ function XHomeFurnitureObj:OnClick(eventData)
         return
     end
 
-    if not XDataCenter.FurnitureManager.GetInRefeform() then
+    if not XDataCenter.FurnitureManager.GetInReform() then
         if not self:CheckCanBehavior() then
             self:PlayClickAnimation()
         else
             self:OnBehaviorClick(eventData)
         end
+    else -- 装修模式中
+        
+        --自己房间，但是未拥有家具，不给点击
+        if self.Room.Data.RoomDataType == XDormConfig.DormDataType.Self and self.IsShowRedGlow then
+            return
+        end
     end
 
-    CsXGameEventManager.Instance:Notify(XEventId.EVENT_CLICKFURNITURE_ONROOM, self.Data.Id)
+    CsXGameEventManager.Instance:Notify(XEventId.EVENT_CLICK_FURNITURE_ON_ROOM, self.Data.Id)
     XHomeDormManager.FireClickFurnitureCallback(self)
     self:ShowSelectGrid()
 end
@@ -812,7 +836,7 @@ function XHomeFurnitureObj:OnDrag(eventData)
         return
     end
 
-    if not XDataCenter.FurnitureManager.GetInRefeform() then
+    if not XDataCenter.FurnitureManager.GetInReform() then
         self:OnBehaviorDrag(eventData)
         return false
     end
@@ -986,6 +1010,10 @@ function XHomeFurnitureObj:RayCastSelected(isSelect)
         return
     end
 
+    if self.IsShowRedGlow then
+        self:RayCastNotOwn(false)
+    end
+
     if isSelect then
         CS.XMaterialContainerHelper.AddRoomRim(self.GameObject)
     else
@@ -993,6 +1021,65 @@ function XHomeFurnitureObj:RayCastSelected(isSelect)
     end
 
     self.IsShowGlow = isSelect
+end
+
+function XHomeFurnitureObj:RayCastNotOwn(showRedGlow)
+    if self.IsShowRedGlow == showRedGlow then
+        return
+    end
+    
+    self.IsShowRedGlow = showRedGlow
+    
+    if self.PlaceType == XFurniturePlaceType.Wall 
+            or self.PlaceType == XFurniturePlaceType.Ceiling 
+            or self.PlaceType == XFurniturePlaceType.Ground then
+        return
+    end
+
+    if self.IsShowGlow then
+        self:RayCastSelected(false)
+    end
+    
+    if showRedGlow then
+        --self:AddRoomRim(self.GameObject, XHomeDormManager.GetFurnitureRedRimMat())
+        CS.XMaterialContainerHelper.AddRoomRim(self.GameObject, XHomeDormManager.GetFurnitureRedRimMat())
+    else
+        CS.XMaterialContainerHelper.RemoveRoomRim(self.GameObject, XHomeDormManager.GetFurnitureRedRimMat())
+    end
+    
+end
+
+--TODO CodeMoon, 2.4分支特殊处理，后续使用回CSharp的方案
+function XHomeFurnitureObj:AddRoomRim(gameObj, mat)
+    if XTool.UObjIsNil(gameObj) then
+        return
+    end
+    ---@type UnityEngine.Renderer[]
+    local allRenders = gameObj:GetComponentsInChildren(typeof(CS.UnityEngine.Renderer))
+    for i = 0, allRenders.Length - 1 do
+        local render = allRenders[i]
+        if string.find(render.name, "ShadowVolume") then
+            goto continue
+        end
+
+        if not CS.XMaterialContainerHelper.IsSkinnedOrMeshRenderer(render) then
+            goto continue
+        end
+        
+        local container = render:GetComponent(typeof(CS.XMaterialContainer))
+
+        if not container then
+            container = render.gameObject:AddComponent(typeof(CS.XMaterialContainer))
+            container:Init(render, true)
+        end
+
+        if not mat then
+            container:AddOriginalMaterial(CS.XGraphicManager.RenderConst.RoomRimMat, false)
+        else
+            container:AddOriginalMaterial(mat, false)
+        end
+        ::continue::
+    end
 end
 
 function XHomeFurnitureObj:ShowAttrTag(attrIndex)
@@ -1012,7 +1099,7 @@ function XHomeFurnitureObj:ShowAttrTag(attrIndex)
             attrValue = furnitureData:GetScore()
             quality, max = XFurnitureConfigs.GetFurnitureTotalAttrLevel(furnitureType, attrValue)
         else
-            attrValue = furnitureData:GeAttrtScore(attrIndex, furnitureData.AttrList[attrIndex])
+            attrValue = furnitureData:GetAttrScore(attrIndex, furnitureData.AttrList[attrIndex])
             quality, max = XFurnitureConfigs.GetFurnitureSingleAttrLevel(furnitureType, attrIndex, attrValue)
         end
 
@@ -1030,6 +1117,7 @@ end
 
 
 function XHomeFurnitureObj:HideAttrTag()
+    self:DoReleaseAllEffects()
     CsXGameEventManager.Instance:Notify(XEventId.EVENT_DORM_FURNITURE_HIDE_ATTR_TAG_DETAIL, self.Data.Id)
 end
 
@@ -1112,8 +1200,23 @@ function XHomeFurnitureObj:DoEffectNode(effectId)
     local effectConfig = XDormConfig.GetMoodEffectConfig(effectId)
     self.EffectObj = self.Transform:LoadPrefab(effectConfig.Path, false)
     self.EffectObj.transform:SetParent(self.Transform, false)
+    self.EffectObj:SetActiveEx(false)
+    self.EffectObj:SetActiveEx(true)
     local position = CS.UnityEngine.Vector3(0, effectConfig.Hight, 0)
     self.EffectObj.transform.localPosition = position
+    table.insert(self.EffectObjs, self.EffectObj)
+end
+
+--这方法写的不好，时机触发的不是完全合理
+function XHomeFurnitureObj:DoReleaseAllEffects()
+    for i = 1, #self.EffectObjs do
+        if self.EffectObjs[i] and self.EffectObjs[i]:Exist() then
+            self.EffectObjs[i]:SetActiveEx(false)
+        end
+    end
+    if self.Animator and self.Animator:Exist() then
+        self.Animator:Rebind()
+    end
 end
 
 -- 隐藏家具
@@ -1178,7 +1281,7 @@ function XHomeFurnitureObj:ChangeStatus(state, ignoreReform)
 end
 
 function XHomeFurnitureObj:CheckCanBehavior(ignoreReform)
-    if XDataCenter.FurnitureManager.GetInRefeform() and not ignoreReform then
+    if XDataCenter.FurnitureManager.GetInReform() and not ignoreReform then
         return
     end
 

@@ -8,7 +8,7 @@ local CountBaseNumber = 100
 local Application = CS.UnityEngine.Application
 local Platform = Application.platform
 local RuntimePlatform = CS.UnityEngine.RuntimePlatform
-function XUiShopItem:OnStart(parent, data, cb, shopCanBuyColor)
+function XUiShopItem:OnStart(parent, data, cb, shopCanBuyColor, proxy)
     if data then
         self.Data = data
     else
@@ -19,6 +19,7 @@ function XUiShopItem:OnStart(parent, data, cb, shopCanBuyColor)
     end
     self.Parent = parent
     self.ShopCanBuyColor = shopCanBuyColor or ColorBlack
+    self.Proxy = proxy
 
     self:AutoAddListener()
     self:SetSelectTextData()
@@ -35,6 +36,14 @@ function XUiShopItem:OnStart(parent, data, cb, shopCanBuyColor)
     XUiButtonLongClick.New(self.WgtBtnMinusSelect, Interval, self, nil, self.BtnMinusSelectLongClickCallback, nil, true)
 
     self:InitPanel()
+end
+
+function XUiShopItem:OnEnable()
+
+end
+
+function XUiShopItem:OnDisable()
+
 end
 
 function XUiShopItem:InitPanel()
@@ -132,7 +141,7 @@ function XUiShopItem:OnBtnBlockClick()
 end
 
 function XUiShopItem:RemoveUI()
-    XLuaUiManager.Remove("UiShopItem")
+    XLuaUiManager.Remove(self.Name)
 end
 
 function XUiShopItem:OnBtnAddSelectClick()
@@ -252,56 +261,86 @@ function XUiShopItem:OnBtnUseClick()
         return
     end
 
-    for k, v in pairs(self.NotEnough or {}) do
-        if v.ItemId == XDataCenter.ItemManager.ItemId.PaidGem then
-            local result = XDataCenter.ItemManager.CheckItemCountById(v.ItemId, v.UseItemCount)
-            if not result then
-                XUiManager.TipText("ShopItemPaidGemNotEnough")
-                XLuaUiManager.Open("UiPurchase", XPurchaseConfigs.TabsConfig.HK)
-                return
+    local doFunCountinueTip = function ()
+        for k, v in pairs(self.NotEnough or {}) do
+            if v.ItemId == XDataCenter.ItemManager.ItemId.PaidGem then
+                local result = XDataCenter.ItemManager.CheckItemCountById(v.ItemId, v.UseItemCount)
+                if not result then
+                    XUiManager.TipText("ShopItemPaidGemNotEnough")
+                    XLuaUiManager.Open("UiPurchase", XPurchaseConfigs.TabsConfig.HK)
+                    return
+                end
+            elseif v.ItemId == XDataCenter.ItemManager.ItemId.HongKa then
+                local result = XDataCenter.ItemManager.CheckItemCountById(v.ItemId, v.UseItemCount)
+                if not result then
+                    XUiManager.TipText("ShopItemHongKaNotEnough")
+                    XLuaUiManager.Open("UiPurchase", XPurchaseConfigs.TabsConfig.Pay)
+                    return
+                end
+            else
+                if not XDataCenter.ItemManager.DoNotEnoughBuyAsset(v.ItemId,
+                v.UseItemCount,
+                1,
+                function()
+                    self:OnBtnUseClick()
+                end,
+                "BuyNeedItemInsufficient") then
+                    return
+                end
+                self.NotEnough[k] = nil
             end
-        elseif v.ItemId == XDataCenter.ItemManager.ItemId.HongKa then
-            local result = XDataCenter.ItemManager.CheckItemCountById(v.ItemId, v.UseItemCount)
-            if not result then
-                XUiManager.TipText("ShopItemHongKaNotEnough")
-                XLuaUiManager.Open("UiPurchase", XPurchaseConfigs.TabsConfig.Pay)
-                return
-            end
-        else
-            if not XDataCenter.ItemManager.DoNotEnoughBuyAsset(v.ItemId,
-            v.UseItemCount,
-            1,
-            function()
-                self:OnBtnUseClick()
-            end,
-            "BuyNeedItemInsufficient") then
-                return
-            end
-            self.NotEnough[k] = nil
         end
+
+         local func = function()
+            if self.Data.PayKeySuffix then
+                local key
+                if Platform == RuntimePlatform.Android then
+                    key = string.format("%s%s", XPayConfigs.GetPlatformConfig(1), self.Data.PayKeySuffix)
+                elseif Platform == RuntimePlatform.IPhonePlayer then
+                    key = string.format("%s%s", XPayConfigs.GetPlatformConfig(2), self.Data.PayKeySuffix)
+                else
+                    key = string.format("%s%s", XPayConfigs.GetPlatformConfig(0), self.Data.PayKeySuffix)
+                end
+                XDataCenter.PayManager.Pay(key, 2, { self.Parent:GetCurShopId(), self.Data.Id }, self.Data.Id, function()
+                        self:RemoveUI()
+                    end)
+            else
+                XShopManager.BuyShop(self.Parent:GetCurShopId(), self.Data.Id, self.Count, function ()
+                        self.CallBack(self.Count)
+                        XUiManager.TipText("BuySuccess")
+                        self.Parent:RefreshBuy(true)
+                        self:RemoveUI()
+                    end)
+            end
+        end
+
+        -- v1.31 【商店优化】大额消费二次确认弹窗
+        for _, consumeItem in pairs(self.BuyConsumes or {}) do
+            if XShopManager.IsNeedSecondConfirm(consumeItem.Id, consumeItem.Count, self.Count) then
+                XShopManager.OpenBuySecondConfirm(consumeItem.Id, consumeItem.Count, self.Count, self.Data.RewardGoods, nil, function ()
+                    self:CheckBuyItemTypeOfWeaponFashion(func)
+                end)
+                return
+            end
+        end
+
+        self:CheckBuyItemTypeOfWeaponFashion(func)
     end
 
-    local func = function()
-        if self.Data.PayKeySuffix then
-            local key = XPayConfigs.GetProductKey(self.Data.PayKeySuffix)
-            XDataCenter.PayManager.Pay(key, 2, { self.Parent:GetCurShopId(), self.Data.Id }, self.Data.Id, function()
-                    self:RemoveUI()
-                end)
-        else
-            XShopManager.BuyShop(self.Parent:GetCurShopId(), self.Data.Id, self.Count, function ()
-                    self.CallBack(self.Count)
-                    XUiManager.TipText("BuySuccess")
-                    self.Parent:RefreshBuy(true)
-                    self:RemoveUI()
-                end)
-        end
+    -- 黑卡消费提醒
+    if self.Proxy and self.Proxy.CheckPaidGemTip and self.Proxy.CheckPaidGemTip(self) then
+        local titile = CS.XTextManager.GetText("TipTitle")
+        local content = CS.XTextManager.GetText("CheckPaidGemTip")
+        XLuaUiManager.Open("UiDialog", titile, content, XUiManager.DialogType.Normal, nil, doFunCountinueTip)
+    else
+        doFunCountinueTip()
     end
-
-    self:CheckBuyItemTypeOfWeaponFashion(func)
 end
 
 function XUiShopItem:HaveItem()
-    if XArrangeConfigs.GetType(self.Data.RewardGoods.TemplateId) == XArrangeConfigs.Types.Furniture then
+    local goodsType = XArrangeConfigs.GetType(self.Data.RewardGoods.TemplateId)
+    if goodsType == XArrangeConfigs.Types.Furniture or
+            goodsType == XArrangeConfigs.Types.GuildGoods then
         self.TxtOwnCount.gameObject:SetActiveEx(false)
     else
         local count = XGoodsCommonManager.GetGoodsCurrentCount(self.Data.RewardGoods.TemplateId)
@@ -416,7 +455,7 @@ end
 function XUiShopItem:SetCanBuyCount()
     local canBuyCount = self.MaxCount
     for _, v in pairs(self.BuyConsumes) do
-        local itemCount = XDataCenter.ItemManager.GetCount(v.Id)
+        local itemCount = self:GetCountProxy(v.Id)
         local buyCount = math.floor(itemCount / v.Count)
         canBuyCount = math.min(buyCount, canBuyCount)
     end
@@ -435,7 +474,7 @@ function XUiShopItem:JudgeBuy()
     self.NotEnough = {}
 
     for _, v in pairs(self.BuyConsumes) do
-        local itemCount = XDataCenter.ItemManager.GetCount(v.Id)
+        local itemCount = self:GetCountProxy(v.Id)
         if v.Count > itemCount then
             self:ChangeCostColor(false, index)
             if not self.NotEnough[index] then self.NotEnough[index] = {} end
@@ -476,6 +515,15 @@ function XUiShopItem:CheckBuyItemTypeOfWeaponFashion(cb)
     cb()
 end
 
+function XUiShopItem:GetCountProxy(id)
+    if self.Proxy and self.Proxy.GetCount then
+        return self.Proxy.GetCount(id)
+    end
+    return XDataCenter.ItemManager.GetCount(id)
+end
+
 function XUiShopItem:TipDialog(cancelCb, confirmCb, TextKey)
     XLuaUiManager.Open("UiDialog", CS.XTextManager.GetText("TipTitle"), CS.XTextManager.GetText(TextKey), XUiManager.DialogType.Normal, cancelCb, confirmCb)
 end
+
+return XUiShopItem

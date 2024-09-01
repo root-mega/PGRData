@@ -81,7 +81,7 @@ function XUiPurchaseHKShop:CheckBuy()
     end
 
     if self.CurData.ConsumeCount > 0 and self.CurData.ConsumeCount > XDataCenter.ItemManager.GetCount(XDataCenter.ItemManager.ItemId.HongKa) then --钱不够
-        XUiManager.TipText("PurchaseBuyHongKaCountTips")
+        XUiHelper.OpenPurchaseBuyHongKaCountTips()
         return false
     end
     

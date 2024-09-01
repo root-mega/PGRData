@@ -17,10 +17,11 @@ end
 
 function XUiPartnerSkillPreview:OnEnable()
     self:UpdateSkillOptionBtnGroup()
+
 end
 
 function XUiPartnerSkillPreview:OnDisable()
-   
+
 end
 
 function XUiPartnerSkillPreview:InitBtnGroup()

@@ -56,6 +56,11 @@ function XUiPanelCharacterExchange:OnEnable()
         self:OnSelectCharacterType(self.SelectTabBtnIndex)
         -- self.PanelCharacterTypeBtns:SelectIndex(self.SelectTabBtnIndex)
     end
+
+end
+
+function XUiPanelCharacterExchange:OnDisable()
+
 end
 
 function XUiPanelCharacterExchange:OnSelectCharacterType(index)

@@ -38,15 +38,22 @@ function XUiFashionDetail:OnAwake()
     self.OnUiSceneLoadedCB = function() self:OnUiSceneLoaded() end
 end
 
-function XUiFashionDetail:OnStart(fashionId, isWeaponFashion,buyData, isShowFashionIconWithoutGift, isNeedCD)
+function XUiFashionDetail:OnStart(fashionId, isWeaponFashion, buyData, isShowFashionIconWithoutGift, isNeedCD)
     self:InitSceneRoot() --设置摄像机
     self.FashionId = fashionId
     self.IsWeaponFashion = isWeaponFashion
     self.BuyData = buyData
-    self.GoodIdList = buyData and buyData.GiftRewardId
     self.IsShowFashionIconWithoutGift = isShowFashionIconWithoutGift
-    --v1.28-采购优化-记录是否当前皮肤是否已拥有
-    self.IsHaveFashion = XRewardManager.CheckRewardGoodsListIsOwnWithAll({XGoodsCommonManager.GetGoodsShowParamsByTemplateId(self.FashionId)})
+    
+    if XWeaponFashionConfigs.IsWeaponFashion(self.FashionId) then 
+        --v1.31武器时装
+        self.IsHaveFashion = XDataCenter.WeaponFashionManager.CheckHasFashion(self.FashionId) and
+            not XDataCenter.WeaponFashionManager.IsFashionTimeLimit(self.FashionId)
+    else
+        --v1.28-采购优化-记录是否当前皮肤是否已拥有
+        self.IsHaveFashion = XRewardManager.CheckRewardGoodsListIsOwnWithAll({XGoodsCommonManager.GetGoodsShowParamsByTemplateId(self.FashionId)})
+    end
+
     -- 配置是否需要购买冷却
     self.IsNeedCD = isNeedCD or false
     -- 记录初始时间
@@ -71,7 +78,7 @@ function XUiFashionDetail:OnDisable()
 end
 
 function XUiFashionDetail:OnUiSceneLoaded()
-    self:SetGameObject()
+    --self:SetGameObject()
 end
 
 function XUiFashionDetail:InitBuyData()
@@ -84,9 +91,13 @@ function XUiFashionDetail:InitBuyData()
     self.TxtHave.gameObject:SetActiveEx(self.BuyData.IsHave)
     -- 礼包中已拥有涂装文本
     self.TxtRepeatWith.gameObject:SetActiveEx(not self.BuyData.IsHave and self.IsHaveFashion)
+    --local isHave = self.BuyData.IsHave or (self.IsHaveFashion and not self.BuyData.IsConvert)
+    --self.BtnBuy:SetDisable(isHave, not isHave)
     self.BtnBuy:SetDisable(self.BuyData.IsHave, not self.BuyData.IsHave)
     self.PanelInformation.gameObject:SetActiveEx(self.BuyData.LimitText ~= nil or self.BuyData.IsHave 
         or not string.IsNilOrEmpty(self.BuyData.FashionLabel) or self.IsHaveFashion)
+
+    self.TxtLimitBuy.text = self.BuyData.LimitText or ""
 
     if self.BuyData.PayKeySuffix then
         self.RawImageConsume.gameObject:SetActiveEx(false)
@@ -106,8 +117,6 @@ function XUiFashionDetail:InitBuyData()
         self.ImageYuan.gameObject:SetActiveEx(false)
         self.RawImageConsume:SetRawImage(self.BuyData.ItemIcon)
     end
-
-    self.TxtLimitBuy.text = self.BuyData.LimitText or ""
 
     self.BtnBuy.CallBack = function()
         -- v1.28 采购优化 记录时间, 判断是否拦截
@@ -211,28 +220,41 @@ function XUiFashionDetail:AutoAddListener()
 end
 
 function XUiFashionDetail:SetDetailData()
+
+    -- v1.28-采购优化-赠品队列展示
+    -- 传入Data为单一rewardId的情况
     local giftRewardId = self.BuyData and self.BuyData.GiftRewardId
-    -- giftRewardId=额外礼物，在商店皮肤界面，没有额外礼物，就显示时装物品
-    if giftRewardId and not (giftRewardId == 0 and self.IsShowFashionIconWithoutGift) then
-        if giftRewardId == 0 then
-            self.GridItem.gameObject:SetActiveEx(false)
-            self.RewordGoodList.gameObject:SetActiveEx(false)
-            self.Title.gameObject:SetActiveEx(false)
-        else
-            -- v1.28-采购优化-赠品队列展示
-            -- 传入Data为单一rewardId的情况
-            if type(giftRewardId) == "number" then self.GoodIdList = {XRewardManager.GetRewardList(giftRewardId)[1]} end
-            self.GridItem.gameObject:SetActiveEx(false)
-            self.RewordGoodList.gameObject:SetActiveEx(true)
-            self.GridGoodItem.gameObject:SetActiveEx(false)
-            self.DynamicTable = XDynamicTableNormal.New(self.RewordGoodList)
-            self.DynamicTable:SetProxy(XUiGridCommon)
-            self.DynamicTable:SetDelegate(self)
-            self.DynamicTable:SetDataSource(self.GoodIdList)
-            self.DynamicTable:ReloadDataASync(1)
-            self.Title.text = CS.XTextManager.GetText("SpecialFashionShopGiftTitle")
-            self.BtnClick.gameObject:SetActiveEx(true)
+    if type(giftRewardId) == "number" then
+        if giftRewardId ~= 0 then
+            self.GoodIdList = XRewardManager.GetRewardList(giftRewardId)
         end
+    elseif self.BuyData and self.BuyData.GiftRewardId then
+        self.GoodIdList = self.BuyData.GiftRewardId
+    end
+
+    -- v1.31-采购优化-涂装增加CG展示道具
+    if not self.IsWeaponFashion then
+        local subItems = XDataCenter.FashionManager.GetFashionSubItems(self.FashionId)
+        if subItems then
+            for _, itemTemplateId in ipairs(subItems) do
+                if self.GoodIdList == nil then self.GoodIdList = {} end
+                table.insert(self.GoodIdList, {TemplateId = itemTemplateId, Count = 1, IsSubItem = true})
+            end
+        end
+    end
+
+    -- giftRewardId=额外礼物，在商店皮肤界面，没有额外礼物，就显示时装物品
+    if self.GoodIdList and #self.GoodIdList > 0 and not self.IsShowFashionIconWithoutGift then
+        self.GridItem.gameObject:SetActiveEx(false)
+        self.RewordGoodList.gameObject:SetActiveEx(true)
+        self.GridGoodItem.gameObject:SetActiveEx(false)
+        self.DynamicTable = XDynamicTableNormal.New(self.RewordGoodList)
+        self.DynamicTable:SetProxy(XUiGridCommon)
+        self.DynamicTable:SetDelegate(self)
+        self.DynamicTable:SetDataSource(self.GoodIdList)
+        self.DynamicTable:ReloadDataASync(1)
+        self.Title.text = CS.XTextManager.GetText("SpecialFashionShopGiftTitle")
+        self.BtnClick.gameObject:SetActiveEx(true)
     else
         self.GridItem.gameObject:SetActiveEx(true)
         self.RewordGoodList.gameObject:SetActiveEx(false)
@@ -265,7 +287,8 @@ end
 -- v1.28-采购优化-时装礼包赠品动态列表更新
 function XUiFashionDetail:OnDynamicTableEvent(event, index, grid)
     if event == DYNAMIC_DELEGATE_EVENT.DYNAMIC_GRID_ATINDEX then
-        grid:Refresh(self.GoodIdList[index])
+        local gridData = self.GoodIdList[index]
+        grid:Refresh(gridData)
         -- 已拥有图标显示
         local isHave = grid.TxtHave.gameObject.activeSelf
         grid.ImgIsHave.gameObject:SetActiveEx(isHave)

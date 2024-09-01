@@ -3,6 +3,7 @@ local XUiSignPrefabContent = require("XUi/XUiSignIn/XUiSignPrefabContent")
 local XUiSignFirstRecharge = require("XUi/XUiSignIn/XUiSignFirstRecharge")
 local XUiSignCard = require("XUi/XUiSignIn/XUiSignCard")
 local XUiWeekChallenge = require("XUi/XUiWeekChallenge/XUiWeekChallenge")
+local XUiSClassConstructWelfare = require("XUi/XUiSClassConstructWelfare/XUiSClassConstructWelfare")
 local XUiNewYearSignIn = require("XUi/XUiSignIn/XUiNewYearSignIn")
 local XUiSignNewYearDrawActivity = require("XUi/XUiSignIn/XUiSignNewYearDrawActivity")
 
@@ -103,6 +104,8 @@ function XUiSign:SetPrefabInfos(index, forceRefresh)
 
         if config.FunctionType == XAutoWindowConfigs.AutoFunctionType.Sign then
             signPrefabContent = XUiSignPrefabContent.New(go, self)
+        elseif config.FunctionType == XAutoWindowConfigs.AutoFunctionType.SClassConstructNovice then
+            signPrefabContent = XUiSClassConstructWelfare.New(go, self)
         elseif config.FunctionType == XAutoWindowConfigs.AutoFunctionType.FirstRecharge then
             signPrefabContent = XUiSignFirstRecharge.New(go, self)
         elseif config.FunctionType == XAutoWindowConfigs.AutoFunctionType.Card then

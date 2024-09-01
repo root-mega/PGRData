@@ -5,6 +5,7 @@ function XSCBattleRoleSkill:Ctor(groupId)
     self.GroupId = groupId
     self.CurCountDown = 0 
     self.UsedCount = 0
+    self.BallRemoveCount = 0
 end
 
 function XSCBattleRoleSkill:SetCountDown(leftCd)
@@ -25,6 +26,23 @@ end
 
 function XSCBattleRoleSkill:ClearUsedCount()
     self.UsedCount = 0
+end
+
+-- 增加技能消球次数
+function XSCBattleRoleSkill:AddBallRemoveCount(count)
+    self.BallRemoveCount = self.BallRemoveCount + count
+    return self.BallRemoveCount
+end
+
+-- 清除技能消球次数
+function XSCBattleRoleSkill:ClearBallRemoveCount()
+    self.BallRemoveCount = 0
+end
+
+-- 清除技能
+function XSCBattleRoleSkill:Clear()
+    self:ClearUsedCount()
+    self:ClearBallRemoveCount()
 end
 
 return XSCBattleRoleSkill

@@ -10,13 +10,16 @@ end
 
 function XUiGuildBossTeamList:Init(data, characterHeadInfoList, needBigHead)
     characterHeadInfoList = characterHeadInfoList or {}
+    local emptyNum = 0
     for i = 1, self.MaxHeadNum do
-        if data[i] <= 0 then
-            self["TeamHeadObj" .. i].gameObject:SetActiveEx(false)
+        self["TeamHeadObj" .. i].gameObject:SetActiveEx(false)
+        if data[i] and data[i] <= 0 then
+            emptyNum = emptyNum + 1 -- 靠左对齐
         else
-            self["TeamHeadObj" .. i].gameObject:SetActiveEx(true)
+            local index = i - emptyNum
+            self["TeamHeadObj" .. index].gameObject:SetActiveEx(true)
             if i <= #data then
-                self["TryMarkObj" .. i].gameObject:SetActiveEx(data[i] < 1000000)
+                self["TryMarkObj" .. index].gameObject:SetActiveEx(data[i] < 1000000)
                 --Head
                 local characterId
                 if XRobotManager.CheckIsRobotId(data[i]) then
@@ -31,11 +34,11 @@ function XUiGuildBossTeamList:Init(data, characterHeadInfoList, needBigHead)
                 else
                     iconPath = XDataCenter.CharacterManager.GetCharSmallHeadIcon(characterId, true, headInfo.HeadFashionId, headInfo.HeadFashionType)
                 end
-                self["ImgHead" .. i]:SetRawImage(iconPath)
+                self["ImgHead" .. index]:SetRawImage(iconPath)
 
-                self["TeamHeadObj" .. i].gameObject:SetActiveEx(true)
+                self["TeamHeadObj" .. index].gameObject:SetActiveEx(true)
             else
-                self["TeamHeadObj" .. i].gameObject:SetActiveEx(false)
+                self["TeamHeadObj" .. index].gameObject:SetActiveEx(false)
             end
         end
     end

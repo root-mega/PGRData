@@ -196,6 +196,7 @@ XMemorySaveManagerCreator = function ()
             CsXGameEventManager.Instance:Notify(XEventId.EVENT_ACTIVITY_ON_RESET, XDataCenter.FubenManager.StageType.MemorySave) -- 通知战前准备房间活动重制
             return
         end
+        _ActivityId = data.ActivityNo
         _ActivityInfo = {
             FinishStageIds = data.FinishStageIds or {},
             RewardChapterIds = data.RewardChapterIds or {},

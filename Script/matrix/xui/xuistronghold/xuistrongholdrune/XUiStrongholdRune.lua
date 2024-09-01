@@ -21,7 +21,12 @@ function XUiStrongholdRune:OnStart(teamList, teamId, groupId, runeId)
 end
 
 function XUiStrongholdRune:OnEnable()
+
     self:InitTabBtnGroup()
+end
+
+function XUiStrongholdRune:OnDisable()
+
 end
 
 function XUiStrongholdRune:OnGetEvents()

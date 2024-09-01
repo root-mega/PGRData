@@ -45,6 +45,14 @@ XDrawConfigs.DrawCapacityCheckType = {
     Partner = 1 -- 伙伴
 }
 
+XDrawConfigs.DrawTargetActivityNone = 999
+
+XDrawConfigs.DrawTargetTipType = { 
+    Open = 1,
+    Close = 2,
+    Update = 3,
+}
+
 local TABLE_DRAW_PREVIEW = "Client/Draw/DrawPreview.tab"
 local TABLE_DRAW_PREVIEW_GOODS = "Client/Draw/DrawPreviewGoods.tab"
 local TABLE_DRAW_COMBINATIONS = "Client/Draw/DrawCombinations.tab"
@@ -57,9 +65,15 @@ local TABLE_DRAW_TABS = "Client/Draw/DrawTabs.tab"
 local TABLE_DRAW_SHOW_CHARACTER = "Client/Draw/DrawShowCharacter.tab"
 local TABLE_DRAW_TYPE_CHANGE = "Client/Draw/DrawTypeChange.tab"
 local TABLE_DRAW_SHOW_EFFECT = "Client/Draw/DrawShowEffect.tab"
+local TABLE_DRAW_SHOW_PICTURE = "Client/Draw/DrawShowPicture.tab"
+local TABLE_DRAW_WAFER_SHOW = "Client/Draw/DrawWaferShow.tab"
 local TABLE_DRAW_GROUP_RELATION = "Client/Draw/DrawGroupRelation.tab"
 local TABLE_DRAW_SKIP = "Client/Draw/DrawSkip.tab"
 local TABLE_DRAW_SCENE = "Client/Draw/DrawScene.tab"
+local TABLE_DRAW_ACTIVITY_TARGET_SHOW = "Client/Draw/DrawActivityTargetShow.tab"
+local TABLE_DRAW_ACTIVITY_TARGET_ROLE_BG = "Client/Draw/DrawActivityTargetRoleBg.tab"
+local TABLE_DRAW_CLIENT_CONFIG = "Client/Draw/DrawClientConfig.tab"
+local TABLE_DRAW_TICKET = "Share/DrawTicket/DrawTicket.tab"
 local TABLE_DRAW_NEWYEARSHOW = "Client/Draw/JPDrawNewYearShow.tab"
 
 local DrawPreviews = {}
@@ -69,6 +83,8 @@ local DrawGroupRule = {}
 local DrawAimProbability = {}
 local DrawShow = {}
 local DrawShowEffect = {}
+local DrawShowPicture = {}
+local DrawWaferShow = {}
 local DrawCamera = {}
 local DrawTabs = {}
 local DrawShowCharacter = {}
@@ -78,6 +94,13 @@ local DrawGroupRelationCfg = {}
 local DrawGroupRelationDic = {}
 local DrawSkipCfg = {}
 local DrawSceneCfg = {}
+local DrawTicketCfg = {}
+---@type XTableDrawActivityTargetShow[]
+local DrawActivityTargetShowCfg = {}
+---@type XTableDrawActivityTargetRoleBg[]
+local DrawActivityTargetRoleBgCfg = {}
+---@type XTableDrawClientConfig[]
+local DrawClientCfg = {}
 local DrawNewYearShow = {}
 
 function XDrawConfigs.Init()
@@ -90,11 +113,17 @@ function XDrawConfigs.Init()
     DrawAimProbability = XTableManager.ReadByIntKey(TABLE_AIMPROBABILITY, XTable.XTableDrawAimProbability, "Id")
     DrawTypeChangeCfg = XTableManager.ReadByIntKey(TABLE_DRAW_TYPE_CHANGE, XTable.XTableDrawTypeChange, "MainGroupId")
     DrawShowEffect = XTableManager.ReadByIntKey(TABLE_DRAW_SHOW_EFFECT, XTable.XTableDrawShowEffect, "EffectGroupId")
+    DrawShowPicture = XTableManager.ReadByIntKey(TABLE_DRAW_SHOW_PICTURE, XTable.XTableDrawShowPicture, "GroupId")
+    DrawWaferShow = XTableManager.ReadByIntKey(TABLE_DRAW_WAFER_SHOW, XTable.XTableDrawWaferShow, "Id")
     DrawGroupRelationCfg = XTableManager.ReadByIntKey(TABLE_DRAW_GROUP_RELATION, XTable.XTableDrawGroupRelation, "NormalGroupId")
     DrawSkipCfg = XTableManager.ReadByIntKey(TABLE_DRAW_SKIP, XTable.XTableDrawSkip, "DrawGroupId")
     DrawSceneCfg = XTableManager.ReadByIntKey(TABLE_DRAW_SCENE, XTable.XTableDrawScene, "Id")
+    DrawTicketCfg = XTableManager.ReadByIntKey(TABLE_DRAW_TICKET,XTable.XTableDrawTicket, "Id")
+    DrawActivityTargetShowCfg = XTableManager.ReadByIntKey(TABLE_DRAW_ACTIVITY_TARGET_SHOW,XTable.XTableDrawActivityTargetShow, "Id")
+    DrawActivityTargetRoleBgCfg = XTableManager.ReadByIntKey(TABLE_DRAW_ACTIVITY_TARGET_ROLE_BG,XTable.XTableDrawActivityTargetRoleBg, "Quality")
+    DrawClientCfg = XTableManager.ReadByStringKey(TABLE_DRAW_CLIENT_CONFIG,XTable.XTableDrawClientConfig, "Key")
     DrawNewYearShow = XTableManager.ReadByIntKey(TABLE_DRAW_NEWYEARSHOW, XTable.XTableDrawNewYearActivityShow, "Type")
-
+    
     local previews = XTableManager.ReadAllByIntKey(TABLE_DRAW_PREVIEW, XTable.XTableDrawPreview, "Id")
     local previewGoods = XTableManager.ReadAllByIntKey(TABLE_DRAW_PREVIEW_GOODS, XTable.XTableRewardGoods, "Id")
 
@@ -162,6 +191,19 @@ end
 
 function XDrawConfigs.GetDrawCombinations()
     return DrawCombinations
+end
+
+function XDrawConfigs.GetDrawIdByTemplateIdAndCombinationsTypes(templateId, type)
+    for drawId, config in pairs(DrawCombinations) do
+        if config.Type == type then
+            local goods = config.GoodsId or {}
+            for _, goodId in ipairs(goods) do
+                if goodId == templateId then
+                    return drawId
+                end
+            end
+        end
+    end
 end
 
 function XDrawConfigs.GetDrawGroupRule()
@@ -246,6 +288,21 @@ function XDrawConfigs.GetDrawShowEffectById(id)
     return DrawShowEffect[id]
 end
 
+function XDrawConfigs.GetDrawShowPictureById(id)
+    if not DrawShowPicture[id] then
+        XLog.Error("Client/Draw/DrawShowPicture.tab Id = " .. id .. " Is Null")
+    end
+    return DrawShowPicture[id]
+end
+
+function XDrawConfigs.GetDrawWaferShowById(id)
+    if not DrawWaferShow[id] then
+        XLog.Error("Client/Draw/DrawWaferShow.tab Id = " .. id .. " Is Null")
+        return nil
+    end
+    return DrawWaferShow[id]
+end
+
 function XDrawConfigs.GetOpenUpEffect(id)
     return XDrawConfigs.GetDrawShowEffectById(id).PanelOpenUp
 end
@@ -266,6 +323,113 @@ function XDrawConfigs.GetSkipEffect(id)
     return XDrawConfigs.GetDrawShowEffectById(id).SkipEffect
 end
 
+-- 获取底座特效
+function XDrawConfigs.GetCarriageEffect(id)
+    return XDrawConfigs.GetDrawShowEffectById(id).CarriageEffect
+end
+
+-- 获取线特效
+function XDrawConfigs.GetFloorEffect(id)
+    return XDrawConfigs.GetDrawShowEffectById(id).FloorEffect
+end
+
+-- 获取光圈特效
+function XDrawConfigs.GetApertureEffect(id)
+    return XDrawConfigs.GetDrawShowEffectById(id).ApertureEffect
+end
+
+-- 获取卡片开始特效
+function XDrawConfigs.GetCardEffectStart(id)
+    return XDrawConfigs.GetDrawShowEffectById(id).CardEffectStart
+end
+
+-- 获取卡片特效
+function XDrawConfigs.GetCardEffect(id)
+    return XDrawConfigs.GetDrawShowEffectById(id).CardEffect
+end
+
+-- 获取卡片特效音效
+function XDrawConfigs.GetCardEffectSound(id)
+    return XDrawConfigs.GetDrawShowEffectById(id).CardEffectSound
+end
+
+function XDrawConfigs.GetDrawCardBg(id)
+    return XDrawConfigs.GetDrawShowPictureById(id).Bg
+end
+
+function XDrawConfigs.GetDrawCardHalfBg(id)
+    return XDrawConfigs.GetDrawShowPictureById(id).HalfBg
+end
+
+function XDrawConfigs.GetDrawCardNameBg(id)
+    return XDrawConfigs.GetDrawShowPictureById(id).NameBg
+end
+
 function XDrawConfigs.GetDrawSceneCfg(id)
     return DrawSceneCfg[id]
 end 
+
+function XDrawConfigs.GetDrawTicketCfg(id)
+    return DrawTicketCfg[id]
+end
+
+function XDrawConfigs.GetDrawTicketWorldDesc(id)
+    local cfg = XDrawConfigs.GetDrawTicketCfg(id)
+    return cfg.WorldDescription
+end
+
+function XDrawConfigs.GetDrawTicketDesc(id)
+    local cfg = XDrawConfigs.GetDrawTicketCfg(id)
+    return cfg.Description
+end
+
+--region DrawActivityTargetShow
+function XDrawConfigs.GetDrawActivityTargetShowCfg(activityId)
+    return DrawActivityTargetShowCfg[activityId]
+end
+
+function XDrawConfigs.GetDrawActivityTargetShowTabDesc(activityId)
+    return XDrawConfigs.GetDrawActivityTargetShowCfg(activityId).TabDesc
+end
+
+function XDrawConfigs.GetDrawActivityTargetShowTitleList(activityId)
+    return XDrawConfigs.GetDrawActivityTargetShowCfg(activityId).Title
+end
+
+function XDrawConfigs.GetDrawActivityTargetShowDescList(activityId)
+    return XDrawConfigs.GetDrawActivityTargetShowCfg(activityId).Desc
+end
+
+function XDrawConfigs.GetDrawActivityTargetShowBannerPrefab(activityId)
+    return XDrawConfigs.GetDrawActivityTargetShowCfg(activityId).BannerPrefab
+end
+
+function XDrawConfigs.GetDrawActivityTargetShowActiveTipTxt(activityId)
+    return XDrawConfigs.GetDrawActivityTargetShowCfg(activityId).ActiveTipTxt
+end
+
+function XDrawConfigs.GetDrawActivityTargetShowRuleTipTxt(activityId)
+    return XDrawConfigs.GetDrawActivityTargetShowCfg(activityId).RuleTipTxt
+end
+--endregion
+
+--region DrawActivityTargetRoleBg
+function XDrawConfigs.GetDrawActivityTargetRoleBgCfg(quality)
+    return DrawActivityTargetRoleBgCfg[quality]
+end
+
+function XDrawConfigs.GetDrawActivityTargetRoleBgUrl(quality)
+    return XDrawConfigs.GetDrawActivityTargetRoleBgCfg(quality).BgUrl
+end
+
+function XDrawConfigs.GetDrawActivityTargetRoleProbabilityBgUrl(quality)
+    return XDrawConfigs.GetDrawActivityTargetRoleBgCfg(quality).ProbabilityBgUrl
+end
+--endregion
+
+--region DrawClientConfig
+function XDrawConfigs.GetDrawClientConfig(key, index)
+    index = index or 1
+    return DrawClientCfg[key].ValueList[index]
+end
+--endregion

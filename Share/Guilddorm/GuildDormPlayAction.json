@@ -1,0 +1,72 @@
+[
+    {
+        "Id": 1,
+        "ActionName": "Kiss01",
+        "ActionUiName": "Air Kiss",
+        "Duration": 2.5,
+        "CoolDown": 3,
+        "Icon": "Assets/Product/Texture/Image/UiGuild/UiGuildDormMainAct01.png",
+        "CrossDuration": 0.1,
+        "IsFollowCamera": 1
+    },
+    {
+        "Id": 2,
+        "ActionName": "No01",
+        "ActionUiName": "Decline",
+        "Duration": 2.5,
+        "CoolDown": 3,
+        "Icon": "Assets/Product/Texture/Image/UiGuild/UiGuildDormMainAct02.png",
+        "CrossDuration": 0.1,
+        "IsFollowCamera": 1
+    },
+    {
+        "Id": 3,
+        "ActionName": "Refuse01",
+        "ActionUiName": "Angry",
+        "Duration": 2.5,
+        "CoolDown": 3,
+        "Icon": "Assets/Product/Texture/Image/UiGuild/UiGuildDormMainAct03.png",
+        "CrossDuration": 0.1,
+        "IsFollowCamera": 1
+    },
+    {
+        "Id": 4,
+        "ActionName": "StandReward01",
+        "ActionUiName": "Jump",
+        "Duration": 1.8,
+        "CoolDown": 3,
+        "Icon": "Assets/Product/Texture/Image/UiGuild/UiGuildDormMainAct05.png",
+        "CrossDuration": 0.1,
+        "IsFollowCamera": 0
+    },
+    {
+        "Id": 5,
+        "ActionName": "Talk01",
+        "ActionUiName": "Talk",
+        "Duration": 2.5,
+        "CoolDown": 3,
+        "Icon": "Assets/Product/Texture/Image/UiGuild/UiGuildDormMainAct06.png",
+        "CrossDuration": 0.1,
+        "IsFollowCamera": 1
+    },
+    {
+        "Id": 6,
+        "ActionName": "Victory01",
+        "ActionUiName": "Cheer",
+        "Duration": 2.5,
+        "CoolDown": 3,
+        "Icon": "Assets/Product/Texture/Image/UiGuild/UiGuildDormMainAct08.png",
+        "CrossDuration": 0.1,
+        "IsFollowCamera": 1
+    },
+    {
+        "Id": 7,
+        "ActionName": "Greet01",
+        "ActionUiName": "Greet",
+        "Duration": 2.5,
+        "CoolDown": 3,
+        "Icon": "Assets/Product/Texture/Image/UiGuild/UiGuildDormMainAct09.png",
+        "CrossDuration": 0.1,
+        "IsFollowCamera": 1
+    }
+]

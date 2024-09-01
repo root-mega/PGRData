@@ -1,3 +1,4 @@
+---@class XPartnerBase
 local XPartnerBase = XClass(nil, "XPartnerBase")
 
 function XPartnerBase:Ctor(templateId)

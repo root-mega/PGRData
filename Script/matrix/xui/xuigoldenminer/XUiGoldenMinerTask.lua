@@ -1,4 +1,5 @@
---黄金矿工任务界面
+---黄金矿工任务界面
+---@class XUiGoldenMinerTask : XLuaUi
 local XUiGoldenMinerTask = XLuaUiManager.Register(XLuaUi, "UiGoldenMinerTask")
 
 function XUiGoldenMinerTask:OnAwake()
@@ -18,6 +19,19 @@ function XUiGoldenMinerTask:OnEnable()
     self:UpdateRedPoint()
 end
 
+function XUiGoldenMinerTask:OnNotify(evt, ...)
+    if evt == XEventId.EVENT_FINISH_TASK then
+        self:UpdateDynamicTable()
+        self:UpdateRedPoint()
+    end
+end
+
+function XUiGoldenMinerTask:OnGetEvents()
+    return { XEventId.EVENT_FINISH_TASK }
+end
+
+
+--region Activity - AutoClose
 function XUiGoldenMinerTask:InitTimes()
     self:SetAutoCloseInfo(XDataCenter.GoldenMinerManager.GetActivityEndTime(), function(isClose)
         if isClose then
@@ -25,7 +39,10 @@ function XUiGoldenMinerTask:InitTimes()
         end
     end)
 end
+--endregion
 
+
+--region Ui - TaskTabGroup
 function XUiGoldenMinerTask:InitTabGroup()
     self.TabBtns = {}
     self.TaskGroupIdList = XGoldenMinerConfigs.GetTaskGroupIdList()
@@ -48,7 +65,10 @@ function XUiGoldenMinerTask:OnSelectedTog(index)
     self:PlayAnimation("QieHuan")
     self:UpdateDynamicTable()
 end
+--endregion
 
+
+--region Ui - TaskGrid DynamicTable
 function XUiGoldenMinerTask:InitDynamicTable()
     self.DynamicTable = XDynamicTableNormal.New(self.SViewTask)
     self.DynamicTable:SetProxy(XDynamicGridTask, self)
@@ -75,28 +95,24 @@ function XUiGoldenMinerTask:OnDynamicTableEvent(event, index, grid)
         grid:ResetData(taskData)
     end
 end
+--endregion
 
-function XUiGoldenMinerTask:OnNotify(evt, ...)
-    if evt == XEventId.EVENT_FINISH_TASK then
-        self:UpdateDynamicTable()
-        self:UpdateRedPoint()
-    end
-end
 
-function XUiGoldenMinerTask:OnGetEvents()
-    return { XEventId.EVENT_FINISH_TASK }
-end
-
+--region Ui - BtnListener
 function XUiGoldenMinerTask:AddListener()
     self:RegisterClickEvent(self.BtnBack, self.Close)
     self:RegisterClickEvent(self.BtnMainUi, function() XLuaUiManager.RunMain() end)
 end
+--endregion
 
+
+--region Ui - RedPoint
 function XUiGoldenMinerTask:UpdateRedPoint()
     for i, goldenMinerTaskId in ipairs(self.TaskGroupIdList) do
         if self.TabBtns[i] then
-            local isShowRed = XDataCenter.GoldenMinerManager.CheckTaskCanRewardByGoldenMinerTaskId(goldenMinerTaskId)
+            local isShowRed = XDataCenter.GoldenMinerManager.CheckTaskCanRewardByTaskId(goldenMinerTaskId)
             self.TabBtns[i]:ShowReddot(isShowRed)
         end
     end
 end
+--endregion

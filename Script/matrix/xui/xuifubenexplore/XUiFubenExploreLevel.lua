@@ -69,12 +69,14 @@ function XUiFubenExploreLevel:OnBtnBackClick()
 end
 
 function XUiFubenExploreLevel:OnBtnBuffClick()
+    XDataCenter.UiPcManager.OnUiEnable(self, "OnBtnCloseClick")
     self.PanelBuffDetail.gameObject:SetActive(true)
     self:PlayAnimation("AnimBuffDetailEnable")
 end
 
 function XUiFubenExploreLevel:OnBtnCloseClick()
     self.PanelBuffDetail.gameObject:SetActive(false)
+    XDataCenter.UiPcManager.OnUiDisableAbandoned(true, self)
 end
 
 function XUiFubenExploreLevel:OnQuickJumpClick(nodeInfo)

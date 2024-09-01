@@ -15,7 +15,7 @@ function XUiGuildBuild:OnAwake()
     self.AllCoins = XGuildConfig.GetCreateCostItemType()
     self.AllCosts = XGuildConfig.GetCreateCostItemCount()
 
-    self.GuildViewSetHeadPortrait = XUiGuildViewSetHeadPortrait.New(self.PanelSetHeadPotrait,self)
+    self.GuildViewSetHeadPortrait = XUiGuildViewSetHeadPortrait.New(self.PanelSetHeadPotrait, self, true)
     self:InitFun()
 end
 

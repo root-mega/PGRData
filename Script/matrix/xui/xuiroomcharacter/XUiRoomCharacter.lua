@@ -248,11 +248,11 @@ function XUiRoomCharacter:AutoAddListener()
 end
 -- auto
 function XUiRoomCharacter:OnBtnWeaponClick()
-    XLuaUiManager.Open("UiEquipReplaceNew", self.CurCharacter.Id, nil, true)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipReplace(self.CurCharacter.Id, nil, true)
 end
 
 function XUiRoomCharacter:OnBtnConsciousnessClick()
-    XLuaUiManager.Open("UiEquipAwarenessReplace", self.CurCharacter.Id, nil, true)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipAwareness(self.CurCharacter.Id)
 end
 
 function XUiRoomCharacter:OnBtnMainUiClick()
@@ -647,6 +647,7 @@ function XUiRoomCharacter:OnDynamicTableEvent(event, index, grid)
             end
         elseif self:IsCoutpleCombatType() then
             --分光双星
+            grid:UpdateRecommendTag(self.StageId)
             if XDataCenter.FubenCoupleCombatManager.CheckCharacterUsed(self.StageId, characterId) then
                 grid:SetSameRoleTag(true, CSXTextManagerGetText("CoupleCombatRobotUsed"))
             end

@@ -79,8 +79,8 @@ function XUiGridEchelonExp:AutoAddListener()
 end
 -- auto
 function XUiGridEchelonExp:UpdateTxtExp()
-    local stageCfg = XDataCenter.FubenManager.GetStageCfg(self.BaseStage)
-    self.TxtExp.text = "+" .. stageCfg.CardExp
+    local cardExp = XDataCenter.FubenManager.GetCardExp(self.BaseStage)
+    self.TxtExp.text = "+" .. cardExp
 end
 
 function XUiGridEchelonExp:UpdateTxtEchelonIndex()

@@ -16,7 +16,7 @@ function XUiGuildWarTask:OnAwake()
     self.TabBtns = nil
     self.GuildWarManager = XDataCenter.GuildWarManager
     XUiHelper.NewPanelActivityAsset({ XGuildWarConfig.ActivityPointItemId } ,self.PanelSpecialTool
-        , { self.GuildWarManager.GetMaxEnergy() })
+        , { self.GuildWarManager.GetMaxActionPoint() })
 end
 
 function XUiGuildWarTask:CreateTabBtns()
@@ -51,6 +51,14 @@ function XUiGuildWarTask:CheckBtnsRed()
         local isRed = XDataCenter.GuildWarManager.CheckTaskCanAchievedByType(self.TaskTypeDatas[index].TaskType)
         btn:ShowReddot(isRed)
     end
+end
+
+function XUiGuildWarTask:OnDataSourceChanged()
+    -- if not self.CurrentTasks or #self.CurrentTasks == 0 then
+    --     self.TextEmpty.gameObject:SetActiveEx(true)
+    -- else
+    --     self.TextEmpty.gameObject:SetActiveEx(false)
+    -- end
 end
 
 return XUiGuildWarTask

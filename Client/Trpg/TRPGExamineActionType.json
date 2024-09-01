@@ -1,0 +1,38 @@
+[
+    {
+        "Type": 1,
+        "Desc": "Battle Calculation",
+        "DescEn": "COMC Verification",
+        "RangeDesc": "Casting Range",
+        "AttrDesc": "[Squad Battle]",
+        "DefaultItemDesc": "Basic Battle",
+        "Icon": "Assets/Product/Texture/Image/UiTRPG/UiTRPGIconTest01.png"
+    },
+    {
+        "Type": 2,
+        "Desc": "Perception Calculation",
+        "DescEn": "PER Verification",
+        "RangeDesc": "Casting Range",
+        "AttrDesc": "[Squad Perception]",
+        "DefaultItemDesc": "Basic Perception",
+        "Icon": "Assets/Product/Texture/Image/UiTRPG/UiTRPGIconTest02.png"
+    },
+    {
+        "Type": 3,
+        "Desc": "Arithmetic Calculation",
+        "DescEn": "INT verification",
+        "RangeDesc": "Casting Range",
+        "AttrDesc": "[Squad Arithmetic]",
+        "DefaultItemDesc": "Basic Arithmetic",
+        "Icon": "Assets/Product/Texture/Image/UiTRPG/UiTRPGIconTest03.png"
+    },
+    {
+        "Type": 4,
+        "Desc": "Use Items",
+        "DescEn": "Use goods",
+        "RangeDesc": null,
+        "AttrDesc": null,
+        "DefaultItemDesc": null,
+        "Icon": null
+    }
+]

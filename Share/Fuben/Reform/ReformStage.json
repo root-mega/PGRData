@@ -1,342 +1,482 @@
 [
     {
-        "Id": 30162501,
+        "Id": 30162522,
         "Name": "Limit Break - 1",
         "RecommendScore": 2200,
         "StageType": 1,
         "ShowNpcId": 90030,
-        "OpenTimeId": 10701,
+        "OpenTimeId": 28,
         "StageDiff": [
-            10010
+            10010,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "RecommendCharacterIds": [
+            null,
             1011002,
-            1081003,
+            1021001,
             1031001
-        ]
+        ],
+        "StarNeedScore": [
+            null,
+            200,
+            400,
+            800,
+            1200
+        ],
+        "UnlockStageId": 0,
+        "FullPoint": 5,
+        "StageGoalDesc": "Defeat 4 enemies.",
+        "RecommendCharacterGroupId": 101,
+        "PressureEasy": 1000,
+        "PressureHard": 1500
     },
     {
-        "Id": 30162502,
+        "Id": 30162523,
         "Name": "Limit Break - 2",
         "RecommendScore": 2400,
         "StageType": 1,
         "ShowNpcId": 90210,
-        "OpenTimeId": 10701,
+        "OpenTimeId": 28,
         "StageDiff": [
-            10020
+            10020,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "RecommendCharacterIds": [
-            1021002,
-            1091002,
+            null,
+            1231002,
+            1051003,
             1111002
-        ]
+        ],
+        "StarNeedScore": [
+            null,
+            200,
+            400,
+            800,
+            1200
+        ],
+        "UnlockStageId": 30162522,
+        "FullPoint": 5,
+        "StageGoalDesc": "Defeat 3 \"evil\" enemies.",
+        "RecommendCharacterGroupId": 102,
+        "PressureEasy": 1000,
+        "PressureHard": 1500
     },
     {
-        "Id": 30162503,
+        "Id": 30162524,
         "Name": "Limit Break - 3",
         "RecommendScore": 3000,
         "StageType": 1,
         "ShowNpcId": 90610,
-        "OpenTimeId": 10701,
+        "OpenTimeId": 28,
         "StageDiff": [
-            10030
+            10030,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "RecommendCharacterIds": [
-            1121003,
-            1081002,
-            1211002
-        ]
+            null,
+            1521003,
+            1241002,
+            1551003
+        ],
+        "StarNeedScore": [
+            null,
+            200,
+            400,
+            800,
+            1200
+        ],
+        "UnlockStageId": 0,
+        "FullPoint": 5,
+        "StageGoalDesc": "Have no enemies with the same color affixes in the same wave.",
+        "RecommendCharacterGroupId": 103,
+        "PressureEasy": 1000,
+        "PressureHard": 1500
     },
     {
-        "Id": 30162504,
+        "Id": 30162525,
         "Name": "Limit Break - 4",
         "RecommendScore": 3000,
         "StageType": 1,
         "ShowNpcId": 90460,
-        "OpenTimeId": 10701,
+        "OpenTimeId": 28,
         "StageDiff": [
-            10040
+            10040,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "RecommendCharacterIds": [
-            1171003,
-            1221002,
-            1031001
-        ]
+            null,
+            1091003,
+            1531004,
+            1051004
+        ],
+        "StarNeedScore": [
+            null,
+            200,
+            400,
+            800,
+            1200
+        ],
+        "UnlockStageId": 30162524,
+        "FullPoint": 5,
+        "StageGoalDesc": "Have enemies with the same color affixes in the same wave.",
+        "RecommendCharacterGroupId": 104,
+        "PressureEasy": 1000,
+        "PressureHard": 1500
     },
     {
-        "Id": 30162505,
+        "Id": 30162526,
         "Name": "Limit Break - 5",
         "RecommendScore": 4000,
         "StageType": 1,
         "ShowNpcId": 90890,
-        "OpenTimeId": 10701,
+        "OpenTimeId": 28,
         "StageDiff": [
-            10050
+            10050,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "RecommendCharacterIds": [
-            1071004,
-            1071002,
-            1131002
-        ]
+            null,
+            1251002,
+            1131002,
+            1221002
+        ],
+        "StarNeedScore": [
+            null,
+            200,
+            400,
+            800,
+            1200
+        ],
+        "UnlockStageId": 0,
+        "FullPoint": 5,
+        "StageGoalDesc": "Reach 200 combos.",
+        "RecommendCharacterGroupId": 105,
+        "PressureEasy": 1000,
+        "PressureHard": 1500
     },
     {
-        "Id": 30162506,
+        "Id": 30162527,
         "Name": "Limit Break - 6",
         "RecommendScore": 4200,
         "StageType": 1,
         "ShowNpcId": 90250,
-        "OpenTimeId": 10701,
+        "OpenTimeId": 28,
         "StageDiff": [
-            10060
+            10060,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "RecommendCharacterIds": [
-            1141003,
-            1031001,
-            1021003
-        ]
+            null,
+            1251002,
+            1131003,
+            1221003
+        ],
+        "StarNeedScore": [
+            null,
+            200,
+            400,
+            800,
+            1200
+        ],
+        "UnlockStageId": 30162526,
+        "FullPoint": 5,
+        "StageGoalDesc": "Defeat 2 enemies within 5s.",
+        "RecommendCharacterGroupId": 106,
+        "PressureEasy": 1000,
+        "PressureHard": 1500
     },
     {
-        "Id": 30162507,
+        "Id": 30162528,
         "Name": "Limit Break - 7",
         "RecommendScore": 4400,
         "StageType": 1,
         "ShowNpcId": 90850,
-        "OpenTimeId": 10701,
+        "OpenTimeId": 28,
         "StageDiff": [
-            10070
+            10070,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "RecommendCharacterIds": [
-            1121003,
-            1031002,
-            1021004
-        ]
+            null,
+            1171003,
+            1071004,
+            1531004
+        ],
+        "StarNeedScore": [
+            null,
+            200,
+            400,
+            800,
+            1200
+        ],
+        "UnlockStageId": 0,
+        "FullPoint": 5,
+        "StageGoalDesc": "Make use of the affixes to have more than 5 enemies in the battle.",
+        "RecommendCharacterGroupId": 107,
+        "PressureEasy": 1000,
+        "PressureHard": 1500
     },
     {
-        "Id": 30162508,
+        "Id": 30162529,
         "Name": "Limit Break - 8",
         "RecommendScore": 5300,
         "StageType": 1,
         "ShowNpcId": 90770,
-        "OpenTimeId": 10701,
+        "OpenTimeId": 28,
         "StageDiff": [
-            10080
+            10080,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "RecommendCharacterIds": [
-            1041003,
-            1131003,
-            1031002
-        ]
+            null,
+            1041004,
+            1141003,
+            1031003
+        ],
+        "StarNeedScore": [
+            null,
+            200,
+            400,
+            800,
+            1200
+        ],
+        "UnlockStageId": 30162528,
+        "FullPoint": 5,
+        "StageGoalDesc": "Deal 10000 DMG with a single hit.",
+        "RecommendCharacterGroupId": 108,
+        "PressureEasy": 1000,
+        "PressureHard": 1500
     },
     {
-        "Id": 30162509,
+        "Id": 30162530,
         "Name": "Limit Break - 9",
         "RecommendScore": 5300,
         "StageType": 1,
         "ShowNpcId": 90090,
-        "OpenTimeId": 10701,
+        "OpenTimeId": 28,
         "StageDiff": [
-            10090
+            10090,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "RecommendCharacterIds": [
-            1031004,
-            1531004,
-            1211002
-        ]
+            null,
+            1021004,
+            1091003,
+            1121003
+        ],
+        "StarNeedScore": [
+            null,
+            200,
+            400,
+            800,
+            1200
+        ],
+        "UnlockStageId": 0,
+        "FullPoint": 5,
+        "StageGoalDesc": "Prevent the enemy from reviving.",
+        "RecommendCharacterGroupId": 109,
+        "PressureEasy": 1000,
+        "PressureHard": 1500
     },
     {
-        "Id": 30162510,
+        "Id": 30162531,
         "Name": "Limit Break - 10",
         "RecommendScore": 4800,
         "StageType": 1,
         "ShowNpcId": 90190,
-        "OpenTimeId": 10701,
+        "OpenTimeId": 28,
         "StageDiff": [
-            10100
+            10100,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "RecommendCharacterIds": [
-            1071002,
-            1031004,
-            1051004
-        ]
+            null,
+            1011004,
+            1051004,
+            1031004
+        ],
+        "StarNeedScore": [
+            null,
+            200,
+            400,
+            800,
+            1200
+        ],
+        "UnlockStageId": 30162530,
+        "FullPoint": 5,
+        "StageGoalDesc": "Defeat 2 enemies with less than 10s apart.",
+        "RecommendCharacterGroupId": 110,
+        "PressureEasy": 1000,
+        "PressureHard": 1500
     },
     {
-        "Id": 30162511,
+        "Id": 30162532,
         "Name": "Limit Break - 11",
         "RecommendScore": 3200,
         "StageType": 1,
         "ShowNpcId": 93160,
-        "OpenTimeId": 10701,
+        "OpenTimeId": 28,
         "StageDiff": [
-            10110
+            10110,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "RecommendCharacterIds": [
-            1551003,
-            1511003,
-            1541003
-        ]
+            null,
+            1251002,
+            1131003,
+            1221003
+        ],
+        "StarNeedScore": [
+            null,
+            200,
+            400,
+            800,
+            1200
+        ],
+        "UnlockStageId": 0,
+        "FullPoint": 5,
+        "StageGoalDesc": "Finish the battle within 2 min.",
+        "RecommendCharacterGroupId": 111,
+        "PressureEasy": 1000,
+        "PressureHard": 1500
     },
     {
-        "Id": 30162512,
+        "Id": 30162533,
         "Name": "Limit Break - 12",
         "RecommendScore": 5000,
         "StageType": 1,
         "ShowNpcId": 836000,
-        "OpenTimeId": 10701,
+        "OpenTimeId": 28,
         "StageDiff": [
-            10120
+            10120,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
-        "RecommendCharacterIds": [
-            1031002,
-            1031003,
-            1031004
-        ]
-    },
-    {
-        "Id": 30162513,
-        "Name": "Limit Break - 13",
-        "RecommendScore": 5300,
-        "StageType": 1,
-        "ShowNpcId": 90730,
-        "OpenTimeId": 10701,
-        "StageDiff": [
-            10130
+        "ShowFightEventIds": [
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "ShowFightEventIds": [],
         "RecommendCharacterIds": [
-            1121003,
-            1031004,
-            1051004
-        ]
-    },
-    {
-        "Id": 30162514,
-        "Name": "Limit Break - Final",
-        "RecommendScore": 4000,
-        "StageType": 1,
-        "ShowNpcId": 90250,
-        "OpenTimeId": 10701,
-        "StageDiff": [
-            10140
+            null,
+            1251002,
+            1131003,
+            1221003
         ],
-        "ShowFightEventIds": [],
-        "RecommendCharacterIds": [
-            1011002,
-            1021002,
-            1531004
-        ]
-    },
-    {
-        "Id": 30162515,
-        "Name": "Limit Beyond - 1",
-        "RecommendScore": 7000,
-        "StageType": 2,
-        "ShowNpcId": 93230,
-        "OpenTimeId": 10701,
-        "StageDiff": [
-            10150
+        "StarNeedScore": [
+            null,
+            200,
+            400,
+            800,
+            1200
         ],
-        "ShowFightEventIds": [],
-        "RecommendCharacterIds": [
-            1031003,
-            1031002,
-            1071002
-        ]
-    },
-    {
-        "Id": 30162516,
-        "Name": "Limit Beyond - 2",
-        "RecommendScore": 6200,
-        "StageType": 2,
-        "ShowNpcId": 90470,
-        "OpenTimeId": 10701,
-        "StageDiff": [
-            10160
-        ],
-        "ShowFightEventIds": [],
-        "RecommendCharacterIds": [
-            1171003,
-            1061003,
-            1531004
-        ]
-    },
-    {
-        "Id": 30162517,
-        "Name": "Limit Beyond - 3",
-        "RecommendScore": 6000,
-        "StageType": 2,
-        "ShowNpcId": 90220,
-        "OpenTimeId": 10701,
-        "StageDiff": [
-            10170
-        ],
-        "ShowFightEventIds": [],
-        "RecommendCharacterIds": [
-            1551003,
-            1511003,
-            1541003
-        ]
-    },
-    {
-        "Id": 30162518,
-        "Name": "Limit Beyond - 4",
-        "RecommendScore": 5500,
-        "StageType": 2,
-        "ShowNpcId": 83500,
-        "OpenTimeId": 10701,
-        "StageDiff": [
-            10180
-        ],
-        "ShowFightEventIds": [],
-        "RecommendCharacterIds": [
-            1051004,
-            1031004,
-            1011003
-        ]
-    },
-    {
-        "Id": 30162519,
-        "Name": "Limit Beyond - 5",
-        "RecommendScore": 6700,
-        "StageType": 2,
-        "ShowNpcId": 84400,
-        "OpenTimeId": 10701,
-        "StageDiff": [
-            10190
-        ],
-        "ShowFightEventIds": [],
-        "RecommendCharacterIds": [
-            1171003,
-            1071004,
-            1111002
-        ]
-    },
-    {
-        "Id": 30162520,
-        "Name": "Limit Beyond - Final",
-        "RecommendScore": 12500,
-        "StageType": 2,
-        "ShowNpcId": 84310,
-        "OpenTimeId": 10701,
-        "StageDiff": [
-            10200
-        ],
-        "ShowFightEventIds": [],
-        "RecommendCharacterIds": [
-            1021004,
-            1041003,
-            1031004
-        ]
+        "UnlockStageId": 30162532,
+        "FullPoint": 5,
+        "StageGoalDesc": "Finish the battle within 2 min.",
+        "RecommendCharacterGroupId": 112,
+        "PressureEasy": 1000,
+        "PressureHard": 1500
     }
 ]

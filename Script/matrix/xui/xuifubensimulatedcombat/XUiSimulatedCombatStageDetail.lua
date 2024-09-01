@@ -44,7 +44,7 @@ function XUiSimulatedCombatStageDetail:SetUi()
     
     self.TxtTitle.text = self.StageCfg.Name
     --ImgCostIcon
-    self.TxtATNums.text = self.IsPassed and 0 or self.StageCfg.RequireActionPoint
+    self.TxtATNums.text = self.IsPassed and 0 or XDataCenter.FubenManager.GetRequireActionPoint(self.StageId)
     self.BtnClose.CallBack = function() self:OnBtnClose()  end
     self.BtnEnter.CallBack = function() self:OnBtnEnter()  end
     self.AssetActivityPanel:Refresh(self.ActTemplate.ConsumeIds)

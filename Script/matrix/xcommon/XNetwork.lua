@@ -1,5 +1,12 @@
 XNetwork = XNetwork or {}
 
+if XMain.IsEditorDebug then 
+    CS.XNetwork.IsShowNetLog = false
+    XNetwork.IsShowNetLog = true
+else
+    XNetwork.IsShowNetLog = CS.XNetwork.IsShowNetLog
+end
+
 local Ip
 local Port
 local LastIp
@@ -71,21 +78,27 @@ function XNetwork.ConnectGateServer(args)
     CS.XNetwork.OnConnect = function()
         if args.IsReconnect then
             local request = { PlayerId = XPlayer.Id, Token = XUserManager.ReconnectedToken, LastMsgSeqNo = CS.XNetwork.ServerMsgSeqNo }
-            if CS.XNetwork.IsShowNetLog then
+            if XNetwork.IsShowNetLog then
                 XLog.Debug("PlayerId=" .. request.PlayerId .. ", Token=" .. request.Token .. ", LastMsgSeqNo=" .. request.LastMsgSeqNo)
             end
 
             local request_func
             request_func = function()
+                --放在外层，避免重连协议比其他协议慢返回
+                XEventManager.DispatchEvent(XEventId.EVENT_NETWORK_RECONNECT)
+                
                 XNetwork.Call("ReconnectRequest", request, function(res)
+                    -- XLog.Debug("服务器返回断线重连 测试，当作失败。" .. tostring(res.Code))
+                    -- XLoginManager.OnReconnectFailed()
+                    -- do return end
                     if res.Code ~= XCode.Success then
-                        if CS.XNetwork.IsShowNetLog then
+                        if XNetwork.IsShowNetLog then
                             XLog.Debug("服务器返回断线重连失败。" .. tostring(res.Code))
                         end
-                        XLoginManager.DoDisconnect()
+                        XLoginManager.OnReconnectFailed()
                     else
                         XNetwork.Send("ReconnectAck")
-                        if CS.XNetwork.IsShowNetLog then
+                        if XNetwork.IsShowNetLog then
                             XLog.Debug("服务器返回断线重连成功。")
                         end
                         XUserManager.ReconnectedToken = res.ReconnectToken
@@ -125,7 +138,11 @@ function XNetwork.ConnectGateServer(args)
                         local cancelCb = XMain.IsDebug and function() end or nil
                         CS.XTool.WaitCoroutine(CS.XApplication.CoDialog(CS.XApplication.GetText("Tip"),
                         CS.XStringEx.Format(CS.XApplication.GetText("UpdateApplication"),
-                        CS.XInfo.Version), cancelCb, function() CS.XTool.WaitCoroutine(CS.XApplication.GoToUpdateURL(GetAppUpgradeUrl()), nil) end))
+                        CS.XInfo.Version), cancelCb, function() CS.XTool.WaitCoroutine(CS.XApplication.GoToUpdateURL(GetAppUpgradeUrl()), nil) end, "Cancel", "Confirm"))
+                    elseif response.Code == XCode.LoginDocumentVersionError then
+                        XUiManager.DialogTip("", CS.XTextManager.GetCodeText(response.Code), XUiManager.DialogType.OnlySure, nil, function()
+                            CS.XApplication.Exit()
+                        end)
                     else
                         XUiManager.DialogTip("", CS.XTextManager.GetCodeText(response.Code), XUiManager.DialogType.OnlySure)
                     end
@@ -201,6 +218,12 @@ function XNetwork.ConnectServer(ip, port, bReconnect)
 end
 
 function XNetwork.Send(handler, request)
+    if IsDebug then
+        if handler == "" or (string.find(handler, " ")) then
+            XLog.Error("发送协议名错误！handler: " .. tostring(handler) .. ", request:", request)
+            return
+        end
+    end
     -- 检查是否是屏蔽协议
     if NeedShieldProtocol and ShieldedProtocol[handler] then
         XUiManager.TipMsg(CS.XGame.ClientConfig:GetString("ShieldedProtocol"))
@@ -219,10 +242,17 @@ function XNetwork.Send(handler, request)
     CS.XNetwork.Send(handler, requestContent);
 end
 
-function XNetwork.Call(handler, request, reply, isEncoded)
+function XNetwork.Call(handler, request, reply, isEncoded, exReply, shieldReply)
+    if IsDebug then
+        if handler == "" or (string.find(handler, " ")) then
+            XLog.Error("发送协议名错误！handler: " .. tostring(handler) .. ", request:", request)
+            return
+        end
+    end
     -- 检查是否是屏蔽协议
     if NeedShieldProtocol and ShieldedProtocol[handler] then
         XUiManager.TipMsg(CS.XGame.ClientConfig:GetString("ShieldedProtocol"))
+        if shieldReply then shieldReply() end
         return
     end
 
@@ -252,7 +282,7 @@ function XNetwork.Call(handler, request, reply, isEncoded)
         end
         
         reply(response)
-    end)
+    end, exReply)
 end
 
 function XNetwork.CallWithAutoHandleErrorCode(handler, request, reply, isEncoded)

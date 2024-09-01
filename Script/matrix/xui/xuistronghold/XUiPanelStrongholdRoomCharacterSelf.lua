@@ -263,7 +263,7 @@ function XUiPanelStrongholdRoomCharacterSelf:OnBtnConsciousnessClick()
         XUiManager.TipText("StrongholdRobotRefuseAwareness")
         return
     end
-    XLuaUiManager.Open("UiEquipAwarenessReplace", self.CharacterId, nil, true)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipAwareness(self.CharacterId)
 end
 
 function XUiPanelStrongholdRoomCharacterSelf:OnBtnWeaponClick()
@@ -271,7 +271,7 @@ function XUiPanelStrongholdRoomCharacterSelf:OnBtnWeaponClick()
         XUiManager.TipText("StrongholdRobotRefuseWeapon")
         return
     end
-    XLuaUiManager.Open("UiEquipReplaceNew", self.CharacterId, nil, true)
+    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipReplace(self.CharacterId, nil, true)
 end
 
 function XUiPanelStrongholdRoomCharacterSelf:OnClickBtnFashion()

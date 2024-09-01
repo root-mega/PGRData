@@ -1,0 +1,114 @@
+[
+    {
+        "Id": 1,
+        "PassType": 1,
+        "Priority": 1,
+        "Factor": 1.0,
+        "Type": [
+            null,
+            1,
+            null
+        ],
+        "Param": [
+            null,
+            0,
+            null
+        ],
+        "Name": "Collapsed Link",
+        "Desc": "Core algorithm module overload detected... Improve the support channel efficiency before rerunning the data simulation.",
+        "StoryId": null,
+        "Bg": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingBgFail.png",
+        "Icon": null,
+        "IconBg": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingJjDi2.png",
+        "RImgTitle": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingLine2.png",
+        "BgmCueId": 226,
+        "SpineBg": null,
+        "DescColor": "694f4f",
+        "RecordIndex": null,
+        "RImgDesc": null
+    },
+    {
+        "Id": 2,
+        "PassType": 2,
+        "Priority": 2,
+        "Factor": 1.1,
+        "Type": [
+            null,
+            1,
+            null
+        ],
+        "Param": [
+            null,
+            0,
+            null
+        ],
+        "Name": "Here",
+        "Desc": "Stranded on a shore of despair, you pass on the fragile hope to the next cycle before losing consciousness.",
+        "StoryId": "RG00702BA",
+        "Bg": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingBg1.png",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingJjBi1.png",
+        "IconBg": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingJjDi1.png",
+        "RImgTitle": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingLine1.png",
+        "BgmCueId": 119,
+        "SpineBg": null,
+        "DescColor": "396383",
+        "RecordIndex": null,
+        "RImgDesc": null
+    },
+    {
+        "Id": 3,
+        "PassType": 2,
+        "Priority": 3,
+        "Factor": 1.1,
+        "Type": [
+            null,
+            4,
+            null
+        ],
+        "Param": [
+            null,
+            30062854,
+            null
+        ],
+        "Name": "Beyond",
+        "Desc": "You gaze at the distant lights beyond, hoping to arrive there the next time.",
+        "StoryId": "RG00703BA",
+        "Bg": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingBg2.png",
+        "Icon": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingJjBi2.png",
+        "IconBg": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingJjDi1.png",
+        "RImgTitle": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingLine1.png",
+        "BgmCueId": 243,
+        "SpineBg": null,
+        "DescColor": "396383",
+        "RecordIndex": null,
+        "RImgDesc": null
+    },
+    {
+        "Id": 4,
+        "PassType": 2,
+        "Priority": 4,
+        "Factor": 1.1,
+        "Type": [
+            null,
+            3,
+            null
+        ],
+        "Param": [
+            null,
+            3,
+            null
+        ],
+        "Name": "Simulation Calculation Completed",
+        "Desc": "Once the environmental compatibility verification is completed, you will officially leave the ivory tower and face the malice of reality.",
+        "StoryId": null,
+        "Bg": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingBgFail.png",
+        "Icon": null,
+        "IconBg": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingJjDi2.png",
+        "RImgTitle": "Assets/Product/Texture/Image/UiTheatre3/UiTheatre3EndLoadingLine2.png",
+        "BgmCueId": 226,
+        "SpineBg": null,
+        "DescColor": "396383",
+        "RecordIndex": null,
+        "RImgDesc": null
+    }
+]

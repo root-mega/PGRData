@@ -8,6 +8,9 @@ function XUiLottoTanchuang:OnStart(data, cb)
     self.UseItem = {}
     self.TargetItem = {}
     self.UseCard = {self.Card1,self.Card2}
+end
+
+function XUiLottoTanchuang:OnEnable()
     self:ShowPanel()
 end
 
@@ -64,16 +67,4 @@ function XUiLottoTanchuang:BuyTicket(lottoId, BuyTicketRuleId, ticketKey)
                     if self.CallBack then self.CallBack() end
                 end)
     end)
-end
-
-function XUiLottoTanchuang:OnEnable()
-    self:RefreshCount()
-end
-
-function XUiLottoTanchuang:RefreshCount() --海外修改，购买黑卡后刷新黑卡数量
-    for key=1,UseItemMax do
-        if self.UseItem and self.UseItem[key] then
-            self.UseItem[key]:ShowPanel()
-        end
-    end
 end

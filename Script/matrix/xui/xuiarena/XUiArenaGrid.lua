@@ -19,9 +19,10 @@ function XUiArenaGrid:AutoAddListener()
     end)
 end
 
-function XUiArenaGrid:Refresh(index, playerInfo, regionIndex)
+function XUiArenaGrid:Refresh(data, regionIndex)
+    local playerInfo = data.PlayerInfo
     local challengeCfg = XDataCenter.ArenaManager.GetCurChallengeCfg()
-    local contributeScore = XDataCenter.ArenaManager.GetContributeScoreByCfg(index, challengeCfg, playerInfo.Point)
+    local contributeScore = XDataCenter.ArenaManager.GetContributeScoreByCfg(data.Rank, challengeCfg, playerInfo.Point)
     self.PlayerInfo = playerInfo
 
     local pos = regionIndex % 3
@@ -35,12 +36,27 @@ function XUiArenaGrid:Refresh(index, playerInfo, regionIndex)
     self.TxtNickname.text = XDataCenter.SocialManager.GetPlayerRemark(playerInfo.Id, playerInfo.Name)
     XUiPLayerHead.InitPortrait(playerInfo.CurrHeadPortraitId, playerInfo.CurrHeadFrameId, self.Head)
     
-    self.TxtRank.text = "No." .. index
+    self.TxtRank.text = "No." .. data.Rank
     self.TxtPoint.text = playerInfo.Point
 
     XUiArenaContributeScore.Refresh(self.TxtNumber, contributeScore, playerInfo.Point, "FFFFFFFF")
 
+    self:RefreshPromoteUi(false)
+    -- 是否是英雄小队
+    local isHeroTeam = challengeCfg.ArenaLv == XArenaConfigs.ArenaHeroLv and challengeCfg.DanUpRankCostContributeScore > 0
+    if isHeroTeam and data.Rank <= challengeCfg.DanUpRank and 
+            playerInfo.ContributeScore >= challengeCfg.DanUpRankCostContributeScore and 
+            playerInfo.Point > 0 then
+        self:RefreshPromoteUi(true)
+    end
+    
     self.GameObject:SetActive(true)
+end
+
+function XUiArenaGrid:RefreshPromoteUi(isShow)
+    if self.PanelPromotion then
+        self.PanelPromotion.gameObject:SetActiveEx(isShow)
+    end
 end
 
 function XUiArenaGrid:SetSiblingIndex(siblingIndex)

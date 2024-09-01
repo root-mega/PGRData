@@ -616,7 +616,9 @@ XFubenInfestorExploreManagerCreator = function()
         if not mailId or mailId == 0 then
             return {}
         end
-        return XDataCenter.MailManager.GetRewardList(mailId)
+        ---@type XMailAgency
+        local mailAgency = XMVCA:GetAgency(ModuleId.XMail)
+        return mailAgency:GetRewardList(mailId)
     end
 
     function XFubenInfestorExploreManager.GetPlayerRankIndexList() --返回序号

@@ -10,8 +10,14 @@ local XRpgMakerGameTrasfer = require("XEntity/XRpgMakerGame/Object/XRpgMakerGame
 local XRpgMakerGameGrassData = require("XEntity/XRpgMakerGame/Object/XRpgMakerGameGrassData")
 local XRpgMakerGameSteelData = require("XEntity/XRpgMakerGame/Object/XRpgMakerGameSteelData")
 local XRpgMakerGameWaterData = require("XEntity/XRpgMakerGame/Object/XRpgMakerGameWaterData")
+local XRpgMakerGameBubble = require("XEntity/XRpgMakerGame/Object/XRpgMakerGameBubble")
+local XRpgMakerGameMagic = require("XEntity/XRpgMakerGame/Object/XRpgMakerGameMagic")
+local XRpgMakerGameDrop = require("XEntity/XRpgMakerGame/Object/XRpgMakerGameDrop")
 local XUiRpgMakerGamePlayScene = require("XUi/XUiRpgMakerGame/PlayMain/XUiRpgMakerGamePlayScene")
+local XUiRpgPlayMixBlockScene = require("XUi/XUiRpgMakerGame/PlayMain/XUiRpgPlayMixBlockScene")
 
+---推箱子管理器
+---@return XRpgMakerGameManager
 XRpgMakerGameManagerCreator = function()
     local tableInsert = table.insert
     local tableSort = table.sort
@@ -21,16 +27,22 @@ XRpgMakerGameManagerCreator = function()
     local CSXTextManagerGetText = CS.XTextManager.GetText
     local stringFormat = string.format
 
+    ---@type XRpgMakerGameActivityDb
     local RpgMakerGameActivityDb = XRpgMakerGameActivityDb.New()
+    ---@type XRpgMakerGameEnterStageDb
     local RpgMakerGameEnterStageDb = XRpgMakerGameEnterStageDb.New()
+    ---@type XRpgMakerGamePlayer
     local PlayerObj = XRpgMakerGamePlayer.New()
+    ---@type XRpgMakerGameEndPoint
     local EndPointObj = XRpgMakerGameEndPoint.New()
+    ---@type XUiRpgPlayMixBlockScene
+    local CurrentScene = XUiRpgPlayMixBlockScene.New()
+
+    local CurrTabGroupIndexByUiMainTemp     --缓存主界面选择的chapter对应的TabGroupIndex
+    local CurrentCount = 0      --当前回合数
     local GameMonsterObjDic = {}    --怪物对象字典
     local TriggerObjDic = {}        --机关对象字典
     local Actions = {}          --状态列表
-    local CurrentCount = 0      --当前回合数
-    local CurrentScene = XUiRpgMakerGamePlayScene.New()
-    local CurrTabGroupIndexByUiMainTemp     --缓存主界面选择的chapter对应的TabGroupIndex
     local HaveOpenChapterIdList = {}        --缓存章节开启情况
     local HaveOpenChapterGroupIdList = {}   --缓存章节组开启情况
     local _CurrentLockReqReset       --重置协议锁
@@ -44,13 +56,19 @@ XRpgMakerGameManagerCreator = function()
     local TransferPointObjDic = {} --传送点对象字典
     local SteelObjDic = {}  --钢板对象字典
     local WaterObjDic = {}  --水、冰对象字典
+    local BubbleObjDic = {} --泡泡对象字典
+    local DropObjDic = {}   --掉落物对象字典
+    local MagicObjDic = {}  --魔法阵对象字典
 
     ---------------------本地接口 begin------------------
-    local InitMonsetObj = function(mapId)
+    local InitMonsterObj = function(mapId)
         GameMonsterObjDic = {}
-        local monsterIdList = XRpgMakerGameConfigs.GetRpgMakerGameMapIdToMonsterIdList(mapId)
-        for _, monsterId in ipairs(monsterIdList) do
+        -- local monsterIdList = XRpgMakerGameConfigs.GetRpgMakerGameMapIdToMonsterIdList(mapId)
+        local mapMonsterDataList = XRpgMakerGameConfigs.GetMixBlockDataListByType(mapId, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Moster)
+        for _, data in ipairs(mapMonsterDataList) do
+            local monsterId = data:GetParams()[1]
             GameMonsterObjDic[monsterId] = XRpgMakerGameMonsterData.New(monsterId)
+            GameMonsterObjDic[monsterId]:InitDataByMapObjData(data)
         end
     end
 
@@ -61,7 +79,7 @@ XRpgMakerGameManagerCreator = function()
         GameMonsterObjDic = {}
     end
 
-    local ResetMonsetObj = function()
+    local ResetMonsterObj = function()
         for _, monsterObj in pairs(GameMonsterObjDic) do
             monsterObj:InitData()
         end
@@ -69,9 +87,12 @@ XRpgMakerGameManagerCreator = function()
 
     local InitTriggerObjDic = function(mapId)
         TriggerObjDic = {}
-        local triggerIdList = XRpgMakerGameConfigs.GetRpgMakerGameMapIdToTriggerIdList(mapId)
-        for _, triggerId in ipairs(triggerIdList) do
+        -- local triggerIdList = XRpgMakerGameConfigs.GetRpgMakerGameMapIdToTriggerIdList(mapId)
+        local mapTriggerDataList = XRpgMakerGameConfigs.GetMixBlockDataListByType(mapId, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Trigger)
+        for _, data in ipairs(mapTriggerDataList) do
+            local triggerId = data:GetParams()[1]
             TriggerObjDic[triggerId] = XRpgMakerGameTriggerData.New(triggerId)
+            TriggerObjDic[triggerId]:InitDataByMapObjData(data)
         end
     end
 
@@ -136,9 +157,15 @@ XRpgMakerGameManagerCreator = function()
 
     local InitShadowObj = function(mapId)
         ShadowObjDic = {}
-        local shadowIdList = XRpgMakerGameConfigs.GetRpgMakerGameMapIdToShadowIdList(mapId)
-        for _, shadowId in ipairs(shadowIdList) do
+        -- local shadowIdList = XRpgMakerGameConfigs.GetRpgMakerGameMapIdToShadowIdList(mapId)
+        -- for _, shadowId in ipairs(shadowIdList) do
+        --     ShadowObjDic[shadowId] = XRpgMakerGameShadow.New(shadowId)
+        -- end
+        local mapShadowDataList = XRpgMakerGameConfigs.GetMixBlockDataListByType(mapId, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Shadow)
+        for _, data in ipairs(mapShadowDataList) do
+            local shadowId = data:GetParams()[1]
             ShadowObjDic[shadowId] = XRpgMakerGameShadow.New(shadowId)
+            ShadowObjDic[shadowId]:InitDataByMapObjData(data)
         end
     end
 
@@ -157,9 +184,14 @@ XRpgMakerGameManagerCreator = function()
 
     local InitElectricFenceObj = function(mapId)
         ElectricFenceObjDic = {}
-        local idList = XRpgMakerGameConfigs.GetRpgMakerGameMapIdToElectricFenceIdList(mapId)
-        for _, id in ipairs(idList) do
-            ElectricFenceObjDic[id] = XRpgMakerGameElectricFence.New(id)
+        -- local idList = XRpgMakerGameConfigs.GetRpgMakerGameMapIdToElectricFenceIdList(mapId)
+        -- for _, id in ipairs(idList) do
+        --     ElectricFenceObjDic[id] = XRpgMakerGameElectricFence.New(id)
+        -- end
+        local mapElectricFenceDataList = XRpgMakerGameConfigs.GetMixBlockDataListByType(mapId, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.ElectricFence)
+        for index, data in ipairs(mapElectricFenceDataList) do
+            ElectricFenceObjDic[index] = XRpgMakerGameElectricFence.New(index)
+            ElectricFenceObjDic[index]:InitDataByMapObjData(data)
         end
     end
 
@@ -185,9 +217,14 @@ XRpgMakerGameManagerCreator = function()
     --传送点
     local InitTransferPointObj = function(mapId)
         TransferPointObjDic = {}
-        local idList = XRpgMakerGameConfigs.GetMapIdToTransferPointIdList(mapId)
-        for _, id in ipairs(idList) do
-            TransferPointObjDic[id] = XRpgMakerGameTrasfer.New(id)
+        -- local idList = XRpgMakerGameConfigs.GetMapIdToTransferPointIdList(mapId)
+        -- for _, id in ipairs(idList) do
+        --     TransferPointObjDic[id] = XRpgMakerGameTrasfer.New(id)
+        -- end
+        local mapTransferPointDataList = XRpgMakerGameConfigs.GetMixBlockDataListByType(mapId, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.TransferPoint)
+        for index, data in ipairs(mapTransferPointDataList) do
+            TransferPointObjDic[index] = XRpgMakerGameTrasfer.New(index)
+            TransferPointObjDic[index]:InitDataByMapObjData(data)
         end
     end
 
@@ -203,19 +240,24 @@ XRpgMakerGameManagerCreator = function()
         GrassObjDic = {}
         SteelObjDic = {}
         WaterObjDic = {}
+
         local entityType
-        local idList = XRpgMakerGameConfigs.GetMapIdToEntityIdList(mapId)
-        for _, id in ipairs(idList) do
-            entityType = XRpgMakerGameConfigs.GetEntityType(id)
-            if entityType == XRpgMakerGameConfigs.XRpgMakerGameEntityType.Water or entityType == XRpgMakerGameConfigs.XRpgMakerGameEntityType.Ice then
-                WaterObjDic[id] = XRpgMakerGameWaterData.New(id)
-                WaterObjDic[id]:SetStatus(entityType == XRpgMakerGameConfigs.XRpgMakerGameEntityType.Water and
+        local mapEntityDataList = XRpgMakerGameConfigs.GetMixBlockEntityList(mapId)
+        for index, data in ipairs(mapEntityDataList) do
+            entityType = data:GetType()
+            if entityType == XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Water or 
+            entityType == XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Ice then
+                WaterObjDic[index] = XRpgMakerGameWaterData.New(index)
+                WaterObjDic[index]:InitDataByMapObjData(data)
+                WaterObjDic[index]:SetStatus(entityType == XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Water and
                     XRpgMakerGameConfigs.XRpgMakerGameWaterType.Water or
                     XRpgMakerGameConfigs.XRpgMakerGameWaterType.Ice)
-            elseif entityType == XRpgMakerGameConfigs.XRpgMakerGameEntityType.Grass then
-                GrassObjDic[id] = XRpgMakerGameGrassData.New(id)
-            elseif entityType == XRpgMakerGameConfigs.XRpgMakerGameEntityType.Steel then
-                SteelObjDic[id] = XRpgMakerGameSteelData.New(id)
+            elseif entityType == XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Steel then
+                SteelObjDic[index] = XRpgMakerGameSteelData.New(index)
+                SteelObjDic[index]:InitDataByMapObjData(data)
+            elseif entityType == XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Grass then
+                GrassObjDic[index] = XRpgMakerGameGrassData.New(index)
+                GrassObjDic[index]:InitDataByMapObjData(data)
             end
         end
     end
@@ -247,6 +289,77 @@ XRpgMakerGameManagerCreator = function()
         end
     end
 
+    --泡泡对象
+    local InitBubbleObj = function (mapId)
+        BubbleObjDic = {}
+        local BubbleMapDataList = XRpgMakerGameConfigs.GetMixBlockDataListByType(mapId, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Bubble)
+        for _, data in ipairs(BubbleMapDataList) do
+            local bubbleId = data:GetParams()[1]
+            BubbleObjDic[bubbleId] = XRpgMakerGameBubble.New(bubbleId)
+            BubbleObjDic[bubbleId]:InitDataByMapObjData(data)
+        end
+    end
+
+    local ResetBubbleObj = function()
+        for _, obj in pairs(BubbleObjDic) do
+            obj:InitData()
+        end
+    end
+
+    local ClearBubbleObj = function()
+        for _, obj in pairs(BubbleObjDic) do
+            obj:Dispose()
+        end
+        BubbleObjDic = {}
+    end
+
+    --掉落物对象
+    local InitDropObj = function (mapId)
+        DropObjDic = {}
+        local DropMapDataList = XRpgMakerGameConfigs.GetMixBlockDataListByType(mapId, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Drop)
+        for _, data in ipairs(DropMapDataList) do
+            local dropId = data:GetParams()[1]
+            DropObjDic[dropId] = XRpgMakerGameDrop.New(dropId)
+            DropObjDic[dropId]:InitDataByMapObjData(data)
+        end
+    end
+
+    local ResetDropObj = function()
+        for _, obj in pairs(DropObjDic) do
+            obj:InitData()
+        end
+    end
+
+    local ClearDropObj = function()
+        for _, obj in pairs(DropObjDic) do
+            obj:Dispose()
+        end
+        DropObjDic = {}
+    end
+
+    --魔法阵对象
+    local InitMagicObj = function (mapId)
+        MagicObjDic = {}
+        local MagicMapDataList = XRpgMakerGameConfigs.GetMixBlockDataListByType(mapId, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Magic)
+        for index, data in ipairs(MagicMapDataList) do
+            MagicObjDic[index] = XRpgMakerGameMagic.New(index)
+            MagicObjDic[index]:InitDataByMapObjData(data)
+        end
+    end
+
+    local ResetMagicObj = function()
+        for _, obj in pairs(MagicObjDic) do
+            obj:InitData()
+        end
+    end
+
+    local ClearMagicObj = function()
+        for _, obj in pairs(MagicObjDic) do
+            obj:Dispose()
+        end
+        MagicObjDic = {}
+    end
+
     local GetCurrClearButtonGroupIndexCookieKey = function()
         local activityId = XRpgMakerGameConfigs.GetDefaultActivityId()
         return "RpgMakerGameCurrClearButtonGroupIndex" .. XPlayer.Id .. activityId
@@ -263,26 +376,40 @@ XRpgMakerGameManagerCreator = function()
     end
     ---------------------本地接口 end--------------------
 
+    ---推箱子管理器
+    ---@class XRpgMakerGameManager
     local XRpgMakerGameManager = {}
-    -----------------功能入口 begin----------------
-    function XRpgMakerGameManager.GetRpgMakerGameStageStatus(rpgMakerGameStageId)
-        local stageIsClear = XRpgMakerGameManager.IsStageClear(rpgMakerGameStageId)
-        if stageIsClear then
-            return XRpgMakerGameConfigs.RpgMakerGameStageStatus.Clear
-        end
 
-        local preStage = XRpgMakerGameConfigs.GetRpgMakerGameStagePreStage(rpgMakerGameStageId)
-        local preStageIsClear = not XTool.IsNumberValid(preStage) and true or XRpgMakerGameManager.IsStageClear(preStage)
-        if preStageIsClear then
-            return XRpgMakerGameConfigs.RpgMakerGameStageStatus.UnLock
-        end
 
-        return XRpgMakerGameConfigs.RpgMakerGameStageStatus.Lock
+    --#region ExManager
+    function XRpgMakerGameManager:GetProgressTips()
+        if not XRpgMakerGameManager.CheckActivityIsOpen() then
+            return
+        end
+        local chapterGroupId = XRpgMakerGameManager.GetDefaultChapterGroupId()
+        local currentCount = XRpgMakerGameManager.GetChapterGroupPassStageCount(chapterGroupId)
+        local allCount = XRpgMakerGameManager.GetChapterGroupAllStageCount(chapterGroupId)
+        return "Progress: " .. currentCount .. "/" .. allCount
     end
+    --#endregion
 
-    function XRpgMakerGameManager.IsStageClear(stageId)
-        local stageDb = XRpgMakerGameManager.GetRpgMakerActivityStageDb(stageId)
-        return stageDb:IsStageClear()
+
+    -----------------功能入口 begin----------------
+
+    ---读取本期玩法数据
+    ---@return table
+    function XRpgMakerGameManager.GetActivityChapters()
+        local chapters = {}
+        if XRpgMakerGameManager.CheckActivityIsOpen(true) then
+            local temp = {}
+            local activityId = XRpgMakerGameConfigs.GetDefaultActivityId()
+            temp.Id = activityId
+            temp.Name = XRpgMakerGameConfigs.GetActivityName(activityId)
+            temp.BannerBg = XRpgMakerGameConfigs.GetActivityBannerBg(activityId)
+            temp.Type = XDataCenter.FubenManager.ChapterType.RpgMakerGame
+            table.insert(chapters, temp)
+        end
+        return chapters
     end
 
     function XRpgMakerGameManager.CheckActivityIsOpen(isNotShowTips)
@@ -317,117 +444,20 @@ XRpgMakerGameManagerCreator = function()
         end
         return isOpen, desc
     end
-    
-    function XRpgMakerGameManager.CheckRedPoint()
-        local groupId = XRpgMakerGameManager.GetCurrTaskTimeLimitId()
-        return XDataCenter.TaskManager.CheckLimitTaskList(groupId)
+
+    function XRpgMakerGameManager.GetActivityEndTime()
+        local activityId = XRpgMakerGameConfigs.GetDefaultActivityId()
+        if not XTool.IsNumberValid(activityId) then return 0 end
+        local timeId = XRpgMakerGameConfigs.GetRpgMakerGameActivityTimeId(activityId)
+        return XFunctionManager.GetEndTimeByTimeId(timeId)
     end
 
-    --所有章节组小红点
-    function XRpgMakerGameManager.CheckAllChapterGroupRedPoint()
-        local haveChapterGroupIdList = XRpgMakerGameManager.GetHaveOpenChapterGroupIdList()
-        local groupIdList = XRpgMakerGameConfigs.GetRpgMakerGameChapterGroupIdList()
-        local openListCount = 0
-        local timeId, isOpen
-        for _, groupId in ipairs(groupIdList) do
-            timeId = XRpgMakerGameConfigs.GetChapterGroupOpenTimeId(groupId)
-            isOpen = XFunctionManager.CheckInTimeByTimeId(timeId)
-            openListCount = openListCount + (isOpen and 1 or 0)
-        end
-        
-        return #haveChapterGroupIdList < openListCount
+    function XRpgMakerGameManager.UpdateActivityData(data)
+        RpgMakerGameActivityDb:UpdateData(data.ActivityData)
     end
 
-    --章节组小红点
-    function XRpgMakerGameManager.CheckChapterGroupBtnRedPoint(chapterGroupId)
-        local haveChapterGroupIdList = XRpgMakerGameManager.GetHaveOpenChapterGroupIdList()
-        local timeId = XRpgMakerGameConfigs.GetChapterGroupOpenTimeId(chapterGroupId)
-        local isOpen = XFunctionManager.CheckInTimeByTimeId(timeId)
-        for _,v in ipairs(haveChapterGroupIdList) do
-            if chapterGroupId == v or not isOpen then return false end
-        end
-        return true
-    end
 
-    --春节章节小红点
-    function XRpgMakerGameManager.CheckFirstChapterGroupRedPoint()
-        local groupIdList = XRpgMakerGameConfigs.GetRpgMakerGameChapterGroupIdList()
-        local flag
-        
-        for _,v in ipairs(groupIdList) do
-            if XRpgMakerGameConfigs.GetChapterGroupIsFirstShow(v) then
-                flag = v
-            end
-        end
-        local haveChapterIdList = XRpgMakerGameConfigs.GetRpgMakerGameChapterIdList(flag)
-        
-        for _, v in ipairs(haveChapterIdList) do
-            if XRpgMakerGameManager.CheckChapterBtnRedPoint(v) then return true end
-        end
-        return false
-    end
-
-    --单个章节小红点
-    function XRpgMakerGameManager.CheckChapterBtnRedPoint(chapterId)
-        local haveChapterIdList = XRpgMakerGameManager.GetHaveOpenChapterIdList()
-        for _,v in ipairs(haveChapterIdList) do
-            if chapterId == v then return false end
-        end
-        return XRpgMakerGameManager.IsChapterUnLock(chapterId)
-    end
-
-    function XRpgMakerGameManager.GetActivityChapters()
-        local chapters = {}
-        if XRpgMakerGameManager.CheckActivityIsOpen(true) then
-            local temp = {}
-            local activityId = XRpgMakerGameConfigs.GetDefaultActivityId()
-            temp.Id = activityId
-            temp.Name = XRpgMakerGameConfigs.GetActivityName(activityId)
-            temp.BannerBg = XRpgMakerGameConfigs.GetActivityBannerBg(activityId)
-            temp.Type = XDataCenter.FubenManager.ChapterType.RpgMakerGame
-            table.insert(chapters, temp)
-        end
-        return chapters
-    end
-    -----------------功能入口 end------------------
-
-    -----------------主界面 begin------------------
-    function XRpgMakerGameManager.GetRpgMakerActivityStageDb(stageCfgId)
-        return RpgMakerGameActivityDb:GetStageDb(stageCfgId)
-    end
-
-    function XRpgMakerGameManager.GetRpgMakerChapterClearStarCount(chapterId)
-        local stageIdList = XRpgMakerGameConfigs.GetRpgMakerGameStageIdList(chapterId)
-        local stageDb
-        local starCount = 0
-        for _, stageId in ipairs(stageIdList) do
-            stageDb = XRpgMakerGameManager.GetRpgMakerActivityStageDb(stageId)
-            if stageDb then
-                starCount = starCount + stageDb:GetStarCount()
-            end
-        end
-        return starCount
-    end
-
-    function XRpgMakerGameManager.IsChapterUnLock(chapterId)
-        if not XTool.IsNumberValid(chapterId) then
-            return true
-        end
-        local timeId = XRpgMakerGameConfigs.GetRpgMakerGameChapterOpenTimeId(chapterId)
-        return XFunctionManager.CheckInTimeByTimeId(timeId)
-    end
-
-    function XRpgMakerGameManager.IsStageUnLock(stageId)
-        local stageStatus = XRpgMakerGameManager.GetRpgMakerGameStageStatus(stageId)
-        if stageStatus ~= XRpgMakerGameConfigs.RpgMakerGameStageStatus.Lock then
-            return true
-        end
-
-        local preStage = XRpgMakerGameConfigs.GetRpgMakerGameStagePreStage(stageId)
-        local preStageName = XRpgMakerGameConfigs.GetRpgMakerGameStageName(preStage)
-        local desc = CS.XTextManager.GetText("RpgMakerGameStageNotOpen", preStageName)
-        return false, desc
-    end
+    --#region 任务功能
 
     function XRpgMakerGameManager.GetCurrTaskTimeLimitId()
         local activityId = XRpgMakerGameConfigs.GetDefaultActivityId()
@@ -438,6 +468,25 @@ XRpgMakerGameManagerCreator = function()
         local groupId = XRpgMakerGameManager.GetCurrTaskTimeLimitId()
         return XDataCenter.TaskManager.GetTimeLimitTaskListByGroupId(groupId)
     end
+
+    ---在未完成及待领取的任务中,取一个待领取且Priority值最大的taskId
+    ---@return integer|nil
+    function XRpgMakerGameManager.GetFirstTaskId()
+        local resultTaskId
+        local taskIdList = XRpgMakerGameManager.GetTimeLimitTask()
+        if not XTool.IsTableEmpty(taskIdList) then
+            local taskData = taskIdList[1]
+            if taskData.State ~= XDataCenter.TaskManager.TaskState.Finish then
+                resultTaskId = taskData.Id
+            end
+        end
+        return resultTaskId
+    end
+
+    --#endregion
+
+
+    --#region 章节功能
 
     function XRpgMakerGameManager.SetCurrTabGroupIndexByUiMainTemp(currTabGroupIndexByUiMainTemp)
         CurrTabGroupIndexByUiMainTemp = currTabGroupIndexByUiMainTemp
@@ -474,11 +523,228 @@ XRpgMakerGameManagerCreator = function()
         return chapterGroupIdList[totalCount]
     end
 
-    function XRpgMakerGameManager.GetActivityEndTime()
-        local activityId = XRpgMakerGameConfigs.GetDefaultActivityId()
-        if not XTool.IsNumberValid(activityId) then return 0 end
-        local timeId = XRpgMakerGameConfigs.GetRpgMakerGameActivityTimeId(activityId)
-        return XFunctionManager.GetEndTimeByTimeId(timeId)
+    function XRpgMakerGameManager.IsChapterUnLock(chapterId)
+        if not XTool.IsNumberValid(chapterId) then
+            return true
+        end
+        return XRpgMakerGameManager.IsChapterInTime(chapterId) and XRpgMakerGameManager.IsPassPreChapter(chapterId)
+    end
+
+    function XRpgMakerGameManager.IsChapterInTime(chapterId, isTip)
+        local timeId = XRpgMakerGameConfigs.GetRpgMakerGameChapterOpenTimeId(chapterId)
+        local isInTime = XFunctionManager.CheckInTimeByTimeId(timeId)
+        if not isInTime and isTip then
+            local timeId = XRpgMakerGameConfigs.GetRpgMakerGameChapterOpenTimeId(chapterId)
+            local time = XFunctionManager.GetStartTimeByTimeId(timeId)
+            local serverTimestamp = XTime.GetServerNowTimestamp()
+            local str = CS.XTextManager.GetText("ScheOpenCountdown", XUiHelper.GetTime(time - serverTimestamp, XUiHelper.TimeFormatType.RPG_MAKER_GAME))
+            XUiManager.TipMsg(str)
+        end
+        return isInTime
+    end
+
+    function XRpgMakerGameManager.IsPassPreChapter(chapterId, isTip)
+        -- 推箱子前置章节解锁
+        local preChapterId = XRpgMakerGameConfigs.GetRpgMakerGameChapterPreChapterId(chapterId)
+        local isPassPreChapter = not XTool.IsNumberValid(preChapterId)
+        if not isPassPreChapter then
+            isPassPreChapter = XRpgMakerGameManager.IsChapterUnLock(preChapterId)
+        end
+        if not isPassPreChapter and isTip then
+            XUiManager.TipErrorWithKey("RpgMakerGameIsPassPreChapter", XRpgMakerGameConfigs.GetRpgMakerGameChapterName(chapterId))
+        end
+        return isPassPreChapter
+    end
+
+    --#endregion
+
+
+    --#region 关卡功能
+
+    ---关卡状态情况
+    ---@param rpgMakerGameStageId integer
+    ---@return integer
+    function XRpgMakerGameManager.GetRpgMakerGameStageStatus(rpgMakerGameStageId)
+        local stageIsPerfectClear = XRpgMakerGameManager.IsStagePerfectClear(rpgMakerGameStageId)
+        if stageIsPerfectClear then
+            return XRpgMakerGameConfigs.RpgMakerGameStageStatus.Perfect
+        end
+
+        local stageIsClear = XRpgMakerGameManager.IsStageClear(rpgMakerGameStageId)
+        if stageIsClear then
+            return XRpgMakerGameConfigs.RpgMakerGameStageStatus.Clear
+        end
+
+        local preStage = XRpgMakerGameConfigs.GetRpgMakerGameStagePreStage(rpgMakerGameStageId)
+        local preStageIsClear = not XTool.IsNumberValid(preStage) and true or XRpgMakerGameManager.IsStageClear(preStage)
+        if preStageIsClear then
+            return XRpgMakerGameConfigs.RpgMakerGameStageStatus.UnLock
+        end
+
+        return XRpgMakerGameConfigs.RpgMakerGameStageStatus.Lock
+    end
+
+    function XRpgMakerGameManager.IsStagePerfectClear(stageId)
+        local stageDb = XRpgMakerGameManager.GetRpgMakerActivityStageDb(stageId)
+        return stageDb:IsStagePerfectClear()
+    end
+
+    function XRpgMakerGameManager.IsStageClear(stageId)
+        local stageDb = XRpgMakerGameManager.GetRpgMakerActivityStageDb(stageId)
+        return stageDb:IsStageClear()
+    end
+
+    function XRpgMakerGameManager.GetRpgMakerActivityStageDb(stageCfgId)
+        return RpgMakerGameActivityDb:GetStageDb(stageCfgId)
+    end
+
+    function XRpgMakerGameManager.GetRpgMakerChapterClearStarCount(chapterId)
+        local stageIdList = XRpgMakerGameConfigs.GetRpgMakerGameStageIdList(chapterId)
+        local stageDb
+        local starCount = 0
+        for _, stageId in ipairs(stageIdList) do
+            stageDb = XRpgMakerGameManager.GetRpgMakerActivityStageDb(stageId)
+            if stageDb then
+                starCount = starCount + stageDb:GetStarCount()
+            end
+        end
+        return starCount
+    end
+
+    function XRpgMakerGameManager.IsStageUnLock(stageId)
+        local stageStatus = XRpgMakerGameManager.GetRpgMakerGameStageStatus(stageId)
+        if stageStatus ~= XRpgMakerGameConfigs.RpgMakerGameStageStatus.Lock then
+            return true
+        end
+
+        local preStage = XRpgMakerGameConfigs.GetRpgMakerGameStagePreStage(stageId)
+        if preStage == stageId then return false, CS.XTextManager.GetText("RpgMakerGameStageInXf") end
+        local preStageNumberName = XRpgMakerGameConfigs.GetStageNumberName(preStage)
+        local preStageName = XRpgMakerGameConfigs.GetRpgMakerGameStageName(preStage)
+        local desc = CS.XTextManager.GetText("RpgMakerGameStageNotOpen", preStageNumberName, preStageName)
+        return false, desc
+    end
+
+    ---获取单期玩法通过的关卡数
+    ---@param chapterGroupId integer 单期章节组Id
+    ---@return integer
+    function XRpgMakerGameManager.GetChapterGroupPassStageCount(chapterGroupId)
+        local result = 0
+        local chapterIdList = XRpgMakerGameConfigs.GetRpgMakerGameChapterIdList(chapterGroupId)
+        if XTool.IsTableEmpty(chapterIdList) then return result end
+        for _, chapterId in ipairs(chapterIdList) do
+            result = result + XRpgMakerGameManager.GetChapterPassStageCount(chapterId)
+        end
+        return result
+    end
+
+    ---获取单期玩法所有的关卡数
+    ---@param chapterGroupId integer 单期章节组Id
+    ---@return integer
+    function XRpgMakerGameManager.GetChapterGroupAllStageCount(chapterGroupId)
+        local result = 0
+        local chapterIdList = XRpgMakerGameConfigs.GetRpgMakerGameChapterIdList(chapterGroupId)
+        if XTool.IsTableEmpty(chapterIdList) then return result end
+        for _, chapterId in ipairs(chapterIdList) do
+            result = result + XRpgMakerGameManager.GetChapterAllStageCount(chapterId)
+        end
+        return result
+    end
+
+    ---获取单个章节已通过的关卡数
+    ---@param chapterId integer
+    ---@return integer
+    function XRpgMakerGameManager.GetChapterPassStageCount(chapterId)
+        local result = 0
+        local stageIdList = XRpgMakerGameConfigs.GetRpgMakerGameStageIdList(chapterId)
+        if XTool.IsTableEmpty(stageIdList) then return result end
+        for _, stageId in ipairs(stageIdList) do
+            local stageStatus = XRpgMakerGameManager.GetRpgMakerGameStageStatus(stageId)
+            if stageStatus == XRpgMakerGameConfigs.RpgMakerGameStageStatus.Clear or
+            stageStatus == XRpgMakerGameConfigs.RpgMakerGameStageStatus.Perfect then
+                result = result + 1
+            end
+        end
+        return result
+    end
+
+    ---获取单个章节的关卡数
+    ---@param chapterId integer
+    ---@return integer
+    function XRpgMakerGameManager.GetChapterAllStageCount(chapterId)
+        local result = 0
+        local stageIdList = XRpgMakerGameConfigs.GetRpgMakerGameStageIdList(chapterId)
+        if XTool.IsTableEmpty(stageIdList) then return result end
+        result = #stageIdList
+        return result
+    end
+
+    --#endregion
+
+
+    --#region 红点功能
+
+    ---任务红点
+    ---@return boolean
+    function XRpgMakerGameManager.CheckRedPoint()
+        local groupId = XRpgMakerGameManager.GetCurrTaskTimeLimitId()
+        return XDataCenter.TaskManager.CheckLimitTaskList(groupId)
+    end
+
+    ---所有期玩法关卡小红点
+    ---@return boolean
+    function XRpgMakerGameManager.CheckAllChapterGroupRedPoint()
+        local haveChapterGroupIdList = XRpgMakerGameManager.GetHaveOpenChapterGroupIdList()
+        local groupIdList = XRpgMakerGameConfigs.GetRpgMakerGameChapterGroupIdList()
+        local openListCount = 0
+        local timeId, isOpen
+        for _, groupId in ipairs(groupIdList) do
+            timeId = XRpgMakerGameConfigs.GetChapterGroupOpenTimeId(groupId)
+            isOpen = XFunctionManager.CheckInTimeByTimeId(timeId)
+            openListCount = openListCount + (isOpen and 1 or 0)
+        end
+        return #haveChapterGroupIdList < openListCount
+    end
+
+    ---单期玩法小红点
+    ---@param chapterGroupId integer
+    ---@return boolean
+    function XRpgMakerGameManager.CheckChapterGroupBtnRedPoint(chapterGroupId)
+        local haveChapterGroupIdList = XRpgMakerGameManager.GetHaveOpenChapterGroupIdList()
+        local timeId = XRpgMakerGameConfigs.GetChapterGroupOpenTimeId(chapterGroupId)
+        local isOpen = XFunctionManager.CheckInTimeByTimeId(timeId)
+        for _,v in ipairs(haveChapterGroupIdList) do
+            if chapterGroupId == v or not isOpen then return false end
+        end
+        return true
+    end
+
+    ---当期玩法关卡小红点
+    ---@return boolean
+    function XRpgMakerGameManager.CheckFirstChapterGroupRedPoint()
+        local groupIdList = XRpgMakerGameConfigs.GetRpgMakerGameChapterGroupIdList()
+        local flag
+        for _,v in ipairs(groupIdList) do
+            if XRpgMakerGameConfigs.GetChapterGroupIsFirstShow(v) then
+                flag = v
+            end
+        end
+        local haveChapterIdList = XRpgMakerGameConfigs.GetRpgMakerGameChapterIdList(flag)
+        for _, v in ipairs(haveChapterIdList) do
+            if XRpgMakerGameManager.CheckChapterBtnRedPoint(v) then return true end
+        end
+        return false
+    end
+
+    ---单个章节小红点
+    ---@param chapterId integer
+    ---@return boolean
+    function XRpgMakerGameManager.CheckChapterBtnRedPoint(chapterId)
+        local haveChapterIdList = XRpgMakerGameManager.GetHaveOpenChapterIdList()
+        for _,v in ipairs(haveChapterIdList) do
+            if chapterId == v then return false end
+        end
+        return XRpgMakerGameManager.IsChapterUnLock(chapterId)
     end
 
     --章节组小红点缓存
@@ -523,18 +789,36 @@ XRpgMakerGameManagerCreator = function()
     function XRpgMakerGameManager.GetCurChapterGroupId()
         return _CurChapterGroupId
     end
-    -----------------主界面 end--------------------
+
+    --#endregion
+
+    -----------------功能入口 end------------------
+
 
     -----------------关卡内 begin------------------
+
     function XRpgMakerGameManager.InitStageMap(mapId, selectRoleId)
-        PlayerObj:InitData(mapId, selectRoleId)
-        EndPointObj:InitData(mapId)
-        InitMonsetObj(mapId)
+        local startPointMapDataList = XRpgMakerGameConfigs.GetMixBlockDataListByType(mapId, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.StartPoint)
+        local endPointMapDataList = XRpgMakerGameConfigs.GetMixBlockDataListByType(mapId, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.EndPoint)
+        local startPointMapData = startPointMapDataList[1]
+        local endPointMapData = endPointMapDataList[1]
+        if not XTool.IsTableEmpty(startPointMapData) then
+            PlayerObj:InitData(startPointMapData, selectRoleId)
+        end
+        if not XTool.IsTableEmpty(endPointMapData) then
+            EndPointObj:InitData(endPointMapData)
+        end
+
+        InitMonsterObj(mapId)
         InitTriggerObjDic(mapId)
         InitShadowObj(mapId)
         InitElectricFenceObj(mapId)
         InitTransferPointObj(mapId)
         InitEntityObj(mapId)
+        InitBubbleObj(mapId)
+        InitDropObj(mapId)
+        InitMagicObj(mapId)
+
         ResetStepCount()
     end
 
@@ -542,14 +826,27 @@ XRpgMakerGameManagerCreator = function()
         local enterStageDb = XRpgMakerGameManager:GetRpgMakerGameEnterStageDb()
         local mapId = enterStageDb:GetMapId()
         local selectRoleId = enterStageDb:GetSelectRoleId()
-        PlayerObj:InitData(mapId, selectRoleId)
-        EndPointObj:InitData(mapId)
+        local startPointMapDataList = XRpgMakerGameConfigs.GetMixBlockDataListByType(mapId, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.StartPoint)
+        local endPointMapDataList = XRpgMakerGameConfigs.GetMixBlockDataListByType(mapId, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.EndPoint)
+        local startPointMapData = startPointMapDataList[1]
+        local endPointMapData = endPointMapDataList[1]
+        if not XTool.IsTableEmpty(startPointMapData) then
+            PlayerObj:InitData(startPointMapData, selectRoleId)
+        end
+        if not XTool.IsTableEmpty(endPointMapData) then
+            EndPointObj:InitData(endPointMapData)
+        end
+
         ResetTriggerObj()
-        ResetMonsetObj()
-        ResetStepCount()
+        ResetMonsterObj()
         ResetShadowObj()
         ResetElectricFenceObj()
         ResetEntityObj()
+        ResetBubbleObj()
+        ResetDropObj()
+        ResetMagicObj()
+
+        ResetStepCount()
         XRpgMakerGameManager.ResetActions()
     end
 
@@ -562,6 +859,9 @@ XRpgMakerGameManagerCreator = function()
         ClearElectricFencebj()
         ClearTransferPointObj()
         ClearEntityObj()
+        ClearBubbleObj()
+        ClearDropObj()
+        ClearMagicObj()
         ResetStepCount()
     end
 
@@ -573,6 +873,16 @@ XRpgMakerGameManagerCreator = function()
         local action = tableRemove(Actions, 1)
         XRpgMakerGameManager.UpdateActionData(action)
         return action
+    end
+
+    function XRpgMakerGameManager.GetActionsNotRemove(actionType)
+        local actions = {}
+        for _, action in ipairs(Actions) do
+            if action.ActionType == actionType then
+                tableInsert(actions, action)
+            end
+        end
+        return actions
     end
 
     --需要并列执行动作的用该方法
@@ -593,7 +903,8 @@ XRpgMakerGameManagerCreator = function()
         return XTool.IsTableEmpty(Actions)
     end
 
-    --更新状态数据，不播放动画
+    ---更新状态数据，不播放动画
+    ---@param action any
     function XRpgMakerGameManager.UpdateActionData(action)
         if action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionPlayerMove then
             XRpgMakerGameManager.SetCurrentCount(action.CurrentCount)
@@ -606,7 +917,9 @@ XRpgMakerGameManagerCreator = function()
             or action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionMonsterDieByTrap
             or action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionMonsterKillByElectricFence
             or action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionHumanKill
-            or action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionMonsterDrown then
+            or action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionMonsterDrown
+            or action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionShadowKillMonster
+            then
             local monsterObj = XRpgMakerGameManager.GetMonsterObj(action.MonsterId)
             if monsterObj then
                 monsterObj:Die()
@@ -711,10 +1024,35 @@ XRpgMakerGameManagerCreator = function()
         if action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionSteelBrokenToTrap
             or XRpgMakerGameConfigs.RpgMakerGameActionType.ActionSteelBrokenToFlat then
             local entityId = action.EntityId
-            local entityObj = XRpgMakerGameManager.GetEntityObj(entityId)
+            local entityObj = XRpgMakerGameManager.GetSteelObj(entityId)
             if entityObj and entityObj.SetStatus then
                 entityObj:SetStatus(XRpgMakerGameConfigs.XRpgMakerGameSteelBrokenType.Flat)
             end
+            return
+        end
+
+        if action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionShadowKillByElectricFence
+            or action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionMonsterKillShadow
+            or action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionShadowDrown then
+            local shadowObj = XRpgMakerGameManager.GetShadowObj(action.ShadowId)
+            if shadowObj then shadowObj:Die() end
+            return
+        end
+
+        if action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionBubbleMove then
+            local bubbleId = action.EntityId
+            local bubbleObj = XDataCenter.RpgMakerGameManager.GetBubbleObj(bubbleId)
+            if bubbleObj then
+                bubbleObj:UpdatePosition(action.EndPosition)
+            end
+            return
+        end
+
+        if action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionShadowPickupDrop 
+            or action.ActionType == XRpgMakerGameConfigs.RpgMakerGameActionType.ActionPlayerPickupDrop then
+            local entityId = action.EntityId
+            local dropObj = XRpgMakerGameManager.GetDropObj(entityId)
+            dropObj:SetPickUp(true)
             return
         end
     end
@@ -763,17 +1101,23 @@ XRpgMakerGameManagerCreator = function()
 
         --水，冰
         local waterObj
+        local iceObj
         for _, water in ipairs(data.Water) do
-            waterObj = XRpgMakerGameManager.GetEntityObj(water.Id)
+            waterObj = XRpgMakerGameManager.GetEntityObjByPosition(water.PositionX, water.PositionY, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Water)
             if waterObj and waterObj.SetStatus then
                 waterObj:SetStatus(water.WaterStatus)
+            end
+            
+            iceObj = XRpgMakerGameManager.GetEntityObjByPosition(water.PositionX, water.PositionY, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Ice)
+            if iceObj and iceObj.SetStatus then
+                iceObj:SetStatus(water.WaterStatus)
             end
         end
 
         --草圃
         local grassObj
         for _, grass in ipairs(data.Grass) do
-            grassObj = XRpgMakerGameManager.GetEntityObj(grass.Id)
+            grassObj = XRpgMakerGameManager.GetEntityObjByPosition(grass.PositionX, grass.PositionY, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Grass)
             if grassObj and grassObj.SetIsGrow then
                 grassObj:SetIsGrow(true)
             end
@@ -782,9 +1126,41 @@ XRpgMakerGameManagerCreator = function()
         --钢板
         local steelObj
         for _, steel in ipairs(data.Steel) do
-            steelObj = XRpgMakerGameManager.GetEntityObj(steel.Id)
+            steelObj = XRpgMakerGameManager.GetEntityObjByPosition(steel.PositionX, steel.PositionY, XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Steel)
             if steelObj and steelObj.SetStatus then
                 steelObj:SetStatus(steel.SteelStatus)
+            end
+        end
+
+        --泡泡
+        local bubbleObj
+        for _, data in ipairs(data.Bubble) do
+            local id = data.Id
+            bubbleObj = XRpgMakerGameManager.GetBubbleObj(id)
+            if bubbleObj then
+                bubbleObj:UpdateData(data)
+                bubbleObj:SetIsBroken(false)
+            end
+        end
+
+        --掉落物
+        local dropObj
+        for _, data in ipairs(data.Drop) do
+            local id = data.Id
+            dropObj = XRpgMakerGameManager.GetDropObj(id)
+            if dropObj then
+                dropObj:UpdateData(data)
+                dropObj:SetPickUp(false)
+            end
+        end
+
+        --魔法阵
+        local magicObj
+        for _, data in ipairs(data.Magic) do
+            local id = data.Id
+            magicObj = XRpgMakerGameManager.GetMagicObj(id)
+            if magicObj then
+                magicObj:UpdateData(data)
             end
         end
     end
@@ -797,6 +1173,8 @@ XRpgMakerGameManagerCreator = function()
         return CurrentCount
     end
 
+    ---@param shadowId integer
+    ---@return XRpgMakerGameShadow
     function XRpgMakerGameManager.GetShadowObj(shadowId)
         return XTool.IsNumberValid(shadowId) and ShadowObjDic[shadowId]
     end
@@ -834,6 +1212,20 @@ XRpgMakerGameManagerCreator = function()
 
         totalDeathCount = normalMonsterDeathCount + bossDeathCount
         return totalDeathCount, normalMonsterDeathCount, bossDeathCount
+    end
+
+    function XRpgMakerGameManager.GetDropPickUpCount()
+        local totalPickDropCount = {}
+        for _, obj in pairs(DropObjDic) do
+            if obj:CheckIsPickUp() then
+                if totalPickDropCount[obj:GetDropType()] then
+                    totalPickDropCount[obj:GetDropType()] = totalPickDropCount[obj:GetDropType()] + 1
+                else
+                    totalPickDropCount[obj:GetDropType()] = 1
+                end
+            end
+        end
+        return totalPickDropCount
     end
 
     function XRpgMakerGameManager.GetTriggerObj(triggerId)
@@ -919,10 +1311,13 @@ XRpgMakerGameManagerCreator = function()
     function XRpgMakerGameManager.IsStarConditionClear(starConditionId, isWin)
         local currentCount = XRpgMakerGameManager.GetCurrentCount()
         local totalDeathCount, normalMonsterDeathCount, bossDeathCount = XRpgMakerGameManager.GetMonsterDeathCount()
+        local totalPickDropCount = XRpgMakerGameManager.GetDropPickUpCount()
         local stepCount = XRpgMakerGameConfigs.GetRpgMakerGameStarConditionStepCount(starConditionId)
         local monsterCount = XRpgMakerGameConfigs.GetRpgMakerGameStarConditionMonsterCount(starConditionId)
         local monsterBossCount = XRpgMakerGameConfigs.GetRpgMakerGameStarConditionMonsterBossCount(starConditionId)
         local monsterTotalCount = monsterCount + monsterBossCount
+        local pickDropType = XRpgMakerGameConfigs.GetStarConditionDropType(starConditionId)
+        local pickDropCount = XRpgMakerGameConfigs.GetStarConditionDropCount(starConditionId)
 
         if currentCount <= stepCount then
             if isWin ~= nil then
@@ -938,6 +1333,15 @@ XRpgMakerGameManagerCreator = function()
         end
         if XTool.IsNumberValid(monsterBossCount) then
             return monsterBossCount <= bossDeathCount
+        end
+
+        if not XTool.IsTableEmpty(pickDropType) and not XTool.IsTableEmpty(totalPickDropCount) then
+            for index, type in ipairs(pickDropType) do
+                if totalPickDropCount[type] < pickDropCount[index] then
+                    return false
+                end
+            end
+            return true
         end
 
         return false
@@ -1057,19 +1461,68 @@ XRpgMakerGameManagerCreator = function()
         end
     end
 
+    function XRpgMakerGameManager.GetSteelObj(steelId)
+        for _, obj in pairs(SteelObjDic) do
+            local data = obj:GetMapObjData()
+            if data:GetParams()[1] == steelId then
+                return obj
+            end
+        end
+    end
+
+    function XRpgMakerGameManager.GetEntityObjByPosition(x, y, metaType)
+        local mapId = CurrentScene:GetMapId()
+        local entityDataList = XRpgMakerGameConfigs.GetMixBlockEntityListByPosition(mapId, x, y)
+        for _, data in ipairs(entityDataList) do
+            if data:GetType() == metaType then
+                local entityId = XRpgMakerGameConfigs.GetEntityIndex(mapId, data)
+                local entityObj = XTool.IsNumberValid(entityId) and XDataCenter.RpgMakerGameManager.GetEntityObj(entityId)
+                return entityObj
+            end
+        end
+    end
+
     function XRpgMakerGameManager.GetWaterObjDic()
         return WaterObjDic
+    end
+
+    ---@param dropId integer
+    ---@return XRpgMakerGameDrop
+    function XRpgMakerGameManager.GetDropObj(dropId)
+        local obj = DropObjDic[dropId]
+        if obj then
+            return obj
+        end
+    end
+
+    ---@param bubbleId integer
+    ---@return XRpgMakerGameBubble
+    function XRpgMakerGameManager.GetBubbleObj(bubbleId)
+        local obj = BubbleObjDic[bubbleId]
+        if obj then
+            return obj
+        end
+    end
+
+    ---@param magicId integer
+    ---@return XRpgMakerGameMagic
+    function XRpgMakerGameManager.GetMagicObj(magicId)
+        local obj = MagicObjDic[magicId]
+        if obj then
+            return obj
+        end
     end
 
     --是否会被草埔遮挡
     function XRpgMakerGameManager.IsGrassShelter(x, y)
         local currentScene = XRpgMakerGameManager.GetCurrentScene()
         local mapId = currentScene:GetMapId()
-        local entityIdList = XRpgMakerGameConfigs.GetEntityIdListByDic(mapId, x, y)
+        local entityMapDataList = XRpgMakerGameConfigs.GetMixBlockEntityListByPosition(mapId, x, y)
         local obj
 
-        for _, entityId in ipairs(entityIdList) do
-            if XRpgMakerGameConfigs.GetEntityType(entityId) == XRpgMakerGameConfigs.XRpgMakerGameEntityType.Grass then
+        for _, entityMapData in pairs(entityMapDataList) do
+            local entityId = XRpgMakerGameConfigs.GetEntityIndex(mapId, entityMapData)
+            if entityMapData:GetType() == XRpgMakerGameConfigs.XRpgMakeBlockMetaType.Grass then
                 obj = XRpgMakerGameManager.GetEntityObj(entityId)
                 if obj and obj:IsActive() then
                     return true
@@ -1114,6 +1567,7 @@ XRpgMakerGameManagerCreator = function()
     -----------------角色相关 end------------------
 
     -----------------协议相关 begin----------------
+
     --进入活动请求
     function XRpgMakerGameManager.RequestRpgMakerGameEnter()
         if not XDataCenter.RpgMakerGameManager.CheckActivityCondition() then
@@ -1275,4 +1729,9 @@ XRpgMakerGameManagerCreator = function()
     -----------------协议相关 end----------------
 
     return XRpgMakerGameManager
+end
+
+--登陆下发
+XRpc.NotifyRpgMakerGameActivityData = function(data)
+    XDataCenter.RpgMakerGameManager.UpdateActivityData(data)
 end

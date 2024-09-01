@@ -1,0 +1,2207 @@
+[
+    {
+        "Id": 1,
+        "MovieId": 10101,
+        "Name": "No. 21",
+        "TalkText": "The spaceship has been... destroyed.",
+        "Action": "Refuse01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 2,
+        "MovieId": 10101,
+        "Name": "No. 21",
+        "TalkText": "What is this place? The weird purple... The smell of uncertainty.",
+        "Action": null,
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 3,
+        "MovieId": 10101,
+        "Name": "No. 21",
+        "TalkText": "Captain and Noctis are not here.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 4,
+        "MovieId": 10101,
+        "Name": "No. 21",
+        "TalkText": "I have to find a way out of here to get my treasure.",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 5,
+        "MovieId": 10102,
+        "Name": "No. 21",
+        "TalkText": "...Captain?",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 6,
+        "MovieId": 10102,
+        "Name": "Vera",
+        "TalkText": "Too slow.",
+        "Action": "Refuse01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 2.0
+    },
+    {
+        "Id": 7,
+        "MovieId": 10102,
+        "Name": "Vera",
+        "TalkText": "It seems you still don't know what's going on.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 2.0
+    },
+    {
+        "Id": 8,
+        "MovieId": 10102,
+        "Name": "Vera",
+        "TalkText": "There's no time for hesitation.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 2.0
+    },
+    {
+        "Id": 9,
+        "MovieId": 10103,
+        "Name": "No. 21",
+        "TalkText": "Captain...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 10,
+        "MovieId": 10103,
+        "Name": "Vera",
+        "TalkText": "Do whatever you wanna do. Don't waste your time here.",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 2.0
+    },
+    {
+        "Id": 11,
+        "MovieId": 10103,
+        "Name": "Vera",
+        "TalkText": "I won't give you orders. You decide what to do.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 2.0
+    },
+    {
+        "Id": 12,
+        "MovieId": 10103,
+        "Name": "Vera",
+        "TalkText": "This is your story.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 2.0
+    },
+    {
+        "Id": 13,
+        "MovieId": 10103,
+        "Name": "No. 21",
+        "TalkText": "Got it. I'll lead this time.",
+        "Action": "Gift01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 14,
+        "MovieId": 10202,
+        "Name": "Noctis",
+        "TalkText": "You are finally here. I almost fell asleep.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 3.0
+    },
+    {
+        "Id": 15,
+        "MovieId": 10202,
+        "Name": "Noctis",
+        "TalkText": "Tsk, why don't I have a cooler identity?",
+        "Action": "Show04",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 3.0
+    },
+    {
+        "Id": 16,
+        "MovieId": 10202,
+        "Name": "Noctis",
+        "TalkText": "Nah, whatever. Now it's time to kill!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 3.0
+    },
+    {
+        "Id": 17,
+        "MovieId": 10202,
+        "Name": "No. 21",
+        "TalkText": "First of all, I'm the leader. Noctis needs to join my team and follow my orders.",
+        "Action": "No01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 18,
+        "MovieId": 10202,
+        "Name": "Noctis",
+        "TalkText": "Why?! Why don't you show me how much you want me in?",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 3.0
+    },
+    {
+        "Id": 19,
+        "MovieId": 10202,
+        "Name": "Noctis",
+        "TalkText": "Bring it on!",
+        "Action": "Show04",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 3.0
+    },
+    {
+        "Id": 20,
+        "MovieId": 10203,
+        "Name": "No. 21",
+        "TalkText": "Noctis is weak.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 21,
+        "MovieId": 10203,
+        "Name": "Noctis",
+        "TalkText": "Don't get cocky. I was going easy on you, y'know.",
+        "Action": "Show05",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 3.0
+    },
+    {
+        "Id": 22,
+        "MovieId": 10203,
+        "Name": "No. 21",
+        "TalkText": "Hmm, no discord no concord. I've read stories like this.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 23,
+        "MovieId": 10203,
+        "Name": "No. 21",
+        "TalkText": "And, we're supposed to bump fists at sunset. But if it's Noctis, I think I'll pass.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 24,
+        "MovieId": 10203,
+        "Name": "Noctis",
+        "TalkText": "Huh? You still wanna fight? Alright, alright, let's continue!",
+        "Action": "Ready01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 3.0
+    },
+    {
+        "Id": 25,
+        "MovieId": 10203,
+        "Name": "No. 21",
+        "TalkText": "I haven't lost my mind. I know the priorities. Time to go.",
+        "Action": "No01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 26,
+        "MovieId": 10203,
+        "Name": "Noctis",
+        "TalkText": "Hey!",
+        "Action": "Show05",
+        "BubbleControllerId": 102.0,
+        "PlanetCharacterId": 3.0
+    },
+    {
+        "Id": 27,
+        "MovieId": 10302,
+        "Name": "No. 21",
+        "TalkText": "...Enemy?!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 28,
+        "MovieId": 10302,
+        "Name": "Pale Phantom",
+        "TalkText": "You... shouldn't be here.",
+        "Action": "No01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 4.0
+    },
+    {
+        "Id": 29,
+        "MovieId": 10302,
+        "Name": "No. 21",
+        "TalkText": "Enemy on the planet...",
+        "Action": "Click01",
+        "BubbleControllerId": 107.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 30,
+        "MovieId": 10302,
+        "Name": "Pale Phantom",
+        "TalkText": "Whoever comes here... needs to be eliminated.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 4.0
+    },
+    {
+        "Id": 31,
+        "MovieId": 10302,
+        "Name": "No. 21",
+        "TalkText": "I'll tear everything up, including the phantoms!",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 32,
+        "MovieId": 10303,
+        "Name": "No. 21",
+        "TalkText": "I won't be confused by these memories.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 33,
+        "MovieId": 10303,
+        "Name": "Pale Phantom",
+        "TalkText": "...Is that so?",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 4.0
+    },
+    {
+        "Id": 34,
+        "MovieId": 10303,
+        "Name": "Pale Phantom",
+        "TalkText": "What you're looking for is not here. This planet has gone on the wrong path. It's my duty to correct it.",
+        "Action": "No01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 4.0
+    },
+    {
+        "Id": 35,
+        "MovieId": 10303,
+        "Name": "Pale Phantom",
+        "TalkText": "As a reward for defeating me, I will escort you out of here this one time.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 4.0
+    },
+    {
+        "Id": 36,
+        "MovieId": 10303,
+        "Name": "No. 21",
+        "TalkText": "What about you?",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 37,
+        "MovieId": 10303,
+        "Name": null,
+        "TalkText": "The phantom falls silent.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 4.0
+    },
+    {
+        "Id": 38,
+        "MovieId": 10303,
+        "Name": "No. 21",
+        "TalkText": "...I will keep moving.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 39,
+        "MovieId": 20101,
+        "Name": null,
+        "TalkText": "\u2014The second planet the wolf cub visited. It's covered under the white snow and blue ice all year round, boundless, silent, and cold.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 40,
+        "MovieId": 20101,
+        "Name": "No. 21",
+        "TalkText": "It's so cold...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 41,
+        "MovieId": 20101,
+        "Name": "No. 21",
+        "TalkText": "Could there be treasure here?",
+        "Action": "Lovesickness01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 42,
+        "MovieId": 20102,
+        "Name": "White Strike Hawk",
+        "TalkText": "Yawn... What can I do for you?",
+        "Action": "Tired01",
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 5.0
+    },
+    {
+        "Id": 43,
+        "MovieId": 20102,
+        "Name": "No. 21",
+        "TalkText": "We're looking for treasure.",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 44,
+        "MovieId": 20102,
+        "Name": "White Strike Hawk",
+        "TalkText": "We don't have that here.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 5.0
+    },
+    {
+        "Id": 45,
+        "MovieId": 20102,
+        "Name": "No. 21",
+        "TalkText": "Then I'll have a look ahead.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 46,
+        "MovieId": 20102,
+        "Name": "White Strike Hawk",
+        "TalkText": "I'm sorry... I don't care what you want. I can't let you pass. It's dangerous ahead.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 5.0
+    },
+    {
+        "Id": 47,
+        "MovieId": 20102,
+        "Name": "White Strike Hawk",
+        "TalkText": "To get frozen in the cold snowfield and killed by the pirates in space or go back and stay somewhere safe is up to your choice.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 5.0
+    },
+    {
+        "Id": 48,
+        "MovieId": 20102,
+        "Name": "No. 21",
+        "TalkText": "This is not my destination. I decide whether to go or not.",
+        "Action": "No01",
+        "BubbleControllerId": 102.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 49,
+        "MovieId": 20102,
+        "Name": "No. 21",
+        "TalkText": "I will not go back.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 50,
+        "MovieId": 20103,
+        "Name": "No. 21",
+        "TalkText": "...Rargh!",
+        "Action": "Refuse01",
+        "BubbleControllerId": 107.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 51,
+        "MovieId": 20103,
+        "Name": "White Strike Hawk",
+        "TalkText": "Hmm, that's enough. Just go...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 5.0
+    },
+    {
+        "Id": 52,
+        "MovieId": 20103,
+        "Name": "No. 21",
+        "TalkText": "Why did you stop?",
+        "Action": "Click01",
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 53,
+        "MovieId": 20103,
+        "Name": "White Strike Hawk",
+        "TalkText": "Ah... Because it's not necessary to fight anymore.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 5.0
+    },
+    {
+        "Id": 54,
+        "MovieId": 20103,
+        "Name": "White Strike Hawk",
+        "TalkText": "Since you're not afraid of the danger ahead, I have no reason to stop you.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 5.0
+    },
+    {
+        "Id": 55,
+        "MovieId": 20103,
+        "Name": "White Strike Hawk",
+        "TalkText": "But the planet has nothing but ice. What you want is not here. If you want to keep going, find the unicorn on the snowfield.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 5.0
+    },
+    {
+        "Id": 56,
+        "MovieId": 20103,
+        "Name": "White Strike Hawk",
+        "TalkText": "She will tell you what to do.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 5.0
+    },
+    {
+        "Id": 57,
+        "MovieId": 20103,
+        "Name": "White Strike Hawk",
+        "TalkText": "I'm drained... I need to rest.",
+        "Action": "Tired01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 5.0
+    },
+    {
+        "Id": 58,
+        "MovieId": 20202,
+        "Name": "Red Gray Raven",
+        "TalkText": "Where is... the treasure...?",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 6.0
+    },
+    {
+        "Id": 59,
+        "MovieId": 20202,
+        "Name": "No. 21",
+        "TalkText": "A red... gray raven? She just mentioned the treasure.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 60,
+        "MovieId": 20202,
+        "Name": "No. 21",
+        "TalkText": "It's said that ravens always hide their treasure away...",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 61,
+        "MovieId": 20202,
+        "Name": "Red Gray Raven",
+        "TalkText": "Who's there?!",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 6.0
+    },
+    {
+        "Id": 62,
+        "MovieId": 20203,
+        "Name": "Red Gray Raven",
+        "TalkText": "...I think you misunderstood.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 6.0
+    },
+    {
+        "Id": 63,
+        "MovieId": 20203,
+        "Name": "Red Gray Raven",
+        "TalkText": "My treasure... is my friends. I was guarding a bright star with two other ravens like me.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 6.0
+    },
+    {
+        "Id": 64,
+        "MovieId": 20203,
+        "Name": "Red Gray Raven",
+        "TalkText": "But we got separated due to an accident. I've been looking for them.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 6.0
+    },
+    {
+        "Id": 65,
+        "MovieId": 20203,
+        "Name": "Red Gray Raven",
+        "TalkText": "Please take this.",
+        "Action": "Scratch01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 6.0
+    },
+    {
+        "Id": 66,
+        "MovieId": 20203,
+        "Name": "Red Gray Raven",
+        "TalkText": "In case you see them, please hand it to them.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 6.0
+    },
+    {
+        "Id": 67,
+        "MovieId": 20203,
+        "Name": "No. 21",
+        "TalkText": "Okay.",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 68,
+        "MovieId": 20203,
+        "Name": "Red Gray Raven",
+        "TalkText": "As for the unicorn, she is not far away from here.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 6.0
+    },
+    {
+        "Id": 69,
+        "MovieId": 20203,
+        "Name": "Red Gray Raven",
+        "TalkText": "Well then, I hope you'll find what you're looking for.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 6.0
+    },
+    {
+        "Id": 70,
+        "MovieId": 20302,
+        "Name": null,
+        "TalkText": "No. 21 explained why she came here to visit the dignified unicorn.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 71,
+        "MovieId": 20302,
+        "Name": "Purple Unicorn",
+        "TalkText": "You want a way out of here?",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 7.0
+    },
+    {
+        "Id": 72,
+        "MovieId": 20302,
+        "Name": "Purple Unicorn",
+        "TalkText": "Show me what you can do first.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 7.0
+    },
+    {
+        "Id": 73,
+        "MovieId": 20302,
+        "Name": "No. 21",
+        "TalkText": "Huh?",
+        "Action": "Click01",
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 74,
+        "MovieId": 20302,
+        "Name": "Purple Unicorn",
+        "TalkText": "I'm the guard of the planet. If you can't defeat me, you don't have the ability to leave the planet.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 7.0
+    },
+    {
+        "Id": 75,
+        "MovieId": 20302,
+        "Name": "No. 21",
+        "TalkText": "I'll prove my strength to you!",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 76,
+        "MovieId": 20303,
+        "Name": "Purple Unicorn",
+        "TalkText": "...You're qualified.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 7.0
+    },
+    {
+        "Id": 77,
+        "MovieId": 20303,
+        "Name": "Purple Unicorn",
+        "TalkText": "In this case, I'll stick to my promise and help get out of here.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 7.0
+    },
+    {
+        "Id": 78,
+        "MovieId": 20303,
+        "Name": "No. 21",
+        "TalkText": "The treasure I look for is not here...",
+        "Action": "Stand03",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 79,
+        "MovieId": 20303,
+        "Name": "Purple Unicorn",
+        "TalkText": "Leave for the closest planet around here. There is an all-capable merchant there. Perhaps he can help you find what you want.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 7.0
+    },
+    {
+        "Id": 80,
+        "MovieId": 20303,
+        "Name": "No. 21",
+        "TalkText": "Why are you staying here since there's nothing to guard?",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 81,
+        "MovieId": 20303,
+        "Name": "Purple Unicorn",
+        "TalkText": "Because my friends are here. We had a promise, which for me... is the most precious treasure.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 7.0
+    },
+    {
+        "Id": 82,
+        "MovieId": 30101,
+        "Name": null,
+        "TalkText": "\u2014The unicorn threw out a javelin as big as the smallest spaceship. The wolf cub clung to it, traveling through the dangerous asteroid belt and arriving on the third planet.",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 83,
+        "MovieId": 30101,
+        "Name": "No. 21",
+        "TalkText": "So much sand...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 84,
+        "MovieId": 30101,
+        "Name": "No. 21",
+        "TalkText": "I could be swallowed. Need to be careful.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 85,
+        "MovieId": 30102,
+        "Name": "No. 21",
+        "TalkText": "Hmm... It's sand everywhere. (Shakes)",
+        "Action": "Catch02",
+        "BubbleControllerId": 107.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 86,
+        "MovieId": 30102,
+        "Name": "Desert Merchant",
+        "TalkText": "Welcome to the planet.",
+        "Action": "Greet01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 8.0
+    },
+    {
+        "Id": 87,
+        "MovieId": 30102,
+        "Name": "Desert Merchant",
+        "TalkText": "What can I help you with?",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 8.0
+    },
+    {
+        "Id": 88,
+        "MovieId": 30102,
+        "Name": "No. 21",
+        "TalkText": "I'm looking for the treasure that can make me stronger.",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 89,
+        "MovieId": 30102,
+        "Name": "Desert Merchant",
+        "TalkText": "Searching for related items... Here are the items that match your needs.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 8.0
+    },
+    {
+        "Id": 90,
+        "MovieId": 30102,
+        "Name": "No. 21",
+        "TalkText": "What are these?",
+        "Action": null,
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 91,
+        "MovieId": 30102,
+        "Name": "Desert Merchant",
+        "TalkText": "This fits in your requirement of \"getting stronger.\" Our items are very popular on this planet.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 8.0
+    },
+    {
+        "Id": 92,
+        "MovieId": 30102,
+        "Name": "Desert Merchant",
+        "TalkText": "You can try it out if you're worried about the quality.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 8.0
+    },
+    {
+        "Id": 93,
+        "MovieId": 30102,
+        "Name": "Desert Merchant",
+        "TalkText": "...Please get ready.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 8.0
+    },
+    {
+        "Id": 94,
+        "MovieId": 30103,
+        "Name": "Desert Merchant",
+        "TalkText": "...Oh, I screwed up.",
+        "Action": "Stand03",
+        "BubbleControllerId": 105.0,
+        "PlanetCharacterId": 8.0
+    },
+    {
+        "Id": 95,
+        "MovieId": 30103,
+        "Name": "Desert Merchant",
+        "TalkText": "Then, please pay for the weapon you damaged just now. It should be...",
+        "Action": "Talk01",
+        "BubbleControllerId": 108.0,
+        "PlanetCharacterId": 8.0
+    },
+    {
+        "Id": 96,
+        "MovieId": 30103,
+        "Name": null,
+        "TalkText": "The desert merchant indicates a number with his fingers.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": null
+    },
+    {
+        "Id": 97,
+        "MovieId": 30103,
+        "Name": "No. 21",
+        "TalkText": "...No.",
+        "Action": "No01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 98,
+        "MovieId": 30103,
+        "Name": "No. 21",
+        "TalkText": "I only believe in the power of my claws.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 99,
+        "MovieId": 30103,
+        "Name": "No. 21",
+        "TalkText": "This \"power\" seems weird. It's not what I want.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 100,
+        "MovieId": 30103,
+        "Name": "No. 21",
+        "TalkText": "Bye.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 101,
+        "MovieId": 30103,
+        "Name": "Desert Merchant",
+        "TalkText": "...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 8.0
+    },
+    {
+        "Id": 102,
+        "MovieId": 30103,
+        "Name": "Desert Merchant",
+        "TalkText": "What is the true \"power\"...?",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 8.0
+    },
+    {
+        "Id": 103,
+        "MovieId": 30202,
+        "Name": "Oasis Leader",
+        "TalkText": "It's Oasis territory. Unidentified people are not allowed to go there. Show me your token.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 9.0
+    },
+    {
+        "Id": 104,
+        "MovieId": 30202,
+        "Name": "No. 21",
+        "TalkText": "Token? I don't have any token.",
+        "Action": "No01",
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 105,
+        "MovieId": 30202,
+        "Name": "Oasis Leader",
+        "TalkText": "You have to defeat me if you insist on going in.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 9.0
+    },
+    {
+        "Id": 106,
+        "MovieId": 30202,
+        "Name": "Oasis Leader",
+        "TalkText": "Someone, lock this stranger up in the jail.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 9.0
+    },
+    {
+        "Id": 107,
+        "MovieId": 30202,
+        "Name": "No. 21",
+        "TalkText": "Fight or get caught...!",
+        "Action": null,
+        "BubbleControllerId": 107.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 108,
+        "MovieId": 30203,
+        "Name": "No. 21",
+        "TalkText": "Pant... Pant...",
+        "Action": "Tired01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 109,
+        "MovieId": 30203,
+        "Name": "Oasis Leader",
+        "TalkText": "...You're more daring than I imagined.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 9.0
+    },
+    {
+        "Id": 110,
+        "MovieId": 30203,
+        "Name": "No. 21",
+        "TalkText": "I've defeated many enemies. All fierce machines. So I'm strong... and I can still fight.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 111,
+        "MovieId": 30203,
+        "Name": null,
+        "TalkText": "Something falls from No. 21.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": null
+    },
+    {
+        "Id": 112,
+        "MovieId": 30203,
+        "Name": "Oasis Leader",
+        "TalkText": "Why do you have this?",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 9.0
+    },
+    {
+        "Id": 113,
+        "MovieId": 30203,
+        "Name": "No. 21",
+        "TalkText": "I promised a red gray raven to give it to her friends. Give it back to me!",
+        "Action": null,
+        "BubbleControllerId": 102.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 114,
+        "MovieId": 30203,
+        "Name": "Oasis Leader",
+        "TalkText": "So you're not working for the Guardian of the Ruins... This is a mistake. The gray raven is my ally. Please accept my apology.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 9.0
+    },
+    {
+        "Id": 115,
+        "MovieId": 30203,
+        "Name": "No. 21",
+        "TalkText": "Mmm... The Guardian of the Ruins?",
+        "Action": null,
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 116,
+        "MovieId": 30203,
+        "Name": "Oasis Leader",
+        "TalkText": "...The Guardian of the Ruins is the ruler of the planet, a militant who turned this green planet into what it is.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 9.0
+    },
+    {
+        "Id": 117,
+        "MovieId": 30203,
+        "Name": "Oasis Leader",
+        "TalkText": "My job is to bring the oasis back to this planet... For me, Oasis residents' happiness is the most precious treasure.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 9.0
+    },
+    {
+        "Id": 118,
+        "MovieId": 30203,
+        "Name": "Oasis Leader",
+        "TalkText": "But the war will never end as long as the Guardian of the Ruins is still here.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 9.0
+    },
+    {
+        "Id": 119,
+        "MovieId": 30203,
+        "Name": "No. 21",
+        "TalkText": "Green is the color of the forest. I like it. I saw some greenness on my way... but not much. The planet is full of sand. I don't like it.",
+        "Action": "Show01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 120,
+        "MovieId": 30203,
+        "Name": "No. 21",
+        "TalkText": "Where I came from is full of greenness. It's tough, so there can be greenness as well.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 121,
+        "MovieId": 30203,
+        "Name": "No. 21",
+        "TalkText": "I can help you kill the bad guy who ruined the greenness. Lead the way.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 122,
+        "MovieId": 30203,
+        "Name": "Oasis Leader",
+        "TalkText": "Thank you for your help.",
+        "Action": "Thanks03",
+        "BubbleControllerId": 103.0,
+        "PlanetCharacterId": 9.0
+    },
+    {
+        "Id": 123,
+        "MovieId": 30302,
+        "Name": "Guardian of the Ruins",
+        "TalkText": "I... want war!",
+        "Action": "Gift01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 10.0
+    },
+    {
+        "Id": 124,
+        "MovieId": 30302,
+        "Name": "No. 21",
+        "TalkText": "...",
+        "Action": null,
+        "BubbleControllerId": 102.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 125,
+        "MovieId": 30302,
+        "Name": "Guardian of the Ruins",
+        "TalkText": "So you're the one who has been messing up my planet... How ignorant!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 10.0
+    },
+    {
+        "Id": 126,
+        "MovieId": 30302,
+        "Name": "No. 21",
+        "TalkText": "Now a prey has appeared... I won't let it go easily.",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 127,
+        "MovieId": 30302,
+        "Name": "Guardian of the Ruins",
+        "TalkText": "Hahaha, prey? Come out, my reliable subordinates!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 10.0
+    },
+    {
+        "Id": 128,
+        "MovieId": 30302,
+        "Name": "Guardian of the Ruins",
+        "TalkText": "Now let's see who's the prey and who's the hunter?",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 10.0
+    },
+    {
+        "Id": 129,
+        "MovieId": 30303,
+        "Name": "Guardian of the Ruins",
+        "TalkText": "Arghhh!",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 10.0
+    },
+    {
+        "Id": 130,
+        "MovieId": 30303,
+        "Name": "Guardian of the Ruins",
+        "TalkText": "Why are you running away? Get back! Help!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 10.0
+    },
+    {
+        "Id": 131,
+        "MovieId": 30303,
+        "Name": "No. 21",
+        "TalkText": "There's no escape. I will tear you up.",
+        "Action": "Gift01",
+        "BubbleControllerId": 107.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 132,
+        "MovieId": 30303,
+        "Name": "Guardian of the Ruins",
+        "TalkText": "You win! You win! P-please spare me... No more wars, I swear! I was blinded...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 10.0
+    },
+    {
+        "Id": 133,
+        "MovieId": 30303,
+        "Name": "Guardian of the Ruins",
+        "TalkText": "Please spare me. I can give you whatever you want.",
+        "Action": "Lovesickness01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 10.0
+    },
+    {
+        "Id": 134,
+        "MovieId": 30303,
+        "Name": "No. 21",
+        "TalkText": "I'm looking for a treasure. Do you know where it is?",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 135,
+        "MovieId": 30303,
+        "Name": "Guardian of the Ruins",
+        "TalkText": "A treasure? There is a treasure...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 10.0
+    },
+    {
+        "Id": 136,
+        "MovieId": 30303,
+        "Name": "Guardian of the Ruins",
+        "TalkText": "There is a planet far away from here... The last ruler of that planet might have what you want.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 10.0
+    },
+    {
+        "Id": 137,
+        "MovieId": 30303,
+        "Name": "Guardian of the Ruins",
+        "TalkText": "However, it's far away from here. And there's a dangerous place on the way.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 10.0
+    },
+    {
+        "Id": 138,
+        "MovieId": 30303,
+        "Name": "No. 21",
+        "TalkText": "I have nothing to fear with my claws and friends.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 139,
+        "MovieId": 30303,
+        "Name": "Guardian of the Ruins",
+        "TalkText": "Ugh\u2014! This is the map to that planet! Please keep your claws away from you.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 10.0
+    },
+    {
+        "Id": 140,
+        "MovieId": 40101,
+        "Name": null,
+        "TalkText": "\u2014The wolf cub's spaceship collapsed upon arrival like a potato chip that has been put away for too long in the high temperature. Here lava is boiling forever. This is the fourth planet the cub visits.",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 141,
+        "MovieId": 40101,
+        "Name": "No. 21",
+        "TalkText": "It's hot.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 142,
+        "MovieId": 40101,
+        "Name": "No. 21",
+        "TalkText": "The spaceship... has stopped?",
+        "Action": null,
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 143,
+        "MovieId": 40101,
+        "Name": "No. 21",
+        "TalkText": "Have to find a new one.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 144,
+        "MovieId": 40102,
+        "Name": null,
+        "TalkText": "The Blast Rabbit stamps its foot in anger and doesn't notice the wolf cub around it.",
+        "Action": "Refuse01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 11.0
+    },
+    {
+        "Id": 145,
+        "MovieId": 40102,
+        "Name": "Blast Rabbit",
+        "TalkText": "Why are the collectors I left on the way all damaged?",
+        "Action": null,
+        "BubbleControllerId": 102.0,
+        "PlanetCharacterId": 11.0
+    },
+    {
+        "Id": 146,
+        "MovieId": 40102,
+        "Name": "Blast Rabbit",
+        "TalkText": "Ahh! I have to start over again. If I find out who did it...",
+        "Action": null,
+        "BubbleControllerId": 102.0,
+        "PlanetCharacterId": 11.0
+    },
+    {
+        "Id": 147,
+        "MovieId": 40102,
+        "Name": "No. 21",
+        "TalkText": "Mmm, what's the smell...?",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 148,
+        "MovieId": 40102,
+        "Name": "Blast Rabbit",
+        "TalkText": "You did this?",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 11.0
+    },
+    {
+        "Id": 149,
+        "MovieId": 40102,
+        "Name": "Blast Rabbit",
+        "TalkText": "...Stop right there!",
+        "Action": "Refuse01",
+        "BubbleControllerId": 102.0,
+        "PlanetCharacterId": 11.0
+    },
+    {
+        "Id": 150,
+        "MovieId": 40103,
+        "Name": "Blast Rabbit",
+        "TalkText": "It's impossible. You can't beat me...",
+        "Action": "Refuse01",
+        "BubbleControllerId": 102.0,
+        "PlanetCharacterId": 11.0
+    },
+    {
+        "Id": 151,
+        "MovieId": 40103,
+        "Name": "No. 21",
+        "TalkText": "I'll get stronger in the story.",
+        "Action": "Gift01",
+        "BubbleControllerId": 103.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 152,
+        "MovieId": 40103,
+        "Name": "Blast Rabbit",
+        "TalkText": "What does that mean...? Never mind. Let's fight. I'm not sure if you were the one who destroyed the device.",
+        "Action": null,
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 11.0
+    },
+    {
+        "Id": 153,
+        "MovieId": 40103,
+        "Name": "No. 21",
+        "TalkText": "You can smell that too?",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 154,
+        "MovieId": 40103,
+        "Name": "Blast Rabbit",
+        "TalkText": "No! You won't leave traces like these. Just have a look.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 11.0
+    },
+    {
+        "Id": 155,
+        "MovieId": 40103,
+        "Name": "Blast Rabbit",
+        "TalkText": "Cough, sorry.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 11.0
+    },
+    {
+        "Id": 156,
+        "MovieId": 40103,
+        "Name": "No. 21",
+        "TalkText": "No need to apologize. I didn't do it, but I can help you fix it. I'm quite good at it.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 157,
+        "MovieId": 40103,
+        "Name": "Blast Rabbit",
+        "TalkText": "No need to do that. The fact that it's damaged means that the material is not strong enough! I'd rather start over.",
+        "Action": "Show07",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 11.0
+    },
+    {
+        "Id": 158,
+        "MovieId": 40103,
+        "Name": "Blast Rabbit",
+        "TalkText": "Hmm, this time I'm gonna adjust the proportions of metals... This is better. Just two more blasting experiments...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 11.0
+    },
+    {
+        "Id": 159,
+        "MovieId": 40103,
+        "Name": null,
+        "TalkText": "The Blast Rabbit is lost in work.",
+        "Action": "Cabinet01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 11.0
+    },
+    {
+        "Id": 160,
+        "MovieId": 40103,
+        "Name": "No. 21",
+        "TalkText": "Hm, just keep moving.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 161,
+        "MovieId": 40202,
+        "Name": "No. 21",
+        "TalkText": "Is this a blue gray raven? (Sniffs) Yes. They smell similar.",
+        "Action": "Ready01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 162,
+        "MovieId": 40202,
+        "Name": "Blue Gray Raven",
+        "TalkText": "...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 12.0
+    },
+    {
+        "Id": 163,
+        "MovieId": 40202,
+        "Name": null,
+        "TalkText": "The blue gray raven stays still.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": null
+    },
+    {
+        "Id": 164,
+        "MovieId": 40202,
+        "Name": "No. 21",
+        "TalkText": "No, the smell... is a trap!",
+        "Action": "No01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 165,
+        "MovieId": 40203,
+        "Name": null,
+        "TalkText": "One blue gray raven is down, but another blue gray raven comes up.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 12.0
+    },
+    {
+        "Id": 166,
+        "MovieId": 40203,
+        "Name": "Blue Gray Raven",
+        "TalkText": "I can't believe that you've seen through my trap. It seems that the test model is not qualified... What brought you here?",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 12.0
+    },
+    {
+        "Id": 167,
+        "MovieId": 40203,
+        "Name": "No. 21",
+        "TalkText": "The red gray raven asked me to give it to you. She was looking for her kind. I could smell it.",
+        "Action": "Show01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 168,
+        "MovieId": 40203,
+        "Name": "Blue Gray Raven",
+        "TalkText": "Now I see... I am one of the Gray Raven members.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 12.0
+    },
+    {
+        "Id": 169,
+        "MovieId": 40203,
+        "Name": "No. 21",
+        "TalkText": "Then why don't you go back?",
+        "Action": null,
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 170,
+        "MovieId": 40203,
+        "Name": "Blue Gray Raven",
+        "TalkText": "...I've got other business to attend to. Our star won't be truly saved until I finish it, so I have to stay.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 12.0
+    },
+    {
+        "Id": 171,
+        "MovieId": 40203,
+        "Name": "Blue Gray Raven",
+        "TalkText": "Thank you for the update on my teammates. In return, I would like to offer you anything you need.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 12.0
+    },
+    {
+        "Id": 172,
+        "MovieId": 40203,
+        "Name": "No. 21",
+        "TalkText": "I need a spaceship to this planet.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 173,
+        "MovieId": 40203,
+        "Name": null,
+        "TalkText": "No. 21 takes out the map given by the Guardian of the Ruins to show the blue gray raven.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": null
+    },
+    {
+        "Id": 174,
+        "MovieId": 40203,
+        "Name": "Blue Gray Raven",
+        "TalkText": "But this planet... No, I see, this is a spaceship launcher. The shipyard is not far from here.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 12.0
+    },
+    {
+        "Id": 175,
+        "MovieId": 40302,
+        "Name": "Bad Guy",
+        "TalkText": "(Sobs) H-help me... I'm just a humble captain whose spaceship and food were taken away by the pirates...",
+        "Action": "Touch01",
+        "BubbleControllerId": 105.0,
+        "PlanetCharacterId": 13.0
+    },
+    {
+        "Id": 176,
+        "MovieId": 40302,
+        "Name": "No. 21",
+        "TalkText": "(The smell... The Guardian of the Ruins and the damaged device also had it.)",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 177,
+        "MovieId": 40302,
+        "Name": "No. 21",
+        "TalkText": "You smell lies. I don't believe you.",
+        "Action": "No01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 178,
+        "MovieId": 40302,
+        "Name": "Bad Guy",
+        "TalkText": "Oops...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 13.0
+    },
+    {
+        "Id": 179,
+        "MovieId": 40302,
+        "Name": "Bad Guy",
+        "TalkText": "Smart cub. But what can I do?",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 13.0
+    },
+    {
+        "Id": 180,
+        "MovieId": 40302,
+        "Name": "No. 21",
+        "TalkText": "Rargh\u2014!",
+        "Action": null,
+        "BubbleControllerId": 102.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 181,
+        "MovieId": 40303,
+        "Name": "Bad Guy",
+        "TalkText": "Ouch... It hurts.",
+        "Action": null,
+        "BubbleControllerId": 105.0,
+        "PlanetCharacterId": 13.0
+    },
+    {
+        "Id": 182,
+        "MovieId": 40303,
+        "Name": "No. 21",
+        "TalkText": "I'll rip you apart with my next strike...!",
+        "Action": "Refuse01",
+        "BubbleControllerId": 107.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 183,
+        "MovieId": 40303,
+        "Name": "Bad Guy",
+        "TalkText": "Not really. \"Blah, blah, blah\"!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 13.0
+    },
+    {
+        "Id": 184,
+        "MovieId": 40303,
+        "Name": null,
+        "TalkText": "The bad guy utters a spell that No. 21 doesn't understand.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": null
+    },
+    {
+        "Id": 185,
+        "MovieId": 40303,
+        "Name": "No. 21",
+        "TalkText": "...Hmm! I can't move... Why...?",
+        "Action": null,
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 186,
+        "MovieId": 40303,
+        "Name": "Bad Guy",
+        "TalkText": "Buddy, you are brave and strong, but you're not gonna help you survive on the planet.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 13.0
+    },
+    {
+        "Id": 187,
+        "MovieId": 40303,
+        "Name": "Bad Guy",
+        "TalkText": "Each story features a charming villain, so... I'll have the spaceship.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 13.0
+    },
+    {
+        "Id": 188,
+        "MovieId": 40303,
+        "Name": "Bad Guy",
+        "TalkText": "However, as a kind captain, I can consider giving you a lift.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 13.0
+    },
+    {
+        "Id": 189,
+        "MovieId": 50101,
+        "Name": "No. 21",
+        "TalkText": "... Hmm.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 190,
+        "MovieId": 50101,
+        "Name": "No. 21",
+        "TalkText": "That guy got away with it this time... I won't let him go next time.",
+        "Action": "Refuse01",
+        "BubbleControllerId": 102.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 191,
+        "MovieId": 50101,
+        "Name": "No. 21",
+        "TalkText": "Let's continue onward.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 192,
+        "MovieId": 50101,
+        "Name": "No. 21",
+        "TalkText": "Are these... cakes?",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 193,
+        "MovieId": 50102,
+        "Name": "Artist",
+        "TalkText": "Heh... art pieces...",
+        "Action": "Gift01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 14.0
+    },
+    {
+        "Id": 194,
+        "MovieId": 50102,
+        "Name": "No. 21",
+        "TalkText": "The planet smells... (sniffs) sweet.",
+        "Action": "Ready01",
+        "BubbleControllerId": 106.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 195,
+        "MovieId": 50102,
+        "Name": "Artist",
+        "TalkText": "Wait. You're about to step on my work.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 14.0
+    },
+    {
+        "Id": 196,
+        "MovieId": 50102,
+        "Name": "No. 21",
+        "TalkText": "I see.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 197,
+        "MovieId": 50102,
+        "Name": "Artist",
+        "TalkText": "Careful! You just stepped on another one!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 14.0
+    },
+    {
+        "Id": 198,
+        "MovieId": 50102,
+        "Name": "No. 21",
+        "TalkText": "...Oh.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 199,
+        "MovieId": 50102,
+        "Name": "Artist",
+        "TalkText": "Ahh! My great work!",
+        "Action": "Refuse01",
+        "BubbleControllerId": 102.0,
+        "PlanetCharacterId": 14.0
+    },
+    {
+        "Id": 200,
+        "MovieId": 50102,
+        "Name": "Artist",
+        "TalkText": "U-unforgivable...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 14.0
+    },
+    {
+        "Id": 201,
+        "MovieId": 50102,
+        "Name": "No. 21",
+        "TalkText": "I was just walking...",
+        "Action": null,
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 202,
+        "MovieId": 50103,
+        "Name": "Artist",
+        "TalkText": "Hehe... Hehe... I see...",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 14.0
+    },
+    {
+        "Id": 203,
+        "MovieId": 50103,
+        "Name": "Artist",
+        "TalkText": "The cakes are broken... The mixed color looks unique!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 14.0
+    },
+    {
+        "Id": 204,
+        "MovieId": 50103,
+        "Name": "Artist",
+        "TalkText": "This beauty of chaos... This random surprise... is freedom itself...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 14.0
+    },
+    {
+        "Id": 205,
+        "MovieId": 50103,
+        "Name": "Artist",
+        "TalkText": "Surging inspiration... I see. What I did was wrong!",
+        "Action": "Gift01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 14.0
+    },
+    {
+        "Id": 206,
+        "MovieId": 50103,
+        "Name": "Artist",
+        "TalkText": "This time... My taste in art will finally be recognized! I am the best artist on this planet!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 14.0
+    },
+    {
+        "Id": 207,
+        "MovieId": 50103,
+        "Name": "Artist",
+        "TalkText": "Hehe... Freedom... Freedom...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 14.0
+    },
+    {
+        "Id": 208,
+        "MovieId": 50103,
+        "Name": "No. 21",
+        "TalkText": "This guy is crazy...",
+        "Action": "No01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 209,
+        "MovieId": 50202,
+        "Name": "The Best Warrior in the Universe",
+        "TalkText": "Huff puff! Haha!",
+        "Action": "Gift01",
+        "BubbleControllerId": 103.0,
+        "PlanetCharacterId": 15.0
+    },
+    {
+        "Id": 210,
+        "MovieId": 50202,
+        "Name": "The Best Warrior in the Universe",
+        "TalkText": "You're finally here! Nanami... Ahem! The best warrior in the universe has been waiting for you for a long time!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 15.0
+    },
+    {
+        "Id": 211,
+        "MovieId": 50202,
+        "Name": "No. 21",
+        "TalkText": "I don't remember this character...",
+        "Action": "No01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 212,
+        "MovieId": 50202,
+        "Name": "The Best Warrior in the Universe",
+        "TalkText": "Hmm, every story needs an Easter egg character...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 15.0
+    },
+    {
+        "Id": 213,
+        "MovieId": 50202,
+        "Name": "The Best Warrior in the Universe",
+        "TalkText": "Well then, after a series of struggles, here comes the critical moment when the main characters fight the boss.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 15.0
+    },
+    {
+        "Id": 214,
+        "MovieId": 50202,
+        "Name": "The Best Warrior in the Universe",
+        "TalkText": "...Standing in front of you is the best warrior in the universe!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 15.0
+    },
+    {
+        "Id": 215,
+        "MovieId": 50203,
+        "Name": "The Best Warrior in the Universe",
+        "TalkText": "Boo\u2014 I got defeated!",
+        "Action": null,
+        "BubbleControllerId": 105.0,
+        "PlanetCharacterId": 15.0
+    },
+    {
+        "Id": 216,
+        "MovieId": 50203,
+        "Name": "No. 21",
+        "TalkText": "The warrior is a bad actor...",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 217,
+        "MovieId": 50203,
+        "Name": "The Best Warrior in the Universe",
+        "TalkText": "Ahem, well, now that you have defeated the best warrior in the universe, you just need to pay a little price to possess the power to fight the final Boss.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 15.0
+    },
+    {
+        "Id": 218,
+        "MovieId": 50203,
+        "Name": "No. 21",
+        "TalkText": "...What \"price\"?",
+        "Action": null,
+        "BubbleControllerId": 101.0,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 219,
+        "MovieId": 50203,
+        "Name": "The Best Warrior in the Universe",
+        "TalkText": "Give up something that's very important to you in return for something that's more important.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 15.0
+    },
+    {
+        "Id": 220,
+        "MovieId": 50203,
+        "Name": "No. 21",
+        "TalkText": "I won't give up freedom or my friends.",
+        "Action": "No01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 221,
+        "MovieId": 50203,
+        "Name": "The Best Warrior in the Universe",
+        "TalkText": "Phew... Cool. Now that's the response of a warrior!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 15.0
+    },
+    {
+        "Id": 222,
+        "MovieId": 50203,
+        "Name": "The Best Warrior in the Universe",
+        "TalkText": "Well then... I have nothing more to teach you. Just keep going.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 15.0
+    },
+    {
+        "Id": 223,
+        "MovieId": 50302,
+        "Name": "Gingerbread King",
+        "TalkText": "Are you here to make friends with me?",
+        "Action": "Gift01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 224,
+        "MovieId": 50302,
+        "Name": "No. 21",
+        "TalkText": "I heard that you had a treasure...",
+        "Action": "Click01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 225,
+        "MovieId": 50302,
+        "Name": "Gingerbread King",
+        "TalkText": "Treasure? You're standing on it! The paradise we live in! That's my treasure!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 226,
+        "MovieId": 50302,
+        "Name": "Gingerbread King",
+        "TalkText": "Stay here and play with us!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 227,
+        "MovieId": 50302,
+        "Name": "Gingerbread King",
+        "TalkText": "Claws... fangs, and other scary things are not needed here. Make yourself adorable and play with us!",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 228,
+        "MovieId": 50302,
+        "Name": "Gingerbread King",
+        "TalkText": "Let's play?",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 229,
+        "MovieId": 50303,
+        "Name": "Gingerbread King",
+        "TalkText": "Woo\u2014!",
+        "Action": "Tired01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 230,
+        "MovieId": 50303,
+        "Name": null,
+        "TalkText": "Defeated, the Gingerbread King sits on the ground and starts crying.",
+        "Action": "Tired01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": null
+    },
+    {
+        "Id": 231,
+        "MovieId": 50303,
+        "Name": "Gingerbread King",
+        "TalkText": "Why don't you wanna play with me? This is the paradise I created... Only the softness and sweetness. No horrible, painful memories. Isn't it good?",
+        "Action": "Tired01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 232,
+        "MovieId": 50303,
+        "Name": "Gingerbread King",
+        "TalkText": "...Did I do anything wrong?",
+        "Action": "Tired01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 233,
+        "MovieId": 50303,
+        "Name": "Gingerbread King",
+        "TalkText": "Everyone loves sweet things... So I turned the planet sweet...",
+        "Action": "Tired01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 234,
+        "MovieId": 50303,
+        "Name": "Gingerbread King",
+        "TalkText": "Everyone is looking for the treasure, so I give it to them. And they will play with me...",
+        "Action": "Tired01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 235,
+        "MovieId": 50303,
+        "Name": "Gingerbread King",
+        "TalkText": "Is there anything wrong with it?",
+        "Action": "Tired01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 236,
+        "MovieId": 50303,
+        "Name": "No. 21",
+        "TalkText": "I don't know, but now I understand that \"treasure\" is just a name.",
+        "Action": "Talk01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 237,
+        "MovieId": 50303,
+        "Name": "No. 21",
+        "TalkText": "What I want is not here. The \"treasure\" everyone wants is different.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 238,
+        "MovieId": 50303,
+        "Name": "No. 21",
+        "TalkText": "And I've already gotten my treasure... It's just I hadn't realized until then.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 239,
+        "MovieId": 50303,
+        "Name": "Gingerbread King",
+        "TalkText": "I'm confused.",
+        "Action": "Touch01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 240,
+        "MovieId": 50303,
+        "Name": "No. 21",
+        "TalkText": "It's okay. I spent a lot of time to figure it out. No worries. You'll understand it one day.",
+        "Action": "Show01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 241,
+        "MovieId": 50303,
+        "Name": "No. 21",
+        "TalkText": "I learned this from my friends. Someone will teach you this as long as you keep moving.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 242,
+        "MovieId": 50303,
+        "Name": "Gingerbread King",
+        "TalkText": "But isn't this already the end of the story?",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 16.0
+    },
+    {
+        "Id": 243,
+        "MovieId": 50303,
+        "Name": "No. 21",
+        "TalkText": "No.",
+        "Action": "No01",
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    },
+    {
+        "Id": 244,
+        "MovieId": 50303,
+        "Name": null,
+        "TalkText": "The wolf cub shakes its head.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": null
+    },
+    {
+        "Id": 245,
+        "MovieId": 50303,
+        "Name": "No. 21",
+        "TalkText": "My story will not end.",
+        "Action": null,
+        "BubbleControllerId": null,
+        "PlanetCharacterId": 1.0
+    }
+]

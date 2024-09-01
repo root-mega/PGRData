@@ -1,4 +1,6 @@
 -- 猜拳小游戏游戏进程控制器
+---@class XFingerGuessingGameController
+---@field StageManager XFingerGuessingStageManager
 local XFingerGuessingGameController = XClass(nil, "XFingerGuessingGameController")
 local UNNAMED_STR = "UnNamed"
 function XFingerGuessingGameController:Ctor()
@@ -116,6 +118,10 @@ end
 --================
 function XFingerGuessingGameController:GetPlayerPortraits()
     return self.GameConfig and self.GameConfig.PlayerPortraits
+end
+-- 获取剧情Id
+function XFingerGuessingGameController:GetStartMovieId()
+    return self.GameConfig and self.GameConfig.StartMovieId or ""
 end
 --================
 --获取所有关卡对象
