@@ -8,7 +8,7 @@
 - Scripts
 - Sha1
 
-## Known Issues
+## Number of Known Issues:
 0
 
 ## Discord Server
