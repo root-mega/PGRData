@@ -232,7 +232,7 @@ function XUiLottoKarenina:InitPanelAsset()
         XDataCenter.ItemManager.ItemId.HongKa,
         drawData:GetConsumeId()
     }
-    self._PanelAsset = XUiHelper.NewPanelActivityAsset(itemIds, self.PanelSpecialTool)
+    self._PanelAsset = XUiHelper.NewPanelActivityAssetSafe(itemIds, self.PanelSpecialTool, self)
 end
 
 function XUiLottoKarenina:RemovePanelAssetListener()

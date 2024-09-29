@@ -32,11 +32,18 @@ function XUiPanelTaskDaily:Ctor(ui, parent)
     self.DynamicTable:SetProxy(XDynamicDailyTask)
     self.DynamicTable:SetDelegate(self)
 
-    XRedPointManager.AddRedPointEvent(self.ImgWeek, self.CheckWeeKActiveRedDot, self, { XRedPointConditions.Types.CONDITION_TASK_WEEK_ACTIVE })
+    self._RedEvent = XRedPointManager.AddRedPointEvent(self.ImgWeek, self.CheckWeeKActiveRedDot, self, { XRedPointConditions.Types.CONDITION_TASK_WEEK_ACTIVE })
     XDataCenter.ItemManager.AddCountUpdateListener(XDataCenter.ItemManager.ItemId.DailyActiveness, function()
         self:UpdateActiveness()
         self.Parent:CheckDailyTask()
     end, self.TxtDailyActive)
+end
+
+function XUiPanelTaskDaily:OnDestroy()
+    if self._RedEvent then
+        XRedPointManager.RemoveRedPointEvent(self._RedEvent)
+        self._RedEvent = nil
+    end
 end
 
 --动态列表事件

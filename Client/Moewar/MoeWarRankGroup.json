@@ -1,0 +1,18 @@
+[
+    {
+        "RankType": 1,
+        "TagName": "Today's Cheer Ranking",
+        "HasSub": 0,
+        "IsSub": 0,
+        "Title": "Daily Cheer Ranking",
+        "ResetTip": "Ranking is reset at 07:00 UTC daily"
+    },
+    {
+        "RankType": 2,
+        "TagName": "Total Companion Cheer Ranking",
+        "HasSub": 1,
+        "IsSub": 0,
+        "Title": "Total %s Ranking",
+        "ResetTip": " "
+    }
+]

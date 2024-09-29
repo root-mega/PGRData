@@ -3,7 +3,6 @@ local XUiPanelGraphicsSetPc = XClass(XUiPanelGraphicsSet, 'XUiPanelGraphicsSetPc
 
 -- FullScreenWindow     是无边框全屏
 -- ExclusiveFullScreen  是独占全屏
-
 function XUiPanelGraphicsSetPc:Ctor(ui, parent)
     self.GameObject = ui.gameObject
     self.Transform = ui.transform
@@ -25,7 +24,6 @@ function XUiPanelGraphicsSetPc:AutoInitUi()
     self.TogFrameRate_4 = self.Transform:Find("SView /Viewport/PanelContent/FrameRateLevel/Array/TGroupResolution/TogFrameRate_4"):GetComponent("Toggle")
     self.ImgResStandY = self.Transform:Find("SView /Viewport/PanelContent/FrameRateLevel/Array/TGroupResolution/TogFrameRate_4/ImgResStand"):GetComponent("Image")
     self.TxtResStandY = self.Transform:Find("SView /Viewport/PanelContent/FrameRateLevel/Array/TGroupResolution/TogFrameRate_4/TxtResStand"):GetComponent("Text")
-
     -- 全屏
     self.FullscreenTogGraphics_0 = self.Transform:Find("Jiemian/Shezhi/Array/TGroupResolution/FullscreenTogGraphics_0"):GetComponent("Toggle")
     self.FullscreenTogGraphics_1 = self.Transform:Find("Jiemian/Shezhi/Array/TGroupResolution/FullscreenTogGraphics_1"):GetComponent("Toggle")
@@ -33,7 +31,7 @@ function XUiPanelGraphicsSetPc:AutoInitUi()
     self.FullscreenTogGraphics_3 = self.Transform:Find("Jiemian/Shezhi/Array/TGroupResolution/FullscreenTogGraphics_3"):GetComponent("Toggle")
 
     self.FullscreenTogGraphics_3.gameObject:SetActiveEx(false)
-
+    
     if CS.XSettingHelper.ForceWindow then
         self.FullscreenTogGraphics_0.gameObject:SetActiveEx(false)
         self.FullscreenTogGraphics_2.gameObject:SetActiveEx(true)
@@ -41,13 +39,14 @@ function XUiPanelGraphicsSetPc:AutoInitUi()
         self.FullscreenTogGraphics_0.gameObject:SetActiveEx(true)
         self.FullscreenTogGraphics_2.gameObject:SetActiveEx(false)
     end
+
 end
 
 function XUiPanelGraphicsSetPc:InitPc()
     self._Initing = true
     self:InitDropDownResolution()
-    self:UpdateToggle()
     self:InitToggleFullScreen()
+    self:UpdateToggle()
     self:UpdateDropDownResolution()
     self.UseVSync = CS.XSettingHelper.UseVSync
     self:UpdateVSyncToggle()
@@ -93,9 +92,8 @@ function XUiPanelGraphicsSetPc:InitToggleFullScreen()
                 self:UpdateDropDownResolution()
             end
         end
-        -- self.FullscreenTogGraphics_3.gameObject:SetActiveEx(self.FullscreenTogGraphics_0.isOn)
+        self.FullscreenTogGraphics_3.gameObject:SetActiveEx(self.FullscreenTogGraphics_0.isOn)
     end)
-
     self.FullscreenTogGraphics_1.onValueChanged:AddListener(function()
         if self.FullscreenTogGraphics_1.isOn then
             if self._FullScreen ~= false then
@@ -105,11 +103,9 @@ function XUiPanelGraphicsSetPc:InitToggleFullScreen()
             end
         end
     end)
-
     self.FullscreenTogGraphics_2.onClick:AddListener(function()
         XUiManager.TipText("PcUnableFullScreen")
     end)
-
     self.FullscreenTogGraphics_3.onValueChanged:AddListener(function() 
         if not self._Initing then
             self._NoFrameWindowed = self.FullscreenTogGraphics_3.isOn
@@ -123,7 +119,7 @@ function XUiPanelGraphicsSetPc:UpdateToggle()
     self.TGroupResolution:SetAllTogglesOff()
     if isFullScreen then
         self.FullscreenTogGraphics_0.isOn = true
-        -- self.FullscreenTogGraphics_3.gameObject:SetActiveEx(true)
+        self.FullscreenTogGraphics_3.gameObject:SetActiveEx(true)
         self.FullscreenTogGraphics_3.isOn = self._NoFrameWindowed
     else
         self.FullscreenTogGraphics_1.isOn = true
@@ -182,11 +178,8 @@ function XUiPanelGraphicsSetPc:SetFullScreen()
     else
         CS.UnityEngine.Screen.fullScreen = isFullScreen
     end
-    XDataCenter.UiPcManager.SetNoFrame(isNoFrame)
-end
 
-function XUiPanelGraphicsSetPc:SetResolution(x, y, isFullScreen)
-    XDataCenter.UiPcManager.SetResolution(x, y, isFullScreen or false)
+    XDataCenter.UiPcManager.SetNoFrame(isNoFrame)
 end
 
 function XUiPanelGraphicsSetPc:CheckDataIsChange()
@@ -235,5 +228,4 @@ function XUiPanelGraphicsSetPc:CancelChange()
     self.FullscreenTogGraphics_3.isOn = XDataCenter.UiPcManager.GetLastNoFrame()
     self._IsDirtyPc = false
 end
-
 return XUiPanelGraphicsSetPc

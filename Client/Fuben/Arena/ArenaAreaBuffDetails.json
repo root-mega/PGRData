@@ -110,5 +110,47 @@
         "BuffBg": "Assets/Product/Texture/Image/UiArena/UiArenaBuffIcon15.png",
         "Desc": "CRIT Rate and CRIT DMG increase by 30% and 100% for 10s after triggering Matrix.",
         "Icon": "Assets/Product/Texture/Image/IconAffix/IconAffixWuliUp.png"
+    },
+    {
+        "Id": 4026,
+        "Name": "Fire of Enlightenment",
+        "BuffBg": "Assets/Product/Texture/Image/UiArena/UiArenaBuffIcon16.png",
+        "Desc": "3-Pings performed within 8s after the character enters the battlefield deal 50% more Fire DMG.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/IconAffixHuoyanUp.png"
+    },
+    {
+        "Id": 4027,
+        "Name": "Astral Atlas",
+        "BuffBg": "Assets/Product/Texture/Image/UiArena/UiArenaBuffIcon17.png",
+        "Desc": "The character deals 15% more Ice DMG after a 3-Ping. Stacks up to 4 times. Lasts 8s. Duration resets every time the effect is triggered.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/IconAffixBingshuangUp.png"
+    },
+    {
+        "Id": 4029,
+        "Name": "Thunder Unbounded",
+        "BuffBg": "Assets/Product/Texture/Image/UiArena/UiArenaBuffIcon18.png",
+        "Desc": "When the character pings a Signal Orb of the same color to their last ping, they will deal 60% more Lightning DMG for 8s. Triggering this effect again will renew its duration.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/IconAffixLeiDianUp.png"
+    },
+    {
+        "Id": 4030,
+        "Name": "Electro Rage",
+        "BuffBg": "Assets/Product/Texture/Image/UiArena/UiArenaBuffIcon19.png",
+        "Desc": "Character gains a 60% Lightning DMG bonus for 8s every upon entering the battlefield.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/IconAffixLeiDianUp.png"
+    },
+    {
+        "Id": 4059,
+        "Name": "Valley Echos",
+        "BuffBg": "Assets/Product/Texture/Image/UiArena/UiArenaBuffIcon20.png",
+        "Desc": "The character gains 80% CRIT DMG dealt for 8s every time when healed. Duration resets every time it is triggered.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/IconAffixWuliUp.png"
+    },
+    {
+        "Id": 4061,
+        "Name": "Depths of the Sea",
+        "BuffBg": "Assets/Product/Texture/Image/UiArena/UiArenaBuffIcon21.png",
+        "Desc": "Every ping of the character will make them deal 15% more Dark DMG for 8s. Can be stacked up to 5 times.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/IconAffixAnnengUp.png"
     }
 ]

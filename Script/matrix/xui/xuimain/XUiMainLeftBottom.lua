@@ -50,11 +50,11 @@ function XUiMainLeftBottom:OnStart(rootUi)
     self.BtnWelfare:ShowTag(false) -- 海外修改
     --RedPoint
     
-    XRedPointManager.AddRedPointEvent(self.BtnMentor.ReddotObj, self.OnCheckMentorNews, self, RedPointConditionGroup.Mentor)
-    self.RedPoinWelfareId = XRedPointManager.AddRedPointEvent(self.BtnWelfare.ReddotObj, self.OnCheckWalfarelNews, self, RedPointConditionGroup.Welfare)
-    self.RedPoinFirstRechargeId = XRedPointManager.AddRedPointEvent(self.BtnWelfare.TagObj, self.OnCheckFirstRecharge, self, RedPointConditionGroup.FirstRecharge)
-    self.BtnNoticeRedId = XRedPointManager.AddRedPointEvent(self.BtnNotice.ReddotObj, self.OnCheckNoticeNews, self, RedPointConditionGroup.Notice)
-    XRedPointManager.AddRedPointEvent(self.BtnMail, self.OnCheckMailNews, self, RedPointConditionGroup.Mail)
+    self:AddRedPointEvent(self.BtnMentor.ReddotObj, self.OnCheckMentorNews, self, RedPointConditionGroup.Mentor)
+    self.RedPoinWelfareId = self:AddRedPointEvent(self.BtnWelfare.ReddotObj, self.OnCheckWalfarelNews, self, RedPointConditionGroup.Welfare)
+    self.RedPoinFirstRechargeId = self:AddRedPointEvent(self.BtnWelfare.TagObj, self.OnCheckFirstRecharge, self, RedPointConditionGroup.FirstRecharge)
+    self.BtnNoticeRedId = self:AddRedPointEvent(self.BtnNotice.ReddotObj, self.OnCheckNoticeNews, self, RedPointConditionGroup.Notice)
+    self:AddRedPointEvent(self.BtnMail, self.OnCheckMailNews, self, RedPointConditionGroup.Mail)
     self:InitChatMsg()
 
     --Filter

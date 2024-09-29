@@ -851,7 +851,8 @@ function XHomeRoomObj:OnEnterRoom(onEnterCb)
     local dither = self.WallDithers[NearestCameraWallNum]
     if dither then
         --避免镜头先渲染后隐藏，露馅
-        dither:SetRendererState(false)
+        --dither:SetRendererState(false)
+        self:SetRendererState(dither, false)
     end
 
     -- 镜头黑幕界面
@@ -866,6 +867,25 @@ function XHomeRoomObj:OnEnterRoom(onEnterCb)
     CsXGameEventManager.Instance:RegisterEvent(XEventId.EVENT_DORM_FURNITURE_ATTR_TAG, self.OnShowFurnitureAttrCb)
     -- 更新缓存
     XHomeDormManager.UpdateRoomCache(self)
+end
+
+---@param dither XRoomWallDither
+---@param value boolean
+--------------------------
+function XHomeRoomObj:SetRendererState(dither, value)
+    if not dither or XTool.UObjIsNil(dither.gameObject) then
+        return
+    end
+    local renderers = dither:GetAllRenderers()
+    if not renderers then
+        return
+    end
+    for i = 0, renderers.Count - 1 do
+        local render = renderers[i]
+        if not XTool.UObjIsNil(render) then
+            render.enabled = value
+        end
+    end
 end
 
 -- 收纳模板宿舍中的家具

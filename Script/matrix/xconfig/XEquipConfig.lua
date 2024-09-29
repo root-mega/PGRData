@@ -527,6 +527,11 @@ end
 
 --=========== EquipModel接口(begin) ===========
 function XEquipConfig.GetEquipModelName(modelTransId, usage)
+    -- 修正V2.7 黑岩武器挂点，模型资源未按规范制作
+    if modelTransId == 0 then
+        return ""
+    end
+
     local template = EquipModelTemplates[modelTransId]
 
     if not template then
@@ -539,6 +544,11 @@ function XEquipConfig.GetEquipModelName(modelTransId, usage)
 end
 
 function XEquipConfig.GetEquipAnimController(modelTransId, usage)
+    -- 修正V2.7 黑岩武器挂点，模型资源未按规范制作
+    if modelTransId == 0 then
+        return ""
+    end
+    
     local template = EquipModelTemplates[modelTransId]
 
     if not template then

@@ -1,19 +1,24 @@
-XUiPanelLikeGiveGift = XClass(nil, "XUiPanelLikeGiveGift")
+local XUiGridLikeSendGiftItem=require("XUi/XUiFavorability/XUiGridLikeSendGiftItem")
+local XUiPanelLikeGiveGift = XClass(XUiNode, "XUiPanelLikeGiveGift")
 
 local Default_Min_Num = 1
 local CSTextManagerGetText = CS.XTextManager.GetText
 local CommunicationGiftMaxCount = CS.XGame.ClientConfig:GetInt("CommunicationGiftMaxCount")
 
-function XUiPanelLikeGiveGift:Ctor(ui, uiRoot, parentUi)
-    self.GameObject = ui.gameObject
-    self.Transform = ui.transform
+function XUiPanelLikeGiveGift:OnStart(uiRoot)
     self.UiRoot = uiRoot
-    self.ParentUi = parentUi
-    XTool.InitUiObject(self)
-    self:InitUiAfterAuto()
     self.GridGiftItem.gameObject:SetActiveEx(false)
-
+    self:InitUiAfterAuto()
 end
+
+function XUiPanelLikeGiveGift:OnEnable()
+    self.Parent.PanelEffect.gameObject:SetActiveEx(false)
+end
+
+function XUiPanelLikeGiveGift:OnDisable()
+    self.Parent.PanelEffect.gameObject:SetActiveEx(true)
+end
+
 
 function XUiPanelLikeGiveGift:InitUiAfterAuto()
 
@@ -317,7 +322,7 @@ function XUiPanelLikeGiveGift:OnBtnUseClick()
 
     local fun = function()
         XDataCenter.FavorabilityManager.OnSendCharacterGift(args, function()
-            self.ParentUi:DoFillAmountTween(trustLv, curExp, addExp)
+            self.Parent:DoFillAmountTween(trustLv, curExp, addExp)
             self:RefreshDatas()
             local isActive = IsOpen and IsDoCommunication
             local IsGivenItem = true
@@ -452,9 +457,11 @@ function XUiPanelLikeGiveGift:ShowNumBtns()
 end
 
 function XUiPanelLikeGiveGift:SetViewActive(isActive)
-    self.GameObject:SetActive(isActive)
     if isActive then
+        self:Open()
         self:RefreshDatas()
+    else
+        self:Close()
     end
 end
 
@@ -476,9 +483,11 @@ end
 
 
 function XUiPanelLikeGiveGift:OnSelected(isSelected)
-    self.GameObject:SetActive(isSelected)
     if isSelected then
+        self:Open()
         self:RefreshDatas()
+    else
+        self:Close()
     end
 end
 

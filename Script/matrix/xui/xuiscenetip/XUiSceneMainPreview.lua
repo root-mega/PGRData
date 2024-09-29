@@ -3,6 +3,7 @@ local XUiSceneMainPreview = XLuaUiManager.Register(XLuaUi, "UiSceneMainPreview")
 local ShowCD = CS.XGame.ClientConfig:GetFloat("ScenePreviewUiHideCD")
 local HideDelayCD = CS.XGame.ClientConfig:GetFloat("ScenePreviewUiHideDelay")
 
+
 function XUiSceneMainPreview:OnAwake()
     self:AddClickListener()
 end

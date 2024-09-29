@@ -1,0 +1,50 @@
+[
+    {
+        "Id": 1,
+        "Name": "Might",
+        "LimitInit": 30,
+        "LimitMax": 99,
+        "EffectGroupIds": [
+            null,
+            1,
+            11
+        ],
+        "Desc": "Increases ATK and CRIT DMG"
+    },
+    {
+        "Id": 2,
+        "Name": "Constitution",
+        "LimitInit": 30,
+        "LimitMax": 99,
+        "EffectGroupIds": [
+            null,
+            2,
+            12
+        ],
+        "Desc": "Increases HP and Healing"
+    },
+    {
+        "Id": 3,
+        "Name": "Tenacity",
+        "LimitInit": 30,
+        "LimitMax": 99,
+        "EffectGroupIds": [
+            null,
+            3,
+            13
+        ],
+        "Desc": "Increases DEF and DMG Reduction"
+    },
+    {
+        "Id": 4,
+        "Name": "Focus",
+        "LimitInit": 30,
+        "LimitMax": 99,
+        "EffectGroupIds": [
+            null,
+            4,
+            14
+        ],
+        "Desc": "Increases Elemental DMG and Ignore Resistance"
+    }
+]

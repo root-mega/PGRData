@@ -24,6 +24,10 @@ function XUiFubenDailyBranch:OnEnable()
     XEventManager.AddEventListener(XEventId.EVENT_AUTO_FIGHT_START, self.OnAutoFightStart, self)
 end
 
+function XUiFubenDailyBranch:OnResume()
+    self.AssetPanel:Open()
+end
+
 function XUiFubenDailyBranch:InitShop()
     self.ShopId = XDailyDungeonConfigs.GetFubenDailyShopId(self.Rule.Id)
     self.BtnShop.gameObject:SetActiveEx(self.ShopId > 0)
@@ -210,7 +214,11 @@ function XUiFubenDailyBranch:EnterFight(stage)
 end
 
 function XUiFubenDailyBranch:ShowPanelAsset(IsShow)
-    self.PanelAsset.gameObject:SetActiveEx(IsShow)
+    if IsShow then
+        self.AssetPanel:Open()
+    else
+        self.AssetPanel:Close()
+    end
 end
 
 function XUiFubenDailyBranch:OnCheckShopNew(count)

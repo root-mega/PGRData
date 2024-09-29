@@ -1,23 +1,32 @@
 [
     {
-        "Id": 96992100,
-        "Behavior": 96992100,
+        "Id": 96992102,
+        "Behavior": 96992102,
         "Name": "\u6d4b\u8bd5",
         "Environment": null,
         "TerrainRoot": null,
-        "CloseLoadingDelay": 0.15,
+        "CloseLoadingDelay": 1,
         "IsAsyncLoadNpc": null,
         "SwitchNpcCd": 15,
-        "SceneCamera": 25,
+        "SceneCamera": 26,
         "CameraId": 9,
         "Terrains": [
-            969921000
+            null,
+            969921020,
+            null,
+            null
         ],
         "Position": [
-            "0|0|0"
+            null,
+            "0|0|0",
+            null,
+            null
         ],
         "Rotation": [
-            "0|0|0"
+            null,
+            "0|0|0",
+            null,
+            null
         ]
     }
 ]

@@ -1,20 +1,45 @@
 ---@class XGridCharacterV2P6:XUiNode
 ---@field _Control XCharacterControl
 local XGridCharacterV2P6 = XClass(XUiNode, "XGridCharacterV2P6")
-local GridInitFoldCompleteDic = {} --记录初始化折叠状态的格子字典
 
 function XGridCharacterV2P6:OnStart(rootFilter)
-    GridInitFoldCompleteDic[self.GameObject] = false
-
     ---@type XCharacterAgency
     local ag = XMVCA:GetAgency(ModuleId.XCharacter)
     self.CharacterAgency = ag
     self.RootFilter = rootFilter
 end
 
--- 写成接口方便继承override
-function XGridCharacterV2P6:GetGridInitFoldCompleteDic()
-    return GridInitFoldCompleteDic
+-- 过时的接口，不要再使用！！！supportData的逻辑请在自己创建的Grid里实现
+function XGridCharacterV2P6:UpdateSupportAbandoned(supportData) 
+    if XTool.IsTableEmpty(supportData) then return end
+
+    self:SetInTeam(false)
+
+    local characterId = self.Character.Id
+
+    if self.PanelSupportLock then
+        local lockSupport = supportData.CheckLockSupportCb and supportData.CheckLockSupportCb(characterId)
+        self.PanelSupportLock.gameObject:SetActiveEx(lockSupport)
+    end
+
+    if self.PanelSupportIn then
+        local showSupport = supportData.CheckInSupportCb(characterId)
+        self.PanelSupportIn.gameObject:SetActiveEx(showSupport)
+    end
+
+    if self.PanelHighPriority and supportData.CheckHighPriority then
+        local showHighPriority = false
+        local icon = false
+        if supportData.CheckHighPriority then
+            showHighPriority, icon = supportData.CheckHighPriority(characterId)
+        end
+        self.PanelHighPriority.gameObject:SetActiveEx(showHighPriority)
+        if icon then
+            local tran = self.PanelHighPriority.transform:Find("UpTag/RImgGuildWarUP")
+            local rawImage = tran:GetComponent("RawImage")
+            rawImage:SetRawImage(icon)
+        end
+    end
 end
 
 function XGridCharacterV2P6:UpdateFragmentInfo()
@@ -25,7 +50,7 @@ function XGridCharacterV2P6:UpdateFragmentInfo()
     self.TxtNeedCount.text = needFragment
 end
 
-function XGridCharacterV2P6:UpdataBaseCharacterInfo()
+function XGridCharacterV2P6:UpdateBaseCharacterInfo()
     self.TxtLevel.text = self.Character.Level
     self.RImgQuality:SetRawImage(XCharacterConfigs.GetCharacterQualityIcon(self.CharacterAgency:GetCharacterQuality(self.Character.Id)))
 
@@ -45,11 +70,7 @@ function XGridCharacterV2P6:CheckShowBaseInfo()
     self.PanelInitQuality.gameObject:SetActiveEx(true)
     local initQuality = self.CharacterAgency:GetCharacterInitialQuality(self.Character.Id)
     local icon = self.CharacterAgency:GetModelCharacterQualityIcon(initQuality).IconCharacterInit
-    self.ImgInitQuality:SetSprite(icon)
-    -- 装备目标
-    if self.IconEquipGuide then
-        self.IconEquipGuide.gameObject:SetActiveEx(XDataCenter.EquipGuideManager.IsEquipGuideCharacter(self.Character.Id))
-    end
+    self.ImgInitQuality:SetSprite(icon)    
 
     self:UpdateUniframe()
 end
@@ -70,11 +91,18 @@ function XGridCharacterV2P6:SetData(character)
         if not XRobotManager.CheckIsRobotId(character.id) then
             self.Character = self.CharacterAgency:GetCharacter(self.Character.Id) -- 一定要拿到最新的数据
         end
-        self:UpdataBaseCharacterInfo()
+        self:UpdateBaseCharacterInfo()
     end
 end
 
 -- public choose start
+function XGridCharacterV2P6:UpdateIconEquipGuide()
+    -- 装备目标
+    if self.IconEquipGuide then
+        self.IconEquipGuide.gameObject:SetActiveEx(XDataCenter.EquipGuideManager.IsEquipGuideCharacter(self.Character.Id))
+    end
+end
+
 function XGridCharacterV2P6:UpdateRedPoint()
     XRedPointManager.CheckOnce(self.OnCheckCharacterRedPoint, self, 
     { XRedPointConditions.Types.CONDITION_CHARACTER }, 
@@ -171,11 +199,6 @@ function XGridCharacterV2P6:PlayAnimation(animeName)
 end
 
 function XGridCharacterV2P6:OnRelease()
-    local dic = self:GetGridInitFoldCompleteDic()
-    for k, v in pairs(dic) do
-        dic[k] = nil
-    end
-    dic = {}
 end
 
 return XGridCharacterV2P6

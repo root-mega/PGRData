@@ -1,0 +1,62 @@
+[
+    {
+        "Id": 1,
+        "Name": "MaxLife",
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 2,
+        "Name": "Attack",
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 3,
+        "Name": "Defense",
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4,
+        "Name": "CriticalChance",
+        "Params": [
+            null,
+            5000.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5,
+        "Name": "CriticalDamage",
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6,
+        "Name": "AttackSpeed",
+        "Params": [
+            null,
+            20.0,
+            100.0,
+            null
+        ]
+    }
+]

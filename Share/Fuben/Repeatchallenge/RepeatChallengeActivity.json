@@ -1,0 +1,34 @@
+[
+    {
+        "Id": 30,
+        "ActivityTimeId": 21201,
+        "ChallengeTimeId": 21202,
+        "FightTimeId": 21203,
+        "Name": "Games of Chess",
+        "ActDescription": "Authority Level: Increase your level to gain bonuses (stack with every level). Clear stages to gain EXP.\\n\\nSpecial Event: Certain chapters have conditional bonuses.\\n\\nMulti-Challenge: No cost or rewards if you quit in advance or disconnect.\\n\\nAuto Clear: Auto Clear will be activated at the required Authority Level. Clear a stage at least once to be able to Auto Clear the stage.",
+        "Cover": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner09.png",
+        "NpcRefreshClock": 20004,
+        "ShopSkipId": 20055,
+        "HideChapterConditionId": null,
+        "NormalChapter": [
+            null,
+            130001,
+            null,
+            null,
+            null,
+            null
+        ],
+        "HiddenChapter": [
+            null,
+            null,
+            null
+        ],
+        "SweepCondition": 301201,
+        "SpecialCharacters": [
+            null,
+            1281002,
+            null
+        ],
+        "ExtraBuffLevel": 19
+    }
+]

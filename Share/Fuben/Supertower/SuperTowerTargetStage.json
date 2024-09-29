@@ -1,0 +1,1507 @@
+[
+    {
+        "Id": 1101,
+        "SimpleName": "NF1-1",
+        "OpenHour": 0,
+        "MapId": 101,
+        "PreId": null,
+        "PreProgress": null,
+        "Type": 1,
+        "Progress": 1,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon01.png",
+        "StageId": [
+            null,
+            30180301,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            531001,
+            null,
+            null,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1102,
+        "SimpleName": "NF1-2",
+        "OpenHour": 0,
+        "MapId": 101,
+        "PreId": 1101.0,
+        "PreProgress": 1.0,
+        "Type": 1,
+        "Progress": 1,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon01.png",
+        "StageId": [
+            null,
+            30180302,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            531002,
+            null,
+            null,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1103,
+        "SimpleName": "NF1-3",
+        "OpenHour": 0,
+        "MapId": 101,
+        "PreId": 1102.0,
+        "PreProgress": 1.0,
+        "Type": 1,
+        "Progress": 1,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon01.png",
+        "StageId": [
+            null,
+            30180303,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            531003,
+            null,
+            null,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1104,
+        "SimpleName": "NF1-4",
+        "OpenHour": 0,
+        "MapId": 101,
+        "PreId": 1103.0,
+        "PreProgress": 1.0,
+        "Type": 1,
+        "Progress": 1,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon01.png",
+        "StageId": [
+            null,
+            30180304,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            531004,
+            null,
+            null,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1105,
+        "SimpleName": "NF1-5",
+        "OpenHour": 0,
+        "MapId": 101,
+        "PreId": 1104.0,
+        "PreProgress": 1.0,
+        "Type": 1,
+        "Progress": 1,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon01.png",
+        "StageId": [
+            null,
+            30180305,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            531005,
+            null,
+            null,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1106,
+        "SimpleName": "NF1-6",
+        "OpenHour": 0,
+        "MapId": 101,
+        "PreId": 1105.0,
+        "PreProgress": 1.0,
+        "Type": 2,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon02.png",
+        "StageId": [
+            null,
+            30180306,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            531006,
+            531007.0,
+            531008.0,
+            531009.0,
+            531010.0
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1107,
+        "SimpleName": "NF1-7",
+        "OpenHour": 0,
+        "MapId": 101,
+        "PreId": 1106.0,
+        "PreProgress": 5.0,
+        "Type": 2,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon02.png",
+        "StageId": [
+            null,
+            30180307,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            531011,
+            531012.0,
+            531013.0,
+            531014.0,
+            531015.0
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1201,
+        "SimpleName": "NF2-1",
+        "OpenHour": 0,
+        "MapId": 102,
+        "PreId": 1107.0,
+        "PreProgress": 5.0,
+        "Type": 1,
+        "Progress": 1,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon01.png",
+        "StageId": [
+            null,
+            30180308,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            532001,
+            null,
+            null,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1202,
+        "SimpleName": "NF2-2",
+        "OpenHour": 0,
+        "MapId": 102,
+        "PreId": 1201.0,
+        "PreProgress": 1.0,
+        "Type": 1,
+        "Progress": 1,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon01.png",
+        "StageId": [
+            null,
+            30180309,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            532002,
+            null,
+            null,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1203,
+        "SimpleName": "NF2-3",
+        "OpenHour": 0,
+        "MapId": 102,
+        "PreId": 1202.0,
+        "PreProgress": 1.0,
+        "Type": 1,
+        "Progress": 1,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon01.png",
+        "StageId": [
+            null,
+            30180310,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            532003,
+            null,
+            null,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1204,
+        "SimpleName": "NF2-4",
+        "OpenHour": 0,
+        "MapId": 102,
+        "PreId": 1203.0,
+        "PreProgress": 1.0,
+        "Type": 1,
+        "Progress": 1,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon01.png",
+        "StageId": [
+            null,
+            30180311,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            532004,
+            null,
+            null,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1205,
+        "SimpleName": "NF2-5",
+        "OpenHour": 0,
+        "MapId": 102,
+        "PreId": 1204.0,
+        "PreProgress": 1.0,
+        "Type": 1,
+        "Progress": 1,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon01.png",
+        "StageId": [
+            null,
+            30180312,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            532005,
+            null,
+            null,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1206,
+        "SimpleName": "NF2-6",
+        "OpenHour": 0,
+        "MapId": 102,
+        "PreId": 1205.0,
+        "PreProgress": 1.0,
+        "Type": 2,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon02.png",
+        "StageId": [
+            null,
+            30180313,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            532006,
+            532007.0,
+            532008.0,
+            532009.0,
+            532010.0
+        ],
+        "StageAbility": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1207,
+        "SimpleName": "NF2-7",
+        "OpenHour": 0,
+        "MapId": 102,
+        "PreId": 1206.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 3,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180314,
+            30180315.0,
+            30180316.0,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            532011,
+            532012.0,
+            532013.0,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            7700.0,
+            7700.0,
+            7700.0,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1301,
+        "SimpleName": "NF3-1",
+        "OpenHour": 0,
+        "MapId": 103,
+        "PreId": 1207.0,
+        "PreProgress": 3.0,
+        "Type": 3,
+        "Progress": 3,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180317,
+            30180318.0,
+            30180319.0,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            533001,
+            533002.0,
+            533003.0,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            7900.0,
+            7900.0,
+            7900.0,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1302,
+        "SimpleName": "NF3-2",
+        "OpenHour": 0,
+        "MapId": 103,
+        "PreId": 1301.0,
+        "PreProgress": 3.0,
+        "Type": 3,
+        "Progress": 3,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180320,
+            30180321.0,
+            30180322.0,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            533004,
+            533005.0,
+            533006.0,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            8100.0,
+            8100.0,
+            8100.0,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1303,
+        "SimpleName": "NF3-3",
+        "OpenHour": 0,
+        "MapId": 103,
+        "PreId": 1302.0,
+        "PreProgress": 3.0,
+        "Type": 3,
+        "Progress": 3,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180323,
+            30180324.0,
+            30180325.0,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            533007,
+            533008.0,
+            533009.0,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            8300.0,
+            8300.0,
+            8300.0,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1304,
+        "SimpleName": "NF3-4",
+        "OpenHour": 0,
+        "MapId": 103,
+        "PreId": 1303.0,
+        "PreProgress": 3.0,
+        "Type": 3,
+        "Progress": 3,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180326,
+            30180327.0,
+            30180328.0,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            533010,
+            533011.0,
+            533012.0,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            8500.0,
+            8500.0,
+            8500.0,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1305,
+        "SimpleName": "NF3-5",
+        "OpenHour": 0,
+        "MapId": 103,
+        "PreId": 1304.0,
+        "PreProgress": 3.0,
+        "Type": 3,
+        "Progress": 3,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180329,
+            30180330.0,
+            30180331.0,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            533013,
+            533014.0,
+            533015.0,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            8700.0,
+            8700.0,
+            8700.0,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1306,
+        "SimpleName": "NF3-6",
+        "OpenHour": 0,
+        "MapId": 103,
+        "PreId": 1305.0,
+        "PreProgress": 3.0,
+        "Type": 3,
+        "Progress": 3,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180332,
+            30180333.0,
+            30180334.0,
+            null,
+            null
+        ],
+        "RewardId": [
+            null,
+            533016,
+            533017.0,
+            533018.0,
+            null,
+            null
+        ],
+        "StageAbility": [
+            null,
+            8900.0,
+            8900.0,
+            8900.0,
+            null,
+            null
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1307,
+        "SimpleName": "NF3-7",
+        "OpenHour": 0,
+        "MapId": 103,
+        "PreId": 1306.0,
+        "PreProgress": 3.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180335,
+            30180336.0,
+            30180337.0,
+            30180338.0,
+            30180339.0
+        ],
+        "RewardId": [
+            null,
+            533019,
+            533020.0,
+            533021.0,
+            533022.0,
+            533023.0
+        ],
+        "StageAbility": [
+            null,
+            9100.0,
+            9100.0,
+            9100.0,
+            9100.0,
+            9100.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1401,
+        "SimpleName": "NF4-1",
+        "OpenHour": 0,
+        "MapId": 104,
+        "PreId": 1307.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180340,
+            30180341.0,
+            30180342.0,
+            30180343.0,
+            30180344.0
+        ],
+        "RewardId": [
+            null,
+            534001,
+            534002.0,
+            534003.0,
+            534004.0,
+            534005.0
+        ],
+        "StageAbility": [
+            null,
+            9400.0,
+            9400.0,
+            9400.0,
+            9400.0,
+            9400.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1402,
+        "SimpleName": "NF4-2",
+        "OpenHour": 0,
+        "MapId": 104,
+        "PreId": 1401.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180345,
+            30180346.0,
+            30180347.0,
+            30180348.0,
+            30180349.0
+        ],
+        "RewardId": [
+            null,
+            534006,
+            534007.0,
+            534008.0,
+            534009.0,
+            534010.0
+        ],
+        "StageAbility": [
+            null,
+            9700.0,
+            9700.0,
+            9700.0,
+            9700.0,
+            9700.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1403,
+        "SimpleName": "NF4-3",
+        "OpenHour": 0,
+        "MapId": 104,
+        "PreId": 1402.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180350,
+            30180351.0,
+            30180352.0,
+            30180353.0,
+            30180354.0
+        ],
+        "RewardId": [
+            null,
+            534011,
+            534012.0,
+            534013.0,
+            534014.0,
+            534015.0
+        ],
+        "StageAbility": [
+            null,
+            10000.0,
+            10000.0,
+            10000.0,
+            10000.0,
+            10000.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1404,
+        "SimpleName": "NF4-4",
+        "OpenHour": 0,
+        "MapId": 104,
+        "PreId": 1403.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180355,
+            30180356.0,
+            30180357.0,
+            30180358.0,
+            30180359.0
+        ],
+        "RewardId": [
+            null,
+            534016,
+            534017.0,
+            534018.0,
+            534019.0,
+            534020.0
+        ],
+        "StageAbility": [
+            null,
+            10300.0,
+            10300.0,
+            10300.0,
+            10300.0,
+            10300.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1405,
+        "SimpleName": "NF4-5",
+        "OpenHour": 0,
+        "MapId": 104,
+        "PreId": 1404.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180360,
+            30180361.0,
+            30180362.0,
+            30180363.0,
+            30180364.0
+        ],
+        "RewardId": [
+            null,
+            534021,
+            534022.0,
+            534023.0,
+            534024.0,
+            534025.0
+        ],
+        "StageAbility": [
+            null,
+            10600.0,
+            10600.0,
+            10600.0,
+            10600.0,
+            10600.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1406,
+        "SimpleName": "NF4-6",
+        "OpenHour": 0,
+        "MapId": 104,
+        "PreId": 1405.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180365,
+            30180366.0,
+            30180367.0,
+            30180368.0,
+            30180369.0
+        ],
+        "RewardId": [
+            null,
+            534026,
+            534027.0,
+            534028.0,
+            534029.0,
+            534030.0
+        ],
+        "StageAbility": [
+            null,
+            10900.0,
+            10900.0,
+            10900.0,
+            10900.0,
+            10900.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1407,
+        "SimpleName": "NF4-7",
+        "OpenHour": 0,
+        "MapId": 104,
+        "PreId": 1406.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180370,
+            30180371.0,
+            30180372.0,
+            30180373.0,
+            30180374.0
+        ],
+        "RewardId": [
+            null,
+            534031,
+            534032.0,
+            534033.0,
+            534034.0,
+            534035.0
+        ],
+        "StageAbility": [
+            null,
+            11200.0,
+            11200.0,
+            11200.0,
+            11200.0,
+            11200.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1501,
+        "SimpleName": "NF5-1",
+        "OpenHour": 0,
+        "MapId": 105,
+        "PreId": 1407.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180375,
+            30180376.0,
+            30180377.0,
+            30180378.0,
+            30180379.0
+        ],
+        "RewardId": [
+            null,
+            535001,
+            535002.0,
+            535003.0,
+            535004.0,
+            535005.0
+        ],
+        "StageAbility": [
+            null,
+            11600.0,
+            11600.0,
+            11600.0,
+            11600.0,
+            11600.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1502,
+        "SimpleName": "NF5-2",
+        "OpenHour": 0,
+        "MapId": 105,
+        "PreId": 1501.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180380,
+            30180381.0,
+            30180382.0,
+            30180383.0,
+            30180384.0
+        ],
+        "RewardId": [
+            null,
+            535006,
+            535007.0,
+            535008.0,
+            535009.0,
+            535010.0
+        ],
+        "StageAbility": [
+            null,
+            12000.0,
+            12000.0,
+            12000.0,
+            12000.0,
+            12000.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1503,
+        "SimpleName": "NF5-3",
+        "OpenHour": 0,
+        "MapId": 105,
+        "PreId": 1502.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180385,
+            30180386.0,
+            30180387.0,
+            30180388.0,
+            30180389.0
+        ],
+        "RewardId": [
+            null,
+            535011,
+            535012.0,
+            535013.0,
+            535014.0,
+            535015.0
+        ],
+        "StageAbility": [
+            null,
+            12400.0,
+            12400.0,
+            12400.0,
+            12400.0,
+            12400.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1504,
+        "SimpleName": "NF5-4",
+        "OpenHour": 0,
+        "MapId": 105,
+        "PreId": 1503.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180390,
+            30180391.0,
+            30180392.0,
+            30180393.0,
+            30180394.0
+        ],
+        "RewardId": [
+            null,
+            535016,
+            535017.0,
+            535018.0,
+            535019.0,
+            535020.0
+        ],
+        "StageAbility": [
+            null,
+            12800.0,
+            12800.0,
+            12800.0,
+            12800.0,
+            12800.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1505,
+        "SimpleName": "NF5-5",
+        "OpenHour": 0,
+        "MapId": 105,
+        "PreId": 1504.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180395,
+            30180396.0,
+            30180397.0,
+            30180398.0,
+            30180399.0
+        ],
+        "RewardId": [
+            null,
+            535021,
+            535022.0,
+            535023.0,
+            535024.0,
+            535025.0
+        ],
+        "StageAbility": [
+            null,
+            13200.0,
+            13200.0,
+            13200.0,
+            13200.0,
+            13200.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1506,
+        "SimpleName": "NF5-6",
+        "OpenHour": 0,
+        "MapId": 105,
+        "PreId": 1505.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180400,
+            30180401.0,
+            30180402.0,
+            30180403.0,
+            30180404.0
+        ],
+        "RewardId": [
+            null,
+            535026,
+            535027.0,
+            535028.0,
+            535029.0,
+            535030.0
+        ],
+        "StageAbility": [
+            null,
+            13600.0,
+            13600.0,
+            13600.0,
+            13600.0,
+            13600.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    },
+    {
+        "Id": 1507,
+        "SimpleName": "NF5-7",
+        "OpenHour": 0,
+        "MapId": 105,
+        "PreId": 1506.0,
+        "PreProgress": 5.0,
+        "Type": 3,
+        "Progress": 5,
+        "Bg": "Assets/Product/Texture/Image/UiSuperTower/UiSuperTowerStageIcon03.png",
+        "StageId": [
+            null,
+            30180405,
+            30180406.0,
+            30180407.0,
+            30180408.0,
+            30180409.0
+        ],
+        "RewardId": [
+            null,
+            535031,
+            535032.0,
+            535033.0,
+            535034.0,
+            535035.0
+        ],
+        "StageAbility": [
+            null,
+            14000.0,
+            14000.0,
+            14000.0,
+            14000.0,
+            14000.0
+        ],
+        "MemberCount": [
+            null,
+            3.0,
+            3.0,
+            3.0,
+            3.0,
+            3.0
+        ]
+    }
+]

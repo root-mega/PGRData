@@ -58,6 +58,10 @@ function XCommonCharacterFiltAgency:GetFilterProxyByTransfrom(transform)
     return self._Model.FilterGoProxyDic[transform]
 end
 
+function XCommonCharacterFiltAgency:RemoveFilterProxyByTransfrom(transform)
+    self._Model.FilterGoProxyDic[transform] = nil
+end
+
 function XCommonCharacterFiltAgency:GetTagNameByTagGroupId(id)
     for k, v in pairs(CharacterFilterTagTypeNum) do
         if v == id then
@@ -437,7 +441,7 @@ function XCommonCharacterFiltAgency:InitCheckSortFun()
 end
 
 --- sortFunList 根据列表里的顺序依次使用排序算法。检查是否可启用此算法直到找到可用的
-function XCommonCharacterFiltAgency:DoSortFilterV2P6(charaterList, sortFunList, isAscendOrderList, overrideSortList)
+function XCommonCharacterFiltAgency:DoSortFilterV2P6(charaterList, sortFunList, isAscendOrderList, overrideSortList, getIdFun)
     if self._Model.NotSortTrigger and not XTool.IsTableEmpty(self._Model.LastSortResList) then
         self._Model.NotSortTrigger = nil
         return self._Model.LastSortResList
@@ -457,7 +461,7 @@ function XCommonCharacterFiltAgency:DoSortFilterV2P6(charaterList, sortFunList, 
         table.insert(res, v)
     end
     table.sort(res, function (dataA, dataB)
-        local idA = dataA.Id
+        local idA = dataA.Id  -- 排序用的id必须是角色id或者机器人id
         local idB = dataB.Id
 
         for k, sortTagEnum in ipairs(sortFunList) do

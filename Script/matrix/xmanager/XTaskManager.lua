@@ -245,7 +245,7 @@ XTaskManagerCreator = function()
         --RpgTowerTaskData = {}
         --WhiteValentineTaskData = {}
         --FingerGuessingTaskData = {}
-        PokerGuessingTaskData = {}
+        --PokerGuessingTaskData = {}
         --GuildDailyTaskData = {}
         --GuildMainlyTaskData = {}
         --GuildWeeklyTaskData = {}
@@ -2105,6 +2105,11 @@ XTaskManagerCreator = function()
     --批量领取任务奖励
     local MultiTaskResReward = {}
     function XTaskManager.FinishMultiTaskRequest(taskIds, cb, notTip, isLoopReceive)
+        if XTool.IsTableEmpty(taskIds) then
+            XLog.BuglyLog("XTaskManager", "FinishMultiTaskRequest taskIds empty")
+            return
+        end
+
         cb = cb or function() end
         XNetwork.Call("FinishMultiTaskRequest", { TaskIds = taskIds }, function(reply)
             if reply.Code ~= XCode.Success then

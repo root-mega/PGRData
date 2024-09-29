@@ -884,7 +884,7 @@
         "BigIcon": "Assets/Product/Texture/Image/IconTools/E3SleeveMd110011.png",
         "SkipIdParams": [
             null,
-            80111.0,
+            null,
             null,
             null
         ],
@@ -1404,6 +1404,44 @@
             null
         ],
         "ShopIcon": "Assets/Product/Texture/Image/IconCoating/IconCoating12190001.png"
+    },
+    {
+        "Id": 12190002,
+        "Quality": 5,
+        "Priority": 1902,
+        "Name": "Starry Capriccio",
+        "Description": "Wandering Ballad \u2014 Uniframe Cello Blade",
+        "WorldDescription": "Walking in the fields, you raise your head and look at the boundless starry sky. Open your arms and listen to the song hummed by the wind. Dear traveler, please let go of everything for a moment, and let your mind float among the stars of the night to enjoy this wild and delight song.",
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/E3CelloMd030011Sp.png",
+        "BigIcon": "Assets/Product/Texture/Image/IconTools/E3CelloMd030011.png",
+        "SkipIdParams": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ModelTransId": [
+            null,
+            21970211,
+            21970212.0,
+            null
+        ],
+        "ResonanceModelTransId1": [
+            null,
+            null,
+            null
+        ],
+        "ResonanceModelTransId2": [
+            null,
+            null,
+            null
+        ],
+        "ResonanceModelTransId3": [
+            null,
+            null,
+            null
+        ],
+        "ShopIcon": null
     },
     {
         "Id": 12200001,
@@ -2093,14 +2131,14 @@
         "Id": 12310001,
         "Quality": 5,
         "Priority": 3101,
-        "Name": "\u767d\u7fbd\u306e\u30d5\u30a1\u30f3\u30bf\u30b8\u30a2",
-        "Description": "\u904e\u53bb\u518d\u54b2\u30b7\u30ea\u30fc\u30ba\u30fc\u30fc\u30ab\u30de\u30ad\u30ea\u5203",
-        "WorldDescription": "\u821e\u53f0\u304c\u306a\u304f\u306a\u3063\u3066\u3082\u3001\u89b3\u5ba2\u304c\u3044\u306a\u304f\u3066\u3082\u3001\u56de\u8ee2\u3059\u308b\u3054\u3068\u306b\u58ca\u308c\u305f\u308a\u6b7b\u304c\u4f34\u3046\u3068\u3057\u3066\u3082\u3001\u5922\u306e\u4e2d\u306e\u767d\u9ce5\u306f\u4eca\u3082\u8e0a\u308a\u3001\u898b\u5b88\u308b\u5927\u5207\u306a\u4eba\u306b\u795d\u798f\u3092\u3002",
+        "Name": "Swan Feather",
+        "Description": "Yesterday Once More \u2014 Mantis Blades",
+        "WorldDescription": "Even though the stage is gone, the seats are empty, and each spin comes with destruction and death, the small swan in the dream is still dancing for the loved ones who are watching her.",
         "Icon": "Assets/Product/Texture/Image/IconToolsSp/E3BangbinataMd020011Sp.png",
         "BigIcon": "Assets/Product/Texture/Image/IconTools/E3BangbinataMd020011.png",
         "SkipIdParams": [
             null,
-            null,
+            80129.0,
             null,
             null
         ],
@@ -2240,6 +2278,44 @@
             null
         ],
         "ShopIcon": "Assets/Product/Texture/Image/IconCoating/IconCoating12340001.png"
+    },
+    {
+        "Id": 12340002,
+        "Quality": 5,
+        "Priority": 3402,
+        "Name": "Stellar Thunder",
+        "Description": "New Life \u2014 Daisho",
+        "WorldDescription": "The daiso seems to contain the fury of lightning and stars, incomprehensible to common sense. Thunder roars when the daiso is wielded with enlightenment, and unsheathing them will produce a blue flame that can light up the night sky.",
+        "Icon": "Assets/Product/Texture/Image/IconToolsSp/E3AlphaMd030011Sp.png",
+        "BigIcon": "Assets/Product/Texture/Image/IconTools/E3AlphaMd030011.png",
+        "SkipIdParams": [
+            null,
+            80127.0,
+            null,
+            null
+        ],
+        "ModelTransId": [
+            null,
+            23470121,
+            null,
+            null
+        ],
+        "ResonanceModelTransId1": [
+            null,
+            null,
+            null
+        ],
+        "ResonanceModelTransId2": [
+            null,
+            null,
+            null
+        ],
+        "ResonanceModelTransId3": [
+            null,
+            null,
+            null
+        ],
+        "ShopIcon": "Assets/Product/Texture/Image/IconCoating/IconCoating12340002.png"
     },
     {
         "Id": 12380001,

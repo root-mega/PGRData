@@ -30,11 +30,6 @@
         "Comment": "Initial power"
     },
     {
-        "Key": "InitEndurance",
-        "Value": 18,
-        "Comment": "Initial stamina"
-    },
-    {
         "Key": "SetAssistCharacterCondition",
         "Value": 94030,
         "Comment": "Set support criteria"
@@ -143,5 +138,10 @@
         "Key": "MaintainChapterCondition",
         "Value": 95220,
         "Comment": "Maintenance Battle Unlock Condition"
+    },
+    {
+        "Key": "InitEndurance",
+        "Value": 18,
+        "Comment": "Initial stamina"
     }
 ]

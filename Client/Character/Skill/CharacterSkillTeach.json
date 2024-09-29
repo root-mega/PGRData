@@ -1376,5 +1376,31 @@
             null,
             null
         ]
+    },
+    {
+        "Id": 1281002,
+        "StageId": 30030301,
+        "Title": "Never-ending Conflict",
+        "WebUrl": "http://zspnscdn.yingxiong.com/server/notice/html/5d1d6d981ab8a03bd8b24d21.html",
+        "Icon": "Assets/Product/Texture/Image/UiFightTips/UiFightTipsJiaoxueR2Blackrock.png",
+        "TeachIcon": "Assets/Product/Texture/Image/IconGuide/GuideR2Blackrock.png",
+        "HeadLine": [
+            null,
+            "Reflective Nebula",
+            "Limit Removed",
+            "Enhanced Blast",
+            null,
+            null,
+            null
+        ],
+        "Description": [
+            null,
+            "While performing a Red/Yellow Orb 3-Ping, pinging Red/Yellow Orbs again can interrupt it and recast the skill, dealing DMG based on the number of orbs pinged in the interruption, as well as returning Blue Orbs equal to the number of orbs pinged when casting <color=#D91414>Flare Strike</color> or <color=#D91414>Starry Bayonet</color>.",
+            "While casting <color=#D91414>Flare Strike</color> or <color=#D91414>Starry Bayonet</color>, deals Extra Fire DMG based on the total number of orbs pinged during the entire action sequence (including both the original skill and the recast skill after interruption).",
+            "Casting <color=#D91414>Basic Attack - Photon Hurricane, Basic Attack - Photon Strike, Basic Attack - Photon Cannon, Astral Edge, and Stellar Cross</color> will accumulate Blast Energy. When Blast Energy is full, <color=#D91414>Flare Strike</color> and <color=#D91414>Starry Bayonet</color> deal increased Base DMG but will deplete the Blast Energy after they are cast.",
+            null,
+            null,
+            null
+        ]
     }
 ]

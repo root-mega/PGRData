@@ -1,0 +1,98 @@
+[
+    {
+        "Id": 101,
+        "Process": 0,
+        "AndOr": 0,
+        "Repeat": 0,
+        "Conditions": [
+            null,
+            null
+        ],
+        "ConditionParameters": [
+            null,
+            null
+        ],
+        "Events": [
+            null,
+            401,
+            202.0
+        ],
+        "EventsParameters": [
+            null,
+            "0",
+            "0|1"
+        ]
+    },
+    {
+        "Id": 102,
+        "Process": 0,
+        "AndOr": 0,
+        "Repeat": 1,
+        "Conditions": [
+            null,
+            202.0
+        ],
+        "ConditionParameters": [
+            null,
+            "1|0|1"
+        ],
+        "Events": [
+            null,
+            501,
+            null
+        ],
+        "EventsParameters": [
+            null,
+            "4|2|0|741|120|-837",
+            null
+        ]
+    },
+    {
+        "Id": 103,
+        "Process": 0,
+        "AndOr": 0,
+        "Repeat": 1,
+        "Conditions": [
+            null,
+            202.0
+        ],
+        "ConditionParameters": [
+            null,
+            "1|1|1"
+        ],
+        "Events": [
+            null,
+            501,
+            null
+        ],
+        "EventsParameters": [
+            null,
+            "4|2|1|741|120|-837",
+            null
+        ]
+    },
+    {
+        "Id": 104,
+        "Process": 0,
+        "AndOr": 0,
+        "Repeat": 1,
+        "Conditions": [
+            null,
+            202.0
+        ],
+        "ConditionParameters": [
+            null,
+            "1|2|1"
+        ],
+        "Events": [
+            null,
+            501,
+            null
+        ],
+        "EventsParameters": [
+            null,
+            "4|2|2|741|120|-837",
+            null
+        ]
+    }
+]

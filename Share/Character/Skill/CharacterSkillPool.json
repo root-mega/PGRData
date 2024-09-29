@@ -3238,5 +3238,725 @@
         "Icon": "Assets/Product/Texture/Image/IconSkill/R4Biankahexin1.png",
         "Description": "Class Skill Level +1",
         "Name": "Attacker"
+    },
+    {
+        "Id": 364,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 123201,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Bangbinatahong1.png",
+        "Description": "Red Orb Level +1",
+        "Name": "Frost Threads"
+    },
+    {
+        "Id": 365,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 123206,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Bangbinatahuang1.png",
+        "Description": "Yellow Orb Level +1",
+        "Name": "Arching Glimpse"
+    },
+    {
+        "Id": 366,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 123211,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Bangbinatalan1.png",
+        "Description": "Blue Orb Level +1",
+        "Name": "Entrechat"
+    },
+    {
+        "Id": 367,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 123216,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Bangbinatapugong1.png",
+        "Description": "Basic Attack Level +1",
+        "Name": "Battement Frappe"
+    },
+    {
+        "Id": 368,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 123217,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Bangbinatadazhao1.png",
+        "Description": "Signature Move Level + 1",
+        "Name": "Stringless Cage"
+    },
+    {
+        "Id": 369,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 123218,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/QTE1.png",
+        "Description": "QTE Level +1",
+        "Name": "Balance"
+    },
+    {
+        "Id": 370,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 123221,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Bangbinatahexin1.png",
+        "Description": "Core Passive +1",
+        "Name": "Puppet Theater"
+    },
+    {
+        "Id": 371,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 123223,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Bangbinatahexin1.png",
+        "Description": "Class Skill Level +1",
+        "Name": "Attacker"
+    },
+    {
+        "Id": 372,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 101401,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Lianghong1.png",
+        "Description": "Red Orb Level +1",
+        "Name": "Bullet Raid"
+    },
+    {
+        "Id": 373,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 101406,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Lianghuang1.png",
+        "Description": "Yellow Orb Level +1",
+        "Name": "Glimpse Maneuver"
+    },
+    {
+        "Id": 374,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 101411,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Lianglan1.png",
+        "Description": "Blue Orb Level +1",
+        "Name": "Falling Blast"
+    },
+    {
+        "Id": 375,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 101416,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Liangpugong1.png",
+        "Description": "Basic Attack Level +1",
+        "Name": "Armament Barrage"
+    },
+    {
+        "Id": 376,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 101417,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Liangdazhao1.png",
+        "Description": "Signature Move Level +1",
+        "Name": "Hyper Burst"
+    },
+    {
+        "Id": 377,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 101418,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/QTE1.png",
+        "Description": "QTE Level +1",
+        "Name": "Stealth Annihilation"
+    },
+    {
+        "Id": 378,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 101421,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Lianghexin1.png",
+        "Description": "Core Passive +1",
+        "Name": "Dimensional Observer"
+    },
+    {
+        "Id": 379,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 101423,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Lianghexin1.png",
+        "Description": "Class Skill Level +1",
+        "Name": "Attacker"
+    },
+    {
+        "Id": 380,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 109301,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Ailahong1.png",
+        "Description": "Red Orb Level +1",
+        "Name": "Scarlet Impression"
+    },
+    {
+        "Id": 381,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 109306,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Ailahuang1.png",
+        "Description": "Yellow Orb Level +1",
+        "Name": "Yellowish Strike"
+    },
+    {
+        "Id": 382,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 109311,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Ailalan1.png",
+        "Description": "Blue Orb Level +1",
+        "Name": "Ultramarine Dynamo"
+    },
+    {
+        "Id": 383,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 109316,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Ailapugong1.png",
+        "Description": "Basic Attack Level +1",
+        "Name": "Aylaism Sketch"
+    },
+    {
+        "Id": 384,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 109317,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Ailadazhao1.png",
+        "Description": "Signature Move Level +1",
+        "Name": "Omnichromatic World!"
+    },
+    {
+        "Id": 385,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 109318,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/QTE1.png",
+        "Description": "QTE Level +1",
+        "Name": "Prismatic Ribbon"
+    },
+    {
+        "Id": 386,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 109321,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Ailahexin1.png",
+        "Description": "Core Passive +1",
+        "Name": "My Heart'll Do My Painting!"
+    },
+    {
+        "Id": 387,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 109323,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Ailahexin1.png",
+        "Description": "Class Skill Level +1",
+        "Name": "Amplifier"
+    },
+    {
+        "Id": 388,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 102501,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R5Luxiyahong1.png",
+        "Description": "Red Orb Level +1",
+        "Name": "Thundering Rush"
+    },
+    {
+        "Id": 389,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 102506,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R5Luxiyahuang1.png",
+        "Description": "Yellow Orb Level +1",
+        "Name": "Great Cross Strike"
+    },
+    {
+        "Id": 390,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 102511,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R5Luxiyalan1.png",
+        "Description": "Blue Orb Level +1",
+        "Name": "Whirling Thrash"
+    },
+    {
+        "Id": 391,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 102516,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R5Luxiyapugong1.png",
+        "Description": "Basic Attack Level +1",
+        "Name": "Crimson Slash"
+    },
+    {
+        "Id": 392,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 102517,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R5Luxiyadazhao1.png",
+        "Description": "Signature Move Level + 1",
+        "Name": "Weave of Voidness"
+    },
+    {
+        "Id": 393,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 102518,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/QTE1.png",
+        "Description": "QTE Level +1",
+        "Name": "Flashes of Steel"
+    },
+    {
+        "Id": 394,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 102521,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R5Luxiyahexin1.png",
+        "Description": "Core Passive +1",
+        "Name": "Path of Anatta"
+    },
+    {
+        "Id": 395,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 102523,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R5Luxiyahexin1.png",
+        "Description": "Class Skill Level +1",
+        "Name": "Attacker"
+    },
+    {
+        "Id": 396,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 124201,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Hanyinhong1.png",
+        "Description": "Red Orb Level +1",
+        "Name": "Ballad of Bamboos"
+    },
+    {
+        "Id": 397,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 124206,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Hanyinhuang1.png",
+        "Description": "Yellow Orb Level +1",
+        "Name": "Coda of Butterflies"
+    },
+    {
+        "Id": 398,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 124211,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Hanyinlan1.png",
+        "Description": "Blue Orb Level +1",
+        "Name": "Verse of Breeze"
+    },
+    {
+        "Id": 399,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 124216,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Hanyinpugong1.png",
+        "Description": "Basic Attack Level +1",
+        "Name": "Flight of Clouds"
+    },
+    {
+        "Id": 400,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 124217,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Hanyindazhao1.png",
+        "Description": "Signature Move Level +1",
+        "Name": "Vision of Mountains"
+    },
+    {
+        "Id": 401,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 124218,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/QTE1.png",
+        "Description": "QTE Level +1",
+        "Name": "Whirl of Stars"
+    },
+    {
+        "Id": 402,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 124221,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Hanyinhexin1.png",
+        "Description": "Core Passive +1",
+        "Name": "Silk Dance"
+    },
+    {
+        "Id": 403,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 124223,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Hanyinhexin1.png",
+        "Description": "Class Skill Level +1",
+        "Name": "Support"
+    },
+    {
+        "Id": 404,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 122301,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Twentyonehong1.png",
+        "Description": "Red Orb Level +1",
+        "Name": "Hunting Path"
+    },
+    {
+        "Id": 405,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 122306,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Twentyonehuang1.png",
+        "Description": "Yellow Orb Level +1",
+        "Name": "Feather Thrust"
+    },
+    {
+        "Id": 406,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 122311,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Twentyonelan1.png",
+        "Description": "Blue Orb Level +1",
+        "Name": "Dashing Claws"
+    },
+    {
+        "Id": 407,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 122316,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Twentyonepugong1.png",
+        "Description": "Basic Attack Level +1",
+        "Name": "Bare Fangs"
+    },
+    {
+        "Id": 408,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 122317,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Twentyonedazhao1.png",
+        "Description": "Signature Move Level +1",
+        "Name": "Sky-ripping Arcflash"
+    },
+    {
+        "Id": 409,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 122318,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/QTE1.png",
+        "Description": "QTE Level +1",
+        "Name": "Feral Echo"
+    },
+    {
+        "Id": 410,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 122321,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Twentyonehexin1.png",
+        "Description": "Core Passive +1",
+        "Name": "Wolfish Twilight"
+    },
+    {
+        "Id": 411,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 122323,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R4Twentyonehexin1.png",
+        "Description": "Class Skill Level +1",
+        "Name": "Amplifier"
+    },
+    {
+        "Id": 412,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 125201,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Nuoketihong1.png",
+        "Description": "Red Orb Level +1",
+        "Name": "Reddening Flash"
+    },
+    {
+        "Id": 413,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 125206,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Nuoketihuang1.png",
+        "Description": "Yellow Orb Level +1",
+        "Name": "Shattering Kick"
+    },
+    {
+        "Id": 414,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 125211,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Nuoketilan1.png",
+        "Description": "Blue Orb Level +1",
+        "Name": "Bursting Plunge"
+    },
+    {
+        "Id": 415,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 125216,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Nuoketipugong1.png",
+        "Description": "Basic Attack Level +1",
+        "Name": "Engine Vortex"
+    },
+    {
+        "Id": 416,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 125217,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Nuoketidazhao1.png",
+        "Description": "Signature Move Level +1",
+        "Name": "Magnetic Blast"
+    },
+    {
+        "Id": 417,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 125218,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/QTE1.png",
+        "Description": "QTE Level +1",
+        "Name": "Flash Punch"
+    },
+    {
+        "Id": 418,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 125221,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Nuoketihexin1.png",
+        "Description": "Core Passive +1",
+        "Name": "Powered Roar"
+    },
+    {
+        "Id": 419,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 125223,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Nuoketihexin1.png",
+        "Description": "Class Skill Level +1",
+        "Name": "Attacker"
+    },
+    {
+        "Id": 420,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 126301,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Yalishahong1.png",
+        "Description": "Red Orb Level +1",
+        "Name": "Prismatic Order"
+    },
+    {
+        "Id": 421,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 126306,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Yalishahuang1.png",
+        "Description": "Yellow Orb Level +1",
+        "Name": "Cosmic Descent"
+    },
+    {
+        "Id": 422,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 126311,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Yalishalan1.png",
+        "Description": "Blue Orb Level +1",
+        "Name": "Swift Verdict"
+    },
+    {
+        "Id": 423,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 126316,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Yalishapugong1.png",
+        "Description": "Basic Attack Level +1",
+        "Name": "Darting Pursuit"
+    },
+    {
+        "Id": 424,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 126317,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Yalishadazhao1.png",
+        "Description": "Signature Move Level +1",
+        "Name": "Celestial Edge"
+    },
+    {
+        "Id": 425,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 126318,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/QTE1.png",
+        "Description": "QTE Level +1",
+        "Name": "Advent of Justice"
+    },
+    {
+        "Id": 426,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 126321,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Yalishahexin1.png",
+        "Description": "Core Passive +1",
+        "Name": "Echoing Twins"
+    },
+    {
+        "Id": 427,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 126323,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Yalishahexin1.png",
+        "Description": "Class Skill Level +1",
+        "Name": "Amplifier"
+    },
+    {
+        "Id": 428,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 127301,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Lamiyahong1.png",
+        "Description": "Red Orb Level +1",
+        "Name": "Hadal Vortex"
+    },
+    {
+        "Id": 429,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 127306,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Lamiyahuang1.png",
+        "Description": "Yellow Orb Level +1",
+        "Name": "Crushing Spout"
+    },
+    {
+        "Id": 430,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 127311,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Lamiyalan1.png",
+        "Description": "Blue Orb Level +1",
+        "Name": "Pelagic Severance"
+    },
+    {
+        "Id": 431,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 127316,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Lamiyapugong1.png",
+        "Description": "Basic Attack Level +1",
+        "Name": "Stygian Waves"
+    },
+    {
+        "Id": 432,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 127317,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Lamiyadazhao1.png",
+        "Description": "Signature Move Level +1",
+        "Name": "Elegy of Atlantis"
+    },
+    {
+        "Id": 433,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 127318,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/QTE1.png",
+        "Description": "QTE Level +1",
+        "Name": "Tidal Phantom"
+    },
+    {
+        "Id": 434,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 127321,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Lamiyahexin1.png",
+        "Description": "Core Passive +1",
+        "Name": "Seafoam Mirage"
+    },
+    {
+        "Id": 435,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 127323,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R3Lamiyahexin1.png",
+        "Description": "Class Skill Level +1",
+        "Name": "Attacker"
+    },
+    {
+        "Id": 436,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 128201,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Blackrockhong1.png",
+        "Description": "Red Orb Level +1",
+        "Name": "Astral Edge"
+    },
+    {
+        "Id": 437,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 128206,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Blackrockhuang1.png",
+        "Description": "Yellow Orb Level +1",
+        "Name": "Stellar Cross"
+    },
+    {
+        "Id": 438,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 128211,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Blackrocklan1.png",
+        "Description": "Blue Orb Level +1",
+        "Name": "Entangled Heart"
+    },
+    {
+        "Id": 439,
+        "PoolId": 1,
+        "Weight": 100,
+        "SkillId": 128216,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Blackrockpugong1.png",
+        "Description": "Basic Attack Level +1",
+        "Name": "Annihilating Meteor Shower"
+    },
+    {
+        "Id": 440,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 128217,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Blackrockdazhao1.png",
+        "Description": "Signature Move Level +1",
+        "Name": "World Weaver"
+    },
+    {
+        "Id": 441,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 128218,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/QTE1.png",
+        "Description": "QTE Level +1",
+        "Name": "Star Mirage"
+    },
+    {
+        "Id": 442,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 128221,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Blackrockhexin1.png",
+        "Description": "Core Passive +1",
+        "Name": "Never-ending Conflict"
+    },
+    {
+        "Id": 443,
+        "PoolId": 2,
+        "Weight": 100,
+        "SkillId": 128223,
+        "Icon": "Assets/Product/Texture/Image/IconSkill/R2Blackrockhexin1.png",
+        "Description": "Class Skill Level +1",
+        "Name": "Attacker"
     }
 ]

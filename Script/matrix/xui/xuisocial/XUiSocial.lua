@@ -40,8 +40,8 @@ function XUiSocial:OnStart(onLoadCompleteCB, defaultIndex)
     }
     self.PanelButtons:Init(tabGroup, function(tabIndex) self:OnClickTabCallBack(tabIndex) end)
 
-    XRedPointManager.AddRedPointEvent(self.BtnMainContact, self.RefreshContactRedDot, self, { XRedPointConditions.Types.CONDITION_FRIEND_CONTACT })
-    XRedPointManager.AddRedPointEvent(self.BtnMainWaitPass, self.RefreshWaitPassRedDot, self, { XRedPointConditions.Types.CONDITION_FRIEND_WAITPASS })
+    self:AddRedPointEvent(self.BtnMainContact, self.RefreshContactRedDot, self, { XRedPointConditions.Types.CONDITION_FRIEND_CONTACT })
+    self:AddRedPointEvent(self.BtnMainWaitPass, self.RefreshWaitPassRedDot, self, { XRedPointConditions.Types.CONDITION_FRIEND_WAITPASS })
 
     local selectIndex = defaultIndex or self.BtnTabIndex.MainContact
     self.PanelButtons:SelectIndex(selectIndex)

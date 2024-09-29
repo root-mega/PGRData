@@ -1,0 +1,26 @@
+[
+    {
+        "Id": 1,
+        "ActivityTimeId": null,
+        "ShopId": 1211,
+        "ShopCoinId": 50103,
+        "CoatTaskId": 23001,
+        "TaskGroupId": [
+            null,
+            107,
+            114,
+            115
+        ],
+        "TaskGroupName": [
+            null,
+            "Fated Fortune",
+            "Good Fortune!",
+            "Fortune Is With Me"
+        ],
+        "DrawId": 101,
+        "ModelId": "Mo1KuronewyearAccumulateConsume",
+        "CoatBg": "Assets/Product/Texture/Image/UiConsumeActivity/UiConsumeActivityBg02.png",
+        "CoatName": "Assets/Product/Texture/Image/UiConsumeActivity/UiConsumeActivityName01.png",
+        "RewardDescription": "When you have opened enough Fortune Pouches, you get additional rewards. When the requirements are met, additional rewards are automatically sent to you.\\n\\nWhen you have received all the additional rewards, they fully refresh. Each round of additional rewards has the same milestones and offers the same rewards.\\n\\nIf you keep drawing after the last milestone, those draws will carry over to the next round.\\n\\nFortune Pouches will expire after this event is over. Make sure to open them in time."
+    }
+]

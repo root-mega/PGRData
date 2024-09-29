@@ -1,0 +1,97 @@
+[
+    {
+        "Id": 1,
+        "BtnPath": "Assets/Product/Ui/UiFightPrefab/SingleBtn.prefab",
+        "SuccEffectName": "FxUi008",
+        "FailEffectName": "FxUi009",
+        "QteCombatUrl": "Assets/Product/Ui/UiFightPrefab/QteGame/DefaultQteCombat.prefab",
+        "MarkMovingPointSliderUrl": "Assets/Product/Ui/UiFightPrefab/QteGame/DefaultMarkMovingPointSlider.prefab",
+        "Effects": [
+            null,
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon01.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon02.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon03.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon04.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui01.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui03.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui04.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommonBtn01.prefab"
+        ]
+    },
+    {
+        "Id": 2,
+        "BtnPath": "Assets/Product/Ui/UiFightPrefab/ContinuityBtn.prefab",
+        "SuccEffectName": "FxUi008",
+        "FailEffectName": "FxUi009",
+        "QteCombatUrl": "Assets/Product/Ui/UiFightPrefab/QteGame/DefaultQteCombat.prefab",
+        "MarkMovingPointSliderUrl": "Assets/Product/Ui/UiFightPrefab/QteGame/DefaultMarkMovingPointSlider.prefab",
+        "Effects": [
+            null,
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon01.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon02.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon03.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon04.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui01.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui03.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui04.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommonBtn01.prefab"
+        ]
+    },
+    {
+        "Id": 3,
+        "BtnPath": "Assets/Product/Ui/UiFightPrefab/PKQtePanelKexilaxingsuiBtn.prefab",
+        "SuccEffectName": "FxUi008",
+        "FailEffectName": "FxUi009",
+        "QteCombatUrl": "Assets/Product/Ui/UiFightPrefab/QteGame/PKQtePanelDeadmaster.prefab",
+        "MarkMovingPointSliderUrl": "Assets/Product/Ui/UiFightPrefab/QteGame/DefaultMarkMovingPointSlider.prefab",
+        "Effects": [
+            null,
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon01.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon02.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon03.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon04.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui01.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui03.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui04.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommonBtn01.prefab"
+        ]
+    },
+    {
+        "Id": 4,
+        "BtnPath": "Assets/Product/Ui/UiFightPrefab/PKQtePanelCommonBtn.prefab",
+        "SuccEffectName": "FxUi008",
+        "FailEffectName": "FxUi009",
+        "QteCombatUrl": "Assets/Product/Ui/UiFightPrefab/QteGame/PKQtePanelCommon.prefab",
+        "MarkMovingPointSliderUrl": "Assets/Product/Ui/UiFightPrefab/QteGame/DefaultMarkMovingPointSlider.prefab",
+        "Effects": [
+            null,
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon01.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon02.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon03.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon04.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui01.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui03.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui04.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommonBtn01.prefab"
+        ]
+    },
+    {
+        "Id": 5,
+        "BtnPath": "Assets/Product/Ui/UiFightPrefab/PKQtePanelDeadmasterBtn.prefab",
+        "SuccEffectName": "FxUi008",
+        "FailEffectName": "FxUi009",
+        "QteCombatUrl": "Assets/Product/Ui/UiFightPrefab/QteGame/PKQtePanelDeadmaster.prefab",
+        "MarkMovingPointSliderUrl": "Assets/Product/Ui/UiFightPrefab/QteGame/DefaultMarkMovingPointSlider.prefab",
+        "Effects": [
+            null,
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon01.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon02.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon03.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommon04.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui01.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui03.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelKexilaxingsui04.prefab",
+            "Assets/Product/Effect/Prefab/FxUi/FxUiPKQtePanel/FxUiPKQtePanelCommonBtn01.prefab"
+        ]
+    }
+]

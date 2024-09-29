@@ -481,7 +481,7 @@
     },
     {
         "Id": 720356,
-        "Type": "OnBeforeDamage",
+        "Type": "OnAfterDamage",
         "Priority": 3,
         "PrefixRoot": 640021360.0,
         "Root": 640023779,

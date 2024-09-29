@@ -1,0 +1,377 @@
+[
+    {
+        "Id": 1,
+        "StageId": 1,
+        "ColumnIndexes": [
+            null,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+        ]
+    },
+    {
+        "Id": 2,
+        "StageId": 1,
+        "ColumnIndexes": [
+            null,
+            -1,
+            -1,
+            1,
+            2,
+            2,
+            3,
+            -1,
+            -1
+        ]
+    },
+    {
+        "Id": 3,
+        "StageId": 1,
+        "ColumnIndexes": [
+            null,
+            -1,
+            -1,
+            2,
+            1,
+            0,
+            1,
+            -1,
+            -1
+        ]
+    },
+    {
+        "Id": 4,
+        "StageId": 1,
+        "ColumnIndexes": [
+            null,
+            -1,
+            -1,
+            0,
+            0,
+            3,
+            3,
+            -1,
+            -1
+        ]
+    },
+    {
+        "Id": 5,
+        "StageId": 1,
+        "ColumnIndexes": [
+            null,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+        ]
+    },
+    {
+        "Id": 6,
+        "StageId": 2,
+        "ColumnIndexes": [
+            null,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+        ]
+    },
+    {
+        "Id": 7,
+        "StageId": 2,
+        "ColumnIndexes": [
+            null,
+            -1,
+            0,
+            2,
+            3,
+            2,
+            3,
+            2,
+            -1
+        ]
+    },
+    {
+        "Id": 8,
+        "StageId": 2,
+        "ColumnIndexes": [
+            null,
+            -1,
+            2,
+            2,
+            1,
+            1,
+            2,
+            3,
+            -1
+        ]
+    },
+    {
+        "Id": 9,
+        "StageId": 2,
+        "ColumnIndexes": [
+            null,
+            -1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            -1
+        ]
+    },
+    {
+        "Id": 10,
+        "StageId": 2,
+        "ColumnIndexes": [
+            null,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1,
+            -1
+        ]
+    },
+    {
+        "Id": 11,
+        "StageId": 3,
+        "ColumnIndexes": [
+            null,
+            -1,
+            2,
+            3,
+            1,
+            3,
+            0,
+            2,
+            -1
+        ]
+    },
+    {
+        "Id": 12,
+        "StageId": 3,
+        "ColumnIndexes": [
+            null,
+            -1,
+            3,
+            2,
+            0,
+            2,
+            1,
+            3,
+            -1
+        ]
+    },
+    {
+        "Id": 13,
+        "StageId": 3,
+        "ColumnIndexes": [
+            null,
+            -1,
+            2,
+            3,
+            2,
+            3,
+            0,
+            3,
+            -1
+        ]
+    },
+    {
+        "Id": 14,
+        "StageId": 3,
+        "ColumnIndexes": [
+            null,
+            -1,
+            1,
+            2,
+            1,
+            1,
+            2,
+            1,
+            -1
+        ]
+    },
+    {
+        "Id": 15,
+        "StageId": 3,
+        "ColumnIndexes": [
+            null,
+            -1,
+            1,
+            3,
+            2,
+            3,
+            1,
+            1,
+            -1
+        ]
+    },
+    {
+        "Id": 16,
+        "StageId": 4,
+        "ColumnIndexes": [
+            null,
+            0,
+            2,
+            2,
+            3,
+            3,
+            2,
+            2,
+            0
+        ]
+    },
+    {
+        "Id": 17,
+        "StageId": 4,
+        "ColumnIndexes": [
+            null,
+            3,
+            0,
+            0,
+            2,
+            2,
+            0,
+            0,
+            3
+        ]
+    },
+    {
+        "Id": 18,
+        "StageId": 4,
+        "ColumnIndexes": [
+            null,
+            3,
+            2,
+            2,
+            1,
+            1,
+            2,
+            2,
+            3
+        ]
+    },
+    {
+        "Id": 19,
+        "StageId": 4,
+        "ColumnIndexes": [
+            null,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1
+        ]
+    },
+    {
+        "Id": 20,
+        "StageId": 4,
+        "ColumnIndexes": [
+            null,
+            1,
+            1,
+            2,
+            0,
+            0,
+            2,
+            1,
+            1
+        ]
+    },
+    {
+        "Id": 21,
+        "StageId": 5,
+        "ColumnIndexes": [
+            null,
+            -1,
+            1,
+            -1,
+            3,
+            2,
+            3,
+            3,
+            -1
+        ]
+    },
+    {
+        "Id": 22,
+        "StageId": 5,
+        "ColumnIndexes": [
+            null,
+            1,
+            1,
+            -1,
+            1,
+            3,
+            2,
+            3,
+            3
+        ]
+    },
+    {
+        "Id": 23,
+        "StageId": 5,
+        "ColumnIndexes": [
+            null,
+            1,
+            2,
+            -1,
+            1,
+            1,
+            -1,
+            2,
+            1
+        ]
+    },
+    {
+        "Id": 24,
+        "StageId": 5,
+        "ColumnIndexes": [
+            null,
+            3,
+            3,
+            2,
+            3,
+            1,
+            -1,
+            1,
+            1
+        ]
+    },
+    {
+        "Id": 25,
+        "StageId": 5,
+        "ColumnIndexes": [
+            null,
+            -1,
+            3,
+            3,
+            2,
+            3,
+            -1,
+            1,
+            -1
+        ]
+    }
+]

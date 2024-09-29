@@ -1,5 +1,6 @@
 local XUiPanelExpBar = require("XUi/XUiSettleWinMainLine/XUiPanelExpBar")
 
+---@class XUiGridSettleWinRole
 XUiGridWinRole = XClass(nil, "XUiGridWinRole")
 
 function XUiGridWinRole:Ctor(rootUi, ui)
@@ -99,6 +100,14 @@ function XUiGridWinRole:UpdateNieRRobotInfo(robotId)
         icon = XDataCenter.CharacterManager.GetCharBigHeadIcon(data.CharacterId)
     end
     
+    if icon then
+        self.RImgIcon:SetRawImage(icon)
+    end
+end
+
+function XUiGridWinRole:UpdateTaikoRoleInfo(robotId)
+    self.PanelPlayerExpBar.gameObject:SetActiveEx(false)
+    local icon = XCharacterCuteConfig.GetCuteModelSmallHeadIcon(XRobotManager.GetCharacterId(robotId))
     if icon then
         self.RImgIcon:SetRawImage(icon)
     end

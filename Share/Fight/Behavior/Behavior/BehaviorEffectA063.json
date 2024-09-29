@@ -184,10 +184,18 @@
         "PreLoadRoot": null
     },
     {
+        "Id": 200833,
+        "Type": "OnFrame",
+        "Priority": 3,
+        "PrefixRoot": 620630601,
+        "Root": null,
+        "PreLoadRoot": null
+    },
+    {
         "Id": 200835,
         "Type": "OnDodge",
         "Priority": 3,
-        "PrefixRoot": 620630601,
+        "PrefixRoot": 620630019,
         "Root": 620630603.0,
         "PreLoadRoot": null
     },
@@ -249,7 +257,7 @@
     },
     {
         "Id": 200865,
-        "Type": "OnSkill",
+        "Type": "OnSkillFinish",
         "Priority": 3,
         "PrefixRoot": 620630007,
         "Root": 620630010.0,

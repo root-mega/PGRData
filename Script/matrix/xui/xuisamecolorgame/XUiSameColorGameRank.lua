@@ -75,7 +75,7 @@ function XUiSameColorGameRank:OnAwake()
     self.GridPlayerRank.gameObject:SetActiveEx(false)
     -- 资源栏
     local itemIds = self.SameColorGameManager.GetAssetItemIds()
-    XUiHelper.NewPanelActivityAsset(itemIds, self.PanelAsset, nil , function(uiSelf, index)
+    XUiHelper.NewPanelActivityAssetSafe(itemIds, self.PanelAsset, self, nil , function(uiSelf, index)
         local itemId = itemIds[index]
         XLuaUiManager.Open("UiSameColorGameSkillDetails", nil, itemId)
     end)

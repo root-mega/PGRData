@@ -848,6 +848,10 @@
         "Text": " min "
     },
     {
+        "Key": "Minutes",
+        "Text": "Min"
+    },
+    {
         "Key": "Snap",
         "Text": "{0}% Off"
     },
@@ -3981,7 +3985,7 @@
     },
     {
         "Key": "ActivityBranchFightLeftTime",
-        "Text": "Remaining:"
+        "Text": "Remaining: "
     },
     {
         "Key": "ActivityBranchShopLeftTime",
@@ -4137,7 +4141,7 @@
     },
     {
         "Key": "ActivityRepeatChallengeDesc",
-        "Text": "When the team has <color=#C7A3FF>{0}</color>, you can obtain Lv.{1} permission effects in advance upon starting the stage."
+        "Text": "When the team has <color=#1E9CE9>{0}</color>, you can obtain Lv.{1} permission effects in advance upon starting the stage."
     },
     {
         "Key": "ActivityRepeatChallengeLevelTitle",
@@ -5069,7 +5073,7 @@
     },
     {
         "Key": "ActivityBriefShopLeftTime",
-        "Text": "Remaining  <color=#FFFFFF>{0}</color>"
+        "Text": "Remaining  <color=#000000>{0}</color>"
     },
     {
         "Key": "ActivityBriefTaskLeftTime",
@@ -6201,7 +6205,7 @@
     },
     {
         "Key": "AssignOccupyUnselected",
-        "Text": "Dismissed"
+        "Text": "Member Withdrawn"
     },
     {
         "Key": "AssignChapterProgressTxt",
@@ -12361,7 +12365,7 @@
     },
     {
         "Key": "DecomposePartnerConfirmTitle",
-        "Text": "CUB deconstruct doublecheck"
+        "Text": "Confirm to Scrap"
     },
     {
         "Key": "PartnerDecomposionCapacityDes",
@@ -12773,11 +12777,11 @@
     },
     {
         "Key": "InvertCardGameMaxInvertConutTextBlue",
-        "Text": "After flipping cards over for <color=#64e7ff>{0}</color> times, no Klein Bottles will be spent to flip (<color=#64e7ff>{1}</color>/{2})"
+        "Text": "Flip cards without consuming Honor Medals after <color=#64e7ff>{0}</color> flips (<color=#64e7ff>{1}</color>/{2})"
     },
     {
         "Key": "InvertCardGameMaxInvertConutTextNormal",
-        "Text": "After flipping cards over for <color=#64e7ff>{0}</color> times, no Klein Bottles will be spent to flip ({1}/{2})"
+        "Text": "Flip cards without consuming Honor Medals after <color=#64e7ff>{0}</color> flips ({1}/{2})"
     },
     {
         "Key": "InvertCardGameCurInvertConutText",
@@ -12793,7 +12797,7 @@
     },
     {
         "Key": "InvertCardGameHaveNotEnoughItem",
-        "Text": "Insufficient [Klein Bottles]. Unable to do this."
+        "Text": "Insufficient [Honor Medals]. Unable to do this."
     },
     {
         "Key": "ActivityBriefNotOpenTips",
@@ -16816,6 +16820,10 @@
         "Text": "- - -"
     },
     {
+        "Key": "TaikoMasterFightTeamCountTip",
+        "Text": "You can deploy up to {0} character(s) to the stage."
+    },
+    {
         "Key": "MultiDimCareer1",
         "Text": "Attacker Talent"
     },
@@ -17040,88 +17048,8 @@
         "Text": "Guild Dormitory network error"
     },
     {
-        "Key": "XTwoSideTowerChapterConditionProcess",
-        "Text": "Clear {0} to unlock"
-    },
-    {
-        "Key": "XTwoSideTowerChapterCleared",
-        "Text": "Highest Vision Points: {0}"
-    },
-    {
-        "Key": "XTwoSideTowerChapterNotCleared",
-        "Text": "Uncleared"
-    },
-    {
-        "Key": "XTwoSideTowerChapterTimeProcess",
-        "Text": "Unlocks after {0}"
-    },
-    {
-        "Key": "TwoSideTowerPositiveTitle",
-        "Text": "Downstream"
-    },
-    {
-        "Key": "TwoSideTowerNegativeTitle",
-        "Text": "Upstream"
-    },
-    {
-        "Key": "TwoSideTowerStageDetailTitle",
-        "Text": "Stage Details"
-    },
-    {
-        "Key": "TwoSideTowerResetTitle",
-        "Text": "Tips"
-    },
-    {
-        "Key": "TwoSideTowerResetContent",
-        "Text": "Resetting the chapter will <color=#e41f0a>reset your chapter progress</color>, but you will keep your highest score in the Upstream Phase.\\nAre you sure you want to start a new challenge?"
-    },
-    {
-        "Key": "TwoSideTowerSettleBuffDesc",
-        "Text": "{0}/{1}"
-    },
-    {
-        "Key": "TwoSideTowerSettleShieldDetail",
-        "Text": "You have broken through <color=#e41f0a>{1}</color> Mirage Features\\nand blocked <color=#00ffffff>{0}</color> Mirage Features in the battle of the Upstream Phase."
-    },
-    {
-        "Key": "TwoSideTowerSettlePoint",
-        "Text": "{0}/{1}"
-    },
-    {
-        "Key": "TwoSideTowerFightAgain",
-        "Text": "Challenge Again"
-    },
-    {
-        "Key": "TwoSideTowerAutoFightTitle",
-        "Text": "Tips"
-    },
-    {
-        "Key": "TwoSideTowerAutoFightContent",
-        "Text": "After resetting the chapter, you can use Auto Clear to <color=#e41f0a>skip</color> the stages that you have cleared in the Downstream Phase.\\nAre you sure you want to use Auto Clear?"
-    },
-    {
-        "Key": "TwoSideTowerSettleTitle",
-        "Text": "{0} Cleared!"
-    },
-    {
         "Key": "TwoSideTowerProcess",
         "Text": "Mission Completed: {0}/{1}"
-    },
-    {
-        "Key": "TwoSideTowerChangeTip1",
-        "Text": "Downstream Phase is over."
-    },
-    {
-        "Key": "TwoSideTowerChangeTip2",
-        "Text": "Entering Upstream Phase."
-    },
-    {
-        "Key": "TwoSideTowerStageEnterTipsTitle",
-        "Text": "Enter"
-    },
-    {
-        "Key": "TwoSideTowerStageEnterTipsContent",
-        "Text": "After you select and challenge a stage, you can challenge the remaining stages during the Against the Current phase. Challenge this stage first?"
     },
     {
         "Key": "GameExitMsg",
@@ -18952,26 +18880,6 @@
         "Text": "{0} must be deployed."
     },
     {
-        "Key": "UiNewActivityCalendarOpenTime",
-        "Text": "Activates in {0}"
-    },
-    {
-        "Key": "UiNewActivityCalendarRewardCountDesc",
-        "Text": "<color=#0f70bc>{0}</color>/{1}"
-    },
-    {
-        "Key": "UiNewActivityCalendarBtnTips1",
-        "Text": "New event has started"
-    },
-    {
-        "Key": "UiNewActivityCalendarBtnTips2",
-        "Text": "Events With Rich Rewards"
-    },
-    {
-        "Key": "UiNewActivityCalendarBtnTips3",
-        "Text": "Events Here"
-    },
-    {
         "Key": "EquipOverrun",
         "Text": "Weapon Harmony"
     },
@@ -19037,7 +18945,7 @@
     },
     {
         "Key": "TransfiniteTimeExtra3",
-        "Text": "Clear the stage within {0}s to obtain the bonus reward"
+        "Text": "<color=#ee2746>Clear in {0}s to get the extra reward.</color>"
     },
     {
         "Key": "TransfiniteRewardCanReceive",
@@ -19488,6 +19396,18 @@
         "Text": "Cantonese: "
     },
     {
+        "Key": "TransfiniteTeamMemberDead",
+        "Text": "Member has been eliminated."
+    },
+    {
+        "Key": "TransfiniteRepeatChallengeStage",
+        "Text": "Try Again"
+    },
+    {
+        "Key": "TransfiniteBeginChallengeStage",
+        "Text": "Start Challenge"
+    },
+    {
         "Key": "EquipStrengthenNoItemTips",
         "Text": "Insufficient selected upgrade items."
     },
@@ -19542,6 +19462,174 @@
     {
         "Key": "CharacterExhibitionGroupNullText",
         "Text": "Punishing"
+    },
+    {
+        "Key": "TransfiniteTimeExtra4",
+        "Text": "<color=#64EE64>Clear in {0}s to get the extra reward. (Complete)</color>"
+    },
+    {
+        "Key": "BlackRockChessMoveInterval",
+        "Text": "Action Interval: {0}"
+    },
+    {
+        "Key": "BlackRockChessStageUnlock",
+        "Text": "Clear the prerequisite stage to unlock."
+    },
+    {
+        "Key": "BlackRockChessArchiveUnlock",
+        "Text": "Story locked"
+    },
+    {
+        "Key": "BlackRockChessSkillUnlock",
+        "Text": "Skill locked"
+    },
+    {
+        "Key": "BlackRockChessWeaponUnlock",
+        "Text": "Weapon locked"
+    },
+    {
+        "Key": "BlackRockChessChessUnlock",
+        "Text": "Chess piece locked"
+    },
+    {
+        "Key": "UiNewActivityCalendarBeginCountDown",
+        "Text": "Preparing: {0}"
+    },
+    {
+        "Key": "UiNewActivityCalendarEndCountDown",
+        "Text": "In Progress: {0}"
+    },
+    {
+        "Key": "FavorabilityCharacterSelectOverflowTips",
+        "Text": "You can select up to 4 assistants."
+    },
+    {
+        "Key": "ExpensiveItemExpiration",
+        "Text": "Rare item expired."
+    },
+    {
+        "Key": "TransfiniteTimeExtra5",
+        "Text": "Clear in {0}s to start stage 14."
+    },
+    {
+        "Key": "TransfiniteTimeExtra6",
+        "Text": "<color=#64EE64>Clear in {0}s to start stage 14. (Complete)</color>"
+    },
+    {
+        "Key": "TransfiniteTimeExtra7",
+        "Text": "<color=#ee2746>Clear in {0}s to start stage 14.</color>"
+    },
+    {
+        "Key": "FavorabilityCharacterSelectChangeTips",
+        "Text": "You have made changes. Save and exit?"
+    },
+    {
+        "Key": "PcMouseButtonAttack",
+        "Text": "Attack"
+    },
+    {
+        "Key": "PcMouseButtonDodge",
+        "Text": "Dodge"
+    },
+    {
+        "Key": "FavorabilityStoryCharName",
+        "Text": "{0} {1}"
+    },
+    {
+        "Key": "FavorabilityStoryNoOne",
+        "Text": "No story data available"
+    },
+    {
+        "Key": "LessThan",
+        "Text": "Less than"
+    },
+    {
+        "Key": "XTwoSideTowerChapterConditionProcess",
+        "Text": "Clear {0} to unlock"
+    },
+    {
+        "Key": "XTwoSideTowerChapterCleared",
+        "Text": "Highest Vision Points: {0}"
+    },
+    {
+        "Key": "XTwoSideTowerChapterNotCleared",
+        "Text": "Uncleared"
+    },
+    {
+        "Key": "XTwoSideTowerChapterTimeProcess",
+        "Text": "Unlocks after {0}"
+    },
+    {
+        "Key": "TwoSideTowerPositiveTitle",
+        "Text": "Downstream"
+    },
+    {
+        "Key": "TwoSideTowerNegativeTitle",
+        "Text": "Upstream"
+    },
+    {
+        "Key": "TwoSideTowerStageDetailTitle",
+        "Text": "Stage Details"
+    },
+    {
+        "Key": "TwoSideTowerResetTitle",
+        "Text": "Tips"
+    },
+    {
+        "Key": "TwoSideTowerResetContent",
+        "Text": "Resetting the chapter will <color=#e41f0a>reset your chapter progress</color>, but you will keep your highest score in the Upstream Phase.\\nAre you sure you want to start a new challenge?"
+    },
+    {
+        "Key": "TwoSideTowerSettleShieldDetail",
+        "Text": "You have broken through <color=#e41f0a>{1}</color> Mirage Features\\nand blocked <color=#00ffffff>{0}</color> Mirage Features in the battle of the Upstream Phase."
+    },
+    {
+        "Key": "TwoSideTowerFightAgain",
+        "Text": "Challenge Again"
+    },
+    {
+        "Key": "TwoSideTowerAutoFightTitle",
+        "Text": "Tips"
+    },
+    {
+        "Key": "TwoSideTowerAutoFightContent",
+        "Text": "After resetting the chapter, you can use Auto Clear to <color=#e41f0a>skip</color> the stages that you have cleared in the Downstream Phase.\\nAre you sure you want to use Auto Clear?"
+    },
+    {
+        "Key": "TwoSideTowerSettleTitle",
+        "Text": "{0} Cleared!"
+    },
+    {
+        "Key": "TwoSideTowerChangeTip1",
+        "Text": "Downstream Phase is over."
+    },
+    {
+        "Key": "TwoSideTowerChangeTip2",
+        "Text": "Entering Upstream Phase."
+    },
+    {
+        "Key": "TwoSideTowerStageEnterTipsTitle",
+        "Text": "Enter"
+    },
+    {
+        "Key": "TwoSideTowerStageEnterTipsContent",
+        "Text": "After you select and challenge a stage, you can challenge the remaining stages during the Against the Current phase. Challenge this stage first?"
+    },
+    {
+        "Key": "UiNewActivityCalendarOpenTime",
+        "Text": "Activates in {0}"
+    },
+    {
+        "Key": "UiNewActivityCalendarBtnTips1",
+        "Text": "New event has started"
+    },
+    {
+        "Key": "UiNewActivityCalendarBtnTips2",
+        "Text": "Events With Rich Rewards"
+    },
+    {
+        "Key": "UiNewActivityCalendarBtnTips3",
+        "Text": "Events Here"
     },
     {
         "Key": "Theatre3SettlementEmpty",
@@ -19904,6 +19992,10 @@
         "Text": "%"
     },
     {
+        "Key": "SceneTranslationJP",
+        "Text": "\u30b7\u30fc\u30f3"
+    },
+    {
         "Key": "Theatre3EquipCapcityDesc",
         "Text": "<color=#{0}>Capacity: {1}/{2}</color>"
     },
@@ -20070,14 +20162,6 @@
     {
         "Key": "EnPcRechargeCloseTip",
         "Text": "In-game recharge is not available in the Ascension Test for PC version, please recharge through mobile version."
-    },
-    {
-        "Key": "PcMouseButtonAttack",
-        "Text": "Attack"
-    },
-    {
-        "Key": "PcMouseButtonDodge",
-        "Text": "Dodge"
     },
     {
         "Key": "ThousandEN",

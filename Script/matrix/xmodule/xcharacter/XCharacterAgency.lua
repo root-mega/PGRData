@@ -48,6 +48,19 @@ end
 ---**********************************************************************************************************************************
 
 -- service config end --
+function XCharacterAgency:HasDuplicateCharId(tbl)
+    local seen = {}
+
+    for index, value in pairs(tbl) do
+        local charId = XRobotManager.GetCharacterId(value)
+        if seen[charId] then
+            return true, index
+        end
+        seen[charId] = true
+    end
+
+    return false
+end
 
 -- 是否展示独域/跃升技能
 function XCharacterAgency:CheckIsShowEnhanceSkill(charId)
@@ -2279,6 +2292,10 @@ end
 
 function XCharacterAgency:GetCharacterTradeName(templateId)
     return XCharacterConfigs.GetCharacterTradeName(templateId)
+end
+
+function XCharacterAgency:GetCharacterLogName(templateId)
+    return XCharacterConfigs.GetCharacterLogName(templateId)
 end
 
 function XCharacterAgency:GetCharMaxQuality(templateId)

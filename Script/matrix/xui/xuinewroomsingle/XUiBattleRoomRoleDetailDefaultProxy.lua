@@ -247,6 +247,10 @@ function XUiBattleRoomRoleDetailDefaultProxy:GetFilterSortOverrideFunTable()
     return nil
 end
 
+function XUiBattleRoomRoleDetailDefaultProxy:GetFilterCharIdFun(entity)
+    return nil
+end
+
 -- 该界面是否启用q版模型 默认用愚人节检测
 function XUiBattleRoomRoleDetailDefaultProxy:CheckUseCuteModel()
     return XDataCenter.AprilFoolDayManager.IsInCuteModelTime()

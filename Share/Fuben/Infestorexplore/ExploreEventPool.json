@@ -1,0 +1,3902 @@
+[
+    {
+        "Id": 1,
+        "PoolId": 999,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            50.0,
+            null,
+            null
+        ],
+        "Description": "All team members restore 50% HP.",
+        "Name": "HP Recovery",
+        "Icon": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreEventShop01.png"
+    },
+    {
+        "Id": 2,
+        "PoolId": 999,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            7.0,
+            null,
+            null
+        ],
+        "Description": "Gain a random add-on unit.",
+        "Name": "Add-On Unit",
+        "Icon": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreEventShop02.png"
+    },
+    {
+        "Id": 3,
+        "PoolId": 999,
+        "Weight": 100,
+        "Type": 502,
+        "Params": [
+            null,
+            99.0,
+            null,
+            null
+        ],
+        "Description": "Remove all negative effects.",
+        "Name": "Cleansing",
+        "Icon": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreEventShop03.png"
+    },
+    {
+        "Id": 4,
+        "PoolId": 10001,
+        "Weight": 80,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [80%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 5,
+        "PoolId": 10001,
+        "Weight": 15,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "Lose 60 Aberrant Cubes [15%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 6,
+        "PoolId": 10001,
+        "Weight": 5,
+        "Type": 302,
+        "Params": [
+            null,
+            53.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 53 Aberrant Cubes [5%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 7,
+        "PoolId": 10002,
+        "Weight": 55,
+        "Type": 303,
+        "Params": [
+            null,
+            32.0,
+            53.0,
+            null
+        ],
+        "Description": "Obtain 32-53 Aberrant Cubes [55%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 8,
+        "PoolId": 10002,
+        "Weight": 40,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [40%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 9,
+        "PoolId": 10002,
+        "Weight": 5,
+        "Type": 302,
+        "Params": [
+            null,
+            -45.0,
+            null,
+            null
+        ],
+        "Description": "Lose 45 Aberrant Cubes [5%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 10,
+        "PoolId": 10003,
+        "Weight": 30,
+        "Type": 301,
+        "Params": [
+            null,
+            100.0,
+            null,
+            null
+        ],
+        "Description": "Your Aberrant Cubes x2 [30%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 11,
+        "PoolId": 10003,
+        "Weight": 70,
+        "Type": 301,
+        "Params": [
+            null,
+            -100.0,
+            null,
+            null
+        ],
+        "Description": "Lose all Aberrant Cubes [70%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 12,
+        "PoolId": 10004,
+        "Weight": 60,
+        "Type": 502,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "Remove a random negative effect [60%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 13,
+        "PoolId": 10004,
+        "Weight": 30,
+        "Type": 502,
+        "Params": [
+            null,
+            99.0,
+            null,
+            null
+        ],
+        "Description": "Remove all negative effects [30%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 14,
+        "PoolId": 10004,
+        "Weight": 10,
+        "Type": 501,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a negative effect [10%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 15,
+        "PoolId": 10005,
+        "Weight": 70,
+        "Type": 101,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a low-grade Add-On Unit [70%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 16,
+        "PoolId": 10005,
+        "Weight": 20,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "Lose 60 Aberrant Cubes [20%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 17,
+        "PoolId": 10005,
+        "Weight": 10,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a high-grade Add-On Unit [10%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 18,
+        "PoolId": 10006,
+        "Weight": 70,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a mid-grade Add-On Unit [70%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 19,
+        "PoolId": 10006,
+        "Weight": 20,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "Lose 75 Aberrant Cubes [20%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 20,
+        "PoolId": 10006,
+        "Weight": 10,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a high-grade Add-On Unit [10%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 21,
+        "PoolId": 10007,
+        "Weight": 65,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [65%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 22,
+        "PoolId": 10007,
+        "Weight": 30,
+        "Type": 201,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "All team members lose 50% HP [30%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 23,
+        "PoolId": 10007,
+        "Weight": 5,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a high-grade Add-On Unit [5%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 24,
+        "PoolId": 10008,
+        "Weight": 65,
+        "Type": 302,
+        "Params": [
+            null,
+            42.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 42 Aberrant Cubes [65%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 25,
+        "PoolId": 10008,
+        "Weight": 30,
+        "Type": 201,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "All team members lose 60% HP [30%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 26,
+        "PoolId": 10008,
+        "Weight": 5,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a high-grade Add-On Unit [5%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 27,
+        "PoolId": 10009,
+        "Weight": 65,
+        "Type": 302,
+        "Params": [
+            null,
+            42.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 42 Aberrant Cubes [65%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 28,
+        "PoolId": 10009,
+        "Weight": 30,
+        "Type": 401,
+        "Params": [
+            null,
+            -1.0,
+            null,
+            null
+        ],
+        "Description": "Lose 1 Action Point [30%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 29,
+        "PoolId": 10009,
+        "Weight": 5,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a high-grade Add-On Unit [5%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 30,
+        "PoolId": 10010,
+        "Weight": 80,
+        "Type": 201,
+        "Params": [
+            null,
+            -80.0,
+            null,
+            null
+        ],
+        "Description": "All team members lose 80% HP [80%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 31,
+        "PoolId": 10010,
+        "Weight": 15,
+        "Type": 401,
+        "Params": [
+            null,
+            -3.0,
+            null,
+            null
+        ],
+        "Description": "Lose 3 Action Points [15%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 32,
+        "PoolId": 10010,
+        "Weight": 5,
+        "Type": 101,
+        "Params": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a high-grade Add-On Unit at max level [5%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 33,
+        "PoolId": 10011,
+        "Weight": 80,
+        "Type": 301,
+        "Params": [
+            null,
+            -100.0,
+            null,
+            null
+        ],
+        "Description": "Lose all Aberrant Cubes [80%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 34,
+        "PoolId": 10011,
+        "Weight": 15,
+        "Type": 401,
+        "Params": [
+            null,
+            -3.0,
+            null,
+            null
+        ],
+        "Description": "Lose 3 Action Points [15%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 35,
+        "PoolId": 10011,
+        "Weight": 5,
+        "Type": 101,
+        "Params": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a high-grade Add-On Unit at max level [5%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 36,
+        "PoolId": 10012,
+        "Weight": 50,
+        "Type": 101,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a low-grade Add-On Unit [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 37,
+        "PoolId": 10012,
+        "Weight": 30,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a mid-grade Add-On Unit [30%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 38,
+        "PoolId": 10012,
+        "Weight": 20,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a high-grade Add-On Unit [20%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 39,
+        "PoolId": 10013,
+        "Weight": 50,
+        "Type": 202,
+        "Params": [
+            null,
+            50.0,
+            null,
+            null
+        ],
+        "Description": "A random team member restores 50% HP [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 40,
+        "PoolId": 10013,
+        "Weight": 40,
+        "Type": 201,
+        "Params": [
+            null,
+            30.0,
+            null,
+            null
+        ],
+        "Description": "All team members restore 30% HP [40%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 41,
+        "PoolId": 10013,
+        "Weight": 10,
+        "Type": 201,
+        "Params": [
+            null,
+            -10.0,
+            null,
+            null
+        ],
+        "Description": "All team members lose 10% HP [10%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 42,
+        "PoolId": 10014,
+        "Weight": 60,
+        "Type": 301,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "Lose 50% of your Aberrant Cubes [60%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 43,
+        "PoolId": 10014,
+        "Weight": 30,
+        "Type": 401,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "Gain 1 Action Point [30%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 44,
+        "PoolId": 10014,
+        "Weight": 10,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a high-grade Add-On Unit [10%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 45,
+        "PoolId": 10015,
+        "Weight": 60,
+        "Type": 201,
+        "Params": [
+            null,
+            30.0,
+            null,
+            null
+        ],
+        "Description": "All team members restore 30% HP [60%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 46,
+        "PoolId": 10015,
+        "Weight": 20,
+        "Type": 401,
+        "Params": [
+            null,
+            -1.0,
+            null,
+            null
+        ],
+        "Description": "Lose 1 Action Point [20%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 47,
+        "PoolId": 10015,
+        "Weight": 20,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a mid-grade Add-On Unit [20%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 48,
+        "PoolId": 10016,
+        "Weight": 30,
+        "Type": 201,
+        "Params": [
+            null,
+            50.0,
+            null,
+            null
+        ],
+        "Description": "All team members restore 50% HP [30%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 49,
+        "PoolId": 10016,
+        "Weight": 30,
+        "Type": 401,
+        "Params": [
+            null,
+            -1.0,
+            null,
+            null
+        ],
+        "Description": "Lose 1 Action Point [30%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 50,
+        "PoolId": 10016,
+        "Weight": 40,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a high-grade Add-On Unit [40%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 51,
+        "PoolId": 10017,
+        "Weight": 60,
+        "Type": 202,
+        "Params": [
+            null,
+            80.0,
+            null,
+            null
+        ],
+        "Description": "A random team member restores 80% HP [60%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 52,
+        "PoolId": 10017,
+        "Weight": 40,
+        "Type": 201,
+        "Params": [
+            null,
+            50.0,
+            null,
+            null
+        ],
+        "Description": "All team members restore 50% HP [40%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 53,
+        "PoolId": 10018,
+        "Weight": 40,
+        "Type": 201,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "All team members lose 50% HP [40%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 54,
+        "PoolId": 10018,
+        "Weight": 40,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "Lose 60 Aberrant Cubes [40%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 55,
+        "PoolId": 10018,
+        "Weight": 20,
+        "Type": 301,
+        "Params": [
+            null,
+            50.0,
+            null,
+            null
+        ],
+        "Description": "Gain 50% of your Aberrant Cubes [20%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 56,
+        "PoolId": 10019,
+        "Weight": 40,
+        "Type": 202,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "A random team member loses 50% HP [40%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 57,
+        "PoolId": 10019,
+        "Weight": 40,
+        "Type": 302,
+        "Params": [
+            null,
+            42.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 42 Aberrant Cubes [40%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 58,
+        "PoolId": 10019,
+        "Weight": 20,
+        "Type": 401,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "Gain 1 Action Point [20%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 59,
+        "PoolId": 10020,
+        "Weight": 50,
+        "Type": 303,
+        "Params": [
+            null,
+            40.0,
+            42.0,
+            null
+        ],
+        "Description": "Obtain 40-42 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 60,
+        "PoolId": 10020,
+        "Weight": 40,
+        "Type": 101,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a low-grade Add-On Unit [40%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 61,
+        "PoolId": 10020,
+        "Weight": 10,
+        "Type": 501,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a negative effect [10%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 62,
+        "PoolId": 10021,
+        "Weight": 50,
+        "Type": 303,
+        "Params": [
+            null,
+            35.0,
+            53.0,
+            null
+        ],
+        "Description": "Obtain 35-53 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 63,
+        "PoolId": 10021,
+        "Weight": 40,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a mid-grade Add-On Unit [40%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 64,
+        "PoolId": 10021,
+        "Weight": 10,
+        "Type": 501,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a negative effect [10%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 65,
+        "PoolId": 10022,
+        "Weight": 50,
+        "Type": 303,
+        "Params": [
+            null,
+            42.0,
+            60.0,
+            null
+        ],
+        "Description": "Obtain 42-60 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 66,
+        "PoolId": 10022,
+        "Weight": 40,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a high-grade Add-On Unit [40%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 67,
+        "PoolId": 10022,
+        "Weight": 10,
+        "Type": 501,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "Obtain a negative effect [10%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 68,
+        "PoolId": 20001,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Dismantle forcefully</size></color>\\n\u2192Obtain a low-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 69,
+        "PoolId": 20001,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -10.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 10% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 70,
+        "PoolId": 20001,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Open alone</size></color>\\n\u2192Obtain a low-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 71,
+        "PoolId": 20001,
+        "Weight": 100,
+        "Type": 202,
+        "Params": [
+            null,
+            -20.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192A random team member loses 20% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 72,
+        "PoolId": 20002,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Dismantle forcefully</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 73,
+        "PoolId": 20002,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -20.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 20% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 74,
+        "PoolId": 20002,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Open alone</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 75,
+        "PoolId": 20002,
+        "Weight": 100,
+        "Type": 202,
+        "Params": [
+            null,
+            -30.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192A random team member loses 30% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 76,
+        "PoolId": 20003,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Dismantle forcefully</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 77,
+        "PoolId": 20003,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 60% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 78,
+        "PoolId": 20003,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Decipher alone</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 79,
+        "PoolId": 20003,
+        "Weight": 100,
+        "Type": 202,
+        "Params": [
+            null,
+            -80.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192A random team member loses 80% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 80,
+        "PoolId": 20004,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Apply minimal effort</size></color>\\n\u2192Obtain a low-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 81,
+        "PoolId": 20004,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -20.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 20% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 82,
+        "PoolId": 20004,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Apply appropriate effort</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 83,
+        "PoolId": 20004,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -40.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 40% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 84,
+        "PoolId": 20004,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Apply full effort</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 85,
+        "PoolId": 20004,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 60% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 86,
+        "PoolId": 20005,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Apply minimal effort</size></color>\\n\u2192Obtain a low-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 87,
+        "PoolId": 20005,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -45.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 45 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 88,
+        "PoolId": 20005,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Apply appropriate effort</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 89,
+        "PoolId": 20005,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 60 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 90,
+        "PoolId": 20005,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Apply full effort</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 91,
+        "PoolId": 20005,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 92,
+        "PoolId": 20006,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Dismantle circumspectly</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 93,
+        "PoolId": 20006,
+        "Weight": 100,
+        "Type": 501,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Obtain a negative effect",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 94,
+        "PoolId": 20006,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely dismantle</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 95,
+        "PoolId": 20006,
+        "Weight": 100,
+        "Type": 401,
+        "Params": [
+            null,
+            -1.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 1 Action Point",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 96,
+        "PoolId": 20007,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Dismantle circumspectly</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 97,
+        "PoolId": 20007,
+        "Weight": 100,
+        "Type": 501,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Obtain a negative effect",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 98,
+        "PoolId": 20007,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely dismantle</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 99,
+        "PoolId": 20007,
+        "Weight": 100,
+        "Type": 401,
+        "Params": [
+            null,
+            -1.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 1 Action Point",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 100,
+        "PoolId": 20008,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            50.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Comprehensive maintenance</size></color>\\n\u2192All team members restore 50% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 101,
+        "PoolId": 20008,
+        "Weight": 100,
+        "Type": 401,
+        "Params": [
+            null,
+            -1.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 1 Action Point",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 102,
+        "PoolId": 20008,
+        "Weight": 100,
+        "Type": 202,
+        "Params": [
+            null,
+            50.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Individual maintenance</size></color>\\n\u2192A random team member restores 50% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 103,
+        "PoolId": 20008,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -20.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 20% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 104,
+        "PoolId": 20009,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            20.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Apply minimal effort</size></color>\\n\u2192All team members restore 20% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 105,
+        "PoolId": 20009,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -20.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 20% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 106,
+        "PoolId": 20009,
+        "Weight": 100,
+        "Type": 202,
+        "Params": [
+            null,
+            50.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Apply appropriate effort</size></color>\\n\u2192A random team member restores 50% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 107,
+        "PoolId": 20009,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -20.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 20% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 108,
+        "PoolId": 20009,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            50.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Apply full effort</size></color>\\n\u2192All team members restore 50% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 109,
+        "PoolId": 20009,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 50% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 110,
+        "PoolId": 20010,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            30.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Pay money</size></color>\\n\u2192All team members restore 30% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 111,
+        "PoolId": 20010,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -20.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 20% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 112,
+        "PoolId": 20010,
+        "Weight": 100,
+        "Type": 303,
+        "Params": [
+            null,
+            40.0,
+            42.0,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Take damage</size></color>\\n\u2192Obtain 40-42 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 113,
+        "PoolId": 20010,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -30.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 30% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 114,
+        "PoolId": 20010,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Open alone</size></color>\\n\u2192Obtain a low-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 115,
+        "PoolId": 20010,
+        "Weight": 100,
+        "Type": 202,
+        "Params": [
+            null,
+            -20.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192A random team member loses 20% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 116,
+        "PoolId": 20011,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            30.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Pay money</size></color>\\n\u2192All team members restore 30% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 117,
+        "PoolId": 20011,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -30.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 30% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 118,
+        "PoolId": 20011,
+        "Weight": 100,
+        "Type": 303,
+        "Params": [
+            null,
+            35.0,
+            53.0,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Take damage</size></color>\\n\u2192Obtain 35-53 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 119,
+        "PoolId": 20011,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -30.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 30% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 120,
+        "PoolId": 20011,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Withstand inhibition</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 121,
+        "PoolId": 20011,
+        "Weight": 100,
+        "Type": 202,
+        "Params": [
+            null,
+            -30.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192A random team member loses 30% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 122,
+        "PoolId": 20012,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            50.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Pay money</size></color>\\n\u2192All team members restore 50% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 123,
+        "PoolId": 20012,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 50% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 124,
+        "PoolId": 20012,
+        "Weight": 100,
+        "Type": 303,
+        "Params": [
+            null,
+            42.0,
+            60.0,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Take damage</size></color>\\n\u2192Obtain 42-60 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 125,
+        "PoolId": 20012,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 50% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 126,
+        "PoolId": 20012,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Withstand inhibition</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 127,
+        "PoolId": 20012,
+        "Weight": 100,
+        "Type": 202,
+        "Params": [
+            null,
+            -80.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192A random team member loses 80% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 128,
+        "PoolId": 20013,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            35.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Probe to extract</size></color>\\n\u2192Earn 35 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 129,
+        "PoolId": 20013,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -20.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 20% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 130,
+        "PoolId": 20013,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            40.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Draw 1 time</size></color>\\n\u2192Earn 40 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 131,
+        "PoolId": 20013,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -30.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 30% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 132,
+        "PoolId": 20013,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            49.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Draw multiple times</size></color>\\n\u2192Obtain 49 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 133,
+        "PoolId": 20013,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -40.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 40% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 134,
+        "PoolId": 20014,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            50.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Require maintenance parts</size></color>\\n\u2192All team members restore 50% HP.",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 135,
+        "PoolId": 20014,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 50% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 136,
+        "PoolId": 20014,
+        "Weight": 100,
+        "Type": 401,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Require Energy compensation</size></color>\\n\u2192Obtain 1 Action Point",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 137,
+        "PoolId": 20014,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 50% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 138,
+        "PoolId": 20014,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Require equipment</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 139,
+        "PoolId": 20014,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 50% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 140,
+        "PoolId": 20015,
+        "Weight": 100,
+        "Type": 502,
+        "Params": [
+            null,
+            99.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Cleanse All</size></color>\\n\u2192Remove all negative effects",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 141,
+        "PoolId": 20015,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 50% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 142,
+        "PoolId": 20015,
+        "Weight": 100,
+        "Type": 502,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Quick Cleanse</size></color>\\n\u2192Randomly remove 1 negative effect",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 143,
+        "PoolId": 20015,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            -20.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 20% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 144,
+        "PoolId": 20016,
+        "Weight": 100,
+        "Type": 502,
+        "Params": [
+            null,
+            99.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Cleanse All</size></color>\\n\u2192Remove all negative effects",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 145,
+        "PoolId": 20016,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 50% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 146,
+        "PoolId": 20016,
+        "Weight": 100,
+        "Type": 502,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Quick Cleanse</size></color>\\n\u2192Randomly remove 1 negative effect",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 147,
+        "PoolId": 20016,
+        "Weight": 100,
+        "Type": 202,
+        "Params": [
+            null,
+            -30.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192A random team member loses 30% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 148,
+        "PoolId": 20017,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a low-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 149,
+        "PoolId": 20017,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -20.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 20% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 150,
+        "PoolId": 20017,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain a low-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 151,
+        "PoolId": 20017,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -45.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 45 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 152,
+        "PoolId": 20017,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Recklessly open</size></color>\\n\u2192Obtain a low-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 153,
+        "PoolId": 20017,
+        "Weight": 100,
+        "Type": 401,
+        "Params": [
+            null,
+            -1.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 1 Action Point",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 154,
+        "PoolId": 20018,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 155,
+        "PoolId": 20018,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -30.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 30% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 156,
+        "PoolId": 20018,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 157,
+        "PoolId": 20018,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 60 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 158,
+        "PoolId": 20018,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Dismantle circumspectly</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 159,
+        "PoolId": 20018,
+        "Weight": 100,
+        "Type": 401,
+        "Params": [
+            null,
+            -1.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 1 Action Point",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 160,
+        "PoolId": 20019,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 161,
+        "PoolId": 20019,
+        "Weight": 100,
+        "Type": 201,
+        "Params": [
+            null,
+            -50.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192All team members lose 50% HP",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 162,
+        "PoolId": 20019,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 163,
+        "PoolId": 20019,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 164,
+        "PoolId": 20019,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Recklessly open</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 165,
+        "PoolId": 20019,
+        "Weight": 100,
+        "Type": 401,
+        "Params": [
+            null,
+            -1.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 1 Action Point",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 166,
+        "PoolId": 20020,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            10.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Open</size></color>\\n\u2192Gain 10% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 167,
+        "PoolId": 20020,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            38.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Open</size></color>\\n\u2192Obtain 38 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 168,
+        "PoolId": 20020,
+        "Weight": 100,
+        "Type": 303,
+        "Params": [
+            null,
+            36.0,
+            42.0,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Open</size></color>\\n\u2192Obtain 36-42 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 169,
+        "PoolId": 20021,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            10.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Open</size></color>\\n\u2192Gain 10% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 170,
+        "PoolId": 20021,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            44.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Open</size></color>\\n\u2192Obtain 44 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 171,
+        "PoolId": 20021,
+        "Weight": 100,
+        "Type": 303,
+        "Params": [
+            null,
+            35.0,
+            53.0,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Open</size></color>\\n\u2192Obtain 35-53 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 172,
+        "PoolId": 20022,
+        "Weight": 100,
+        "Type": 301,
+        "Params": [
+            null,
+            10.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Open</size></color>\\n\u2192Gain 10% of your Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 173,
+        "PoolId": 20022,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            49.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Open</size></color>\\n\u2192Obtain 49 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 174,
+        "PoolId": 20022,
+        "Weight": 100,
+        "Type": 303,
+        "Params": [
+            null,
+            42.0,
+            56.0,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Open</size></color>\\n\u2192Obtain 42-56 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 175,
+        "PoolId": 10023,
+        "Weight": 50,
+        "Type": 103,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "Upgrade 1 random Add-On Unit you already own [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 176,
+        "PoolId": 10023,
+        "Weight": 50,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "Lose 60 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 177,
+        "PoolId": 10024,
+        "Weight": 50,
+        "Type": 103,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "Upgrade 1 random Add-On Unit you already own [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 178,
+        "PoolId": 10024,
+        "Weight": 50,
+        "Type": 102,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Description": "Lose 1 random Add-On Unit you already own [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 179,
+        "PoolId": 20023,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a low-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 180,
+        "PoolId": 20023,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -45.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 45 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 181,
+        "PoolId": 20023,
+        "Weight": 100,
+        "Type": 103,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Upgrade 1 random Add-On Unit you already own",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 182,
+        "PoolId": 20023,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 60 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 183,
+        "PoolId": 20024,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 184,
+        "PoolId": 20024,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 60 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 185,
+        "PoolId": 20024,
+        "Weight": 100,
+        "Type": 103,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Upgrade 1 random Add-On Unit you already own",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 186,
+        "PoolId": 20024,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 60 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 187,
+        "PoolId": 20025,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 188,
+        "PoolId": 20025,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 189,
+        "PoolId": 20025,
+        "Weight": 100,
+        "Type": 103,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Upgrade 1 random Add-On Unit you already own",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 190,
+        "PoolId": 20025,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 60 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 191,
+        "PoolId": 11001,
+        "Weight": 25,
+        "Type": 101,
+        "Params": [
+            null,
+            2001.0,
+            null,
+            null
+        ],
+        "Description": "Obtain Add-On Unit: Fuel Purification (Fire DMG Bonus) [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 192,
+        "PoolId": 11001,
+        "Weight": 25,
+        "Type": 302,
+        "Params": [
+            null,
+            -45.0,
+            null,
+            null
+        ],
+        "Description": "Lose 45 Aberrant Cubes [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 193,
+        "PoolId": 11001,
+        "Weight": 50,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 194,
+        "PoolId": 11002,
+        "Weight": 25,
+        "Type": 101,
+        "Params": [
+            null,
+            2002.0,
+            null,
+            null
+        ],
+        "Description": "Obtain Add-On Unit: Improved Circuitry (Lightning DMG Bonus) [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 195,
+        "PoolId": 11002,
+        "Weight": 25,
+        "Type": 302,
+        "Params": [
+            null,
+            -45.0,
+            null,
+            null
+        ],
+        "Description": "Lose 45 Aberrant Cubes [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 196,
+        "PoolId": 11002,
+        "Weight": 50,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 197,
+        "PoolId": 11003,
+        "Weight": 25,
+        "Type": 101,
+        "Params": [
+            null,
+            2003.0,
+            null,
+            null
+        ],
+        "Description": "Obtain Add-On Unit: Radiator Grill (Ice DMG Bonus) [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 198,
+        "PoolId": 11003,
+        "Weight": 25,
+        "Type": 302,
+        "Params": [
+            null,
+            -45.0,
+            null,
+            null
+        ],
+        "Description": "Lose 45 Aberrant Cubes [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 199,
+        "PoolId": 11003,
+        "Weight": 50,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 200,
+        "PoolId": 11004,
+        "Weight": 25,
+        "Type": 101,
+        "Params": [
+            null,
+            2004.0,
+            null,
+            null
+        ],
+        "Description": "Obtain Add-On Unit: Radiation Boost (Dark DMG Bonus) [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 201,
+        "PoolId": 11004,
+        "Weight": 25,
+        "Type": 302,
+        "Params": [
+            null,
+            -45.0,
+            null,
+            null
+        ],
+        "Description": "Lose 45 Aberrant Cubes [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 202,
+        "PoolId": 11004,
+        "Weight": 50,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 203,
+        "PoolId": 11005,
+        "Weight": 25,
+        "Type": 101,
+        "Params": [
+            null,
+            2005.0,
+            null,
+            null
+        ],
+        "Description": "Obtain Add-On Unit: Enhanced Strike (Physical DMG Bonus) [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 204,
+        "PoolId": 11005,
+        "Weight": 25,
+        "Type": 302,
+        "Params": [
+            null,
+            -45.0,
+            null,
+            null
+        ],
+        "Description": "Lose 45 Aberrant Cubes [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 205,
+        "PoolId": 11005,
+        "Weight": 50,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 206,
+        "PoolId": 11006,
+        "Weight": 25,
+        "Type": 101,
+        "Params": [
+            null,
+            3008.0,
+            null,
+            null
+        ],
+        "Description": "Obtain Add-On Unit: Shield Strategy (Bonus damage when a Shield is active) [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 207,
+        "PoolId": 11006,
+        "Weight": 25,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "Lose 60 Aberrant Cubes [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 208,
+        "PoolId": 11006,
+        "Weight": 50,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 209,
+        "PoolId": 11007,
+        "Weight": 25,
+        "Type": 101,
+        "Params": [
+            null,
+            3010.0,
+            null,
+            null
+        ],
+        "Description": "Obtain Add-On Unit: Signal Mk.1 (Bonus damage after pinging an orb) [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 210,
+        "PoolId": 11007,
+        "Weight": 25,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "Lose 60 Aberrant Cubes [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 211,
+        "PoolId": 11007,
+        "Weight": 50,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 212,
+        "PoolId": 11008,
+        "Weight": 25,
+        "Type": 101,
+        "Params": [
+            null,
+            3017.0,
+            null,
+            null
+        ],
+        "Description": "Obtain Add-On Unit: Shock Wave Lead (QTE deals Area DMG) [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 213,
+        "PoolId": 11008,
+        "Weight": 25,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "Lose 60 Aberrant Cubes [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 214,
+        "PoolId": 11008,
+        "Weight": 50,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 215,
+        "PoolId": 11009,
+        "Weight": 25,
+        "Type": 101,
+        "Params": [
+            null,
+            2010.0,
+            null,
+            null
+        ],
+        "Description": "Obtain Add-On Unit: Prototype Correction (Restores Orb after defeating an enemy) [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 216,
+        "PoolId": 11009,
+        "Weight": 25,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "Lose 60 Aberrant Cubes [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 217,
+        "PoolId": 11009,
+        "Weight": 50,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 218,
+        "PoolId": 11010,
+        "Weight": 25,
+        "Type": 101,
+        "Params": [
+            null,
+            3006.0,
+            null,
+            null
+        ],
+        "Description": "Obtain Add-On Unit: Potential Control (Bonus damage after dodging) [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 219,
+        "PoolId": 11010,
+        "Weight": 25,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "Lose 60 Aberrant Cubes [25%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 220,
+        "PoolId": 11010,
+        "Weight": 50,
+        "Type": 302,
+        "Params": [
+            null,
+            32.0,
+            null,
+            null
+        ],
+        "Description": "Obtain 32 Aberrant Cubes [50%]",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 221,
+        "PoolId": 21001,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 222,
+        "PoolId": 21001,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 60 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 223,
+        "PoolId": 21001,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2014.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain Add-On Unit: Link Mk.2 (Bonus Combo DMG)",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 224,
+        "PoolId": 21001,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 225,
+        "PoolId": 21002,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 226,
+        "PoolId": 21002,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 60 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 227,
+        "PoolId": 21002,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2013.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain Add-On Unit: High-speed Processor (Reduces QTE cooldown)",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 228,
+        "PoolId": 21002,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 229,
+        "PoolId": 21003,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 230,
+        "PoolId": 21003,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 60 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 231,
+        "PoolId": 21003,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2006.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain Add-On Unit: Power Boost (Bonus Basic ATK DMG)",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 232,
+        "PoolId": 21003,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 233,
+        "PoolId": 21004,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a mid-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 234,
+        "PoolId": 21004,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -60.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 60 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 235,
+        "PoolId": 21004,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            2018.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain Add-On Unit: Shared Intelligence (Restores Orb when switching to a different member)",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 236,
+        "PoolId": 21004,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 237,
+        "PoolId": 21005,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 238,
+        "PoolId": 21005,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 239,
+        "PoolId": 21005,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3021.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain Add-On Unit: Squad Coverage (Bonus damage when switching to a different member)",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 240,
+        "PoolId": 21005,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -90.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 90 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 241,
+        "PoolId": 21006,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 242,
+        "PoolId": 21006,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 243,
+        "PoolId": 21006,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3004.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain Add-On Unit: Sticky Bomb (Area Fire DMG)",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 244,
+        "PoolId": 21006,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -90.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 90 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 245,
+        "PoolId": 21007,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 246,
+        "PoolId": 21007,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 247,
+        "PoolId": 21007,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3008.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain Add-On Unit: Shield Strategy (Bonus damage when a Shield is active)",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 248,
+        "PoolId": 21007,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -90.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 90 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 249,
+        "PoolId": 21008,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 250,
+        "PoolId": 21008,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 251,
+        "PoolId": 21008,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3019.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain Add-On Unit: Radioactive Dust (Bonus Dark DMG)",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 252,
+        "PoolId": 21008,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -90.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 90 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 253,
+        "PoolId": 21009,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 254,
+        "PoolId": 21009,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 255,
+        "PoolId": 21009,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3019.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain Add-On Unit: Radioactive Dust (Bonus Dark DMG)",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 256,
+        "PoolId": 21009,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -90.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 90 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 257,
+        "PoolId": 21010,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Carefully open</size></color>\\n\u2192Obtain a high-grade Add-On Unit",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 258,
+        "PoolId": 21010,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -75.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 75 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 259,
+        "PoolId": 21010,
+        "Weight": 100,
+        "Type": 101,
+        "Params": [
+            null,
+            3013.0,
+            null,
+            null
+        ],
+        "Description": "<color=#34AFF9><size=20>Crudely open</size></color>\\n\u2192Obtain Add-On Unit: High-voltage Arc (Area Lightning DMG)",
+        "Name": null,
+        "Icon": null
+    },
+    {
+        "Id": 260,
+        "PoolId": 21010,
+        "Weight": 100,
+        "Type": 302,
+        "Params": [
+            null,
+            -90.0,
+            null,
+            null
+        ],
+        "Description": "\\n\u2192Lose 90 Aberrant Cubes",
+        "Name": null,
+        "Icon": null
+    }
+]

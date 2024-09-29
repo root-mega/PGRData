@@ -785,9 +785,14 @@ XNoticeManagerCreator = function()
             return
         end
 
-        for _, v in ipairs(notice.Content) do
-            if XNoticeManager.CheckNoticeValid(v) then
-                table.insert(SubMenuNoticeMap, v)
+        -- debug 内网 渠道id = -1, 总是显示
+        if (XMain.IsDebug and CS.XHgSdkAgent.GetChannelId() == -1) or
+            XNoticeManager.CheckChannelAndPlatform(notice)
+        then
+            for _, v in ipairs(notice.Content) do
+                if XNoticeManager.CheckNoticeValid(v) then
+                    table.insert(SubMenuNoticeMap, v)
+                end
             end
         end
 
@@ -1318,11 +1323,19 @@ XNoticeManagerCreator = function()
         if not XNoticeManager.IsWhiteIp(notice.WhiteLists) then
             return false
         end
+
+        if not XNoticeManager.CheckChannelAndPlatform(notice) then
+            return false
+        end
         
+        return true
+    end
+    
+    function XNoticeManager.CheckChannelAndPlatform(notice)
         -- 发布渠道
         local channelInfoList = notice.ChannelInfoList
         if channelInfoList then
-            local myChannel = CS.XHeroSdkAgent.GetChannelId()
+            local myChannel = CS.XHgSdkAgent.GetChannelId()
             local isMyChannelInclude = false
             for i = 1, #channelInfoList do
                 local channel = channelInfoList[i]
@@ -1335,7 +1348,7 @@ XNoticeManagerCreator = function()
                 return false
             end
         end
-        
+
         -- 发布平台 pc,ios,android
         local loginPlatformList = notice.LoginPlatformList
         if loginPlatformList then
@@ -1352,7 +1365,6 @@ XNoticeManagerCreator = function()
                 return false
             end
         end
-
         return true
     end
 

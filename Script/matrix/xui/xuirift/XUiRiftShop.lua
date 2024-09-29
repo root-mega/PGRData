@@ -54,7 +54,7 @@ function XUiRiftShop:InitShopButton()
 end
 
 function XUiRiftShop:InitActivityAsset()
-    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelActivityAsset)
+    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelActivityAsset, self)
     XDataCenter.ItemManager.AddCountUpdateListener(
         {XDataCenter.ItemManager.ItemId.RiftCoin},
         handler(self, self.UpdateAssets),

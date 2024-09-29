@@ -94,8 +94,10 @@ XPhotographManagerCreator = function()
     function XPhotographManager.HandlerAddPhotoScene(data)
         HasSceneIdDic[data.BackgroundId] = data.BackgroundId
         XPhotographManager.SortSceneIdList()
-        --获得新场景时打开提示窗
-        XLuaUiManager.Open('UiSceneSettingObtain',data)
+        --获得新场景时打开提示窗 在抽卡时`
+        if not XLuaUiManager.IsUiShow("UiEpicFashionGacha") then
+            XLuaUiManager.Open("UiSceneSettingObtain", data)
+        end
         --新获得场景需要刷新终端红点
         XEventManager.DispatchEvent(XEventId.EVENT_MAINUI_TERMINAL_STATUS_CHANGE)
         CsXGameEventManager.Instance:Notify(XEventId.EVENT_MAINUI_TERMINAL_STATUS_CHANGE)

@@ -75,10 +75,10 @@ function XUiCharacterPanelRoleSkillV2P6:Refresh(characterId)
 
     self.SkillList = XCharacterConfigs.GetChracterSkillPosToGroupIdDic(characterId)
     
-    self:Open(self.IsOpen)
+    self:RefreshDetail(self.IsOpen)
 end
 
-function XUiCharacterPanelRoleSkillV2P6:Open(isOpen)
+function XUiCharacterPanelRoleSkillV2P6:RefreshDetail(isOpen)
     if not isOpen then return end
     
     self.IsOpen = true
@@ -147,6 +147,7 @@ function XUiCharacterPanelRoleSkillV2P6:RefreshGrid(length, skills, grids, grid,
             item.GameObject:SetActiveEx(true)
             grids[idx] = item
         end
+        item:Open()
         item:Refresh(skills[idx])
     end
 

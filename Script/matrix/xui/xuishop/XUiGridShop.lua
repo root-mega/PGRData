@@ -1,5 +1,6 @@
 local MAX_COUNT = CS.XGame.Config:GetInt("ShopBuyGoodsCountLimit")
 
+---@class XUiGridShop
 XUiGridShop = XClass(nil, "XUiGridShop")
 local Application = CS.UnityEngine.Application
 local Platform = Application.platform

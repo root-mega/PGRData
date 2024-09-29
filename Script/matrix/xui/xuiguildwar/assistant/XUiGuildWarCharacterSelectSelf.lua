@@ -90,7 +90,7 @@ function XUiGuildWarCharacterSelectSelf:SelectCharacter(index)
 end
 
 function XUiGuildWarCharacterSelectSelf:GetEntities(notFilter)
-    local list = XDataCenter.CharacterManager.GetOwnCharacterList(self._CharacterType)
+    local list = XMVCA.XCharacter:GetOwnCharacterList(self._CharacterType)
 
     if not notFilter then
         local filterData = XDataCenter.CommonCharacterFiltManager.GetSelectTagData(self._FilterKey)

@@ -16,7 +16,7 @@ end
 function XUiFubenActivityPuzzle:OnStart()
     self.RedPointIdArr = {}
     self:AutoRegisterBtn()
-    self.AssetPanel = XUiPanelActivityAsset.New(self.PanelAsset, true)
+    self.AssetPanel = XUiPanelActivityAsset.New(self.PanelAsset, self, true)
     self.AssetPanel:Refresh({ XDataCenter.FubenActivityPuzzleManager.GetActivityInfo().ItemId })
     self:InitBtnGroup()
 end

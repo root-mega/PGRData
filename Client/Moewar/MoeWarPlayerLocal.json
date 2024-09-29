@@ -1,0 +1,1433 @@
+[
+    {
+        "Id": 201,
+        "Name": "Lee",
+        "ModelName": "QR3LiangMd010011MZ",
+        "CareerName": "Attacker",
+        "CampName": "Gray Raven",
+        "Description": "Lee is a member of Gray Raven and a former member of Kurono's special task force. He has incredible knowledge of firearms and is very experienced in using them. Always speaking based on calculations and data, he can leave people with an impression of being distant and straightforward, but he will always protect those closest to him should conflicts arise. Has a deal with his younger brother, who currently lives in Babylonia.",
+        "IntroAnim": [
+            null,
+            "Show03",
+            "Show05"
+        ],
+        "IntroCv": 100000316,
+        "IntroLength": [
+            null,
+            5,
+            5
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks03",
+            "Thanks05"
+        ],
+        "ThankCv": 100000317,
+        "ThankLength": [
+            null,
+            6,
+            6
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadLi3SSQ.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadLiSSQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadLiSS.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleLi.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleLi.png",
+        "WinAnimGroupId": [
+            null,
+            1011,
+            2011,
+            3011,
+            4011,
+            4011
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1012,
+            2012,
+            3012,
+            4013,
+            4013
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 202,
+        "Name": "Wanshi",
+        "ModelName": "QR2WanshiMd010011MZ",
+        "CareerName": "Support",
+        "CampName": "Strike Hawk",
+        "Description": "As a Strike Hawk member, Wanshi always has a sleepy look. But once you get to know him better, you will realize he can be very trustworthy when things have gone bad.",
+        "IntroAnim": [
+            null,
+            "Show03",
+            "Show05"
+        ],
+        "IntroCv": 100000348,
+        "IntroLength": [
+            null,
+            9,
+            9
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks03",
+            "Thanks05"
+        ],
+        "ThankCv": 100000349,
+        "ThankLength": [
+            null,
+            11,
+            11
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadWanShi3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadWanShiQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadWanShi.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleWanshi.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleWanshi.png",
+        "WinAnimGroupId": [
+            null,
+            1021,
+            2021,
+            3021,
+            4021,
+            4021
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1022,
+            2022,
+            3022,
+            4023,
+            4023
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 203,
+        "Name": "Roland",
+        "ModelName": "QR2LuolanMd010011MZ",
+        "CareerName": "Vanguard",
+        "CampName": "Ascendant",
+        "Description": "Once deceived by a ridiculous lie, he now only wants to seek the truth. He is a paranoid knight that is willing to give everything\u2014including life\u2014for his ideal king.",
+        "IntroAnim": [
+            null,
+            "Show04",
+            "Show05"
+        ],
+        "IntroCv": 100000324,
+        "IntroLength": [
+            null,
+            6,
+            6
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks04",
+            "Thanks05"
+        ],
+        "ThankCv": 100000325,
+        "ThankLength": [
+            null,
+            7,
+            7
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadLuolan3Qnew.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadR2LuolanQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadLuolan.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleLuolan.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleLuolan.png",
+        "WinAnimGroupId": [
+            null,
+            1031,
+            2031,
+            3031,
+            4031,
+            4031
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1032,
+            2032,
+            3032,
+            4033,
+            4033
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 204,
+        "Name": "Camu",
+        "ModelName": "QR2KamuMd010011MZ",
+        "CareerName": "Vanguard",
+        "CampName": "Strike Hawk",
+        "Description": "Once lived in Kamui's M.I.N.D., he is now a special operator of Babylonia in charge of missions related to the Dead Zone. Enjoys gourmet food.",
+        "IntroAnim": [
+            null,
+            "Show03",
+            "Show05"
+        ],
+        "IntroCv": 100000312,
+        "IntroLength": [
+            null,
+            6,
+            6
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks03",
+            "Thanks05"
+        ],
+        "ThankCv": 100000313,
+        "ThankLength": [
+            null,
+            9,
+            9
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadKamu3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadKamuQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadKamu.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleKamu.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleKamu.png",
+        "WinAnimGroupId": [
+            null,
+            1041,
+            2041,
+            3041,
+            4041,
+            4041
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1042,
+            2042,
+            3042,
+            4043,
+            4043
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 205,
+        "Name": "Watanabe",
+        "ModelName": "QR2DubianMd010011MZ",
+        "CareerName": "Attacker",
+        "CampName": "Forsaken",
+        "Description": "Leader of the Forsaken, who chose to leave Babylonia to protect Oasis with his comrades who have been forgotten by the world. And the creed of the Forsaken is to never forget.",
+        "IntroAnim": [
+            null,
+            "Show03",
+            "Show05"
+        ],
+        "IntroCv": 100000306,
+        "IntroLength": [
+            null,
+            4,
+            4
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks03",
+            "Thanks05"
+        ],
+        "ThankCv": 100000307,
+        "ThankLength": [
+            null,
+            9,
+            9
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadDubian3SSQ.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadDubianSSQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadDubian.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleDubian.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleDubian.png",
+        "WinAnimGroupId": [
+            null,
+            1051,
+            2051,
+            3051,
+            4051,
+            4051
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1052,
+            2052,
+            3052,
+            4053,
+            4053
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 206,
+        "Name": "Chrome",
+        "ModelName": "QR3KuluomuMd010011MZ",
+        "CareerName": "Tank",
+        "CampName": "Strike Hawk",
+        "Description": "Captain of Strike Hawk. His specialized Inver-Device allows him to exchange important information via unique, stable channels. Cares a lot about his team members and always aims to complete every mission with perfection. Chrome used to study in F.O.S. College.",
+        "IntroAnim": [
+            null,
+            "Show03",
+            "Show05"
+        ],
+        "IntroCv": 100000314,
+        "IntroLength": [
+            null,
+            5,
+            5
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks03",
+            "Thanks05"
+        ],
+        "ThankCv": 100000315,
+        "ThankLength": [
+            null,
+            5,
+            5
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadR3Kuluomu3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadR3KuluomuQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadKulomu.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleKuluomu.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleKuluomu.png",
+        "WinAnimGroupId": [
+            null,
+            1061,
+            2061,
+            3061,
+            4061,
+            4061
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1062,
+            2062,
+            3062,
+            4063,
+            4063
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 207,
+        "Name": "Changyu",
+        "ModelName": "QR1ChangyuMd010011MZ",
+        "CareerName": "Tank",
+        "CampName": "Akdilek",
+        "Description": "Born in Kowloong and worked in the theater, Changyu ended up being one of the guards on Asslam. Due to his time at the theater, he still has the habit of practicing opera skills.",
+        "IntroAnim": [
+            null,
+            "Show04",
+            "Show05"
+        ],
+        "IntroCv": 100000304,
+        "IntroLength": [
+            null,
+            9,
+            9
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks04",
+            "Thanks06"
+        ],
+        "ThankCv": 100000305,
+        "ThankLength": [
+            null,
+            8,
+            8
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadChangYu3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadChangYuQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadChangYu.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleChangyu.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleChangyu.png",
+        "WinAnimGroupId": [
+            null,
+            1071,
+            2071,
+            3071,
+            4071,
+            4071
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1072,
+            2072,
+            3072,
+            4073,
+            4073
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 208,
+        "Name": "Kamui",
+        "ModelName": "QR2ShenweiMd010011MZ",
+        "CareerName": "Tank",
+        "CampName": "Strike Hawk",
+        "Description": "One of the members of Strike Hawk. Good at solo missions. Always keeps an optimistic attitude in both life and battle, but his wild personality has also caused a lot of trouble. However, he still cares about his companions in his own way.",
+        "IntroAnim": [
+            null,
+            "Show04",
+            "Show05"
+        ],
+        "IntroCv": 100000342,
+        "IntroLength": [
+            null,
+            6,
+            6
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks04",
+            "Thanks06"
+        ],
+        "ThankCv": 100000343,
+        "ThankLength": [
+            null,
+            5,
+            5
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadShenwei3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadShenweiQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadShenwei.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleShenwei.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleShenwei.png",
+        "WinAnimGroupId": [
+            null,
+            1081,
+            2081,
+            3081,
+            4081,
+            4081
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1082,
+            2082,
+            3082,
+            4083,
+            4083
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 209,
+        "Name": "Karenina",
+        "ModelName": "QR4KalieninaMd010011MZ",
+        "CareerName": "Tank",
+        "CampName": "Engineering Force",
+        "Description": "A member of the Engineering Force, Karenina has a background in Cosmos Technician Union. Her grumpy and simple nature often drives her to resolve problems with explosions instead of strategies. Bothered by fact that she has never beaten Lucia.",
+        "IntroAnim": [
+            null,
+            "Show02",
+            "Show07"
+        ],
+        "IntroCv": 100000310,
+        "IntroLength": [
+            null,
+            4,
+            4
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks02",
+            "Thanks07"
+        ],
+        "ThankCv": 100000311,
+        "ThankLength": [
+            null,
+            8,
+            8
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadR4Kalienina3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadR4KalieninaQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadKalienina.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleKalienina.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleKalienina.png",
+        "WinAnimGroupId": [
+            null,
+            1091,
+            2091,
+            3091,
+            4091,
+            4091
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1092,
+            2092,
+            3092,
+            4093,
+            4093
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2010,
+        "Name": "Pulao",
+        "ModelName": "QR2PulaoMd010011MZ",
+        "CareerName": "Vanguard",
+        "CampName": "Kowloong Chamber of Commerce",
+        "Description": "The Construct representing the Pulao Crew\u2014one of the Kowloong Crew that the Nighter established in order to replicate the Kowloong Chamber of Commerce. As one of the vessels Villier prepared for Huaxu, she has lost memories as a result of the Memory transfer experiment.",
+        "IntroAnim": [
+            null,
+            "Show02",
+            "Show06"
+        ],
+        "IntroCv": 100000330,
+        "IntroLength": [
+            null,
+            8,
+            8
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks02",
+            "Thanks07"
+        ],
+        "ThankCv": 100000331,
+        "ThankLength": [
+            null,
+            7,
+            7
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadPulao3Qnew.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadPulaoQnew.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadPuLao.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRolePulao.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRolePulao.png",
+        "WinAnimGroupId": [
+            null,
+            1101,
+            2101,
+            3101,
+            4101,
+            4101
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1102,
+            2102,
+            3102,
+            4103,
+            4103
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2011,
+        "Name": "Rosetta",
+        "ModelName": "QR3LuosaitaMd010011MZ",
+        "CareerName": "Tank",
+        "CampName": "Forest Guard",
+        "Description": "Rosetta is the former leader of the Forest Guards. As a humanoid hybrid, Rosetta was taken in by Babylonia as a special member and deployed to battles in a more humanoid form.",
+        "IntroAnim": [
+            null,
+            "Show01",
+            "Show06"
+        ],
+        "IntroCv": 100000326,
+        "IntroLength": [
+            null,
+            10,
+            10
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks01",
+            "Thanks07"
+        ],
+        "ThankCv": 100000327,
+        "ThankLength": [
+            null,
+            9,
+            9
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadLuosaita3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadLuosaitaQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadLuosaita.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleLuosaita.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleLuosaita.png",
+        "WinAnimGroupId": [
+            null,
+            1111,
+            2111,
+            3111,
+            4111,
+            4111
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1112,
+            2112,
+            3112,
+            4113,
+            4113
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2012,
+        "Name": "Luna",
+        "ModelName": "QR3LunaMd010011MZ",
+        "CareerName": "Attacker",
+        "CampName": "Ascendant",
+        "Description": "An extremely powerful agent. Her final and most complete combat form contains power that no Ascendant can match.",
+        "IntroAnim": [
+            null,
+            "Show01",
+            "Show07"
+        ],
+        "IntroCv": 100000322,
+        "IntroLength": [
+            null,
+            10,
+            10
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks01",
+            "Thanks07"
+        ],
+        "ThankCv": 100000323,
+        "ThankLength": [
+            null,
+            10,
+            10
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadLuna3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadLunaQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadLuna.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleLuna.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleLuna.png",
+        "WinAnimGroupId": [
+            null,
+            1121,
+            2121,
+            3121,
+            4121,
+            4121
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1122,
+            2122,
+            3122,
+            4123,
+            4123
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2013,
+        "Name": "Bianca",
+        "ModelName": "QR3BiankaMd010011MZ",
+        "CareerName": "Attacker",
+        "CampName": "Purifying Force",
+        "Description": "Bianca is the captain of the Purifying Force and an elegant and strict Construct. Due to her identity, only few people have managed to be truly accepted by her so far. She has strong faith.",
+        "IntroAnim": [
+            null,
+            "Show01",
+            "Show06"
+        ],
+        "IntroCv": 100000302,
+        "IntroLength": [
+            null,
+            7,
+            7
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks01",
+            "Thanks07"
+        ],
+        "ThankCv": 100000303,
+        "ThankLength": [
+            null,
+            6,
+            6
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadBianka3SSQ.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadBiankaSSQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadBianka.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleBianka.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleBianka.png",
+        "WinAnimGroupId": [
+            null,
+            1131,
+            2131,
+            3131,
+            4131,
+            4131
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1132,
+            2132,
+            3132,
+            4133,
+            4133
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2014,
+        "Name": "Selena",
+        "ModelName": "QR4SailinnaMd010011MZ",
+        "CareerName": "Amplifier",
+        "CampName": "WGAA",
+        "Description": "Formerly a member of the Archaeological Team, Selena used to have a great singing voice. She was also known for her talent in art, and her gentle yet resilient nature. Rescued by an Ascendant after the space station and Red Tide events.",
+        "IntroAnim": [
+            null,
+            "Show01",
+            "Show06"
+        ],
+        "IntroCv": 100000338,
+        "IntroLength": [
+            null,
+            6,
+            6
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks01",
+            "Thanks07"
+        ],
+        "ThankCv": 100000339,
+        "ThankLength": [
+            null,
+            9,
+            9
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadR3Sailinna3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadR3SailinnaQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadSaiLinNa.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter5.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleSailinna.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleSailinna.png",
+        "WinAnimGroupId": [
+            null,
+            1141,
+            2141,
+            3141,
+            4141,
+            4141
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1142,
+            2142,
+            3142,
+            4143,
+            4143
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2015,
+        "Name": "Qu",
+        "ModelName": "QR2QuMd010011MZ",
+        "CareerName": "Vanguard",
+        "CampName": "Kowloong Chamber of Commerce",
+        "Description": "As the last head of Kowloong, Qu is good at power tactics. She has been hiding outside of the factions and implementing her Tabula Akasha in silence.",
+        "IntroAnim": [
+            null,
+            "Show01",
+            "Show06"
+        ],
+        "IntroCv": 100000334,
+        "IntroLength": [
+            null,
+            8,
+            8
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks01",
+            "Thanks07"
+        ],
+        "ThankCv": 100000335,
+        "ThankLength": [
+            null,
+            6,
+            6
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadQu3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadQuQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadQu.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleQu.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleQu.png",
+        "WinAnimGroupId": [
+            null,
+            1151,
+            2151,
+            3151,
+            4151,
+            4151
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1152,
+            2152,
+            3152,
+            4153,
+            4153
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2016,
+        "Name": "Sophia",
+        "ModelName": "QR2SufeiyaMd010011MZ",
+        "CareerName": "Support",
+        "CampName": "Akdilek",
+        "Description": "Gray Raven's assistant from Akdilek Commercial Alliance. She was a \"Hyena\" born in the Eternal Engine, and the sharpest sword of her leader, Jamilah. Changyu has given her a nickname called \"Kowloong Mew Mew\".",
+        "IntroAnim": [
+            null,
+            "Show02",
+            "Show06"
+        ],
+        "IntroCv": 100000344,
+        "IntroLength": [
+            null,
+            6,
+            6
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks02",
+            "Thanks07"
+        ],
+        "ThankCv": 100000345,
+        "ThankLength": [
+            null,
+            6,
+            6
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadSufeiya3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadSufeiyaQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadSufeiya.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter2.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleSufeiya.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleSufeiya.png",
+        "WinAnimGroupId": [
+            null,
+            1161,
+            2161,
+            3161,
+            4161,
+            4161
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1162,
+            2162,
+            3162,
+            4163,
+            4163
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2017,
+        "Name": "Lucia",
+        "ModelName": "QR4LuxiyaMd010011MZ",
+        "CareerName": "Attacker",
+        "CampName": "Gray Raven",
+        "Description": "Captain of Gray Raven. As one of the early batch military Constructs, she is incredibly persistent and resilient. Her strength makes the sharpest blade of Gray Raven.",
+        "IntroAnim": [
+            null,
+            "Show01",
+            "Show06"
+        ],
+        "IntroCv": 100000320,
+        "IntroLength": [
+            null,
+            3,
+            3
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks01",
+            "Thanks07"
+        ],
+        "ThankCv": 100000321,
+        "ThankLength": [
+            null,
+            6,
+            6
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadR4Luxiya3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadR4LuxiyaQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadLuxiya.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleLuxiya.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleLuxiya.png",
+        "WinAnimGroupId": [
+            null,
+            1171,
+            2171,
+            3171,
+            4171,
+            4171
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1172,
+            2172,
+            3172,
+            4173,
+            4173
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2018,
+        "Name": "Ayla",
+        "ModelName": "QR2AilaMd010011MZ",
+        "CareerName": "Tank",
+        "CampName": "Archaeological Team",
+        "Description": "An Archaeological Team member from the World Government Association of Art in Babylonia. Her exceptional painting talent has quickly earned her great fame and wealth in Babylonia. She is the \"new blood\" born in Babylonia with natural self-confidence and a consuming passion for art.",
+        "IntroAnim": [
+            null,
+            "Show02",
+            "Show06"
+        ],
+        "IntroCv": 100000298,
+        "IntroLength": [
+            null,
+            10,
+            10
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks02",
+            "Thanks07"
+        ],
+        "ThankCv": 100000299,
+        "ThankLength": [
+            null,
+            5,
+            5
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadAila3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadAilaQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadAila.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleAila.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleAila.png",
+        "WinAnimGroupId": [
+            null,
+            1181,
+            2181,
+            3181,
+            4181,
+            4181
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1182,
+            2182,
+            3182,
+            4183,
+            4183
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2019,
+        "Name": "Liv",
+        "ModelName": "QR4LifuMd010011MZ",
+        "CareerName": "Amplifier",
+        "CampName": "Gray Raven",
+        "Description": "Currently a member of Gray Raven, Liv has a background in the Star of Life. Unlike her soft and gentle look, she could withstand incredible stress while keeping a pure and innocent dream.",
+        "IntroAnim": [
+            null,
+            "Show01",
+            "Show06"
+        ],
+        "IntroCv": 100000318,
+        "IntroLength": [
+            null,
+            10,
+            10
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks01",
+            "Thanks07"
+        ],
+        "ThankCv": 100000319,
+        "ThankLength": [
+            null,
+            10,
+            10
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadR4Lifu3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadR4LifuQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadLifu.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter5.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleLifu.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleLifu.png",
+        "WinAnimGroupId": [
+            null,
+            1191,
+            2191,
+            3191,
+            4191,
+            4191
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1192,
+            2192,
+            3192,
+            4193,
+            4193
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2020,
+        "Name": "Nanami",
+        "ModelName": "QR4YongyechaoMd010011MZ",
+        "CareerName": "Tank",
+        "CampName": "Unclassified",
+        "Description": "A mysterious Construct whose allegiance and whereabouts are often unknown. Energetic and enthusiastic, she has a unique way of thinking and a unique taste. Uses a chainsaw in combination with her almost playful combat style. Claims that observing mankind is her favorite hobby.",
+        "IntroAnim": [
+            null,
+            "Show02",
+            "Show07"
+        ],
+        "IntroCv": 100000332,
+        "IntroLength": [
+            null,
+            8,
+            8
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks02",
+            "Thanks07"
+        ],
+        "ThankCv": 100000333,
+        "ThankLength": [
+            null,
+            4,
+            4
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadR5Yongyechao3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadR5YongyechaoQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadQishi.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleQishi.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleQishi.png",
+        "WinAnimGroupId": [
+            null,
+            1201,
+            2201,
+            3201,
+            4201,
+            4201
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1202,
+            2202,
+            3202,
+            4203,
+            4203
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2021,
+        "Name": "Vera",
+        "ModelName": "QR3WeilaMd010011MZ",
+        "CareerName": "Tank",
+        "CampName": "Cerberus",
+        "Description": "Leader of Cerberus, and the backbone of Babylonia's remote connection technology test squad. Vera's extreme methods, belligerent demeanor and apparent philosophy of \"proving existence through pain\" has put her at the center of many a controversy, though Vera herself doesn't seem to mind.",
+        "IntroAnim": [
+            null,
+            "Show01",
+            "Show07"
+        ],
+        "IntroCv": 100000350,
+        "IntroLength": [
+            null,
+            5,
+            5
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks01",
+            "Thanks07"
+        ],
+        "ThankCv": 100000351,
+        "ThankLength": [
+            null,
+            9,
+            9
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadR3Weila3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadR3WeilaQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadWeila.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleWeila.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleWeila.png",
+        "WinAnimGroupId": [
+            null,
+            1211,
+            2211,
+            3211,
+            4211,
+            4211
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1212,
+            2212,
+            3212,
+            4213,
+            4213
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2022,
+        "Name": "\u03b1",
+        "ModelName": "QR3LuxiyaMd010011MZ",
+        "CareerName": "Attacker",
+        "CampName": "Ascendant",
+        "Description": "A powerful yet impulsive Ascendant who uses katana as weapon. Also good at motorcycle modification and maintenance.",
+        "IntroAnim": [
+            null,
+            "Show01",
+            "Show07"
+        ],
+        "IntroCv": 100000300,
+        "IntroLength": [
+            null,
+            5,
+            5
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks01",
+            "Thanks07"
+        ],
+        "ThankCv": 100000301,
+        "ThankLength": [
+            null,
+            9,
+            9
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadluxiya3SSQ.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadluxiyaSSQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadluxiyaSS.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleAerfa.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleAerfa.png",
+        "WinAnimGroupId": [
+            null,
+            1221,
+            2221,
+            3221,
+            4221,
+            4221
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1222,
+            2222,
+            3222,
+            4223,
+            4223
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2023,
+        "Name": "No. 21",
+        "ModelName": "QR2TwentyoneMd010011MZ",
+        "CareerName": "Tank",
+        "CampName": "Cerberus",
+        "Description": "No. 21 was the 21st test subject of a Daedalus corporation experiment and has later become a member of Cerberus. No. 21 has a Co-Bot called \"Buddy\". She has a vague perception of human emotions and is still learning about them.",
+        "IntroAnim": [
+            null,
+            "Show02",
+            "Show06"
+        ],
+        "IntroCv": 100000346,
+        "IntroLength": [
+            null,
+            7,
+            7
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks02",
+            "Thanks07"
+        ],
+        "ThankCv": 100000347,
+        "ThankLength": [
+            null,
+            12,
+            12
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHead21Hao3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHead21HaoQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHead21Hao.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter1.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRole21Hao.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRole21Hao.png",
+        "WinAnimGroupId": [
+            null,
+            1251,
+            2251,
+            3251,
+            4251,
+            4251
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1252,
+            2252,
+            3252,
+            4253,
+            4253
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2024,
+        "Name": "Haicma",
+        "ModelName": "QR2HakamaMd010011MZ",
+        "CareerName": "Vanguard",
+        "CampName": "Unclassified",
+        "Description": "Haicma is a mechanoid awakened under Nanami's influence and a member of the Church of Machina. Originally the administrative AI of the machine consciousness experiment, Haicma has set out on a journey to find Nanami after her self-awakening.",
+        "IntroAnim": [
+            null,
+            "Show01",
+            "Show06"
+        ],
+        "IntroCv": 100000308,
+        "IntroLength": [
+            null,
+            11,
+            11
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks01",
+            "Thanks07"
+        ],
+        "ThankCv": 100000309,
+        "ThankLength": [
+            null,
+            6,
+            6
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadHakama3Qnew.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadHakamaQnew.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadHakama.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter4.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleHakama.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleHakama.png",
+        "WinAnimGroupId": [
+            null,
+            1261,
+            2261,
+            3261,
+            4261,
+            4261
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1262,
+            2262,
+            3262,
+            4263,
+            4263
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2025,
+        "Name": "Celica",
+        "ModelName": "QR1SailikaMd010011MZ",
+        "CareerName": "Unknown",
+        "CampName": "Babylonia",
+        "Description": "Celica is the best secretary of Babylonia. Upholding the principle of \"never working overtime,\" she offers help to everyone in silence.",
+        "IntroAnim": [
+            null,
+            "Show01",
+            "Show07"
+        ],
+        "IntroCv": 100000336,
+        "IntroLength": [
+            null,
+            8,
+            8
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks01",
+            "Thanks07"
+        ],
+        "ThankCv": 100000337,
+        "ThankLength": [
+            null,
+            5,
+            5
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadSailika3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadSailikaQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadSailika.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleSailika2.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleSailika2.png",
+        "WinAnimGroupId": [
+            null,
+            1271,
+            2271,
+            3271,
+            4271,
+            4271
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1272,
+            2272,
+            3272,
+            4273,
+            4273
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2026,
+        "Name": "Shark-speare",
+        "ModelName": "QR1AolajiangMd010011MZ",
+        "CareerName": "Unknown",
+        "CampName": "Unclassified",
+        "Description": "A cute, harmless shark passing by.",
+        "IntroAnim": [
+            null,
+            "Show04",
+            "Show05"
+        ],
+        "IntroCv": 100000340,
+        "IntroLength": [
+            null,
+            11,
+            11
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks04",
+            "Thanks06"
+        ],
+        "ThankCv": 100000341,
+        "ThankLength": [
+            null,
+            10,
+            10
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadShashibier3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadShashibierQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadShabi.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleShabi.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleShabi.png",
+        "WinAnimGroupId": [
+            null,
+            1291,
+            2291,
+            3291,
+            4291,
+            4291
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1292,
+            2292,
+            3292,
+            4293,
+            4293
+        ],
+        "VictoryAnim": "Victory01"
+    },
+    {
+        "Id": 2027,
+        "Name": "Noctis",
+        "ModelName": "QR1NuoketiMd010011MZ",
+        "CareerName": "Unknown",
+        "CampName": "Cerberus",
+        "Description": "Noctis is the vanguard of Cerberus. Many perceive him as a childish person due to his short-tempered and straightforward nature.",
+        "IntroAnim": [
+            null,
+            "Show04",
+            "Show05"
+        ],
+        "IntroCv": 100000328,
+        "IntroLength": [
+            null,
+            7,
+            7
+        ],
+        "ThankAnim": [
+            null,
+            "Thanks04",
+            "Thanks06"
+        ],
+        "ThankCv": 100000329,
+        "ThankLength": [
+            null,
+            8,
+            8
+        ],
+        "CircleHead": "Assets/Product/Texture/Image/Role/RoleHeadR1Nuoketi3Q.png",
+        "SquareHead": "Assets/Product/Texture/Image/Role/RoleHeadR1NuoketiQ.png",
+        "ActionBg": "Assets/Product/Texture/Atlas/UiMoeWar/UiMoeWarHeadNuoketi.png",
+        "CareerIcon": "Assets/Product/Texture/Image/IconType/IconCharacter3.png",
+        "BigCharacterImage": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleNuoketi.png",
+        "ShareImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarRoleNuoketi.png",
+        "WinAnimGroupId": [
+            null,
+            1281,
+            2281,
+            3281,
+            4281,
+            4281
+        ],
+        "LoseAnimGroupId": [
+            null,
+            1282,
+            2282,
+            3282,
+            4283,
+            4283
+        ],
+        "VictoryAnim": "Victory01"
+    }
+]

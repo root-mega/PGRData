@@ -1,23 +1,39 @@
 [
     {
-        "Id": 969921000,
-        "Name": "Scene07005",
-        "Info": 30050201,
+        "Id": 969921020,
+        "Name": "Scene01804",
+        "Info": 21000254,
         "BornPosition": [
-            "PB1",
-            "PB1",
-            "PB1",
-            "PB1",
-            "PB1"
+            null,
+            "PB2",
+            "PB2",
+            "PB3",
+            "PB4",
+            "PB5",
+            null
         ],
         "LookPosition": [
-            "B101",
-            "B101",
-            "B101",
-            "B101",
-            "B101"
+            null,
+            "S1",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "DefaultObstacleArea": [],
-        "DefaultDynamicObject": []
+        "DefaultObstacleArea": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "DefaultDynamicObject": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     }
 ]

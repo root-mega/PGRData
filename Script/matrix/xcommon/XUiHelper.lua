@@ -22,8 +22,11 @@ local STR_MONTH = CSTextManagerGetText("Mouth")
 local STR_WEEK = CSTextManagerGetText("Week")
 local STR_DAY = CSTextManagerGetText("Day")
 local STR_HOUR = CSTextManagerGetText("Hour")
-local STR_MINUTE = CSTextManagerGetText("Minute")
+local STR_MINUTE = CSTextManagerGetText("Minute") -- 分
+local STR_MINUTES = CSTextManagerGetText("Minutes") -- 分钟
 local STR_SECOND = CSTextManagerGetText("Second")
+
+local LESS_THAN = CSTextManagerGetText("LessThan") -- 小于
 
 local S = 60
 local H = 3600
@@ -76,6 +79,7 @@ XUiHelper.TimeFormatType = {
     SHOP_REFRESH = 38, -- 商店自动刷新倒计时
     MINUTE_SECOND = 39, --只显示分和秒，他转换成分。
     PLANET_RUNNING = 40, -- 行星环游记 大于一小时则按 xx天xx小时 小于一小时  则 xx分xx秒
+    NEW_CALENDAR = 41, -- 新周历 大于1天显示 XX天XX小时 大于1小时显示 XX小时XX分 大于1分钟显示 XX分 小于一分钟显示 小于1分
 }
 
 XUiHelper.DelayType = {
@@ -694,6 +698,19 @@ function XUiHelper.GetTime(second, timeFormatType)
             return stringFormat("%d%s", minutes, STR_MINUTE)
         else
             return stringFormat("%d%s", seconds, STR_SECOND)
+        end
+    end
+    
+    if timeFormatType == XUiHelper.TimeFormatType.NEW_CALENDAR then
+        local totalDays = mathFloor(second / D)
+        if totalDays >= 1 then
+            return stringFormat("%d%s%d%s", totalDays, STR_DAY, hours, STR_HOUR)
+        elseif hours >= 1 then
+            return stringFormat("%d%s%d%s", hours, STR_HOUR, minutes, STR_MINUTES)
+        elseif minutes >= 1 then
+            return stringFormat("%d%s", minutes, STR_MINUTES)
+        else
+            return stringFormat("%s1%s", LESS_THAN, STR_MINUTES)
         end
     end
 end
@@ -1455,14 +1472,12 @@ function XUiHelper.GetClientConfig(key, configType)
     end
 end
 
---clickFunc：重写点击方法
----@return XUiPanelActivityAsset
-function XUiHelper.NewPanelActivityAsset(itemIds, panelGo, maxCountDic, clickFunc, canBuyItemIds)
-    if panelGo == nil then
-        XLog.Error("XUiHelper.NewPanelActivityAsset(itemIds, panelGo)  panelGo为nil")
+function XUiHelper.NewPanelActivityAssetSafe(itemIds, panelGo, parent, maxCountDic, clickFunc, canBuyItemIds)
+    if panelGo == nil or parent == nil then
+        XLog.Error("XUiHelper.NewPanelActivityAsset(itemIds, panelGo, parent)  panelGo为nil or parent为nil")
         return
     end
-    local assetActivityPanel = XUiPanelActivityAsset.New(panelGo)
+    local assetActivityPanel = XUiPanelActivityAsset.New(panelGo, parent)
     if clickFunc then
         assetActivityPanel.OnBtnClick = clickFunc
     end
@@ -2006,4 +2021,15 @@ function XUiHelper.OpenMonthlyCardEn()
     end
 
     XLuaUiManager.Open("UiMonthlyCardEn", cardAData, cardCData)
+end
+
+---@desc 打开聊天界面
+---@isMain 是否从主界面打开
+---@channelType 聊天类型
+function XUiHelper.OpenUiChatServeMain(isMain, channelType, channelTypeEx)
+   local ui = CS.XUiManagerExtension.Find("UiChatServeMain")
+   if ui then
+       return
+   end
+   XLuaUiManager.Open("UiChatServeMain", isMain, channelType, channelTypeEx)
 end

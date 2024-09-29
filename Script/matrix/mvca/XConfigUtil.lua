@@ -12,6 +12,7 @@ XConfigUtil.CacheType = {
     Normal = 0, --常驻
     Private = 1, --ClearPrivate的时候释放
     Temp = 2, --临时返回, 不做缓存
+    Preload = 3, --预加载, 一初始化就load(内存常驻)
 }
 
 XConfigUtil.DirectoryType = {
@@ -53,7 +54,9 @@ function XConfigUtil:InitConfigByTableKey(parentPath, tableKey, isAllNormal)
     end
 
     -- 将表的格式转化成可供InitConfig使用的格式
-    local res = {}
+    if not self._ConfigArgs then --这里直接初始化, 走单个添加, 减少遍历量
+        self._ConfigArgs = {}
+    end
     for k, v in pairs(tableKey) do
         local dirPath = "Share"
         if v.DirPath and v.DirPath == XConfigUtil.DirectoryType.Client then
@@ -70,14 +73,13 @@ function XConfigUtil:InitConfigByTableKey(parentPath, tableKey, isAllNormal)
         end
         arg[4] = chacheType
 
-        res[path] = { arg[1], arg[2], arg[3], arg[4] }
         if not self._TablePath then
             self._TablePath = {}
         end
         self._TablePath[k] = path
-    end
 
-    self:InitConfig(res)
+        self:AddSingleConfig(path, { arg[1], arg[2], arg[3], arg[4] })
+    end
 end
 
 ---给定配置表Key，获取一个配置表
@@ -142,10 +144,26 @@ end
 function XConfigUtil:InitConfig(arg)
     if not self._ConfigArgs then
         self._ConfigArgs = arg
+        for i, v in pairs(arg) do---检测是否需要预加载 (预加载的常驻在内存中)
+            if v[4] == XConfigUtil.CacheType.Preload then
+                self:Get(i)
+            end
+        end
     else
         for i, v in pairs(arg) do
-            self._ConfigArgs[i] = v
+            self:AddSingleConfig(i, v)
         end
+    end
+end
+
+function XConfigUtil:AddSingleConfig(path, args)
+    if self._ConfigArgs[path] then
+        XLog.Error("请勿重复注册配置表: " .. path)
+        return
+    end
+    self._ConfigArgs[path] = args
+    if args[4] == XConfigUtil.CacheType.Preload then
+        self:Get(path)
     end
 end
 
@@ -171,6 +189,8 @@ function XConfigUtil:Get(path)
                     if not XMVCA:_CheckControlRef(self._Id) then
                         XLog.Error(string.format("配置表为私有 %s, 但目前暂无control使用.", path))
                     end
+                elseif args[4] == XConfigUtil.CacheType.Preload then
+                    XMVCA:AddPreloadConfig(path)
                 end
             end
             return config
@@ -192,6 +212,9 @@ end
 
 ---清理所有内部配置表, 在XModel.ClearPrivate时执行
 function XConfigUtil:ClearPrivate()
+    if not self._ConfigArgs then
+        return
+    end
     for path, arg in pairs(self._ConfigArgs) do
         local cacheType = arg[4]
         if cacheType == XConfigUtil.CacheType.Private then

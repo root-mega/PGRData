@@ -1,0 +1,512 @@
+[
+    {
+        "Id": 1,
+        "ActivityId": 5,
+        "Tier": 1,
+        "TierName": "Basic",
+        "TierDescribe": "Lowest Grade",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon01.png",
+        "Score": 0,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 2.0,
+        "LowestGrade": 1.0
+    },
+    {
+        "Id": 2,
+        "ActivityId": 5,
+        "Tier": 2,
+        "TierName": "Beginner",
+        "TierDescribe": "Reach Trophy x100",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon02.png",
+        "Score": 100,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 3.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 3,
+        "ActivityId": 5,
+        "Tier": 3,
+        "TierName": "Experienced",
+        "TierDescribe": "Reach Trophy x300",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon03.png",
+        "Score": 300,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 4.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 4,
+        "ActivityId": 5,
+        "Tier": 4,
+        "TierName": "Advanced",
+        "TierDescribe": "Reach Trophy x600",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon04.png",
+        "Score": 600,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 5.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 5,
+        "ActivityId": 5,
+        "Tier": 5,
+        "TierName": "Master",
+        "TierDescribe": "Reach Trophy x1000",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon05.png",
+        "Score": 900,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 6.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 6,
+        "ActivityId": 5,
+        "Tier": 6,
+        "TierName": "Grandmaster",
+        "TierDescribe": "Reach Trophy x1500",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon06.png",
+        "Score": 1200,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": null,
+        "LowestGrade": null
+    },
+    {
+        "Id": 7,
+        "ActivityId": 6,
+        "Tier": 1,
+        "TierName": "Basic",
+        "TierDescribe": "Lowest Grade",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon01.png",
+        "Score": 0,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 8.0,
+        "LowestGrade": 1.0
+    },
+    {
+        "Id": 8,
+        "ActivityId": 6,
+        "Tier": 2,
+        "TierName": "Beginner",
+        "TierDescribe": "Reach Trophy x100",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon02.png",
+        "Score": 100,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 9.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 9,
+        "ActivityId": 6,
+        "Tier": 3,
+        "TierName": "Experienced",
+        "TierDescribe": "Reach Trophy x300",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon03.png",
+        "Score": 200,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 10.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 10,
+        "ActivityId": 6,
+        "Tier": 4,
+        "TierName": "Advanced",
+        "TierDescribe": "Reach Trophy x600",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon04.png",
+        "Score": 300,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 11.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 11,
+        "ActivityId": 6,
+        "Tier": 5,
+        "TierName": "Master",
+        "TierDescribe": "Reach Trophy x1,000",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon05.png",
+        "Score": 500,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 12.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 12,
+        "ActivityId": 6,
+        "Tier": 6,
+        "TierName": "Grandmaster",
+        "TierDescribe": "Reach Trophy x1,500",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon06.png",
+        "Score": 800,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": null,
+        "LowestGrade": null
+    },
+    {
+        "Id": 13,
+        "ActivityId": 7,
+        "Tier": 1,
+        "TierName": "Basic",
+        "TierDescribe": "Lowest Grade",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon01.png",
+        "Score": 0,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 14.0,
+        "LowestGrade": 1.0
+    },
+    {
+        "Id": 14,
+        "ActivityId": 7,
+        "Tier": 2,
+        "TierName": "Beginner",
+        "TierDescribe": "Reach Trophy x100",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon02.png",
+        "Score": 100,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 15.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 15,
+        "ActivityId": 7,
+        "Tier": 3,
+        "TierName": "Experienced",
+        "TierDescribe": "Reach Trophy x200",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon03.png",
+        "Score": 200,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 16.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 16,
+        "ActivityId": 7,
+        "Tier": 4,
+        "TierName": "Advanced",
+        "TierDescribe": "Reach Trophy x400",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon04.png",
+        "Score": 400,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 17.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 17,
+        "ActivityId": 7,
+        "Tier": 5,
+        "TierName": "Master",
+        "TierDescribe": "Reach Trophy x700",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon05.png",
+        "Score": 700,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": 18.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 18,
+        "ActivityId": 7,
+        "Tier": 6,
+        "TierName": "Grandmaster",
+        "TierDescribe": "Reach Trophy x1,200",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon06.png",
+        "Score": 1200,
+        "SettleScore": [
+            null,
+            30,
+            20,
+            10
+        ],
+        "NextRankId": null,
+        "LowestGrade": null
+    },
+    {
+        "Id": 19,
+        "ActivityId": 10,
+        "Tier": 1,
+        "TierName": "Novice",
+        "TierDescribe": "Lowest Grade",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon01.png",
+        "Score": 0,
+        "SettleScore": [
+            null,
+            45,
+            30,
+            20
+        ],
+        "NextRankId": 20.0,
+        "LowestGrade": 1.0
+    },
+    {
+        "Id": 20,
+        "ActivityId": 10,
+        "Tier": 2,
+        "TierName": "Beginner",
+        "TierDescribe": "Reach Trophy x150",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon02.png",
+        "Score": 150,
+        "SettleScore": [
+            null,
+            45,
+            30,
+            20
+        ],
+        "NextRankId": 21.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 21,
+        "ActivityId": 10,
+        "Tier": 3,
+        "TierName": "Experienced",
+        "TierDescribe": "Reach Trophy x300",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon03.png",
+        "Score": 300,
+        "SettleScore": [
+            null,
+            45,
+            30,
+            20
+        ],
+        "NextRankId": 22.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 22,
+        "ActivityId": 10,
+        "Tier": 4,
+        "TierName": "Advanced",
+        "TierDescribe": "Reach Trophy x600",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon04.png",
+        "Score": 600,
+        "SettleScore": [
+            null,
+            45,
+            30,
+            20
+        ],
+        "NextRankId": 23.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 23,
+        "ActivityId": 10,
+        "Tier": 5,
+        "TierName": "Master",
+        "TierDescribe": "Reach Trophy x900",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon05.png",
+        "Score": 900,
+        "SettleScore": [
+            null,
+            45,
+            30,
+            20
+        ],
+        "NextRankId": 24.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 24,
+        "ActivityId": 10,
+        "Tier": 6,
+        "TierName": "Grandmaster",
+        "TierDescribe": "Reach Trophy x1300",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon06.png",
+        "Score": 1300,
+        "SettleScore": [
+            null,
+            45,
+            30,
+            20
+        ],
+        "NextRankId": null,
+        "LowestGrade": null
+    },
+    {
+        "Id": 25,
+        "ActivityId": 11,
+        "Tier": 1,
+        "TierName": "Novice",
+        "TierDescribe": "Lowest Grade",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon01.png",
+        "Score": 0,
+        "SettleScore": [
+            null,
+            80,
+            55,
+            30
+        ],
+        "NextRankId": 26.0,
+        "LowestGrade": 1.0
+    },
+    {
+        "Id": 26,
+        "ActivityId": 11,
+        "Tier": 2,
+        "TierName": "Beginner",
+        "TierDescribe": "Reach Trophy x100",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon02.png",
+        "Score": 100,
+        "SettleScore": [
+            null,
+            80,
+            55,
+            30
+        ],
+        "NextRankId": 27.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 27,
+        "ActivityId": 11,
+        "Tier": 3,
+        "TierName": "Experienced",
+        "TierDescribe": "Reach Trophy x350",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon03.png",
+        "Score": 350,
+        "SettleScore": [
+            null,
+            80,
+            55,
+            30
+        ],
+        "NextRankId": 28.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 28,
+        "ActivityId": 11,
+        "Tier": 4,
+        "TierName": "Advanced",
+        "TierDescribe": "Reach Trophy x550",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon04.png",
+        "Score": 550,
+        "SettleScore": [
+            null,
+            80,
+            55,
+            30
+        ],
+        "NextRankId": 29.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 29,
+        "ActivityId": 11,
+        "Tier": 5,
+        "TierName": "Master",
+        "TierDescribe": "Reach Trophy x1050",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon05.png",
+        "Score": 1050,
+        "SettleScore": [
+            null,
+            80,
+            55,
+            30
+        ],
+        "NextRankId": 30.0,
+        "LowestGrade": null
+    },
+    {
+        "Id": 30,
+        "ActivityId": 11,
+        "Tier": 6,
+        "TierName": "Grandmaster",
+        "TierDescribe": "Reach Trophy x1500",
+        "Icon": "Assets/Product/Texture/Image/UiFubenSnowGame/UiFubenSnowGameIcon06.png",
+        "Score": 1500,
+        "SettleScore": [
+            null,
+            80,
+            55,
+            30
+        ],
+        "NextRankId": null,
+        "LowestGrade": null
+    }
+]

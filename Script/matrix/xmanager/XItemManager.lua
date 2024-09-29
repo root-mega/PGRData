@@ -1127,6 +1127,11 @@ XItemManagerCreator = function()
     end
 
     function XItemManager.Sell(datas, callback)
+        if XTool.IsTableEmpty(datas) then
+            XLog.Error("XItemManager.Sell, 传入 datas为空")
+            return
+        end
+
         XMessagePack.MarkAsTable(datas)
         local req = { SellItems = datas }
         XNetwork.Call(METHOD_NAME.Sell, req, function(res)

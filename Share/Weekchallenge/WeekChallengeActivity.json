@@ -1,0 +1,36 @@
+[
+    {
+        "Id": 1,
+        "TimeId": null,
+        "MailId": 64001,
+        "Name": "Gift of Starlight",
+        "PrefabPath": "Assets/Product/Ui/ComponentPrefab/Sign/SignWeeklyChallenge.prefab",
+        "FullScreenBg": "Assets/Product/Texture/Image/DrawCoating/DrawCoating01.png",
+        "BtnBg": "Assets/Product/Texture/Image/UiActivityBase/UiActivityBaseLabelBg1.png",
+        "TaskGroupId": [
+            null,
+            7521,
+            7522,
+            7523,
+            7524,
+            7525
+        ]
+    },
+    {
+        "Id": 2,
+        "TimeId": null,
+        "MailId": 64002,
+        "Name": "Wonderful Spring Gift",
+        "PrefabPath": "Assets/Product/Ui/ComponentPrefab/Sign/SignWeeklyChallenge.prefab",
+        "FullScreenBg": "Assets/Product/Texture/Image/UiActivityBase/WeekChallengeV201.png",
+        "BtnBg": "Assets/Product/Texture/Image/UiActivityBase/WeekChallengeLavelV201.png",
+        "TaskGroupId": [
+            null,
+            15711,
+            15712,
+            15713,
+            15714,
+            15715
+        ]
+    }
+]

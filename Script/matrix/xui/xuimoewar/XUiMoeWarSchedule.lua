@@ -43,7 +43,7 @@ function XUiMoeWarSchedule:Init()
     self.BtnBack.CallBack = function() self:OnBtnBackClick() end
     self.BtnMainUi.CallBack = function() self:OnBtnMainUiClick() end
     self:BindHelpBtn(self.BtnHelp, "MoeWar")
-    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelSpecialTool)
+    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelSpecialTool, self)
     XDataCenter.ItemManager.AddCountUpdateListener(self.ActInfo.CurrencyId[1], function()
         self.AssetActivityPanel:Refresh(self.ActInfo.CurrencyId)
     end, self.AssetActivityPanel)

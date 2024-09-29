@@ -1729,9 +1729,9 @@
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
-        "Id": 1060205,
+        "Id": 1060204,
         "CharacterId": 1061002,
-        "Name": "Affection up",
+        "Name": "Affection Up",
         "SignBoardActionId": 1060205,
         "UnlockLv": 1,
         "UnlockCondition": [
@@ -1742,9 +1742,9 @@
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
-        "Id": 1060206,
+        "Id": 1060205,
         "CharacterId": 1061002,
-        "Name": "Quick tap",
+        "Name": "Quick Tap",
         "SignBoardActionId": 1060206,
         "UnlockLv": 1,
         "UnlockCondition": [
@@ -2587,10 +2587,23 @@
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
+        "Id": 1110204,
+        "CharacterId": 1111002,
+        "Name": "Affection Up",
+        "SignBoardActionId": 1110205,
+        "UnlockLv": 1,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
         "Id": 1110205,
         "CharacterId": 1111002,
-        "Name": "Affection up",
-        "SignBoardActionId": 1110205,
+        "Name": "Quick Tap",
+        "SignBoardActionId": 1110206,
         "UnlockLv": 1,
         "UnlockCondition": [
             null,
@@ -2602,15 +2615,67 @@
     {
         "Id": 1110206,
         "CharacterId": 1111002,
-        "Name": "Quick tap",
-        "SignBoardActionId": 1110206,
-        "UnlockLv": 1,
+        "Name": "Connection Made",
+        "SignBoardActionId": 1110209,
+        "UnlockLv": 2,
         "UnlockCondition": [
             null,
             null,
             null
         ],
-        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+        "ConditionDescript": "Affection <color=#C14F38>2</color>"
+    },
+    {
+        "Id": 1110207,
+        "CharacterId": 1111002,
+        "Name": "Excessive Online Time",
+        "SignBoardActionId": 1110210,
+        "UnlockLv": 3,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>3</color>"
+    },
+    {
+        "Id": 1110208,
+        "CharacterId": 1111002,
+        "Name": "Idle",
+        "SignBoardActionId": 1110211,
+        "UnlockLv": 4,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>4</color>"
+    },
+    {
+        "Id": 1110209,
+        "CharacterId": 1111002,
+        "Name": "Shake",
+        "SignBoardActionId": 1110212,
+        "UnlockLv": 5,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>5</color>"
+    },
+    {
+        "Id": 1110210,
+        "CharacterId": 1111002,
+        "Name": "Extended Offline Time",
+        "SignBoardActionId": 1110213,
+        "UnlockLv": 6,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
     },
     {
         "Id": 1120201,
@@ -2912,10 +2977,23 @@
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
+        "Id": 1130204,
+        "CharacterId": 1131002,
+        "Name": "Affection Up",
+        "SignBoardActionId": 1130205,
+        "UnlockLv": 1,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
         "Id": 1130205,
         "CharacterId": 1131002,
-        "Name": "Affection up",
-        "SignBoardActionId": 1130205,
+        "Name": "Quick Tap",
+        "SignBoardActionId": 1130206,
         "UnlockLv": 1,
         "UnlockCondition": [
             null,
@@ -2927,15 +3005,67 @@
     {
         "Id": 1130206,
         "CharacterId": 1131002,
-        "Name": "Quick tap",
-        "SignBoardActionId": 1130206,
-        "UnlockLv": 1,
+        "Name": "Connection Made",
+        "SignBoardActionId": 1130209,
+        "UnlockLv": 2,
         "UnlockCondition": [
             null,
             null,
             null
         ],
-        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+        "ConditionDescript": "Affection <color=#C14F38>2</color>"
+    },
+    {
+        "Id": 1130207,
+        "CharacterId": 1131002,
+        "Name": "Excessive Online Time",
+        "SignBoardActionId": 1130210,
+        "UnlockLv": 3,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>3</color>"
+    },
+    {
+        "Id": 1130208,
+        "CharacterId": 1131002,
+        "Name": "Idle",
+        "SignBoardActionId": 1130211,
+        "UnlockLv": 4,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>4</color>"
+    },
+    {
+        "Id": 1130209,
+        "CharacterId": 1131002,
+        "Name": "Shake",
+        "SignBoardActionId": 1130212,
+        "UnlockLv": 5,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>5</color>"
+    },
+    {
+        "Id": 1130210,
+        "CharacterId": 1131002,
+        "Name": "Extended Offline Time",
+        "SignBoardActionId": 1130213,
+        "UnlockLv": 6,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
     },
     {
         "Id": 1510301,
@@ -2977,10 +3107,23 @@
         "ConditionDescript": "Affection <color=#C14F38>1</color>"
     },
     {
+        "Id": 1510304,
+        "CharacterId": 1511003,
+        "Name": "Affection Up",
+        "SignBoardActionId": 1510305,
+        "UnlockLv": 1,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
         "Id": 1510305,
         "CharacterId": 1511003,
-        "Name": "Affection up",
-        "SignBoardActionId": 1510305,
+        "Name": "Quick Tap",
+        "SignBoardActionId": 1510306,
         "UnlockLv": 1,
         "UnlockCondition": [
             null,
@@ -2992,15 +3135,67 @@
     {
         "Id": 1510306,
         "CharacterId": 1511003,
-        "Name": "Quick tap",
-        "SignBoardActionId": 1510306,
-        "UnlockLv": 1,
+        "Name": "Connection Made",
+        "SignBoardActionId": 1510309,
+        "UnlockLv": 2,
         "UnlockCondition": [
             null,
             null,
             null
         ],
-        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+        "ConditionDescript": "Affection <color=#C14F38>2</color>"
+    },
+    {
+        "Id": 1510307,
+        "CharacterId": 1511003,
+        "Name": "Excessive Online Time",
+        "SignBoardActionId": 1510310,
+        "UnlockLv": 3,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>3</color>"
+    },
+    {
+        "Id": 1510308,
+        "CharacterId": 1511003,
+        "Name": "Idle",
+        "SignBoardActionId": 1510311,
+        "UnlockLv": 4,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>4</color>"
+    },
+    {
+        "Id": 1510309,
+        "CharacterId": 1511003,
+        "Name": "Shake",
+        "SignBoardActionId": 1510312,
+        "UnlockLv": 5,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>5</color>"
+    },
+    {
+        "Id": 1510310,
+        "CharacterId": 1511003,
+        "Name": "Extended Offline Time",
+        "SignBoardActionId": 1510313,
+        "UnlockLv": 6,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
     },
     {
         "Id": 1140301,
@@ -6836,5 +7031,148 @@
             null
         ],
         "ConditionDescript": "Affection <color=#C14F38>6</color>"
+    },
+    {
+        "Id": 1280201,
+        "CharacterId": 1281002,
+        "Name": "Display Pose 1",
+        "SignBoardActionId": 1280201,
+        "UnlockLv": 1,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 1280202,
+        "CharacterId": 1281002,
+        "Name": "Display Pose 2",
+        "SignBoardActionId": 1280202,
+        "UnlockLv": 1,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 1280203,
+        "CharacterId": 1281002,
+        "Name": "Display Pose 3",
+        "SignBoardActionId": 1280203,
+        "UnlockLv": 1,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 1280204,
+        "CharacterId": 1281002,
+        "Name": "Affection Up",
+        "SignBoardActionId": 1280205,
+        "UnlockLv": 1,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 1280205,
+        "CharacterId": 1281002,
+        "Name": "Quick Tap",
+        "SignBoardActionId": 1280206,
+        "UnlockLv": 1,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
+    },
+    {
+        "Id": 1280206,
+        "CharacterId": 1281002,
+        "Name": "Connection Made",
+        "SignBoardActionId": 1280209,
+        "UnlockLv": 2,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>2</color>"
+    },
+    {
+        "Id": 1280207,
+        "CharacterId": 1281002,
+        "Name": "Excessive Online Time",
+        "SignBoardActionId": 1280210,
+        "UnlockLv": 3,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>3</color>"
+    },
+    {
+        "Id": 1280208,
+        "CharacterId": 1281002,
+        "Name": "Idle",
+        "SignBoardActionId": 1280211,
+        "UnlockLv": 4,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>4</color>"
+    },
+    {
+        "Id": 1280209,
+        "CharacterId": 1281002,
+        "Name": "Shake",
+        "SignBoardActionId": 1280212,
+        "UnlockLv": 5,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>5</color>"
+    },
+    {
+        "Id": 1280210,
+        "CharacterId": 1281002,
+        "Name": "Extended Offline Time",
+        "SignBoardActionId": 1280213,
+        "UnlockLv": 6,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>6</color>"
+    },
+    {
+        "Id": 1060206,
+        "CharacterId": 1061002,
+        "Name": "Quick tap",
+        "SignBoardActionId": 1060206,
+        "UnlockLv": 1,
+        "UnlockCondition": [
+            null,
+            null,
+            null
+        ],
+        "ConditionDescript": "Affection <color=#C14F38>1</color>"
     }
 ]

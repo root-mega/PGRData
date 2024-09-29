@@ -1,4 +1,5 @@
-local XUiPanelBottom = XClass(nil, "XUiPanelBottom")
+---@class XUiPanelBottom:XUiNode
+local XUiPanelBottom = XClass(XUiNode, "XUiPanelBottom")
 local CSTextManagerGetText = CS.XTextManager.GetText
 local MAX_CHAT_WIDTH = 470
 local CHAT_SUB_LENGTH = 30
@@ -55,7 +56,7 @@ function XUiPanelBottom:InitButton()
     self.BtnLz.CallBack = function()
         self:OnBtnBossRewardClick()
     end
-    XRedPointManager.AddRedPointEvent(self.BtnSupport, self.OnSupportRedPointEvent, self, {
+    self:AddRedPointEvent(self.BtnSupport, self.OnSupportRedPointEvent, self, {
         XRedPointConditions.Types.CONDITION_GUILDWAR_SUPPLY,
         XRedPointConditions.Types.CONDITION_GUILDWAR_ASSISTANT
     })

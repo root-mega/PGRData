@@ -74,7 +74,7 @@ function XUiFubenPokerGuessingStory:OnStart()
     self.ToggleFilter.isOn = self.IsSelectFilter
     self:InitView()
     
-    XUiHelper.NewPanelActivityAsset( { XDataCenter.ItemManager.ItemId.PokerGuessingItemId }, self.PanelAsset)
+    XUiHelper.NewPanelActivityAssetSafe( { XDataCenter.ItemManager.ItemId.PokerGuessingItemId }, self.PanelAsset, self)
 end
 
 function XUiFubenPokerGuessingStory:OnGetEvents()
@@ -104,7 +104,7 @@ function XUiFubenPokerGuessingStory:InitView()
         if isClose then
             XDataCenter.PokerGuessingManager.OnActivityEnd()
             return
-end
+        end
     end)
 end
 

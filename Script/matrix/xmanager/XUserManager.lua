@@ -33,10 +33,18 @@ local UserType = XHgSdkManager.UserType
 local InitPlatform = function()
     if Platform == RuntimePlatform.Android then
         XUserManager.Platform = XUserManager.PLATFORM.Android
-        XHgSdkManager.SetCallBackUrl(CS.XRemoteConfig.AndroidPayCallbackUrl)
+        if CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO then
+            XHgSdkManager.SetCallBackUrl(CS.XRemoteConfig.AndroidPayCallbackUrl)
+        else
+            XHgSdkManager.SetCallBackUrl(CS.XRemoteConfig.KuroPayCallbackUrl)
+        end
     elseif Platform == RuntimePlatform.IPhonePlayer then
         XUserManager.Platform = XUserManager.PLATFORM.IOS
-        XHgSdkManager.SetCallBackUrl(CS.XRemoteConfig.IosPayCallbackUrl)
+        if CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO then
+            XHgSdkManager.SetCallBackUrl(CS.XRemoteConfig.IosPayCallbackUrl)
+        else
+            XHgSdkManager.SetCallBackUrl(CS.XRemoteConfig.KuroPayCallbackUrl)
+        end
     else
         XUserManager.Platform = XUserManager.PLATFORM.Win
         XHgSdkManager.SetCallBackUrl(CS.XRemoteConfig.PcPayCallbackUrl)
@@ -86,7 +94,7 @@ end
 
 function XUserManager.ShowLogin()
     if XUserManager.Channel == XUserManager.CHANNEL.Android or XUserManager.Channel == XUserManager.CHANNEL.IOS or
-        XUserManager.Channel == XUserManager.CHANNEL.KuroPC then
+        XUserManager.Channel == XUserManager.CHANNEL.KuroPC or XUserManager.Channel == XUserManager.CHANNEL.KURO_SDK then
         XHgSdkManager.Login(XHgSdkManager.UserType.Quickly) -- 默认快速登录逻辑
     else
         XHaruUserManager.Login()
@@ -96,7 +104,7 @@ end
 function XUserManager.ShowLogout()
     if XUserManager.Channel == XUserManager.CHANNEL.Android or XUserManager.Channel == XUserManager.CHANNEL.IOS then
         XHgSdkManager.BackToLogin()
-    elseif XUserManager.Channel == XUserManager.CHANNEL.KuroPC then
+    elseif XUserManager.Channel == XUserManager.CHANNEL.KuroPC or XUserManager.Channel == XUserManager.CHANNEL.KURO_SDK then
         -- #105485 PC端使用的登出逻辑和移动端保持一致，都使用切换账号逻辑来登出
         XHgSdkManager.BackToLogin()
     else
@@ -204,7 +212,7 @@ function XUserManager.SignOut()
     XLoginManager.Disconnect()
 
     if XUserManager.Channel ~= XUserManager.CHANNEL.Android and XUserManager.Channel ~= XUserManager.CHANNEL.IOS and
-        XUserManager.Channel ~= XUserManager.CHANNEL.KuroPC then
+        XUserManager.Channel ~= XUserManager.CHANNEL.KuroPC and XUserManager.Channel ~= XUserManager.CHANNEL.KURO_SDK then
         XUserManager.SetUserId(nil)
         XUserManager.SetUserName(nil)
         XUserManager.SetToken(nil)
@@ -255,7 +263,9 @@ XRpc.LoginResponse = function(response)
         XUserManager.ReconnectedToken = response.Token
         --BDC
         CS.XHeroBdcAgent.UserId = "HeroEn#" .. XUserManager.UserId
-        if XUserManager.Channel ~= XUserManager.CHANNEL.Android and XUserManager.Channel ~= XUserManager.CHANNEL.IOS then
+        if XUserManager.Channel ~= XUserManager.CHANNEL.Android and 
+            XUserManager.Channel ~= XUserManager.CHANNEL.IOS and 
+            XUserManager.Channel ~= XUserManager.CHANNEL.KURO_SDK then
             XLoginManager.SetUserId(XUserManager.UserId)
             XLoginManager.SetToken(XUserManager.Token)
             XLoginManager.SetUserType(XUserManager.UserType)

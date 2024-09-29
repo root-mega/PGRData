@@ -1,0 +1,954 @@
+[
+    {
+        "BuffId": 101,
+        "BuffType": 1,
+        "Params": [
+            null,
+            11.0,
+            12.0,
+            13.0
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Start with 3 Explosive Devices"
+    },
+    {
+        "BuffId": 102,
+        "BuffType": 2,
+        "Params": [
+            null,
+            300.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Start with 300 Resource Points"
+    },
+    {
+        "BuffId": 103,
+        "BuffType": 3,
+        "Params": [
+            null,
+            35.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff09.png",
+        "Desc": "Catcher UFO Upgrade Resource Points Cost -35%"
+    },
+    {
+        "BuffId": 104,
+        "BuffType": 4,
+        "Params": [
+            null,
+            6.0,
+            40.0,
+            3.0
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff13.png",
+        "Desc": "Gimme Some Fries: +40% Resource Points earned from Forgotten Supplies"
+    },
+    {
+        "BuffId": 105,
+        "BuffType": 8,
+        "Params": [
+            null,
+            65.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff14.png",
+        "Desc": "Thank You, Owner: -35% Consumable Add-on purchase cost"
+    },
+    {
+        "BuffId": 106,
+        "BuffType": 7,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff16.png",
+        "Desc": "Own 1 additional Consume Add-on purchase slot"
+    },
+    {
+        "BuffId": 107,
+        "BuffType": 5,
+        "Params": [
+            null,
+            10.0,
+            3.0,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff01.png",
+        "Desc": "Grappling Hook Speed +10%"
+    },
+    {
+        "BuffId": 108,
+        "BuffType": 4,
+        "Params": [
+            null,
+            2.0,
+            -50.0,
+            3.0
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff15.png",
+        "Desc": "Resource Points Granted by Gold Meteorites -50%"
+    },
+    {
+        "BuffId": 109,
+        "BuffType": 4,
+        "Params": [
+            null,
+            3.0,
+            50.0,
+            3.0
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff15.png",
+        "Desc": "Resource Points Granted by Star Gems +50%"
+    },
+    {
+        "BuffId": 110,
+        "BuffType": 5,
+        "Params": [
+            null,
+            15.0,
+            3.0,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff17.png",
+        "Desc": "Grappling Hook Speed +15%"
+    },
+    {
+        "BuffId": 111,
+        "BuffType": 23,
+        "Params": [
+            null,
+            -5.0,
+            -5.0,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff17.png",
+        "Desc": "Resource Points earned -5%"
+    },
+    {
+        "BuffId": 112,
+        "BuffType": 16,
+        "Params": [
+            null,
+            0.0,
+            2.0,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff18.png",
+        "Desc": "Automatically gain a bonus Add-On Unit upon entering a stage"
+    },
+    {
+        "BuffId": 113,
+        "BuffType": 23,
+        "Params": [
+            null,
+            -6.0,
+            12.0,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff19.png",
+        "Desc": "Let's Discuss the Price: Resource Points earned fluctuate between -6% and +12%"
+    },
+    {
+        "BuffId": 114,
+        "BuffType": 19,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "TimeType": 2,
+        "TimeTypeParam": 1.0,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff20.png",
+        "Desc": "The duration of each round extends by 2s"
+    },
+    {
+        "BuffId": 115,
+        "BuffType": 17,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TimeType": 3,
+        "TimeTypeParam": 2.0,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff20.png",
+        "Desc": "The World!: Each item used will trigger Time Freeze once."
+    },
+    {
+        "BuffId": 116,
+        "BuffType": 24,
+        "Params": [
+            null,
+            6.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff21.png",
+        "Desc": "Decoy: Changes the default hook into a special [Decoy] hook"
+    },
+    {
+        "BuffId": 117,
+        "BuffType": 25,
+        "Params": [
+            null,
+            100.0,
+            200.0,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff22.png",
+        "Desc": "Explosive Genius: Get bonus Resource Points when catching or using Explosives"
+    },
+    {
+        "BuffId": 118,
+        "BuffType": 26,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff23.png",
+        "Desc": "Woof!: Chance to get random bonus items when catching a cat"
+    },
+    {
+        "BuffId": 119,
+        "BuffType": 27,
+        "Params": [
+            null,
+            50.0,
+            100.0,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 1.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff24.png",
+        "Desc": "Lightning Flash: Get a random percentage of bonus Resource Points when catching Cat Crystals"
+    },
+    {
+        "BuffId": 201,
+        "BuffType": 6,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TimeType": 2,
+        "TimeTypeParam": 1.0,
+        "DisplayType": 2.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Blows up the Space Resources being transported back"
+    },
+    {
+        "BuffId": 202,
+        "BuffType": 5,
+        "Params": [
+            null,
+            100.0,
+            1.0,
+            null
+        ],
+        "TimeType": 2,
+        "TimeTypeParam": 1.0,
+        "DisplayType": 2.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff01.png",
+        "Desc": "Next Grip Speed +100%"
+    },
+    {
+        "BuffId": 203,
+        "BuffType": 11,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "TimeType": 2,
+        "TimeTypeParam": 1.0,
+        "DisplayType": 2.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff02.png",
+        "Desc": "The next capture will not detonate Explosive Devices"
+    },
+    {
+        "BuffId": 204,
+        "BuffType": 9,
+        "Params": [
+            null,
+            9.0,
+            null,
+            null
+        ],
+        "TimeType": 2,
+        "TimeTypeParam": 1.0,
+        "DisplayType": 2.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Space Resources being transported back will be converted to Gold Meteorites of the same size"
+    },
+    {
+        "BuffId": 205,
+        "BuffType": 10,
+        "Params": [
+            null,
+            5.0,
+            null,
+            null
+        ],
+        "TimeType": 3,
+        "TimeTypeParam": 5.0,
+        "DisplayType": 2.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Cat will pause moving for 5s"
+    },
+    {
+        "BuffId": 206,
+        "BuffType": 4,
+        "Params": [
+            null,
+            2.0,
+            50.0,
+            2.0
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 3.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff03.png",
+        "Desc": "+50% Resource Points earned from Gold Meteorites in this stage"
+    },
+    {
+        "BuffId": 207,
+        "BuffType": 4,
+        "Params": [
+            null,
+            3.0,
+            50.0,
+            2.0
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 3.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff05.png",
+        "Desc": "+50% Resource Points earned from Star Gems in this stage"
+    },
+    {
+        "BuffId": 208,
+        "BuffType": 5,
+        "Params": [
+            null,
+            30.0,
+            2.0,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 3.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff01.png",
+        "Desc": "+30% transportation speed in this stage"
+    },
+    {
+        "BuffId": 209,
+        "BuffType": 4,
+        "Params": [
+            null,
+            6.0,
+            50.0,
+            2.0
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 3.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff06.png",
+        "Desc": "+50% Resource Points earned from Forgotten Supplies in this stage"
+    },
+    {
+        "BuffId": 210,
+        "BuffType": 4,
+        "Params": [
+            null,
+            5.0,
+            50.0,
+            2.0
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 3.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff12.png",
+        "Desc": "+50% Resource Points earned from cats in this stage"
+    },
+    {
+        "BuffId": 211,
+        "BuffType": 18,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "TimeType": 3,
+        "TimeTypeParam": 3.0,
+        "DisplayType": 2.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Trigger Hypermatrix for 3s"
+    },
+    {
+        "BuffId": 212,
+        "BuffType": 22,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "TimeType": 2,
+        "TimeTypeParam": 1.0,
+        "DisplayType": 2.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Blow up all the Space Meteorites on the field"
+    },
+    {
+        "BuffId": 213,
+        "BuffType": 21,
+        "Params": [
+            null,
+            0.0,
+            -70.0,
+            null
+        ],
+        "TimeType": 3,
+        "TimeTypeParam": 10.0,
+        "DisplayType": 2.0,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "All Space Resources' weight reduces by 70% for 10s"
+    },
+    {
+        "BuffId": 301,
+        "BuffType": 12,
+        "Params": [
+            null,
+            15.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 4.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff09.png",
+        "Desc": "UFO's movement speed increases by 1 level"
+    },
+    {
+        "BuffId": 302,
+        "BuffType": 12,
+        "Params": [
+            null,
+            30.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 4.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff09.png",
+        "Desc": "UFO's movement speed increases by 2 levels"
+    },
+    {
+        "BuffId": 303,
+        "BuffType": 12,
+        "Params": [
+            null,
+            45.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 4.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff09.png",
+        "Desc": "UFO's movement speed increases to the highest level"
+    },
+    {
+        "BuffId": 311,
+        "BuffType": 5,
+        "Params": [
+            null,
+            8.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 4.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff08.png",
+        "Desc": "The capturing speed of the UFO grappling hook increases by 1 level"
+    },
+    {
+        "BuffId": 312,
+        "BuffType": 5,
+        "Params": [
+            null,
+            16.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 4.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff08.png",
+        "Desc": "The capturing speed of the UFO grappling hook increases by 2 levels"
+    },
+    {
+        "BuffId": 313,
+        "BuffType": 5,
+        "Params": [
+            null,
+            24.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 4.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff08.png",
+        "Desc": "The capturing speed of the UFO grappling hook increases to the highest level"
+    },
+    {
+        "BuffId": 321,
+        "BuffType": 14,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 3.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff10.png",
+        "Desc": "Changes the grappling hook to a magnetic grappling hook"
+    },
+    {
+        "BuffId": 331,
+        "BuffType": 14,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 3.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff11.png",
+        "Desc": "Changes the grappling hook to a giant grappling hook"
+    },
+    {
+        "BuffId": 341,
+        "BuffType": 15,
+        "Params": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 3.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff07.png",
+        "Desc": "The grappling hook will shoot a aiming aid line"
+    },
+    {
+        "BuffId": 401,
+        "BuffType": 24,
+        "Params": [
+            null,
+            6.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": null,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Default Decoy Grappling Hook"
+    },
+    {
+        "BuffId": 402,
+        "BuffType": 25,
+        "Params": [
+            null,
+            20.0,
+            1000.0,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": null,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Bonus Points for Catching/Using a Bomb (20 - 1000)"
+    },
+    {
+        "BuffId": 403,
+        "BuffType": 26,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": null,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Bonus item after catching a cat"
+    },
+    {
+        "BuffId": 404,
+        "BuffType": 27,
+        "Params": [
+            null,
+            100.0,
+            1500.0,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": null,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "QTE Bonus Points (100% - 1500%)"
+    },
+    {
+        "BuffId": 405,
+        "BuffType": 24,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": null,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Electromagnetic"
+    },
+    {
+        "BuffId": 406,
+        "BuffType": 24,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": null,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Gigantic"
+    },
+    {
+        "BuffId": 407,
+        "BuffType": 24,
+        "Params": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": null,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Control Direction"
+    },
+    {
+        "BuffId": 408,
+        "BuffType": 24,
+        "Params": [
+            null,
+            5.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": null,
+        "DisplayPriority": null,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Charge"
+    },
+    {
+        "BuffId": 501,
+        "BuffType": 14,
+        "Params": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 3.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff.png",
+        "Desc": "Normal Hook: Nothing special, but 100% reliable."
+    },
+    {
+        "BuffId": 502,
+        "BuffType": 14,
+        "Params": [
+            null,
+            6.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 3.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff2.png",
+        "Desc": "Decoy Hook: Alisa's basic grappling hook. No matter how things change, there's always someone standing by your side."
+    },
+    {
+        "BuffId": 503,
+        "BuffType": 14,
+        "Params": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 3.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff25.png",
+        "Desc": "Targeted Hook: Change the modification direction freely! A grappling hook that even a cat can use!"
+    },
+    {
+        "BuffId": 504,
+        "BuffType": 14,
+        "Params": [
+            null,
+            5.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 3.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff10.png",
+        "Desc": "Magnetic Hook: Press and hold to extend the grappling hook! It attracts all resources on its path."
+    },
+    {
+        "BuffId": 505,
+        "BuffType": 14,
+        "Params": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 3.0,
+        "Name": null,
+        "Icon": "Assets/Product/Texture/Image/UiGoldenMiner/UiGoldenMinerIconBuff11.png",
+        "Desc": "Gigantic Hook: A grappling hook that only catches one target but has a wide range! There's no need to aim at all!"
+    },
+    {
+        "BuffId": 601,
+        "BuffType": 28,
+        "Params": [
+            null,
+            103.0,
+            0.0,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 2.0,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Start the game with Normal Hook"
+    },
+    {
+        "BuffId": 602,
+        "BuffType": 28,
+        "Params": [
+            null,
+            103.0,
+            1.0,
+            null
+        ],
+        "TimeType": 1,
+        "TimeTypeParam": null,
+        "DisplayType": 1.0,
+        "DisplayPriority": 2.0,
+        "Name": null,
+        "Icon": null,
+        "Desc": "Start the game with Decoy Hook"
+    }
+]

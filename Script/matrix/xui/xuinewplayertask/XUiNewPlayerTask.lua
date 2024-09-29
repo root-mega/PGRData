@@ -149,6 +149,7 @@ end
 function XUiNewPlayerTask:OnDestroy()
     XEventManager.RemoveEventListener(XEventId.EVENT_TASK_SYNC, self.OnTaskChangeSync, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_NEWBIETASK_DAYCHANGED, self.OnTaskChangeSync, self)
+    XDataCenter.ItemManager.RemoveCountUpdateListener(self.TxtCurProgress)
 end
 
 

@@ -120,5 +120,5 @@ end
 function XUiAssignOccupy:OnBtnOccupyClick()
     -- XLuaUiManager.Open("UiAssignSelectOccupy")
     self:Close()
-    XLuaUiManager.Open("UiAssignSelectCharacter", self.ChapterId)
+    XLuaUiManager.Open("UiSelectCharacterAssignOccupy", nil, self.ChapterId)
 end

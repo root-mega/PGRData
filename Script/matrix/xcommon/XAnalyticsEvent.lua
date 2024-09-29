@@ -5,7 +5,7 @@ XAnalyticsEvent = XAnalyticsEvent or {}
 
 local OnRoleCreate = function()
     if XUserManager.IsUseSdk() then
-        XHeroSdkManager.CreateNewRole()
+        -- XHeroSdkManager.CreateNewRole()
         XHgSdkManager.CreateNewRole();
     end
     -- en2.1 pcsdk 升级
@@ -14,7 +14,7 @@ end
 
 local OnLogin = function()
     if XUserManager.IsUseSdk() then
-        XHeroSdkManager.EnterGame()
+        -- XHeroSdkManager.EnterGame()
         XHgSdkManager.EnterGame()
     end
 
@@ -25,7 +25,7 @@ end
 
 local OnLevelUp = function()
     if XUserManager.IsUseSdk() then
-        XHeroSdkManager.RoleLevelUp()
+        -- XHeroSdkManager.RoleLevelUp()
         XHgSdkManager.RoleLevelUp()
     end
 

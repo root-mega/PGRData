@@ -2,56 +2,119 @@
     {
         "Id": 1,
         "TimeId": null,
-        "RewardId": [],
+        "RewardId": [
+            null,
+            null,
+            null
+        ],
         "PrefabPath": [
+            null,
             "Assets/Product/Ui/ComponentPrefab/FubenExpedition/FuBenExpedition01.prefab",
             "Assets/Product/Ui/ComponentPrefab/FubenExpedition/FuBenExpedition02.prefab"
         ],
         "CodeName": "BG",
         "StageBgPath": [
+            null,
             "Assets/Product/Texture/Image/UiExpedition/UiExpeditionBg01.png",
             "Assets/Product/Texture/Image/UiExpedition/UiExpeditionBg02.png"
         ],
         "BgFx": [
+            null,
             "Assets/Product/Effect/Prefab/FxUi/FxUiExpeditionMain/FxUiExpeditionMain01.prefab",
             "Assets/Product/Effect/Prefab/FxUi/FxUiExpeditionMain/FxUiExpeditionMain03.prefab"
         ],
         "RewardIcon": [
+            null,
             "Assets/Product/Texture/Image/UiCollection/Iconcollection057.png",
             "Assets/Product/Texture/Image/UiCollection/Iconcollection057.png"
         ],
         "DefaultTeamIds": [
+            null,
             1,
             2,
             3.0
         ],
-        "ComboIds": []
+        "ComboIds": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 2,
         "TimeId": null,
-        "RewardId": [],
+        "RewardId": [
+            null,
+            null,
+            null
+        ],
         "PrefabPath": [
+            null,
             "Assets/Product/Ui/ComponentPrefab/FubenExpedition/FuBenExpedition01.prefab",
             "Assets/Product/Ui/ComponentPrefab/FubenExpedition/FuBenExpedition02.prefab"
         ],
         "CodeName": "BG",
         "StageBgPath": [
+            null,
             "Assets/Product/Texture/Image/UiExpedition/UiExpeditionBg01.png",
             "Assets/Product/Texture/Image/UiExpedition/UiExpeditionBg02.png"
         ],
         "BgFx": [
+            null,
             "Assets/Product/Effect/Prefab/FxUi/FxUiExpeditionMain/FxUiExpeditionMain01.prefab",
             "Assets/Product/Effect/Prefab/FxUi/FxUiExpeditionMain/FxUiExpeditionMain03.prefab"
         ],
         "RewardIcon": [
+            null,
             "Assets/Product/Texture/Image/UiCollection/Iconcollection057.png",
             "Assets/Product/Texture/Image/UiCollection/Iconcollection057.png"
         ],
         "DefaultTeamIds": [
+            null,
             4,
-            5
+            5,
+            null
         ],
-        "ComboIds": []
+        "ComboIds": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     }
 ]

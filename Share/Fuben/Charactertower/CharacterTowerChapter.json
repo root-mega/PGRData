@@ -1,0 +1,362 @@
+[
+    {
+        "Id": 100111,
+        "Type": 1,
+        "TimeId": null,
+        "CharacterId": 1081002,
+        "OpenCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "ActivityCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "Img": "Assets/Product/Texture/Image/UiCharacterTower/CharacterTowerBtnBg04.png",
+        "Title": "Watanabe Story",
+        "Prefab": "Assets/Product/Ui/ComponentPrefab/UiCharacterTower/CharacterTowerCardPlot4.prefab",
+        "ChapterRewardId": 16324,
+        "RelationGroupId": null,
+        "StageIds": [
+            null,
+            21000110,
+            21000111,
+            21000112,
+            21000113,
+            21000114
+        ],
+        "TreasureId": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 100121,
+        "Type": 2,
+        "TimeId": null,
+        "CharacterId": 1081002,
+        "OpenCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "ActivityCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "Img": "Assets/Product/Texture/Image/UiCharacterTower/CharacterTowerBtnBg04.png",
+        "Title": "Watanabe Challenge",
+        "Prefab": null,
+        "ChapterRewardId": -1,
+        "RelationGroupId": 100121.0,
+        "StageIds": [
+            null,
+            21000100,
+            21000101,
+            21000102,
+            21000103,
+            21000104
+        ],
+        "TreasureId": [
+            null,
+            1000002.0,
+            1000003.0,
+            1000004.0,
+            null
+        ]
+    },
+    {
+        "Id": 100211,
+        "Type": 1,
+        "TimeId": null,
+        "CharacterId": 1021003,
+        "OpenCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "ActivityCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "Img": "Assets/Product/Texture/Image/UiCharacterTower/CharacterTowerBtnBg03.png",
+        "Title": "Crimson Abyss Story",
+        "Prefab": "Assets/Product/Ui/ComponentPrefab/UiCharacterTower/CharacterTowerCardPlot4.prefab",
+        "ChapterRewardId": 16315,
+        "RelationGroupId": null,
+        "StageIds": [
+            null,
+            21000210,
+            21000211,
+            21000212,
+            21000213,
+            21000214
+        ],
+        "TreasureId": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 100221,
+        "Type": 2,
+        "TimeId": null,
+        "CharacterId": 1021003,
+        "OpenCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "ActivityCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "Img": "Assets/Product/Texture/Image/UiCharacterTower/CharacterTowerBtnBg03.png",
+        "Title": "Crimson Abyss Challenge",
+        "Prefab": null,
+        "ChapterRewardId": -1,
+        "RelationGroupId": 100221.0,
+        "StageIds": [
+            null,
+            21000200,
+            21000201,
+            21000202,
+            21000203,
+            21000204
+        ],
+        "TreasureId": [
+            null,
+            1001002.0,
+            1001003.0,
+            1001004.0,
+            null
+        ]
+    },
+    {
+        "Id": 100311,
+        "Type": 1,
+        "TimeId": null,
+        "CharacterId": 1051004,
+        "OpenCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "ActivityCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "Img": "Assets/Product/Texture/Image/UiCharacterTower/CharacterTowerBtnBg05.png",
+        "Title": "Starfarer Story",
+        "Prefab": "Assets/Product/Ui/ComponentPrefab/UiCharacterTower/CharacterTowerCardPlot4.prefab",
+        "ChapterRewardId": 17879,
+        "RelationGroupId": null,
+        "StageIds": [
+            null,
+            21000231,
+            21000232,
+            21000233,
+            21000234,
+            21000235
+        ],
+        "TreasureId": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 100321,
+        "Type": 2,
+        "TimeId": null,
+        "CharacterId": 1051004,
+        "OpenCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "ActivityCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "Img": "Assets/Product/Texture/Image/UiCharacterTower/CharacterTowerBtnBg05.png",
+        "Title": "Starfarer Challenge",
+        "Prefab": null,
+        "ChapterRewardId": -1,
+        "RelationGroupId": 100321.0,
+        "StageIds": [
+            null,
+            21000220,
+            21000221,
+            21000222,
+            21000223,
+            21000224
+        ],
+        "TreasureId": [
+            null,
+            1002002.0,
+            1002003.0,
+            1002004.0,
+            null
+        ]
+    },
+    {
+        "Id": 100411,
+        "Type": 1,
+        "TimeId": null,
+        "CharacterId": 1071004,
+        "OpenCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "ActivityCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "Img": "Assets/Product/Texture/Image/UiCharacterTower/CharacterTowerBtnBg06.png",
+        "Title": "Scire Story",
+        "Prefab": "Assets/Product/Ui/ComponentPrefab/UiCharacterTower/CharacterTowerCardPlot4.prefab",
+        "ChapterRewardId": 59807,
+        "RelationGroupId": null,
+        "StageIds": [
+            null,
+            21000251,
+            21000252,
+            21000253,
+            21000254,
+            21000255
+        ],
+        "TreasureId": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 100421,
+        "Type": 2,
+        "TimeId": null,
+        "CharacterId": 1071004,
+        "OpenCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "ActivityCondition": [
+            null,
+            10436011,
+            null
+        ],
+        "Img": "Assets/Product/Texture/Image/UiCharacterTower/CharacterTowerBtnBg06.png",
+        "Title": "Scire Challenge",
+        "Prefab": null,
+        "ChapterRewardId": -1,
+        "RelationGroupId": 100421.0,
+        "StageIds": [
+            null,
+            21000240,
+            21000241,
+            21000242,
+            21000243,
+            21000244
+        ],
+        "TreasureId": [
+            null,
+            1003002.0,
+            1003003.0,
+            1003004.0,
+            null
+        ]
+    },
+    {
+        "Id": 100511,
+        "Type": 1,
+        "TimeId": 20402.0,
+        "CharacterId": 1571003,
+        "OpenCondition": [
+            null,
+            10436051,
+            null
+        ],
+        "ActivityCondition": [
+            null,
+            10436051,
+            null
+        ],
+        "Img": "Assets/Product/Texture/Image/UiCharacterTower/CharacterTowerBtnBg07.png",
+        "Title": "Arca Story",
+        "Prefab": "Assets/Product/Ui/ComponentPrefab/UiCharacterTower/CharacterTowerCardPlot4.prefab",
+        "ChapterRewardId": 61824,
+        "RelationGroupId": null,
+        "StageIds": [
+            null,
+            21000120,
+            21000121,
+            21000122,
+            21000123,
+            21000124
+        ],
+        "TreasureId": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 100521,
+        "Type": 2,
+        "TimeId": 20402.0,
+        "CharacterId": 1571003,
+        "OpenCondition": [
+            null,
+            10436051,
+            null
+        ],
+        "ActivityCondition": [
+            null,
+            10436051,
+            null
+        ],
+        "Img": "Assets/Product/Texture/Image/UiCharacterTower/CharacterTowerBtnBg07.png",
+        "Title": "Arca Challenge",
+        "Prefab": null,
+        "ChapterRewardId": -1,
+        "RelationGroupId": 100521.0,
+        "StageIds": [
+            null,
+            21000115,
+            21000116,
+            21000117,
+            21000118,
+            21000119
+        ],
+        "TreasureId": [
+            null,
+            1004002.0,
+            1004003.0,
+            1004004.0,
+            null
+        ]
+    }
+]

@@ -245,7 +245,9 @@ XRpc.NotifyPayResult = function(data)
             end
         end
         --CheckPoint: APPEVENT_PURCHASED
-        XAppEventManager.PayAppLogEvent(data.TotalPayMoney - XDataCenter.PayManager.LastTotalPayMoney)
+        if CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO or XDataCenter.UiPcManager.IsPc() then
+            XAppEventManager.PayAppLogEvent(data.TotalPayMoney - XDataCenter.PayManager.LastTotalPayMoney)
+        end
         XDataCenter.PayManager.LastTotalPayMoney = data.TotalPayMoney
     end
     XDataCenter.PayManager.NotifyPayResult(data)

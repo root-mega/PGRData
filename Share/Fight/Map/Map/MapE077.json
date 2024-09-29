@@ -11,14 +11,19 @@
         "SceneCamera": 140,
         "CameraId": 9,
         "Terrains": [
-            301311260
+            null,
+            301311260,
+            null,
+            null
         ],
         "Position": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
         ],
         "Rotation": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
@@ -36,14 +41,19 @@
         "SceneCamera": 87,
         "CameraId": 9,
         "Terrains": [
-            301311290
+            null,
+            301311290,
+            null,
+            null
         ],
         "Position": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
         ],
         "Rotation": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
@@ -61,14 +71,19 @@
         "SceneCamera": 140,
         "CameraId": 9,
         "Terrains": [
-            301311330
+            null,
+            301311330,
+            null,
+            null
         ],
         "Position": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
         ],
         "Rotation": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
@@ -86,14 +101,19 @@
         "SceneCamera": 113,
         "CameraId": 9,
         "Terrains": [
-            301311320
+            null,
+            301311320,
+            null,
+            null
         ],
         "Position": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
         ],
         "Rotation": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
@@ -111,14 +131,19 @@
         "SceneCamera": 87,
         "CameraId": 9,
         "Terrains": [
-            301311360
+            null,
+            301311360,
+            null,
+            null
         ],
         "Position": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
         ],
         "Rotation": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
@@ -136,14 +161,19 @@
         "SceneCamera": 140,
         "CameraId": 9,
         "Terrains": [
-            301311450
+            null,
+            301311450,
+            null,
+            null
         ],
         "Position": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
         ],
         "Rotation": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
@@ -161,14 +191,19 @@
         "SceneCamera": 87,
         "CameraId": 9,
         "Terrains": [
-            301311460
+            null,
+            301311460,
+            null,
+            null
         ],
         "Position": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
         ],
         "Rotation": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
@@ -186,14 +221,19 @@
         "SceneCamera": 140,
         "CameraId": 9,
         "Terrains": [
-            301311480
+            null,
+            301311480,
+            null,
+            null
         ],
         "Position": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
         ],
         "Rotation": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
@@ -211,14 +251,19 @@
         "SceneCamera": 113,
         "CameraId": 9,
         "Terrains": [
-            301311470
+            null,
+            301311470,
+            null,
+            null
         ],
         "Position": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
         ],
         "Rotation": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
@@ -236,14 +281,79 @@
         "SceneCamera": 87,
         "CameraId": 9,
         "Terrains": [
-            301311490
+            null,
+            301311490,
+            null,
+            null
         ],
         "Position": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"
         ],
         "Rotation": [
+            null,
+            "0|0|0",
+            "0|0|0",
+            "0|0|0"
+        ]
+    },
+    {
+        "Id": 30130312,
+        "Behavior": 30130312,
+        "Name": "2.5\u6f5c\u5165",
+        "Environment": null,
+        "TerrainRoot": null,
+        "CloseLoadingDelay": 0.15,
+        "IsAsyncLoadNpc": null,
+        "SwitchNpcCd": 15,
+        "SceneCamera": 84,
+        "CameraId": 30130312,
+        "Terrains": [
+            null,
+            301303120,
+            null,
+            null
+        ],
+        "Position": [
+            null,
+            "0|0|0",
+            "0|0|0",
+            "0|0|0"
+        ],
+        "Rotation": [
+            null,
+            "0|0|0",
+            "0|0|0",
+            "0|0|0"
+        ]
+    },
+    {
+        "Id": 30130316,
+        "Behavior": 30130316,
+        "Name": "2.5\u6218\u6597",
+        "Environment": null,
+        "TerrainRoot": null,
+        "CloseLoadingDelay": 0.15,
+        "IsAsyncLoadNpc": null,
+        "SwitchNpcCd": 15,
+        "SceneCamera": 166,
+        "CameraId": 9,
+        "Terrains": [
+            null,
+            301303160,
+            null,
+            null
+        ],
+        "Position": [
+            null,
+            "0|0|0",
+            "0|0|0",
+            "0|0|0"
+        ],
+        "Rotation": [
+            null,
             "0|0|0",
             "0|0|0",
             "0|0|0"

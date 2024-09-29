@@ -80,7 +80,7 @@ function XUiChatServeMain:OnStart(isMain, ...)
         self.ImgBgMain:SetActive(false)
         self.ImgBgCommon:SetActive(true)
     end
-    XRedPointManager.AddRedPointEvent(self.Content, self.OnCheckRedPoint, self, { XRedPointConditions.Types.CONDITION_RECEIVE_CHAT }, nil, false)
+    self:AddRedPointEvent(self.Content, self.OnCheckRedPoint, self, { XRedPointConditions.Types.CONDITION_RECEIVE_CHAT }, nil, false)
 end
 
 function XUiChatServeMain:OnEnable()

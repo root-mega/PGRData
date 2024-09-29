@@ -779,4 +779,8 @@ function XPartner:SetIsBelongSelf(value)
     self.IsBelongSelf = value
 end
 
+function XPartner:GetIsComposePreview()
+    return not self.IsComplete
+end
+
 return XPartner

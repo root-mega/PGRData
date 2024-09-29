@@ -3,114 +3,203 @@
         "Key": "ChapterTipsDescColor",
         "Comment": "The explanatory text's color in the chapter pop-up window (Values[1]: Incomplete; Values[2]: Complete)",
         "Values": [
+            null,
             "737373",
-            "0d70bc"
+            "0d70bc",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ChapterTipsUnlockDesc",
         "Comment": "The unlock condition text in the chapter pop-up window (1: Achievement Points; 2: Pre-Chapter)",
         "Values": [
+            null,
             "Total Achievement Points reached %d",
-            "Courses Completed: %s"
+            "Courses Completed: %s",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ExamChapterPanel",
         "Comment": "Resource paths of the Battle License main screen chapter layout",
         "Values": [
-            "Assets/Product/Ui/ComponentPrefab/UiMultiDim/UiCourseXianDuan.prefab"
+            null,
+            "Assets/Product/Ui/ComponentPrefab/UiMultiDim/UiCourseXianDuan.prefab",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ExamChapterPanelGrid",
         "Comment": "Resource paths of the grid in the Battle License main screen chapter layout",
         "Values": [
-            "Assets/Product/Ui/ComponentPrefab/FuBenPokemon/CourseCombatlicense01.prefab"
+            null,
+            "Assets/Product/Ui/ComponentPrefab/FuBenPokemon/CourseCombatlicense01.prefab",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ExamChapterTipsBtnName",
         "Comment": "The button name of the pop-up window for the Battle License chapter description (1: Unlocked; 2: Locked)",
         "Values": [
+            null,
             "Join Exam",
-            "Joining requirements not met."
+            "Joining requirements not met.",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ExamChapterTipsClearPointDesc",
         "Comment": "The exam passing score description in the Battle License chapter description pop-up windown",
         "Values": [
-            "Complete %d challenge(s) on all subjects."
+            null,
+            "Complete %d challenge(s) on all subjects.",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ExamChapterTipsPanelTitle",
         "Comment": "Distribution title of the Battle License chapter description pop-up window",
         "Values": [
+            null,
             "Joining Requirements",
             "Exam Subject",
-            "Passing Conditions"
+            "Passing Conditions",
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ExamManagementGridPrefab",
         "Comment": "Resource paths of the grid of the Battle License stage",
         "Values": [
-            "Assets/Product/Ui/ComponentPrefab/FuBenNoanActivity/UiCourseManagementGk.prefab"
+            null,
+            "Assets/Product/Ui/ComponentPrefab/FuBenNoanActivity/UiCourseManagementGk.prefab",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ExamManagementGridNumAsset",
         "Comment": "Resource paths of the grid number of the Battle License stage",
         "Values": [
+            null,
             "Assets/Product/Texture/Atlas/UiCourse/UiCourseManagement01.png",
             "Assets/Product/Texture/Atlas/UiCourse/UiCourseManagement02.png",
-            "Assets/Product/Texture/Atlas/UiCourse/UiCourseManagement03.png"
+            "Assets/Product/Texture/Atlas/UiCourse/UiCourseManagement03.png",
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "PointItemId",
         "Comment": "Achievement Point Item ID",
         "Values": [
-            "96122"
+            null,
+            "96122",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ReturnPreStageTipsDesc",
         "Comment": "In the details of the Battle License stage, tap the pop-up window reminder text of the review course",
         "Values": [
+            null,
             "Return to the previous exam subject?",
-            "Return to the previous exam subject?"
+            "Return to the previous exam subject?",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ExamMainBg",
         "Comment": "Battle License main screen background",
         "Values": [
+            null,
             "Assets/Product/Texture/Image/UiCourse/UiCourseBg01.png",
             "Assets/Product/Texture/Image/UiCourse/UiCourseBg02.png",
-            "Assets/Product/Texture/Image/UiCourse/UiCourseBg03.png"
+            "Assets/Product/Texture/Image/UiCourse/UiCourseBg03.png",
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ChapterLockDesc",
         "Comment": "Text of locked chapter",
         "Values": [
-            "[Tap to view unlock conditions]"
+            null,
+            "[Tap to view unlock conditions]",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "ExamStagePercent",
         "Comment": "Progress text for the Battle License stage screen",
         "Values": [
-            "<color=#000000f><size=44>%d</size></color>/%d"
+            null,
+            "<color=#000000f><size=44>%d</size></color>/%d",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "LessonStageImgNum",
         "Comment": "Digital resource paths of a certain grid of the course stage",
         "Values": [
+            null,
             "Assets/Product/Texture/Atlas/UiCourse/UiCourseVol1.png",
             "Assets/Product/Texture/Atlas/UiCourse/UiCourseVol2.png",
             "Assets/Product/Texture/Atlas/UiCourse/UiCourseVol3.png",
@@ -124,44 +213,84 @@
         "Key": "HelpKey",
         "Comment": "Function field of HelpCourse table (1: Course; 2: License)",
         "Values": [
+            null,
             "SpecialTrainHelp",
-            "MoeWarParkourMain"
+            "MoeWarParkourMain",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "SettlementCacelDialogDesc",
         "Comment": "The second confirmation pop-up text of cancelling saving in the battle settlement screen",
         "Values": [
-            "You have achieved the highest rating? Confirm to cancel it?"
+            null,
+            "You have achieved the highest rating? Confirm to cancel it?",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "SettlementSaveDialogDesc",
         "Comment": "Battle settlement screen, the number of targets achieved this time is less than the prior time, the second confirmation pop-up text of saving results",
         "Values": [
-            "This rating is lower than the last one. Saving it will lower your rating. Confirm?"
+            null,
+            "This rating is lower than the last one. Saving it will lower your rating. Confirm?",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "SettlementSaveDialogInoperativeDesc",
         "Comment": "Battle settlement screen, all goals have been achieved before, the second confirmation pop-up text of saving results",
         "Values": [
-            "You have already achieved the highest rating. Saving this will not result in any changes."
+            null,
+            "You have already achieved the highest rating. Saving this will not result in any changes.",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "CourseOrExamFinishTips",
         "Comment": "Course/Exam Result Tips",
         "Values": [
+            null,
             "Completed [%s]",
-            "Extra target rewards can be claimed in the lower left corner of the screen."
+            "Extra target rewards can be claimed in the lower left corner of the screen.",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "Key": "RewardTips",
         "Comment": "Reward Tips",
         "Values": [
-            "Reward already claimed"
+            null,
+            "Reward already claimed",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     }
 ]

@@ -11,9 +11,19 @@ local ServerDataReadyMaxCount = 1 --增加不同系统类型抽卡时记得酌�
 local DEFAULT_UP_IMG = CS.XGame.ClientConfig:GetString("DrawDefaultUpImg")
 local GUIDE_SHOW_GROUP = CS.XGame.ClientConfig:GetInt("GuideShowGroup")
 
-function XUiNewDrawMain:OnStart(ruleType, groupId, defaultDrawId)
+function XUiNewDrawMain:OnStart(ruleType, groupId, defaultDrawId,groupIdPool)
     self.RuleType = ruleType
     self.DefaultGroupId = groupId
+    --2.7支持多卡池查找
+    if groupIdPool and type(groupIdPool)=='string' then
+        --切割字符串
+        local idStrs=string.Split(groupIdPool,'|')
+        self.GroupIdPool={}
+        for i, v in ipairs(idStrs) do
+            table.insert(self.GroupIdPool,assert(tonumber(v)))
+        end
+    end
+    
     if XLuaUiManager.IsUiShow("UiGuide") then
         self.DefaultGroupId = GUIDE_SHOW_GROUP
     end
@@ -29,6 +39,9 @@ function XUiNewDrawMain:OnStart(ruleType, groupId, defaultDrawId)
     self.DefaultDrawId = defaultDrawId
     self.IsFirstIn = true
     
+    --2.7处理多卡池情况
+    self:FindDrawGroupId()
+
     self:InitScene()
     self:InitAssetPanel()
     self:InitBtn()
@@ -72,6 +85,30 @@ end
 function XUiNewDrawMain:UpdateDrawControl()
     if self.DrawControl then
         self.DrawControl:Update(self.DrawInfo, self.GroupId)
+    end
+end
+
+--2.7针对多卡池，选定一个
+function XUiNewDrawMain:FindDrawGroupId()
+    if not XTool.IsTableEmpty(self.GroupIdPool) then
+        local drawId = self.DefaultDrawId
+        local exist=false
+        for i, v in pairs(self.GroupIdPool) do --遍历每个卡池
+            local infoList = XDataCenter.DrawManager.GetDrawGroupInfoByGroupId(v)
+            if not XTool.IsTableEmpty(infoList) and not XTool.IsTableEmpty(infoList.OptionalDrawIdList) then
+                if infoList.EndTime > 0 and infoList.EndTime - XTime.GetServerNowTimestamp()<=0 then
+                    break
+                end
+                for _, info in pairs(infoList.OptionalDrawIdList) do
+                    if info == drawId and not exist then
+                        exist = true
+                        self.DefaultGroupId=v
+                        break
+                    end
+                end
+            end
+            if exist then break end
+        end
     end
 end
 
@@ -255,7 +292,7 @@ end
 
 --region Ui - AssetPanel
 function XUiNewDrawMain:InitAssetPanel()
-    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelSpecialTool)
+    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelSpecialTool, self)
 end
 
 function XUiNewDrawMain:RefreshAssetPanel(index)

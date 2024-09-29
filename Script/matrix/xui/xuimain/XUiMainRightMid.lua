@@ -101,23 +101,23 @@ function XUiMainRightMid:OnStart(rootUi)
     end
 
     -- 已经移到 PanelDown 区域中
-
+    
     --RedPoint
-    XRedPointManager.AddRedPointEvent(self.BtnTask.ReddotObj, self.OnCheckTaskNews, self, RedPointConditionGroup.Task)
-    XRedPointManager.AddRedPointEvent(self.BtnBuilding.ReddotObj, self.OnCheckBuildingNews, self, RedPointConditionGroup.Dorm)
-    --XRedPointManager.AddRedPointEvent(self.BtnReward.ReddotObj, self.OnCheckARewardNews, self, { XRedPointConditions.Types.CONDITION_ACTIVITYDRAW_RED })
-    -- XRedPointManager.AddRedPointEvent(self.BtnActivityBrief, self.OnCheckActivityBriefRedPoint, self, { XRedPointConditions.Types.CONDITION_ACTIVITY_NEW_MAINENTRY })
-    XRedPointManager.AddRedPointEvent(self.ImgBuldingRedDot, self.OnCheckGuildRedPoint, self, RedPointConditionGroup.Guild)
+    local point1 = self:AddRedPointEvent(self.BtnTask.ReddotObj, self.OnCheckTaskNews, self, RedPointConditionGroup.Task, nil, false)
+    local point2 = self:AddRedPointEvent(self.BtnBuilding.ReddotObj, self.OnCheckBuildingNews, self, RedPointConditionGroup.Dorm, nil, false)
+    local point3 = self:AddRedPointEvent(self.ImgBuldingRedDot, self.OnCheckGuildRedPoint, self, RedPointConditionGroup.Guild, nil, false)
 
-    XRedPointManager.AddRedPointEvent(self.BtnPartner, self.OnCheckPartnerRedPoint, self, RedPointConditionGroup.Partner)
+    local point4 = self:AddRedPointEvent(self.BtnPartner, self.OnCheckPartnerRedPoint, self, RedPointConditionGroup.Partner, nil, false)
 
-    XRedPointManager.AddRedPointEvent(self.BtnMember.ReddotObj, self.OnCheckMemberNews, self, RedPointConditionGroup.Member)
-    XRedPointManager.AddRedPointEvent(self.BtnRecharge.ReddotObj, self.OnCheckRechargeNews, self, RedPointConditionGroup.Recharge)
+    local point5 = self:AddRedPointEvent(self.BtnMember.ReddotObj, self.OnCheckMemberNews, self, RedPointConditionGroup.Member, nil, false)
+    local point6 = self:AddRedPointEvent(self.BtnRecharge.ReddotObj, self.OnCheckRechargeNews, self, RedPointConditionGroup.Recharge, nil, false)
+
+    local point7 = self:AddRedPointEvent(self.BtnBag, self.OnCheckBagNews, self, RedPointConditionGroup.Bag, nil, false)
+
+    local point8 = self:AddRedPointEvent(self.BtnOpen, self.OnCheckOpenRedPoint, self, RedPointConditionGroup.Open, nil, false)
     
-    XRedPointManager.AddRedPointEvent(self.BtnBag, self.OnCheckBagNews, self, RedPointConditionGroup.Bag)
+    self.EntryRedPoint = { point1, point2, point3, point4, point5, point6, point7, point8 }
     
-    XRedPointManager.AddRedPointEvent(self.BtnOpen, self.OnCheckOpenRedPoint, self, RedPointConditionGroup.Open)
-
     --Filter
     self:CheckFilterFunctions()
     self:InitBtnActivityEntry()
@@ -129,15 +129,16 @@ function XUiMainRightMid:OnEnable()
     -- 充值红点
     XDataCenter.PurchaseManager.LBInfoDataReq()
     XRedPointManager.CheckByNode(self.BtnMember.ReddotObj)
+
+    for _, redPoint in pairs(self.EntryRedPoint) do
+        XRedPointManager.Check(redPoint)
+    end
     
-    --XEventManager.AddEventListener(XEventId.EVENT_NOTICE_TASKINITFINISHED, self.OnInitTaskFinished, self)
     XEventManager.AddEventListener(XEventId.EVENT_DRAW_ACTIVITYCOUNT_CHANGE, self.CheckDrawTag, self)
     XEventManager.AddEventListener(XEventId.EVENT_EQUIP_GUIDE_REFRESH_TARGET_STATE, self.OnCheckMemberTag, self)
-    --XEventManager.AddEventListener(XEventId.EVENT_TASKFORCE_INFO_NOTIFY, self.SetupDispatch, self)
     XEventManager.AddEventListener(XEventId.EVENT_DAYLY_REFESH_RECHARGE_BTN, self.OnCheckRechargeNews, self)
     
     self:RefreshFubenProgress()
-    --self:UpdateStoryTaskBtn()
     self:UpdateBtnActivityBrief()
     self:UpdateBtnActivityEntry()
     self:CheckDrawTag()
@@ -160,7 +161,7 @@ function XUiMainRightMid:OnEnable()
         -- 有功能开放标记时才显示免费标签
         if XFunctionManager.JudgeOpen(XFunctionManager.FunctionName.DrawCard) then
             XDataCenter.DrawManager.GetDrawGroupList(function()
-                XRedPointManager.AddRedPointEvent(self.BtnReward, self.OnCheckDrawFreeTicketTag, self, { XRedPointConditions.Types.CONDITION_DRAW_FREE_TAG })
+                self:AddRedPointEvent(self.BtnReward, self.OnCheckDrawFreeTicketTag, self, { XRedPointConditions.Types.CONDITION_DRAW_FREE_TAG })
             end)
         end
     else
@@ -185,7 +186,6 @@ function XUiMainRightMid:CheckGuildOpen()
 end
 
 function XUiMainRightMid:OnDisable()
-    --XEventManager.RemoveEventListener(XEventId.EVENT_NOTICE_TASKINITFINISHED, self.OnInitTaskFinished, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_DRAW_ACTIVITYCOUNT_CHANGE, self.CheckDrawTag, self)
     --XEventManager.RemoveEventListener(XEventId.EVENT_TASKFORCE_INFO_NOTIFY, self.SetupDispatch, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_EQUIP_GUIDE_REFRESH_TARGET_STATE, self.OnCheckMemberTag, self)
@@ -405,30 +405,6 @@ function XUiMainRightMid:IsMainLineClear(curChapterOrderId, progressOrder, curSt
     end
 end
 
---更新任务按钮描述
-function XUiMainRightMid:UpdateStoryTaskBtn()
-    --self.ShowTaskId = XDataCenter.TaskManager.GetStoryTaskShowId()
-    --local white = "#ffffff"
-    --local blue = "#34AFF8"
-    --if self.ShowTaskId > 0 then
-    --    local taskTemplates = XDataCenter.TaskManager.GetTaskTemplate(self.ShowTaskId)
-        --self.BtnSkipTask:SetDisable(false, true)
-        --local taskData = XDataCenter.TaskManager.GetTaskDataById(self.ShowTaskId)
-        --local hasRed = taskData and taskData.State == XDataCenter.TaskManager.TaskState.Achieved
-        --self.BtnSkipTask:ShowReddot(hasRed)
-        --local color = hasRed and blue or white
-        --self.BtnSkipTask:SetName(string.format("<color=%s>%s</color>", color, taskTemplates.Desc))
-    --else
-        --self.BtnSkipTask:SetDisable(true, true)
-        --self.BtnSkipTask:SetName(string.format("<color=%s>%s</color>", white, CSXTextManagerGetText("TaskStoryNoTask")))
-    --end
-end
-
---更新任务标签
-function XUiMainRightMid:OnInitTaskFinished()
-    --self:UpdateStoryTaskBtn()
-end
-
 -------------活动简介 Begin-------------------
 function XUiMainRightMid:UpdateBtnActivityBrief()
     local isOpen = XDataCenter.ActivityBriefManager.CheckActivityBriefOpen()
@@ -460,7 +436,7 @@ function XUiMainRightMid:InitBtnActivityEntry()
             local redPointConditions = XActivityBriefConfigs.GetRedPointConditionsBySkipId(config.SkipId)
             local redPointParam = XActivityBriefConfigs.GetRedPointParamBySkipId(config.SkipId)
             if redPointConditions then
-                local redPointEventId = XRedPointManager.AddRedPointEvent(btn, function(_, count) self:OnCheckActivityEntryRedPointByIndex(index, count) end, self, redPointConditions, redPointParam)
+                local redPointEventId = self:AddRedPointEvent(btn, function(_, count) self:OnCheckActivityEntryRedPointByIndex(index, count) end, self, redPointConditions, redPointParam)
                 tableInsert(self.BtnActivityEntryRedPointEventIds, redPointEventId)
             else
                 btn:ShowReddot(false)
@@ -470,8 +446,8 @@ function XUiMainRightMid:InitBtnActivityEntry()
 end
 
 function XUiMainRightMid:InitBtnActivityEntryRedPointEventIds()
-    for _, redPointEventId in ipairs(self.BtnActivityEntryRedPointEventIds or {}) do
-        XRedPointManager.RemoveRedPointEvent(redPointEventId)
+    for _, redPointId in pairs(self.BtnActivityEntryRedPointEventIds or {}) do
+        self:ReleaseSingleRedPoint(redPointId)
     end
     self.BtnActivityEntryRedPointEventIds = {}
 end

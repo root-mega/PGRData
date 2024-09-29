@@ -1,5 +1,5 @@
 
-XUiGridLikeSendGiftItem = XClass(nil, "XUiGridLikeSendGiftItem")
+local XUiGridLikeSendGiftItem = XClass(nil, "XUiGridLikeSendGiftItem")
 
 local mathFloor = math.floor
 local XMathClamp = XMath.Clamp

@@ -20,6 +20,9 @@ end
 function XUiPanelPracticeCharacter:InitViews(id, selectGroupId)
     self.CharacterDetail = XPracticeConfigs.GetPracticeChapterDetailById(id)
     self.CharacterChapter = XPracticeConfigs.GetPracticeChapterById(id)
+    if self.CharacterChapters and #self.CharacterChapters > 0 then
+        self:UpdateNodesScroll()
+    end
     self.Id = id
     self.SelectGroupId = selectGroupId
     self.CharacterChapterGO = self.PanelPrequelStages:LoadPrefab(self.CharacterDetail.PracticeContentPrefab)
@@ -101,6 +104,14 @@ function XUiPanelPracticeCharacter:UpdateNodes()
 
     if self.CharacterScrollRect then
         self.CharacterScrollRect.horizontalNormalizedPosition = 0
+    end
+end
+
+function XUiPanelPracticeCharacter:UpdateNodesScroll()
+    self.Nodes = XDataCenter.PracticeManager.GetSortedChapterById(self.Id)
+    for i = 1, #self.Nodes do
+        local node = self.Nodes[i]
+        self.CharacterChapters[i]:UpdateNodeScroll(node.GroupId)
     end
 end
 

@@ -23,7 +23,9 @@ function XUiSpecialFashionShop:OnAwake()
     self:InitDynamicTable()
     self:InitTabList()
 
+    -- 货币
     self.PanelSpecialTool.gameObject:SetActiveEx(false)
+    --self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelSpecialTool, self)
 
     -- 货币
     self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelSpecialTool)

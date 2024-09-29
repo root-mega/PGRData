@@ -1,5 +1,8 @@
+--2.7标记：已弃用
 local XUiFavorability = XLuaUiManager.Register(XLuaUi, "UiFavorability")
 local XUiPanelSignBoard = require("XUi/XUiMain/XUiChildView/XUiPanelSignBoard")
+local XUiPanelFavorabilityDocument=require("XUi/XUiFavorability/XUiPanelFavorabilityDocument")
+local XUiPanelFavorabilityExchangeRole=require("XUi/XUiFavorability/XUiPanelFavorabilityExchangeRole")
 
 local XFavorabilityType = {
     UILikeMain = 1,

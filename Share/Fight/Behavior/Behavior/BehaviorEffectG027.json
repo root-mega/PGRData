@@ -80,6 +80,22 @@
         "PreLoadRoot": null
     },
     {
+        "Id": 930626,
+        "Type": "OnSkill",
+        "Priority": 3,
+        "PrefixRoot": 680273409,
+        "Root": 680273411,
+        "PreLoadRoot": null
+    },
+    {
+        "Id": 930627,
+        "Type": "OnFrame",
+        "Priority": 3,
+        "PrefixRoot": 680273421,
+        "Root": 680273430,
+        "PreLoadRoot": null
+    },
+    {
         "Id": 976008,
         "Type": "OnNpcWillDie",
         "Priority": 3,

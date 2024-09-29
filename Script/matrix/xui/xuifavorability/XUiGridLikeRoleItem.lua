@@ -1,4 +1,4 @@
-XUiGridLikeRoleItem = XClass(nil, "XUiGridLikeRoleItem")
+local XUiGridLikeRoleItem = XClass(nil, "XUiGridLikeRoleItem")
 
 function XUiGridLikeRoleItem:Ctor(ui)
     self.GameObject = ui.gameObject
@@ -15,8 +15,15 @@ function XUiGridLikeRoleItem:OnRefresh(data)
     self.CharacterData = data
     self.TrustExp = XFavorabilityConfigs.GetTrustExpById(data.Id)
     self.RImgHeadIcon:SetRawImage(XDataCenter.CharacterManager.GetCharSmallHeadIcon(data.Id))
-    self.ImgAssist.gameObject:SetActiveEx(XDataCenter.DisplayManager.GetDisplayChar().Id == data.Id)
-
+    
+    --2.7是助理就显示
+    if self.ImgAssist then
+        self.ImgAssist.gameObject:SetActiveEx(data.IsAssistant and not data.MainAssistant)
+    end
+    if self.ImgAssistMain then
+        self.ImgAssistMain.gameObject:SetActiveEx(data.MainAssistant)
+    end
+    
     local isOwn = XDataCenter.CharacterManager.IsOwnCharacter(data.Id)
     self.ImgLock.gameObject:SetActiveEx(not isOwn)
     self.RImgAIxin.gameObject:SetActiveEx(isOwn)
@@ -45,7 +52,7 @@ end
 function XUiGridLikeRoleItem:IsRed()
     if self.CharacterData then
         local characterId = self.CharacterData.Id
-        local isOwn = XDataCenter.CharacterManager.IsOwnCharacter(characterId)
+        local isOwn = XMVCA.XCharacter:IsOwnCharacter(characterId)
         if not isOwn then return false end
 
         local rumorReddot = XDataCenter.FavorabilityManager.HasRumorsToBeUnlock(characterId)

@@ -67,7 +67,11 @@ function XGridTheatre3EventShop:_RefreshItem()
     self.RImgCostIcoin:SetRawImage(XDataCenter.ItemManager.GetItemIcon(costItemId))
     self.ImgDiscount.gameObject:SetActiveEx(self._ShopItem:CheckIsHaveDiscount())
     if self._ShopItem:CheckIsHaveDiscount() then
-        self.TxtDiscount.text = XUiHelper.GetText("BuyAssetDiscountText", self._ShopItem:GetDiscount())
+        local discount = self._ShopItem:GetDiscount()
+        if discount > 0 and  discount < 10 then
+            discount = 10 - discount
+        end
+        self.TxtDiscount.text = XUiHelper.GetText("BuyAssetDiscountText", discount)
     end
     self:_RefreshCost()
 end

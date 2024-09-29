@@ -861,7 +861,7 @@ function XFubenConfigs.GetPreStageId(stageId)
     return (config or {}).PreStageId
 end
 
-local function GetStageTypeCfg(stageId)
+function XFubenConfigs.GetStageTypeCfg(stageId)
     local config = StageTypeConfigs[stageId]
     if not config then
         return
@@ -872,12 +872,12 @@ end
 ---
 --- 活动特殊关卡配置机器人列表获取
 function XFubenConfigs.GetStageTypeRobot(stageType)
-    local config = GetStageTypeCfg(stageType)
+    local config = XFubenConfigs.GetStageTypeCfg(stageType)
     return (config or {}).RobotId
 end
 
 function XFubenConfigs.IsAllowRepeatChar(stageType)
-    local config = GetStageTypeCfg(stageType)
+    local config = XFubenConfigs.GetStageTypeCfg(stageType)
     return (config or {}).MatchCharIdRepeat
 end
 

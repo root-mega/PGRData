@@ -106,7 +106,7 @@ function XUiPanelAccountSet:InitPanelData()
     --获取绑定的结果
     self.BindState = nil
     self.CurBindType = nil
-    self.AppleGroup.gameObject:SetActiveEx(CS.UnityEngine.Application.platform == CS.UnityEngine.RuntimePlatform.IPhonePlayer);
+    self.AppleGroup.gameObject:SetActiveEx(CS.UnityEngine.Application.platform == CS.UnityEngine.RuntimePlatform.IPhonePlayer and CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO);
     self.FacebookBind.gameObject:SetActiveEx(false);
     self.GoogleBind.gameObject:SetActive(false);
     self.TwitterBind.gameObject:SetActiveEx(false)

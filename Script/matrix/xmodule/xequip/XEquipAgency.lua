@@ -2,6 +2,8 @@
 ---@field _Model XEquipModel
 local XEquipAgency = XClass(XAgency, "XEquipAgency")
 local XUiPanelEquipV2P6 = require("XUi/XUiCharacterV2P6/Grid/XUiPanelEquipV2P6")
+local XUiPanelCharInfoWithEquip = require("XUi/XUiCharacterV2P6/Grid/XUiPanelCharInfoWithEquip")
+local XUiPanelCharInfoWithEquipOther = require("XUi/XUiCharacterV2P6/Grid/XUiPanelCharInfoWithEquipOther")
 
 function XEquipAgency:OnInit()
     --初始化一些变量
@@ -795,8 +797,10 @@ function XEquipAgency:GetWearingAwarenessList(characterId)
     return equipList
 end
 
--- 获取角色穿戴的套装列表信息
-function XEquipAgency:GetWearingSuitInfoList(characterId)
+-- 获取套装列表信息
+---@param equipList table 意识实体列表
+---@param weaponEquip table 武器实体
+function XEquipAgency:GetWearingSuitInfoListByEquipListAndWeapon(equipList, weaponEquip)
     local suitInfoDic = {}
     local suitInfoList = {}
     local getSuitInfoFunc = function(suitId)
@@ -810,7 +814,6 @@ function XEquipAgency:GetWearingSuitInfoList(characterId)
         return suitInfo
     end
 
-    local equipList = self:GetWearingAwarenessList(characterId)
     for _, equip in pairs(equipList) do
         local suitId = self:GetEquipSuitId(equip.TemplateId)
         local suitInfo = getSuitInfoFunc(suitId)
@@ -818,9 +821,8 @@ function XEquipAgency:GetWearingSuitInfoList(characterId)
     end
 
     -- 武器超限
-    local usingWeaponId = XDataCenter.EquipManager.GetCharacterWearingWeaponId(characterId)
-    if usingWeaponId ~= 0 then
-        local equip = self:GetEquip(usingWeaponId)
+    if weaponEquip then
+        local equip = weaponEquip
         if equip:CanOverrun() and equip:IsOverrunBlindMatch() then
             local overrunSuitId = equip:GetOverrunChoseSuit()
             if overrunSuitId ~= 0 then
@@ -852,6 +854,23 @@ function XEquipAgency:GetWearingSuitInfoList(characterId)
         return a.SuitId > b.SuitId
     end)
 
+    return suitInfoList
+end
+
+-- 获取角色穿戴的套装列表信息
+function XEquipAgency:GetWearingSuitInfoList(characterId)
+    local suitInfoList = {}
+    local equipList = self:GetWearingAwarenessList(characterId)
+
+    -- 武器
+    local equipWeapon = nil
+    local usingWeaponId = XDataCenter.EquipManager.GetCharacterWearingWeaponId(characterId)
+    if usingWeaponId ~= 0 then
+        local equip = self:GetEquip(usingWeaponId)
+        equipWeapon = equip
+    end
+
+    suitInfoList = self:GetWearingSuitInfoListByEquipListAndWeapon(equipList, equipWeapon)
     return suitInfoList
 end
 
@@ -1009,6 +1028,22 @@ function XEquipAgency:InitPanelEquipV2P6(parentTransform, parentUiProxy, ...)
     -- local equipUi = CS.UnityEngine.Object.Instantiate(cacheComp.go, parentTransform)
     local xPanelEquipV2P6 = XUiPanelEquipV2P6.New(equipUi, parentUiProxy, ...)
     return xPanelEquipV2P6
+end
+
+---@return XUiPanelCharInfoWithEquip
+function XEquipAgency:InitPanelCharInfoWithEquip(parentTransform, parentUiProxy, ...)
+    local path = CS.XGame.ClientConfig:GetString("PanelCharInfoWithEquip")
+    local equipUi = parentTransform:LoadPrefab(path)
+    local xPanel = XUiPanelCharInfoWithEquip.New(equipUi, parentUiProxy, ...)
+    return xPanel
+end
+
+---@return XUiPanelCharInfoWithEquipOther
+function XEquipAgency:InitPanelCharInfoWithEquipOther(parentTransform, parentUiProxy, ...)
+    local path = CS.XGame.ClientConfig:GetString("PanelCharInfoWithEquip")
+    local equipUi = parentTransform:LoadPrefab(path)
+    local xPanel = XUiPanelCharInfoWithEquipOther.New(equipUi, parentUiProxy, ...)
+    return xPanel
 end
 
 -- 打开详情界面

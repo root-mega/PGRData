@@ -61,6 +61,8 @@ function XUiCharacterPropertyV2P6:InitFilter()
     local list = self.CharacterAgency:GetOwnCharacterList()
     self.DataSource = list
     self.PanelFilter:ImportList(list)
+    self.PanelFilter:RefreshList()
+    self.PanelFilter:Close()
 end
 
 function XUiCharacterPropertyV2P6:InitButton()
@@ -218,6 +220,7 @@ end
 function XUiCharacterPropertyV2P6:HideFilter()
     self.PanelCharacterFilter.gameObject:SetActiveEx(false)
     self.PanelPropertyButtons.gameObject:SetActiveEx(true)
+    self.PanelFilter:Close()
 end
 
 function XUiCharacterPropertyV2P6:OnBtnExchangeClick()
@@ -233,6 +236,9 @@ function XUiCharacterPropertyV2P6:ShowOrHideFilter()
         self.PanelFilter:DoSelectTag("BtnAll")
         local charId = self.ParentUi.CurCharacter.Id
         self.PanelFilter:DoSelectCharacter(charId)
+        self.PanelFilter:Open()
+    else
+        self.PanelFilter:Close()
     end
 
     activeSelf = self.PanelPropertyButtons.gameObject.activeSelf

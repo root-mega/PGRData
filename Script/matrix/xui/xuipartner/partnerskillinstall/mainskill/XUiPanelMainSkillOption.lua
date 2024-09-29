@@ -46,8 +46,9 @@ function XUiPanelMainSkillOption:SetupDynamicTable()
     local selectIndex = 1
     self.PageDatas = self.Partner:GetMainSkillGroupList()
 
+    local curSkillId = self.Base and self.Base.CurSkillGroup and self.Base.CurSkillGroup:GetId()
     for index,data in pairs(self.PageDatas) do
-        if data:GetId() == self.Base.CurSkillGroup:GetId() then
+        if data:GetId() == curSkillId then
             selectIndex = index
             break
         end

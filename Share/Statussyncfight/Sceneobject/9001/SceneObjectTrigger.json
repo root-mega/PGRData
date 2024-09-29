@@ -1,0 +1,429 @@
+[
+    {
+        "Id": 1,
+        "NameList": [
+            null,
+            "SpearMoveTrigger",
+            "SpearUnusableTrigger",
+            null
+        ],
+        "TypeList": [
+            null,
+            "Sphere",
+            "Box",
+            null
+        ],
+        "TouchType": [
+            null,
+            2,
+            2.0,
+            null
+        ],
+        "CenterXList": [
+            null,
+            0,
+            0.0,
+            null
+        ],
+        "CenterYList": [
+            null,
+            0.0,
+            5.0,
+            null
+        ],
+        "CenterZList": [
+            null,
+            0,
+            0.0,
+            null
+        ],
+        "SizeXList": [
+            null,
+            0,
+            3.0,
+            null
+        ],
+        "SizeYList": [
+            null,
+            0,
+            10.0,
+            null
+        ],
+        "SizeZList": [
+            null,
+            0,
+            3.0,
+            null
+        ],
+        "RadiusList": [
+            null,
+            40
+        ]
+    },
+    {
+        "Id": 2,
+        "NameList": [
+            null,
+            "SpearMoveTrigger",
+            "SpearUnusableTrigger",
+            null
+        ],
+        "TypeList": [
+            null,
+            "Sphere",
+            "Box",
+            null
+        ],
+        "TouchType": [
+            null,
+            2,
+            2.0,
+            null
+        ],
+        "CenterXList": [
+            null,
+            0,
+            0.0,
+            null
+        ],
+        "CenterYList": [
+            null,
+            0.0,
+            5.0,
+            null
+        ],
+        "CenterZList": [
+            null,
+            0,
+            0.0,
+            null
+        ],
+        "SizeXList": [
+            null,
+            0,
+            3.0,
+            null
+        ],
+        "SizeYList": [
+            null,
+            0,
+            10.0,
+            null
+        ],
+        "SizeZList": [
+            null,
+            0,
+            3.0,
+            null
+        ],
+        "RadiusList": [
+            null,
+            40
+        ]
+    },
+    {
+        "Id": 3,
+        "NameList": [
+            null,
+            "SpearMoveTrigger",
+            "SpearUnusableTrigger",
+            null
+        ],
+        "TypeList": [
+            null,
+            "Sphere",
+            "Box",
+            null
+        ],
+        "TouchType": [
+            null,
+            2,
+            2.0,
+            null
+        ],
+        "CenterXList": [
+            null,
+            0,
+            0.0,
+            null
+        ],
+        "CenterYList": [
+            null,
+            0.0,
+            5.0,
+            null
+        ],
+        "CenterZList": [
+            null,
+            0,
+            0.0,
+            null
+        ],
+        "SizeXList": [
+            null,
+            0,
+            3.0,
+            null
+        ],
+        "SizeYList": [
+            null,
+            0,
+            10.0,
+            null
+        ],
+        "SizeZList": [
+            null,
+            0,
+            3.0,
+            null
+        ],
+        "RadiusList": [
+            null,
+            40
+        ]
+    },
+    {
+        "Id": 4,
+        "NameList": [
+            null,
+            "HitBox",
+            null,
+            null
+        ],
+        "TypeList": [
+            null,
+            "Sphere",
+            null,
+            null
+        ],
+        "TouchType": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "CenterXList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "CenterYList": [
+            null,
+            0.7,
+            null,
+            null
+        ],
+        "CenterZList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "SizeXList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "SizeYList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "SizeZList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "RadiusList": [
+            null,
+            1
+        ]
+    },
+    {
+        "Id": 17,
+        "NameList": [
+            null,
+            "TrickAnchorMoveTrigger",
+            null,
+            null
+        ],
+        "TypeList": [
+            null,
+            "Box",
+            null,
+            null
+        ],
+        "TouchType": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "CenterXList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "CenterYList": [
+            null,
+            0.0,
+            null,
+            null
+        ],
+        "CenterZList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "SizeXList": [
+            null,
+            40,
+            null,
+            null
+        ],
+        "SizeYList": [
+            null,
+            40,
+            null,
+            null
+        ],
+        "SizeZList": [
+            null,
+            40,
+            null,
+            null
+        ],
+        "RadiusList": [
+            null,
+            0
+        ]
+    },
+    {
+        "Id": 18,
+        "NameList": [
+            null,
+            "BossInTrigger",
+            null,
+            null
+        ],
+        "TypeList": [
+            null,
+            "Box",
+            null,
+            null
+        ],
+        "TouchType": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "CenterXList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "CenterYList": [
+            null,
+            0.0,
+            null,
+            null
+        ],
+        "CenterZList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "SizeXList": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "SizeYList": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "SizeZList": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "RadiusList": [
+            null,
+            0
+        ]
+    },
+    {
+        "Id": 19,
+        "NameList": [
+            null,
+            "TrickAnchorMoveTrigger",
+            null,
+            null
+        ],
+        "TypeList": [
+            null,
+            "Box",
+            null,
+            null
+        ],
+        "TouchType": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "CenterXList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "CenterYList": [
+            null,
+            0.0,
+            null,
+            null
+        ],
+        "CenterZList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "SizeXList": [
+            null,
+            39,
+            null,
+            null
+        ],
+        "SizeYList": [
+            null,
+            40,
+            null,
+            null
+        ],
+        "SizeZList": [
+            null,
+            39,
+            null,
+            null
+        ],
+        "RadiusList": [
+            null,
+            0
+        ]
+    }
+]

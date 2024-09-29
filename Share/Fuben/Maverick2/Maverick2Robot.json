@@ -1,0 +1,130 @@
+[
+    {
+        "RobotId": 140001,
+        "Name": "BPN-06",
+        "Icon": "Assets/Product/Texture/Image/Role/RoleHeadLi.png",
+        "UnLockDesc": "BPN-06 data now has simulation access enabled",
+        "Condition": null,
+        "FightEventId": 2230000,
+        "FightEventLevel": 1,
+        "AttrId": [
+            null,
+            2230001,
+            2230002,
+            2230003,
+            2230004
+        ],
+        "AttrValue": [
+            null,
+            2000,
+            1000,
+            750,
+            625
+        ],
+        "SkillIds": [
+            null,
+            1001,
+            1002,
+            1003,
+            1004,
+            1005
+        ],
+        "Desc": "BPN-06 data simulation access"
+    },
+    {
+        "RobotId": 140002,
+        "Name": "BPD-72",
+        "Icon": "Assets/Product/Texture/Image/Role/RoleHeadKalie.png",
+        "UnLockDesc": "BPN-72 data now has simulation access enabled",
+        "Condition": 860800.0,
+        "FightEventId": 2230000,
+        "FightEventLevel": 1,
+        "AttrId": [
+            null,
+            2230001,
+            2230002,
+            2230003,
+            2230004
+        ],
+        "AttrValue": [
+            null,
+            2000,
+            1000,
+            750,
+            625
+        ],
+        "SkillIds": [
+            null,
+            2001,
+            2002,
+            2003,
+            2004,
+            2005
+        ],
+        "Desc": "BPN-72 data simulation access"
+    },
+    {
+        "RobotId": 140003,
+        "Name": "IH-31C",
+        "Icon": "Assets/Product/Texture/Image/Role/RoleHeadLuosaita.png",
+        "UnLockDesc": "IH-31C data now has simulation access enabled",
+        "Condition": 860801.0,
+        "FightEventId": 2230000,
+        "FightEventLevel": 1,
+        "AttrId": [
+            null,
+            2230001,
+            2230002,
+            2230003,
+            2230004
+        ],
+        "AttrValue": [
+            null,
+            2000,
+            1000,
+            750,
+            625
+        ],
+        "SkillIds": [
+            null,
+            3001,
+            3002,
+            3003,
+            3004,
+            3005
+        ],
+        "Desc": "IH-31C data simulation access"
+    },
+    {
+        "RobotId": 140004,
+        "Name": "BPN-08",
+        "Icon": "Assets/Product/Texture/Image/Role/RoleHeadLifuS.png",
+        "UnLockDesc": "BPN-08 data now has simulation access enabled",
+        "Condition": 860802.0,
+        "FightEventId": 2230000,
+        "FightEventLevel": 1,
+        "AttrId": [
+            null,
+            2230001,
+            2230002,
+            2230003,
+            2230004
+        ],
+        "AttrValue": [
+            null,
+            2000,
+            1000,
+            750,
+            625
+        ],
+        "SkillIds": [
+            null,
+            4001,
+            4002,
+            4003,
+            4004,
+            4005
+        ],
+        "Desc": "BPN-08 data simulation access"
+    }
+]

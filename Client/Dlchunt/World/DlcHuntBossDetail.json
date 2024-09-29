@@ -1,0 +1,266 @@
+[
+    {
+        "Id": 1,
+        "TipName": [
+            null,
+            "Hack Points",
+            "Tail Spear",
+            "Blade-wing Combo",
+            "Thunder Blast",
+            "Fire Rain",
+            "Fire Breath",
+            "Flame Blast"
+        ],
+        "TipDes": [
+            null,
+            "Keep dealing damage to the part of the Data. Defeat the Data to start data locating.\\nWith 100% Hack Points or above, you can plant locating anchor in that part.\\nWith three parts of the Data located at the same time, a special event will be triggered.",
+            "A linear damaging skill and the primary means of attack for enraged Grimhorn.\\nGrimhorn will suddenly jump to the side of the aggro target and attack with its tail spear.\\nKeep an eye on Grimhorn, and when he jumps, pull away or dodge to one side.",
+            "Grimhorn strikes a large area 4 times, lifting huge rocks to attack a target in distance.\\nAt the end of the strikes, Grimhorn will fly up and deal linear AOE DMG once with its blade-wings.\\nWhen Grimhorn raises its body and roars, keep away from the linear area before it to avoid its attacks.",
+            "Grimhorn suddenly retreats and gathers its strength to fire a tail cannon shot to the front.\\nIf the target is a long-range character, Grimhorn will follow up with high-damaging tracking Energy Orbs.\\nDodge to one side to avoid the tail cannon shot. Dodge consecutively to avoid the Energy Orbs and stay out of the explosion range.",
+            "Grimhorn rushes forward and then flies up to deal AOE DMG continuously to a round area on the ground.\\nWhen landing, it locks the aggro target and crashes it.\\nStary out of the area under Grimhorn after it flies up and dodge at the right time to avoid being crashed.",
+            "Grimhorn gathers its strength and fires two lasers to an extremely large area in front.\\nAfter that, Grimhorn sprays fire around itself and deal AOE DMG.\\nLeave the fan-shaped area before Grimhorn when it starts to have a red flash. And stay away from Grimhorn after the lasers are gone.",
+            "Grimhorn gets rid of the locating anchor and casts Flame Blast, a high-damaging skill.\\nIt flies around the battleground and deal full-screen AOE DMG around the aggro target.\\nWhen flight-control components appear on Grimhorn back, look for a high ground on the battlefield to avoid its attacks."
+        ],
+        "TipAsset": [
+            null,
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig01.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig02.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig03.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig04.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig05.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig06.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig07.png"
+        ]
+    },
+    {
+        "Id": 2,
+        "TipName": [
+            null,
+            "Hack Points",
+            "Missile Volley",
+            "Missile Rain",
+            "Blade Flash",
+            "Aurora Realm",
+            "Radiant Annihilation",
+            null
+        ],
+        "TipDes": [
+            null,
+            "Keep dealing damage to the part of the Data. Defeat the Data to start data locating.\\nWith 100% Hack Points or above, you can plant locating anchor in that part.\\nWith three parts of the Data located at the same time, a special event will be triggered.",
+            "Bloom curves its back and fires massive missiles to track and attack the target.\\nGet close to Bloom to avoid the missiles.",
+            "Bloom rushes to the target and flies up into the air, firing massive missiles.\\nWhen it dives and lands, the missiles will travel to the target.\\nWhen Bloom dives, dodge the missiles at the right time.",
+            "Bloom has lightblades pop out of his hands and stabs twice forward.\\nMove on its sides to avoid the attacks.",
+            "Bloom spreads his wings and unleashes Levi-Guns to attack the large area around it.\\nWatch out when Bloom roars. Stay away from the area under the light.",
+            "Bloom gets rid of the locating anchor and casts Radiant Annihilation, a high-damaging skill.\\nIt flies up into the air and unleash Levi-Guns to deal full-screen AOE DMG.\\nMove continuously to the edges of the battlefield to avoid being hit by laser.",
+            null
+        ],
+        "TipAsset": [
+            null,
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig08.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig09.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig10.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig11.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig12.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig13.png",
+            null
+        ]
+    },
+    {
+        "Id": 3,
+        "TipName": [
+            null,
+            "Chip",
+            "Data",
+            "Exchange",
+            null,
+            null,
+            null,
+            null
+        ],
+        "TipDes": [
+            null,
+            "Chips that are insufficiently trained can be overlocked or enhanced for better stats.",
+            "You're suggested to get familiar with the Data from the lowest difficulty and get more Chips.",
+            "Chip Scraping Units and Support Points can be exchanged for Chips at the supply depot.",
+            null,
+            null,
+            null,
+            null
+        ],
+        "TipAsset": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4,
+        "TipName": [
+            null,
+            "Disbandment",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TipDes": [
+            null,
+            "The team leader has left the battle and disconnected from the team. Battle ended!",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TipAsset": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5,
+        "TipName": [
+            null,
+            "Hack Points",
+            "Skill",
+            "Mechanism",
+            "Rescue",
+            null,
+            null,
+            null
+        ],
+        "TipDes": [
+            null,
+            "With three parts of the Data located at the same time, massive HP will be reduced from the Data.",
+            "Pay attention to Grimhorn's actions. Keep a bit distance with it to avoid most damage.",
+            "Full-screen AOE DMG can only be triggered after a failed hunt.",
+            "Reboot attempts not consumed when rescued by teammates",
+            null,
+            null,
+            null
+        ],
+        "TipAsset": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6,
+        "TipName": [
+            null,
+            "Hack Points",
+            "Skill",
+            "Mechanism",
+            "Rescue",
+            null,
+            null,
+            null
+        ],
+        "TipDes": [
+            null,
+            "With three parts of the Data located at the same time, massive HP will be reduced from the Data.",
+            "Stay away from the range of the lasers of Bloom's Levi-Guns.",
+            "Full-screen AOE DMG can only be triggered after a failed hunt.",
+            "Reboot attempts not consumed when rescued by teammates",
+            null,
+            null,
+            null
+        ],
+        "TipAsset": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 7,
+        "TipName": [
+            null,
+            "Grimhorn: Hack Points",
+            "Grimhorn: Fire Breath",
+            "Grimhorn: Flame Blast",
+            "Bloom: Hack Points",
+            "Bloom: Aurora Realm",
+            "Bloom: Radiant Annihilation",
+            null
+        ],
+        "TipDes": [
+            null,
+            "Keep dealing damage to the part of the Data. Defeat the Data to start data locating.\\nWith 100% Hack Points or above, you can plant locating anchor in that part.\\nWith three parts of the Data located at the same time, a special event will be triggered.",
+            "Grimhorn gathers its strength and fires two lasers to an extremely large area in front.\\nAfter that, Grimhorn sprays fire around itself and deal AOE DMG.\\nLeave the fan-shaped area before Grimhorn when it starts to have a red flash. And stay away from Grimhorn after the lasers are gone.",
+            "Grimhorn gets rid of the locating anchor and casts Flame Blast, a high-damaging skill.\\nIt flies around the battleground and deal full-screen AOE DMG around the aggro target.\\nWhen flight-control components appear on Grimhorn back, look for a high ground on the battlefield to avoid its attacks.",
+            "Keep dealing damage to the part of the Data. Defeat the Data to start data locating.\\nWith 100% Hack Points or above, you can plant locating anchor in that part.\\nWith three parts of the Data located at the same time, a special event will be triggered.",
+            "Bloom spreads his wings and unleashes Levi-Guns to attack the large area around it.\\nWatch out when Bloom roars. Stay away from the area under the light.",
+            "Bloom gets rid of the locating anchor and casts Radiant Annihilation, a high-damaging skill.\\nIt flies up into the air and unleash Levi-Guns to deal full-screen AOE DMG.\\nMove continuously to the edges of the battlefield to avoid being hit by laser.",
+            null
+        ],
+        "TipAsset": [
+            null,
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig01.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig06.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig07.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig08.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig12.png",
+            "Assets/Product/Texture/Image/UiDlcHunt/ImgDlcHuntBossBig13.png",
+            null
+        ]
+    },
+    {
+        "Id": 8,
+        "TipName": [
+            null,
+            "Hack Points",
+            "Skill",
+            "Mechanism",
+            "Rescue",
+            null,
+            null,
+            null
+        ],
+        "TipDes": [
+            null,
+            "With three parts of the Data located at the same time, massive HP will be reduced from the Data.",
+            "When the Data is gathering its strength to launch a special attack, dodge at the right time or stay away from it to avoid the attack.",
+            "Full-screen AOE DMG can only be triggered after a failed hunt.",
+            "Reboot attempts not consumed when rescued by teammates",
+            null,
+            null,
+            null
+        ],
+        "TipAsset": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    }
+]

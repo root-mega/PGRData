@@ -1,216 +1,635 @@
 [
     {
         "RoleId": 1021001,
-        "Name": "\u6bd4\u5b89\u5361\u771f\u7406",
+        "Name": "Bianca: Veritas",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/Bianka01/Bianka01.prefab",
         "RoleAnims": [
+            null,
             "idle",
-            "idle2zhayan",
             "lengxiao",
-            "lengxiao2zhayan"
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RoleAnims2": [
+            null,
+            "idle2zhayan",
+            "lengxiao2zhayan",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouIdleAnims": [
+            null,
             "idle",
-            "lengxiao"
+            "lengxiao",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouTalkAnims": [
+            null,
             "idlekou",
-            "lengxiaokou"
+            "lengxiaokou",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "TransitionAnims": [
+            null,
             "lengxiao-idle",
-            "idle-lengxiao"
+            "idle-lengxiao",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "RoleId": 1021002,
-        "Name": "\u9732\u897f\u4e9a\u9e26\u7fbd",
+        "Name": "Lucia: Plume",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/Luxiya01/Luxiya01.prefab",
         "RoleAnims": [
+            null,
             "idle",
-            "idle2zhayan",
             "shengqi",
-            "shengqi2zhayan"
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RoleAnims2": [
+            null,
+            "idle2zhayan",
+            "shengqi2zhayan",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouIdleAnims": [
+            null,
             "idle",
-            "shengqi"
+            "shengqi",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouTalkAnims": [
+            null,
             "idlekou",
-            "shengqikou"
+            "shengqikou",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "TransitionAnims": [
+            null,
             "idle-shengqi",
-            "shengqi-idle"
+            "shengqi-idle",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "RoleId": 1021003,
-        "Name": "\u4fee\u5973\u6bd4\u5b89\u5361",
+        "Name": "Sister Bianca",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/Bianka02/Bianka02.prefab",
         "RoleAnims": [
+            null,
             "idle",
-            "idle2zhayan",
             "tongku",
-            "tongku2zhayan"
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RoleAnims2": [
+            null,
+            "idle2zhayan",
+            "tongku2zhayan",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouIdleAnims": [
+            null,
             "idle",
-            "tongku"
+            "tongku",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouTalkAnims": [
+            null,
             "idlekou",
-            "tongkukou"
+            "tongkukou",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "TransitionAnims": [
+            null,
             "idle-tongku",
-            "tongku-idle"
+            "tongku-idle",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "RoleId": 1021004,
-        "Name": "\u7ef4\u8428\u91cc",
+        "Name": "Vesalius",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/Weisali01/Weisali01.prefab",
         "RoleAnims": [
+            null,
             "idle",
-            "idle2zhayan",
             "lengxiao",
-            "lengxiao2zhayan"
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RoleAnims2": [
+            null,
+            "idle2zhayan",
+            "lengxiao2zhayan",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouIdleAnims": [
+            null,
             "idle",
-            "lengxiao"
+            "lengxiao",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouTalkAnims": [
+            null,
             "idlekou",
-            "lengxiaokou"
+            "lengxiaokou",
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "TransitionAnims": [
+            null,
             "idle-lengxiao",
-            "lengxiao-idle"
+            "lengxiao-idle",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "RoleId": 1021005,
-        "Name": "\u62fe\u8352\u8005\u5c0f\u5973\u5b69",
+        "Name": "Scavenger Girl",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/NMgirl/NMgirl.prefab",
         "RoleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RoleAnims2": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouIdleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouTalkAnims": [
-            "idlekou"
+            null,
+            "idlekou",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "TransitionAnims": []
+        "TransitionAnims": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "RoleId": 1021006,
-        "Name": "\u62fe\u8352\u8005\u8001\u5934",
+        "Name": "Old Scavenger",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/Oldman/Oldman.prefab",
         "RoleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RoleAnims2": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouIdleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouTalkAnims": [
-            "idlekou"
+            null,
+            "idlekou",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "TransitionAnims": []
+        "TransitionAnims": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "RoleId": 1021007,
-        "Name": "\u65af\u8bfa\u795e\u7236",
+        "Name": "Father Snow",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/ShenFu/ShenFu.prefab",
         "RoleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RoleAnims2": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouIdleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouTalkAnims": [
-            "idlekou"
+            null,
+            "idlekou",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "TransitionAnims": []
+        "TransitionAnims": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "RoleId": 1021008,
-        "Name": "\u6e14\u592b\u7537",
+        "Name": "Fisherman",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/Yufu/Yufu.prefab",
         "RoleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RoleAnims2": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouIdleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouTalkAnims": [
-            "idlekou"
+            null,
+            "idlekou",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "TransitionAnims": []
+        "TransitionAnims": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "RoleId": 1021009,
-        "Name": "\u901a\u7528\u7537\u6784\u9020\u4f53",
+        "Name": "Common Male Construct",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/GZTman/GZTman.prefab",
         "RoleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RoleAnims2": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouIdleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "KouTalkAnims": [],
-        "TransitionAnims": []
+        "KouTalkAnims": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TransitionAnims": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "RoleId": 1021010,
-        "Name": "\u901a\u7528\u5973\u6784\u9020\u4f53",
+        "Name": "Common Female Construct",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/ShibingWoman/ShibingWoman.prefab",
         "RoleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RoleAnims2": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouIdleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "KouTalkAnims": [],
-        "TransitionAnims": []
+        "KouTalkAnims": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TransitionAnims": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "RoleId": 1021011,
-        "Name": "\u62fe\u8352\u8005\u9752\u5e74",
+        "Name": "Teenage Scavenger",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/SHZWoman/SHZWoman.prefab",
         "RoleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "RoleAnims2": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "KouIdleAnims": [
-            "idle"
+            null,
+            "idle",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "KouTalkAnims": [],
-        "TransitionAnims": []
+        "KouTalkAnims": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TransitionAnims": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "RoleId": 1021012,
-        "Name": "\u6bd4\u5b89\u5361\u6df1\u75d5\u6d82\u88c5",
+        "Name": "Bianca: Stigmata Coating",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/Bianka03/Bianka03.prefab",
         "RoleAnims": [
+            null,
             "idle",
-            "idle2zhayan",
             "weixiao",
-            "weixiao2zhayan",
             "sikao",
-            "sikao2zhayan",
             "renzhen",
-            "renzhen2zhayan",
             "idlehua",
-            "idlehua2zhayan",
             "zhandou",
+            "renzhenZD"
+        ],
+        "RoleAnims2": [
+            null,
+            "idle2zhayan",
+            "weixiao2zhayan",
+            "sikao2zhayan",
+            "renzhen2zhayan",
+            "idlehua2zhayan",
             "zhandou2zhayan",
-            "renzhenZD",
             "renzhenZD2zhayan"
         ],
         "KouIdleAnims": [
+            null,
             "idle",
             "weixiao",
             "sikao",
@@ -220,6 +639,7 @@
             "renzhenZD"
         ],
         "KouTalkAnims": [
+            null,
             "idlekou",
             "weixiaokou",
             "sikaokou",
@@ -229,31 +649,42 @@
             "renzhenZDkou"
         ],
         "TransitionAnims": [
+            null,
             "idle_zhandou",
-            "zhandou_idle"
+            "zhandou_idle",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
         "RoleId": 1021013,
-        "Name": "\u6bd4\u5b89\u5361\u6df1\u75d5\u6d82\u88c5\u6218\u635f",
+        "Name": "Bianca: Stigmata Coating Damage",
         "SpinePath": "Assets/Product/Ui/Spine/UiSpine/UiMovieSpine/UiMovieLuxiya2S/UiMovieBiankaSkin/Bianka03/Bianka03ZS.prefab",
         "RoleAnims": [
+            null,
             "idle",
-            "idle2zhayan",
             "weixiao",
-            "weixiao2zhayan",
             "sikao",
-            "sikao2zhayan",
             "renzhen",
-            "renzhen2zhayan",
             "idlehua",
-            "idlehua2zhayan",
             "zhandou",
+            "renzhenZD"
+        ],
+        "RoleAnims2": [
+            null,
+            "idle2zhayan",
+            "weixiao2zhayan",
+            "sikao2zhayan",
+            "renzhen2zhayan",
+            "idlehua2zhayan",
             "zhandou2zhayan",
-            "renzhenZD",
             "renzhenZD2zhayan"
         ],
         "KouIdleAnims": [
+            null,
             "idle",
             "weixiao",
             "sikao",
@@ -263,6 +694,7 @@
             "renzhenZD"
         ],
         "KouTalkAnims": [
+            null,
             "idlekou",
             "weixiaokou",
             "sikaokou",
@@ -272,8 +704,14 @@
             "renzhenZDkou"
         ],
         "TransitionAnims": [
+            null,
             "idle_zhandou",
-            "zhandou_idle"
+            "zhandou_idle",
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     }
 ]

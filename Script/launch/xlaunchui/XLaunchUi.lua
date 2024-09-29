@@ -141,7 +141,7 @@ local Creator = function()
         self.LastUpdateTime = 0
         self.LastProgress = 0
 
-        self.CurrentDownloadSelect = 1
+        self.CurrentDownloadSelect = self:GetDownloadSelect()
         self.SizeWindow = NewQueue()
         self.TimeWindow = NewQueue()
         self.WindowTimeSum = 0
@@ -501,6 +501,7 @@ local Creator = function()
         if CS.XRemoteConfig.LaunchSelectType == 1 then -- 支持完整下载
             self.BtnAll:SetButtonState(CS.UiButtonState.Normal)
         end
+        self:SetDownloadSelect(self.CurrentDownloadSelect)
         --  CS.XLog.Debug(" self.CurrentDownloadSelect == 1")
     end
 
@@ -508,6 +509,7 @@ local Creator = function()
         self.CurrentDownloadSelect = 2
         self.BtnBasic:SetButtonState(CS.UiButtonState.Normal)
         self.BtnAll:SetButtonState(CS.UiButtonState.Select)
+        self:SetDownloadSelect(self.CurrentDownloadSelect)
         --  CS.XLog.Debug(" self.CurrentDownloadSelect == 2")
     end
 
@@ -622,6 +624,7 @@ local Creator = function()
         local baseUpdateSize = args[1]
         local allUpdateSize = args[2]
 
+        self.CurrentDownloadSelect = self:GetDownloadSelect()
         if self.CurrentDownloadSelect == 1 then
             self:OnSelectBasic()
         else
@@ -822,6 +825,21 @@ local Creator = function()
             CS.XUiManager.Instance:SetMask(true)
         end)
     end
+
+    --region DownloadSelect
+    function XUiLaunchUi:GetDownloadSelect()
+        local value = CS.UnityEngine.PlayerPrefs.GetInt(self:_GetSaveKey())
+        return value == 0 and 1 or value
+    end
+
+    function XUiLaunchUi:SetDownloadSelect(value)
+        CS.UnityEngine.PlayerPrefs.SetInt(self:_GetSaveKey(), value)
+    end
+    
+    function XUiLaunchUi:_GetSaveKey()
+        return "KEY_DOWNLOADED_SELECT"
+    end
+    --endregion
 
     return XUiLaunchUi
 end

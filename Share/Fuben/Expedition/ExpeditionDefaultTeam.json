@@ -4,8 +4,14 @@
         "Name": "Heavy Blow",
         "TeamDes": "<color=#0E70BD>[CD Skill]</color> [Attack modifier: Medium; enhances Signature Move] Cache, enhance and cast the last Signal Orb skill/Signature Move.",
         "PreStageType": null,
-        "PreStageIds": [],
+        "PreStageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
         "ECharacterIds": [
+            null,
             82,
             163
         ]
@@ -15,8 +21,14 @@
         "Name": "Disintegration",
         "TeamDes": "<color=#0E70BD>[Passive Skill]</color> [Attack Modifier: High; enhances Yellow Orbs] Ping Yellow Orbs at the right time to break the enemy's defenses.",
         "PreStageType": null,
-        "PreStageIds": [],
+        "PreStageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
         "ECharacterIds": [
+            null,
             136,
             190
         ]
@@ -26,8 +38,14 @@
         "Name": "Thorn",
         "TeamDes": "<color=#0E70BD>[Instant Skill]</color> [Attack Modifier: High; revives 1 time] Significantly increase combat strength at the cost of HP.",
         "PreStageType": null,
-        "PreStageIds": [],
+        "PreStageIds": [
+            null,
+            null,
+            null,
+            null
+        ],
         "ECharacterIds": [
+            null,
             595,
             757
         ]
@@ -38,9 +56,13 @@
         "TeamDes": "<color=#0E70BD>[Instant Skill]</color> [Attack Modifier: High; recovers Energy] Control the drone to strengthen Constructs/attack the enemy.",
         "PreStageType": 1.0,
         "PreStageIds": [
-            30210354.0
+            null,
+            30210354.0,
+            null,
+            null
         ],
         "ECharacterIds": [
+            null,
             352,
             379
         ]
@@ -51,9 +73,13 @@
         "TeamDes": "<color=#0E70BD>[Charged Skill]</color> [Attack Modifier: Low; special enhancement] Fight alongside team members and gain protection.",
         "PreStageType": 1.0,
         "PreStageIds": [
-            30210354.0
+            null,
+            30210354.0,
+            null,
+            null
         ],
         "ECharacterIds": [
+            null,
             406,
             676
         ]

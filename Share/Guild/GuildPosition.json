@@ -4,6 +4,7 @@
         "Name": "Commander-in-Chief",
         "Priority": 1,
         "Authority": [
+            null,
             1.0,
             2.0,
             3.0,
@@ -16,9 +17,12 @@
         "Name": "Deputy Commander",
         "Priority": 2,
         "Authority": [
+            null,
             1.0,
             2.0,
-            3.0
+            3.0,
+            null,
+            null
         ]
     },
     {
@@ -26,14 +30,25 @@
         "Name": "Chief Adviser",
         "Priority": 3,
         "Authority": [
+            null,
             1.0,
-            3.0
+            3.0,
+            null,
+            null,
+            null
         ]
     },
     {
         "Id": 4,
         "Name": "Chief Elite",
         "Priority": 4,
-        "Authority": []
+        "Authority": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     }
 ]

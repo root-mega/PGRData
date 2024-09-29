@@ -30,7 +30,7 @@ function XPanelCharacterOwnedInfoV2P6:InitPanelEquip()
     local onUnFoldCb = function ()
         self.PanelEquipEnable:PlayTimelineAnimation()
     end
-    self.PanelEquips = self.EquipAgency:InitPanelEquipV2P6(self.PanelEquip, self.Parent)
+    self.PanelEquips = self.EquipAgency:InitPanelEquipV2P6(self.PanelEquip, self, self.Parent)
     self.PanelEquips:InitData(onFoldCb, onUnFoldCb)
 end
 

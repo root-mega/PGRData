@@ -1,4 +1,5 @@
 local XUiCharacterDetail = XLuaUiManager.Register(XLuaUi, "UiCharacterDetail")
+local XUiTextScrolling = require("XUi/XUiTaikoMaster/XUiTaikoMasterFlowText")
 
 local CharDetailUiType = {
     Detail = 1, --详细信息
@@ -87,6 +88,17 @@ function XUiCharacterDetail:OnAwake()
         [5] = self.TxtGraphName5,
         [6] = self.TxtGraphName6
     }
+
+    ---@type XUiTaikoMasterFlowText
+    self.NameTextScrolling = XUiTextScrolling.New(self.TxtCharacterName ,self.TxtNameMask)
+    self.NameTextScrolling:Stop()
+    ---@type XUiTaikoMasterFlowText
+    self.NameDesTextScrolling = XUiTextScrolling.New(self.TxtCharacterDesName ,self.TxtNameDesMask)
+    self.NameDesTextScrolling:Stop()
+    ---@type XUiTaikoMasterFlowText
+    self.NameCvTextScrolling = XUiTextScrolling.New(self.TxtCV ,self.TxtCvMask)
+    self.NameCvTextScrolling:Stop()
+
 end
 
 function XUiCharacterDetail:OnStart(CharacterId)
@@ -98,11 +110,10 @@ function XUiCharacterDetail:OnStart(CharacterId)
     self.CharacterId = CharacterId
 
     self.AssetPanel = XUiPanelAsset.New(self, self.PanelAsset, XDataCenter.ItemManager.ItemId.FreeGem, XDataCenter.ItemManager.ItemId.ActionPoint, XDataCenter.ItemManager.ItemId.Coin)
-
     self.PanelContentRtf = self.PanelContent:GetComponent("RectTransform")
     -- self.BtnArchive.gameObject:SetActiveEx(true)
     self.BtnDetial.gameObject:SetActiveEx(false)
-    self.PanelAsset.gameObject:SetActiveEx(false)
+    self.AssetPanel:Close()
     self.BtnEquipRecomend.gameObject:SetActiveEx(XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.EquipGuideRecommend))
 
     self:SwitchView(CharDetailUiType.Detail)
@@ -117,18 +128,18 @@ end
 
 function XUiCharacterDetail:UpdateStateView()
     if self.CurUiType == CharDetailUiType.Detail then
-        self.PanelAsset.gameObject:SetActiveEx(false)
+        self.AssetPanel:Close()
         self.PanelDetailInfo.gameObject:SetActiveEx(true)
         self:UpdateRightElementView()
         self:CloseChildUi(CHILD_UI_EQUIP)
         self:CloseChildUi(CHILD_UI_TEAM)
     elseif self.CurUiType == CharDetailUiType.Equip then
-        self.PanelAsset.gameObject:SetActiveEx(true)
+        self.AssetPanel:Open()
         self.PanelDetailInfo.gameObject:SetActiveEx(false)
         self:OpenChildUi(CHILD_UI_EQUIP, self.CharacterId, self)
         self:CloseChildUi(CHILD_UI_TEAM)
     elseif self.CurUiType == CharDetailUiType.Parner then
-        self.PanelAsset.gameObject:SetActiveEx(true)
+        self.AssetPanel:Open()
         self.PanelDetailInfo.gameObject:SetActiveEx(false)
         self:CloseChildUi(CHILD_UI_EQUIP)
         self:OpenChildUi(CHILD_UI_TEAM, self.CharacterId, self)
@@ -229,6 +240,13 @@ function XUiCharacterDetail:UpdateRightElementView()
     local config = XExhibitionConfigs.GetExhibitionGroupByCharId(self.CharacterId)
     local str = config and config.GroupNameEn
     self.TxtGroup.text = string.IsNilOrEmpty(str) and CS.XTextManager.GetText("CharacterExhibitionGroupNullText") or str
+
+    self.NameTextScrolling:Stop()
+    self.NameDesTextScrolling:Stop()
+    self.NameCvTextScrolling:Stop()
+    self.NameTextScrolling:Play()
+    self.NameDesTextScrolling:Play()
+    self.NameCvTextScrolling:Play()
 end
 
 function XUiCharacterDetail:OnBtnBackClick()

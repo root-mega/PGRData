@@ -5,7 +5,14 @@
         "NpcState": 1,
         "StateText": "Basic Status",
         "StandAnime": null,
-        "HideNodeName": []
+        "HideNodeName": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
     },
     {
         "Id": 2,
@@ -14,8 +21,13 @@
         "StateText": "Burst Status",
         "StandAnime": "Assets/Product/Role/Animation/Mb1JiabailieMd000001/Mb1JiabailieMd000001/Layer1/Stand1.anim",
         "HideNodeName": [
-            "Mb1JiabailieMd000001Cloak"
-        ]
+            null,
+            "Mb1JiabailieMd000001Cloak",
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
     },
     {
         "Id": 3,
@@ -23,7 +35,14 @@
         "NpcState": 1,
         "StateText": "Basic Status",
         "StandAnime": null,
-        "HideNodeName": []
+        "HideNodeName": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
     },
     {
         "Id": 4,
@@ -32,9 +51,13 @@
         "StateText": "Burst Status",
         "StandAnime": null,
         "HideNodeName": [
+            null,
             "Mb1LunaMd010001Mask",
-            "Mb1LunaMd010001Glass"
-        ]
+            "Mb1LunaMd010001Glass",
+            null,
+            null
+        ],
+        "ScriptPartId": null
     },
     {
         "Id": 5,
@@ -43,9 +66,13 @@
         "StateText": "Basic Status",
         "StandAnime": null,
         "HideNodeName": [
+            null,
             "Mb1StarknightMd010001Weapon",
-            "Mb1StarknightMd010001Weapon01"
-        ]
+            "Mb1StarknightMd010001Weapon01",
+            null,
+            null
+        ],
+        "ScriptPartId": null
     },
     {
         "Id": 6,
@@ -54,8 +81,13 @@
         "StateText": "Burst Status",
         "StandAnime": null,
         "HideNodeName": [
-            "Mb1StarknightMd010001Weapon02"
-        ]
+            null,
+            "Mb1StarknightMd010001Weapon02",
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
     },
     {
         "Id": 7,
@@ -64,8 +96,13 @@
         "StateText": "Basic Status",
         "StandAnime": "Assets/Product/Role/Animation/Mb1MoonguyMd010001/Mb1MoonguyMd010001/BaseLayer/Stand2.anim",
         "HideNodeName": [
-            "Mb1MoonguyMd010001Weapon"
-        ]
+            null,
+            "Mb1MoonguyMd010001Weapon",
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
     },
     {
         "Id": 8,
@@ -73,6 +110,238 @@
         "NpcState": 2,
         "StateText": "Burst Status",
         "StandAnime": "Assets/Product/Role/Animation/Mb1MoonguyMd010001/Mb1MoonguyMd010001/Layer1/Stand2.anim",
-        "HideNodeName": []
+        "HideNodeName": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
+    },
+    {
+        "Id": 9,
+        "NpcId": 85400,
+        "NpcState": 1,
+        "StateText": "Basic Status",
+        "StandAnime": null,
+        "HideNodeName": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
+    },
+    {
+        "Id": 10,
+        "NpcId": 85400,
+        "NpcState": 2,
+        "StateText": "Burst Status",
+        "StandAnime": "Assets/Product/Role/Animation/Mb1HuoshaMd010001/Mb1HuoshaMd010001/Layer1/Stand2.anim",
+        "HideNodeName": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
+    },
+    {
+        "Id": 11,
+        "NpcId": 93311,
+        "NpcState": 1,
+        "StateText": "Basic Status",
+        "StandAnime": null,
+        "HideNodeName": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
+    },
+    {
+        "Id": 12,
+        "NpcId": 93311,
+        "NpcState": 2,
+        "StateText": "Burst Status",
+        "StandAnime": "Assets/Product/Role/Animation/Me1TwofacerMd010001/Me1TwofacerMd010001/Layer1/Stand2.anim",
+        "HideNodeName": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
+    },
+    {
+        "Id": 13,
+        "NpcId": 85550,
+        "NpcState": 1,
+        "StateText": "Basic Status",
+        "StandAnime": null,
+        "HideNodeName": [
+            null,
+            "Mb1MaidmasterMd010001Weapon02",
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
+    },
+    {
+        "Id": 14,
+        "NpcId": 93361,
+        "NpcState": 1,
+        "StateText": "Basic Status",
+        "StandAnime": "Assets/Product/Role/Animation/Me1SimmoonguyMd010001/Me1SimmoonguyMd010001/BaseLayer/Stand2.anim",
+        "HideNodeName": [
+            null,
+            "Me1SimmoonguyMd010001globe",
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
+    },
+    {
+        "Id": 15,
+        "NpcId": 85570,
+        "NpcState": 1,
+        "StateText": "Basic Status",
+        "StandAnime": "Assets/Product/Role/Animation/Mb1LilithMd010001/Mb1LilithMd010001/BaseLayer/Stand2.anim",
+        "HideNodeName": [
+            null,
+            "Mb1LilithboxMd010004",
+            "Mb1LilithboxMd010003",
+            "Mb1LilithboxMd010002",
+            "Mb1LilithboxMd010001"
+        ],
+        "ScriptPartId": null
+    },
+    {
+        "Id": 16,
+        "NpcId": 85620,
+        "NpcState": 1,
+        "StateText": "Basic Status",
+        "StandAnime": "Assets/Product/Role/Animation/Mb1BruceloongMd010001/Mb1BruceloongMd010001/BaseLayer/Stand2.anim",
+        "HideNodeName": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": 1.0
+    },
+    {
+        "Id": 17,
+        "NpcId": 85620,
+        "NpcState": 2,
+        "StateText": "Burst Status",
+        "StandAnime": "Assets/Product/Role/Animation/Mb1BruceloongMd010001/Mb1BruceloongMd010001/Layer1/Stand2.anim",
+        "HideNodeName": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": 2.0
+    },
+    {
+        "Id": 18,
+        "NpcId": 82300,
+        "NpcState": 1,
+        "StateText": "Basic Status",
+        "StandAnime": "Assets/Product/Role/Animation/Mb1HongchaojulangMd010002/Mb1HongchaojulangMd010002/BaseLayer/Stand2.anim",
+        "HideNodeName": [
+            null,
+            "Mb1HongchaojulangMd010002Upper01",
+            "Mb1HongchaojulangMd010002Upper02",
+            "Mb1HongchaojulangMd010002Weapon",
+            null
+        ],
+        "ScriptPartId": null
+    },
+    {
+        "Id": 19,
+        "NpcId": 82300,
+        "NpcState": 2,
+        "StateText": "Burst Status",
+        "StandAnime": "Assets/Product/Role/Animation/Mb1HongchaojulangMd010002/Mb1HongchaojulangMd010002/BaseLayer/Stand2.anim",
+        "HideNodeName": [
+            null,
+            "Mb1HongchaojulangMd010002Weapon",
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": null
+    },
+    {
+        "Id": 20,
+        "NpcId": 83130,
+        "NpcState": 1,
+        "StateText": "Basic Status",
+        "StandAnime": "Assets/Product/Role/Animation/Mb1CthyllaMd010001/Mb1CthyllaMd010001/BaseLayer/Stand2.anim",
+        "HideNodeName": [
+            null,
+            "Mb1CthyllaMd010001Weapon",
+            "Mb1CthyllaMd010001Ball",
+            null,
+            null
+        ],
+        "ScriptPartId": 1.0
+    },
+    {
+        "Id": 21,
+        "NpcId": 83130,
+        "NpcState": 2,
+        "StateText": "Burst Status",
+        "StandAnime": "Assets/Product/Role/Animation/Mb1CthyllaMd010001/Mb1CthyllaMd010001/Layer1/Stand2.anim",
+        "HideNodeName": [
+            null,
+            "Mb1CthyllaMd010002Weapon01",
+            "Mb1CthyllaMd010002WpFx01",
+            null,
+            null
+        ],
+        "ScriptPartId": 2.0
+    },
+    {
+        "Id": 22,
+        "NpcId": 93631,
+        "NpcState": 1,
+        "StateText": "Basic Status",
+        "StandAnime": "Assets/Product/Role/Animation/Me1TwinsblackMd000001/Me1TwinsblackMd000001/CommonLayer/Stand1.anim",
+        "HideNodeName": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": 1.0
+    },
+    {
+        "Id": 23,
+        "NpcId": 93631,
+        "NpcState": 2,
+        "StateText": "Burst Status",
+        "StandAnime": "Assets/Product/Role/Animation/Me1TwinsblackMd000001/Me1TwinsblackMd000001/CommonLayer/Stand1.anim",
+        "HideNodeName": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "ScriptPartId": 2.0
     }
 ]

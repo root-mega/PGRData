@@ -1,0 +1,1872 @@
+[
+    {
+        "Id": 1,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "30% Basic Attack Orbs resistance but 30% Red/Yellow/Blue Orb vulnerability for 15 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            7.0,
+            8.0,
+            9.0,
+            10.0
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 2,
+        "Name": "Res. Swap \u03b2",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Immune to Basic Attack Orbs but 50% Red/Yellow/Blue Orb vulnerability for 2 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            11.0,
+            12.0,
+            13.0,
+            14.0
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 3,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "50% Basic Attack/Yellow/Blue Orb resistance but 200% Red Orb vulnerability for 5 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            15.0,
+            16.0,
+            17.0,
+            18.0
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 4,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "30% Blue Orb resistance but 80% Red Orb vulnerability for 10 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            19.0,
+            20.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 5,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "50% Yellow Orb resistance but 120% Basic Attack Orb vulnerability for 5 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            21.0,
+            22.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 6,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Change to 30% Yellow Orb resistance, 80% Red Orb vulnerability",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            23.0,
+            24.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 7,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Change to 30% Red Orb resistance, 80% Blue Orb vulnerability",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            25.0,
+            26.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 8,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Change to 30% Blue Orb resistance, 80% Basic Attack Orb vulnerability",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            27.0,
+            28.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 9,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Change to 30% Basic Attack Orb resistance, 80% Yellow Orb vulnerability",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            29.0,
+            30.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 10,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Change to 30% Yellow Orb resistance, 80% Red Orb vulnerability",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            23.0,
+            24.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 11,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Change to 30% Red Orb resistance, 80% Blue Orb vulnerability",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            25.0,
+            26.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 12,
+        "Name": "Signal Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "Upon casting, become immune to Yellow/Blue Orb for 2 rounds (casting condition: Damage Points < 5000)",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": 5000.0,
+        "BuffId": [
+            31.0,
+            32.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 13,
+        "Name": "Signal Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "Upon casting, become immune to Yellow/Blue Orb for 2 rounds (casting condition: Damage Points < 70000)",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": 70000.0,
+        "BuffId": [
+            31.0,
+            32.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 14,
+        "Name": "Signal Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "Upon casting, become immune to Yellow/Blue Orb for 2 rounds (casting condition: Damage Points < 120000)",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": 120000.0,
+        "BuffId": [
+            31.0,
+            32.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 15,
+        "Name": "Exhaustion",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "Deduct 2 steps after casting (casting condition: Damage Points < 5000).",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": 5000.0,
+        "BuffId": [
+            33.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 16,
+        "Name": "Exhaustion",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "Deduct 2 steps after casting (casting condition: Damage Points < 50000).",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": 50000.0,
+        "BuffId": [
+            33.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 17,
+        "Name": "Exhaustion",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "Deduct 2 steps after casting (casting condition: Damage Points < 90000).",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": 90000.0,
+        "BuffId": [
+            33.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 18,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Change to 30% Blue Orb resistance, 80% Basic Attack Orb vulnerability",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            27.0,
+            28.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 19,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Change to 30% Basic Attack Orb resistance, 80% Yellow Orb vulnerability",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            29.0,
+            30.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 20,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Cast in the 1st round. 50% Basic Attack Orbs resistance but 30% Red/Yellow/Blue Orb vulnerability for 15 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 21,
+        "Name": "Res. Swap \u03b2",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Cast in the 16th round. Immune to Basic Attack Orbs but 50% Red/Yellow/Blue Orb vulnerability for 2 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 22,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Cast in the 4th round. 50% Basic Attack/Yellow/Blue Orb resistance but 200% Red Orb vulnerability for 5 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 23,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Cast in the 1st round. 30% Blue Orb resistance but 80% Red Orb vulnerability for 10 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 24,
+        "Name": "Res. Swap \u03b2",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Cast in the 11th round. 50% Yellow Orb resistance but 120% Basic Attack Orb vulnerability for 5 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 25,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "From the 1st round, rotate between the following weaknesses every 4 rounds: 30% Yellow resistance/80% Red vulnerability, 30% Red resistance/80% Blue vulnerability, 30% Blue resistance/80% Basic Attack vulnerability, 30% Basic Attack resistance/80% Yellow vulnerability",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 26,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Cast in the 1st round. 30% Yellow Orb resistance but 80% Red Orb vulnerability for 4 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 27,
+        "Name": "Res. Swap \u03b2",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Cast in the 5th round. 30% Red Orb resistance but 80% Blue Orb vulnerability for 4 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 28,
+        "Name": "Signal Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "Cast in the 2nd, 7th and 12th rounds. Become immune to Yellow/Blue Orb for 2 rounds upon casting (casting condition: Damage Points < 5000/70000/120000).",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 29,
+        "Name": "Res. Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Cast in the 6th round. 30% Blue Orb resistance but 80% Basic Attack Orb vulnerability for 4 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 30,
+        "Name": "Res. Swap \u03b2",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "Cast in the 13th round. 30% Basic Attack Orb resistance but 80% Yellow Orb vulnerability for 4 rounds.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 31,
+        "Name": "Exhaustion",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "Cast in the 2nd, 5th and 9th rounds. Deduct 2 steps after casting (casting condition: Damage Points < 5000/50000/90000).",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 101,
+        "Name": "Red Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 1st turn, gain 20% Red Orb Vulnerability for 7 turns.",
+        "BossId": null,
+        "TriggerRound": 1.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1010.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 102,
+        "Name": "Middle Game Check",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
+        "Desc": "If the total Damage Points are less than 80000 by the end of the 7th turn, lose 2 Energy and gain 30% Yellow and Blue Orb Resistances respectively. The effect lasts for 3 turns.",
+        "BossId": null,
+        "TriggerRound": 7.0,
+        "SkipDamage": 80000.0,
+        "BuffId": [
+            1020.0,
+            1021.0,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 2.0
+    },
+    {
+        "Id": 103,
+        "Name": "Red Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 8th turn, lose 2 Energy and gain 50% Red Orb Vulnerability and 70% Yellow Orb Resistance for 7 turns.",
+        "BossId": null,
+        "TriggerRound": 8.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1030.0,
+            1031.0,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 2.0
+    },
+    {
+        "Id": 104,
+        "Name": "Red Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 1st turn, gain 20% Red Orb Vulnerability for 7 turns. At the end of the 8th turn, gain 50% Red Orb Vulnerability and 70% Yellow Orb Resistance for 7 turns.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 121,
+        "Name": "Early Game Check",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
+        "Desc": "If the total Damage Points are less than 10000 by the end of the 1st turn, gain 50% Red Orb Resistance for 3 turns.",
+        "BossId": null,
+        "TriggerRound": 1.0,
+        "SkipDamage": 10000.0,
+        "BuffId": [
+            1210.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 122,
+        "Name": "Yellow Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 2nd turn, lose 2 Energy and gain 50% Yellow Orb Vulnerability for 5 turns.",
+        "BossId": null,
+        "TriggerRound": 2.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1220.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 2.0
+    },
+    {
+        "Id": 123,
+        "Name": "Middle Game Check",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
+        "Desc": "If the total Damage Points are less than 80000 at the end of the 7th turn, lose 1 Energy and gain 30% Yellow and Blue Orb Resistances respectively. The effect lasts for 3 turns.",
+        "BossId": null,
+        "TriggerRound": 7.0,
+        "SkipDamage": 80000.0,
+        "BuffId": [
+            1230.0,
+            1231.0,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 1.0
+    },
+    {
+        "Id": 124,
+        "Name": "Red Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 8th turn, lose 2 Energy and gain 50% Red Orb Vulnerability for 5 turns.",
+        "BossId": null,
+        "TriggerRound": 8.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1240.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 2.0
+    },
+    {
+        "Id": 125,
+        "Name": "Blue Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 13th turn, lose 2 Energy and gain 50% Blue Orb Vulnerability for 5 turns.",
+        "BossId": null,
+        "TriggerRound": 13.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1250.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 2.0
+    },
+    {
+        "Id": 126,
+        "Name": "Vulnerability Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 2nd turn, gain 50% Yellow Orb Vulnerability for 5 turns. At the end of the 8th turn, gain 50% Red Orb Vulnerability for 5 turns. At the end of the 13th turn, gain 50% Blue Orb Vulnerability for 5 turns.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 141,
+        "Name": "Red Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 1st turn, lose 50% Energy and gain 50% Red Orb Vulnerability for 5 turns.",
+        "BossId": null,
+        "TriggerRound": 1.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1410.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 2.0,
+        "SubEnergyCount": 500.0
+    },
+    {
+        "Id": 142,
+        "Name": "Yellow Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 4th turn, lose 50% Energy and gain 50% Yellow Orb Vulnerability for 6 turns.",
+        "BossId": null,
+        "TriggerRound": 4.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1420.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 2.0,
+        "SubEnergyCount": 500.0
+    },
+    {
+        "Id": 143,
+        "Name": "Basic Attack Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 7th turn, lose 50% Energy and gain 50% Basic Attack Vulnerability for 7 turns.",
+        "BossId": null,
+        "TriggerRound": 7.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1430.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 2.0,
+        "SubEnergyCount": 500.0
+    },
+    {
+        "Id": 144,
+        "Name": "Blue Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 11th turn, lose 50% Energy and gain 50% Blue Orb Vulnerability for 8 turns.",
+        "BossId": null,
+        "TriggerRound": 11.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1440.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 2.0,
+        "SubEnergyCount": 500.0
+    },
+    {
+        "Id": 161,
+        "Name": "Red Orb Immunity & Basic Attack Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "At the end of the 1st turn, lose 3 Energy, gain Red Orb Immunity for 5 turns and 20% Basic Attack Vulnerability for 15 turns.",
+        "BossId": null,
+        "TriggerRound": 1.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1610.0,
+            1611.0,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 3.0
+    },
+    {
+        "Id": 162,
+        "Name": "Yellow Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "At the end of the 4th turn, lose 3 Energy and gain Yellow Orb Immunity for 5 turns.",
+        "BossId": null,
+        "TriggerRound": 4.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1620.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 3.0
+    },
+    {
+        "Id": 163,
+        "Name": "Blue Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "At the end of the 7th turn, lose 3 Energy and gain Blue Orb Immunity for 5 turns.",
+        "BossId": null,
+        "TriggerRound": 7.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1630.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 3.0
+    },
+    {
+        "Id": 164,
+        "Name": "Energy Attack",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "Lose 20 Energy at the end of the 11th turn.",
+        "BossId": null,
+        "TriggerRound": 11.0,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 20.0
+    },
+    {
+        "Id": 181,
+        "Name": "Early Game Check",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
+        "Desc": "If the total Damage Points are less than 10000 by the end of the 1st turn, lose 2 Energy and gain 50% Red Orb and Basic Attack Resistances respectively for 3 turns.",
+        "BossId": null,
+        "TriggerRound": 1.0,
+        "SkipDamage": 10000.0,
+        "BuffId": [
+            1810.0,
+            1811.0,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 2.0
+    },
+    {
+        "Id": 182,
+        "Name": "Basic Attack Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 2nd turn, lose 2 Energy and gain 50% Basic Attack Vulnerability. The effect lasts for 3 turns.",
+        "BossId": null,
+        "TriggerRound": 2.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1820.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 2.0
+    },
+    {
+        "Id": 183,
+        "Name": "Middle Game Check",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
+        "Desc": "If the total Damage Points are less than 80000 by the end of the 7th turn, lose 2 Energy and gain 50% Red Orb and Basic Attack Resistance respectively for 3 turns.",
+        "BossId": null,
+        "TriggerRound": 7.0,
+        "SkipDamage": 80000.0,
+        "BuffId": [
+            1830.0,
+            1831.0,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 2.0
+    },
+    {
+        "Id": 184,
+        "Name": "All Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "At the end of the 8th turn, lose 2 Energy and become immune to all Orbs for 3 turns.",
+        "BossId": null,
+        "TriggerRound": 8.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1840.0,
+            1841.0,
+            1842.0,
+            1843.0
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 2.0
+    },
+    {
+        "Id": 185,
+        "Name": "Red Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 12th turn, lose 2 Energy and gain 50% Red Orb Vulnerability for 3 turns.",
+        "BossId": null,
+        "TriggerRound": 12.0,
+        "SkipDamage": null,
+        "BuffId": [
+            1850.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 2.0
+    },
+    {
+        "Id": 186,
+        "Name": "Vulnerability Swap",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
+        "Desc": "At the end of the 2nd turn, gain 50% Basic Attack Vulnerability for 3 turns. At the end of the 12th turn, gain 50% Red Orb Vulnerability for 3 turns.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 201,
+        "Name": "Red Orb, Yellow Orb, Basic Attack Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "At the end of the 1st turn, become immune to Red, Yellow, and Basic Attack Orbs for 5 turns.",
+        "BossId": null,
+        "TriggerRound": 1.0,
+        "SkipDamage": null,
+        "BuffId": [
+            2010.0,
+            2011.0,
+            2012.0,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 202,
+        "Name": "Middle Game Check",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
+        "Desc": "Lose 20 Energy if the total Damage Points are less than 100000 by the end of the 7th turn.",
+        "BossId": null,
+        "TriggerRound": 7.0,
+        "SkipDamage": 100000.0,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 20.0
+    },
+    {
+        "Id": 203,
+        "Name": "Energy Attack",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "Lose 20 Energy at the end of the 10th turn.",
+        "BossId": null,
+        "TriggerRound": 10.0,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 20.0
+    },
+    {
+        "Id": 204,
+        "Name": "All Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "At the end of the 11th turn, become immune to all Orbs for 3 turns.",
+        "BossId": null,
+        "TriggerRound": 11.0,
+        "SkipDamage": null,
+        "BuffId": [
+            2040.0,
+            2041.0,
+            2042.0,
+            2043.0
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 205,
+        "Name": "\u865a\u5f31",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of the 14th turn, gain 20% All Orb Vulnerability for 6 turns.",
+        "BossId": null,
+        "TriggerRound": 14.0,
+        "SkipDamage": null,
+        "BuffId": [
+            2050.0,
+            2051.0,
+            2052.0,
+            2053.0
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 206,
+        "Name": "Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "At the end of the 1st turn, become immune to Red, Yellow, and Basic Attack Orbs for 5 turns. At the end of the 11th turn, become immune to all Orbs for 3 turns.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 301,
+        "Name": "Blue Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 1, receives 20% more DMG from Blue Orbs. Lasts 5 turns.",
+        "BossId": null,
+        "TriggerRound": 1.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3100.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 302,
+        "Name": "Full of Weaknesses",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 6, receives 50% more DMG from all orbs. Lasts 5 turns.",
+        "BossId": null,
+        "TriggerRound": 6.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3101.0,
+            3102.0,
+            3103.0,
+            3104.0
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 303,
+        "Name": "Equilibrium",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
+        "Desc": "At the end of turn 6, receives 50% more DMG from Red Orbs and 50% less from Yellow, Blue, and Basic Attack Orbs. Lasts 6 turns.",
+        "BossId": null,
+        "TriggerRound": 6.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3112.0,
+            3113.0,
+            3114.0,
+            3115.0
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 304,
+        "Name": "Red Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 1, receives 20% more DMG from Red Orbs. Lasts 5 turns.",
+        "BossId": null,
+        "TriggerRound": 1.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3111.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 305,
+        "Name": "Lithobolos",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon018.png",
+        "Desc": "At the end of turn 8, the next 20 orbs dropping down will be Red Orbs.",
+        "BossId": null,
+        "TriggerRound": 8.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3116.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 306,
+        "Name": "Energy Scouter",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon025.png",
+        "Desc": "If the total Damage Points do not reach 20000 at the end of turn 2, reduce 50 Finishing Move Energy.",
+        "BossId": null,
+        "TriggerRound": 2.0,
+        "SkipDamage": 20000.0,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 2.0,
+        "SubEnergyCount": 500.0
+    },
+    {
+        "Id": 307,
+        "Name": "Weakening Energy",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "At the end of turn 5, reduces 10 Finishing Move Energy.",
+        "BossId": null,
+        "TriggerRound": 5.0,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 10.0
+    },
+    {
+        "Id": 308,
+        "Name": "Energy Evaporation",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "At the end of turn 10, reduces 5 Finishing Move Energy at the end of the turn. Lasts 5 turns.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 309,
+        "Name": "Energy Evaporation",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "At the end of turn 10, reduces 5 Finishing Move Energy.",
+        "BossId": null,
+        "TriggerRound": 10.0,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 5.0
+    },
+    {
+        "Id": 310,
+        "Name": "Energy Evaporation",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "At the end of turn 11, reduces 5 Finishing Move Energy.",
+        "BossId": null,
+        "TriggerRound": 11.0,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 5.0
+    },
+    {
+        "Id": 311,
+        "Name": "Yellow Orb Vulnerability I",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 1, receives 20% more DMG from Yellow Orbs. Lasts 3 turns.",
+        "BossId": null,
+        "TriggerRound": 1.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3117.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 312,
+        "Name": "Weakness Transfer",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 4, receives 50% more DMG from Yellow Orbs. Lasts 2 turns. At the end of turn 6, receives 50% more DMG from Blue Orbs. Lasts 5 turns.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 313,
+        "Name": "Yellow Orb Vulnerability II",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 4, receives 50% more DMG from Yellow Orbs. Lasts 2 turns.",
+        "BossId": null,
+        "TriggerRound": 4.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3118.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 314,
+        "Name": "Blue Orb Vulnerability",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 6, receives 50% more DMG from Blue Orbs. Lasts 5 turns.",
+        "BossId": null,
+        "TriggerRound": 6.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3119.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 315,
+        "Name": "Anti-Color",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon011.png",
+        "Desc": "At the end of turn 10, receives 60% less DMG from Red, Yellow, and Blue Orbs. Lasts 5 turns.",
+        "BossId": null,
+        "TriggerRound": 10.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3120.0,
+            3121.0,
+            3122.0,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 316,
+        "Name": "Yellow Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon011.png",
+        "Desc": "If the total Damage Points do not reach 10000 at the end of turn 2, receives 30% less DMG from Yellow Orbs. Lasts 4 turns.",
+        "BossId": null,
+        "TriggerRound": 2.0,
+        "SkipDamage": 10000.0,
+        "BuffId": [
+            3123.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 317,
+        "Name": "Anti-Color",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon011.png",
+        "Desc": "At the end of turn 6, receives 50% less DMG from Red, Yellow, and Blue Orbs. Lasts 2 turns.",
+        "BossId": null,
+        "TriggerRound": 6.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3124.0,
+            3125.0,
+            3126.0,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 318,
+        "Name": "Anti-All-Orbs",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon011.png",
+        "Desc": "At the end of turn 8, receives 50% less DMG from all orbs. Lasts 5 turns.",
+        "BossId": null,
+        "TriggerRound": 8.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3127.0,
+            3128.0,
+            3129.0,
+            3141.0
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 319,
+        "Name": "Anti-Basic Attack",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon011.png",
+        "Desc": "At the end of turn 1, receives 20% less DMG from Basic Attack Orbs. Lasts 2 turns.",
+        "BossId": null,
+        "TriggerRound": 1.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3130.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 320,
+        "Name": "Immunity Cycle",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "At the end of turn 3, immune to the effects of Red Orbs but receives 100% more DMG from Yellow Orbs. Lasts 3 turns. At the end of turn 6, immune to the effects of Blue Orbs but receives 100% more DMG from Red Orbs. Lasts 3 turns. At the end of turn 9, immune to the effects of Yellow Orbs but receives 100% more DMG from Blue Orbs. Lasts 3 turns.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 321,
+        "Name": "Immunity Cycle I",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "At the end of turn 3, immune to the effects of Red Orbs but receives 100% more DMG from Yellow Orbs. Lasts 3 turns.",
+        "BossId": null,
+        "TriggerRound": 3.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3131.0,
+            3138.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 322,
+        "Name": "Immunity Cycle II",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "At the end of turn 6, immune to the effects of Blue Orbs but receives 100% more DMG from Red Orbs. Lasts 3 turns.",
+        "BossId": null,
+        "TriggerRound": 6.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3132.0,
+            3139.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 323,
+        "Name": "Immunity Cycle III",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "At the end of turn 9, immune to the effects of Yellow Orbs but receives 100% more DMG from Blue Orbs. Lasts 3 turns.",
+        "BossId": null,
+        "TriggerRound": 9.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3133.0,
+            3140.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 324,
+        "Name": "All-Round Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon027.png",
+        "Desc": "At the end of turn 12, immune to the effects of all orbs. Lasts 5 turns.",
+        "BossId": null,
+        "TriggerRound": 12.0,
+        "SkipDamage": null,
+        "BuffId": [
+            3134.0,
+            3135.0,
+            3136.0,
+            3137.0
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 325,
+        "Name": "Energy Evaporation",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "At the end of turn 12, reduces 5 Energy.",
+        "BossId": null,
+        "TriggerRound": 12.0,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 5.0
+    },
+    {
+        "Id": 326,
+        "Name": "Energy Evaporation",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "At the end of turn 13, reduces 5 Energy.",
+        "BossId": null,
+        "TriggerRound": 13.0,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 5.0
+    },
+    {
+        "Id": 327,
+        "Name": "Energy Evaporation",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "At the end of turn 14, reduces 5 Energy.",
+        "BossId": null,
+        "TriggerRound": 14.0,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 5.0
+    },
+    {
+        "Id": 401,
+        "Name": "Equilibrium",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 1, receives 30% less DMG from Red Orbs but 30% more DMG from Blue Orbs. Lasts 5 turns.",
+        "BossId": 1.0,
+        "TriggerRound": 1.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4011.0,
+            4031.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 402,
+        "Name": "Vulnerability Switch I",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 6, takes 50% less DMG from Yellow Orbs but 50% more DMG from Blue Orbs. Lasts 5 turns.",
+        "BossId": 1.0,
+        "TriggerRound": 6.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4021.0,
+            4032.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 403,
+        "Name": "Vulnerability Switch II",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 11, takes 50% less DMG from Basic Attack Orbs but 50% more DMG from Blue Orbs. Lasts 5 turns.",
+        "BossId": 1.0,
+        "TriggerRound": 11.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4035.0,
+            4033.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 411,
+        "Name": "Equilibrium",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 1, receives 30% less DMG from Red Orbs but 30% more DMG from Blue Orbs. Lasts 5 turns.",
+        "BossId": 2.0,
+        "TriggerRound": 1.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4111.0,
+            4011.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 412,
+        "Name": "Vulnerability Switch I",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 6, receives 30% less DMG from Yellow Orbs but 30% more DMG from Red Orbs. Lasts 5 turns.",
+        "BossId": 2.0,
+        "TriggerRound": 6.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4121.0,
+            4151.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 413,
+        "Name": "Vulnerability Switch II",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 11, takes 30% less DMG from Blue Orbs but 30% more DMG from Yellow Orbs. Lasts 5 turns.",
+        "BossId": 2.0,
+        "TriggerRound": 11.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4131.0,
+            4141.0,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 421,
+        "Name": "Energy Detection I",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon025.png",
+        "Desc": "If the total Damage Points do not reach 10000 at the end of turn 1, reduces 3 Finishing Move Energy.",
+        "BossId": 3.0,
+        "TriggerRound": 1.0,
+        "SkipDamage": 10000.0,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 3.0
+    },
+    {
+        "Id": 422,
+        "Name": "Energy Detection II",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon025.png",
+        "Desc": "If the total Damage Points do not reach 60000 at the end of turn 6, reduces 5 Finishing Move Energy.",
+        "BossId": 3.0,
+        "TriggerRound": 6.0,
+        "SkipDamage": 60000.0,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 5.0
+    },
+    {
+        "Id": 423,
+        "Name": "Weakening Energy",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "At the end of turn 10, reduces 50% of current Finishing Move Energy.",
+        "BossId": 3.0,
+        "TriggerRound": 10.0,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 2.0,
+        "SubEnergyCount": 500.0
+    },
+    {
+        "Id": 424,
+        "Name": "Energy Evaporation",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "At the end of turn 12, reduces 5 Finishing Move Energy at the end of every turn. Lasts 3 turns.",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 425,
+        "Name": "Energy Evaporation",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "At the end of turn 12, reduces 5 Energy.",
+        "BossId": 3.0,
+        "TriggerRound": 12.0,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 5.0
+    },
+    {
+        "Id": 426,
+        "Name": "Energy Evaporation",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "At the end of turn 13, reduces 5 Energy.",
+        "BossId": 3.0,
+        "TriggerRound": 13.0,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 5.0
+    },
+    {
+        "Id": 427,
+        "Name": "Energy Evaporation",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
+        "Desc": "At the end of turn 14, reduces 5 Energy.",
+        "BossId": 3.0,
+        "TriggerRound": 14.0,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": 1.0,
+        "SubEnergyCount": 5.0
+    },
+    {
+        "Id": 431,
+        "Name": "Reverse Detection",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon025.png",
+        "Desc": "If the total Damage Points do not reach 10000 at the end of turn 1, the next 15 orbs dropping down will be Red Orbs.",
+        "BossId": 4.0,
+        "TriggerRound": 1.0,
+        "SkipDamage": 10000.0,
+        "BuffId": [
+            4311.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 432,
+        "Name": "Drop Change",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21151.png",
+        "Desc": "At the end of turn 3, the next 25 orbs dropping down will be Basic Attack Orbs.",
+        "BossId": 4.0,
+        "TriggerRound": 3.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4321.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 433,
+        "Name": "Equilibrium I",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 4, receives 30% more DMG from Red and Basic Attack Orbs, but 30% less DMG from Blue Orbs. Lasts 6 turns.",
+        "BossId": 4.0,
+        "TriggerRound": 4.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4331.0,
+            4341.0,
+            4371.0,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 434,
+        "Name": "Equilibrium II",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon023.png",
+        "Desc": "At the end of turn 10, receives 50% more DMG from Red and Basic Attack Orbs, but 50% less DMG from Yellow Orbs. Lasts 5 turns.",
+        "BossId": 4.0,
+        "TriggerRound": 10.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4351.0,
+            4361.0,
+            4381.0,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 441,
+        "Name": "Blue Resistance",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11040.png",
+        "Desc": "At the end of turn 1, receives 20% less DMG from Blue Orbs. Lasts 3 turns.",
+        "BossId": 5.0,
+        "TriggerRound": 1.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4411.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 442,
+        "Name": "Yellow Resistance",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11041.png",
+        "Desc": "At the end of turn 4, receives 30% less DMG from Yellow Orbs. Lasts 4 turns.",
+        "BossId": 5.0,
+        "TriggerRound": 4.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4421.0,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 443,
+        "Name": "Color Resistance",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11042.png",
+        "Desc": "At the end of turn 8, receives 30% less DMG from all Colored Orbs. Lasts 4 turns.",
+        "BossId": 5.0,
+        "TriggerRound": 8.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4431.0,
+            4432.0,
+            4433.0,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 444,
+        "Name": "Color Immunity",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11043.png",
+        "Desc": "At the end of turn 12, becomes immune to all Colored Orbs. Lasts 3 turns.",
+        "BossId": 5.0,
+        "TriggerRound": 12.0,
+        "SkipDamage": null,
+        "BuffId": [
+            4441.0,
+            4442.0,
+            4443.0,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    },
+    {
+        "Id": 451,
+        "Name": "Play Cute",
+        "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon028.png",
+        "Desc": "Shark-speare thinks she is super adorable and does not need to cast any skill!",
+        "BossId": null,
+        "TriggerRound": null,
+        "SkipDamage": null,
+        "BuffId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SubEnergyType": null,
+        "SubEnergyCount": null
+    }
+]

@@ -296,6 +296,12 @@ function XUiTip:Refresh(data)
     -- 世界观描述
     if self.TxtWorldDesc then
         local worldDesc = XGoodsCommonManager.GetGoodsWorldDesc(self.TemplateId)
+        
+        ---黑岩超难关藏品特殊处理
+        if self.TemplateId == XEnumConst.SpecialHandling.DEADCollectiblesId then
+            worldDesc = XUiHelper.ReplaceUnicodeSpace(worldDesc)
+        end
+
         if worldDesc and #worldDesc then
             self.TxtWorldDesc.text = string.gsub(worldDesc, "\\n", "\n");
             self:SetUiActive(self.TxtWorldDesc, true)

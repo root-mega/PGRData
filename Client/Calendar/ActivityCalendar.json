@@ -148,12 +148,12 @@
     },
     {
         "Id": 8,
-        "Name": "Monochrome Corridor",
+        "Name": "Puzzle Preview Stage",
         "SortId": 8,
         "TimeId": 20601,
         "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab118.png",
         "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity118.png",
-        "ActivityDesc": "Event Info:\\n1. Complete event missions to obtain [Dodecahedron Dice].\\n2. Spend [Dodecahedron Dice] to unlock puzzle pieces.\\n3. Put puzzle pieces in the right positions to unlock area rewards.",
+        "ActivityDesc": "Event Info:\\n1. Complete event missions to obtain [Unknown Item].\\n2. Spend [Unknown Item] to unlock puzzle pieces.\\n3. Put puzzle pieces in the right positions to unlock area rewards.",
         "FunctionId": null,
         "IsInCalendar": 1,
         "ShowItem": [
@@ -190,24 +190,24 @@
     },
     {
         "Id": 10,
-        "Name": "New Year Lottery (purchase)",
+        "Name": "Preview Stage",
         "SortId": 10,
-        "TimeId": 2160206,
-        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiActivityBaseNewYearLuckTab.png",
-        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiActivityBaseNewYearLuck.png",
-        "ActivityDesc": "Instructions: Complete event missions to obtain [New Year Token] (purchase period).",
+        "TimeId": 20201,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarTab119.png",
+        "ActivityBanner": "Assets/Product/Texture/Image/UiWeekCalendar/UiWeekCalendarActivity119.png",
+        "ActivityDesc": "Event Info:\\nPlay poker guessing to win commemorative coins! Invite your companions to a trip to the Shopping Street.",
         "FunctionId": null,
         "IsInCalendar": 1,
         "ShowItem": [
             null,
             50005,
-            50003.0,
-            29.0
+            102.0,
+            null
         ],
-        "SkipId": 20112,
+        "SkipId": 20076,
         "ExchangeTimeId": null,
         "TaskTimeId": null,
-        "FightTimeId": 2160206.0
+        "FightTimeId": 20201.0
     },
     {
         "Id": 11,

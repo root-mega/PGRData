@@ -1,0 +1,443 @@
+[
+    {
+        "Id": 1,
+        "Key": "TxtCharaEnName",
+        "ActivityId": 1,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "MaxAbilityCharacterEnName",
+        "Note": "Character Name (English) of Most Trained Character"
+    },
+    {
+        "Id": 2,
+        "Key": "TxtCharaFullName",
+        "ActivityId": 1,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "MaxAbilityCharacterFullName",
+        "Note": "Name of Most Trained Character (Full)"
+    },
+    {
+        "Id": 3,
+        "Key": "TxtAbility",
+        "ActivityId": 1,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "MaxAbility",
+        "Note": "BP of Most Trained Character"
+    },
+    {
+        "Id": 4,
+        "Key": "TxtLoveNum",
+        "ActivityId": 1,
+        "Page": 2,
+        "TextFormat": "You have reached \"{1}\" Affection with \\n<color=#34AFF8><size=50>{0}</size></color> members",
+        "DataName": "MaxTrustData",
+        "Note": "Characters with Max Affection"
+    },
+    {
+        "Id": 5,
+        "Key": "TxtPartnerNum",
+        "ActivityId": 1,
+        "Page": 2,
+        "TextFormat": "Currently owned: <color=#34AFF8><size=50>{0}</size></color>",
+        "DataName": "PartnerCount",
+        "Note": "CUBs Owned"
+    },
+    {
+        "Id": 6,
+        "Key": "TxtPlayerName",
+        "ActivityId": 1,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "Name",
+        "Note": "Commandant Name"
+    },
+    {
+        "Id": 7,
+        "Key": "TxtRegisterTime",
+        "ActivityId": 1,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "CreateTime",
+        "Note": "Time Registered"
+    },
+    {
+        "Id": 8,
+        "Key": "TxtPlayDays",
+        "ActivityId": 1,
+        "Page": 2,
+        "TextFormat": "<color=#34AFF8>{0}</color> days have passed",
+        "DataName": "ExistDayCount",
+        "Note": "Time Since Registration"
+    },
+    {
+        "Id": 9,
+        "Key": "TxtGuildName",
+        "ActivityId": 1,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "GuildName",
+        "Note": "Guild Name"
+    },
+    {
+        "Id": 10,
+        "Key": "TxtMainStoryProgress",
+        "ActivityId": 1,
+        "Page": 2,
+        "TextFormat": " <color=#34AFF8>{0}</color> {1}",
+        "DataName": "MainLineStage",
+        "Note": "Main Mission Progress Stage Name {0} Progress ID {1} Stage Name"
+    },
+    {
+        "Id": 11,
+        "Key": "TxtMainChapter",
+        "ActivityId": 1,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "BfrtSchedule",
+        "Note": "Stronghold Chapter Name"
+    },
+    {
+        "Id": 12,
+        "Key": "TxtAreaChapter",
+        "ActivityId": 1,
+        "Page": 2,
+        "TextFormat": "You have reached Area <color=#34AFF8>{0}</color>",
+        "DataName": "AssignSchedule",
+        "Note": "Border Pact Progress"
+    },
+    {
+        "Id": 13,
+        "Key": "TxtPlayerName",
+        "ActivityId": 1,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "Name",
+        "Note": "Commandant Name"
+    },
+    {
+        "Id": 14,
+        "Key": "TxtPlayerId",
+        "ActivityId": 1,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "PlayerId",
+        "Note": "Commandant ID"
+    },
+    {
+        "Id": 15,
+        "Key": "TxtEnterDay",
+        "ActivityId": 1,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "CreateTime",
+        "Note": "Time Registered"
+    },
+    {
+        "Id": 16,
+        "Key": "TxtPlayDay",
+        "ActivityId": 1,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "ExistDayCount",
+        "Note": "Time Since Registration"
+    },
+    {
+        "Id": 17,
+        "Key": "TxtMedalNum",
+        "ActivityId": 1,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "MedalCount",
+        "Note": "Medals Earned"
+    },
+    {
+        "Id": 18,
+        "Key": "TxtCollectionNum",
+        "ActivityId": 1,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "ScoreTitleCount",
+        "Note": "Collectibles Obtained"
+    },
+    {
+        "Id": 19,
+        "Key": "TxtMemberCount",
+        "ActivityId": 1,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "CharacterCnt",
+        "Note": "Characters Owned"
+    },
+    {
+        "Id": 20,
+        "Key": "TxtLoveNum",
+        "ActivityId": 1,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "MaxTrustLvCharacterCnt",
+        "Note": "Characters with Max Affection"
+    },
+    {
+        "Id": 21,
+        "Key": "TxtMaxTrustName",
+        "ActivityId": 1,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "MaxTrustName",
+        "Note": "Name of Character with Max Affection"
+    },
+    {
+        "Id": 22,
+        "Key": "TxtDormNum",
+        "ActivityId": 1,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "DormCount",
+        "Note": "Dormitories Owned"
+    },
+    {
+        "Id": 23,
+        "Key": "TxtFurnitureNum",
+        "ActivityId": 1,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "FurnitureCount",
+        "Note": "Decor Owned"
+    },
+    {
+        "Id": 24,
+        "Key": "TxtPlayerName",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "Name",
+        "Note": "Commandant Name"
+    },
+    {
+        "Id": 25,
+        "Key": "TxtRegisterTime",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "CreateTime",
+        "Note": "Player Registration Time"
+    },
+    {
+        "Id": 26,
+        "Key": "TxtPlayDays",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "<color=#34AFF8>{0}</color> day(s) from now",
+        "DataName": "ExistDayCount",
+        "Note": "Time From Registration"
+    },
+    {
+        "Id": 27,
+        "Key": "TxtGuildName",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "GuildName",
+        "Note": "Guild Name"
+    },
+    {
+        "Id": 28,
+        "Key": "TxtLoginDayTimes",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "You've been on missions in Babylonia for <color=#34AFF8>{0}</color> days this year.",
+        "DataName": "LoginDayTimes",
+        "Note": "Log-in Days This Year"
+    },
+    {
+        "Id": 29,
+        "Key": "TxtConsumeSerum",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "You have used <color=#34AFF8>{0}</color>ml Serum",
+        "DataName": "ConsumeSerum",
+        "Note": "Total Serum Consumed This Year"
+    },
+    {
+        "Id": 30,
+        "Key": "TxtConsumeNut",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "You have used  <color=#34AFF8>{0}</color> Cog(s)",
+        "DataName": "ConsumeNut",
+        "Note": "Total Cogs Consumed This Year"
+    },
+    {
+        "Id": 31,
+        "Key": "TxtCharaEnName",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "MaxAbilityCharacterEnName",
+        "Note": "English Name of the Character with the Highest Practice"
+    },
+    {
+        "Id": 32,
+        "Key": "TxtCharaFullName",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "MaxAbilityCharacterFullName",
+        "Note": "Name of the Character with the Highest Practice (Full Name)"
+    },
+    {
+        "Id": 33,
+        "Key": "TxtAbility",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "MaxAbility",
+        "Note": "Battle Power of the Character with the Highest Practice"
+    },
+    {
+        "Id": 34,
+        "Key": "TxtLoveNum",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "You have reached [{1}] Affection\\nwith <color=#34AFF8><size=50>{0}</size></color> member(s)",
+        "DataName": "MaxTrustData",
+        "Note": "Characters with the Highest Affection"
+    },
+    {
+        "Id": 35,
+        "Key": "TxtPartnerNum",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "Currently owned: <color=#34AFF8><size=50>{0}</size></color>",
+        "DataName": "PartnerCount",
+        "Note": "CUBs Owned"
+    },
+    {
+        "Id": 36,
+        "Key": "TxtMainStoryProgress",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": " <color=#34AFF8>{0}</color> {1}",
+        "DataName": "MainLineStage",
+        "Note": "Main Story Stage Name {0} Progress No.{1} Stage Name"
+    },
+    {
+        "Id": 37,
+        "Key": "TxtMainChapter",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "{0}",
+        "DataName": "BfrtSchedule",
+        "Note": "Stronghold"
+    },
+    {
+        "Id": 38,
+        "Key": "TxtAreaChapter",
+        "ActivityId": 2,
+        "Page": 2,
+        "TextFormat": "Area <color=#34AFF8>{0}</color>",
+        "DataName": "AssignSchedule",
+        "Note": "Border Pact Progress"
+    },
+    {
+        "Id": 39,
+        "Key": "TxtPlayerName",
+        "ActivityId": 2,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "Name",
+        "Note": "Commandant Name"
+    },
+    {
+        "Id": 40,
+        "Key": "TxtPlayerId",
+        "ActivityId": 2,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "PlayerId",
+        "Note": "Commandant ID"
+    },
+    {
+        "Id": 41,
+        "Key": "TxtEnterDay",
+        "ActivityId": 2,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "CreateTime",
+        "Note": "Player Registration Time"
+    },
+    {
+        "Id": 42,
+        "Key": "TxtPlayDay",
+        "ActivityId": 2,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "ExistDayCount",
+        "Note": "Time From Registration"
+    },
+    {
+        "Id": 43,
+        "Key": "TxtMedalNum",
+        "ActivityId": 2,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "MedalCount",
+        "Note": "Medals Obtained"
+    },
+    {
+        "Id": 44,
+        "Key": "TxtCollectionNum",
+        "ActivityId": 2,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "ScoreTitleCount",
+        "Note": "Collectibles Obtained"
+    },
+    {
+        "Id": 45,
+        "Key": "TxtMemberCount",
+        "ActivityId": 2,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "CharacterCnt",
+        "Note": "Characters Owned"
+    },
+    {
+        "Id": 46,
+        "Key": "TxtLoveNum",
+        "ActivityId": 2,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "MaxTrustLvCharacterCnt",
+        "Note": "Characters with the Highest Affection"
+    },
+    {
+        "Id": 47,
+        "Key": "TxtMaxTrustName",
+        "ActivityId": 2,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "MaxTrustName",
+        "Note": "Name of the Highest Affection"
+    },
+    {
+        "Id": 48,
+        "Key": "TxtDormNum",
+        "ActivityId": 2,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "DormCount",
+        "Note": "Dormitories Owned"
+    },
+    {
+        "Id": 49,
+        "Key": "TxtFurnitureNum",
+        "ActivityId": 2,
+        "Page": 5,
+        "TextFormat": "{0}",
+        "DataName": "FurnitureCount",
+        "Note": "Decors Owned"
+    }
+]

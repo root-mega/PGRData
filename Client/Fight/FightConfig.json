@@ -403,5 +403,15 @@
         "Key": "OccupiedKeyCode",
         "Type": "string",
         "Value": "The key is occupied and cannot be customized."
+    },
+    {
+        "Key": "VirtualEffectEnable",
+        "Type": "bool",
+        "Value": "1"
+    },
+    {
+        "Key": "VirtualEffect",
+        "Type": "string",
+        "Value": "FxVirtualEffect"
     }
 ]

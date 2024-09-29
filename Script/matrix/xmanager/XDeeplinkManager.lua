@@ -16,7 +16,13 @@ function this.InvokeDeeplink()
         return false
     end
 
-    local deepLinkValue = XHgSdkManager.GetDeepLinkValue()
+    local aGent
+    if CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO or XDataCenter.UiPcManager.IsPc() then
+        aGent = CS.XAppsflyerEvent
+    else
+        aGent = CS.XHgSdkAgent
+    end
+    local deepLinkValue = aGent.GetDeepLinkValue()
     CS.XAppsflyerEvent.ResetDeepLinkValue()
     XHgSdkManager.ClearDeepLinkValue() -- 不论如何，拿到就清空
     CS.XLog.Debug("afdeeplink")

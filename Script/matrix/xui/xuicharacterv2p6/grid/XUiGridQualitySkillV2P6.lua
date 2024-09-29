@@ -17,7 +17,7 @@ function XUiGridQualitySkillV2P6:Refresh(skillApartId, characterId)
     local skillName = XCharacterConfigs.GetCharSkillQualityApartName(self.SkillApartId)
     local skillLevel = XCharacterConfigs.GetCharSkillQualityApartLevel(self.SkillApartId)
     local skillIntro = XCharacterConfigs.GetCharSkillQualityApartIntro(self.SkillApartId)
-    local skillNameText = skillName .. "Lv" .. skillLevel
+    local skillNameText = skillName .. " Lv" .. skillLevel
     
     self.BtnSkillOff:SetNameByGroup(0, skillNameText)
     self.BtnSkillOn:SetNameByGroup(0, skillNameText)

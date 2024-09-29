@@ -60,7 +60,6 @@ function XUiLogin:CheckFool()
 end
 
 function XUiLogin:OnStart()
-    CS.XEffectManager.useNewEffect = 1
     --删除闪屏
     CS.XUnloadSplash.DoUnloadSplash()
     --GC
@@ -820,8 +819,16 @@ end
 --region oversea
 
 function XUiLogin:OnAwakeOversea()
+    local deepValue
+    local isPc = XDataCenter.UiPcManager.IsPc()
+    if CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO or isPc then
+        deepValue = CS.XAppsflyerEvent.GetDeepLinkValue()
+    else
+        deepValue = CS.XHgSdkAgent.GetDeepLinkValue()
+    end
     self:AutoInitUiOversea()
     self:AutoAddListenerOversea()
+    self.NeedAutoLoginByAF = CS.XRemoteConfig.AFDeepLinkEnabled and not string.IsNilOrEmpty(deepValue)
     XEventManager.AddEventListener(XEventId.EVNET_HGSDKLOGIN_SUCCESS, self.OnHgSdkLoginSuccess, self)
     XEventManager.AddEventListener(XEventId.EVENT_AGREEMENT_LOAD_FINISH, self.OnLoadAgreementFinish, self)
     XEventManager.AddEventListener(XEventId.EVENT_WHEN_CLOSE_LOGIN_NOTICE, self.OnCloseLoginNotice, self)
@@ -922,7 +929,7 @@ function XUiLogin:OnBtnStartClickOversea()
         end)
         return
     end
-    if XAgreementManager.CheckNeedShow() then
+    if XAgreementManager.CheckNeedShow() and CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO then
         XLuaUiManager.Open("UiLoginAgreement")
         return
     end
@@ -958,6 +965,7 @@ function XUiLogin:AutoAddListenerOversea()
     self:RegisterClickEvent(self.BtnMenu, self.OnBtnMenuClick)
 
     self.BtnNetworkMode.CallBack = function() self:OnBtnNetworkModeClick() end
+    self.PanelAgree.gameObject:SetActiveEx(CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO)
 end
 
 function XUiLogin:OnBtnNetworkModeClick()
@@ -968,7 +976,7 @@ function XUiLogin:OnSwitchAccountClick()
     if XUserManager.Channel == XUserManager.CHANNEL.Android or XUserManager.Channel == XUserManager.CHANNEL.IOS then
         XAppEventManager.AppLogEvent(XAppEventManager.CommonEventNameConfig.Change_account)
         XLuaUiManager.Open("UiLoginDialog", "Account")
-    elseif XUserManager.Channel == XUserManager.CHANNEL.KuroPC then 
+    elseif XUserManager.Channel == XUserManager.CHANNEL.KuroPC or XUserManager.Channel == XUserManager.CHANNEL.KURO_SDK then 
         XUserManager.Logout()
     else
         CsXUiManager.Instance:Open("UiRegister")
@@ -1097,7 +1105,7 @@ function XUiLogin:OnLoadAgreementFinish()
     if XLuaUiManager.IsUiShow("UiLoginNotice") then
         return
     end
-    if XAgreementManager.CheckNeedShow() then
+    if XAgreementManager.CheckNeedShow() and CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO then
         if not XLuaUiManager.IsUiShow("UiLoginAgreement") then
             XLuaUiManager.Open("UiLoginAgreement")
         end
@@ -1110,7 +1118,7 @@ function XUiLogin:OnDeepLinkPush2Login()
 end
 
 function XUiLogin:OnCloseLoginNotice()
-    if XAgreementManager.CheckNeedShow() then
+    if XAgreementManager.CheckNeedShow() and CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO then
         if not XLuaUiManager.IsUiShow("UiLoginAgreement") then
             XLuaUiManager.Open("UiLoginAgreement")
         end
@@ -1124,6 +1132,26 @@ function XUiLogin:OnCheckBindTask()
     elseif XDataCenter.UiPcManager.IsPc() then
         XHgSdkManager.OnBindTaskFinished()
     end
+end
+
+function XUiLogin:AutoDoLogin()
+    if not CS.XRemoteConfig.AFDeepLinkEnabled then return end
+    local function realDoLogin( )
+        if not self.IsRequestNotice then
+            return
+        end
+        XAppEventManager.AppLogEvent(XAppEventManager.CommonEventNameConfig.SDK_Login)
+        if XUserManager.IsNeedLogin() then
+            XUserManager.ShowLogin()
+        else
+            self:DoLogin()
+        end
+    end
+    if XAgreementManager.CheckNeedShow() and CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO then
+        XLuaUiManager.Open("UiLoginAgreement", realDoLogin)
+        return
+    end
+    realDoLogin()
 end
 
 --endregion

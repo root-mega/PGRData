@@ -1,4 +1,5 @@
-local XUiPanelActive = XClass(nil, "XUiPanelActive")
+---@class XUiPanelActive:XUiNode
+local XUiPanelActive = XClass(XUiNode, "XUiPanelActive")
 local XUiArenaGrid = require("XUi/XUiArena/XUiArenaGrid")
 local XUiArenaContributeScore = require("XUi/XUiArena/XUiArenaContributeScore")
 
@@ -30,7 +31,7 @@ function XUiPanelActive:CheckRedPoint()
 end
 
 function XUiPanelActive:RegisterRedPointEvent()
-    self.EventId = XRedPointManager.AddRedPointEvent(self.ImgRedLegion, self.OnCheckTaskNews, self, { XRedPointConditions.Types.CONDITION_ARENA_MAIN_TASK })
+    self.EventId = self:AddRedPointEvent(self.ImgRedLegion, self.OnCheckTaskNews, self, { XRedPointConditions.Types.CONDITION_ARENA_MAIN_TASK })
 end
 
 --@region 注册点击事件

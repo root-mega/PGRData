@@ -1,7 +1,7 @@
 local XUiPanelEquipScroll = require("XUi/XUiEquipAwarenessReplace/XUiPanelEquipScroll")
 local XUiPanelSuitDetailScroll = require("XUi/XUiEquipAwarenessReplace/XUiPanelSuitDetailScroll")
 local XUiPanelSuitSimpleScroll = require("XUi/XUiEquipAwarenessReplace/XUiPanelSuitSimpleScroll")
-local XUiGridEquip = require("XUi/XUiEquipAwarenessReplace/XUiGridEquip")
+local XUiGridEquip = require("XUi/XUiEquip/XUiGridEquip")
 local XUiGridDoubleResonanceSkill = require("XUi/XUiEquipResonanceSkill/XUiGridDoubleResonanceSkill")
 
 local type = type
@@ -256,8 +256,7 @@ function XUiEquipAwarenessReplace:InitCurEquipGrids()
     self.CurEquipGirds = {}
     for _, equipSite in pairs(XEquipConfig.EquipSite.Awareness) do
         local item = CSUnityEngineObjectInstantiate(self.GridCurAwareness)
-        self.CurEquipGirds[equipSite] = XUiGridEquip.New(item, self, clickCb, true)
-        self.CurEquipGirds[equipSite]:InitRootUi(self)
+        self.CurEquipGirds[equipSite] = XUiGridEquip.New(item, self, clickCb)
         self.CurEquipGirds[equipSite].Transform:SetParent(self["PanelPos" .. equipSite], false)
     end
 end
@@ -271,11 +270,11 @@ end
 function XUiEquipAwarenessReplace:UpdateCurEquipGrid(equipSite)
     local wearingEquipId = XDataCenter.EquipManager.GetWearingEquipIdBySite(self.CharacterId, equipSite)
     if not wearingEquipId then
-        self.CurEquipGirds[equipSite].GameObject:SetActive(false)
+        self.CurEquipGirds[equipSite]:Close()
         self["PanelNoEquip" .. equipSite].gameObject:SetActive(true)
     else
         self.CurEquipGirds[equipSite]:Refresh(wearingEquipId)
-        self.CurEquipGirds[equipSite].GameObject:SetActive(true)
+        self.CurEquipGirds[equipSite]:Open()
         self["PanelNoEquip" .. equipSite].gameObject:SetActive(false)
     end
 end

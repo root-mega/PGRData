@@ -1,0 +1,4282 @@
+[
+    {
+        "Id": 1,
+        "Name": "Bonus Move",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian2.png",
+        "Desc": "Add 1 Move",
+        "Type": 1,
+        "Step": 1.0,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": null,
+        "DurationTime": null,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 2,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 50% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 50% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 50% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 5,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 50% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 6,
+        "Name": "Enhanced Basic Attack Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 50% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 7,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 30% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 15.0,
+        "DurationTime": 15.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 8,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 30% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 15.0,
+        "DurationTime": 15.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 9,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 30% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 15.0,
+        "DurationTime": 15.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 10,
+        "Name": "Basic Attack Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Desc": "Basic Attack Orbs deal 30% less damage",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 15.0,
+        "DurationTime": 15.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 11,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 50% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 12,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 50% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 13,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 50% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 14,
+        "Name": "Basic Attack Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianQianggong.png",
+        "Desc": "Immune from Basic Attack Orb damage",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 15,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 200% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 2000.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 16,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orb deals 50% less damage",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 17,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orb deals 50% less damage",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 18,
+        "Name": "Basic Attack Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Desc": "Basic Attack Orb deals 50% less damage",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 19,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 80% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 10.0,
+        "DurationTime": 10.0,
+        "DamagePercent": 800.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 20,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orb deals 30% less damage",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 10.0,
+        "DurationTime": 10.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 21,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orb deals 50% less damage",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 22,
+        "Name": "Enhanced Basic Attack Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 120% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 1200.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 23,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orb deals 30% less damage",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 4.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 24,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 80% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 4.0,
+        "DamagePercent": 800.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 25,
+        "Name": "Red Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhong.png",
+        "Desc": "Red Orb deals 30% less damage",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 4.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 26,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 80% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 4.0,
+        "DamagePercent": 800.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 27,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orb deals 30% less damage",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 4.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 28,
+        "Name": "Enhanced Basic Attack Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 80% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 4.0,
+        "DamagePercent": 800.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 29,
+        "Name": "Basic Attack Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Desc": "Basic Attack Orb deals 30% less damage",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 4.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 30,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 80% more damage",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 4.0,
+        "DamagePercent": 800.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 31,
+        "Name": "Yellow Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhuang.png",
+        "Desc": "Immune from Yellow Orb damage",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 32,
+        "Name": "Blue Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianlan.png",
+        "Desc": "Immune from Blue Orb damage",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 33,
+        "Name": "Step Penalty",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Deducts 2 steps",
+        "Type": 2,
+        "Step": 2.0,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": null,
+        "DurationTime": null,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 50,
+        "Name": "Orbs of the specified color deal more DMG",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Orbs of the specified color deal more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 800.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 51,
+        "Name": "Orbs of the specified color deal more DMG",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Orbs of the specified color deal more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 800.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 52,
+        "Name": "Orbs of the specified color deal more DMG",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Orbs of the specified color deal more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 800.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 53,
+        "Name": "Orbs of the specified color deal more DMG",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Orbs of the specified color deal more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 800.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 54,
+        "Name": "Combos grant Energy",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Combos grant Energy",
+        "Type": 6,
+        "Step": null,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": 10.0,
+        "AddEnergyLimit": 1000.0,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 55,
+        "Name": "Ping 1 random Orb after each ping",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Ping 1 random Orb after each ping",
+        "Type": 7,
+        "Step": null,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 56,
+        "Name": "Change N of the falling Orbs to the specified color",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Change N of the falling Orbs to the specified color",
+        "Type": 8,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 5.0
+    },
+    {
+        "Id": 57,
+        "Name": "Change N of the falling Orbs to the specified color",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Change N of the falling Orbs to the specified color",
+        "Type": 8,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 5.0
+    },
+    {
+        "Id": 58,
+        "Name": "Change N of the falling Orbs to the specified color",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Change N of the falling Orbs to the specified color",
+        "Type": 8,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 5.0
+    },
+    {
+        "Id": 59,
+        "Name": "Change N of the falling Orbs to the specified color",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Change N of the falling Orbs to the specified color",
+        "Type": 8,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 5.0
+    },
+    {
+        "Id": 60,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 70% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 700.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 61,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 150% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 1500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 62,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 70% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 700.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 63,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 70% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 700.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 64,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 70% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 700.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 65,
+        "Name": "Enhanced Basic Attack Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 70% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 700.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 69,
+        "Name": "Enhanced Basic Attack Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 4.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 70,
+        "Name": "Bonus Move",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian2.png",
+        "Desc": "Add 1 Move",
+        "Type": 1,
+        "Step": 1.0,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": null,
+        "DurationTime": null,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 71,
+        "Name": "Ping 1 random Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconZhadan2.png",
+        "Desc": "Ping 1 random Orb after each ping",
+        "Type": 7,
+        "Step": null,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 72,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 73,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 100% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 1000.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 74,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 75,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 76,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 77,
+        "Name": "Enhanced Basic Attack Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 82,
+        "Name": "Bonus Move",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian2.png",
+        "Desc": "Add 1 Move",
+        "Type": 1,
+        "Step": 1.0,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": null,
+        "DurationTime": null,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 83,
+        "Name": "Ping 1 random Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconZhadan2.png",
+        "Desc": "Ping 1 random Orb after each ping",
+        "Type": 7,
+        "Step": null,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 84,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 85,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 100% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 1000.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 86,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 87,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 100% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 1000.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 88,
+        "Name": "Enhanced Basic Attack Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 89,
+        "Name": "Enhanced Basic Attack Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 100% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 1000.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 91,
+        "Name": "Change 20 of the falling Orbs to red",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Change 20 of the falling Orbs to red",
+        "Type": 8,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 20.0
+    },
+    {
+        "Id": 92,
+        "Name": "Change 20 of the falling Orbs to yellow",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Change 20 of the falling Orbs to yellow",
+        "Type": 8,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 20.0
+    },
+    {
+        "Id": 93,
+        "Name": "Change 20 of the falling Orbs to blue",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Change 20 of the falling Orbs to blue",
+        "Type": 8,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 20.0
+    },
+    {
+        "Id": 94,
+        "Name": "Change 20 of the falling Orbs to Basic Attack Orbs",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "Change 20 of the falling Orbs to Basic Attack Orbs",
+        "Type": 8,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 20.0
+    },
+    {
+        "Id": 100,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 101,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 60% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 600.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 102,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 70% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 700.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 103,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 104,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 60% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 600.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 105,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 70% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 700.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 106,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 107,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 60% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 600.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 108,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 70% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 700.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 109,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 30% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 110,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 40% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 400.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 111,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 112,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 30% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 113,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 40% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 400.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 114,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 115,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 30% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 116,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 40% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 400.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 117,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1010,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 7.0,
+        "DurationTime": 7.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1020,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orb deals 30% less DMG",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1021,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orb deals 30% less DMG",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1030,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 7.0,
+        "DurationTime": 7.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1031,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orb deals 70% less DMG",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 7.0,
+        "DurationTime": 7.0,
+        "DamagePercent": 700.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1210,
+        "Name": "Red Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhong.png",
+        "Desc": "Red Orb deals 50% less DMG",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1220,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1230,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orb deals 30% less DMG",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1231,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orb deals 30% less DMG",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1240,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1250,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1410,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1420,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 6.0,
+        "DurationTime": 6.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1430,
+        "Name": "Enhanced Basic Attack Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 7.0,
+        "DurationTime": 7.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1440,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 8.0,
+        "DurationTime": 8.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1610,
+        "Name": "Red Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhong.png",
+        "Desc": "Immune from Yellow Red Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1611,
+        "Name": "Enhanced Basic Attack Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 20% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 15.0,
+        "DurationTime": 15.0,
+        "DamagePercent": 200.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1620,
+        "Name": "Yellow Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhuang.png",
+        "Desc": "Immune from Yellow Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1630,
+        "Name": "Blue Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianlan.png",
+        "Desc": "Immune from Blue Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1810,
+        "Name": "Red Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhong.png",
+        "Desc": "Red Orb deals 50% less DMG",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1811,
+        "Name": "Basic Attack Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Desc": "Basic Attack Orb deals 50% less DMG",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1820,
+        "Name": "Enhanced Basic Attack Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1830,
+        "Name": "Red Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhong.png",
+        "Desc": "Red Orb deals 50% less DMG",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1831,
+        "Name": "Basic Attack Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Desc": "Basic Attack Orb deals 50% less DMG",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1840,
+        "Name": "Red Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhong.png",
+        "Desc": "Immune from Yellow Red Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1841,
+        "Name": "Yellow Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhuang.png",
+        "Desc": "Immune from Yellow Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1842,
+        "Name": "Blue Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianlan.png",
+        "Desc": "Immune from Blue Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1843,
+        "Name": "Basic Attack Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianQianggong.png",
+        "Desc": "Immune from Basic Attack Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 1850,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 50% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 2010,
+        "Name": "Red Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhong.png",
+        "Desc": "Immune from Yellow Red Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 2011,
+        "Name": "Yellow Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhuang.png",
+        "Desc": "Immune from Yellow Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 2012,
+        "Name": "Basic Attack Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianQianggong.png",
+        "Desc": "Immune from Basic Attack Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 2040,
+        "Name": "Red Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhong.png",
+        "Desc": "Immune from Yellow Red Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 2041,
+        "Name": "Yellow Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhuang.png",
+        "Desc": "Immune from Yellow Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 2042,
+        "Name": "Blue Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianlan.png",
+        "Desc": "Immune from Blue Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 2043,
+        "Name": "Basic Attack Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianQianggong.png",
+        "Desc": "Immune from Basic Attack Orb DMG",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 2050,
+        "Name": "Enhanced Red Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orb deals 20% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 6.0,
+        "DurationTime": 6.0,
+        "DamagePercent": 200.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 2051,
+        "Name": "Enhanced Yellow Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orb deals 20% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 6.0,
+        "DurationTime": 6.0,
+        "DamagePercent": 200.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 2052,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orb deals 20% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 6.0,
+        "DurationTime": 6.0,
+        "DamagePercent": 200.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 2053,
+        "Name": "Enhanced Basic Attack Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 20% more DMG",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 6.0,
+        "DurationTime": 6.0,
+        "DamagePercent": 200.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3001,
+        "Name": "Matrix Red Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orbs deal 70% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 700.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3002,
+        "Name": "Matrix Yellow Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orbs deal 70% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 700.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3003,
+        "Name": "Matrix Blue Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orbs deal 70% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 700.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3010,
+        "Name": "Red Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3011,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3012,
+        "Name": "Yellow Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3013,
+        "Name": "Enhanced Basic Attack",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3020,
+        "Name": "Red Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3021,
+        "Name": "Yellow Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3022,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3023,
+        "Name": "Enhanced Basic Attack",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3030,
+        "Name": "Extra Step",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian2.png",
+        "Desc": "Able to act one more time.",
+        "Type": 1,
+        "Step": 1.0,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": null,
+        "DurationTime": null,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3100,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orbs deal 20% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 200.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3101,
+        "Name": "Red Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3102,
+        "Name": "Yellow Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3103,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3104,
+        "Name": "Enhanced Basic Attack",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3111,
+        "Name": "Red Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orbs deal 20% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 200.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3112,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orbs deal 50% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 6.0,
+        "DurationTime": 6.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3113,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orbs deal 50% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 6.0,
+        "DurationTime": 6.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3114,
+        "Name": "Basic Attack Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Desc": "Basic Attack Orbs deal 50% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 6.0,
+        "DurationTime": 6.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3115,
+        "Name": "Red Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 6.0,
+        "DurationTime": 6.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3116,
+        "Name": "The next 20 orbs dropping down will be changed into Red Orbs.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "The next 20 orbs dropping down will be changed into Red Orbs.",
+        "Type": 8,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 20.0
+    },
+    {
+        "Id": 3117,
+        "Name": "Yellow Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orbs deal 20% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 200.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3118,
+        "Name": "Yellow Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3119,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3120,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orbs deal 60% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 600.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3121,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orbs deal 60% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 600.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3122,
+        "Name": "Red Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhong.png",
+        "Desc": "Red Orbs deal 60% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 600.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3123,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orbs deal 30% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 4.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3124,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orbs deal 50% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3125,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orbs deal 50% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3126,
+        "Name": "Red Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhong.png",
+        "Desc": "Red Orbs deal 50% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3127,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orbs deal 50% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3128,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orbs deal 50% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3129,
+        "Name": "Red Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhong.png",
+        "Desc": "Red Orbs deal 50% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3130,
+        "Name": "Basic Attack Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Desc": "Basic Attack Orbs deal 20% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": 2.0,
+        "DamagePercent": 200.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3131,
+        "Name": "Red Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhong.png",
+        "Desc": "Immune to Red Orb DMG.",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3132,
+        "Name": "Blue Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianlan.png",
+        "Desc": "Immune to Blue Orb DMG.",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3133,
+        "Name": "Yellow Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhuang.png",
+        "Desc": "Immune to Yellow Orb DMG.",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3134,
+        "Name": "Red Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhong.png",
+        "Desc": "Immune to Red Orb DMG.",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3135,
+        "Name": "Yellow Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhuang.png",
+        "Desc": "Immune to Yellow Orb DMG.",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3136,
+        "Name": "Blue Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianlan.png",
+        "Desc": "Immune to Blue Orb DMG.",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3137,
+        "Name": "Basic Attack Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianQianggong.png",
+        "Desc": "Immune to Basic Attack DMG.",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3138,
+        "Name": "Yellow Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orbs deal 100% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 1000.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3139,
+        "Name": "Red Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orbs deal 100% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 1000.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3140,
+        "Name": "Enhanced Blue Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orbs deal 100% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 3.0,
+        "DamagePercent": 1000.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 3141,
+        "Name": "Basic Attack Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Desc": "Basic Attack Orbs deal 50% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4011,
+        "Name": "Blue Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orbs deal 30% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4021,
+        "Name": "Blue Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4031,
+        "Name": "Red Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhong.png",
+        "Desc": "Red Orbs deal 30% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4032,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orbs deal 50% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4033,
+        "Name": "Basic Attack Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Desc": "Basic Attack Orbs deal 50% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4034,
+        "Name": "Enhanced Basic Attack",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4035,
+        "Name": "Blue Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4111,
+        "Name": "Red Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhong.png",
+        "Desc": "Red Orbs deal 30% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4121,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orbs deal 30% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4131,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orbs deal 30% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4141,
+        "Name": "Yellow Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orbs deal 30% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4151,
+        "Name": "Red Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orbs deal 30% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4311,
+        "Name": "Red Drops",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21151.png",
+        "Desc": "The next 15 orbs dropping down will be changed into Red Orbs.",
+        "Type": 8,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": null,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 15.0
+    },
+    {
+        "Id": 4321,
+        "Name": "Basic Attack Drops",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21151.png",
+        "Desc": "The next 25 orbs dropping down will be changed into Basic Attack Orbs.",
+        "Type": 8,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 2.0,
+        "DurationTime": null,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 25.0
+    },
+    {
+        "Id": 4331,
+        "Name": "Enhanced Basic Attack",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 30% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 6.0,
+        "DurationTime": 36.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4341,
+        "Name": "Red Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orbs deal 30% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 6.0,
+        "DurationTime": 36.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4351,
+        "Name": "Enhanced Basic Attack",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4361,
+        "Name": "Red Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4371,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orbs deal 30% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 6.0,
+        "DurationTime": 36.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4381,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orbs deal 30% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 5.0,
+        "DurationTime": 30.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4411,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orbs deal 20% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 18.0,
+        "DamagePercent": 200.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4421,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orbs deal 30% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 24.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4431,
+        "Name": "Red Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhong.png",
+        "Desc": "Red Orbs deal 30% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 24.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4432,
+        "Name": "Blue Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconlan.png",
+        "Desc": "Blue Orbs deal 30% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 24.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4433,
+        "Name": "Yellow Orb Resistance",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhuang.png",
+        "Desc": "Yellow Orbs deal 30% less DMG.",
+        "Type": 4,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 4.0,
+        "DurationTime": 24.0,
+        "DamagePercent": 300.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4441,
+        "Name": "Red Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhong.png",
+        "Desc": "Immune to Red Orb DMG.",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 18.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4442,
+        "Name": "Yellow Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhuang.png",
+        "Desc": "Immune to Yellow Orb DMG.",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 18.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4443,
+        "Name": "Blue Orb Immunity",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianlan.png",
+        "Desc": "Immune to Blue Orb DMG.",
+        "Type": 5,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 3.0,
+        "DurationTime": 18.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4001,
+        "Name": "Red Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihong.png",
+        "Desc": "Red Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            1.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4002,
+        "Name": "Yellow Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuang.png",
+        "Desc": "Yellow Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            2.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4003,
+        "Name": "Blue Orb Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilan.png",
+        "Desc": "Blue Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            3.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4004,
+        "Name": "Enhanced Basic Attack",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconRuogong.png",
+        "Desc": "Basic Attack Orbs deal 50% more DMG.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            4.0,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 5.0,
+        "DamagePercent": 500.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4005,
+        "Name": "Bonus Step",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian2.png",
+        "Desc": "Able to act one more time.",
+        "Type": 1,
+        "Step": 1.0,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": null,
+        "DurationTime": null,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 4006,
+        "Name": "Forget X",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "No Colored Orbs will appear in the next 10 orbs.",
+        "Type": 9,
+        "Step": null,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": null,
+        "DurationTime": null,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 10.0
+    },
+    {
+        "Id": 4007,
+        "Name": "Forget Yellow",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "No Yellow Orbs will appear in the next 25 orbs.",
+        "Type": 9,
+        "Step": null,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": null,
+        "DurationTime": null,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 25.0
+    },
+    {
+        "Id": 4008,
+        "Name": "Forget Blue",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Desc": "No Blue Orbs will appear in the next 25 orbs.",
+        "Type": 9,
+        "Step": null,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": null,
+        "DurationTime": null,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": 25.0
+    },
+    {
+        "Id": 40001,
+        "Name": "Random Color Boost",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Desc": "The DMG of a random color orbs increases by 20%.",
+        "Type": 3,
+        "Step": null,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": null,
+        "DurationTime": null,
+        "DamagePercent": 200.0,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    },
+    {
+        "Id": 40002,
+        "Name": "Ping 1 Random Orb",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconZhadan2.png",
+        "Desc": "Ping 1 random orb after each ping.",
+        "Type": 7,
+        "Step": null,
+        "TargetColors": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Duration": 1.0,
+        "DurationTime": 1.0,
+        "DamagePercent": null,
+        "AddEnergy": null,
+        "AddEnergyLimit": null,
+        "ChangeColorCount": null
+    }
+]

@@ -1,35 +1,56 @@
 [
     {
         "GroupId": 1,
-        "PrevChapterIds": [],
+        "PrevChapterIds": [
+            null,
+            null
+        ],
         "UnlockLv": 0,
         "LockDesc": "Unlocks by completing Main Story 2-4.",
         "Bg": "Assets/Product/Texture/Image/UiCourse/UiCourseC.png",
         "ChapterIds": [
+            null,
             1,
-            2
+            2,
+            null,
+            null,
+            null
         ]
     },
     {
         "GroupId": 2,
-        "PrevChapterIds": [],
+        "PrevChapterIds": [
+            null,
+            null
+        ],
         "UnlockLv": 40,
         "LockDesc": "Unlocks at Commandant Lv.40.",
         "Bg": "Assets/Product/Texture/Image/UiCourse/UiCourseB.png",
         "ChapterIds": [
+            null,
             4,
-            5
+            5,
+            null,
+            null,
+            null
         ]
     },
     {
         "GroupId": 3,
-        "PrevChapterIds": [],
+        "PrevChapterIds": [
+            null,
+            null
+        ],
         "UnlockLv": 60,
         "LockDesc": "Unlocks at Commandant Lv.60.",
         "Bg": "Assets/Product/Texture/Image/UiCourse/UiCourseA.png",
         "ChapterIds": [
+            null,
             7,
-            8
+            8,
+            null,
+            null,
+            null
         ]
     }
 ]

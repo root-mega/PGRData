@@ -9,7 +9,7 @@ end
 function XUiFubenDailyShop:OnStart(shopId, defaultSuitId)
     self.ShopId = shopId
 
-    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelActivityAsset, true)
+    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelActivityAsset, self, true)
 
     self.SuitShopItemDic = {}
     self.ShopItemList = XShopManager.GetShopGoodsList(self.ShopId)

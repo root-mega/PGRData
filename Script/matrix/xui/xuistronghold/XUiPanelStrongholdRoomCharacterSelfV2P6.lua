@@ -46,7 +46,6 @@ function XUiPanelStrongholdRoomCharacterSelfV2P6:Show(teamList, teamId, memberIn
     end
 
     self.PlayAnimationCb("ShuaXin")
-    self.GameObject:SetActiveEx(true)
 end
 
 function XUiPanelStrongholdRoomCharacterSelfV2P6:RefreshCharacterTypeTips()
@@ -171,7 +170,7 @@ function XUiPanelStrongholdRoomCharacterSelfV2P6:OnBtnConsciousnessClick()
         XUiManager.TipText("StrongholdRobotRefuseAwareness")
         return
     end
-    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipAwareness(self.Parent.CharacterId)
+    XMVCA.XEquip:OpenUiEquipAwareness(self.Parent.CharacterId)
 end
 
 function XUiPanelStrongholdRoomCharacterSelfV2P6:OnBtnWeaponClick()
@@ -179,7 +178,7 @@ function XUiPanelStrongholdRoomCharacterSelfV2P6:OnBtnWeaponClick()
         XUiManager.TipText("StrongholdRobotRefuseWeapon")
         return
     end
-    XMVCA:GetAgency(ModuleId.XEquip):OpenUiEquipReplace(self.Parent.CharacterId, nil, true)
+    XMVCA.XEquip:OpenUiEquipReplace(self.Parent.CharacterId, nil, true)
 end
 
 function XUiPanelStrongholdRoomCharacterSelfV2P6:OnClickBtnFashion()

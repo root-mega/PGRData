@@ -3,7 +3,9 @@
         "Id": 101,
         "Name": "Story Mission",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 1,
         "SkipId": 21.0,
@@ -18,7 +20,9 @@
         "Id": 102,
         "Name": "Obtain Character Liv",
         "ConditionIds": [
-            70102
+            null,
+            70102,
+            null
         ],
         "Priority": 2,
         "SkipId": 21.0,
@@ -33,7 +37,9 @@
         "Id": 103,
         "Name": "Improve skill",
         "ConditionIds": [
-            70103
+            null,
+            70103,
+            null
         ],
         "Priority": 3,
         "SkipId": 21.0,
@@ -48,7 +54,9 @@
         "Id": 104,
         "Name": "Novice Mission",
         "ConditionIds": [
-            70104
+            null,
+            70104,
+            null
         ],
         "Priority": 4,
         "SkipId": 21.0,
@@ -63,7 +71,9 @@
         "Id": 105,
         "Name": "Promote Construct",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 5,
         "SkipId": 21.0,
@@ -78,7 +88,9 @@
         "Id": 1,
         "Name": "Sign-in",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 6,
         "SkipId": 21.0,
@@ -93,7 +105,9 @@
         "Id": 2,
         "Name": "Equipment and Training Weapon",
         "ConditionIds": [
-            84100109
+            null,
+            84100109,
+            null
         ],
         "Priority": 7,
         "SkipId": 21.0,
@@ -108,7 +122,9 @@
         "Id": 3,
         "Name": "Research System",
         "ConditionIds": [
-            70105
+            null,
+            70105,
+            null
         ],
         "Priority": 8,
         "SkipId": 21.0,
@@ -123,7 +139,9 @@
         "Id": 111,
         "Name": "Main Quest Guide",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 9,
         "SkipId": 21.0,
@@ -138,7 +156,9 @@
         "Id": 106,
         "Name": "Guide: Unlock All Resource Stages",
         "ConditionIds": [
-            70111
+            null,
+            70111,
+            null
         ],
         "Priority": 10,
         "SkipId": 21.0,
@@ -153,7 +173,9 @@
         "Id": 4,
         "Name": "Normal Shop",
         "ConditionIds": [
-            70004
+            null,
+            70004,
+            null
         ],
         "Priority": 11,
         "SkipId": 21.0,
@@ -168,7 +190,9 @@
         "Id": 5,
         "Name": "Enable Celica Exam",
         "ConditionIds": [
-            70005
+            null,
+            70005,
+            null
         ],
         "Priority": 12,
         "SkipId": 21.0,
@@ -183,7 +207,9 @@
         "Id": 107,
         "Name": "Guide: Mentorship System",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 13,
         "SkipId": 21.0,
@@ -198,7 +224,9 @@
         "Id": 108,
         "Name": "Guide: Guild System",
         "ConditionIds": [
-            84100405
+            null,
+            84100405,
+            null
         ],
         "Priority": 14,
         "SkipId": 21.0,
@@ -213,7 +241,9 @@
         "Id": 6,
         "Name": "Guide: CUB",
         "ConditionIds": [
-            8006
+            null,
+            8006,
+            null
         ],
         "Priority": 15,
         "SkipId": 21.0,
@@ -228,7 +258,9 @@
         "Id": 7,
         "Name": "Equipment Overclock Stage",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 16,
         "SkipId": 21.0,
@@ -243,7 +275,9 @@
         "Id": 8,
         "Name": "Challenge - Trial Mission",
         "ConditionIds": [
-            70008
+            null,
+            70008,
+            null
         ],
         "Priority": 17,
         "SkipId": 21.0,
@@ -258,7 +292,9 @@
         "Id": 9,
         "Name": "Story Mission - Hard",
         "ConditionIds": [
-            70009
+            null,
+            70009,
+            null
         ],
         "Priority": 18,
         "SkipId": 21.0,
@@ -273,7 +309,9 @@
         "Id": 109,
         "Name": "Auto Clear",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 19,
         "SkipId": 21.0,
@@ -288,7 +326,9 @@
         "Id": 10,
         "Name": "High-rank Equipment Stage",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 20,
         "SkipId": 21.0,
@@ -303,7 +343,9 @@
         "Id": 11,
         "Name": "Construct - Details",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 21,
         "SkipId": 21.0,
@@ -318,7 +360,9 @@
         "Id": 112,
         "Name": "Trial Zone",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 22,
         "SkipId": 21.0,
@@ -333,7 +377,9 @@
         "Id": 12,
         "Name": "Construct Army",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 23,
         "SkipId": 21.0,
@@ -348,7 +394,9 @@
         "Id": 13,
         "Name": "Co-op",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 24,
         "SkipId": 21.0,
@@ -363,7 +411,9 @@
         "Id": 110,
         "Name": "Support",
         "ConditionIds": [
-            70110
+            null,
+            70110,
+            null
         ],
         "Priority": 25,
         "SkipId": 21.0,
@@ -378,7 +428,9 @@
         "Id": 14,
         "Name": "Side Story",
         "ConditionIds": [
-            70014
+            null,
+            70014,
+            null
         ],
         "Priority": 26,
         "SkipId": 21.0,
@@ -393,7 +445,9 @@
         "Id": 15,
         "Name": "Construct - Outfit",
         "ConditionIds": [
-            200000
+            null,
+            200000,
+            null
         ],
         "Priority": 27,
         "SkipId": 21.0,
@@ -408,7 +462,9 @@
         "Id": 17,
         "Name": "Study",
         "ConditionIds": [
-            70017
+            null,
+            70017,
+            null
         ],
         "Priority": 29,
         "SkipId": 21.0,
@@ -423,7 +479,9 @@
         "Id": 18,
         "Name": "Infrastructure and Dormitory",
         "ConditionIds": [
-            70018
+            null,
+            70018,
+            null
         ],
         "Priority": 30,
         "SkipId": 21.0,
@@ -438,7 +496,9 @@
         "Id": 19,
         "Name": "Challenge - War Zone",
         "ConditionIds": [
-            771801
+            null,
+            771801,
+            null
         ],
         "Priority": 31,
         "SkipId": 21.0,
@@ -453,7 +513,9 @@
         "Id": 20,
         "Name": "Challenge - Phantom Pain Cage",
         "ConditionIds": [
-            70020
+            null,
+            70020,
+            null
         ],
         "Priority": 32,
         "SkipId": 21.0,
@@ -468,7 +530,9 @@
         "Id": 21,
         "Name": "Exploration",
         "ConditionIds": [
-            774300
+            null,
+            774300,
+            null
         ],
         "Priority": 33,
         "SkipId": 21.0,
@@ -483,7 +547,9 @@
         "Id": 22,
         "Name": "Medal System",
         "ConditionIds": [
-            852931
+            null,
+            852931,
+            null
         ],
         "Priority": 34,
         "SkipId": 21.0,
@@ -498,7 +564,9 @@
         "Id": 23,
         "Name": "Challenge - Border Pact",
         "ConditionIds": [
-            774900
+            null,
+            774900,
+            null
         ],
         "Priority": 35,
         "SkipId": 21.0,
@@ -513,7 +581,9 @@
         "Id": 555,
         "Name": "Medal 1",
         "ConditionIds": [
-            555
+            null,
+            555,
+            null
         ],
         "Priority": 35,
         "SkipId": 500.0,
@@ -528,7 +598,9 @@
         "Id": 556,
         "Name": "Medal 2",
         "ConditionIds": [
-            556
+            null,
+            556,
+            null
         ],
         "Priority": 36,
         "SkipId": 500.0,
@@ -543,7 +615,9 @@
         "Id": 557,
         "Name": "Medal 3",
         "ConditionIds": [
-            557
+            null,
+            557,
+            null
         ],
         "Priority": 37,
         "SkipId": 500.0,
@@ -558,7 +632,9 @@
         "Id": 558,
         "Name": "Medal 4",
         "ConditionIds": [
-            558
+            null,
+            558,
+            null
         ],
         "Priority": 38,
         "SkipId": 500.0,
@@ -573,7 +649,9 @@
         "Id": 559,
         "Name": "Medal 5",
         "ConditionIds": [
-            559
+            null,
+            559,
+            null
         ],
         "Priority": 39,
         "SkipId": 500.0,
@@ -588,7 +666,9 @@
         "Id": 599,
         "Name": "Clear Stronghold Chapter 1",
         "ConditionIds": [
-            70119
+            null,
+            70119,
+            null
         ],
         "Priority": 40,
         "SkipId": null,
@@ -603,7 +683,9 @@
         "Id": 600,
         "Name": "Clear Stronghold Chapter 2",
         "ConditionIds": [
-            70113
+            null,
+            70113,
+            null
         ],
         "Priority": 41,
         "SkipId": null,
@@ -618,7 +700,9 @@
         "Id": 601,
         "Name": "Clear Stronghold Chapter 3",
         "ConditionIds": [
-            70114
+            null,
+            70114,
+            null
         ],
         "Priority": 42,
         "SkipId": null,
@@ -633,7 +717,9 @@
         "Id": 602,
         "Name": "Clear Stronghold Chapter 4",
         "ConditionIds": [
-            70115
+            null,
+            70115,
+            null
         ],
         "Priority": 43,
         "SkipId": null,
@@ -648,7 +734,9 @@
         "Id": 603,
         "Name": "Clear Stronghold Chapter 5",
         "ConditionIds": [
-            70116
+            null,
+            70116,
+            null
         ],
         "Priority": 44,
         "SkipId": null,
@@ -663,7 +751,9 @@
         "Id": 604,
         "Name": "Clear Stronghold Chapter 6",
         "ConditionIds": [
-            70117
+            null,
+            70117,
+            null
         ],
         "Priority": 45,
         "SkipId": null,
@@ -678,7 +768,9 @@
         "Id": 605,
         "Name": "Clear Stronghold Chapter 7",
         "ConditionIds": [
-            70118
+            null,
+            70118,
+            null
         ],
         "Priority": 46,
         "SkipId": null,
@@ -693,7 +785,9 @@
         "Id": 606,
         "Name": "Clear Stronghold Chapter 9",
         "ConditionIds": [
-            70120
+            null,
+            70120,
+            null
         ],
         "Priority": 47,
         "SkipId": null,
@@ -708,7 +802,9 @@
         "Id": 607,
         "Name": "Clear Stronghold Chapter 10",
         "ConditionIds": [
-            70121
+            null,
+            70121,
+            null
         ],
         "Priority": 48,
         "SkipId": null,
@@ -723,7 +819,9 @@
         "Id": 608,
         "Name": "Clear Stronghold Chapter 11",
         "ConditionIds": [
-            70122
+            null,
+            70122,
+            null
         ],
         "Priority": 49,
         "SkipId": null,
@@ -738,7 +836,9 @@
         "Id": 609,
         "Name": "Clear Stronghold Chapter 12",
         "ConditionIds": [
-            70123
+            null,
+            70123,
+            null
         ],
         "Priority": 50,
         "SkipId": null,
@@ -753,7 +853,9 @@
         "Id": 700,
         "Name": "Gift Mission Lee",
         "ConditionIds": [
-            400000
+            null,
+            400000,
+            null
         ],
         "Priority": 51,
         "SkipId": 8002.0,
@@ -768,7 +870,9 @@
         "Id": 701,
         "Name": "Gift Mission Liv",
         "ConditionIds": [
-            400001
+            null,
+            400001,
+            null
         ],
         "Priority": 52,
         "SkipId": 8002.0,
@@ -783,7 +887,9 @@
         "Id": 702,
         "Name": "Gift Mission Kamui",
         "ConditionIds": [
-            400002
+            null,
+            400002,
+            null
         ],
         "Priority": 53,
         "SkipId": 8002.0,
@@ -798,7 +904,9 @@
         "Id": 703,
         "Name": "Gift Mission Lucia",
         "ConditionIds": [
-            400003
+            null,
+            400003,
+            null
         ],
         "Priority": 54,
         "SkipId": 8002.0,
@@ -813,7 +921,9 @@
         "Id": 704,
         "Name": "Gift Mission Nanami",
         "ConditionIds": [
-            400004
+            null,
+            400004,
+            null
         ],
         "Priority": 55,
         "SkipId": 8002.0,
@@ -828,7 +938,9 @@
         "Id": 705,
         "Name": "Gift Mission Celica",
         "ConditionIds": [
-            400005
+            null,
+            400005,
+            null
         ],
         "Priority": 56,
         "SkipId": 8002.0,
@@ -843,7 +955,9 @@
         "Id": 706,
         "Name": "Gift Mission Karenina",
         "ConditionIds": [
-            400006
+            null,
+            400006,
+            null
         ],
         "Priority": 57,
         "SkipId": 8002.0,
@@ -858,7 +972,9 @@
         "Id": 24,
         "Name": "Challenge - Autopoiesis Maze",
         "ConditionIds": [
-            84700201
+            null,
+            84700201,
+            null
         ],
         "Priority": 36,
         "SkipId": 21.0,
@@ -873,6 +989,7 @@
         "Id": 25,
         "Name": "Operation Guardians",
         "ConditionIds": [
+            null,
             870002,
             773400.0
         ],

@@ -309,7 +309,7 @@ function XUiGridMulitiplayerRoomChar:OpenSelectCharView()
                     self:OnSelectCharacter(rootUi.Team:GetEntityIds())
                 end,
                 GetEntities = function()
-                    return XDataCenter.CharacterManager.GetOwnCharacterList(XCharacterConfigs.CharacterType.Normal)
+                    return XDataCenter.CharacterManager.GetOwnCharacterList()
                 end
             })
         else

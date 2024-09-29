@@ -3,16 +3,27 @@
         "Id": 1304,
         "Type": "OnFrame",
         "Priority": 1,
-        "PrefixRoot": 100220000,
+        "PrefixRoot": 100220000.0,
         "Root": 100220076,
-        "PreLoadRoot": null
+        "PreLoadRoot": null,
+        "RemoveRoot": null
     },
     {
         "Id": 1394,
         "Type": "OnFrame",
         "Priority": 1,
-        "PrefixRoot": 100220833,
+        "PrefixRoot": 100220833.0,
         "Root": 100220866,
-        "PreLoadRoot": null
+        "PreLoadRoot": null,
+        "RemoveRoot": null
+    },
+    {
+        "Id": 7374,
+        "Type": "OnFrame",
+        "Priority": 1,
+        "PrefixRoot": null,
+        "Root": 100220759,
+        "PreLoadRoot": null,
+        "RemoveRoot": null
     }
 ]

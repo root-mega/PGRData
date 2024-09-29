@@ -1,0 +1,72 @@
+[
+    {
+        "Id": 1,
+        "PreChapterId": null,
+        "MapId": 1,
+        "ShopId": 1,
+        "TeamType": 2,
+        "CharacterLimitType": 4,
+        "LimitBuffId": 2,
+        "Name": "Erosive Gravel - Transcendant",
+        "Description": "Even at this depth, the heavy concentration of Punishing Virus was impossible to endure. Without a Transcendent, you would have no way of knowing where this region began... Down below, the automated structures were under a constant barrage of corruption, causing them to build incessantly with no regard.",
+        "Icon": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreChapter01.png",
+        "Bg": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreBg01.png",
+        "Prefab": "Assets/Product/Ui/ComponentPrefab/FubenInfestorExplore/FubenInfestorExplore01.prefab"
+    },
+    {
+        "Id": 2,
+        "PreChapterId": 1.0,
+        "MapId": 2,
+        "ShopId": 2,
+        "TeamType": 1,
+        "CharacterLimitType": 3,
+        "LimitBuffId": 1,
+        "Name": "Weathered Sandstone",
+        "Description": "In the middle of the Corruption Zone, you uncover a slightly safer path. In the so-called 'safety fault' found ahead, the Punishing Virus concentration had reduced to a level where Constructs could fight. In order to establish a front operation base, more personnel were stationed there. The remains and victims of previous explorations were finally found and properly recovered.",
+        "Icon": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreChapter02.png",
+        "Bg": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreBg02.png",
+        "Prefab": "Assets/Product/Ui/ComponentPrefab/FubenInfestorExplore/FubenInfestorExplore02.prefab"
+    },
+    {
+        "Id": 3,
+        "PreChapterId": 2.0,
+        "MapId": 3,
+        "ShopId": 3,
+        "TeamType": 2,
+        "CharacterLimitType": 4,
+        "LimitBuffId": 2,
+        "Name": "Meta-tuff - Transcendant",
+        "Description": "However, the frontline was once again turned into a Dead Zone. This time, the exploration team obtained peculiar information with the help of visual data sent by Transcendents. But for some unknown reason, the Autopoiesis Maze seemed to be extending underground. You even found traces of shield-like structures in the surrounding rock.",
+        "Icon": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreChapter01.png",
+        "Bg": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreBg01.png",
+        "Prefab": "Assets/Product/Ui/ComponentPrefab/FubenInfestorExplore/FubenInfestorExplore03.prefab"
+    },
+    {
+        "Id": 4,
+        "PreChapterId": 3.0,
+        "MapId": 4,
+        "ShopId": 4,
+        "TeamType": 1,
+        "CharacterLimitType": 3,
+        "LimitBuffId": 1,
+        "Name": "Porous Shale",
+        "Description": "The safety fault finally reappeared and a new forward operating base was established. However, you realize something was wrong upon discovering more traces of the shield-like formations. Why do Dead Zones spread along faults? Why does the maze only extend downward?",
+        "Icon": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreChapter02.png",
+        "Bg": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreBg02.png",
+        "Prefab": "Assets/Product/Ui/ComponentPrefab/FubenInfestorExplore/FubenInfestorExplore04.prefab"
+    },
+    {
+        "Id": 5,
+        "PreChapterId": 4.0,
+        "MapId": 5,
+        "ShopId": 5,
+        "TeamType": 2,
+        "CharacterLimitType": 4,
+        "LimitBuffId": 2,
+        "Name": "Mutant Shell-Transcendent",
+        "Description": "Venturing deeper into the depths of the Autopoiesis Maze, the Punishing Virus, air pressure, and humidity around you begin to change. At this layer, symbiotic structures and accretion in the rock mass began to appear in the heteromeric accretion. At what depth are you now? Or... What part of the Earth's crust are you in?",
+        "Icon": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreChapter01.png",
+        "Bg": "Assets/Product/Texture/Image/UiInfestorExplore/UiInfestorExploreBg01.png",
+        "Prefab": "Assets/Product/Ui/ComponentPrefab/FubenInfestorExplore/FubenInfestorExplore05.prefab"
+    }
+]

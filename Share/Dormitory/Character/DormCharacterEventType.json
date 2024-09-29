@@ -4,7 +4,10 @@
         "CompareOrder": 1,
         "EventType": 1,
         "Condition": [
-            202001.0
+            202001.0,
+            null,
+            null,
+            null
         ],
         "CharacterNum": 3.0,
         "CharacterCondition": [
@@ -17,7 +20,10 @@
         "CompareOrder": 2,
         "EventType": 1,
         "Condition": [
-            202002.0
+            202002.0,
+            null,
+            null,
+            null
         ],
         "CharacterNum": 7.0,
         "CharacterCondition": [
@@ -30,7 +36,10 @@
         "CompareOrder": 3,
         "EventType": 1,
         "Condition": [
-            202003.0
+            202003.0,
+            null,
+            null,
+            null
         ],
         "CharacterNum": 11.0,
         "CharacterCondition": [
@@ -42,18 +51,32 @@
         "Id": 2001,
         "CompareOrder": 1,
         "EventType": 2,
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null,
+            null
+        ],
         "CharacterNum": null,
-        "CharacterCondition": [],
+        "CharacterCondition": [
+            null
+        ],
         "EventNum": 2
     },
     {
         "Id": 3001,
         "CompareOrder": 1,
         "EventType": 3,
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null,
+            null
+        ],
         "CharacterNum": null,
-        "CharacterCondition": [],
+        "CharacterCondition": [
+            null
+        ],
         "EventNum": 2
     },
     {
@@ -61,10 +84,15 @@
         "CompareOrder": 1,
         "EventType": 4,
         "Condition": [
-            202002.0
+            202002.0,
+            null,
+            null,
+            null
         ],
         "CharacterNum": null,
-        "CharacterCondition": [],
+        "CharacterCondition": [
+            null
+        ],
         "EventNum": 2
     }
 ]

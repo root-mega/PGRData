@@ -70,12 +70,13 @@ function XDynamicTableFixed3D:SetStartGridLuaIndex(index)
     self.Imp:SetStartGridLuaIndex(index)
 end
 
+---@param proxy XUiNode
 function XDynamicTableFixed3D:SetProxyDisplay(proxy, isShow)
     if CheckClassSuper(proxy, XUiNode) then
         if isShow then
             proxy:Open()
         else
-            if not XTool.UObjIsNil(proxy.GameObject) then
+            if proxy:IsValid() then
                 proxy:Close()
             end
         end

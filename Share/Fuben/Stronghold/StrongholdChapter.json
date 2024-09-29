@@ -2,6 +2,7 @@
     {
         "Id": 1,
         "GroupId": [
+            null,
             101,
             102,
             103,
@@ -18,11 +19,13 @@
         "MaxElectricUse": null,
         "LendCharacterDisableUse": null,
         "SuggestElectric": [
+            null,
             300.0,
             300.0,
             100.0
         ],
         "SweepLevelId": [
+            null,
             1.0,
             2.0,
             3.0
@@ -31,6 +34,7 @@
     {
         "Id": 2,
         "GroupId": [
+            null,
             107,
             108,
             109,
@@ -47,11 +51,13 @@
         "MaxElectricUse": null,
         "LendCharacterDisableUse": null,
         "SuggestElectric": [
+            null,
             300.0,
             300.0,
             50.0
         ],
         "SweepLevelId": [
+            null,
             1.0,
             2.0,
             3.0
@@ -60,6 +66,7 @@
     {
         "Id": 3,
         "GroupId": [
+            null,
             113,
             114,
             115,
@@ -76,11 +83,13 @@
         "MaxElectricUse": null,
         "LendCharacterDisableUse": null,
         "SuggestElectric": [
+            null,
             1200.0,
             800.0,
             50.0
         ],
         "SweepLevelId": [
+            null,
             1.0,
             2.0,
             3.0
@@ -89,6 +98,7 @@
     {
         "Id": 4,
         "GroupId": [
+            null,
             119,
             120,
             121,
@@ -105,11 +115,13 @@
         "MaxElectricUse": null,
         "LendCharacterDisableUse": null,
         "SuggestElectric": [
+            null,
             1800.0,
             1800.0,
             50.0
         ],
         "SweepLevelId": [
+            null,
             1.0,
             2.0,
             3.0
@@ -118,6 +130,7 @@
     {
         "Id": 5,
         "GroupId": [
+            null,
             125,
             126,
             127,
@@ -134,10 +147,14 @@
         "MaxElectricUse": null,
         "LendCharacterDisableUse": null,
         "SuggestElectric": [
+            null,
+            null,
             2500.0,
             150.0
         ],
         "SweepLevelId": [
+            null,
+            null,
             2.0,
             3.0
         ]
@@ -145,85 +162,141 @@
     {
         "Id": 6,
         "GroupId": [
+            null,
             131,
             132,
-            133
+            133,
+            null,
+            null,
+            null
         ],
         "Name": "Energy Mine",
         "Banner": "Assets/Product/Texture/Image/UiStronghold/UiStrongholdFightDomainBg16.png",
         "Bg": "Assets/Product/Texture/Image/UiStronghold/UiStrongholdDomainBg.png",
         "Prefab": "Assets/Product/Ui/ComponentPrefab/FubenStronghold/FuBenStronghold06.prefab",
         "Type": 1.0,
-        "UnlockCondition": 95216.0,
+        "UnlockCondition": null,
         "MaxElectricUse": null,
         "LendCharacterDisableUse": null,
-        "SuggestElectric": [],
-        "SweepLevelId": []
+        "SuggestElectric": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SweepLevelId": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 7,
         "GroupId": [
+            null,
             134,
             135,
-            136
+            136,
+            null,
+            null,
+            null
         ],
         "Name": "Mountain Mine",
         "Banner": "Assets/Product/Texture/Image/UiStronghold/UiStrongholdFightDomainBg14.png",
         "Bg": "Assets/Product/Texture/Image/UiStronghold/UiStrongholdDomainBg.png",
         "Prefab": "Assets/Product/Ui/ComponentPrefab/FubenStronghold/FuBenStronghold07.prefab",
         "Type": 1.0,
-        "UnlockCondition": 95217.0,
+        "UnlockCondition": null,
         "MaxElectricUse": null,
         "LendCharacterDisableUse": null,
-        "SuggestElectric": [],
-        "SweepLevelId": []
+        "SuggestElectric": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SweepLevelId": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 8,
         "GroupId": [
+            null,
             137,
             138,
             139,
-            140.0
+            140.0,
+            null,
+            null
         ],
         "Name": "Wamba Mine",
         "Banner": "Assets/Product/Texture/Image/UiStronghold/UiStrongholdFightDomainBg15.png",
         "Bg": "Assets/Product/Texture/Image/UiStronghold/UiStrongholdDomainBg.png",
         "Prefab": "Assets/Product/Ui/ComponentPrefab/FubenStronghold/FuBenStronghold08.prefab",
         "Type": 1.0,
-        "UnlockCondition": 95218.0,
+        "UnlockCondition": null,
         "MaxElectricUse": null,
         "LendCharacterDisableUse": null,
-        "SuggestElectric": [],
-        "SweepLevelId": []
+        "SuggestElectric": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SweepLevelId": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 9,
         "GroupId": [
+            null,
             141,
             142,
             143,
-            144.0
+            144.0,
+            null,
+            null
         ],
         "Name": "Midland Mine",
         "Banner": "Assets/Product/Texture/Image/UiStronghold/UiStrongholdFightDomainBg17.png",
         "Bg": "Assets/Product/Texture/Image/UiStronghold/UiStrongholdDomainBg.png",
         "Prefab": "Assets/Product/Ui/ComponentPrefab/FubenStronghold/FuBenStronghold09.prefab",
         "Type": 1.0,
-        "UnlockCondition": 95219.0,
+        "UnlockCondition": null,
         "MaxElectricUse": null,
         "LendCharacterDisableUse": null,
-        "SuggestElectric": [],
-        "SweepLevelId": []
+        "SuggestElectric": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SweepLevelId": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 10,
         "GroupId": [
+            null,
             145,
             146,
             147,
             148.0,
-            149.0
+            149.0,
+            null
         ],
         "Name": "Cloud Island",
         "Banner": "Assets/Product/Texture/Image/UiStronghold/UiStrongholdFightDomainBg23.png",
@@ -233,7 +306,17 @@
         "UnlockCondition": 95312.0,
         "MaxElectricUse": 600.0,
         "LendCharacterDisableUse": 1.0,
-        "SuggestElectric": [],
-        "SweepLevelId": []
+        "SuggestElectric": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "SweepLevelId": [
+            null,
+            null,
+            null,
+            null
+        ]
     }
 ]

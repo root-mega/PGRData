@@ -142,7 +142,9 @@ function XUiArchiveMonster:OnCheckBossRedPoint(count)
 end
 
 function XUiArchiveMonster:OnCheckPawnTag(count)
-    self.BtnFirst1:ShowTag(count >= 0)
+    if self.BtnFirst1 then
+        self.BtnFirst1:ShowTag(count >= 0)
+    end
 end
 
 function XUiArchiveMonster:OnCheckEliteTag(count)

@@ -38,6 +38,7 @@ function XUiPanelMain:Ctor(ui, rootUi)
     self.GirdBtnDownload = XUiBtnDownload.New(self.BtnDownload)
     self.ImgLock = self.PanelLock.transform:Find("ImgLock")
     self:RegisterUiEvents()
+    self.BtnShopRedPointId=XRedPointManager.AddRedPointEvent(self.BtnShop,self.BtnShopReddot,self,{XRedPointConditions.Types.CONDITION_REPEAT_CHALLENGE_COIN},nil,false)
 end
 
 function XUiPanelMain:SetData(firstIndex, activityManagerIndex)
@@ -57,6 +58,11 @@ function XUiPanelMain:OnEnable()
     if self.UiPanelActivity then
         self.UiPanelActivity:OnEnable()
     end
+    XRedPointManager.Check(self.BtnShopRedPointId)
+end
+
+function XUiPanelMain:OnDestroy()
+    XRedPointManager.RemoveRedPointEvent(self.BtnShopRedPointId)
 end
 
 function XUiPanelMain:TimeUpdate()
@@ -256,6 +262,10 @@ function XUiPanelMain:RefreshLock(isLock, isNeedDownload)
     if not XTool.UObjIsNil(self.ImgLock) then
         self.ImgLock.gameObject:SetActiveEx(isLock)
     end
+end
+
+function XUiPanelMain:BtnShopReddot(count)
+    self.BtnShop:ShowReddot(count>=0)
 end
 
 return XUiPanelMain

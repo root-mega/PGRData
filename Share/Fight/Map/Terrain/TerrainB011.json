@@ -4,45 +4,73 @@
         "Name": "Scene01001a",
         "Info": 10100101,
         "BornPosition": [
+            null,
             "PB1",
             "PB2",
             "PB3",
             "PB4",
-            "PB5"
+            "PB5",
+            null
         ],
         "LookPosition": [
+            null,
             "S1",
             "S1",
             "S1",
             "S1",
-            "S1"
+            "S1",
+            null
         ],
-        "DefaultObstacleArea": [],
-        "DefaultDynamicObject": []
+        "DefaultObstacleArea": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "DefaultDynamicObject": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 101001030,
         "Name": "Scene01006",
         "Info": 10100102,
         "BornPosition": [
+            null,
             "PB1",
             "PB2",
             "PB3",
             "PB4",
-            "PB5"
+            "PB5",
+            null
         ],
         "LookPosition": [
+            null,
             "S1",
             "S1",
             "S1",
             "S1",
-            "S1"
+            "S1",
+            null
         ],
         "DefaultObstacleArea": [
-            "AW1"
+            null,
+            "AW1",
+            null,
+            null,
+            null
         ],
         "DefaultDynamicObject": [
-            "AW1"
+            null,
+            "AW1",
+            null,
+            null,
+            null
         ]
     },
     {
@@ -50,47 +78,73 @@
         "Name": "Scene01007",
         "Info": 10100103,
         "BornPosition": [
+            null,
             "PB1",
             "PB2",
             "PB3",
             "PB4",
-            "PB5"
+            "PB5",
+            null
         ],
         "LookPosition": [
+            null,
             "S1",
             "S1",
             "S1",
             "S1",
-            "S1"
+            "S1",
+            null
         ],
         "DefaultObstacleArea": [
-            "FightOpen"
+            null,
+            "FightOpen",
+            null,
+            null,
+            null
         ],
-        "DefaultDynamicObject": []
+        "DefaultDynamicObject": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 101002010,
         "Name": "Scene01008",
         "Info": 10100104,
         "BornPosition": [
+            null,
             "PB1",
             "PB2",
             "PB3",
             "PB4",
-            "PB5"
+            "PB5",
+            null
         ],
         "LookPosition": [
+            null,
             "S1",
             "S1",
             "S1",
             "S1",
-            "S1"
+            "S1",
+            null
         ],
         "DefaultObstacleArea": [
-            "FightOpen"
+            null,
+            "FightOpen",
+            null,
+            null,
+            null
         ],
         "DefaultDynamicObject": [
-            "Door"
+            null,
+            "Door",
+            null,
+            null,
+            null
         ]
     },
     {
@@ -98,45 +152,73 @@
         "Name": "Scene01006",
         "Info": 10100105,
         "BornPosition": [
+            null,
             "PB1",
             "PB2",
             "PB3",
             "PB4",
-            "PB5"
+            "PB5",
+            null
         ],
         "LookPosition": [
+            null,
             "S1",
             "S1",
             "S1",
             "S1",
-            "S1"
+            "S1",
+            null
         ],
-        "DefaultObstacleArea": [],
-        "DefaultDynamicObject": []
+        "DefaultObstacleArea": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "DefaultDynamicObject": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 101002030,
         "Name": "Scene01003xingzoumian",
         "Info": 10100106,
         "BornPosition": [
+            null,
             "PB1",
             "PB2",
             "PB3",
             "PB4",
-            "PB5"
+            "PB5",
+            null
         ],
         "LookPosition": [
+            null,
             "S1",
             "S1",
             "S1",
             "S1",
-            "S1"
+            "S1",
+            null
         ],
         "DefaultObstacleArea": [
-            "Yilou"
+            null,
+            "Yilou",
+            null,
+            null,
+            null
         ],
         "DefaultDynamicObject": [
-            "Yilou"
+            null,
+            "Yilou",
+            null,
+            null,
+            null
         ]
     },
     {
@@ -144,24 +226,36 @@
         "Name": "Scene01003",
         "Info": 10100107,
         "BornPosition": [
+            null,
             "PB1",
             "PB2",
             "PB3",
             "PB4",
-            "PB5"
+            "PB5",
+            null
         ],
         "LookPosition": [
+            null,
             "S1",
             "S1",
             "S1",
             "S1",
-            "S1"
+            "S1",
+            null
         ],
         "DefaultObstacleArea": [
-            "AW1"
+            null,
+            "AW1",
+            null,
+            null,
+            null
         ],
         "DefaultDynamicObject": [
-            "AW1"
+            null,
+            "AW1",
+            null,
+            null,
+            null
         ]
     },
     {
@@ -169,26 +263,36 @@
         "Name": "Scene01002a",
         "Info": 10100108,
         "BornPosition": [
+            null,
             "PB1",
             "PB2",
             "PB3",
             "PB4",
-            "PB5"
+            "PB5",
+            null
         ],
         "LookPosition": [
+            null,
             "S1",
             "S1",
             "S1",
             "S1",
-            "S1"
+            "S1",
+            null
         ],
         "DefaultObstacleArea": [
+            null,
             "AW1",
-            "AW2"
+            "AW2",
+            null,
+            null
         ],
         "DefaultDynamicObject": [
+            null,
             "AW1",
-            "AW2"
+            "AW2",
+            null,
+            null
         ]
     },
     {
@@ -196,43 +300,73 @@
         "Name": "Scene01002",
         "Info": 10100109,
         "BornPosition": [
+            null,
             "PB1",
             "PB2",
             "PB3",
             "PB4",
-            "PB5"
+            "PB5",
+            null
         ],
         "LookPosition": [
+            null,
             "S1",
             "S1",
             "S1",
             "S1",
-            "S1"
+            "S1",
+            null
         ],
         "DefaultObstacleArea": [
-            "AW1"
+            null,
+            "AW1",
+            null,
+            null,
+            null
         ],
-        "DefaultDynamicObject": []
+        "DefaultDynamicObject": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 101003030,
         "Name": "Scene01001c",
         "Info": 10100110,
         "BornPosition": [
+            null,
             "PB1",
             "PB2",
             "PB3",
             "PB4",
-            "PB5"
+            "PB5",
+            null
         ],
         "LookPosition": [
+            null,
             "S1",
             "S1",
             "S1",
             "S1",
-            "S1"
+            "S1",
+            null
         ],
-        "DefaultObstacleArea": [],
-        "DefaultDynamicObject": []
+        "DefaultObstacleArea": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "DefaultDynamicObject": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     }
 ]

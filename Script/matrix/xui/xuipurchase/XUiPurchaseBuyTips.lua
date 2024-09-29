@@ -77,6 +77,7 @@ function XUiPurchaseBuyTips:OnEnable()
 end
 
 function XUiPurchaseBuyTips:Init()
+    ---@type XUiPanelAsset
     self.AssetPanel = XUiPanelAsset.New(self,self.PanelAssetPay,XDataCenter.ItemManager.ItemId.FreeGem,XDataCenter.ItemManager.ItemId.HongKa)
 end
 
@@ -721,5 +722,11 @@ function XUiPurchaseBuyTips:UpdateTimer()
         for _, fun in pairs(self.TimerFun) do
             fun()
         end
+    end
+end
+
+function XUiPurchaseBuyTips:OnDestroy()
+    if self.AssetPanel then
+        self.AssetPanel:OnRelease()
     end
 end

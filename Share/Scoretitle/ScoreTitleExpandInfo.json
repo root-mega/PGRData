@@ -1,0 +1,26 @@
+[
+    {
+        "Id": 1,
+        "StrServerKey": 1,
+        "Desc": "\u00b7<color=#FF0000FF>%s</color> entered Punishing: Gray Raven for the first time",
+        "EmptyDesc": null
+    },
+    {
+        "Id": 2,
+        "StrServerKey": 4,
+        "Desc": "\u00b7 Successfully awakened the Ultima Rank of <color=#FF0000FF>%s</color> members",
+        "EmptyDesc": "\u00b7 No members have Ultima Awakened"
+    },
+    {
+        "Id": 3,
+        "StrServerKey": 2,
+        "Desc": "\u00b7 Successfully reached Chapter <color=#FF0000FF>%s</color> of Stronghold battle",
+        "EmptyDesc": "\u00b7 Stronghold battle in progress"
+    },
+    {
+        "Id": 4,
+        "StrServerKey": 3,
+        "Desc": "\u00b7 Successfully captured Area <color=#FF0000FF>%s</color> of Border Pact",
+        "EmptyDesc": "\u00b7 Border Pact in progress"
+    }
+]

@@ -85,7 +85,11 @@ function XUiFubenPractice:OnReleaseInst()
 end
 
 function XUiFubenPractice:SetAssetPanelActive(isActive)
-    self.AssetPanel.GameObject:SetActiveEx(isActive)
+    if isActive then
+        self.AssetPanel:Open()
+    else
+        self.AssetPanel:Close()
+    end
 end
 
 function XUiFubenPractice:GetDefaultOpen()

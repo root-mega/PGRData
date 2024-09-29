@@ -245,6 +245,7 @@ XFunctionManager.FunctionName = {
     Transfinite = 10451, -- 超限连战
     NewActivityCalendar = 10452, -- 新活动周历
     Theatre3 = 10453, -- 肉鸽3.0
+    BlackRockChess = 10455, -- 国际战棋
     Turntable = 10454, -- 夏日幸运星
 }
 

@@ -2,6 +2,7 @@ local UnityPlayerPrefs = CS.UnityEngine.PlayerPrefs
 local KEY_GAME_DOWNLOAD_RECORD = "KEY_GAME_DOWNLOAD_RECORD"
 local KEY_LAUNCH_DOWNLOAD_RECORD = "KEY_LAUNCH_DOWNLOAD_RECORD"
 local KEY_DOWNLOADED = "KEY_DOWNLOADED"
+local KEY_DOWNLOADED_SELECT = "KEY_DOWNLOADED_SELECT"
 
 local DLC_NEED_DOWNLOAD_KEY = "DLC_NEED_DOWNLOAD_KEY"
 local HAS_SELECT_DOWNLOAD_PART_KEY = "HAS_SELECT_DOWNLOAD_PART_KEY"
@@ -280,6 +281,21 @@ end
 M.GetIndexInfo = function()
     return DlcIndexInfo
 end
+
+--region DownloadSelect
+M.IsSelectDownload = function()
+    return UnityPlayerPrefs.GetInt(KEY_DOWNLOADED_SELECT) ~= 0
+end
+
+M.GetDownLoadSelect = function()
+    local value = UnityPlayerPrefs.GetInt(KEY_DOWNLOADED_SELECT)
+    return value == 0 and 1 or value
+end
+
+M.SetDownLoadSelect = function(value)
+    UnityPlayerPrefs.SetInt(KEY_DOWNLOADED_SELECT, value)
+end
+--endregion
 --======== 业务层接口 end ====
 
 return XLaunchDlcManager

@@ -127,6 +127,7 @@ function XUiFashion:InitFilter()
         self:OnSelectCharacter(character.Id)
     end
     self.PanelFilter:InitData(onSeleCb)
+    self.PanelFilter:Close()
 end
 
 function XUiFashion:OnStart(defaultCharacterId, isOnlyOneCharacter, notShowWeapon, openUiType)
@@ -147,6 +148,7 @@ function XUiFashion:OnStart(defaultCharacterId, isOnlyOneCharacter, notShowWeapo
     self.DefaultCharacterId = defaultCharacterId
 
     self.PanelFilter:ImportList(characterList)
+    self.PanelFilter:RefreshList()
     self.PanelFilter:DoSelectCharacter(defaultCharacterId)
 
     self.CurWeaponViewType = WeaponViewType.WithCharacter
@@ -827,6 +829,7 @@ end
 function XUiFashion:OnBtnCloseFilterClick()
     self.PanelCharacterFilter.gameObject:SetActiveEx(false)
     self.PanelTagGroup.gameObject:SetActiveEx(true)
+    self.PanelFilter:Close()
 end
 
 function XUiFashion:OnBtnCharacterFilterClick()
@@ -841,6 +844,9 @@ function XUiFashion:ShowOrHideFilter()
     if not activeSelf then
         self.PanelFilter:DoSelectTag("BtnAll")
         self.PanelFilter:DoSelectCharacter(self.CharacterId)
+        self.PanelFilter:Open()
+    else
+        self.PanelFilter:Close()
     end
 
     activeSelf = self.PanelTagGroup.gameObject.activeSelf

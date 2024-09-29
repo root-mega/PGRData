@@ -17,6 +17,11 @@ function XUiFubenExperimentBanner:Init(index, callback)
     self.TrialLevelInfo = {}
 end
 
+-- 由父界面手动调用
+function XUiFubenExperimentBanner:OnDestroy()
+    self:RemoveRedPoint()
+end
+
 function XUiFubenExperimentBanner:InitUiObjects()
     XTool.InitUiObject(self)
     self.AutoCreateListeners = {}
@@ -152,12 +157,10 @@ function XUiFubenExperimentBanner:CheckProgress()
 end
 
 function XUiFubenExperimentBanner:CheckRedPoint()
+    self:RemoveRedPoint()
     if self.RedPoint then
         self.RedPoint.gameObject:SetActiveEx(false)
         if self.TrialLevelInfo then
-            if self.RedPointId then
-                XRedPointManager.RemoveRedPointEvent(self.RedPointId)
-            end
             self.RedPointId = XRedPointManager.AddRedPointEvent(self.RedPoint, self.OnCheckRedPoint, self, { XRedPointConditions.Types.CONDITION_EXPERIMENT_CHAPTER_REWARD }, self.TrialLevelInfo, true)
         end
     end
@@ -178,6 +181,13 @@ function XUiFubenExperimentBanner:UpdateTime()
             local text = CSXTextManagerGetText("ActivityBriefLeftTime", timeStr)
             self.TxtTime.text = text
         end
+    end
+end
+
+function XUiFubenExperimentBanner:RemoveRedPoint()
+    if self.RedPointId then
+        XRedPointManager.RemoveRedPointEvent(self.RedPointId)
+        self.RedPointId = nil
     end
 end
 

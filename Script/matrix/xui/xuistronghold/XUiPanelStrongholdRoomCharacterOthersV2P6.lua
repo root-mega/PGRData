@@ -44,8 +44,6 @@ function XUiPanelStrongholdRoomCharacterOthersV2P6:Show(teamList, teamId, member
     self.GroupId = groupId
 
     self:UpdateUseTimes()
-
-    self.GameObject:SetActiveEx(true)
 end
 
 function XUiPanelStrongholdRoomCharacterOthersV2P6:UpdateUseTimes()
@@ -154,8 +152,11 @@ function XUiPanelStrongholdRoomCharacterOthersV2P6:OnClickBtnRefresh()
         local groupId = self.GroupId
         local teamList = self.TeamList
         XDataCenter.StrongholdManager.KickOutInvalidMembersInTeamList(teamList, groupId)
-        self:Refresh()
         self.Parent:ImportSupportList()
+        ---@type XUiPanelCommonCharacterFilterV2P6
+        local parentFilter = self.Parent.PanelFilter
+        parentFilter:SetForceSeleCbTrigger()
+        parentFilter:RefreshList()
     end
     XDataCenter.StrongholdManager.GetStrongholdAssistCharacterListRequest(cb)
 end

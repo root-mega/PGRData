@@ -373,7 +373,21 @@ XFavorabilityManagerCreator = function()
         local trustLv = characterData.TrustLv or 1
         return trustLv >= storyUnlockLv
     end
-
+    
+    --[剧情解锁进度]
+    function XFavorabilityManager.StoryUnlockNum(characterId)
+        local storyCount=#XFavorabilityConfigs.GetCharacterStoryById(characterId)
+        local unlockCount
+        local favorabilityDatas = XFavorabilityManager.GetCharacterFavorabilityDatasById(characterId)
+        if favorabilityDatas == nil or favorabilityDatas.UnlockStory == nil then
+            unlockCount=0
+        else
+            unlockCount=XTool.GetTableCount(favorabilityDatas.UnlockStory)
+        end
+        
+        return unlockCount,storyCount
+    end
+    
     -- 【剧情end】
     -- 【礼物begin】
     function XFavorabilityManager.SortTrustItems(itemA, itemB)

@@ -1,0 +1,152 @@
+[
+    {
+        "Id": 1,
+        "TimerId": null,
+        "ConditionId": null,
+        "PreBossId": null,
+        "PreBossUnlockTips": null,
+        "MaxRound": 15.0,
+        "MaxTime": null,
+        "Name": "Voodoo",
+        "ModelId": "Mb1VoodooMd010001SameColor",
+        "BattleModelId": "Mb1VoodooMd010001",
+        "FullBodyIcon": "Assets/Product/Texture/Image/UiSameColorGame/SameColorPropsBoss.png",
+        "SuggestRoleIds": [
+            null,
+            1.0
+        ],
+        "ShowSkillIds": [
+            null,
+            401,
+            402.0,
+            403.0,
+            null
+        ],
+        "NameIcon": "Assets/Product/Texture/Image/UiSameColorGame/SameColorBossBtn01.png"
+    },
+    {
+        "Id": 2,
+        "TimerId": null,
+        "ConditionId": null,
+        "PreBossId": 1.0,
+        "PreBossUnlockTips": "Unlocks after challenging <color=#D688FF>Voodoo</color>",
+        "MaxRound": 15.0,
+        "MaxTime": null,
+        "Name": "Madorea",
+        "ModelId": "Mb1MaidmasterMd010001SameColor",
+        "BattleModelId": "Mb1MaidmasterMd010001",
+        "FullBodyIcon": "Assets/Product/Texture/Image/UiSameColorGame/SameColorPropsBoss2.png",
+        "SuggestRoleIds": [
+            null,
+            2.0
+        ],
+        "ShowSkillIds": [
+            null,
+            411,
+            412.0,
+            413.0,
+            null
+        ],
+        "NameIcon": "Assets/Product/Texture/Image/UiSameColorGame/SameColorBossBtn02.png"
+    },
+    {
+        "Id": 3,
+        "TimerId": null,
+        "ConditionId": null,
+        "PreBossId": 2.0,
+        "PreBossUnlockTips": "Unlocks after challenging <color=#D688FF>Madorea</color>",
+        "MaxRound": 15.0,
+        "MaxTime": null,
+        "Name": "Primal Projection",
+        "ModelId": "Mb1MercyMd010001SameColor",
+        "BattleModelId": "Mb1MercyMd010001",
+        "FullBodyIcon": "Assets/Product/Texture/Image/UiSameColorGame/SameColorPropsBoss5.png",
+        "SuggestRoleIds": [
+            null,
+            3.0
+        ],
+        "ShowSkillIds": [
+            null,
+            421,
+            422.0,
+            423.0,
+            424.0
+        ],
+        "NameIcon": "Assets/Product/Texture/Image/UiSameColorGame/SameColorBossBtn05.png"
+    },
+    {
+        "Id": 4,
+        "TimerId": null,
+        "ConditionId": null,
+        "PreBossId": 3.0,
+        "PreBossUnlockTips": "Unlocks after challenging <color=#D688FF>Primal Projection</color>",
+        "MaxRound": 15.0,
+        "MaxTime": null,
+        "Name": "Moon Eater",
+        "ModelId": "Mb1MoonguyMd010001SameColor",
+        "BattleModelId": "Mb1MoonguyMd010001",
+        "FullBodyIcon": "Assets/Product/Texture/Image/UiSameColorGame/SameColorPropsBoss4.png",
+        "SuggestRoleIds": [
+            null,
+            4.0
+        ],
+        "ShowSkillIds": [
+            null,
+            431,
+            432.0,
+            433.0,
+            434.0
+        ],
+        "NameIcon": "Assets/Product/Texture/Image/UiSameColorGame/SameColorBossBtn04.png"
+    },
+    {
+        "Id": 5,
+        "TimerId": null,
+        "ConditionId": null,
+        "PreBossId": 4.0,
+        "PreBossUnlockTips": "Unlocks after challenging <color=#D688FF>Moon Eater</color>",
+        "MaxRound": 15.0,
+        "MaxTime": null,
+        "Name": "Rosetta",
+        "ModelId": "Mb1LuosaitarenMd000001SameColor",
+        "BattleModelId": "Mb1LuosaitarenMd000001",
+        "FullBodyIcon": "Assets/Product/Texture/Image/UiSameColorGame/SameColorPropsBoss6.png",
+        "SuggestRoleIds": [
+            null,
+            5.0
+        ],
+        "ShowSkillIds": [
+            null,
+            441,
+            442.0,
+            443.0,
+            444.0
+        ],
+        "NameIcon": "Assets/Product/Texture/Image/UiSameColorGame/SameColorBossBtn06.png"
+    },
+    {
+        "Id": 6,
+        "TimerId": null,
+        "ConditionId": null,
+        "PreBossId": 5.0,
+        "PreBossUnlockTips": "Unlocks after challenging <color=#D688FF>Rosetta</color>",
+        "MaxRound": null,
+        "MaxTime": 90.0,
+        "Name": "Shark-speare",
+        "ModelId": "Mb1AolajiangMd010001SameColor",
+        "BattleModelId": "Mb1AolajiangMd010001",
+        "FullBodyIcon": "Assets/Product/Texture/Image/UiSameColorGame/SameColorPropsBoss3.png",
+        "SuggestRoleIds": [
+            null,
+            null
+        ],
+        "ShowSkillIds": [
+            null,
+            451,
+            null,
+            null,
+            null
+        ],
+        "NameIcon": "Assets/Product/Texture/Image/UiSameColorGame/SameColorBossBtn03.png"
+    }
+]

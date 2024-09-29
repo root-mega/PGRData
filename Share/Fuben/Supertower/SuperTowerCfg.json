@@ -1,0 +1,67 @@
+[
+    {
+        "Key": "ScoreItemId",
+        "Value": 62802,
+        "Comment": "Point Item ID"
+    },
+    {
+        "Key": "InitBagCapacity",
+        "Value": 60,
+        "Comment": "Starting Inventory Capacity"
+    },
+    {
+        "Key": "MaxBagCapacity",
+        "Value": 490,
+        "Comment": "Max Inventory Capacity"
+    },
+    {
+        "Key": "SingleCapacityCount",
+        "Value": 1,
+        "Comment": "Single Expansion Count"
+    },
+    {
+        "Key": "CheckMallIsOpen",
+        "Value": 84601501,
+        "Comment": "Inspect Shop Unlock Requirements"
+    },
+    {
+        "Key": "CheckSuperLimitIsOpen",
+        "Value": 84601502,
+        "Comment": "Inspection Limit Unlock Requirements"
+    },
+    {
+        "Key": "CheckSpecialCharacterIsOpen",
+        "Value": 84601503,
+        "Comment": "Inspect SP Character Unlock Requirements"
+    },
+    {
+        "Key": "CheckMultiTeamChallengeOpen",
+        "Value": 84601504,
+        "Comment": "Multi-team Challenge Unlock Node (Only for front pop-up display)"
+    },
+    {
+        "Key": "CheckSlotIsOpen",
+        "Value": 84601505,
+        "Comment": "Inspection Slot Unlock Requirements"
+    },
+    {
+        "Key": "MaxTeamPluginCount",
+        "Value": 9,
+        "Comment": "Max Team Add-on Amount"
+    },
+    {
+        "Key": "EnhancerRandomCount",
+        "Value": 3,
+        "Comment": "Tower Climb Randomized Add-on Count"
+    },
+    {
+        "Key": "EnhancerSelectCount",
+        "Value": 1,
+        "Comment": "Tower Climb Add-on Selection Amount"
+    },
+    {
+        "Key": "TierStageFightCharacterCount",
+        "Value": 3,
+        "Comment": "Tower Climb Characters Deployed"
+    }
+]

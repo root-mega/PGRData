@@ -64,9 +64,9 @@ end
 
 --region Ui - PanelAsset
 function XUiTheatre3Outpost:InitPanelAsset()
-    self._PanelAsset = XUiHelper.NewPanelActivityAsset(
+    self._PanelAsset = XUiHelper.NewPanelActivityAssetSafe(
             {XEnumConst.THEATRE3.Theatre3InnerCoin,},
-            self.PanelSpecialTool,
+            self.PanelSpecialTool, self,
             nil,
             function()
                 XLuaUiManager.Open("UiTheatre3Tips", XEnumConst.THEATRE3.Theatre3InnerCoin)

@@ -413,6 +413,9 @@ function XUiPanelSignBoard:OnBtnCommunicationClick()
         XUiManager.TipMsg(CS.XTextManager.GetText("FunctionalMaintain"))
         return
     end
+    if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.FavorabilityMain) then
+        return
+    end
     self:SetPanelLayoutActive(false)
     XLuaUiManager.Open("UiFavorabilityNew")
 end
@@ -596,7 +599,7 @@ end
 function XUiPanelSignBoard:PlayCvWithCvType(cvId, cvType)
     if self.PlayingAudio then
         --正在播放语音页签下的语音，播放新动作需要打断语音并播放打断特效
-        self.Parent.FavorabilityMain.FavorabilityAudio:UnScheduleAudio()
+        self.Parent.FavorabilityMain.FavorabilityShow:UnScheduleAudioPlay()
         self.Parent:PlayChangeActionEffect()
         self.PlayingAudio = false
     end

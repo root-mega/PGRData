@@ -1,5 +1,5 @@
 local XUiGridSuitPrefab = require("XUi/XUiEquipAwarenessReplace/XUiGridSuitPrefab")
-local XUiGridEquip = require("XUi/XUiEquipAwarenessReplace/XUiGridEquip")
+local XUiGridEquip = require("XUi/XUiEquip/XUiGridEquip")
 local XUiGridResonanceSkill = require("XUi/XUiEquipResonanceSkill/XUiGridResonanceSkill")
 local XUiGridDoubleResonanceSkill = require("XUi/XUiEquipResonanceSkill/XUiGridDoubleResonanceSkill")
 
@@ -220,8 +220,7 @@ function XUiEquipAwarenessSuitPrefab:InitCurEquipGrids()
     self.GridCurAwareness.gameObject:SetActiveEx(false)
     for _, equipSite in pairs(XEquipConfig.EquipSite.Awareness) do
         local item = CS.UnityEngine.Object.Instantiate(self.GridCurAwareness)
-        self.CurEquipGirds[equipSite] = XUiGridEquip.New(item, self, clickCb, true)
-        self.CurEquipGirds[equipSite]:InitRootUi(self)
+        self.CurEquipGirds[equipSite] = XUiGridEquip.New(item, self, clickCb)
         self.CurEquipGirds[equipSite].Transform:SetParent(self["PanelPos" .. equipSite], false)
     end
 end
@@ -413,11 +412,11 @@ function XUiEquipAwarenessSuitPrefab:UpdateCurEquipGrid(equipSite)
 
     local equipId = suitPrefabInfo:GetEquipId(equipSite)
     if not equipId or equipId == 0 then
-        self.CurEquipGirds[equipSite].GameObject:SetActiveEx(false)
+        self.CurEquipGirds[equipSite]:Close()
         self["PanelNoEquip" .. equipSite].gameObject:SetActiveEx(true)
     else
         self.CurEquipGirds[equipSite]:Refresh(equipId)
-        self.CurEquipGirds[equipSite].GameObject:SetActiveEx(true)
+        self.CurEquipGirds[equipSite]:Open()
         self["PanelNoEquip" .. equipSite].gameObject:SetActiveEx(false)
     end
 end

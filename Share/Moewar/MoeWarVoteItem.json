@@ -1,0 +1,116 @@
+[
+    {
+        "ItemId": 62511,
+        "Multiple": 10,
+        "VoteFactor": 1,
+        "CoinFactor": 1,
+        "CoinItemId": 62514,
+        "IsLimit": 1,
+        "MatchId": [
+            null,
+            1.0,
+            3.0,
+            5.0,
+            7.0,
+            9.0,
+            11.0
+        ],
+        "DailyLimitCount": [
+            null,
+            4000.0,
+            4000.0,
+            4000.0,
+            5000.0,
+            5000.0,
+            8000.0
+        ],
+        "FailGroupDailyLimitCount": [
+            null,
+            0.0,
+            4000.0,
+            4000.0,
+            5000.0,
+            5000.0,
+            8000.0
+        ],
+        "No": 2,
+        "GainItemId": 62510,
+        "GainItemCount": 1
+    },
+    {
+        "ItemId": 62512,
+        "Multiple": 1,
+        "VoteFactor": 10,
+        "CoinFactor": 0,
+        "CoinItemId": 62514,
+        "IsLimit": 0,
+        "MatchId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "DailyLimitCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FailGroupDailyLimitCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "No": 1,
+        "GainItemId": 62510,
+        "GainItemCount": 10
+    },
+    {
+        "ItemId": 62513,
+        "Multiple": 1,
+        "VoteFactor": 1,
+        "CoinFactor": 0,
+        "CoinItemId": 62514,
+        "IsLimit": 0,
+        "MatchId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "DailyLimitCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "FailGroupDailyLimitCount": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "No": 3,
+        "GainItemId": 62510,
+        "GainItemCount": 1
+    }
+]

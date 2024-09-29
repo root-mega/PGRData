@@ -26,6 +26,7 @@ end
 
 function XUiArena:OnDestroy()
     self.ActivePanel:UnBindTimer()
+    self.ActivePanel:Hide()
 end
 
 function XUiArena:AutoAddListener()

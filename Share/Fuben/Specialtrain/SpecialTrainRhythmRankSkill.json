@@ -1,0 +1,37 @@
+[
+    {
+        "Id": 1,
+        "Name": "Roaring Flame Stove",
+        "Desc": "<color=#9d9e9f>A brand-new stove with enhanced firepower!</color>\\n\\nIn the first stage, the ball release interval is shortened to 0.5s.",
+        "Icon": "Assets/Product/Texture/Image/IconTools/IconFubenYuanxiao2.png",
+        "FightEvent": 2270170
+    },
+    {
+        "Id": 2,
+        "Name": "Bunny Yummy Station",
+        "Desc": "<color=#9d9e9f>Bunny, please use your magic to make this dish delicious!</color>\\n\\nBase points per round x1.2",
+        "Icon": "Assets/Product/Texture/Image/IconTools/IconFubenYuanxiao3.png",
+        "FightEvent": 2270171
+    },
+    {
+        "Id": 3,
+        "Name": "Star Bonus Wand",
+        "Desc": "<color=#9d9e9f>Zap! Feel the boosting power of the stars!</color>\\n\\nIncreases the combo multiplier during the game.",
+        "Icon": "Assets/Product/Texture/Image/IconTools/IconFubenYuanxiao4.png",
+        "FightEvent": 2270172
+    },
+    {
+        "Id": 4,
+        "Name": "Zesty Universal Sauce",
+        "Desc": "<color=#9d9e9f>Just three ingredients with this sauce, and you're on your way to the tastiest dumplings!</color>\\n\\nEach round simplifies ball rules, featuring only three types of ingredient balls.",
+        "Icon": "Assets/Product/Texture/Image/IconTools/IconFubenYuanxiao5.png",
+        "FightEvent": 2270173
+    },
+    {
+        "Id": 5,
+        "Name": "Lil' Lu's Summoning Magic",
+        "Desc": "<color=#9d9e9f>Summon Lil' Lu to infuse this bowl with her special touch!</color>\\n\\n20% chance each round for score to double, increasing finished quantity by +1, combo +1.",
+        "Icon": "Assets/Product/Texture/Image/IconTools/IconFubenYuanxiao1.png",
+        "FightEvent": 2270174
+    }
+]

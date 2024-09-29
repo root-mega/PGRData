@@ -1,0 +1,374 @@
+[
+    {
+        "Id": 1,
+        "TimeId": null,
+        "Type": 1,
+        "Name": "Operation Summer",
+        "Icon": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner16.png",
+        "ChapterIds": [
+            101,
+            102.0
+        ],
+        "EliminateGameId": 1.0,
+        "PointItemId": null,
+        "PointRewardId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TaskGroupId": [
+            null,
+            null,
+            null
+        ],
+        "InitSkillId": null
+    },
+    {
+        "Id": 2,
+        "TimeId": null,
+        "Type": 1,
+        "Name": "Temp Imbalance",
+        "Icon": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner16.png",
+        "ChapterIds": [
+            103,
+            null
+        ],
+        "EliminateGameId": null,
+        "PointItemId": 62101.0,
+        "PointRewardId": [
+            null,
+            10301.0,
+            10302.0,
+            10303.0,
+            10304.0,
+            10305.0,
+            10306.0,
+            10307.0,
+            10308.0,
+            null
+        ],
+        "TaskGroupId": [
+            null,
+            null,
+            null
+        ],
+        "InitSkillId": null
+    },
+    {
+        "Id": 3,
+        "TimeId": null,
+        "Type": 2,
+        "Name": "Midsummer's Memorial Day",
+        "Icon": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner15.png",
+        "ChapterIds": [
+            104,
+            null
+        ],
+        "EliminateGameId": null,
+        "PointItemId": null,
+        "PointRewardId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TaskGroupId": [
+            null,
+            null,
+            null
+        ],
+        "InitSkillId": null
+    },
+    {
+        "Id": 4,
+        "TimeId": null,
+        "Type": 3,
+        "Name": "Dancing Stars",
+        "Icon": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner47.png",
+        "ChapterIds": [
+            105,
+            null
+        ],
+        "EliminateGameId": null,
+        "PointItemId": null,
+        "PointRewardId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TaskGroupId": [
+            null,
+            83.0,
+            84.0
+        ],
+        "InitSkillId": null
+    },
+    {
+        "Id": 5,
+        "TimeId": null,
+        "Type": 4,
+        "Name": "Crabsgiving Day",
+        "Icon": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner55.png",
+        "ChapterIds": [
+            106,
+            null
+        ],
+        "EliminateGameId": null,
+        "PointItemId": null,
+        "PointRewardId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TaskGroupId": [
+            null,
+            99.0,
+            100.0
+        ],
+        "InitSkillId": null
+    },
+    {
+        "Id": 6,
+        "TimeId": null,
+        "Type": 5,
+        "Name": "Handmade Blessings",
+        "Icon": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner62.png",
+        "ChapterIds": [
+            107,
+            null
+        ],
+        "EliminateGameId": null,
+        "PointItemId": null,
+        "PointRewardId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TaskGroupId": [
+            null,
+            105.0,
+            106.0
+        ],
+        "InitSkillId": null
+    },
+    {
+        "Id": 7,
+        "TimeId": null,
+        "Type": 6,
+        "Name": "Magic Square Funfair",
+        "Icon": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner73.png",
+        "ChapterIds": [
+            108,
+            null
+        ],
+        "EliminateGameId": null,
+        "PointItemId": null,
+        "PointRewardId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TaskGroupId": [
+            null,
+            133.0,
+            134.0
+        ],
+        "InitSkillId": null
+    },
+    {
+        "Id": 8,
+        "TimeId": null,
+        "Type": 2,
+        "Name": "Midsummer Memento",
+        "Icon": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner80.png",
+        "ChapterIds": [
+            109,
+            null
+        ],
+        "EliminateGameId": null,
+        "PointItemId": null,
+        "PointRewardId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TaskGroupId": [
+            null,
+            147.0,
+            148.0
+        ],
+        "InitSkillId": null
+    },
+    {
+        "Id": 9,
+        "TimeId": null,
+        "Type": 7,
+        "Name": "Magic Square Trial",
+        "Icon": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner73.png",
+        "ChapterIds": [
+            110,
+            null
+        ],
+        "EliminateGameId": null,
+        "PointItemId": null,
+        "PointRewardId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TaskGroupId": [
+            null,
+            164.0,
+            165.0
+        ],
+        "InitSkillId": null
+    },
+    {
+        "Id": 10,
+        "TimeId": null,
+        "Type": 5,
+        "Name": "Joyous Wrappings",
+        "Icon": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner95.png",
+        "ChapterIds": [
+            111,
+            null
+        ],
+        "EliminateGameId": null,
+        "PointItemId": null,
+        "PointRewardId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TaskGroupId": [
+            null,
+            0.0,
+            191.0
+        ],
+        "InitSkillId": 1.0
+    },
+    {
+        "Id": 11,
+        "TimeId": null,
+        "Type": 4,
+        "Name": "Beach Fight",
+        "Icon": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner55.png",
+        "ChapterIds": [
+            112,
+            null
+        ],
+        "EliminateGameId": null,
+        "PointItemId": null,
+        "PointRewardId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TaskGroupId": [
+            null,
+            0.0,
+            232.0
+        ],
+        "InitSkillId": null
+    },
+    {
+        "Id": 12,
+        "TimeId": 20301.0,
+        "Type": 2,
+        "Name": "Midsummer Rewind",
+        "Icon": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner80.png",
+        "ChapterIds": [
+            113,
+            null
+        ],
+        "EliminateGameId": null,
+        "PointItemId": null,
+        "PointRewardId": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "TaskGroupId": [
+            null,
+            248.0,
+            249.0
+        ],
+        "InitSkillId": null
+    }
+]

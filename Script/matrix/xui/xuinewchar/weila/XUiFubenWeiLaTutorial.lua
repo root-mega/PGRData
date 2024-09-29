@@ -1,12 +1,13 @@
+---@class XUiFunbenWeiLaTutorial:XLuaUi
 local XUiFunbenWeiLaTutorial = XLuaUiManager.Register(XLuaUi, "UiFunbenWeiLaTutorial")
 local XUiPanelFubenWeiLaStage = require("XUi/XUiNewChar/WeiLa/XUiPanelFubenWeiLaStage")
 
 function XUiFunbenWeiLaTutorial:OnAwake()
     self:InitAutoScript()
-    self.RedPointBtnChallengeId = XRedPointManager.AddRedPointEvent(self.BtnChallenge, self.RefreshBtnChallengeRedDot, self, {
+    self.RedPointBtnChallengeId = self:AddRedPointEvent(self.BtnChallenge, self.RefreshBtnChallengeRedDot, self, {
         XRedPointConditions.Types.CONDITION_KOROMCHARACTIVITYCHALLENGERED,
     })
-    self.RedPointBtnTeachingId = XRedPointManager.AddRedPointEvent(self.BtnTeaching, self.RefreshBtnTeachingRedDot, self, {
+    self.RedPointBtnTeachingId = self:AddRedPointEvent(self.BtnTeaching, self.RefreshBtnTeachingRedDot, self, {
         XRedPointConditions.Types.CONDITION_KOROMCHARACTIVITYTEACHINGRED,
     })
     --self.PanelRoot = self.PanelStageRoot.parent:Find("PanelRoot")

@@ -40,10 +40,17 @@ XActivityBriefManagerCreator = function()
 
     local function Init()
         for _, v in pairs(XActivityBriefConfigs.GetAllActivityEntryConfig()) do
+            --2.7屏蔽仅红点检测的条目
+            if XTool.IsNumberValid(v.OnlyRedPoint) then
+                goto CONTINUE
+            end
+            
             local endTime = XFunctionManager.GetEndTimeByTimeId(v.TimeId)
             if SpecialActivityMaxEndTime < endTime then
                 SpecialActivityMaxEndTime = endTime
             end
+            
+            :: CONTINUE ::
         end
         --游戏一开始随机获取其中一个数，用于活动界面随机显示一个模型
         -- local models = XActivityBriefConfigs.GetActivityModels()
@@ -176,10 +183,18 @@ XActivityBriefManagerCreator = function()
     function XActivityBriefManager.GetNowActivityEntryConfig()
         local nowSpecialActivityTemplates = {}
         for _,v in pairs(XActivityBriefConfigs.GetAllActivityEntryConfig()) do
+            --2.7屏蔽仅红点检测的条目
+            if XTool.IsNumberValid(v.OnlyRedPoint) then
+                goto CONTINUE
+            end
+            
             if XFunctionManager.CheckInTimeByTimeId(v.TimeId) and
                     (v.Condition == 0 or XConditionManager.CheckCondition(v.Condition)) then
                 table.insert(nowSpecialActivityTemplates, v)
             end
+
+            :: CONTINUE ::
+
         end
         
         return nowSpecialActivityTemplates
@@ -189,6 +204,11 @@ XActivityBriefManagerCreator = function()
         local newCount, oldCount = 0, 0
         local timeOfNow = XTime.GetServerNowTimestamp()
         for _,v in pairs(XActivityBriefConfigs.GetAllActivityEntryConfig()) do
+            --2.7屏蔽仅红点检测的条目
+            if XTool.IsNumberValid(v.OnlyRedPoint) then
+                goto CONTINUE
+            end
+            
             local timeOfBgn = XFunctionManager.GetStartTimeByTimeId(v.TimeId)
             local timeOfEnd = XFunctionManager.GetEndTimeByTimeId(v.TimeId)
             --不用CheckInTimeByTimeId，避免新活动开放，旧活动结束Count不会更改
@@ -200,6 +220,8 @@ XActivityBriefManagerCreator = function()
             if timeOfNow > timeOfEnd then --活动过期
                 oldCount = oldCount + 1
             end
+            
+            ::CONTINUE::
         end
         return CheckIsNewActivityOpen(newCount) or CheckIsOldActivityEnd(oldCount)
     end

@@ -218,7 +218,7 @@ function XUiDialog:ShowSpecialRegulationForJP() --海外修改
         if url then
             local obj = self.TxtInfoNormal.transform:LoadPrefab(url)
             local data = {type = 4,consumeId = 1}
-            local timeId = XPassportConfigs.GetPassportActivityTimeId()
+            local timeId = XMVCA.XPassport:GetPassportActivityTimeId()
             local startTime, endTime = XFunctionManager.GetTimeByTimeId(timeId)
             local startTimeStr = XTime.TimestampToGameDateTimeString(startTime,"yyyy/MM/dd HH:mm")
             local endTimeStr = XTime.TimestampToGameDateTimeString(endTime-86400,"yyyy/MM/dd HH:mm")

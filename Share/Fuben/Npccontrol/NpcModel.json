@@ -1,0 +1,4538 @@
+[
+    {
+        "Id": 1,
+        "Name": "Repairer (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92030,
+            91030.0,
+            90030.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 2,
+        "Name": "Ground Monitor (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92090,
+            91090.0,
+            90090.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 3,
+        "Name": "Aerial Monitor (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92100,
+            91100.0,
+            90100.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4,
+        "Name": "Pilgrim (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91110,
+            90110.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5,
+        "Name": "Protector (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91120,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6,
+        "Name": "Hydraulic (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92150,
+            91150.0,
+            90150.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 7,
+        "Name": "Sentry Gun (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92160,
+            91160.0,
+            90160.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 8,
+        "Name": "Missionary (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91170,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 9,
+        "Name": "Executor (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91180,
+            90180.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10,
+        "Name": "Gardener (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91210,
+            90210.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11,
+        "Name": "Ronin IV (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90250,
+            91250.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12,
+        "Name": "Bio-Salamander (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90260,
+            91260.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13,
+        "Name": "Envoy (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90330,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 14,
+        "Name": "Royal Guard (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90340,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15,
+        "Name": "Firefighter (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90350,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 16,
+        "Name": "Deconstructor (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90360,
+            91360.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 17,
+        "Name": "Explorer (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90370,
+            91370.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 18,
+        "Name": "Bio-Bull (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90400,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 19,
+        "Name": "Acid Ant (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90410,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20,
+        "Name": "Musashi VI (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90420,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 21,
+        "Name": "Musashi IX (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90430,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 22,
+        "Name": "Terrapod (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90440,
+            91440.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 23,
+        "Name": "Musashi IX",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81200,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 24,
+        "Name": "Nozzle",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81500,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 25,
+        "Name": "Lancer",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90220,
+            91220.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 26,
+        "Name": "Polar Soldier",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92450,
+            91450.0,
+            90450.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 27,
+        "Name": "Deep-sea Ambusher",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92460,
+            91460.0,
+            90460.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 28,
+        "Name": "Heteromer Hydraulic (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92470,
+            91470.0,
+            90470.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 29,
+        "Name": "Heteromer Sentry Gun (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92480,
+            91480.0,
+            90480.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30,
+        "Name": "Heteromer Aerial Monitor (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92490,
+            91490.0,
+            90490.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 31,
+        "Name": "Deconstruct Unit",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90600,
+            91600.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 32,
+        "Name": "Repair Unit",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90610,
+            91610.0,
+            92610.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 33,
+        "Name": "Fire Unit",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90620,
+            91620.0,
+            92620.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 34,
+        "Name": "Longfoot",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90630,
+            91630.0,
+            92630.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 35,
+        "Name": "Blubber VI",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90640,
+            91640.0,
+            92640.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 36,
+        "Name": "Ballwheel IV",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90650,
+            91650.0,
+            92650.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 37,
+        "Name": "Hanged Man III",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90660,
+            91660.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 38,
+        "Name": "Kemuri I",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90670,
+            91670.0,
+            92670.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 39,
+        "Name": "Kowloong Crew - Yazi",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90680,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 40,
+        "Name": "Chest Laser",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90690,
+            91690.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 41,
+        "Name": "Prime Chest Laser",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90700,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 42,
+        "Name": "Roseblade",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81300,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 43,
+        "Name": "Rabbit",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90760,
+            91760.0,
+            92760.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 44,
+        "Name": "Martini",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90720,
+            91720.0,
+            92720.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 45,
+        "Name": "Mr. White",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90730,
+            91730.0,
+            92730.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 46,
+        "Name": "A Mao",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90740,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 47,
+        "Name": "Cathy",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90710,
+            91710.0,
+            92710.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 48,
+        "Name": "Snow Owl",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91750,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 49,
+        "Name": "Squid",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91770,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 50,
+        "Name": "Bear",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90780,
+            91780.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 51,
+        "Name": "Hanged Man I (Basic)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90790,
+            91790.0,
+            92790.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 52,
+        "Name": "Yunlu (Basic)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90800,
+            91800.0,
+            92800.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 53,
+        "Name": "Tai'E I (Basic)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90810,
+            91810.0,
+            92810.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 54,
+        "Name": "Snow Owl",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90750,
+            91750.0,
+            92750.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 55,
+        "Name": "Luo",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90830,
+            91830.0,
+            92830.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 56,
+        "Name": "Shieldbearer (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90190,
+            91190.0,
+            92190.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 57,
+        "Name": "Missionary (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90170,
+            91170.0,
+            92170.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 58,
+        "Name": "Naval 5 - Squid (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90770,
+            91770.0,
+            92770.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 59,
+        "Name": "Tamer (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90130,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 60,
+        "Name": "Construct (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90380,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 61,
+        "Name": "Popper",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92860,
+            91860.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 62,
+        "Name": "Jaspers",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90870,
+            92870.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 63,
+        "Name": "Wanshi Update Zombie Construct",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92890,
+            91890.0,
+            90890.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 64,
+        "Name": "Wanshi Update Stone Humanoid",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92900,
+            91900.0,
+            90900.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 65,
+        "Name": "Anniversary Chomper",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92850,
+            91850.0,
+            90850.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 66,
+        "Name": "Monkfish (Normal)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92930,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 67,
+        "Name": "Monkfish (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91930,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 68,
+        "Name": "Scorpion (Normal)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92940,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 69,
+        "Name": "Scorpion (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91940,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 70,
+        "Name": "Hammerhead (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91950,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 71,
+        "Name": "Hammerhead (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90950,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 72,
+        "Name": "Blair",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92960,
+            91960.0,
+            90960.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 73,
+        "Name": "Bot",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92970,
+            91970.0,
+            90970.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 74,
+        "Name": "Patrol Wagon",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91980,
+            90980.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 75,
+        "Name": "Sanitation Robot",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93012,
+            93011.0,
+            93010.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 76,
+        "Name": "Water Beast",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93022,
+            93021.0,
+            93020.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 77,
+        "Name": "Skateboard",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90992,
+            90991.0,
+            90990.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 78,
+        "Name": "Rubber Man",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93032,
+            93031.0,
+            93030.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 79,
+        "Name": "Female Construct",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93051,
+            93052.0,
+            93054.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 80,
+        "Name": "Female Construct Captain",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93060,
+            93061.0,
+            93062.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 81,
+        "Name": "Sanctuary Guard",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93072,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 82,
+        "Name": "Harvester",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90390,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 200,
+        "Name": "Micawberism Cloisters Shieldbearer",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            901900,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 201,
+        "Name": "Micawberism Cloisters Repairer",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            900300,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 202,
+        "Name": "Micawberism Cloisters Ground Monitor",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            900900,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 203,
+        "Name": "Micawberism Cloisters Hydraulic",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            901500,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 204,
+        "Name": "Micawberism Cloisters Tamer",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            901300,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 205,
+        "Name": "Micawberism Cloisters Ronin IV",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            902500,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 206,
+        "Name": "Micawberism Cloisters Hetero Fire Unit",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            906200,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 207,
+        "Name": "Micawberism Cloisters Executor",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            901800,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 208,
+        "Name": "Micawberism Cloisters Gardener",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            902100,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 209,
+        "Name": "Micawberism Cloisters Blubber VI",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            906400,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 210,
+        "Name": "Micawberism Cloisters Explorer",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            903700,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 211,
+        "Name": "Micawberism Cloisters Royal Guard",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            903400,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 212,
+        "Name": "Micawberism Cloisters Ballwheel",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            906500,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 213,
+        "Name": "Micawberism Cloisters Excavator",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            902200,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 214,
+        "Name": "Micawberism Cloisters Bio-Salamander",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            902600,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 215,
+        "Name": "Micawberism Cloisters Deconstructor",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            903600,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 216,
+        "Name": "Micawberism Cloisters Polar Soldier",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            904500,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 217,
+        "Name": "Micawberism Cloisters Prime",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            907000,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 218,
+        "Name": "Micawberism Cloisters Terrapod",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            904400,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 219,
+        "Name": "Micawberism Cloisters Envoy",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            903300,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 220,
+        "Name": "Musashi IX",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            8120900,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 221,
+        "Name": "Roseblade",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            8130000,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 222,
+        "Name": "Riot",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            8215000,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 223,
+        "Name": "Camu",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            8310000,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 224,
+        "Name": "Fairy (Wind) Ordinary",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93114,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 225,
+        "Name": "Fairy (Wind) Extreme",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93110,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 226,
+        "Name": "Fairy (Wind) Enhanced",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93112,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 227,
+        "Name": "Fairy (Fire) Ordinary",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93115,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 228,
+        "Name": "Fairy (Fire) Extreme",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93111,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 229,
+        "Name": "Fairy (Fire) Enhanced",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93113,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 230,
+        "Name": "Treant (Ordinary)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93101,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 231,
+        "Name": "Treant (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93103,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 232,
+        "Name": "Treant (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93102,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 233,
+        "Name": "Zhu (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91850,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 234,
+        "Name": "Sea Squirt",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91900,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 235,
+        "Name": "Pilgrim",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91110,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 236,
+        "Name": "Scorpion",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91940,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 237,
+        "Name": "Beetle",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91830,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 238,
+        "Name": "Monkfish (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91930,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 239,
+        "Name": "SSG-Meanderer",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93021,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 240,
+        "Name": "DB02-Sanitizer",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93011,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 241,
+        "Name": "Phecda",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91690,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 242,
+        "Name": "Gangster (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93161,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 243,
+        "Name": "Heaven Breaker (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93141,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 244,
+        "Name": "Combined Auto Cannon (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93181,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 245,
+        "Name": "Ambulance (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93191,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 246,
+        "Name": "Wheel of Fortune (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93171,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 247,
+        "Name": "Deep-sea Ambusher (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91460,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 248,
+        "Name": "Protector (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91120,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 249,
+        "Name": "Hetero Deconstruct Unit (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91600,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 250,
+        "Name": "Buthus (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91940,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 251,
+        "Name": "Recycle Prisoner (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91950,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 252,
+        "Name": "Wheel of Fortune - Wheel",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93179,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 253,
+        "Name": "Roseblade",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81300,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 254,
+        "Name": "Camu",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            83110,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 255,
+        "Name": "Osiris",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            87010,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 256,
+        "Name": "Savago",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81800,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 257,
+        "Name": "Roland",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81600,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 258,
+        "Name": "Iron Maiden",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            817000,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 259,
+        "Name": "Sister",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            814000,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 260,
+        "Name": "Shark-speare",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            837000,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 261,
+        "Name": "Nozzle",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81510,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 262,
+        "Name": "Siren",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            84310,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 263,
+        "Name": "\u03b1",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            70220,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 264,
+        "Name": "Musashi VI (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91420,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 265,
+        "Name": "Royal Guard (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91340,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 266,
+        "Name": "Polar Soldier (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91450,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 267,
+        "Name": "Explorer (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91370,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 268,
+        "Name": "Excavator (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91220,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 269,
+        "Name": "A'Mao (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91740,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 270,
+        "Name": "Ground 1 - Polar Bear (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91780,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 271,
+        "Name": "Trailblazing Surfer (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91990,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 272,
+        "Name": "Gear (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91910,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 273,
+        "Name": "Harvester (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91390,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 274,
+        "Name": "Prime",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90701,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 275,
+        "Name": "Raprap",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            82200,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 276,
+        "Name": "Hanged Man III (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            94660,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 277,
+        "Name": "Guardian I (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            94790,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 278,
+        "Name": "Ronin IV (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            94250,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 279,
+        "Name": "Gung-hoer (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93161,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 280,
+        "Name": "Repairer",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            99000,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 281,
+        "Name": "Gun (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            94220,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 282,
+        "Name": "Demon Bane (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93121,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 283,
+        "Name": "God Slayer (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93131,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 284,
+        "Name": "Musashi IX",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81431,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 285,
+        "Name": "Executor (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91180,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 286,
+        "Name": "Explorer (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90370,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 287,
+        "Name": "Excavator (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90220,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 288,
+        "Name": "A'Mao (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90740,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 289,
+        "Name": "Ground 1 - Polar Bear (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90780,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 290,
+        "Name": "Trailblazing Surfer (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90990,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 291,
+        "Name": "Gear (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90913,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 292,
+        "Name": "Harvester (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90390,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 293,
+        "Name": "Musashi VI (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90420,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 294,
+        "Name": "Royal Guard (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90340,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 295,
+        "Name": "Polar Soldier (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90450,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 296,
+        "Name": "Recycle Prisoner (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90950,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 297,
+        "Name": "Hanged Man III (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            95660,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 298,
+        "Name": "Guardian I (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            95790,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 299,
+        "Name": "Ronin IV (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            95220,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 300,
+        "Name": "Demon Bane (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93120,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 301,
+        "Name": "God Slayer (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93130,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 302,
+        "Name": "Heaven Breaker (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93140,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 303,
+        "Name": "Firefighter (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90352,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 304,
+        "Name": "Bio-Bull (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90400,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 305,
+        "Name": "Acid Ant (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90410,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 306,
+        "Name": "Construct (Extreme)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            90383,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 307,
+        "Name": "Gabriel",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            83611,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 308,
+        "Name": "Roseblade",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81301,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 309,
+        "Name": "Camu",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            83103,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 310,
+        "Name": "Osiris",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            87011,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 311,
+        "Name": "Vassago",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            818001,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 312,
+        "Name": "Roland",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81601,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 313,
+        "Name": "Iron Maiden",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            817001,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 314,
+        "Name": "Sister",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            814001,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 315,
+        "Name": "Shark-speare",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            837002,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 316,
+        "Name": "Nozzle",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81511,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 317,
+        "Name": "Siren",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            84313,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 318,
+        "Name": "\u03b1",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81901,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 319,
+        "Name": "Musashi IX",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            81432,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 320,
+        "Name": "Raprap",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            82201,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 321,
+        "Name": "Gabriel",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            83604,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 322,
+        "Name": "Nalasr-E (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93181,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 323,
+        "Name": "Construct (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91380,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 324,
+        "Name": "Jaspers (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91870,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 325,
+        "Name": "Heal-Z (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93191,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 326,
+        "Name": "PK43 Type \"Sergeant\" (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91980,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 327,
+        "Name": "Drone (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93222,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 328,
+        "Name": "Delivery Person (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93231,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 329,
+        "Name": "Ambulance",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93191,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 330,
+        "Name": "Moon (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93241,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 848,
+        "Name": "Black Spider (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91200,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 849,
+        "Name": "Acid Ant (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91410,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 850,
+        "Name": "Hydraulic (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91150,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 851,
+        "Name": "Ground Monitor (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91090,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 852,
+        "Name": "Heteromer Hydraulic (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91470,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 853,
+        "Name": "Sentry Gun (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91160,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 854,
+        "Name": "Terrapod (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91440,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 855,
+        "Name": "Aerial Monitor (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91100,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 856,
+        "Name": "Chela Host (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93302,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 857,
+        "Name": "Redcoral Host (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93292,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 858,
+        "Name": "Hetero-Consciousness Host (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93312,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 862,
+        "Name": "Construct Commander (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93352,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 863,
+        "Name": "Female Construct",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93052,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 864,
+        "Name": "Female Construct Commander",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93061,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 865,
+        "Name": "Missionary",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91170,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 866,
+        "Name": "Kowloong Crew - Yazi (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91680,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 867,
+        "Name": "Phecda (Basic)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            92690,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 868,
+        "Name": "Courier-M (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93231,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 869,
+        "Name": "Gypsum Statue",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93372,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 870,
+        "Name": "Moon Eater (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93362,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 871,
+        "Name": "Brain Monster (Standing)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93382,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 872,
+        "Name": "Brain Monster (Prone)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93392,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 873,
+        "Name": "Stone Lion (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93412,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 874,
+        "Name": "Cheapshot (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93442,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 875,
+        "Name": "Mechanoid Monk (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93402,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 876,
+        "Name": "Soup Bun (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93432,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 877,
+        "Name": "Beetle (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91830,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 878,
+        "Name": "Tadpole (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93502,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 879,
+        "Name": "Female Construct",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93052,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 880,
+        "Name": "Female Construct Commander",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93061,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 881,
+        "Name": "Female Assassin",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93472,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 882,
+        "Name": "Construct Commander (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93352,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 883,
+        "Name": "Aurora Auto-Bot (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93541,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 884,
+        "Name": "Aurora Agent (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93481,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 885,
+        "Name": "Wheel of Fortune (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93171,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 886,
+        "Name": "Entangled Giant Sea Anemones (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93532,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 887,
+        "Name": "Abyss Angel (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93562,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 889,
+        "Name": "Candlestick",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            93581,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 890,
+        "Name": "Royal Guard (Enhanced)",
+        "IsSelect": 0,
+        "NpcId": [
+            null,
+            91340,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    }
+]

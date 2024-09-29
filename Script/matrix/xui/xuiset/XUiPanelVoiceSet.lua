@@ -38,7 +38,7 @@ function XUiPanelVoiceSet:InitUi()
     if not XDataCenter.UiPcManager.IsPc() and self.PanelMute then
         self.PanelMute.gameObject:SetActiveEx(false)
     end
-    self.TogMute.isOn = CS.XStandaloneSettingHelper.MuteInBackground
+    self.TogMute.isOn = CS.XSettingHelper.MuteInBackground
 end
 
 function XUiPanelVoiceSet:AddListener()
@@ -105,7 +105,7 @@ function XUiPanelVoiceSet:OnTogControlClick()
 end
 
 function XUiPanelVoiceSet:OnTogMuteClick()
-    self.Mute = self.TogMute.isOn
+    CS.XSettingHelper.MuteInBackground = self.TogMute.isOn
     self.IsDirty = true
 end
 
@@ -178,7 +178,7 @@ end
 function XUiPanelVoiceSet:ResetMute()
     if XDataCenter.UiPcManager.IsPc() and self.PanelMute then
         self.TogMute.isOn = false
-        CS.XStandaloneSettingHelper.MuteInBackground = self.TogMute.isOn
+        CS.XSettingHelper.MuteInBackground = self.TogMute.isOn
     end
 end
 

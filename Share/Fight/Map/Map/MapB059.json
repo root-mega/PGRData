@@ -1,0 +1,62 @@
+[
+    {
+        "Id": 15010201,
+        "Behavior": 15010201,
+        "Name": "\u7570\u754c\u906d\u9047",
+        "Environment": null,
+        "TerrainRoot": null,
+        "CloseLoadingDelay": 0.15,
+        "IsAsyncLoadNpc": null,
+        "SwitchNpcCd": 15,
+        "SceneCamera": 101,
+        "CameraId": 9,
+        "Terrains": [
+            null,
+            150102010,
+            null,
+            null
+        ],
+        "Position": [
+            null,
+            "0|0|0",
+            null,
+            null
+        ],
+        "Rotation": [
+            null,
+            "0|0|0",
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15010207,
+        "Behavior": 15010207,
+        "Name": "\u53cc\u516d\u8ffd\u9010",
+        "Environment": null,
+        "TerrainRoot": null,
+        "CloseLoadingDelay": 0.15,
+        "IsAsyncLoadNpc": null,
+        "SwitchNpcCd": 15,
+        "SceneCamera": 17,
+        "CameraId": 9,
+        "Terrains": [
+            null,
+            150102070,
+            null,
+            null
+        ],
+        "Position": [
+            null,
+            "0|0|0",
+            null,
+            null
+        ],
+        "Rotation": [
+            null,
+            "0|0|0",
+            null,
+            null
+        ]
+    }
+]

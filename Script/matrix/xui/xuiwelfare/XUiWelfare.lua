@@ -122,7 +122,7 @@ function XUiWelfare:InitTabButton()
                 if functionType == XAutoWindowConfigs.AutoFunctionType.NoticeActivity then
                     secondRedPoint = XDataCenter.ActivityManager.CheckRedPointByActivityId(subCfg.Id)
                 end
-                if subCount > 1 then
+                if not (subCount==1 and XAchievementConfigs.GetActivityGroupIsOnlyGroup(config.Id)==1) then
                     prefab = self:GetButtonPrefab(BtnType.Secondary, false, index, subCount)
                     ui = XUiHelper.Instantiate(prefab, self.PanelTitleBtnGroup.transform)
                     ui.gameObject:SetActiveEx(true)

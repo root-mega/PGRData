@@ -6,14 +6,22 @@
         "LeapRange": 80,
         "LeapTimes": 10,
         "WithBuffKind": [
+            null,
             6311090.0
         ],
-        "WithoutBuffKind": [],
+        "WithoutBuffKind": [
+            null,
+            null
+        ],
         "TargetType": 4,
         "Magics": [
+            null,
             631110.0
         ],
-        "LauncherMagics": [],
+        "LauncherMagics": [
+            null,
+            null
+        ],
         "Joint": "HitCase",
         "HitEffect": "FxTongyongFireShouji",
         "BeHitState": 100401011,
@@ -28,11 +36,23 @@
         "LeapInterval": 0.2,
         "LeapRange": 80,
         "LeapTimes": 10,
-        "WithBuffKind": [],
-        "WithoutBuffKind": [],
+        "WithBuffKind": [
+            null,
+            null
+        ],
+        "WithoutBuffKind": [
+            null,
+            null
+        ],
         "TargetType": 4,
-        "Magics": [],
-        "LauncherMagics": [],
+        "Magics": [
+            null,
+            null
+        ],
+        "LauncherMagics": [
+            null,
+            null
+        ],
         "Joint": "HitCase",
         "HitEffect": "FxTongyongFireShouji",
         "BeHitState": 100401011,
@@ -47,15 +67,116 @@
         "LeapInterval": 0.2,
         "LeapRange": 6,
         "LeapTimes": 3,
-        "WithBuffKind": [],
+        "WithBuffKind": [
+            null,
+            null
+        ],
         "WithoutBuffKind": [
+            null,
             7702770.0
         ],
         "TargetType": 4,
         "Magics": [
+            null,
             770276.0
         ],
-        "LauncherMagics": [],
+        "LauncherMagics": [
+            null,
+            null
+        ],
+        "Joint": "HitCase",
+        "HitEffect": "FxTongyongEleShouji",
+        "BeHitState": 100401011,
+        "BeHitDirection": 1,
+        "HitShakeDuration": 0.2,
+        "HitShakeIntensity": 0.1,
+        "HitShakeEulerY": 0
+    },
+    {
+        "Id": 74283201,
+        "Effect": "FxTongyongChain",
+        "LeapInterval": 0.2,
+        "LeapRange": 6,
+        "LeapTimes": 3,
+        "WithBuffKind": [
+            null,
+            null
+        ],
+        "WithoutBuffKind": [
+            null,
+            7428310.0
+        ],
+        "TargetType": 4,
+        "Magics": [
+            null,
+            742829.0
+        ],
+        "LauncherMagics": [
+            null,
+            null
+        ],
+        "Joint": "HitCase",
+        "HitEffect": "FxTongyongEleShouji",
+        "BeHitState": 100401011,
+        "BeHitDirection": 1,
+        "HitShakeDuration": 0.2,
+        "HitShakeIntensity": 0.1,
+        "HitShakeEulerY": 0
+    },
+    {
+        "Id": 74283801,
+        "Effect": "FxTongyongChain",
+        "LeapInterval": 0.2,
+        "LeapRange": 6,
+        "LeapTimes": 3,
+        "WithBuffKind": [
+            null,
+            null
+        ],
+        "WithoutBuffKind": [
+            null,
+            7428370.0
+        ],
+        "TargetType": 4,
+        "Magics": [
+            null,
+            742836.0
+        ],
+        "LauncherMagics": [
+            null,
+            null
+        ],
+        "Joint": "HitCase",
+        "HitEffect": "FxTongyongEleShouji",
+        "BeHitState": 100401011,
+        "BeHitDirection": 1,
+        "HitShakeDuration": 0.2,
+        "HitShakeIntensity": 0.1,
+        "HitShakeEulerY": 0
+    },
+    {
+        "Id": 74284301,
+        "Effect": "FxTongyongChain",
+        "LeapInterval": 0.2,
+        "LeapRange": 6,
+        "LeapTimes": 3,
+        "WithBuffKind": [
+            null,
+            null
+        ],
+        "WithoutBuffKind": [
+            null,
+            7428420.0
+        ],
+        "TargetType": 4,
+        "Magics": [
+            null,
+            742841.0
+        ],
+        "LauncherMagics": [
+            null,
+            null
+        ],
         "Joint": "HitCase",
         "HitEffect": "FxTongyongEleShouji",
         "BeHitState": 100401011,

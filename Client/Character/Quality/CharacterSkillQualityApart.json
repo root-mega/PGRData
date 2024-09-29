@@ -838,5 +838,75 @@
         "Level": 3,
         "Intro": "<color=#D91414>Signature - Sunken Finale</color> gains an Extra DMG Bonus based on the pings in the <color=#D91414>Dark Tide Form</color>, with each orb pinged granting a <color=#D91414>3%</color> bonus, up to <color=#D91414>16</color> orbs.",
         "SkillId": 127326
+    },
+    {
+        "Id": 85,
+        "CharacterId": 1281002,
+        "Quality": 3,
+        "Phase": 5,
+        "Name": "Azure Flame",
+        "Level": 1,
+        "Intro": "Casting Signature will activate all available QTEs.",
+        "SkillId": 128224
+    },
+    {
+        "Id": 86,
+        "CharacterId": 1281002,
+        "Quality": 4,
+        "Phase": 0,
+        "Name": "Azure Flame",
+        "Level": 2,
+        "Intro": "Fire DMG increases by <color=#D91414>25%</color>. Casting <color=#D91414>Signature - Burst Drive</color> will rearrange all Signal Orbs into 3-Pings.",
+        "SkillId": 128224
+    },
+    {
+        "Id": 87,
+        "CharacterId": 1281002,
+        "Quality": 4,
+        "Phase": 3,
+        "Name": "Miraculous Star",
+        "Level": 1,
+        "Intro": "When charging <color=#D91414>Basic Attack - Skycrushing Blade</color>, performing a Red/Yellow 3-Ping can trigger <color=#D91414>Core Passive - Reflective Nebula</color>. Each Signal Orb pinged while charging will increase the Base DMG of the sword-pulling attack of this <color=#D91414>Basic Attack - Skycrushing Blade</color> by <color=#D91414>20%</color>.  <color=#D91414>Basic Attack - Skycrushing Blade</color> can consume the enhancement effect of <color=#D91414>Core Passive - Enhanced Blast</color> when pulling the sword out, increasing the Base DMG of the sword-pulling attack by <color=#D91414>100%</color>.",
+        "SkillId": 128225
+    },
+    {
+        "Id": 88,
+        "CharacterId": 1281002,
+        "Quality": 5,
+        "Phase": 0,
+        "Name": "Miraculous Star",
+        "Level": 2,
+        "Intro": "Base DMG of <color=#D91414>Astral Edge</color>, <color=#D91414>Stellar Cross</color>, and <color=#D91414>Entangled Heart</color> increases by <color=#D91414>70%</color>. Casting <color=#D91414>Basic Attack - Photon Cannon</color> also grants a random Signal Orb.",
+        "SkillId": 128225
+    },
+    {
+        "Id": 89,
+        "CharacterId": 1281002,
+        "Quality": 5,
+        "Phase": 3,
+        "Name": "Absolute Zero",
+        "Level": 1,
+        "Intro": "Fire DMG of <color=#D91414>Flare Strike</color>, <color=#D91414>Starry Bayonet</color>, <color=#D91414>Core Passive - Limit Removed</color>, and the sword-pulling attack of <color=#D91414>Basic Attack - Skycrushing Blade</color> increases by <color=#D91414>30%</color>.",
+        "SkillId": 128226
+    },
+    {
+        "Id": 90,
+        "CharacterId": 1281002,
+        "Quality": 5,
+        "Phase": 6,
+        "Name": "Absolute Zero",
+        "Level": 2,
+        "Intro": "ATK increases in <color=#D91414>Azure Form</color> by <color=#D91414>15%</color>.",
+        "SkillId": 128226
+    },
+    {
+        "Id": 91,
+        "CharacterId": 1281002,
+        "Quality": 6,
+        "Phase": 0,
+        "Name": "Absolute Zero",
+        "Level": 3,
+        "Intro": "Extra DMG Bonus of <color=#D91414>Signature - Morning Star</color> and <color=#D91414>Entangled Heart</color> increases by <color=#D91414>20%</color>.",
+        "SkillId": 128226
     }
 ]

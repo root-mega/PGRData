@@ -12546,6 +12546,108 @@
         ]
     },
     {
+        "Id": 21970211,
+        "ModelName": [
+            null,
+            "Assets/Product/Role/WeaponPrefab/E3CelloMainMd030011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3CelloMainMd030011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3CelloMd030011.prefab"
+        ],
+        "ResonanceEffectPath": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ResonanceEffectShowDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "AnimController": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimStateName": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimCueId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAutoRotateDelay": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 21970212,
+        "ModelName": [
+            null,
+            "Assets/Product/Role/WeaponPrefab/E3CelloSubMd030011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3CelloSubMd030011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3CelloMd030011.prefab"
+        ],
+        "ResonanceEffectPath": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ResonanceEffectShowDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "AnimController": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimStateName": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimCueId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAutoRotateDelay": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
         "Id": 12040111,
         "ModelName": [
             null,
@@ -19686,6 +19788,108 @@
         ]
     },
     {
+        "Id": 23170111,
+        "ModelName": [
+            null,
+            "Assets/Product/Role/WeaponPrefab/E3BangbinataMd020011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3BangbinataMd020011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3BangbinataMd020011.prefab"
+        ],
+        "ResonanceEffectPath": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ResonanceEffectShowDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "AnimController": [
+            null,
+            "Assets/Product/Role/WeaponAnimation/Bangbinata/BangbinataMdCommon/Uistand/Uistand1.controller",
+            "Assets/Product/Role/WeaponAnimation/Bangbinata/BangbinataMdCommon/Fight/Fight.controller",
+            "Assets/Product/Role/WeaponAnimation/Bangbinata/BangbinataMdCommon/Uistand/Uistand.controller"
+        ],
+        "UiAnimStateName": [
+            null,
+            null,
+            null,
+            "Uistandstart"
+        ],
+        "UiAnimCueId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAutoRotateDelay": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 23170112,
+        "ModelName": [
+            null,
+            "Assets/Product/Role/WeaponPrefab/E3BangbinataMd020011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3BangbinataMd020011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3BangbinataMd020011.prefab"
+        ],
+        "ResonanceEffectPath": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ResonanceEffectShowDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "AnimController": [
+            null,
+            "Assets/Product/Role/WeaponAnimation/Bangbinata/BangbinataMdCommon/Uistand/Uistand1.controller",
+            "Assets/Product/Role/WeaponAnimation/Bangbinata/BangbinataMdCommon/Fight/Fight.controller",
+            "Assets/Product/Role/WeaponAnimation/Bangbinata/BangbinataMdCommon/Uistand/Uistand.controller"
+        ],
+        "UiAnimStateName": [
+            null,
+            null,
+            null,
+            "Uistandstart"
+        ],
+        "UiAnimCueId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAutoRotateDelay": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
         "Id": 13240111,
         "ModelName": [
             null,
@@ -21543,7 +21747,58 @@
         ],
         "AnimController": [
             null,
-            "Assets/Product/Role/WeaponAnimation/Alpha/E3AlphaMd020011/Uistand/UiStand1.controller",
+            "Assets/Product/Role/WeaponAnimation/Alpha/AlphaMdCommon/Uistand/UiStand1.controller",
+            "Assets/Product/Role/WeaponAnimation/Alpha/AlphaMdCommon/Fight/Fight.controller",
+            null
+        ],
+        "UiAnimStateName": [
+            null,
+            "Uistandstart",
+            null,
+            null
+        ],
+        "UiAnimCueId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAutoRotateDelay": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 23470121,
+        "ModelName": [
+            null,
+            "Assets/Product/Role/WeaponPrefab/E3AlphaMd030011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3AlphaMd030011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3AlphaMd030011.prefab"
+        ],
+        "ResonanceEffectPath": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ResonanceEffectShowDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "AnimController": [
+            null,
+            "Assets/Product/Role/WeaponAnimation/Alpha/AlphaMdCommon/Uistand/UiStand1.controller",
             "Assets/Product/Role/WeaponAnimation/Alpha/AlphaMdCommon/Fight/Fight.controller",
             null
         ],
@@ -23133,6 +23388,210 @@
             null,
             null,
             "Changestart01"
+        ],
+        "UiAnimCueId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAutoRotateDelay": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13950111,
+        "ModelName": [
+            null,
+            "Assets/Product/Role/WeaponPrefab/E3RockcannonMd010011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3RockcannonMd010011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3RockcannonMd010011.prefab"
+        ],
+        "ResonanceEffectPath": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ResonanceEffectShowDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "AnimController": [
+            null,
+            null,
+            "Assets/Product/Role/WeaponAnimation/Blackrock/BlackrockMdCommon/Fight/Fight.controller",
+            null
+        ],
+        "UiAnimStateName": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimCueId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAutoRotateDelay": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13950112,
+        "ModelName": [
+            null,
+            "Assets/Product/Role/WeaponPrefab/E1CommonEmptyMd010011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3RockbladecannonMd010011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3RockbladecannonMd010011.prefab"
+        ],
+        "ResonanceEffectPath": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ResonanceEffectShowDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "AnimController": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimStateName": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimCueId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAutoRotateDelay": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13960111,
+        "ModelName": [
+            null,
+            "Assets/Product/Role/WeaponPrefab/E3RockcannonMd010011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3RockcannonMd010011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3RockcannonMd010011.prefab"
+        ],
+        "ResonanceEffectPath": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ResonanceEffectShowDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "AnimController": [
+            null,
+            null,
+            "Assets/Product/Role/WeaponAnimation/Blackrock/BlackrockMdCommon/Fight/Fight.controller",
+            null
+        ],
+        "UiAnimStateName": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimCueId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAutoRotateDelay": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13960112,
+        "ModelName": [
+            null,
+            "Assets/Product/Role/WeaponPrefab/E1CommonEmptyMd010011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3RockbladecannonMd010011.prefab",
+            "Assets/Product/Role/WeaponPrefab/E3RockbladecannonMd010011.prefab"
+        ],
+        "ResonanceEffectPath": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "ResonanceEffectShowDelay": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "AnimController": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "UiAnimStateName": [
+            null,
+            null,
+            null,
+            null
         ],
         "UiAnimCueId": [
             null,
@@ -32262,108 +32721,6 @@
             null,
             null,
             null
-        ],
-        "UiAnimCueId": [
-            null,
-            null,
-            null,
-            null
-        ],
-        "UiAnimDelay": [
-            null,
-            null,
-            null,
-            null
-        ],
-        "UiAutoRotateDelay": [
-            null,
-            null,
-            null,
-            null
-        ]
-    },
-    {
-        "Id": 23170111,
-        "ModelName": [
-            null,
-            "Assets/Product/Role/WeaponPrefab/E3BangbinataMd020011.prefab",
-            "Assets/Product/Role/WeaponPrefab/E3BangbinataMd020011.prefab",
-            "Assets/Product/Role/WeaponPrefab/E3BangbinataMd020011.prefab"
-        ],
-        "ResonanceEffectPath": [
-            null,
-            null,
-            null,
-            null
-        ],
-        "ResonanceEffectShowDelay": [
-            null,
-            null,
-            null,
-            null
-        ],
-        "AnimController": [
-            null,
-            "Assets/Product/Role/WeaponAnimation/Bangbinata/BangbinataMdCommon/Uistand/Uistand1.controller",
-            "Assets/Product/Role/WeaponAnimation/Bangbinata/BangbinataMdCommon/Fight/Fight.controller",
-            "Assets/Product/Role/WeaponAnimation/Bangbinata/BangbinataMdCommon/Uistand/Uistand.controller"
-        ],
-        "UiAnimStateName": [
-            null,
-            null,
-            null,
-            "Uistandstart"
-        ],
-        "UiAnimCueId": [
-            null,
-            null,
-            null,
-            null
-        ],
-        "UiAnimDelay": [
-            null,
-            null,
-            null,
-            null
-        ],
-        "UiAutoRotateDelay": [
-            null,
-            null,
-            null,
-            null
-        ]
-    },
-    {
-        "Id": 23170112,
-        "ModelName": [
-            null,
-            "Assets/Product/Role/WeaponPrefab/E3BangbinataMd020011.prefab",
-            "Assets/Product/Role/WeaponPrefab/E3BangbinataMd020011.prefab",
-            "Assets/Product/Role/WeaponPrefab/E3BangbinataMd020011.prefab"
-        ],
-        "ResonanceEffectPath": [
-            null,
-            null,
-            null,
-            null
-        ],
-        "ResonanceEffectShowDelay": [
-            null,
-            null,
-            null,
-            null
-        ],
-        "AnimController": [
-            null,
-            "Assets/Product/Role/WeaponAnimation/Bangbinata/BangbinataMdCommon/Uistand/Uistand1.controller",
-            "Assets/Product/Role/WeaponAnimation/Bangbinata/BangbinataMdCommon/Fight/Fight.controller",
-            "Assets/Product/Role/WeaponAnimation/Bangbinata/BangbinataMdCommon/Uistand/Uistand.controller"
-        ],
-        "UiAnimStateName": [
-            null,
-            null,
-            null,
-            "Uistandstart"
         ],
         "UiAnimCueId": [
             null,

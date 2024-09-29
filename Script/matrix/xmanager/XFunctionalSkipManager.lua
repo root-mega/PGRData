@@ -1,4 +1,5 @@
 XFunctionalSkipManagerCreator = function()
+    ---@class XFunctionalSkipManager
     local XFunctionalSkipManager = {}
     local DormDrawGroudId = CS.XGame.ClientConfig:GetInt("DormDrawGroudId")
 
@@ -1238,7 +1239,7 @@ XFunctionalSkipManagerCreator = function()
         if not XFunctionManager.DetectionFunction(XFunctionManager.FunctionName.Passport) then
             return
         end
-        XDataCenter.PassportManager.OpenMainUi()
+        XMVCA.XPassport:OpenMainUi()
     end
 
     function XFunctionalSkipManager.SkipToPickFlipRewardActivity(skipData)
@@ -1349,7 +1350,9 @@ XFunctionalSkipManagerCreator = function()
 
     --跳转到音游
     function XFunctionalSkipManager.OnOpenTaikoMaster()
-        XDataCenter.TaikoMasterManager.OpenUi()
+        ---@type XTaikoMasterAgency
+        local agency = XMVCA:GetAgency(ModuleId.XTaikoMaster)
+        agency:ExOpenMainUi()
     end
 
     --跳转到多维跳转
@@ -1377,7 +1380,9 @@ XFunctionalSkipManagerCreator = function()
     end
 
     function XFunctionalSkipManager.OpenTwoSideTower()
-        XDataCenter.TwoSideTowerManager.OnOpenMain()
+        ---@type XTwoSideTowerAgency
+        local twoSideTowerAgency = XMVCA:GetAgency(ModuleId.XTwoSideTower)
+        twoSideTowerAgency:ExOpenMainUi()
     end
 
     function XFunctionalSkipManager.OpenLotto(list)
@@ -1535,7 +1540,7 @@ XFunctionalSkipManagerCreator = function()
             XUiManager.TipText("EquipGuideDrawNoWeaponTip")
             return
         end
-        XDataCenter.DrawManager.OpenDrawUi(param1, param2, drawId)
+        XDataCenter.DrawManager.OpenDrawUi(param1, param2, drawId,nil,CS.XGame.Config:GetString('UiEquipStrengthenSkipDrawGroups'))
     end
     --endregion------------------装备目标系统跳转 finish------------------
 
@@ -1777,15 +1782,27 @@ XFunctionalSkipManagerCreator = function()
         agency:ExOpenMainUi()
     end
     
+    --战棋
+    function XFunctionalSkipManager.SkipToBlackRockChess()
+        ---@type XBlackRockChessAgency
+        local agency = XMVCA:GetAgency(ModuleId.XBlackRockChess)
+        agency:ExOpenMainUi()
+    end
+    
+    -- 黑岩联动关
+    function XFunctionalSkipManager.SkipToBlackRockStage()
+        XLuaUiManager.Open("UiBlackRockStage")
+    end
+    
     --剧情关章节界面
     function XFunctionalSkipManager.SkipToFashionStoryChapter(skipData)
         if skipData.ParamId then
             local IsOpen,LockReason=XDataCenter.FashionStoryManager.CheckGroupIsCanOpen(skipData.ParamId)
             XDataCenter.FashionStoryManager.EnterPaintingGroupPanel(skipData.ParamId,IsOpen,LockReason,function()
-        XLuaUiManager.PopThenOpen("UiFubenFashionPaintingNew",skipData.ParamId)
+                XLuaUiManager.PopThenOpen("UiFubenFashionPaintingNew",skipData.ParamId)
                 XDataCenter.FashionStoryManager.MarkGroupAsHadAccess(skipData.ParamId)
             end)
-    end
+        end
     end
     
     -- EquipGuideDrawNoWeaponTip

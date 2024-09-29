@@ -1,0 +1,1822 @@
+[
+    {
+        "StageId": 30161441,
+        "ChapterId": 1,
+        "Name": "Castaway - 1",
+        "Desc": "In the dim space, a Construct known as Mori slowly awakens.",
+        "StageType": 1,
+        "PreStageId": null,
+        "FirstRewardId": 17835.0,
+        "RewardUnit": null,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            null
+        ],
+        "RecommendMentalLv": 1,
+        "MainlineTips": "Find a way out of the Otherworld",
+        "IconPos": 1,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161442,
+        "ChapterId": 1,
+        "Name": "Castaway - Fin",
+        "Desc": "Guided by BN-02, Mori begins searching for an exit from this space.",
+        "StageType": 1,
+        "PreStageId": 30161441.0,
+        "FirstRewardId": 17836.0,
+        "RewardUnit": 80.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            2,
+            null
+        ],
+        "RecommendMentalLv": 2,
+        "MainlineTips": "Leave the Otherworld",
+        "IconPos": 2,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161443,
+        "ChapterId": 2,
+        "Name": "Foreign Lands - 1",
+        "Desc": "After leaving the Otherworld, Mori arrives in a city in ruins.",
+        "StageType": 1,
+        "PreStageId": null,
+        "FirstRewardId": 17837.0,
+        "RewardUnit": 80.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            3,
+            null
+        ],
+        "RecommendMentalLv": 2,
+        "MainlineTips": "Check the City Ruins",
+        "IconPos": 1,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161444,
+        "ChapterId": 2,
+        "Name": "Foreign Lands - 2",
+        "Desc": "The familiar scene puzzles Mori.",
+        "StageType": 1,
+        "PreStageId": 30161443.0,
+        "FirstRewardId": 17838.0,
+        "RewardUnit": 80.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            4,
+            null
+        ],
+        "RecommendMentalLv": 3,
+        "MainlineTips": "Advance to the city's terminal area",
+        "IconPos": 2,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161445,
+        "ChapterId": 2,
+        "Name": "Foreign Lands - 3",
+        "Desc": "The path to the terminal is blocked by the Red Tide. Through BN-02's scans, Mori pinpoints the location of the protective gear.",
+        "StageType": 1,
+        "PreStageId": 30161444.0,
+        "FirstRewardId": 17839.0,
+        "RewardUnit": 80.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            5,
+            null
+        ],
+        "RecommendMentalLv": 3,
+        "MainlineTips": "Advance to the city's terminal area",
+        "IconPos": 4,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161446,
+        "ChapterId": 2,
+        "Name": "Foreign Lands - 4",
+        "Desc": "Mori sets off for a nearby base to acquire protective gear.",
+        "StageType": 1,
+        "PreStageId": 30161445.0,
+        "FirstRewardId": 17840.0,
+        "RewardUnit": 80.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            6,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the nearby base to get protective gear",
+        "IconPos": 5,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161447,
+        "ChapterId": 2,
+        "Name": "Foreign Lands - 5",
+        "Desc": "The base is on lockdown. Mori provides cover for BN-02 to hack the entrance.",
+        "StageType": 1,
+        "PreStageId": 30161446.0,
+        "FirstRewardId": 17841.0,
+        "RewardUnit": 80.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            7,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Hack the base entrance",
+        "IconPos": 6,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161448,
+        "ChapterId": 2,
+        "Name": "Foreign Lands - 6",
+        "Desc": "Upon entering the base, an unidentified colossal mechanoid suddenly attacks.",
+        "StageType": 1,
+        "PreStageId": 30161447.0,
+        "FirstRewardId": 17842.0,
+        "RewardUnit": 80.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            8,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Enter the base to get protective gear",
+        "IconPos": 8,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161449,
+        "ChapterId": 2,
+        "Name": "Foreign Lands - 7",
+        "Desc": "After burying the hatchet, Mori and DL-427 cross the Red Tide area together.",
+        "StageType": 1,
+        "PreStageId": 30161448.0,
+        "FirstRewardId": 17843.0,
+        "RewardUnit": 80.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            9,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Cross the Red Tide area",
+        "IconPos": 9,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161450,
+        "ChapterId": 2,
+        "Name": "Foreign Lands - Fin",
+        "Desc": "Bidding farewell to DL-427, Mori arrives at the terminal, waiting for BN-02 to gather data.",
+        "StageType": 2,
+        "PreStageId": 30161449.0,
+        "FirstRewardId": 17844.0,
+        "RewardUnit": 100.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            10,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Collect data from area terminal",
+        "IconPos": 11,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161488,
+        "ChapterId": 2,
+        "Name": "Clean the Area I",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": null,
+        "RewardUnit": 240.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            3.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 12,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161489,
+        "ChapterId": 2,
+        "Name": "Clean the Area II",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": null,
+        "RewardUnit": 240.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            3.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 13,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161490,
+        "ChapterId": 2,
+        "Name": "Clean the Area III",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": null,
+        "RewardUnit": 240.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            3.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 14,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161451,
+        "ChapterId": 3,
+        "Name": "Seize - 1",
+        "Desc": "After BN-02 is damaged, Mori heads to the repair area to fix it.",
+        "StageType": 1,
+        "PreStageId": null,
+        "FirstRewardId": 17845.0,
+        "RewardUnit": 100.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            11,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the repair area to fix BN-02",
+        "IconPos": 1,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161452,
+        "ChapterId": 3,
+        "Name": "Seize - 2",
+        "Desc": "Mori and BN-02 head to a nearby high-energy facility for clues.",
+        "StageType": 1,
+        "PreStageId": 30161451.0,
+        "FirstRewardId": 17846.0,
+        "RewardUnit": 100.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            12,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the repair area to fix BN-02",
+        "IconPos": 2,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161453,
+        "ChapterId": 3,
+        "Name": "Seize - 3",
+        "Desc": "In the supply room, BN-02 discovers new clues.",
+        "StageType": 1,
+        "PreStageId": 30161452.0,
+        "FirstRewardId": 17847.0,
+        "RewardUnit": 100.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            13,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the power supply room",
+        "IconPos": 4,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161454,
+        "ChapterId": 3,
+        "Name": "Seize - 4",
+        "Desc": "With the core of the repair area located, Mori and BN-02 set off immediately.",
+        "StageType": 1,
+        "PreStageId": 30161453.0,
+        "FirstRewardId": 17848.0,
+        "RewardUnit": 100.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            14,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the power supply room",
+        "IconPos": 5,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161455,
+        "ChapterId": 3,
+        "Name": "Seize - 5",
+        "Desc": "Mori enters the core of the repair area. Dangers lurk everywhere.",
+        "StageType": 1,
+        "PreStageId": 30161454.0,
+        "FirstRewardId": 17849.0,
+        "RewardUnit": 100.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            15,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the terminal in the repair area",
+        "IconPos": 6,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161456,
+        "ChapterId": 3,
+        "Name": "Seize - 6",
+        "Desc": "Mori and BN-02 activate the elevator to the core's upper level.",
+        "StageType": 1,
+        "PreStageId": 30161455.0,
+        "FirstRewardId": 17850.0,
+        "RewardUnit": 100.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            16,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the terminal in the repair area",
+        "IconPos": 8,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161457,
+        "ChapterId": 3,
+        "Name": "Seize - 7",
+        "Desc": "Upon reaching the terminal in the repair area, BN-02 initiates data collection and self-repair.",
+        "StageType": 1,
+        "PreStageId": 30161456.0,
+        "FirstRewardId": 17851.0,
+        "RewardUnit": 100.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            17,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Gather data from the repair area terminal",
+        "IconPos": 9,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161458,
+        "ChapterId": 3,
+        "Name": "Seize - Fin",
+        "Desc": "At the helipad, the area's leader intercepts Mori and BN-02, who are in the midst of hijacking a fighter.",
+        "StageType": 2,
+        "PreStageId": 30161457.0,
+        "FirstRewardId": 17852.0,
+        "RewardUnit": 120.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            18,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Leave the repair area",
+        "IconPos": 11,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161491,
+        "ChapterId": 3,
+        "Name": "Clean the Area I",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": null,
+        "RewardUnit": 300.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            11.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 12,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161492,
+        "ChapterId": 3,
+        "Name": "Clean the Area II",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": null,
+        "RewardUnit": 300.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            11.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 13,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161493,
+        "ChapterId": 3,
+        "Name": "Clean the Area III",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": null,
+        "RewardUnit": 300.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            11.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 14,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161459,
+        "ChapterId": 4,
+        "Name": "Sanity - 1",
+        "Desc": "After the battle, with the fighter's power depleted, Mori and BN-02 make an emergency landing on the wasteland by the Red Tide sea.",
+        "StageType": 1,
+        "PreStageId": null,
+        "FirstRewardId": 17853.0,
+        "RewardUnit": 120.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            19,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the wasteland",
+        "IconPos": 1,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161460,
+        "ChapterId": 4,
+        "Name": "Sanity - 2",
+        "Desc": "In the wasteland, BN-02 scans and locates a nearby signal tower.",
+        "StageType": 1,
+        "PreStageId": 30161459.0,
+        "FirstRewardId": 17854.0,
+        "RewardUnit": 120.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            20,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Explore the surroundings",
+        "IconPos": 2,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161461,
+        "ChapterId": 4,
+        "Name": "Sanity - 3",
+        "Desc": "At the signal tower, Mori rescues and befriends Ks-321. To glean intel on the Red Tide creatures, Mori decides to visit Ks-321's camp.",
+        "StageType": 1,
+        "PreStageId": 30161460.0,
+        "FirstRewardId": 17855.0,
+        "RewardUnit": 120.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            21,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the signal tower",
+        "IconPos": 4,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161462,
+        "ChapterId": 4,
+        "Name": "Sanity - 4",
+        "Desc": "Arriving at the mechanoid camp, a swarm of Red Tide creatures suddenly attacks, plunging the camp into crisis.",
+        "StageType": 1,
+        "PreStageId": 30161461.0,
+        "FirstRewardId": 17856.0,
+        "RewardUnit": 120.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            22,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the mechanoid camp",
+        "IconPos": 5,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161463,
+        "ChapterId": 4,
+        "Name": "Sanity - 5",
+        "Desc": "Mori leaves the camp and arrives at the seaside. The Red Tide creatures are strangely scarce here. Mori is disturbed by the eerie atmosphere.",
+        "StageType": 1,
+        "PreStageId": 30161462.0,
+        "FirstRewardId": 17857.0,
+        "RewardUnit": 120.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            23,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the terminal located in the Red Tide",
+        "IconPos": 6,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161464,
+        "ChapterId": 4,
+        "Name": "Sanity - Fin",
+        "Desc": "With DL-427's cover, Mori and BN-02 break into the heart of the Red Tide.",
+        "StageType": 2,
+        "PreStageId": 30161463.0,
+        "FirstRewardId": 17858.0,
+        "RewardUnit": 150.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            24,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the heart of the Red Tide",
+        "IconPos": 8,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161494,
+        "ChapterId": 4,
+        "Name": "Clean the Area I",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": null,
+        "RewardUnit": 360.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            19.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 12,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161495,
+        "ChapterId": 4,
+        "Name": "Clean the Area II",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": null,
+        "RewardUnit": 360.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            19.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 13,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161496,
+        "ChapterId": 4,
+        "Name": "Clean the Area III",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": null,
+        "RewardUnit": 360.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            19.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 14,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161465,
+        "ChapterId": 5,
+        "Name": "Wish - 1",
+        "Desc": "With the help of Ks-321, the fighter is resupplied, and Mori and BN-02 embark on a journey to the sea base.",
+        "StageType": 1,
+        "PreStageId": null,
+        "FirstRewardId": 17859.0,
+        "RewardUnit": 150.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            25,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the sea base",
+        "IconPos": 1,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161466,
+        "ChapterId": 5,
+        "Name": "Wish - 2",
+        "Desc": "The base entrance is barricaded by a high-energy barrier. Through BN-02's scans, Mori locates a jamming device nearby.",
+        "StageType": 1,
+        "PreStageId": 30161465.0,
+        "FirstRewardId": 17860.0,
+        "RewardUnit": 150.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            26,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Find a way into the base",
+        "IconPos": 3,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161467,
+        "ChapterId": 5,
+        "Name": "Wish - 3",
+        "Desc": "After groping their way into the base, BN-02's sudden silence unsettles Mori.",
+        "StageType": 1,
+        "PreStageId": 30161466.0,
+        "FirstRewardId": 17861.0,
+        "RewardUnit": 150.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            27,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Enter the base's Interior",
+        "IconPos": 5,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161468,
+        "ChapterId": 5,
+        "Name": "Wish - 4",
+        "Desc": "Upon reaching the terminal, Mori suddenly receives an emergency message from BN-02, and then loses consciousness.",
+        "StageType": 1,
+        "PreStageId": 30161467.0,
+        "FirstRewardId": 17862.0,
+        "RewardUnit": 150.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            28,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the base terminal",
+        "IconPos": 7,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161469,
+        "ChapterId": 5,
+        "Name": "Wish - Fin",
+        "Desc": "In the realm of consciousness, Mori defeats the remnants of past memories, and the scene collapses.",
+        "StageType": 2,
+        "PreStageId": 30161468.0,
+        "FirstRewardId": 17863.0,
+        "RewardUnit": 150.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            29,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the base terminal",
+        "IconPos": 9,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161497,
+        "ChapterId": 5,
+        "Name": "Clean the Area I",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": 17871.0,
+        "RewardUnit": 450.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            25.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 13,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161498,
+        "ChapterId": 5,
+        "Name": "Clean the Area II",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": 17871.0,
+        "RewardUnit": 450.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            25.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 14,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161499,
+        "ChapterId": 5,
+        "Name": "Clean the Area III",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": 17871.0,
+        "RewardUnit": 450.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            25.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 15,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161470,
+        "ChapterId": 6,
+        "Name": "Final Chapter - 1",
+        "Desc": "After defeating the data, Mori returns to reality, but BN-02...",
+        "StageType": 2,
+        "PreStageId": null,
+        "FirstRewardId": 17864.0,
+        "RewardUnit": 150.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            2230608.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            30,
+            1.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the UFO",
+        "IconPos": 1,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161471,
+        "ChapterId": 6,
+        "Name": "Final Chapter - 2",
+        "Desc": "Freed from control, BN-02 aids Mori in defeating the base's boss. Using a UFO, Mori successfully lands on the Moon where the Center is located.",
+        "StageType": 1,
+        "PreStageId": 30161470.0,
+        "FirstRewardId": 17865.0,
+        "RewardUnit": 150.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            31,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the Center on the Moon",
+        "IconPos": 2,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161472,
+        "ChapterId": 6,
+        "Name": "Final Chapter - Fin",
+        "Desc": "With the Center in a collapsed state, Mori and BN-02 set off toward their final destination: the Center Core.",
+        "StageType": 2,
+        "PreStageId": 30161471.0,
+        "FirstRewardId": 17866.0,
+        "RewardUnit": 150.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            32,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Go to the Center",
+        "IconPos": 5,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161477,
+        "ChapterId": 6,
+        "Name": "Infinite Battlefront",
+        "Desc": "Endless Loop",
+        "StageType": 6,
+        "PreStageId": 30161472.0,
+        "FirstRewardId": null,
+        "RewardUnit": null,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 4,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161486,
+        "ChapterId": 6,
+        "Name": "Clean the Area I",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": 17872.0,
+        "RewardUnit": 450.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            30.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 6,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161485,
+        "ChapterId": 6,
+        "Name": "Clean the Area II",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": 17872.0,
+        "RewardUnit": 450.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            30.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 7,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161484,
+        "ChapterId": 6,
+        "Name": "Clean the Area III",
+        "Desc": "Achieve area objectives and receive corresponding rewards",
+        "StageType": 5,
+        "PreStageId": null,
+        "FirstRewardId": 17872.0,
+        "RewardUnit": 450.0,
+        "FightEventId": [
+            null,
+            2230600,
+            2230609,
+            2230601.0
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            1,
+            30.0
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": null,
+        "IconPos": 8,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161473,
+        "ChapterId": 7,
+        "Name": "Wish - IF",
+        "Desc": "Determined to return the Data Center, Mori makes her way back to the base terminal.",
+        "StageType": 1,
+        "PreStageId": null,
+        "FirstRewardId": 17867.0,
+        "RewardUnit": null,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            33,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Fix the interruption at the base",
+        "IconPos": 1,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161474,
+        "ChapterId": 8,
+        "Name": "Sanity - IF",
+        "Desc": "Mori returns to where the Red Tide started, ready to return the Data Center.",
+        "StageType": 1,
+        "PreStageId": null,
+        "FirstRewardId": 17868.0,
+        "RewardUnit": null,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            34,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Return the Data Center",
+        "IconPos": 1,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161475,
+        "ChapterId": 9,
+        "Name": "Seize - IF",
+        "Desc": "Back in the factory area, Mori begins the repair work.",
+        "StageType": 1,
+        "PreStageId": null,
+        "FirstRewardId": 17869.0,
+        "RewardUnit": null,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            35,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Fix the repair area",
+        "IconPos": 1,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 30161476,
+        "ChapterId": 10,
+        "Name": "Foreign Lands - IF",
+        "Desc": "Return to where it all began.",
+        "StageType": 1,
+        "PreStageId": null,
+        "FirstRewardId": 17870.0,
+        "RewardUnit": null,
+        "FightEventId": [
+            null,
+            2230600,
+            2230601,
+            null
+        ],
+        "FightEventLevel": [
+            null,
+            1,
+            36,
+            null
+        ],
+        "RecommendMentalLv": 5,
+        "MainlineTips": "Return BN-02",
+        "IconPos": 1,
+        "RewardParam": [
+            null,
+            null,
+            null
+        ],
+        "ForbidRobot": [
+            null,
+            null,
+            null
+        ]
+    }
+]

@@ -130,8 +130,7 @@ function XUiBattleRoomRoleDetail:OnEnable()
     -- self.BtnTeaching.gameObject:SetActiveEx(XFunctionManager.JudgeCanOpen(XFunctionManager.FunctionName.Practice))
     
     -- 刷新数据
-    self.PanelFilter:OnlyRefreshData()
-    self:RefreshEntityInfo()
+    self.PanelFilter:RefreshList()
 end
 
 function XUiBattleRoomRoleDetail:OnDisable()
@@ -181,14 +180,17 @@ function XUiBattleRoomRoleDetail:InitFilter()
     -- 覆写排序算法
     local sortOverrideFunTable = self.Proxy:GetFilterSortOverrideFunTable()
     self.PanelFilter:InitData(onSeleCb, onSeleTagCb, self.StageId, refreshGridsFun, gridProxy, checkInTeam, sortOverrideFunTable)
+    self.PanelFilter:SetGetCharIdFun(
+    function (entity)
+            return self.Proxy:GetFilterCharIdFun(entity)
+    end)
     self.DynamicTable = self.PanelFilter.DynamicTable
     self.PanelCharacterFilter.gameObject:SetActiveEx(true)
     self.Transform:FindTransform("CharInfo").gameObject:SetActiveEx(false)
     self.Transform:FindTransform("BtnFilter").gameObject:SetActiveEx(false)
     local list = self.Proxy:GetEntities()
     local currentEntityId = self.Proxy.GetCurrentEntityId and self.Proxy:GetCurrentEntityId(self.CurrentEntityId) or self.CurrentEntityId
-    self.PanelFilter:ImportList(list)
-    self.PanelFilter:DoSelectCharacter(currentEntityId) -- 自动选择点进来的角色
+    self.PanelFilter:ImportList(list, currentEntityId) -- 自动选择点进来的角色
 end
 
 function XUiBattleRoomRoleDetail:RefreshEntityInfo()

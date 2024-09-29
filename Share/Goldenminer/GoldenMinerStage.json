@@ -1,0 +1,230 @@
+[
+    {
+        "StageId": 1,
+        "TargetScore": 9999,
+        "PreStage": 0,
+        "NextStage": null,
+        "DropShopGroupId": 0,
+        "ShopGridCount": 4,
+        "ActivityId": 1,
+        "DropMapGroupId": 1,
+        "HideMapGroupId": 11,
+        "HideTaskFinishCount": 7,
+        "GridUseDrops": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 2,
+        "TargetScore": 9999,
+        "PreStage": 0,
+        "NextStage": null,
+        "DropShopGroupId": 0,
+        "ShopGridCount": 4,
+        "ActivityId": 2,
+        "DropMapGroupId": 1,
+        "HideMapGroupId": 11,
+        "HideTaskFinishCount": 7,
+        "GridUseDrops": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 3,
+        "TargetScore": 1000,
+        "PreStage": 0,
+        "NextStage": 4.0,
+        "DropShopGroupId": 1,
+        "ShopGridCount": 4,
+        "ActivityId": 3,
+        "DropMapGroupId": 1,
+        "HideMapGroupId": 11,
+        "HideTaskFinishCount": 7,
+        "GridUseDrops": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 4,
+        "TargetScore": 2030,
+        "PreStage": 3,
+        "NextStage": 5.0,
+        "DropShopGroupId": 1,
+        "ShopGridCount": 4,
+        "ActivityId": 3,
+        "DropMapGroupId": 2,
+        "HideMapGroupId": 11,
+        "HideTaskFinishCount": 7,
+        "GridUseDrops": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 5,
+        "TargetScore": 2220,
+        "PreStage": 4,
+        "NextStage": 6.0,
+        "DropShopGroupId": 1,
+        "ShopGridCount": 4,
+        "ActivityId": 3,
+        "DropMapGroupId": 3,
+        "HideMapGroupId": 11,
+        "HideTaskFinishCount": 7,
+        "GridUseDrops": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 6,
+        "TargetScore": 2530,
+        "PreStage": 5,
+        "NextStage": 7.0,
+        "DropShopGroupId": 1,
+        "ShopGridCount": 4,
+        "ActivityId": 3,
+        "DropMapGroupId": 4,
+        "HideMapGroupId": 11,
+        "HideTaskFinishCount": 7,
+        "GridUseDrops": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 7,
+        "TargetScore": 3200,
+        "PreStage": 6,
+        "NextStage": 8.0,
+        "DropShopGroupId": 1,
+        "ShopGridCount": 4,
+        "ActivityId": 3,
+        "DropMapGroupId": 5,
+        "HideMapGroupId": 11,
+        "HideTaskFinishCount": 7,
+        "GridUseDrops": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 8,
+        "TargetScore": 3200,
+        "PreStage": 7,
+        "NextStage": 9.0,
+        "DropShopGroupId": 1,
+        "ShopGridCount": 4,
+        "ActivityId": 3,
+        "DropMapGroupId": 6,
+        "HideMapGroupId": 11,
+        "HideTaskFinishCount": 7,
+        "GridUseDrops": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 9,
+        "TargetScore": 3800,
+        "PreStage": 8,
+        "NextStage": 10.0,
+        "DropShopGroupId": 1,
+        "ShopGridCount": 4,
+        "ActivityId": 3,
+        "DropMapGroupId": 7,
+        "HideMapGroupId": 11,
+        "HideTaskFinishCount": 7,
+        "GridUseDrops": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 10,
+        "TargetScore": 4000,
+        "PreStage": 9,
+        "NextStage": 11.0,
+        "DropShopGroupId": 3,
+        "ShopGridCount": 4,
+        "ActivityId": 3,
+        "DropMapGroupId": 8,
+        "HideMapGroupId": 11,
+        "HideTaskFinishCount": 7,
+        "GridUseDrops": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 11,
+        "TargetScore": 8060,
+        "PreStage": 10,
+        "NextStage": 12.0,
+        "DropShopGroupId": 3,
+        "ShopGridCount": 4,
+        "ActivityId": 3,
+        "DropMapGroupId": 9,
+        "HideMapGroupId": 11,
+        "HideTaskFinishCount": 7,
+        "GridUseDrops": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ]
+    },
+    {
+        "StageId": 12,
+        "TargetScore": 8060,
+        "PreStage": 11,
+        "NextStage": 0.0,
+        "DropShopGroupId": 0,
+        "ShopGridCount": 4,
+        "ActivityId": 3,
+        "DropMapGroupId": 10,
+        "HideMapGroupId": 11,
+        "HideTaskFinishCount": 7,
+        "GridUseDrops": [
+            null,
+            1,
+            2,
+            null,
+            null
+        ]
+    }
+]

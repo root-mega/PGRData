@@ -1,0 +1,70 @@
+[
+    {
+        "Id": 1001,
+        "AreaType": 3,
+        "Radius": null,
+        "Length": 2,
+        "Width": 2,
+        "PosX": 32.9,
+        "PosY": 8.06,
+        "PosZ": 42.8,
+        "face": 177,
+        "TargetIds": [
+            null,
+            1002.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1002,
+        "AreaType": 1,
+        "Radius": null,
+        "Length": 2,
+        "Width": 2,
+        "PosX": 41.4,
+        "PosY": 5.8,
+        "PosZ": 34.7,
+        "face": 177,
+        "TargetIds": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1003,
+        "AreaType": 3,
+        "Radius": null,
+        "Length": 2,
+        "Width": 2,
+        "PosX": 43.7,
+        "PosY": 5.8,
+        "PosZ": 27.9,
+        "face": 177,
+        "TargetIds": [
+            null,
+            1004.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1004,
+        "AreaType": 1,
+        "Radius": null,
+        "Length": 2,
+        "Width": 2,
+        "PosX": 39.8,
+        "PosY": 9.92,
+        "PosZ": 16.0,
+        "face": 177,
+        "TargetIds": [
+            null,
+            null,
+            null,
+            null
+        ]
+    }
+]

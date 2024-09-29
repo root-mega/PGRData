@@ -7,6 +7,7 @@
         "BtnInitMethodName": "RefreshActivityMainLine",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityMainLine -- Main Event"
@@ -19,6 +20,7 @@
         "BtnInitMethodName": "RefreshActivityBranch",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityBranch -- Side Event"
@@ -27,10 +29,11 @@
         "Id": 3,
         "Name": "Brutal Level",
         "SkipId": 11724.0,
-        "TimeId": 20421.0,
+        "TimeId": 21411.0,
         "BtnInitMethodName": "RefreshActivityBossSingle",
         "IsRemindWhenOpen": 1.0,
         "RemindPriority": 4.0,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityBossOnline -- Solo Boss Event (Brutal Level)"
@@ -43,6 +46,7 @@
         "BtnInitMethodName": "RefreshActivityBossOnline",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityBossOnline -- Co-op Boss Event"
@@ -55,6 +59,7 @@
         "BtnInitMethodName": "RefreshAllActivityPrequel",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityPrequel -- Interlude Story - Character A"
@@ -65,8 +70,9 @@
         "SkipId": 20015.0,
         "TimeId": 20001.0,
         "BtnInitMethodName": "RefreshActivityBabelTower",
-        "IsRemindWhenOpen": 1.0,
-        "RemindPriority": 5.0,
+        "IsRemindWhenOpen": null,
+        "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityBabelTower -- Babel Tower"
@@ -79,6 +85,7 @@
         "BtnInitMethodName": "RefreshActivityRogueLike",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityRougueLike -- Tower Climb"
@@ -87,10 +94,11 @@
         "Id": 8,
         "Name": "Multi Clear",
         "SkipId": 20017.0,
-        "TimeId": 20801.0,
+        "TimeId": 21201.0,
         "BtnInitMethodName": "RefreshActivityRepeateChallenge",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityRepeatChallenge -- Multi Clear"
@@ -103,6 +111,7 @@
         "BtnInitMethodName": "RefreshActivityArenaOnline",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityArenaOnline -- Regional Co-op"
@@ -115,6 +124,7 @@
         "BtnInitMethodName": "RefreshActivityUnionKill",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityUnionKill  -- Sniper Battle"
@@ -127,6 +137,7 @@
         "BtnInitMethodName": "RefreshActivityShortStories",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityShortStories  -- Short Story"
@@ -139,6 +150,7 @@
         "BtnInitMethodName": "RefreshAllActivityPrequel",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityPrequel2  -- Interlude Story - Character B"
@@ -151,6 +163,7 @@
         "BtnInitMethodName": "RefreshActivityLabyrinth",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityLabyrinth  -- Maze"
@@ -163,6 +176,7 @@
         "BtnInitMethodName": "RefreshActivitySociety",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivitySociety  -- Guild"
@@ -175,6 +189,7 @@
         "BtnInitMethodName": "RefreshActivityResource",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityResource  -- Resources"
@@ -185,8 +200,9 @@
         "SkipId": 89025.0,
         "TimeId": 20301.0,
         "BtnInitMethodName": "RefreshActivitySpecialTrain",
-        "IsRemindWhenOpen": 1.0,
-        "RemindPriority": 7.0,
+        "IsRemindWhenOpen": null,
+        "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "Default",
         "TagOffset": null,
         "desc": "BtnActivityBigWar - Grand Operation (Special Training)"
@@ -199,6 +215,7 @@
         "BtnInitMethodName": "RefreshActivityExtra",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityExtra  -- Extra - Normal"
@@ -211,6 +228,7 @@
         "BtnInitMethodName": "RefreshWorldBoss",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityWorldBoss  -- World Boss"
@@ -223,6 +241,7 @@
         "BtnInitMethodName": "RefreshExpedition",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityExpedition  -- Auto Chess"
@@ -235,6 +254,7 @@
         "BtnInitMethodName": "RefreshFubenBossSingle",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "CONDITION_ACTIVITYBRIE_BOSSSINGLE",
         "TagOffset": null,
         "desc": "BtnActivityFubenBossSingle  -- Phantom Pain Cage"
@@ -243,10 +263,11 @@
         "Id": 21,
         "Name": "Event Shop",
         "SkipId": 20055.0,
-        "TimeId": 20012.0,
+        "TimeId": 21302.0,
         "BtnInitMethodName": "RefreshActivityShop",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityShop \u2014 Event Shop"
@@ -259,6 +280,7 @@
         "BtnInitMethodName": "RefreshActivityExtra",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityExtra2  -- Extra - Hidden"
@@ -271,6 +293,7 @@
         "BtnInitMethodName": "RefreshMaintainerAction",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityRicher -- Board Game Mode"
@@ -283,6 +306,7 @@
         "BtnInitMethodName": "RefreshRpgTower",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityRpgTower -- RPG Mode"
@@ -295,6 +319,7 @@
         "BtnInitMethodName": "RefreshDrawActivity",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityDrawCard - Event Draw"
@@ -307,6 +332,7 @@
         "BtnInitMethodName": "RefreshTRPG",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnTRPGMainLine - Fake Ascension - Main Roleplay Event"
@@ -315,10 +341,11 @@
         "Id": 27,
         "Name": "New Construct Preview",
         "SkipId": 20071.0,
-        "TimeId": 20411.0,
+        "TimeId": 21403.0,
         "BtnInitMethodName": "RefreshNewCharActivity",
         "IsRemindWhenOpen": 1.0,
-        "RemindPriority": 1.0,
+        "RemindPriority": 3.0,
+        "RedCondition": null,
         "TagCondition": "CONDITION_NEWCHARACT_ISCHALLENGEABLE",
         "TagOffset": null,
         "desc": "BtnActivityNewRole -- New Construct Trial: SkipId Long-term Copy"
@@ -327,10 +354,11 @@
         "Id": 28,
         "Name": "Preview Stage",
         "SkipId": 10035.0,
-        "TimeId": 19312.0,
+        "TimeId": 21402.0,
         "BtnInitMethodName": "RefreshFubenActivityTrial",
-        "IsRemindWhenOpen": null,
-        "RemindPriority": null,
+        "IsRemindWhenOpen": 1.0,
+        "RemindPriority": 2.0,
+        "RedCondition": null,
         "TagCondition": "CONDITION_NEWCHARACT_SKIP_TRIAL",
         "TagOffset": null,
         "desc": "BtnFubenActivityTrial -- Coating Trial Stage"
@@ -343,6 +371,7 @@
         "BtnInitMethodName": "RefreshShiTu",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityShitu - Mentorship System"
@@ -355,6 +384,7 @@
         "BtnInitMethodName": "RefreshNier",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityRicher -- Nier Mode"
@@ -367,6 +397,7 @@
         "BtnInitMethodName": "RefreshPokemon",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityPokemon--Micawberism Cloisters"
@@ -379,6 +410,7 @@
         "BtnInitMethodName": "RefreshPursuit",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityPursuit--Chestlefield"
@@ -391,6 +423,7 @@
         "BtnInitMethodName": "RefreshStrongHold",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityNorman \u2014 Super Stronghold"
@@ -403,6 +436,7 @@
         "BtnInitMethodName": "RefreshSimulate",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityAnalogy \u2014 Simulated Battle"
@@ -415,6 +449,7 @@
         "BtnInitMethodName": "RefreshPartner",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityPet \u2014 Pet"
@@ -427,6 +462,7 @@
         "BtnInitMethodName": null,
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityWhiteValentine -- 2021 White Day"
@@ -439,6 +475,7 @@
         "BtnInitMethodName": null,
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityFingerGuessing -- Ro-sham-bo Mini-game"
@@ -451,6 +488,7 @@
         "BtnInitMethodName": "RefreshMoeWar",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityMoeWar-- Moe War"
@@ -463,6 +501,7 @@
         "BtnInitMethodName": "RefreshPetCard",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityPetCard -- CUB Research System"
@@ -475,6 +514,7 @@
         "BtnInitMethodName": "RefreshPetTrial",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityPetTrial -- New CUB Event"
@@ -487,6 +527,7 @@
         "BtnInitMethodName": "RefreshPokerGuessing",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityPokerGuessing -- Poker Guessing"
@@ -499,6 +540,7 @@
         "BtnInitMethodName": "RefreshHack",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityRicher -- Hack Stage"
@@ -511,6 +553,7 @@
         "BtnInitMethodName": "RefreshRpgMaker",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityFubenRpgMakerGame \u2014\u9988\u6625\u6388\u793c"
@@ -523,6 +566,7 @@
         "BtnInitMethodName": "RefreshReform",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "Default",
         "TagOffset": null,
         "desc": "BtnActivityReform -- Modify Mode"
@@ -535,6 +579,7 @@
         "BtnInitMethodName": "RefreshCoupleCombat",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityCoupleCombat--Co-op"
@@ -547,6 +592,7 @@
         "BtnInitMethodName": "RefreshSuperTower",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityBabelTower -- Super Tower Climb"
@@ -559,6 +605,7 @@
         "BtnInitMethodName": "RefreshSummerSeries",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivitySummerEpsiodeTen --Summer Event Stages"
@@ -571,6 +618,7 @@
         "BtnInitMethodName": "RefreshKillZone",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityKillZone \u2014 Killing Space"
@@ -583,6 +631,7 @@
         "BtnInitMethodName": "RefreshExpedition",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityUiExpedition -- Virtual Horizon"
@@ -591,10 +640,11 @@
         "Id": 50,
         "Name": "3-Ping - Circuit Connect",
         "SkipId": 82010.0,
-        "TimeId": 17201.0,
-        "BtnInitMethodName": "RefreshSameColor",
+        "TimeId": 20801.0,
+        "BtnInitMethodName": null,
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": "CONDITION_SAMECOLOR_TASK",
         "TagCondition": "CONDITION_SAMECOLOR_IS_CHALLENGE",
         "TagOffset": null,
         "desc": "BtnActivitySameColorGame -- 3-Ping"
@@ -607,6 +657,7 @@
         "BtnInitMethodName": "RefreshAreaWar",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "XRedPointConditionAreaWarActivityTag",
         "TagOffset": null,
         "desc": "BtnActivityAreaWar \u2014 Special Dispatch - Server Final Battle"
@@ -619,6 +670,7 @@
         "BtnInitMethodName": "RefreshSuperSmashBros",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "Default",
         "TagOffset": null,
         "desc": "BtnActivitySuperSmashBros \u2014 Ultimate Brawl"
@@ -631,6 +683,7 @@
         "BtnInitMethodName": "RefreshTeachingSkin",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "Default",
         "TagOffset": null,
         "desc": "BtnFubenActivityTrial \u2014 Tutorial Stage Coating Trial (Story)"
@@ -643,6 +696,7 @@
         "BtnInitMethodName": "RefreshMaverick",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "Default",
         "TagOffset": null,
         "desc": "BtnActivityMaverickMain \u2014 Shooting Mode: Lone Lancer"
@@ -655,6 +709,7 @@
         "BtnInitMethodName": "RefreshMemorySave",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityMemorySave--Memory Rescue"
@@ -667,6 +722,7 @@
         "BtnInitMethodName": "RefreshTheatre",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityTheatre -- Roguelike Mode/"
@@ -679,6 +735,7 @@
         "BtnInitMethodName": "RefreshDoomsDay",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityDoomsday--Management Sim"
@@ -691,6 +748,7 @@
         "BtnInitMethodName": "RefreshPivotCombat",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "CONDITION_PIVOTCOMBAT_NEW_AREA_OPEN_RED_POINT",
         "TagOffset": null,
         "desc": "BtnActivitySp - Sp Battle Power Verification"
@@ -703,6 +761,7 @@
         "BtnInitMethodName": "RefreshEscape",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "CONDITION_ESCAPE_ACTIVITY_CHALLENGE",
         "TagOffset": null,
         "desc": "BtnActivityEscape - Limited Time Escape"
@@ -715,6 +774,7 @@
         "BtnInitMethodName": "RefreshFubenShortStory",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityFubenShortStory - Story Collection"
@@ -727,6 +787,7 @@
         "BtnInitMethodName": "RefreshDoubleTower",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnFubenActivityTaFang \u2014 Tower Defense"
@@ -739,6 +800,7 @@
         "BtnInitMethodName": "RefreshFubenShortStory",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityShopSecond \u2014 Secondary Panel Event Shop"
@@ -751,6 +813,7 @@
         "BtnInitMethodName": "RefreshSecondActivityPanel",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnFubenActivityChunJie \u2014 Secondary Panel Event Jump"
@@ -761,8 +824,9 @@
         "SkipId": 85016.0,
         "TimeId": 20101.0,
         "BtnInitMethodName": "RefreshGuildWar",
-        "IsRemindWhenOpen": 1.0,
-        "RemindPriority": 3.0,
+        "IsRemindWhenOpen": null,
+        "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": 15.0,
         "desc": "BtnActivityGongHui \u2014 Guild War"
@@ -775,6 +839,7 @@
         "BtnInitMethodName": "RefreshGoldenMiner",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "Default",
         "TagOffset": null,
         "desc": "BtnActivityKuangGong \u2014 Gold Miner"
@@ -787,6 +852,7 @@
         "BtnInitMethodName": "RefreshNormal",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnFubenQiguan \u2013\u798f\u7984\u732e\u793c"
@@ -795,11 +861,12 @@
         "Id": 67,
         "Name": "Music Mini-game",
         "SkipId": 84010.0,
-        "TimeId": 8701.0,
+        "TimeId": 21010.0,
         "BtnInitMethodName": "RefreshTaiKoMaster",
-        "IsRemindWhenOpen": null,
-        "RemindPriority": null,
-        "TagCondition": null,
+        "IsRemindWhenOpen": 1.0,
+        "RemindPriority": 5.0,
+        "RedCondition": null,
+        "TagCondition": "CONDITION_ACTIVITY_TAIKO_MASTER_CD_UNLOCK",
         "TagOffset": null,
         "desc": "BtnActivityTaikoMaster -- Music Mini-game"
     },
@@ -811,6 +878,7 @@
         "BtnInitMethodName": "RefreshMultiDim",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityMultiDim -- Multidimensional Challenge"
@@ -823,6 +891,7 @@
         "BtnInitMethodName": "RefreshActivityFestival",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityFestival --Holiday Story V1.29: Dragon Boat Festival Event"
@@ -835,6 +904,7 @@
         "BtnInitMethodName": "RefreshGuildBoss",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnGuildBoss - Simulated Siege"
@@ -847,6 +917,7 @@
         "BtnInitMethodName": "RefreshTwoSideTower",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "CONDITION_TWO_SIDE_TOWER_NEW_CHAPTER",
         "TagOffset": null,
         "desc": "BtnTwoSideTower - Yin-Yang Tower"
@@ -859,6 +930,7 @@
         "BtnInitMethodName": "RefreshActivitySpecialTrain",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityBigWar -- Summer Event Training 2022 (Photo Taking 2.0)"
@@ -866,11 +938,12 @@
     {
         "Id": 73,
         "Name": "Double Seventh Festival Event",
-        "SkipId": 89029.0,
-        "TimeId": 20930.0,
+        "SkipId": 11761.0,
+        "TimeId": 20940.0,
         "BtnInitMethodName": "RefreshActivityFestival",
-        "IsRemindWhenOpen": 1.0,
-        "RemindPriority": 8.0,
+        "IsRemindWhenOpen": null,
+        "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityFestival \u2014 Holiday Story V1.30: Double Seventh Festival Event"
@@ -883,6 +956,7 @@
         "BtnInitMethodName": "RefreshBiancaTheatre",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityTheatre -- Roguelike Mode 2.0/Cursed Waves"
@@ -895,6 +969,7 @@
         "BtnInitMethodName": "RefreshActivityFestival",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityFestival --Holiday Story V1.31: Mid-Autumn Event"
@@ -907,6 +982,7 @@
         "BtnInitMethodName": "RefreshActivityCharacterTower",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "Character Tower/Arcade Anima"
@@ -919,6 +995,7 @@
         "BtnInitMethodName": "RefreshActivityRift",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "The Mythic Paradise of Punishing: Gray Raven"
@@ -931,6 +1008,7 @@
         "BtnInitMethodName": "RefreshColorTable",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityColorTable -- Palette Clash"
@@ -943,6 +1021,7 @@
         "BtnInitMethodName": "RefreshBrilliantWalk",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnActivityBrilliantWalk -- Blazing Trails"
@@ -955,6 +1034,7 @@
         "BtnInitMethodName": "RefreshFubenAwareness",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "BtnFubenAwareness -- Memory Pact (Crisis Pact)"
@@ -963,10 +1043,11 @@
         "Id": 81,
         "Name": "Punishing: Gray Raven Restaurant",
         "SkipId": 89008.0,
-        "TimeId": 20203.0,
+        "TimeId": 20201.0,
         "BtnInitMethodName": "RefreshRestaurant",
-        "IsRemindWhenOpen": 1.0,
-        "RemindPriority": 2.0,
+        "IsRemindWhenOpen": null,
+        "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "Spring Festival Kitchen/Punishing: Gray Raven Kitchen (Spring Festival Restaurant/Punishing: Gray Raven Restaurant)"
@@ -979,6 +1060,7 @@
         "BtnInitMethodName": "RefreshActivitySpecialTrain",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "Default",
         "TagOffset": null,
         "desc": " \u2014 2023 Lantern Festival Special Training"
@@ -986,11 +1068,12 @@
     {
         "Id": 83,
         "Name": "Holiday Story",
-        "SkipId": 20195.0,
-        "TimeId": 19207.0,
-        "BtnInitMethodName": "RefreshActivityFestival",
+        "SkipId": 89030.0,
+        "TimeId": -1.0,
+        "BtnInitMethodName": "RefreshNormal",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "CONDITION_ACTIVITY_FESTIVAL_MAIN",
         "TagOffset": null,
         "desc": "BtnActivityFestival \u2014 Holiday Story"
@@ -1003,6 +1086,7 @@
         "BtnInitMethodName": "RefreshNormal",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "CONDITION_MAZE_FIRST_TIME",
         "TagOffset": null,
         "desc": "\u82f1\u6587\u670d\u6539\u4e3a\u9065\u9633\u7ed8\u65c5"
@@ -1015,6 +1099,7 @@
         "BtnInitMethodName": "RefreshPlanetRunning",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "CONDITION_PLANET_RUNNING_NEW_CHAPTER",
         "TagOffset": null,
         "desc": null
@@ -1027,6 +1112,7 @@
         "BtnInitMethodName": "RefreshMonsterCombat",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": "CONDITION_MONSTER_COMBAT_NEW_CHAPTER",
         "TagOffset": null,
         "desc": null
@@ -1039,6 +1125,7 @@
         "BtnInitMethodName": "RefreshNormal",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": null
@@ -1051,6 +1138,7 @@
         "BtnInitMethodName": "RefreshTransfinite",
         "IsRemindWhenOpen": null,
         "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": null
@@ -1061,10 +1149,24 @@
         "SkipId": 89027.0,
         "TimeId": 20013.0,
         "BtnInitMethodName": "RefreshTheatre3",
-        "IsRemindWhenOpen": 1.0,
-        "RemindPriority": 6.0,
+        "IsRemindWhenOpen": null,
+        "RemindPriority": null,
+        "RedCondition": null,
         "TagCondition": null,
         "TagOffset": null,
         "desc": "Roguelike 3.0"
+    },
+    {
+        "Id": 90,
+        "Name": "BLACK\u2605ROCK SHOOTER Battle Chess",
+        "SkipId": 89028.0,
+        "TimeId": 21001.0,
+        "BtnInitMethodName": "RefreshBlackChess",
+        "IsRemindWhenOpen": 1.0,
+        "RemindPriority": 1.0,
+        "RedCondition": null,
+        "TagCondition": null,
+        "TagOffset": null,
+        "desc": "Battle Chess"
     }
 ]

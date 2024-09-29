@@ -2,29 +2,39 @@
     {
         "Id": 1,
         "TimeId": null,
-        "Title": "\u8d44\u6e90\u4e0b\u8f7d",
+        "Title": "Resource Download",
         "SubTitle": null,
-        "Desc": "\u8d44\u6e90\u4e0b\u8f7d\u5185\u5bb9",
+        "Desc": "DLC",
         "StyleType": 2,
         "BtnIcon": "Assets/Product/Texture/Atlas/UiMain/UiMainIconDownLoad.png",
         "SkipId": 89010,
         "ConditionId": 860745,
         "RedPointCondition": [
+            null,
             "CONDITION_SUB_PACKAGE_DOWNLOAD_ENTRANCE"
         ],
-        "RedPointParam": []
+        "RedPointParam": [
+            null,
+            null
+        ]
     },
     {
         "Id": 2,
-        "TimeId": null,
-        "Title": "\u5e93\u8857\u533a",
+        "TimeId": 17305.0,
+        "Title": "Kuro Street",
         "SubTitle": null,
-        "Desc": "\u8df3\u8f6c\u5e93\u8857\u533a",
+        "Desc": "To Kuro Street",
         "StyleType": 2,
         "BtnIcon": "Assets/Product/Texture/Atlas/UiMain/UiMainIconKujiequ.png",
         "SkipId": 89014,
         "ConditionId": 860826,
-        "RedPointCondition": [],
-        "RedPointParam": []
+        "RedPointCondition": [
+            null,
+            null
+        ],
+        "RedPointParam": [
+            null,
+            null
+        ]
     }
 ]

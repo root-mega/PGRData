@@ -1,0 +1,6140 @@
+[
+    {
+        "Id": 1,
+        "GroupId": 101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            10101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 2,
+        "GroupId": 101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            10102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 3,
+        "GroupId": 101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            10103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4,
+        "GroupId": 101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            10104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5,
+        "GroupId": 201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            20101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6,
+        "GroupId": 201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            20102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 7,
+        "GroupId": 201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            20103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 8,
+        "GroupId": 201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            20104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 9,
+        "GroupId": 301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            30101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 10,
+        "GroupId": 301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            30102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 11,
+        "GroupId": 301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            30103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 12,
+        "GroupId": 301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            30104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 13,
+        "GroupId": 401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            40101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 14,
+        "GroupId": 401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            40102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 15,
+        "GroupId": 401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            40103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 16,
+        "GroupId": 401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            40104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 17,
+        "GroupId": 501,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            50101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 18,
+        "GroupId": 601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            60101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 19,
+        "GroupId": 601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            60102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 20,
+        "GroupId": 601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            60103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 21,
+        "GroupId": 601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            60104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 22,
+        "GroupId": 701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            70101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 23,
+        "GroupId": 701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            70102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 24,
+        "GroupId": 701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            70103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 25,
+        "GroupId": 701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            70104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 26,
+        "GroupId": 801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            80101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 27,
+        "GroupId": 801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            80102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 28,
+        "GroupId": 801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            80103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 29,
+        "GroupId": 801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            80104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 30,
+        "GroupId": 901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            90101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 31,
+        "GroupId": 901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            90102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 32,
+        "GroupId": 901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            90103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 33,
+        "GroupId": 901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            90104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 34,
+        "GroupId": 1001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            100101,
+            100102.0,
+            null
+        ]
+    },
+    {
+        "Id": 35,
+        "GroupId": 1101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            110101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 36,
+        "GroupId": 1101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            110102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 37,
+        "GroupId": 1101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            110103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 38,
+        "GroupId": 1101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            110104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 39,
+        "GroupId": 1201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            120101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 40,
+        "GroupId": 1201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            120102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 41,
+        "GroupId": 1201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            120103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 42,
+        "GroupId": 1201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            120104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 43,
+        "GroupId": 1301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            130101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 44,
+        "GroupId": 1301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            130102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 45,
+        "GroupId": 1301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            130103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 46,
+        "GroupId": 1301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            130104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 47,
+        "GroupId": 1401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            140101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 48,
+        "GroupId": 1401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            140102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 49,
+        "GroupId": 1401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            140103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 50,
+        "GroupId": 1401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            140104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 51,
+        "GroupId": 1501,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            150101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 52,
+        "GroupId": 1601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            160101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 53,
+        "GroupId": 1601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            160102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 54,
+        "GroupId": 1601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            160103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 55,
+        "GroupId": 1601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            160104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 56,
+        "GroupId": 1701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            170101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 57,
+        "GroupId": 1701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            170102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 58,
+        "GroupId": 1701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            170103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 59,
+        "GroupId": 1701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            170104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 60,
+        "GroupId": 1801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            180101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 61,
+        "GroupId": 1801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            180102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 62,
+        "GroupId": 1801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            180103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 63,
+        "GroupId": 1801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            180104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 64,
+        "GroupId": 1901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            190101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 65,
+        "GroupId": 1901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            190102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 66,
+        "GroupId": 1901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            190103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 67,
+        "GroupId": 1901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            190104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 68,
+        "GroupId": 2001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            200101,
+            200102.0,
+            null
+        ]
+    },
+    {
+        "Id": 69,
+        "GroupId": 2101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            210101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 70,
+        "GroupId": 2101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            210102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 71,
+        "GroupId": 2101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            210103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 72,
+        "GroupId": 2101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            210104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 73,
+        "GroupId": 2201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            220101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 74,
+        "GroupId": 2201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            220102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 75,
+        "GroupId": 2201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            220103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 76,
+        "GroupId": 2201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            220104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 77,
+        "GroupId": 2301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            230101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 78,
+        "GroupId": 2301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            230102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 79,
+        "GroupId": 2301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            230103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 80,
+        "GroupId": 2301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            230104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 81,
+        "GroupId": 2401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            240101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 82,
+        "GroupId": 2401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            240102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 83,
+        "GroupId": 2401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            240103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 84,
+        "GroupId": 2401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            240104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 85,
+        "GroupId": 2501,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            250101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 86,
+        "GroupId": 2601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            260101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 87,
+        "GroupId": 2601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            260102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 88,
+        "GroupId": 2601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            260103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 89,
+        "GroupId": 2601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            260104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 90,
+        "GroupId": 2701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            270101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 91,
+        "GroupId": 2701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            270102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 92,
+        "GroupId": 2701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            270103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 93,
+        "GroupId": 2701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            270104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 94,
+        "GroupId": 2801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            280101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 95,
+        "GroupId": 2801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            280102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 96,
+        "GroupId": 2801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            280103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 97,
+        "GroupId": 2801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            280104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 98,
+        "GroupId": 2901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            290101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 99,
+        "GroupId": 2901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            290102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 100,
+        "GroupId": 2901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            290103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 101,
+        "GroupId": 2901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            290104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 102,
+        "GroupId": 3001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            300101,
+            300102.0,
+            null
+        ]
+    },
+    {
+        "Id": 103,
+        "GroupId": 3101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            310101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 104,
+        "GroupId": 3101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            310102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 105,
+        "GroupId": 3101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            310103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 106,
+        "GroupId": 3101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            310104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 107,
+        "GroupId": 3201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            320101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 108,
+        "GroupId": 3201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            320102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 109,
+        "GroupId": 3201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            320103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 110,
+        "GroupId": 3201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            320104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 111,
+        "GroupId": 3301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            330101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 112,
+        "GroupId": 3301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            330102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 113,
+        "GroupId": 3301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            330103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 114,
+        "GroupId": 3301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            330104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 115,
+        "GroupId": 3401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            340101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 116,
+        "GroupId": 3401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            340102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 117,
+        "GroupId": 3401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            340103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 118,
+        "GroupId": 3401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            340104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 119,
+        "GroupId": 3501,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            350101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 120,
+        "GroupId": 3601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            360101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 121,
+        "GroupId": 3601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            360102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 122,
+        "GroupId": 3601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            360103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 123,
+        "GroupId": 3601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            360104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 124,
+        "GroupId": 3701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            370101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 125,
+        "GroupId": 3701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            370102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 126,
+        "GroupId": 3701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            370103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 127,
+        "GroupId": 3701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            370104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 128,
+        "GroupId": 3801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            380101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 129,
+        "GroupId": 3801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            380102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 130,
+        "GroupId": 3801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            380103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 131,
+        "GroupId": 3801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            380104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 132,
+        "GroupId": 3901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            390101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 133,
+        "GroupId": 4001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            400101,
+            400102.0,
+            null
+        ]
+    },
+    {
+        "Id": 134,
+        "GroupId": 4101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            410101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 135,
+        "GroupId": 4101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            410102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 136,
+        "GroupId": 4101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            410103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 137,
+        "GroupId": 4101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            410104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 138,
+        "GroupId": 4102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            410201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 139,
+        "GroupId": 4102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            410202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 140,
+        "GroupId": 4102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            410203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 141,
+        "GroupId": 4102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            410204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 142,
+        "GroupId": 4201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            420101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 143,
+        "GroupId": 4201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            420102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 144,
+        "GroupId": 4201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            420103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 145,
+        "GroupId": 4201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            420104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 146,
+        "GroupId": 4202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            420201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 147,
+        "GroupId": 4202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            420202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 148,
+        "GroupId": 4202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            420203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 149,
+        "GroupId": 4202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            420204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 150,
+        "GroupId": 4301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            430101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 151,
+        "GroupId": 4301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            430102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 152,
+        "GroupId": 4301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            430103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 153,
+        "GroupId": 4301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            430104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 154,
+        "GroupId": 4302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            430201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 155,
+        "GroupId": 4302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            430202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 156,
+        "GroupId": 4302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            430203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 157,
+        "GroupId": 4302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            430204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 158,
+        "GroupId": 4401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            440101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 159,
+        "GroupId": 4401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            440102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 160,
+        "GroupId": 4401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            440103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 161,
+        "GroupId": 4401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            440104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 162,
+        "GroupId": 4402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            440201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 163,
+        "GroupId": 4402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            440202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 164,
+        "GroupId": 4402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            440203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 165,
+        "GroupId": 4402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            440204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 166,
+        "GroupId": 4501,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            450101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 167,
+        "GroupId": 4601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            460101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 168,
+        "GroupId": 4601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            460102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 169,
+        "GroupId": 4601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            460103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 170,
+        "GroupId": 4601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            460104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 171,
+        "GroupId": 4602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            460201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 172,
+        "GroupId": 4602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            460202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 173,
+        "GroupId": 4602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            460203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 174,
+        "GroupId": 4602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            460204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 175,
+        "GroupId": 4701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            470101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 176,
+        "GroupId": 4701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            470102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 177,
+        "GroupId": 4701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            470103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 178,
+        "GroupId": 4701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            470104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 179,
+        "GroupId": 4702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            470201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 180,
+        "GroupId": 4702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            470202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 181,
+        "GroupId": 4702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            470203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 182,
+        "GroupId": 4702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            470204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 183,
+        "GroupId": 4801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            480101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 184,
+        "GroupId": 4801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            480102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 185,
+        "GroupId": 4801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            480103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 186,
+        "GroupId": 4801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            480104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 187,
+        "GroupId": 4802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            480201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 188,
+        "GroupId": 4802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            480202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 189,
+        "GroupId": 4802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            480203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 190,
+        "GroupId": 4802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            480204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 191,
+        "GroupId": 4901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            490101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 192,
+        "GroupId": 4901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            490102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 193,
+        "GroupId": 4901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            490103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 194,
+        "GroupId": 4901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            490104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 195,
+        "GroupId": 4902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            490201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 196,
+        "GroupId": 4902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            490202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 197,
+        "GroupId": 4902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            490203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 198,
+        "GroupId": 4902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            490204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 199,
+        "GroupId": 5001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            500101,
+            500102.0,
+            null
+        ]
+    },
+    {
+        "Id": 200,
+        "GroupId": 5101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            510101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 201,
+        "GroupId": 5101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            510102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 202,
+        "GroupId": 5101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            510103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 203,
+        "GroupId": 5101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            510104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 204,
+        "GroupId": 5102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            510201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 205,
+        "GroupId": 5102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            510202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 206,
+        "GroupId": 5102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            510203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 207,
+        "GroupId": 5102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            510204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 208,
+        "GroupId": 5201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            520101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 209,
+        "GroupId": 5201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            520102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 210,
+        "GroupId": 5201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            520103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 211,
+        "GroupId": 5201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            520104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 212,
+        "GroupId": 5202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            520201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 213,
+        "GroupId": 5202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            520202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 214,
+        "GroupId": 5202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            520203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 215,
+        "GroupId": 5202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            520204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 216,
+        "GroupId": 5301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            530101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 217,
+        "GroupId": 5301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            530102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 218,
+        "GroupId": 5301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            530103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 219,
+        "GroupId": 5301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            530104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 220,
+        "GroupId": 5302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            530201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 221,
+        "GroupId": 5302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            530202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 222,
+        "GroupId": 5302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            530203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 223,
+        "GroupId": 5302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            530204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 224,
+        "GroupId": 5401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            540101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 225,
+        "GroupId": 5401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            540102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 226,
+        "GroupId": 5401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            540103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 227,
+        "GroupId": 5401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            540104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 228,
+        "GroupId": 5402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            540201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 229,
+        "GroupId": 5402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            540202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 230,
+        "GroupId": 5402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            540203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 231,
+        "GroupId": 5402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            540204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 232,
+        "GroupId": 5501,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            550101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 233,
+        "GroupId": 5601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            560101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 234,
+        "GroupId": 5601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            560102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 235,
+        "GroupId": 5601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            560103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 236,
+        "GroupId": 5601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            560104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 237,
+        "GroupId": 5602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            560201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 238,
+        "GroupId": 5602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            560202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 239,
+        "GroupId": 5602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            560203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 240,
+        "GroupId": 5602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            560204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 241,
+        "GroupId": 5701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            570101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 242,
+        "GroupId": 5701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            570102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 243,
+        "GroupId": 5701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            570103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 244,
+        "GroupId": 5701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            570104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 245,
+        "GroupId": 5702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            570201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 246,
+        "GroupId": 5702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            570202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 247,
+        "GroupId": 5702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            570203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 248,
+        "GroupId": 5702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            570204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 249,
+        "GroupId": 5801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            580101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 250,
+        "GroupId": 5801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            580102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 251,
+        "GroupId": 5801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            580103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 252,
+        "GroupId": 5801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            580104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 253,
+        "GroupId": 5802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            580201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 254,
+        "GroupId": 5802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            580202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 255,
+        "GroupId": 5802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            580203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 256,
+        "GroupId": 5802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            580204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 257,
+        "GroupId": 5901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            590101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 258,
+        "GroupId": 5901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            590102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 259,
+        "GroupId": 5901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            590103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 260,
+        "GroupId": 5901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            590104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 261,
+        "GroupId": 5902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            590201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 262,
+        "GroupId": 5902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            590202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 263,
+        "GroupId": 5902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            590203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 264,
+        "GroupId": 5902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            590204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 265,
+        "GroupId": 6001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            600101,
+            600102.0,
+            600103.0
+        ]
+    },
+    {
+        "Id": 266,
+        "GroupId": 6101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            610101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 267,
+        "GroupId": 6101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            610102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 268,
+        "GroupId": 6101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            610103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 269,
+        "GroupId": 6101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            610104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 270,
+        "GroupId": 6102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            610201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 271,
+        "GroupId": 6102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            610202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 272,
+        "GroupId": 6102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            610203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 273,
+        "GroupId": 6102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            610204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 274,
+        "GroupId": 6201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            620101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 275,
+        "GroupId": 6201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            620102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 276,
+        "GroupId": 6201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            620103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 277,
+        "GroupId": 6201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            620104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 278,
+        "GroupId": 6202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            620201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 279,
+        "GroupId": 6202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            620202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 280,
+        "GroupId": 6202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            620203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 281,
+        "GroupId": 6202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            620204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 282,
+        "GroupId": 6301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            630101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 283,
+        "GroupId": 6301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            630102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 284,
+        "GroupId": 6301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            630103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 285,
+        "GroupId": 6301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            630104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 286,
+        "GroupId": 6302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            630201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 287,
+        "GroupId": 6302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            630202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 288,
+        "GroupId": 6302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            630203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 289,
+        "GroupId": 6302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            630204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 290,
+        "GroupId": 6401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            640101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 291,
+        "GroupId": 6401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            640102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 292,
+        "GroupId": 6401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            640103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 293,
+        "GroupId": 6401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            640104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 294,
+        "GroupId": 6402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            640201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 295,
+        "GroupId": 6402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            640202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 296,
+        "GroupId": 6402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            640203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 297,
+        "GroupId": 6402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            640204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 298,
+        "GroupId": 6501,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            650101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 299,
+        "GroupId": 6601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            660101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 300,
+        "GroupId": 6601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            660102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 301,
+        "GroupId": 6601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            660103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 302,
+        "GroupId": 6601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            660104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 303,
+        "GroupId": 6602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            660201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 304,
+        "GroupId": 6602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            660202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 305,
+        "GroupId": 6602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            660203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 306,
+        "GroupId": 6602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            660204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 307,
+        "GroupId": 6701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            670101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 308,
+        "GroupId": 6701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            670102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 309,
+        "GroupId": 6701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            670103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 310,
+        "GroupId": 6701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            670104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 311,
+        "GroupId": 6702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            670201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 312,
+        "GroupId": 6702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            670202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 313,
+        "GroupId": 6702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            670203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 314,
+        "GroupId": 6702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            670204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 315,
+        "GroupId": 6801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            680101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 316,
+        "GroupId": 6801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            680102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 317,
+        "GroupId": 6801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            680103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 318,
+        "GroupId": 6801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            680104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 319,
+        "GroupId": 6802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            680201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 320,
+        "GroupId": 6802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            680202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 321,
+        "GroupId": 6802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            680203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 322,
+        "GroupId": 6802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            680204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 323,
+        "GroupId": 6901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            690101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 324,
+        "GroupId": 6901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            690102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 325,
+        "GroupId": 6901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            690103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 326,
+        "GroupId": 6901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            690104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 327,
+        "GroupId": 6902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            690201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 328,
+        "GroupId": 6902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            690202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 329,
+        "GroupId": 6902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            690203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 330,
+        "GroupId": 6902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            690204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 331,
+        "GroupId": 7001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            700101,
+            700102.0,
+            700103.0
+        ]
+    },
+    {
+        "Id": 332,
+        "GroupId": 7101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            710101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 333,
+        "GroupId": 7101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            710102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 334,
+        "GroupId": 7101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            710103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 335,
+        "GroupId": 7101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            710104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 336,
+        "GroupId": 7102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            710201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 337,
+        "GroupId": 7102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            710202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 338,
+        "GroupId": 7102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            710203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 339,
+        "GroupId": 7102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            710204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 340,
+        "GroupId": 7103,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            710301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 341,
+        "GroupId": 7103,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            710302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 342,
+        "GroupId": 7103,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            710303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 343,
+        "GroupId": 7103,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            710304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 344,
+        "GroupId": 7201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            720101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 345,
+        "GroupId": 7201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            720102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 346,
+        "GroupId": 7201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            720103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 347,
+        "GroupId": 7201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            720104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 348,
+        "GroupId": 7202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            720201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 349,
+        "GroupId": 7202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            720202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 350,
+        "GroupId": 7202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            720203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 351,
+        "GroupId": 7202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            720204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 352,
+        "GroupId": 7203,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            720301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 353,
+        "GroupId": 7203,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            720302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 354,
+        "GroupId": 7203,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            720303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 355,
+        "GroupId": 7203,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            720304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 356,
+        "GroupId": 7301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            730101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 357,
+        "GroupId": 7301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            730102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 358,
+        "GroupId": 7301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            730103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 359,
+        "GroupId": 7301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            730104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 360,
+        "GroupId": 7302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            730201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 361,
+        "GroupId": 7302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            730202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 362,
+        "GroupId": 7302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            730203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 363,
+        "GroupId": 7302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            730204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 364,
+        "GroupId": 7303,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            730301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 365,
+        "GroupId": 7303,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            730302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 366,
+        "GroupId": 7303,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            730303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 367,
+        "GroupId": 7303,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            730304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 368,
+        "GroupId": 7401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            740101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 369,
+        "GroupId": 7401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            740102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 370,
+        "GroupId": 7401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            740103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 371,
+        "GroupId": 7401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            740104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 372,
+        "GroupId": 7402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            740201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 373,
+        "GroupId": 7402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            740202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 374,
+        "GroupId": 7402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            740203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 375,
+        "GroupId": 7402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            740204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 376,
+        "GroupId": 7403,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            740301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 377,
+        "GroupId": 7403,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            740302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 378,
+        "GroupId": 7403,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            740303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 379,
+        "GroupId": 7403,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            740304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 380,
+        "GroupId": 7501,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            750101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 381,
+        "GroupId": 7601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            760101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 382,
+        "GroupId": 7601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            760102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 383,
+        "GroupId": 7601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            760103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 384,
+        "GroupId": 7601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            760104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 385,
+        "GroupId": 7602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            760201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 386,
+        "GroupId": 7602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            760202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 387,
+        "GroupId": 7602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            760203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 388,
+        "GroupId": 7602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            760204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 389,
+        "GroupId": 7603,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            760301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 390,
+        "GroupId": 7603,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            760302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 391,
+        "GroupId": 7603,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            760303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 392,
+        "GroupId": 7603,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            760304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 393,
+        "GroupId": 7701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            770101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 394,
+        "GroupId": 7701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            770102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 395,
+        "GroupId": 7701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            770103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 396,
+        "GroupId": 7701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            770104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 397,
+        "GroupId": 7702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            770201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 398,
+        "GroupId": 7702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            770202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 399,
+        "GroupId": 7702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            770203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 400,
+        "GroupId": 7702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            770204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 401,
+        "GroupId": 7703,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            770301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 402,
+        "GroupId": 7703,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            770302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 403,
+        "GroupId": 7703,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            770303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 404,
+        "GroupId": 7703,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            770304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 405,
+        "GroupId": 7801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            780101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 406,
+        "GroupId": 7801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            780102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 407,
+        "GroupId": 7801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            780103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 408,
+        "GroupId": 7801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            780104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 409,
+        "GroupId": 7802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            780201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 410,
+        "GroupId": 7802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            780202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 411,
+        "GroupId": 7802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            780203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 412,
+        "GroupId": 7802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            780204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 413,
+        "GroupId": 7803,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            780301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 414,
+        "GroupId": 7803,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            780302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 415,
+        "GroupId": 7803,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            780303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 416,
+        "GroupId": 7803,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            780304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 417,
+        "GroupId": 7901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            790101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 418,
+        "GroupId": 7901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            790102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 419,
+        "GroupId": 7901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            790103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 420,
+        "GroupId": 7901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            790104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 421,
+        "GroupId": 7902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            790201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 422,
+        "GroupId": 7902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            790202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 423,
+        "GroupId": 7902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            790203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 424,
+        "GroupId": 7902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            790204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 425,
+        "GroupId": 7903,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            790301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 426,
+        "GroupId": 7903,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            790302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 427,
+        "GroupId": 7903,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            790303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 428,
+        "GroupId": 7903,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            790304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 429,
+        "GroupId": 8001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            800101,
+            800102.0,
+            800103.0
+        ]
+    },
+    {
+        "Id": 430,
+        "GroupId": 8101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            810101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 431,
+        "GroupId": 8101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            810102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 432,
+        "GroupId": 8101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            810103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 433,
+        "GroupId": 8101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            810104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 434,
+        "GroupId": 8102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            810201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 435,
+        "GroupId": 8102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            810202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 436,
+        "GroupId": 8102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            810203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 437,
+        "GroupId": 8102,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            810204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 438,
+        "GroupId": 8103,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            810301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 439,
+        "GroupId": 8103,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            810302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 440,
+        "GroupId": 8103,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            810303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 441,
+        "GroupId": 8103,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            810304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 442,
+        "GroupId": 8201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            820101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 443,
+        "GroupId": 8201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            820102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 444,
+        "GroupId": 8201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            820103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 445,
+        "GroupId": 8201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            820104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 446,
+        "GroupId": 8202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            820201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 447,
+        "GroupId": 8202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            820202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 448,
+        "GroupId": 8202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            820203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 449,
+        "GroupId": 8202,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            820204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 450,
+        "GroupId": 8203,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            820301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 451,
+        "GroupId": 8203,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            820302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 452,
+        "GroupId": 8203,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            820303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 453,
+        "GroupId": 8203,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            820304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 454,
+        "GroupId": 8301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            830101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 455,
+        "GroupId": 8301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            830102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 456,
+        "GroupId": 8301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            830103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 457,
+        "GroupId": 8301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            830104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 458,
+        "GroupId": 8302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            830201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 459,
+        "GroupId": 8302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            830202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 460,
+        "GroupId": 8302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            830203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 461,
+        "GroupId": 8302,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            830204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 462,
+        "GroupId": 8303,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            830301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 463,
+        "GroupId": 8303,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            830302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 464,
+        "GroupId": 8303,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            830303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 465,
+        "GroupId": 8303,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            830304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 466,
+        "GroupId": 8401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            840101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 467,
+        "GroupId": 8401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            840102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 468,
+        "GroupId": 8401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            840103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 469,
+        "GroupId": 8401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            840104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 470,
+        "GroupId": 8402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            840201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 471,
+        "GroupId": 8402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            840202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 472,
+        "GroupId": 8402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            840203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 473,
+        "GroupId": 8402,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            840204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 474,
+        "GroupId": 8403,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            840301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 475,
+        "GroupId": 8403,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            840302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 476,
+        "GroupId": 8403,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            840303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 477,
+        "GroupId": 8403,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            840304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 478,
+        "GroupId": 8501,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            850101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 479,
+        "GroupId": 8601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            860101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 480,
+        "GroupId": 8601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            860102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 481,
+        "GroupId": 8601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            860103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 482,
+        "GroupId": 8601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            860104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 483,
+        "GroupId": 8602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            860201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 484,
+        "GroupId": 8602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            860202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 485,
+        "GroupId": 8602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            860203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 486,
+        "GroupId": 8602,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            860204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 487,
+        "GroupId": 8603,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            860301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 488,
+        "GroupId": 8603,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            860302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 489,
+        "GroupId": 8603,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            860303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 490,
+        "GroupId": 8603,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            860304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 491,
+        "GroupId": 8701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            870101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 492,
+        "GroupId": 8701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            870102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 493,
+        "GroupId": 8701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            870103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 494,
+        "GroupId": 8701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            870104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 495,
+        "GroupId": 8702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            870201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 496,
+        "GroupId": 8702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            870202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 497,
+        "GroupId": 8702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            870203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 498,
+        "GroupId": 8702,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            870204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 499,
+        "GroupId": 8703,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            870301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 500,
+        "GroupId": 8703,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            870302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 501,
+        "GroupId": 8703,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            870303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 502,
+        "GroupId": 8703,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            870304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 503,
+        "GroupId": 8801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            880101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 504,
+        "GroupId": 8801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            880102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 505,
+        "GroupId": 8801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            880103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 506,
+        "GroupId": 8801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            880104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 507,
+        "GroupId": 8802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            880201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 508,
+        "GroupId": 8802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            880202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 509,
+        "GroupId": 8802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            880203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 510,
+        "GroupId": 8802,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            880204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 511,
+        "GroupId": 8803,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            880301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 512,
+        "GroupId": 8803,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            880302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 513,
+        "GroupId": 8803,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            880303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 514,
+        "GroupId": 8803,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            880304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 515,
+        "GroupId": 8901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            890101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 516,
+        "GroupId": 8901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            890102,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 517,
+        "GroupId": 8901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            890103,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 518,
+        "GroupId": 8901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            890104,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 519,
+        "GroupId": 8902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            890201,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 520,
+        "GroupId": 8902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            890202,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 521,
+        "GroupId": 8902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            890203,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 522,
+        "GroupId": 8902,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            890204,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 523,
+        "GroupId": 8903,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            890301,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 524,
+        "GroupId": 8903,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            890302,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 525,
+        "GroupId": 8903,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            890303,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 526,
+        "GroupId": 8903,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            890304,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 527,
+        "GroupId": 9001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            900101,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 528,
+        "GroupId": 9101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            910101,
+            910102.0,
+            910103.0
+        ]
+    },
+    {
+        "Id": 529,
+        "GroupId": 9201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            920101,
+            920102.0,
+            920103.0
+        ]
+    },
+    {
+        "Id": 530,
+        "GroupId": 9301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            930101,
+            930102.0,
+            930103.0
+        ]
+    },
+    {
+        "Id": 531,
+        "GroupId": 9401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            940101,
+            940102.0,
+            940103.0
+        ]
+    },
+    {
+        "Id": 532,
+        "GroupId": 9501,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            950101,
+            950102.0,
+            950103.0
+        ]
+    },
+    {
+        "Id": 533,
+        "GroupId": 9601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            960101,
+            960102.0,
+            960103.0
+        ]
+    },
+    {
+        "Id": 534,
+        "GroupId": 9701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            970101,
+            970102.0,
+            970103.0
+        ]
+    },
+    {
+        "Id": 535,
+        "GroupId": 9801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            980101,
+            980102.0,
+            980103.0
+        ]
+    },
+    {
+        "Id": 536,
+        "GroupId": 9901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            990101,
+            990102.0,
+            990103.0
+        ]
+    },
+    {
+        "Id": 537,
+        "GroupId": 10001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1000101,
+            1000102.0,
+            1000103.0
+        ]
+    },
+    {
+        "Id": 538,
+        "GroupId": 10101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1010101,
+            1010102.0,
+            1010103.0
+        ]
+    },
+    {
+        "Id": 539,
+        "GroupId": 10201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1020101,
+            1020102.0,
+            1020103.0
+        ]
+    },
+    {
+        "Id": 540,
+        "GroupId": 10301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1030101,
+            1030102.0,
+            1030103.0
+        ]
+    },
+    {
+        "Id": 541,
+        "GroupId": 10401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1040101,
+            1040102.0,
+            1040103.0
+        ]
+    },
+    {
+        "Id": 542,
+        "GroupId": 10501,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1050101,
+            1050102.0,
+            1050103.0
+        ]
+    },
+    {
+        "Id": 543,
+        "GroupId": 10601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1060101,
+            1060102.0,
+            1060103.0
+        ]
+    },
+    {
+        "Id": 544,
+        "GroupId": 10701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1070101,
+            1070102.0,
+            1070103.0
+        ]
+    },
+    {
+        "Id": 545,
+        "GroupId": 10801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1080101,
+            1080102.0,
+            1080103.0
+        ]
+    },
+    {
+        "Id": 546,
+        "GroupId": 10901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1090101,
+            1090102.0,
+            1090103.0
+        ]
+    },
+    {
+        "Id": 547,
+        "GroupId": 11001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1100101,
+            1100102.0,
+            1100103.0
+        ]
+    },
+    {
+        "Id": 548,
+        "GroupId": 11101,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1110101,
+            1110102.0,
+            1110103.0
+        ]
+    },
+    {
+        "Id": 549,
+        "GroupId": 11201,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1120101,
+            1120102.0,
+            1120103.0
+        ]
+    },
+    {
+        "Id": 550,
+        "GroupId": 11301,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1130101,
+            1130102.0,
+            1130103.0
+        ]
+    },
+    {
+        "Id": 551,
+        "GroupId": 11401,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1140101,
+            1140102.0,
+            1140103.0
+        ]
+    },
+    {
+        "Id": 552,
+        "GroupId": 11501,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1150101,
+            1150102.0,
+            1150103.0
+        ]
+    },
+    {
+        "Id": 553,
+        "GroupId": 11601,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1160101,
+            1160102.0,
+            1160103.0
+        ]
+    },
+    {
+        "Id": 554,
+        "GroupId": 11701,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1170101,
+            1170102.0,
+            1170103.0
+        ]
+    },
+    {
+        "Id": 555,
+        "GroupId": 11801,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1180101,
+            1180102.0,
+            1180103.0
+        ]
+    },
+    {
+        "Id": 556,
+        "GroupId": 11901,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1190101,
+            1190102.0,
+            1190103.0
+        ]
+    },
+    {
+        "Id": 557,
+        "GroupId": 12001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            1200101,
+            1200102.0,
+            1200103.0
+        ]
+    },
+    {
+        "Id": 558,
+        "GroupId": 60001,
+        "Weight": 10000,
+        "RiftStageIds": [
+            null,
+            6000101,
+            null,
+            null
+        ]
+    }
+]

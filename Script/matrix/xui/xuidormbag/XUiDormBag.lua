@@ -446,7 +446,7 @@ function XUiDormBag:DecomposeFurniture(cb)
                 XDataCenter.FurnitureManager.DeleteNewHint(successIds)
             end
 
-            XEventManager.DispatchEvent(XEventId.EVENT_FURNITURE_ON_MODIFY)
+			XEventManager.DispatchEvent(XEventId.EVENT_FURNITURE_ON_MODIFY)
 			CsXGameEventManager.Instance:Notify(XEventId.EVENT_FURNITURE_ON_MODIFY)
 
             -- 清理数据

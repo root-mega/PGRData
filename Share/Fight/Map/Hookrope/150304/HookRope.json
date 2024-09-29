@@ -1,0 +1,104 @@
+[
+    {
+        "Id": 1001,
+        "AreaType": 3,
+        "Radius": null,
+        "Length": 3.0,
+        "Width": 3.0,
+        "PosX": 167.5,
+        "PosY": 19.8,
+        "PosZ": 96,
+        "face": 177,
+        "TargetIds": [
+            null,
+            1003.0,
+            1002.0,
+            null
+        ]
+    },
+    {
+        "Id": 1002,
+        "AreaType": 1,
+        "Radius": null,
+        "Length": null,
+        "Width": null,
+        "PosX": 174.6,
+        "PosY": 30.5,
+        "PosZ": 82,
+        "face": 177,
+        "TargetIds": [
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1003,
+        "AreaType": 3,
+        "Radius": null,
+        "Length": 3.0,
+        "Width": 3.0,
+        "PosX": 160.0,
+        "PosY": 22.7,
+        "PosZ": 83,
+        "face": 177,
+        "TargetIds": [
+            null,
+            1006.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1004,
+        "AreaType": 3,
+        "Radius": null,
+        "Length": 3.0,
+        "Width": 3.0,
+        "PosX": 151.0,
+        "PosY": 22.7,
+        "PosZ": 61,
+        "face": 177,
+        "TargetIds": [
+            null,
+            1005.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1005,
+        "AreaType": 3,
+        "Radius": null,
+        "Length": 3.0,
+        "Width": 3.0,
+        "PosX": 144.0,
+        "PosY": 17.8,
+        "PosZ": 60,
+        "face": 177,
+        "TargetIds": [
+            null,
+            1004.0,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 1006,
+        "AreaType": 1,
+        "Radius": null,
+        "Length": null,
+        "Width": null,
+        "PosX": 167.0,
+        "PosY": 19.86,
+        "PosZ": 100,
+        "face": 177,
+        "TargetIds": [
+            null,
+            null,
+            null,
+            null
+        ]
+    }
+]

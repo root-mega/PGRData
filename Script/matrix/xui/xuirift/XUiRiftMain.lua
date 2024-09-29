@@ -334,7 +334,7 @@ function XUiRiftMain:OnResume(data)
 end
 
 function XUiRiftMain:InitAssetPanel()
-    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelSpecialTool)
+    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelSpecialTool, self)
     XDataCenter.ItemManager.AddCountUpdateListener(
         {
             XDataCenter.ItemManager.ItemId.RiftGold,

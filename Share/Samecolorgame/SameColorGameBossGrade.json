@@ -1,0 +1,674 @@
+[
+    {
+        "Id": 1,
+        "BossId": 1,
+        "Damage": 0,
+        "Grade": 1,
+        "GradeName": "E"
+    },
+    {
+        "Id": 2,
+        "BossId": 1,
+        "Damage": 15000,
+        "Grade": 2,
+        "GradeName": "E+"
+    },
+    {
+        "Id": 3,
+        "BossId": 1,
+        "Damage": 30000,
+        "Grade": 3,
+        "GradeName": "D"
+    },
+    {
+        "Id": 4,
+        "BossId": 1,
+        "Damage": 40000,
+        "Grade": 4,
+        "GradeName": "D+"
+    },
+    {
+        "Id": 5,
+        "BossId": 1,
+        "Damage": 50000,
+        "Grade": 5,
+        "GradeName": "C"
+    },
+    {
+        "Id": 6,
+        "BossId": 1,
+        "Damage": 65000,
+        "Grade": 6,
+        "GradeName": "C+"
+    },
+    {
+        "Id": 7,
+        "BossId": 1,
+        "Damage": 80000,
+        "Grade": 7,
+        "GradeName": "B"
+    },
+    {
+        "Id": 8,
+        "BossId": 1,
+        "Damage": 95000,
+        "Grade": 8,
+        "GradeName": "B+"
+    },
+    {
+        "Id": 9,
+        "BossId": 1,
+        "Damage": 110000,
+        "Grade": 9,
+        "GradeName": "A"
+    },
+    {
+        "Id": 10,
+        "BossId": 1,
+        "Damage": 150000,
+        "Grade": 10,
+        "GradeName": "A+"
+    },
+    {
+        "Id": 11,
+        "BossId": 1,
+        "Damage": 180000,
+        "Grade": 11,
+        "GradeName": "S"
+    },
+    {
+        "Id": 12,
+        "BossId": 1,
+        "Damage": 230000,
+        "Grade": 12,
+        "GradeName": "S+"
+    },
+    {
+        "Id": 13,
+        "BossId": 1,
+        "Damage": 250000,
+        "Grade": 13,
+        "GradeName": "SS"
+    },
+    {
+        "Id": 14,
+        "BossId": 1,
+        "Damage": 300000,
+        "Grade": 14,
+        "GradeName": "SS+"
+    },
+    {
+        "Id": 15,
+        "BossId": 1,
+        "Damage": 500000,
+        "Grade": 15,
+        "GradeName": "SSS"
+    },
+    {
+        "Id": 16,
+        "BossId": 1,
+        "Damage": 700000,
+        "Grade": 16,
+        "GradeName": "SSS+"
+    },
+    {
+        "Id": 17,
+        "BossId": 2,
+        "Damage": 0,
+        "Grade": 1,
+        "GradeName": "E"
+    },
+    {
+        "Id": 18,
+        "BossId": 2,
+        "Damage": 15000,
+        "Grade": 2,
+        "GradeName": "E+"
+    },
+    {
+        "Id": 19,
+        "BossId": 2,
+        "Damage": 30000,
+        "Grade": 3,
+        "GradeName": "D"
+    },
+    {
+        "Id": 20,
+        "BossId": 2,
+        "Damage": 40000,
+        "Grade": 4,
+        "GradeName": "D+"
+    },
+    {
+        "Id": 21,
+        "BossId": 2,
+        "Damage": 50000,
+        "Grade": 5,
+        "GradeName": "C"
+    },
+    {
+        "Id": 22,
+        "BossId": 2,
+        "Damage": 65000,
+        "Grade": 6,
+        "GradeName": "C+"
+    },
+    {
+        "Id": 23,
+        "BossId": 2,
+        "Damage": 80000,
+        "Grade": 7,
+        "GradeName": "B"
+    },
+    {
+        "Id": 24,
+        "BossId": 2,
+        "Damage": 95000,
+        "Grade": 8,
+        "GradeName": "B+"
+    },
+    {
+        "Id": 25,
+        "BossId": 2,
+        "Damage": 110000,
+        "Grade": 9,
+        "GradeName": "A"
+    },
+    {
+        "Id": 26,
+        "BossId": 2,
+        "Damage": 150000,
+        "Grade": 10,
+        "GradeName": "A+"
+    },
+    {
+        "Id": 27,
+        "BossId": 2,
+        "Damage": 180000,
+        "Grade": 11,
+        "GradeName": "S"
+    },
+    {
+        "Id": 28,
+        "BossId": 2,
+        "Damage": 230000,
+        "Grade": 12,
+        "GradeName": "S+"
+    },
+    {
+        "Id": 29,
+        "BossId": 2,
+        "Damage": 250000,
+        "Grade": 13,
+        "GradeName": "SS"
+    },
+    {
+        "Id": 30,
+        "BossId": 2,
+        "Damage": 300000,
+        "Grade": 14,
+        "GradeName": "SS+"
+    },
+    {
+        "Id": 31,
+        "BossId": 2,
+        "Damage": 500000,
+        "Grade": 15,
+        "GradeName": "SSS"
+    },
+    {
+        "Id": 32,
+        "BossId": 2,
+        "Damage": 700000,
+        "Grade": 16,
+        "GradeName": "SSS+"
+    },
+    {
+        "Id": 33,
+        "BossId": 3,
+        "Damage": 0,
+        "Grade": 1,
+        "GradeName": "E"
+    },
+    {
+        "Id": 34,
+        "BossId": 3,
+        "Damage": 15000,
+        "Grade": 2,
+        "GradeName": "E+"
+    },
+    {
+        "Id": 35,
+        "BossId": 3,
+        "Damage": 30000,
+        "Grade": 3,
+        "GradeName": "D"
+    },
+    {
+        "Id": 36,
+        "BossId": 3,
+        "Damage": 40000,
+        "Grade": 4,
+        "GradeName": "D+"
+    },
+    {
+        "Id": 37,
+        "BossId": 3,
+        "Damage": 50000,
+        "Grade": 5,
+        "GradeName": "C"
+    },
+    {
+        "Id": 38,
+        "BossId": 3,
+        "Damage": 65000,
+        "Grade": 6,
+        "GradeName": "C+"
+    },
+    {
+        "Id": 39,
+        "BossId": 3,
+        "Damage": 80000,
+        "Grade": 7,
+        "GradeName": "B"
+    },
+    {
+        "Id": 40,
+        "BossId": 3,
+        "Damage": 95000,
+        "Grade": 8,
+        "GradeName": "B+"
+    },
+    {
+        "Id": 41,
+        "BossId": 3,
+        "Damage": 110000,
+        "Grade": 9,
+        "GradeName": "A"
+    },
+    {
+        "Id": 42,
+        "BossId": 3,
+        "Damage": 150000,
+        "Grade": 10,
+        "GradeName": "A+"
+    },
+    {
+        "Id": 43,
+        "BossId": 3,
+        "Damage": 180000,
+        "Grade": 11,
+        "GradeName": "S"
+    },
+    {
+        "Id": 44,
+        "BossId": 3,
+        "Damage": 230000,
+        "Grade": 12,
+        "GradeName": "S+"
+    },
+    {
+        "Id": 45,
+        "BossId": 3,
+        "Damage": 250000,
+        "Grade": 13,
+        "GradeName": "SS"
+    },
+    {
+        "Id": 46,
+        "BossId": 3,
+        "Damage": 300000,
+        "Grade": 14,
+        "GradeName": "SS+"
+    },
+    {
+        "Id": 47,
+        "BossId": 3,
+        "Damage": 500000,
+        "Grade": 15,
+        "GradeName": "SSS"
+    },
+    {
+        "Id": 48,
+        "BossId": 3,
+        "Damage": 700000,
+        "Grade": 16,
+        "GradeName": "SSS+"
+    },
+    {
+        "Id": 49,
+        "BossId": 4,
+        "Damage": 0,
+        "Grade": 1,
+        "GradeName": "E"
+    },
+    {
+        "Id": 50,
+        "BossId": 4,
+        "Damage": 15000,
+        "Grade": 2,
+        "GradeName": "E+"
+    },
+    {
+        "Id": 51,
+        "BossId": 4,
+        "Damage": 30000,
+        "Grade": 3,
+        "GradeName": "D"
+    },
+    {
+        "Id": 52,
+        "BossId": 4,
+        "Damage": 40000,
+        "Grade": 4,
+        "GradeName": "D+"
+    },
+    {
+        "Id": 53,
+        "BossId": 4,
+        "Damage": 50000,
+        "Grade": 5,
+        "GradeName": "C"
+    },
+    {
+        "Id": 54,
+        "BossId": 4,
+        "Damage": 65000,
+        "Grade": 6,
+        "GradeName": "C+"
+    },
+    {
+        "Id": 55,
+        "BossId": 4,
+        "Damage": 80000,
+        "Grade": 7,
+        "GradeName": "B"
+    },
+    {
+        "Id": 56,
+        "BossId": 4,
+        "Damage": 95000,
+        "Grade": 8,
+        "GradeName": "B+"
+    },
+    {
+        "Id": 57,
+        "BossId": 4,
+        "Damage": 110000,
+        "Grade": 9,
+        "GradeName": "A"
+    },
+    {
+        "Id": 58,
+        "BossId": 4,
+        "Damage": 150000,
+        "Grade": 10,
+        "GradeName": "A+"
+    },
+    {
+        "Id": 59,
+        "BossId": 4,
+        "Damage": 180000,
+        "Grade": 11,
+        "GradeName": "S"
+    },
+    {
+        "Id": 60,
+        "BossId": 4,
+        "Damage": 230000,
+        "Grade": 12,
+        "GradeName": "S+"
+    },
+    {
+        "Id": 61,
+        "BossId": 4,
+        "Damage": 250000,
+        "Grade": 13,
+        "GradeName": "SS"
+    },
+    {
+        "Id": 62,
+        "BossId": 4,
+        "Damage": 300000,
+        "Grade": 14,
+        "GradeName": "SS+"
+    },
+    {
+        "Id": 63,
+        "BossId": 4,
+        "Damage": 500000,
+        "Grade": 15,
+        "GradeName": "SSS"
+    },
+    {
+        "Id": 64,
+        "BossId": 4,
+        "Damage": 700000,
+        "Grade": 16,
+        "GradeName": "SSS+"
+    },
+    {
+        "Id": 65,
+        "BossId": 5,
+        "Damage": 0,
+        "Grade": 1,
+        "GradeName": "E"
+    },
+    {
+        "Id": 66,
+        "BossId": 5,
+        "Damage": 15000,
+        "Grade": 2,
+        "GradeName": "E+"
+    },
+    {
+        "Id": 67,
+        "BossId": 5,
+        "Damage": 30000,
+        "Grade": 3,
+        "GradeName": "D"
+    },
+    {
+        "Id": 68,
+        "BossId": 5,
+        "Damage": 40000,
+        "Grade": 4,
+        "GradeName": "D+"
+    },
+    {
+        "Id": 69,
+        "BossId": 5,
+        "Damage": 50000,
+        "Grade": 5,
+        "GradeName": "C"
+    },
+    {
+        "Id": 70,
+        "BossId": 5,
+        "Damage": 65000,
+        "Grade": 6,
+        "GradeName": "C+"
+    },
+    {
+        "Id": 71,
+        "BossId": 5,
+        "Damage": 80000,
+        "Grade": 7,
+        "GradeName": "B"
+    },
+    {
+        "Id": 72,
+        "BossId": 5,
+        "Damage": 95000,
+        "Grade": 8,
+        "GradeName": "B+"
+    },
+    {
+        "Id": 73,
+        "BossId": 5,
+        "Damage": 110000,
+        "Grade": 9,
+        "GradeName": "A"
+    },
+    {
+        "Id": 74,
+        "BossId": 5,
+        "Damage": 150000,
+        "Grade": 10,
+        "GradeName": "A+"
+    },
+    {
+        "Id": 75,
+        "BossId": 5,
+        "Damage": 180000,
+        "Grade": 11,
+        "GradeName": "S"
+    },
+    {
+        "Id": 76,
+        "BossId": 5,
+        "Damage": 230000,
+        "Grade": 12,
+        "GradeName": "S+"
+    },
+    {
+        "Id": 77,
+        "BossId": 5,
+        "Damage": 250000,
+        "Grade": 13,
+        "GradeName": "SS"
+    },
+    {
+        "Id": 78,
+        "BossId": 5,
+        "Damage": 300000,
+        "Grade": 14,
+        "GradeName": "SS+"
+    },
+    {
+        "Id": 79,
+        "BossId": 5,
+        "Damage": 500000,
+        "Grade": 15,
+        "GradeName": "SSS"
+    },
+    {
+        "Id": 80,
+        "BossId": 5,
+        "Damage": 700000,
+        "Grade": 16,
+        "GradeName": "SSS+"
+    },
+    {
+        "Id": 81,
+        "BossId": 6,
+        "Damage": 0,
+        "Grade": 1,
+        "GradeName": "E"
+    },
+    {
+        "Id": 82,
+        "BossId": 6,
+        "Damage": 15000,
+        "Grade": 2,
+        "GradeName": "E+"
+    },
+    {
+        "Id": 83,
+        "BossId": 6,
+        "Damage": 30000,
+        "Grade": 3,
+        "GradeName": "D"
+    },
+    {
+        "Id": 84,
+        "BossId": 6,
+        "Damage": 40000,
+        "Grade": 4,
+        "GradeName": "D+"
+    },
+    {
+        "Id": 85,
+        "BossId": 6,
+        "Damage": 50000,
+        "Grade": 5,
+        "GradeName": "C"
+    },
+    {
+        "Id": 86,
+        "BossId": 6,
+        "Damage": 65000,
+        "Grade": 6,
+        "GradeName": "C+"
+    },
+    {
+        "Id": 87,
+        "BossId": 6,
+        "Damage": 80000,
+        "Grade": 7,
+        "GradeName": "B"
+    },
+    {
+        "Id": 88,
+        "BossId": 6,
+        "Damage": 95000,
+        "Grade": 8,
+        "GradeName": "B+"
+    },
+    {
+        "Id": 89,
+        "BossId": 6,
+        "Damage": 110000,
+        "Grade": 9,
+        "GradeName": "A"
+    },
+    {
+        "Id": 90,
+        "BossId": 6,
+        "Damage": 150000,
+        "Grade": 10,
+        "GradeName": "A+"
+    },
+    {
+        "Id": 91,
+        "BossId": 6,
+        "Damage": 180000,
+        "Grade": 11,
+        "GradeName": "S"
+    },
+    {
+        "Id": 92,
+        "BossId": 6,
+        "Damage": 230000,
+        "Grade": 12,
+        "GradeName": "S+"
+    },
+    {
+        "Id": 93,
+        "BossId": 6,
+        "Damage": 250000,
+        "Grade": 13,
+        "GradeName": "SS"
+    },
+    {
+        "Id": 94,
+        "BossId": 6,
+        "Damage": 300000,
+        "Grade": 14,
+        "GradeName": "SS+"
+    },
+    {
+        "Id": 95,
+        "BossId": 6,
+        "Damage": 500000,
+        "Grade": 15,
+        "GradeName": "SSS"
+    },
+    {
+        "Id": 96,
+        "BossId": 6,
+        "Damage": 700000,
+        "Grade": 16,
+        "GradeName": "SSS+"
+    }
+]

@@ -100,6 +100,19 @@ XDlcManagerCreator = function()
     end
     --endregion------------------RedPoint finish------------------
 
+    --region DownloadSelect
+    local UnityPlayerPrefs = CS.UnityEngine.PlayerPrefs
+    local KEY_DOWNLOADED_SELECT = "KEY_DOWNLOADED_SELECT"
+    function XDlcManager.GetDownloadSelect()
+        local value = UnityPlayerPrefs.GetInt(KEY_DOWNLOADED_SELECT)
+        return value == 0 and 1 or value
+    end
+    
+    function XDlcManager.SetDownloadSelect(value)
+        UnityPlayerPrefs.SetInt(KEY_DOWNLOADED_SELECT, value)
+    end
+    --endregion
+    
     function XDlcManager.CheckIsOpen()
         local CanDownloadDLC = CS.XRemoteConfig.LaunchSelectType and CS.XRemoteConfig.LaunchSelectType ~= 0
         return IsDlcBuild and XDlcManager.HasDlcList() and CanDownloadDLC and not XUiManager.IsHideFunc

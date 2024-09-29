@@ -1,12 +1,12 @@
 [
     {
         "Id": 1,
-        "ShopId": 1275,
+        "ShopId": 1286,
         "GoodsSortIds": [
             null,
             1.0,
             2.0,
-            null
+            3.0
         ],
         "ShopBg": "Assets/Product/Texture/Image/UiActivityBrief/UiActvityBriefShop03.png",
         "ShopSortGroupBg": "Assets/Product/Texture/Image/UiActivityBrief/ActivityBrieShopGoodsSort10.png",
@@ -15,12 +15,12 @@
     },
     {
         "Id": 2,
-        "ShopId": 1276,
+        "ShopId": 1287,
         "GoodsSortIds": [
             null,
-            3.0,
             4.0,
-            5.0
+            5.0,
+            6.0
         ],
         "ShopBg": "Assets/Product/Texture/Image/UiActivityBrief/UiActvityBriefShop03.png",
         "ShopSortGroupBg": "Assets/Product/Texture/Image/UiActivityBrief/ActivityBrieShopGoodsSort10.png",
@@ -29,7 +29,7 @@
     },
     {
         "Id": 3,
-        "ShopId": 1277,
+        "ShopId": 1288,
         "GoodsSortIds": [
             null,
             null,

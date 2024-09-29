@@ -27,7 +27,6 @@ local UIBindControl = {
     UiEquipPreviewV2P6 = ModuleId.XEquip,
     UiEquipDetailOther = ModuleId.XEquip,
     UiAwarenessOccupyProgress = ModuleId.XEquip,
-    UiEquipDetailOther = ModuleId.XEquip,
     UiEquipAwarenessV2P6 = ModuleId.XEquip,
     --region 肉鸽3.0
     UiTheatre3Main = ModuleId.XTheatre3,
@@ -61,11 +60,64 @@ local UIBindControl = {
     UiTheatre3UnlockTips = ModuleId.XTheatre3,
     UiTheatre3SuitActiveTip = ModuleId.XTheatre3,
     --endregion
+
+    --region   ------------------国际战棋 start-------------------
+    UiBlackRockChessMain = ModuleId.XBlackRockChess,
+    UiBlackRockChessBattle = ModuleId.XBlackRockChess,
+    UiBlackRockChessVictorySettlement = ModuleId.XBlackRockChess,
+    UiBlackRockChessSettleLose = ModuleId.XBlackRockChess,
+    UiBlackRockChessComponent = ModuleId.XBlackRockChess,
+    UiBlackRockChessShop = ModuleId.XBlackRockChess,
+    UiBlackRockChessArchive = ModuleId.XBlackRockChess,
+    UiBlackRockChessHandbook = ModuleId.XBlackRockChess,
+    UiBlackRockChessBubbleSkill = ModuleId.XBlackRockChess,
+    UiBlackRockChessChapter = ModuleId.XBlackRockChess,
+    UiBlackRockChessChapterDetail = ModuleId.XBlackRockChess,
+    --endregion------------------国际战棋 finish------------------
+    
     --region 大转盘
     UiTurntableMain = ModuleId.XTurntable,
     UiTurntableLog = ModuleId.XTurntable,
     UiTurntableTask = ModuleId.XTurntable,
     UiGridTurntableProgressReward = ModuleId.XUiTurntable,
+    --endregion
+    
+    --region 黑岩剧情关
+    UiBlackRockStage = ModuleId.XBlackRockStage,
+    --endregion
+    
+    --region bp/passport
+    UiPassport = ModuleId.XPassport,
+    UiPassportTips = ModuleId.XPassport,
+    UiPassportCard = ModuleId.XPassport,
+    UiPassportReward = ModuleId.XPassport,
+    UiPassportUpLevel = ModuleId.XPassport,
+    --endregion
+    
+    --region TaikoMaster 音游
+    UiTaikoMasterMain = ModuleId.XTaikoMaster,
+    UiTaikoMasterTask = ModuleId.XTaikoMaster,
+    UiTaikoMasterBattleRoom = ModuleId.XTaikoMaster,
+    UiTaikoMasterRoleSelect = ModuleId.XTaikoMaster,
+    UiTaikoMasterSettlement = ModuleId.XTaikoMaster,
+    UiTaikoMasterSetting = ModuleId.XTaikoMaster,
+    UiTaikoMasterRank = ModuleId.XTaikoMaster,
+    --endregion
+    
+    --region 新周历
+    XUiMainLeftCalendar = ModuleId.XNewActivityCalendar,
+    --endregion
+    
+    --region 正逆塔
+    UiTwoSideTowerMainZhu = ModuleId.XTwoSideTower,
+    UiTwoSideTowerMain = ModuleId.XTwoSideTower,
+    UiTwoSideTowerMainLine = ModuleId.XTwoSideTower,
+    UiTwoSideTowerStageDetail = ModuleId.XTwoSideTower,
+    UiTwoSideTowerEndStageDetail = ModuleId.XTwoSideTower,
+    UiTwoSideTowerDetails = ModuleId.XTwoSideTower,
+    UiTwoSideTowerOverview = ModuleId.XTwoSideTower,
+    UiTwoSideTowerTaskTwo = ModuleId.XTwoSideTower,
+    UiTwoSideTowerSettle = ModuleId.XTwoSideTower,
     --endregion
 }
 return UIBindControl

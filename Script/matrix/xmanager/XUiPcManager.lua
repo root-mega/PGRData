@@ -307,3 +307,4 @@ XUiPcManagerCreator = function()
     XUiPcManager.Init()
     return XUiPcManager
 end
+

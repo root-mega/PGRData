@@ -1137,7 +1137,7 @@ XEquipManagerCreator = function()
 
     function XEquipManager.GetEquipAttrMap(equipId, preLevel)
         return XMVCA:GetAgency(ModuleId.XEquip):GetEquipAttrMap(equipId, nil, preLevel)
-        end
+    end
 
     function XEquipManager.GetEquipAttrMapByEquipData(equip)
         local attrMap = {}
@@ -1854,7 +1854,7 @@ XEquipManagerCreator = function()
 
         if template then
             for case, modelTransId in pairs(template.ModelTransId) do
-                if XTool.IsNumberValid(modelTransId) then
+                if modelTransId then
                     local modelId = isWeaponFashion and XWeaponFashionConfigs.GetWeaponResonanceModelId(case, weaponFashionId, resonanceCount)
                     if not modelId then
                         modelId = isAprilFoolDay and

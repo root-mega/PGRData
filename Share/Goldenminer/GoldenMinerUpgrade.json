@@ -1,0 +1,306 @@
+[
+    {
+        "Id": 1,
+        "Type": 0,
+        "UpgradeCosts": [
+            null,
+            120,
+            200.0,
+            320.0,
+            null,
+            null
+        ],
+        "UpgradeBuffs": [
+            null,
+            301,
+            302.0,
+            303.0,
+            null,
+            null
+        ],
+        "LocalIds": [
+            null,
+            1,
+            null,
+            null,
+            null,
+            null
+        ],
+        "LvMaxShipKey": "MaxSpeedShip",
+        "IsOpen": null,
+        "Conditions": [
+            null,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "Id": 2,
+        "Type": 0,
+        "UpgradeCosts": [
+            null,
+            700,
+            1500.0,
+            2300.0,
+            null,
+            null
+        ],
+        "UpgradeBuffs": [
+            null,
+            311,
+            312.0,
+            313.0,
+            null,
+            null
+        ],
+        "LocalIds": [
+            null,
+            2,
+            null,
+            null,
+            null,
+            null
+        ],
+        "LvMaxShipKey": "MaxClampShip",
+        "IsOpen": null,
+        "Conditions": [
+            null,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "Id": 3,
+        "Type": 1,
+        "UpgradeCosts": [
+            null,
+            3888,
+            3998.0,
+            null,
+            null,
+            null
+        ],
+        "UpgradeBuffs": [
+            null,
+            321,
+            331.0,
+            null,
+            null,
+            null
+        ],
+        "LocalIds": [
+            null,
+            3,
+            4.0,
+            null,
+            null,
+            null
+        ],
+        "LvMaxShipKey": null,
+        "IsOpen": null,
+        "Conditions": [
+            null,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "Id": 4,
+        "Type": 0,
+        "UpgradeCosts": [
+            null,
+            888,
+            null,
+            null,
+            null,
+            null
+        ],
+        "UpgradeBuffs": [
+            null,
+            341,
+            null,
+            null,
+            null,
+            null
+        ],
+        "LocalIds": [
+            null,
+            5,
+            null,
+            null,
+            null,
+            null
+        ],
+        "LvMaxShipKey": null,
+        "IsOpen": null,
+        "Conditions": [
+            null,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "Id": 5,
+        "Type": 2,
+        "UpgradeCosts": [
+            null,
+            3888,
+            3998.0,
+            null,
+            null,
+            null
+        ],
+        "UpgradeBuffs": [
+            null,
+            321,
+            331.0,
+            null,
+            null,
+            null
+        ],
+        "LocalIds": [
+            null,
+            3,
+            4.0,
+            null,
+            null,
+            null
+        ],
+        "LvMaxShipKey": null,
+        "IsOpen": null,
+        "Conditions": [
+            null,
+            0,
+            1010001,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "Id": 101,
+        "Type": 0,
+        "UpgradeCosts": [
+            null,
+            1000,
+            null,
+            null,
+            null,
+            null
+        ],
+        "UpgradeBuffs": [
+            null,
+            341,
+            null,
+            null,
+            null,
+            null
+        ],
+        "LocalIds": [
+            null,
+            101,
+            null,
+            null,
+            null,
+            null
+        ],
+        "LvMaxShipKey": null,
+        "IsOpen": 1.0,
+        "Conditions": [
+            null,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "Id": 102,
+        "Type": 0,
+        "UpgradeCosts": [
+            null,
+            900,
+            1800.0,
+            2500.0,
+            null,
+            null
+        ],
+        "UpgradeBuffs": [
+            null,
+            311,
+            312.0,
+            313.0,
+            null,
+            null
+        ],
+        "LocalIds": [
+            null,
+            102,
+            null,
+            null,
+            null,
+            null
+        ],
+        "LvMaxShipKey": "MaxClampShip",
+        "IsOpen": 1.0,
+        "Conditions": [
+            null,
+            0,
+            0,
+            0,
+            0,
+            0
+        ]
+    },
+    {
+        "Id": 103,
+        "Type": 2,
+        "UpgradeCosts": [
+            null,
+            0,
+            0.0,
+            2500.0,
+            2500.0,
+            2500.0
+        ],
+        "UpgradeBuffs": [
+            null,
+            501,
+            502.0,
+            503.0,
+            504.0,
+            505.0
+        ],
+        "LocalIds": [
+            null,
+            103,
+            104.0,
+            105.0,
+            106.0,
+            107.0
+        ],
+        "LvMaxShipKey": null,
+        "IsOpen": 1.0,
+        "Conditions": [
+            null,
+            1010002,
+            1010001,
+            0,
+            0,
+            0
+        ]
+    }
+]

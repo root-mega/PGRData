@@ -1,0 +1,242 @@
+[
+    {
+        "Key": "Name",
+        "Values": [
+            null,
+            "Circuit Connect",
+            null,
+            null
+        ],
+        "Comment": "Event Name"
+    },
+    {
+        "Key": "BannerIcon",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner109.png",
+            null,
+            null
+        ],
+        "Comment": "Event Entrance Icon"
+    },
+    {
+        "Key": "HelpId",
+        "Values": [
+            null,
+            "10094",
+            null,
+            null
+        ],
+        "Comment": "Event Help Mark"
+    },
+    {
+        "Key": "AssetItemIds",
+        "Values": [
+            null,
+            "63",
+            null,
+            null
+        ],
+        "Comment": "Event Token ID Data"
+    },
+    {
+        "Key": "TaskGroupId",
+        "Values": [
+            null,
+            "218",
+            "219",
+            null
+        ],
+        "Comment": "TaskTimeLimit.tab Configuration ID (New Task ID and TaskTimeLimit ID needed for every version)"
+    },
+    {
+        "Key": "ShopId",
+        "Values": [
+            null,
+            "1266",
+            null,
+            null
+        ],
+        "Comment": "Event Shop shopID"
+    },
+    {
+        "Key": "GradeIconSSS+",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorSSS2.png",
+            null,
+            null
+        ],
+        "Comment": "Rank SSS+ Icon"
+    },
+    {
+        "Key": "GradeIconSSS",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorSSS.png",
+            null,
+            null
+        ],
+        "Comment": "Rank SSS Icon"
+    },
+    {
+        "Key": "GradeIconSS+",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorSS2.png",
+            null,
+            null
+        ],
+        "Comment": "Rank SS+ Icon"
+    },
+    {
+        "Key": "GradeIconSS",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorSS.png",
+            null,
+            null
+        ],
+        "Comment": "Rank SS Icon"
+    },
+    {
+        "Key": "GradeIconS+",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorS2.png",
+            null,
+            null
+        ],
+        "Comment": "Rank S+ Icon"
+    },
+    {
+        "Key": "GradeIconS",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorS.png",
+            null,
+            null
+        ],
+        "Comment": "Rank S Icon"
+    },
+    {
+        "Key": "GradeIconA+",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorA2.png",
+            null,
+            null
+        ],
+        "Comment": "Rank A + Icon"
+    },
+    {
+        "Key": "GradeIconA",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorA.png",
+            null,
+            null
+        ],
+        "Comment": "Rank A Icon"
+    },
+    {
+        "Key": "GradeIconB+",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorB2.png",
+            null,
+            null
+        ],
+        "Comment": "Rank B + Icon"
+    },
+    {
+        "Key": "GradeIconB",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorB.png",
+            null,
+            null
+        ],
+        "Comment": "Rank B Icon"
+    },
+    {
+        "Key": "GradeIconC+",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorC2.png",
+            null,
+            null
+        ],
+        "Comment": "Rank C + Icon"
+    },
+    {
+        "Key": "GradeIconC",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorC.png",
+            null,
+            null
+        ],
+        "Comment": "Rank C Icon"
+    },
+    {
+        "Key": "GradeIconD+",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorD2.png",
+            null,
+            null
+        ],
+        "Comment": "Rank D + Icon"
+    },
+    {
+        "Key": "GradeIconD",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorD.png",
+            null,
+            null
+        ],
+        "Comment": "Rank D Icon"
+    },
+    {
+        "Key": "GradeIconE+",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorE2.png",
+            null,
+            null
+        ],
+        "Comment": "Rank E + Icon"
+    },
+    {
+        "Key": "GradeIconE",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiSameColorGame/SameColorE.png",
+            null,
+            null
+        ],
+        "Comment": "Rank E Icon"
+    },
+    {
+        "Key": "RankIcons",
+        "Values": [
+            null,
+            "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo1.png",
+            "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo2.png",
+            "Assets/Product/Texture/Image/UiFubenChallengeMapBoss/BossSingleNo3.png"
+        ],
+        "Comment": "Ranking Top 3 Icon"
+    },
+    {
+        "Key": "BattleComboLevel",
+        "Values": [
+            null,
+            "1",
+            "5",
+            "10"
+        ],
+        "Comment": "Current Combo Levels"
+    }
+]

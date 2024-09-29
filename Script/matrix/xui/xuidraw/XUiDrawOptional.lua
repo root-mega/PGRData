@@ -211,7 +211,7 @@ function XUiDrawOptional:SelectCombination(drawId)
 end
 
 function XUiDrawOptional:CheckIsAllTimeOver()
-    for _, info in pairs(self.InfoList) do
+    for _, info in pairs(self.AllInfoList) do
         if not XDataCenter.DrawManager.CheckDrawIsTimeOver(info.Id) then
             return false
         end
@@ -347,18 +347,26 @@ function XUiDrawOptional:_SortCharInfoList(infoList)
         local isNotCharA = ownDic[a.Id].CharId == nil
         local isNotCharB = ownDic[b.Id].CharId == nil
         if isNotCharA or isNotCharB then
-            priorityA = priorityA + (isNotCharA and 100000 or 0)
-            priorityB = priorityB + (isNotCharB and 100000 or 0)
+            priorityA = priorityA + (isNotCharA and 1000000 or 0)
+            priorityB = priorityB + (isNotCharB and 1000000 or 0)
             return priorityA > priorityB
         end
 
         -- 是否选中
-        priorityA = priorityA + (a.Id == self.CurSelectDrawId and 10000 or 0)
-        priorityB = priorityB + (b.Id == self.CurSelectDrawId and 10000 or 0)
+        priorityA = priorityA + (a.Id == self.CurSelectDrawId and 100000 or 0)
+        priorityB = priorityB + (b.Id == self.CurSelectDrawId and 100000 or 0)
 
         -- 是否活动中
-        priorityA = priorityA + (a.EndTime > 0 and 1000 or 0)
-        priorityB = priorityB + (b.EndTime > 0 and 1000 or 0)
+        priorityA = priorityA + (a.EndTime > 0 and 10000 or 0)
+        priorityB = priorityB + (b.EndTime > 0 and 10000 or 0)
+
+        -- 是否是新加的
+        if XFunctionManager.CheckInTimeByTimeId(drawAimProbability[a.Id].NewTimeId) then  
+            priorityA = priorityA + 1000
+        end
+        if XFunctionManager.CheckInTimeByTimeId(drawAimProbability[b.Id].NewTimeId) then  
+            priorityB = priorityB + 1000
+        end
 
         -- 是否拥有
         local isOwnA = ownDic[a.Id].IsOwn
@@ -442,12 +450,20 @@ function XUiDrawOptional:_SortWeaponInfoList(infoList)
         local priorityB = 0
 
         -- 是否选中
-        priorityA = priorityA + (a.Id == self.CurSelectDrawId and 10000 or 0)
-        priorityB = priorityB + (b.Id == self.CurSelectDrawId and 10000 or 0)
+        priorityA = priorityA + (a.Id == self.CurSelectDrawId and 100000 or 0)
+        priorityB = priorityB + (b.Id == self.CurSelectDrawId and 100000 or 0)
 
         -- 是否活动中
-        priorityA = priorityA + (a.EndTime > 0 and 1000 or 0)
-        priorityB = priorityB + (b.EndTime > 0 and 1000 or 0)
+        priorityA = priorityA + (a.EndTime > 0 and 10000 or 0)
+        priorityB = priorityB + (b.EndTime > 0 and 10000 or 0)
+
+        -- 是否是新加的
+        if XFunctionManager.CheckInTimeByTimeId(drawAimProbability[a.Id].NewTimeId) then  
+            priorityA = priorityA + 1000
+        end
+        if XFunctionManager.CheckInTimeByTimeId(drawAimProbability[b.Id].NewTimeId) then  
+            priorityB = priorityB + 1000
+        end
 
         -- 是否拥有装备
         local isOwnA = ownDic[a.Id].IsOwnWeapon
@@ -520,12 +536,20 @@ function XUiDrawOptional:_SortPartnerInfoList(infoList)
         local priorityB = 0
 
         -- 是否选中
-        priorityA = priorityA + (a.Id == self.CurSelectDrawId and 10000 or 0)
-        priorityB = priorityB + (b.Id == self.CurSelectDrawId and 10000 or 0)
+        priorityA = priorityA + (a.Id == self.CurSelectDrawId and 100000 or 0)
+        priorityB = priorityB + (b.Id == self.CurSelectDrawId and 100000 or 0)
 
         -- 是否活动中
-        priorityA = priorityA + (a.EndTime > 0 and 1000 or 0)
-        priorityB = priorityB + (b.EndTime > 0 and 1000 or 0)
+        priorityA = priorityA + (a.EndTime > 0 and 10000 or 0)
+        priorityB = priorityB + (b.EndTime > 0 and 10000 or 0)
+
+        -- 是否是新加的
+        if XFunctionManager.CheckInTimeByTimeId(drawAimProbability[a.Id].NewTimeId) then  
+            priorityA = priorityA + 1000
+        end
+        if XFunctionManager.CheckInTimeByTimeId(drawAimProbability[b.Id].NewTimeId) then  
+            priorityB = priorityB + 1000
+        end
 
         -- 是否拥有辅助机
         local isOwnA = ownDic[a.Id].IsOwnPartner

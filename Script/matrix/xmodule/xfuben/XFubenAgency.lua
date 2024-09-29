@@ -1,3 +1,4 @@
+local IsWindowsEditor = XMain.IsWindowsEditor
 local CSTextManagerGetText = CS.XTextManager.GetText
 local ProcessFunc = XEnumConst.FuBen.ProcessFunc
 local StageType = XEnumConst.FuBen.StageType
@@ -20,7 +21,7 @@ local METHOD_NAME = {
     FightReboot = "FightRebootRequest",
     FightRestart = "FightRestartRequest"
 }
-
+local XFubenBaseAgency = require("XModule/XBase/XFubenBaseAgency")
 
 ---@class XFubenAgency : XAgency
 ---@field private _Model XFubenModel
@@ -86,11 +87,18 @@ function XFubenAgency:HasRegisterAgency(fubenType)
     return false
 end
 
-
+---@param fubenType number
+---@param moduleId string
 function XFubenAgency:RegisterFuben(fubenType, moduleId)
     if not self._RegFubenDict[fubenType] then
         local agency = XMVCA:GetAgency(moduleId)
         if agency then
+            if IsWindowsEditor then
+                if not CheckClassSuper(agency, XFubenBaseAgency) then
+                    XLog.Error(string.format("%s Agency 需要继承 XFubenBaseAgency", agency:GetId()))
+                    return
+                end
+            end
             self._RegFubenDict[fubenType] = moduleId
         else
             XLog.Error("注册副本模块Agency不存在: "..tostring(fubenType) .. " " ..tostring(moduleId))
@@ -308,10 +316,21 @@ function XFubenAgency:GetStageInfo(stageId)
 end
 
 ----------基础信息接口
+
+function XFubenAgency:GetStageTypeRobot(stageType)
+    local config = self._Model:GetStageTypeCfg(stageType)
+    return (config or {}).RobotId
+end
+
+function XFubenAgency:IsAllowRepeatChar(stageType)
+    local config = self._Model:GetStageTypeCfg(stageType)
+    return (config or {}).MatchCharIdRepeat
+end
+
 ---返回stage对应的类型
 function XFubenAgency:GetStageType(stageId)
     local config = self._Model:GetStageCfg(stageId)
-    if XTool.IsNumberValid(config.Type) then --增加多一列, 优先读取配置的
+    if config and XTool.IsNumberValid(config.Type) then --增加多一列, 优先读取配置的
         return config.Type
     end
     local stageInfo = self._Model:GetStageInfo(stageId)
@@ -338,6 +357,19 @@ end
 function XFubenAgency:ResetSettle()
     self._Model:SetFubenSettling(false)
     self._Model:SetFubenSettleResult(nil)
+end
+
+function XFubenAgency:IsStageCute(stageId)
+    local stageType = self:GetStageType(stageId)
+    if stageType == XEnumConst.FuBen.StageType.TaikoMaster
+            or stageType == XEnumConst.FuBen.StageType.MoeWarParkour
+            or stageType == XEnumConst.FuBen.StageType.Maze
+    then
+        return true
+    end
+    return XFubenSpecialTrainConfig.CheckIsSpecialTrainBreakthroughStage(stageId)
+            or XFubenSpecialTrainConfig.CheckIsYuanXiaoStage(stageId)
+            or XFubenSpecialTrainConfig.CheckIsSnowGameStage(stageId)
 end
 
 ----------public end----------
@@ -406,8 +438,6 @@ function XFubenAgency:CheckStageIsPass(stageId)
         return XDataCenter.TRPGManager.IsStagePass(stageId)
     elseif stageType == StageType.Pokemon then
         return XDataCenter.PokemonManager.CheckStageIsPassed(stageId)
-    elseif stageType == StageType.TwoSideTower then
-        return XDataCenter.TwoSideTowerManager.CheckStageIsPassed(stageId)
     elseif stageType == StageType.Maverick2 then
         return XDataCenter.Maverick2Manager.IsStagePassed(stageId)
     else
@@ -761,22 +791,6 @@ function XFubenAgency:PreFight(stage, teamId, isAssist, challengeCount, challeng
         preFight.CardIds = nil
     end
 
-    if stageType == StageType.TwoSideTower then
-        preFight.RobotIds = {}
-        local robotIds = XDataCenter.TwoSideTowerManager.GetActivityRobotIds()
-        for i, v in ipairs(preFight.CardIds) do
-            for _, robotId in pairs(robotIds) do
-                if robotId == v then
-                    preFight.RobotIds[i] = v
-                    preFight.CardIds[i] = 0
-                    break
-                else
-                    preFight.RobotIds[i] = 0
-                end
-            end
-        end
-    end
-
     return preFight
 end
 
@@ -855,7 +869,7 @@ function XFubenAgency:RecordFightBeginData(stageId, charList, isHasAssist, assis
     }
     self._Model:SetBeginData(beginData)
 
-    if not XDataCenter.FubenSpecialTrainManager.IsStageCute(stageId) then
+    if not self:IsStageCute(stageId) then
         for _, charId in pairs(charList) do
             local isRobot = XRobotManager.CheckIsRobotId(charId)
             local char = isRobot and XRobotManager.GetRobotTemplate(charId) or XDataCenter.CharacterManager.GetCharacter(charId)

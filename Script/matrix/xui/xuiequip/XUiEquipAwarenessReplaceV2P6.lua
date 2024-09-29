@@ -1,7 +1,7 @@
 local XUiGridSuitDetail = XClass(nil, "XUiGridSuitDetail")
 local XUiPanelSuitList = XClass(nil, "XUiPanelSuitList")
 
-local XUiGridEquip = require("XUi/XUiEquipAwarenessReplace/XUiGridEquip")
+local XUiGridEquip = require("XUi/XUiEquip/XUiGridEquip")
 local XUiGridResonanceSkill = require("XUi/XUiEquipResonanceSkill/XUiGridResonanceSkill")
 local Dropdown = CS.UnityEngine.UI.Dropdown
 local CSInstantiate = CS.UnityEngine.Object.Instantiate

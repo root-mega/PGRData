@@ -1,0 +1,65 @@
+[
+    {
+        "Id": 1021001,
+        "NpcId": 1002,
+        "AttribId": 1002,
+        "Name": "Lucia",
+        "TradeName": "Lotus",
+        "LogName": "Lucia: Lotus",
+        "EnName": "Lucia",
+        "Icon": "Assets/Product/Texture/Image/Role/RoleHeadluxiya.png",
+        "HalfBodyImage": "Assets/Product/Texture/Image/UiDlcHunt/UiDlcHuntSettlementXxRw4.png",
+        "Sex": 1,
+        "Priority": 10,
+        "EquipId": 2022001,
+        "DefaultNpcFashionId": 6210101,
+        "Code": 1,
+        "Element": [
+            null,
+            1,
+            null
+        ]
+    },
+    {
+        "Id": 1041003,
+        "NpcId": 1014,
+        "AttribId": 1014,
+        "Name": "Bianca",
+        "TradeName": "Veritas",
+        "LogName": "Bianca: Veritas",
+        "EnName": "Bianca",
+        "Icon": "Assets/Product/Texture/Image/Role/RoleHeadBiankaSS.png",
+        "HalfBodyImage": "Assets/Product/Texture/Image/UiDlcHunt/UiDlcHuntSettlementXxRw2.png",
+        "Sex": 1,
+        "Priority": 20,
+        "EquipId": 2046002,
+        "DefaultNpcFashionId": 6410303,
+        "Code": 2,
+        "Element": [
+            null,
+            1,
+            null
+        ]
+    },
+    {
+        "Id": 1071002,
+        "NpcId": 1007,
+        "AttribId": 1007,
+        "Name": "Karenina",
+        "TradeName": "Blast",
+        "LogName": "Karenina: Blast",
+        "EnName": "Karenina",
+        "Icon": "Assets/Product/Texture/Image/Role/RoleHeadKalie.png",
+        "HalfBodyImage": "Assets/Product/Texture/Image/UiDlcHunt/UiDlcHuntSettlementXxRw3.png",
+        "Sex": 1,
+        "Priority": 30,
+        "EquipId": 2073001,
+        "DefaultNpcFashionId": 6710101,
+        "Code": 3,
+        "Element": [
+            null,
+            1,
+            null
+        ]
+    }
+]

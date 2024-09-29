@@ -4,9 +4,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Find Weakness \u03b1",
         "Desc": "Attacker Omniframes mark the targets when they attack,/n increasing DMG dealt to them by Support Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200001.0
+            null,
+            200001.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -14,9 +22,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Find Weakness \u03b2",
         "Desc": "Attacker Omniframes mark the targets when they attack,/n increasing DMG dealt to them by Tank Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200002.0
+            null,
+            200002.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -24,9 +40,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Lingering Signal",
         "Desc": "After a non-Attacker Omniframe pings Signal Orbs,\\nthe next Omniframe entering battle will deal increased DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200003.0
+            null,
+            200003.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -34,9 +58,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "High Morale",
         "Desc": "After a non-Attacker Omniframe deals DMG,\\nthe next Omniframe entering battle will deal increased DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200004.0
+            null,
+            200004.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -44,9 +76,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 5",
         "Desc": "Each time an enemy is attacked, it loses 2% Extra DMG Reduction. This effect has a cooldown of 1s before being triggered again.\\nStacks up to 100%.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200005.0
+            null,
+            200005.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -54,9 +94,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 6",
         "Desc": "The cooldown of Orb recovery from Basic Attacks is doubled.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200006.0
+            null,
+            200006.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -64,10 +112,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 7",
         "Desc": "In Special Dispatch Zone, Basic Attacks recover Orbs at a slower rate.\\nAfter dealing DMG, the next Omniframe that enters battle will gain Signal Orbs.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200007.0,
-            200006.0
+            200006.0,
+            null,
+            null
         ]
     },
     {
@@ -75,10 +130,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 8",
         "Desc": "Basic Attacks recover Orbs at a slower rate.\\nWhen healed, team members can gain Signal Orbs.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200008.0,
-            200006.0
+            200006.0,
+            null,
+            null
         ]
     },
     {
@@ -86,9 +148,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 9",
         "Desc": "In Special Dispatch Zone, the cooldown of QTE is reduced.\\nQTE also recovers additional Orbs for the current character in battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200009.0
+            null,
+            200009.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -96,10 +166,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 10",
         "Desc": "In Special Dispatch Zone, Basic Attacks recover Orbs at a slower rate.\\nBasic Attacks deal extra DMG 1 time when they hit.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200010.0,
-            200006.0
+            200006.0,
+            null,
+            null
         ]
     },
     {
@@ -107,10 +184,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 11",
         "Desc": "In Special Dispatch Zone, the cooldown of QTE is extended.\\nWhile the cooldown of switching between members is reduced.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200011.0,
-            200012.0
+            200012.0,
+            null,
+            null
         ]
     },
     {
@@ -118,9 +202,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 12",
         "Desc": "QTE cooldown increases by 6s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200012.0
+            null,
+            200012.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -128,10 +220,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 13",
         "Desc": "In Special Dispatch Zone, Basic Attacks recover Orbs at a slower rate.\\nWhen gaining a shield, team members can gain Signal Orbs.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200013.0,
-            200006.0
+            200006.0,
+            null,
+            null
         ]
     },
     {
@@ -139,10 +238,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 14",
         "Desc": "In Special Dispatch Zone, after the current character uses a CUB skill\\nHe or she will deal increased DMG over the next 5s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200014.0,
-            200042.0
+            200042.0,
+            null,
+            null
         ]
     },
     {
@@ -150,9 +256,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 15",
         "Desc": "Signature Move consumes all available energy\\nAnd deals increased damage based on the energy consumed.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200015.0
+            null,
+            200015.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -160,9 +274,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 16",
         "Desc": "Gain 9 bonus Signal Orbs each time when a new character is switched into battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200016.0
+            null,
+            200016.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -170,10 +292,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 17",
         "Desc": "Character's shield capacity and healing effect increase by 100%.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200017.0,
-            200018.0
+            200018.0,
+            null,
+            null
         ]
     },
     {
@@ -181,10 +310,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 18",
         "Desc": "Character's shield capacity and healing effect increase by 100%.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200018.0,
-            200017.0
+            200017.0,
+            null,
+            null
         ]
     },
     {
@@ -192,9 +328,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 19",
         "Desc": "The energy cost of Signature Move is reduced by 50%.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200019.0
+            null,
+            200019.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -202,9 +346,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 20",
         "Desc": "After character switch, the character that is switched into battle gains 10% Extra DMG Bonus.\\nThis effect lasts permanently and stacks up to 150%.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200020.0
+            null,
+            200020.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -212,9 +364,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32031.png",
         "Name": "Berserk 1",
         "Desc": "The enemy's attacking desire increases by 33%. When dealing DMG, there is a 20% chance to deal 33% Extra DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32031.0
+            null,
+            32031.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -222,9 +382,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32032.png",
         "Name": "Berserk 2",
         "Desc": "The enemy's attacking desire increases by 66%. When dealing DMG, there is a 40% chance to deal 33% Extra DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32032.0
+            null,
+            32032.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -232,9 +400,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32033.png",
         "Name": "Berserk 3",
         "Desc": "The enemy's attacking desire increases by 100%. When dealing DMG, there is a 60% chance to deal 33% Extra DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32033.0
+            null,
+            32033.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -242,9 +418,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11011.png",
         "Name": "Assault 1",
         "Desc": "Enemies gain 10% more Attack.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            11011.0
+            null,
+            11011.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -253,10 +437,16 @@
         "Name": "Assault 2",
         "Desc": "Enemies gain 20% more Attack.",
         "Condition": [
-            94014.0
+            null,
+            94014.0,
+            null
         ],
         "FightEventId": [
-            11012.0
+            null,
+            11012.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -264,9 +454,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11013.png",
         "Name": "Assault 3",
         "Desc": "Enemies gain 30% more Attack.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            11013.0
+            null,
+            11013.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -275,10 +473,16 @@
         "Name": "Lightning Mine",
         "Desc": "Enemy attacks plant a bomb on their target that detonates after some time, dealing Physical DMG equal to 15% of their ATK.",
         "Condition": [
-            94019.0
+            null,
+            94019.0,
+            null
         ],
         "FightEventId": [
-            32151.0
+            null,
+            32151.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -286,9 +490,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32071.png",
         "Name": "Radiation 1",
         "Desc": "The enemy will deal Physical DMG equal to 1% of its ATK to nearby targets per second.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32071.0
+            null,
+            32071.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -297,10 +509,16 @@
         "Name": "Radiation 2",
         "Desc": "The enemy will deal Physical DMG equal to 2% of its ATK to nearby targets per second.",
         "Condition": [
-            94016.0
+            null,
+            94016.0,
+            null
         ],
         "FightEventId": [
-            32072.0
+            null,
+            32072.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -308,9 +526,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32073.png",
         "Name": "Radiation 3",
         "Desc": "The enemy will deal Physical DMG equal to 3% of its ATK to nearby targets per second.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32073.0
+            null,
+            32073.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -319,10 +545,16 @@
         "Name": "Lightning Shield",
         "Desc": "Every time the enemy gets hit, there is a 10% chance to call down a lightning strike upon the attacker (5s cooldown), dealing Lightning DMG equal to 20% of its ATK.",
         "Condition": [
-            94022.0
+            null,
+            94022.0,
+            null
         ],
         "FightEventId": [
-            32131.0
+            null,
+            32131.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -330,9 +562,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32021.png",
         "Name": "Shield 1",
         "Desc": "Every 8s, enemies will gain a shield equal to 15% of maximum HP for 3s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32021.0
+            null,
+            32021.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -341,10 +581,16 @@
         "Name": "Shield 2",
         "Desc": "Every 8s, enemies will gain a shield equal to 25% of max HP for 3s.",
         "Condition": [
-            94018.0
+            null,
+            94018.0,
+            null
         ],
         "FightEventId": [
-            32022.0
+            null,
+            32022.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -353,10 +599,16 @@
         "Name": "Shield 3",
         "Desc": "Every 8s, enemies will gain a shield equal to 35% of max HP for 3s.",
         "Condition": [
-            94021.0
+            null,
+            94021.0,
+            null
         ],
         "FightEventId": [
-            32023.0
+            null,
+            32023.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -364,9 +616,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32061.png",
         "Name": "Barrier 1",
         "Desc": "Enemies have shields that absorb up to 15% of max HP before shattering.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32061.0
+            null,
+            32061.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -375,10 +635,16 @@
         "Name": "Barrier 2",
         "Desc": "Enemies have shields that absorb up to 25% of max HP before shattering.",
         "Condition": [
-            94015.0
+            null,
+            94015.0,
+            null
         ],
         "FightEventId": [
-            32062.0
+            null,
+            32062.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -386,9 +652,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32063.png",
         "Name": "Barrier 3",
         "Desc": "Enemies have shields that absorb up to 35% of max HP before shattering.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32063.0
+            null,
+            32063.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -396,9 +670,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32081.png",
         "Name": "Closed Loop 1",
         "Desc": "The enemy's Extra DMG Reduction increases by 30% when taking DMG from more than 4m away.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32081.0
+            null,
+            32081.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -406,9 +688,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32082.png",
         "Name": "Closed Loop 2",
         "Desc": "The enemy's Extra DMG Reduction increases by 45% when taking DMG from more than 4m away.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32082.0
+            null,
+            32082.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -416,9 +706,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32083.png",
         "Name": "Closed Loop 3",
         "Desc": "The enemy's Extra DMG Reduction increases by 60% when taking DMG from more than 4m away.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32083.0
+            null,
+            32083.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -426,10 +724,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21131.png",
         "Name": "Dynamic Calibration 1",
         "Desc": "Th enemy recovers 1% of max HP per second. This effect is reduced from 1% to 0.4% for 2s after taking DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200062.0,
-            200043.0
+            200043.0,
+            null,
+            null
         ]
     },
     {
@@ -438,11 +743,16 @@
         "Name": "Dynamic Calibration 2",
         "Desc": "Th enemy recovers 2% of max HP per second. This effect is reduced from 2% to 0.8% within 2s after taking DMG.",
         "Condition": [
-            94024.0
+            null,
+            94024.0,
+            null
         ],
         "FightEventId": [
+            null,
             200063.0,
-            200043.0
+            200043.0,
+            null,
+            null
         ]
     },
     {
@@ -451,11 +761,16 @@
         "Name": "Dynamic Calibration 3",
         "Desc": "Th enemy recovers 3% of max HP per second. This effect is reduced from 3% to 1.2% within 2s after taking DMG.",
         "Condition": [
-            94024.0
+            null,
+            94024.0,
+            null
         ],
         "FightEventId": [
+            null,
             200064.0,
-            200043.0
+            200043.0,
+            null,
+            null
         ]
     },
     {
@@ -463,9 +778,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33031.png",
         "Name": "Black Hole 1",
         "Desc": "The enemy will pull the player in every 16s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            33031.0
+            null,
+            33031.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -474,10 +797,16 @@
         "Name": "Black Hole 2",
         "Desc": "The enemy will pull the player in every 12s.",
         "Condition": [
-            94020.0
+            null,
+            94020.0,
+            null
         ],
         "FightEventId": [
-            33032.0
+            null,
+            33032.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -485,9 +814,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33033.png",
         "Name": "Black Hole 3",
         "Desc": "The enemy will pull the player in every 8s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            33033.0
+            null,
+            33033.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -496,10 +833,16 @@
         "Name": "Flash 1",
         "Desc": "The enemy will teleport toward the target every 10s.",
         "Condition": [
-            94017.0
+            null,
+            94017.0,
+            null
         ],
         "FightEventId": [
-            33001.0
+            null,
+            33001.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -507,9 +850,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33002.png",
         "Name": "Flash 2",
         "Desc": "The enemy will teleport toward the target every 10s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            33002.0
+            null,
+            33002.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -517,9 +868,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33003.png",
         "Name": "Flash 3",
         "Desc": "The enemy will teleport toward the target every 10s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            33003.0
+            null,
+            33003.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -527,9 +886,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33091.png",
         "Name": "Freeze",
         "Desc": "Each attack has a 30% chance to deal an additional 10% Ice DMG and freeze the target for 1s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            33061.0
+            null,
+            33061.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -537,9 +904,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32001.png",
         "Name": "Immovable",
         "Desc": "Enemies will not be stunned.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32001.0
+            null,
+            32001.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -548,10 +923,16 @@
         "Name": "Penetration",
         "Desc": "Each time the enemy hits the player, player loses 3% DEF for 10s, stacking up to 10 times.",
         "Condition": [
-            94023.0
+            null,
+            94023.0,
+            null
         ],
         "FightEventId": [
-            32121.0
+            null,
+            32121.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -560,10 +941,16 @@
         "Name": "Agile",
         "Desc": "The enemy's Movement Speed is increased.",
         "Condition": [
-            94012.0
+            null,
+            94012.0,
+            null
         ],
         "FightEventId": [
-            110010.0
+            null,
+            110010.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -572,10 +959,16 @@
         "Name": "Blessing",
         "Desc": "Extra DMG Bonus of other enemies around the enemy increases by 20%.",
         "Condition": [
-            94013.0
+            null,
+            94013.0,
+            null
         ],
         "FightEventId": [
-            32091.0
+            null,
+            32091.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -583,9 +976,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32042.png",
         "Name": "Bomb",
         "Desc": "The enemy will explode and deal Physical DMG equal to 45% of its ATK to nearby units before it dies.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32041.0
+            null,
+            32041.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -593,9 +994,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon31072.png",
         "Name": "Agile",
         "Desc": "The enemy's Movement Speed is increased.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            110010.0
+            null,
+            110010.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -603,9 +1012,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32091.png",
         "Name": "Blessing",
         "Desc": "Extra DMG Bonus of other enemies around the enemy increases by 20%.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32091.0
+            null,
+            32091.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -613,9 +1030,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11012.png",
         "Name": "Assault 2",
         "Desc": "ATK of enemies in Simulated Battle increases by 20%.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            11012.0
+            null,
+            11012.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -623,9 +1048,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32062.png",
         "Name": "Barrier 2",
         "Desc": "Enemies have shields that absorb up to 25% of max HP before shattering.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32062.0
+            null,
+            32062.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -633,9 +1066,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32072.png",
         "Name": "Radiation 2",
         "Desc": "The enemy will deal Physical DMG equal to 2% of its ATK to nearby targets per second.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32072.0
+            null,
+            32072.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -643,9 +1084,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33001.png",
         "Name": "Flash 1",
         "Desc": "The enemy will teleport toward the target every 10s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            33001.0
+            null,
+            33001.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -653,9 +1102,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32022.png",
         "Name": "Shield 2",
         "Desc": "Every 8s, enemies will gain a shield equal to 25% of max HP for 3s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32022.0
+            null,
+            32022.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -663,9 +1120,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32151.png",
         "Name": "Lightning Mine",
         "Desc": "Enemy attacks plant a bomb on their target that detonates after some time, dealing Physical DMG equal to 45% of their ATK.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32151.0
+            null,
+            32151.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -673,9 +1138,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33032.png",
         "Name": "Black Hole 2",
         "Desc": "The enemy will pull the player in every 12s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            33032.0
+            null,
+            33032.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -683,9 +1156,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32023.png",
         "Name": "Shield 3",
         "Desc": "Every 8s, enemies will gain a shield equal to 35% of max HP for 3s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32023.0
+            null,
+            32023.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -693,9 +1174,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Lightning Shield",
         "Desc": "Every time the enemy gets hit, there is a 10% chance to call down a lightning strike upon the attacker (5s cooldown), dealing Lightning DMG equal to 20% of its ATK.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32131.0
+            null,
+            32131.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -703,9 +1192,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32121.png",
         "Name": "Penetration",
         "Desc": "Each time the enemy hits the player, player loses 3% DEF for 10s, stacking up to 10 times.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32121.0
+            null,
+            32121.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -713,9 +1210,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32013.png",
         "Name": "Recovery 3",
         "Desc": "The enemy will recover 3% of max HP per second.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            32013.0
+            null,
+            32013.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -723,9 +1228,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon001.png",
         "Name": "Add-on 1",
         "Desc": "Attack Add-on",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200021.0
+            null,
+            200021.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -733,9 +1246,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon002.png",
         "Name": "Add-on 2",
         "Desc": "HP Add-on",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200022.0
+            null,
+            200022.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -743,9 +1264,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Coordinated Battle",
         "Desc": "All team members enter the battle. You may choose to control any character at any time.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200023.0
+            null,
+            200023.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -753,11 +1282,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Lone Wolf Tactic",
         "Desc": "Cooldown of switching between members in Special Dispatch Zone is extended.\\nTeam members become enhanced as they stay in the battle longer. This effect is reset each time a new player is switched into battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             95014.0,
             95015.0,
-            95016.0
+            95016.0,
+            null
         ]
     },
     {
@@ -765,9 +1300,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33101.png",
         "Name": "Deterioration 1",
         "Desc": "Damage dealt also reduces target's healing received by 50% for 3s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            33101.0
+            null,
+            33101.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -775,9 +1318,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33102.png",
         "Name": "Deterioration 2",
         "Desc": "Damage dealt also reduces target's healing received by 60% for 4s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            33102.0
+            null,
+            33102.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -785,9 +1336,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33103.png",
         "Name": "Deterioration 3",
         "Desc": "Damage dealt also reduces target's healing received by 70% for 5s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            33103.0
+            null,
+            33103.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -795,9 +1354,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Physical DMG Boost I",
         "Desc": "Increases Physical DMG by 10%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200024.0
+            null,
+            200024.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -805,9 +1372,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Fire DMG Boost I",
         "Desc": "Increases Fire DMG by 10%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200025.0
+            null,
+            200025.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -815,9 +1390,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Ice DMG Boost I",
         "Desc": "Increases Ice DMG by 10%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200026.0
+            null,
+            200026.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -825,9 +1408,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Lightning DMG Boost I",
         "Desc": "Lightning DMG increases by 10%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200027.0
+            null,
+            200027.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -835,9 +1426,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Dark DMG Boost I",
         "Desc": "Increases Dark DMG by 10%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200028.0
+            null,
+            200028.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -845,9 +1444,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Physical DMG Boost II",
         "Desc": "Increases Physical DMG by 20%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200029.0
+            null,
+            200029.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -855,9 +1462,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Fire DMG Boost II",
         "Desc": "Increases Fire DMG by 20%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200030.0
+            null,
+            200030.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -865,9 +1480,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Ice DMG Boost II",
         "Desc": "Increases Ice DMG by 20%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200031.0
+            null,
+            200031.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -875,9 +1498,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Lightning DMG Boost II",
         "Desc": "Lightning DMG increases by 20%",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200032.0
+            null,
+            200032.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -885,9 +1516,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Dark DMG Boost II",
         "Desc": "Increases Dark DMG by 20%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200033.0
+            null,
+            200033.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -895,9 +1534,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Physical DMG Boost III",
         "Desc": "Increases Physical DMG by 30%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200034.0
+            null,
+            200034.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -905,9 +1552,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Fire DMG Boost III",
         "Desc": "Increases Fire DMG by 30%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200035.0
+            null,
+            200035.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -915,9 +1570,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Ice DMG Boost III",
         "Desc": "Increases Ice DMG by 30%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200036.0
+            null,
+            200036.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -925,9 +1588,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Lightning DMG Boost III",
         "Desc": "Lightning DMG increases by 30%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200037.0
+            null,
+            200037.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -935,9 +1606,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Dark DMG Boost III",
         "Desc": "Increases Dark DMG by 30%,",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200038.0
+            null,
+            200038.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -945,9 +1624,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "CUB Boost II",
         "Desc": "Gain 3 bonus Signal Orbs every 10s when a CUB is present.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200039.0
+            null,
+            200039.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -955,8 +1642,13 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Frontline 1 Physical 1",
         "Desc": "Physical DMG increases by 10%. Cooldown of switching between members is extended.\\nMembers become enhanced as they stay in the battle longer. This effect is reset each time a new player is switched into battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200024.0,
             95014.0,
             95015.0,
@@ -968,8 +1660,13 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Frontline 1 Physical 2",
         "Desc": "Physical DMG increases by 20%. Cooldown of switching between members is extended.\\nMembers become enhanced as they stay in the battle longer. This effect is reset each time a new player is switched into battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200029.0,
             95014.0,
             95015.0,
@@ -981,11 +1678,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 1 Physical 2",
         "Desc": "Physical DMG increases by 20% but Orbs are recovered at a slower rate.\\nBasic Attacks deal Extra DMG once when they hit.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200029.0,
             200010.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -993,10 +1696,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 2 Physical 2",
         "Desc": "Physical DMG increases by 20%.\\nSignature Move consumes all available energy and deals increased damage based on the energy consumed.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200029.0,
-            200015.0
+            200015.0,
+            null,
+            null
         ]
     },
     {
@@ -1004,10 +1714,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 1 Physical 2",
         "Desc": "Physical DMG increases by 20%.\\nAttacker Omniframes mark the targets when they attack, increasing the DMG dealt to them by Support Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200029.0,
-            200001.0
+            200001.0,
+            null,
+            null
         ]
     },
     {
@@ -1015,10 +1732,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 1 Physical 3",
         "Desc": "Physical DMG increases by 30%.\\nAttacker Omniframes mark the targets when they attack, increasing the DMG dealt to them by Support Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
-            200001.0
+            200001.0,
+            null,
+            null
         ]
     },
     {
@@ -1026,11 +1750,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 1 Physical 3",
         "Desc": "Physical DMG increases by 30% but Orbs are recovered at a slower rate.\\nBasic Attacks deal Extra DMG once when they hit.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
             200010.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1038,11 +1768,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 2 Physical 3",
         "Desc": "Physical DMG increases by 30%.\\nThe cooldown of QTE is extended, while the cooldown of switching between members is reduced.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
             200011.0,
-            200012.0
+            200012.0,
+            null
         ]
     },
     {
@@ -1050,11 +1786,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Tank 1 Physical 3",
         "Desc": "Physical DMG increases by 30% but Orbs are recovered at a slower rate.\\nWhen gaining a shield, team members can gain Signal Orbs.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
             200013.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1062,11 +1804,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "CUB 1 Physical 3",
         "Desc": "Physical DMG increases by 30%.\\nUsing a CUB skill will increase the damage dealt by the current character.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
             200014.0,
-            200042.0
+            200042.0,
+            null
         ]
     },
     {
@@ -1074,10 +1822,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "QTE 1 Physical 3",
         "Desc": "Physical DMG increases by 30%. The cooldown of QTE is reduced.\\nQTE also recover additional Orbs for the current character in battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
-            200009.0
+            200009.0,
+            null,
+            null
         ]
     },
     {
@@ -1085,10 +1840,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 3 Physical 3",
         "Desc": "Physical DMG increases by 30%.\\nAfter a non-Attacker Omniframe pings Signal Orbs, the next member entering battle will deal increased DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
-            200003.0
+            200003.0,
+            null,
+            null
         ]
     },
     {
@@ -1096,10 +1858,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 2 Physical 2",
         "Desc": "Physical DMG increases by 20%.\\nAttacker Omniframes mark the targets when they attack, increasing the DMG dealt to them by Tank Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200029.0,
-            200002.0
+            200002.0,
+            null,
+            null
         ]
     },
     {
@@ -1107,10 +1876,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 2 Physical 3",
         "Desc": "Physical DMG increases by 30%.\\nAttacker Omniframes mark the targets when they attack, increasing the DMG dealt to them by Tank Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
-            200002.0
+            200002.0,
+            null,
+            null
         ]
     },
     {
@@ -1118,10 +1894,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 2 Physical 3",
         "Desc": "Physical DMG increases by 30%.\\nSignature Move consumes all available energy and deals increased damage based on the energy consumed.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
-            200015.0
+            200015.0,
+            null,
+            null
         ]
     },
     {
@@ -1129,11 +1912,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support 1 Physical 3",
         "Desc": "Physical DMG increases by 30%but Orbs are recovered at a slower rate.\\nWhen healed, team members can gain Signal Orbs.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
             200008.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1141,10 +1930,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "CUB 2 Physical 3",
         "Desc": "Physical DMG increases by 30%.\\nGain 3 Signal Orbs every 10s when a CUB is present.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
-            200039.0
+            200039.0,
+            null,
+            null
         ]
     },
     {
@@ -1152,10 +1948,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 4 Physical 3",
         "Desc": "Physical DMG increases by 30%.\\nAfter a non-Attacker Omniframe deals DMG, the next member entering battle will deal increased DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
-            200004.0
+            200004.0,
+            null,
+            null
         ]
     },
     {
@@ -1163,8 +1966,13 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Frontline 1 Fire 2",
         "Desc": "Fire DMG increases by 20%. Cooldown of switching between members is extended.\\nMembers become enhanced as they stay in the battle longer. This effect is reset each time a new player is switched into battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200030.0,
             95014.0,
             95015.0,
@@ -1176,11 +1984,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 1 Fire 2",
         "Desc": "Fire DMG increases by 20% but Orbs are recovered at a slower rate.\\nBasic Attacks deal Extra DMG once when they hit.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200030.0,
             200010.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1188,10 +2002,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 2 Fire 2",
         "Desc": "Fire DMG increases by 20%.\\nSignature Move consumes all available energy and deals increased damage based on the energy consumed.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200030.0,
-            200015.0
+            200015.0,
+            null,
+            null
         ]
     },
     {
@@ -1199,10 +2020,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 1 Fire 2",
         "Desc": "Fire DMG increases by 20%.\\nAttacker Omniframes mark the targets when they attack, increasing the DMG dealt to them by Support Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200030.0,
-            200001.0
+            200001.0,
+            null,
+            null
         ]
     },
     {
@@ -1210,10 +2038,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 1 Fire 3",
         "Desc": "Fire DMG increases by 30%.\\nAttacker Omniframes mark the targets when they attack, increasing the DMG dealt to them by Support Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200035.0,
-            200001.0
+            200001.0,
+            null,
+            null
         ]
     },
     {
@@ -1221,10 +2056,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 2 Fire 3",
         "Desc": "Fire DMG increases by 30%.\\nSignature Move consumes all available energy and deals increased damage based on the energy consumed.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200035.0,
-            200015.0
+            200015.0,
+            null,
+            null
         ]
     },
     {
@@ -1232,11 +2074,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 2 Fire 3",
         "Desc": "Fire DMG increases by 30%.\\nThe cooldown of QTE is extended, while the cooldown of switching between members is reduced.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200035.0,
             200011.0,
-            200012.0
+            200012.0,
+            null
         ]
     },
     {
@@ -1244,11 +2092,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Tank 1 Fire 3",
         "Desc": "Fire DMG increases by 30% but Orbs are recovered at a slower rate.\\nWhen gaining a shield, team members can gain Signal Orbs.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200035.0,
             200013.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1256,11 +2110,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "CUB 1 Fire 3",
         "Desc": "Fire DMG increases by 30%.\\nUsing a CUB skill will increase the damage dealt by the current character.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200035.0,
             200014.0,
-            200042.0
+            200042.0,
+            null
         ]
     },
     {
@@ -1268,10 +2128,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "QTE 1 Fire 3",
         "Desc": "Fire DMG increases by 30%. The cooldown of QTE is reduced.\\nQTE also recover additional Orbs for the current character in battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200035.0,
-            200009.0
+            200009.0,
+            null,
+            null
         ]
     },
     {
@@ -1279,10 +2146,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 3 Fire 3",
         "Desc": "Fire DMG increases by 30%.\\nAfter a non-Attacker Omniframe pings Signal Orbs, the next member entering battle will deal increased DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200035.0,
-            200003.0
+            200003.0,
+            null,
+            null
         ]
     },
     {
@@ -1290,8 +2164,13 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Frontline 1 Ice 2",
         "Desc": "Ice DMG increases by 20%. Cooldown of switching between members is extended.\\nMembers become enhanced as they stay in the battle longer. This effect is reset each time a new player is switched into battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200031.0,
             95014.0,
             95015.0,
@@ -1303,11 +2182,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 1 Ice 2",
         "Desc": "Ice DMG increases by 20% but Orbs are recovered at a slower rate.\\nBasic Attacks deal Extra DMG once when they hit.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200031.0,
             200010.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1315,10 +2200,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 2 Ice 2",
         "Desc": "Ice DMG increases by 20%.\\nSignature Move consumes all available energy and deals increased damage based on the energy consumed.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200031.0,
-            200015.0
+            200015.0,
+            null,
+            null
         ]
     },
     {
@@ -1326,10 +2218,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 1 Ice 2",
         "Desc": "Ice DMG increases by 20%.\\nAttacker Omniframes mark the targets when they attack, increasing the DMG dealt to them by Support Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200031.0,
-            200001.0
+            200001.0,
+            null,
+            null
         ]
     },
     {
@@ -1337,10 +2236,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 1 Ice 3",
         "Desc": "Ice DMG increases by 30%.\\nAttacker Omniframes mark the targets when they attack, increasing the DMG dealt to them by Support Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200036.0,
-            200001.0
+            200001.0,
+            null,
+            null
         ]
     },
     {
@@ -1348,11 +2254,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 1 Ice 3",
         "Desc": "Ice DMG increases by 30% but Orbs are recovered at a slower rate.\\nBasic Attacks deal Extra DMG once when they hit.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200036.0,
             200010.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1360,11 +2272,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 2 Ice 3",
         "Desc": "Ice DMG increases by 30%.\\nThe cooldown of QTE is extended, while the cooldown of switching between members is reduced.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200036.0,
             200011.0,
-            200012.0
+            200012.0,
+            null
         ]
     },
     {
@@ -1372,11 +2290,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support 1 Ice 3",
         "Desc": "Ice DMG increases by 30% but Orbs are recovered at a slower rate.\\nWhen healed, team members can gain Signal Orbs.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200036.0,
             200008.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1384,11 +2308,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "CUB 1 Ice 3",
         "Desc": "Ice DMG increases by 30%.\\nUsing a CUB skill will increase the damage dealt by the current character.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200036.0,
             200014.0,
-            200042.0
+            200042.0,
+            null
         ]
     },
     {
@@ -1396,10 +2326,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "QTE 1 Ice 3",
         "Desc": "Ice DMG increases by 30%. The cooldown of QTE is reduced.\\nQTE also recover additional Orbs for the current character in battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200036.0,
-            200009.0
+            200009.0,
+            null,
+            null
         ]
     },
     {
@@ -1407,10 +2344,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 3 Ice 3",
         "Desc": "Ice DMG increases by 30%.\\nAfter a non-Attacker Omniframe pings Signal Orbs, the next member entering battle will deal increased DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200036.0,
-            200003.0
+            200003.0,
+            null,
+            null
         ]
     },
     {
@@ -1418,8 +2362,13 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Frontline 1 Lightning 2",
         "Desc": "Lightning DMG increases by 20%. Cooldown of switching between members is extended.\\nMembers become enhanced as they stay in the battle longer. This effect is reset each time a new player is switched into battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200032.0,
             95014.0,
             95015.0,
@@ -1431,11 +2380,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 1 Lightning 2",
         "Desc": "Lightning DMG increases by 20% but Orbs are recovered at a slower rate.\\nBasic Attacks deal Extra DMG once when they hit.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200032.0,
             200010.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1443,10 +2398,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 2 Lightning 2",
         "Desc": "Lightning DMG increases by 20%.\\nSignature Move consumes all available energy and deals increased damage based on the energy consumed.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200032.0,
-            200015.0
+            200015.0,
+            null,
+            null
         ]
     },
     {
@@ -1454,10 +2416,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 2 Lightning 2",
         "Desc": "Lightning DMG increases by 20%.\\nAttacker Omniframes mark the targets when they attack, increasing the DMG dealt to them by Tank Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200032.0,
-            200002.0
+            200002.0,
+            null,
+            null
         ]
     },
     {
@@ -1465,10 +2434,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 2 Lightning 3",
         "Desc": "Lightning DMG increases by 30%.\\nAttacker Omniframes mark the targets when they attack, increasing the DMG dealt to them by Tank Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200037.0,
-            200002.0
+            200002.0,
+            null,
+            null
         ]
     },
     {
@@ -1476,10 +2452,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 2 Lightning 3",
         "Desc": "Lightning DMG increases by 30%.\\nSignature Move consumes all available energy and deals increased damage based on the energy consumed.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200037.0,
-            200015.0
+            200015.0,
+            null,
+            null
         ]
     },
     {
@@ -1487,11 +2470,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 2 Lightning 3",
         "Desc": "Lightning DMG increases by 30%.\\nThe cooldown of QTE is extended, while the cooldown of switching between members is reduced.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200037.0,
             200011.0,
-            200012.0
+            200012.0,
+            null
         ]
     },
     {
@@ -1499,11 +2488,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Tank 1 Lightning 3",
         "Desc": "Lightning DMG increases by 30% but Orbs are recovered at a slower rate.\\nWhen gaining a shield, team members can gain Signal Orbs.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200037.0,
             200013.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1511,10 +2506,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "CUB 2 Lightning 3",
         "Desc": "Lightning DMG increases by 30%.\\nGain 3 Signal Orbs every 10s when a CUB is present.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200037.0,
-            200039.0
+            200039.0,
+            null,
+            null
         ]
     },
     {
@@ -1522,10 +2524,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "QTE 1 Lightning 3",
         "Desc": "Lightning DMG increases by 30%. The cooldown of QTE is reduced.\\nQTE also recover additional Orbs for the current character in battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200037.0,
-            200009.0
+            200009.0,
+            null,
+            null
         ]
     },
     {
@@ -1533,10 +2542,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 4 Lightning 3",
         "Desc": "Lightning DMG increases by 30%.\\nAfter a non-Attacker Omniframe deals DMG, the next member entering battle will deal increased DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200037.0,
-            200004.0
+            200004.0,
+            null,
+            null
         ]
     },
     {
@@ -1544,8 +2560,13 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Frontline 1 Dark 2",
         "Desc": "Dark DMG increases by 20%. Cooldown of switching between members is extended.\\nMembers become enhanced as they stay in the battle longer. This effect is reset each time a new player is switched into battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200033.0,
             95014.0,
             95015.0,
@@ -1557,11 +2578,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 1 Dark 2",
         "Desc": "Dark DMG increases by 20% but Orbs are recovered at a slower rate.\\nBasic Attacks deal Extra DMG once when they hit.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200033.0,
             200010.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1569,10 +2596,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 2 Dark 2",
         "Desc": "Dark DMG increases by 20%.\\nSignature Move consumes all available energy and deals increased damage based on the energy consumed.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200033.0,
-            200015.0
+            200015.0,
+            null,
+            null
         ]
     },
     {
@@ -1580,10 +2614,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 2 Dark 2",
         "Desc": "Dark DMG increases by 20%.\\nAttacker Omniframes mark the targets when they attack, increasing the DMG dealt to them by Tank Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200033.0,
-            200002.0
+            200002.0,
+            null,
+            null
         ]
     },
     {
@@ -1591,10 +2632,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 2 Dark 3",
         "Desc": "Dark DMG increases by 30%.\\nAttacker Omniframes mark the targets when they attack, increasing the DMG dealt to them by Tank Omniframes.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200038.0,
-            200002.0
+            200002.0,
+            null,
+            null
         ]
     },
     {
@@ -1602,11 +2650,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Special 1 Dark 3",
         "Desc": "Dark DMG increases by 30% but Orbs are recovered at a slower rate.\\nBasic Attacks deal Extra DMG once when they hit.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200038.0,
             200010.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1614,11 +2668,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 2 Dark 3",
         "Desc": "Dark DMG increases by 30%.\\nThe cooldown of QTE is extended, while the cooldown of switching between members is reduced.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200038.0,
             200011.0,
-            200012.0
+            200012.0,
+            null
         ]
     },
     {
@@ -1626,11 +2686,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support 1 Dark 3",
         "Desc": "Dark DMG increases by 30% but Orbs are recovered at a slower rate.\\nWhen healed, team members can gain Signal Orbs.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200038.0,
             200008.0,
-            200006.0
+            200006.0,
+            null
         ]
     },
     {
@@ -1638,10 +2704,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "CUB 2 Dark 3",
         "Desc": "Dark DMG increases by 30%.\\nGain 3 Signal Orbs every 10s when a CUB is present.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200038.0,
-            200039.0
+            200039.0,
+            null,
+            null
         ]
     },
     {
@@ -1649,10 +2722,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "QTE 1 Dark 3",
         "Desc": "Dark DMG increases by 30%. The cooldown of QTE is reduced.\\nQTE also recover additional Orbs for the current character in battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200038.0,
-            200009.0
+            200009.0,
+            null,
+            null
         ]
     },
     {
@@ -1660,10 +2740,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 4 Dark 3",
         "Desc": "Dark DMG increases by 30%.\\nAfter a non-Attacker Omniframe deals DMG, the next member entering battle will deal increased DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200038.0,
-            200004.0
+            200004.0,
+            null,
+            null
         ]
     },
     {
@@ -1671,10 +2758,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Affix Name 7",
         "Desc": "After reaching a combo number that is a multiplier of 50, launch laser to hit all enemy targets\\ndealing 100,000 True Damage",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200040.0,
-            200041.0
+            200041.0,
+            null,
+            null
         ]
     },
     {
@@ -1683,10 +2777,16 @@
         "Name": "Logistic Support",
         "Desc": "Increases the limit time of Deep Hive by 30s after clearing this stage.",
         "Condition": [
-            94020.0
+            null,
+            94020.0,
+            null
         ],
         "FightEventId": [
-            200044.0
+            null,
+            200044.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1695,10 +2795,16 @@
         "Name": "Abnormal Units",
         "Desc": "The 2nd enemy of the 1st wave is enhanced, and its death increases the ATK and HP of all enemies by 50%.",
         "Condition": [
-            94019.0
+            null,
+            94019.0,
+            null
         ],
         "FightEventId": [
-            200045.0
+            null,
+            200045.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1707,10 +2813,16 @@
         "Name": "Severely Corrupted",
         "Desc": "The 1st enemy of the 1st Wave is enhanced, gaining Commander and Blessing Bonus, and increases HP limit by 50%.",
         "Condition": [
-            94021.0
+            null,
+            94021.0,
+            null
         ],
         "FightEventId": [
-            200046.0
+            null,
+            200046.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1719,11 +2831,16 @@
         "Name": "Sacrifice",
         "Desc": "After 20s of combat, a special Missionary will be summoned. It will gradually approach the enemy unit and deduct its own Health to restore it and it will be summoned every 30s (There's only one Missionary on the field)",
         "Condition": [
-            94022.0
+            null,
+            94022.0,
+            null
         ],
         "FightEventId": [
+            null,
             200047.0,
-            200057.0
+            200057.0,
+            null,
+            null
         ]
     },
     {
@@ -1732,10 +2849,16 @@
         "Name": "Stress Reaction",
         "Desc": "After a character deals DMG to the enemy, 1 Baneling is generated nearby, 8s Cooldown.",
         "Condition": [
-            94024.0
+            null,
+            94024.0,
+            null
         ],
         "FightEventId": [
-            200048.0
+            null,
+            200048.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1743,9 +2866,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon12251.png",
         "Name": "Light Punishment",
         "Desc": "1 beam of Main Laser is generated on the field which tracks your units, and is enhanced every 30s. Enter Overload state 180s later, the enhancement interval reduces to 5s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200049.0
+            null,
+            200049.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1754,10 +2885,16 @@
         "Name": "Light Sensitivity",
         "Desc": "After clearing this stage, the Deep Hive's Main Laser Overload time delays for 30s.",
         "Condition": [
-            94020.0
+            null,
+            94020.0,
+            null
         ],
         "FightEventId": [
-            200050.0
+            null,
+            200050.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1766,10 +2903,16 @@
         "Name": "High-Energy Rig",
         "Desc": "Main Laser increases DMG by 30%.",
         "Condition": [
-            94019.0
+            null,
+            94019.0,
+            null
         ],
         "FightEventId": [
-            200051.0
+            null,
+            200051.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1778,10 +2921,16 @@
         "Name": "Fire Net",
         "Desc": "2 beams of Secondary Lasers are generated on the field. They move closer to your units every 1s and has a fixed speed and DMG.",
         "Condition": [
-            94021.0
+            null,
+            94021.0,
+            null
         ],
         "FightEventId": [
-            200052.0
+            null,
+            200052.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1789,9 +2938,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon13001.png",
         "Name": "Singularity",
         "Desc": "26s after the start of the Battle, the field unit unleashes one Dark Explosion, shortening the next unleash interval by 2s, increasing DMG by 10%.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200053.0
+            null,
+            200053.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1800,10 +2957,16 @@
         "Name": "Catalytic Unit",
         "Desc": "After clearing this stage, the time for the first Dark Explosion unleashed from the Deep Hive's field unit delays to 28s.",
         "Condition": [
-            94023.0
+            null,
+            94023.0,
+            null
         ],
         "FightEventId": [
-            200054.0
+            null,
+            200054.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1812,10 +2975,16 @@
         "Name": "Hysteria",
         "Desc": "Adds 10% of Extra DMG Bonus to all enemy units in field after each Dark Explosion (excluding itself).",
         "Condition": [
-            94022.0
+            null,
+            94022.0,
+            null
         ],
         "FightEventId": [
-            200055.0
+            null,
+            200055.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1824,10 +2993,16 @@
         "Name": "Energy Gathering",
         "Desc": "Unleashes Black Hole which draws in our units before each Dark Explosion.",
         "Condition": [
-            94024.0
+            null,
+            94024.0,
+            null
         ],
         "FightEventId": [
-            200056.0
+            null,
+            200056.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1835,9 +3010,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21212.png",
         "Name": "Fire 2",
         "Desc": "Attacks deal an additional 15% Fire DMG and have a 15% chance to inflict Burn, dealing 15% Fire DMG per second for 3s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            110245.0
+            null,
+            110245.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1846,10 +3029,16 @@
         "Name": "Logistic Support",
         "Desc": "Increases the limit time of Deep Hive by 30s after clearing this stage.",
         "Condition": [
-            94023.0
+            null,
+            94023.0,
+            null
         ],
         "FightEventId": [
-            200059.0
+            null,
+            200059.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1857,9 +3046,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33111.png",
         "Name": "Add-on 3",
         "Desc": "Time Add-on",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200061.0
+            null,
+            200061.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1867,9 +3064,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Ping",
         "Desc": "After a 3-Ping, 1 Signal Orb of the same color\\nwill drop upon a 3-Ping. 3s cooldown",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200065.0
+            null,
+            200065.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1877,9 +3082,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 6",
         "Desc": "Non-Attacker 3-Pings can store signal orb,\\nand then return to the Attacker entered",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200066.0
+            null,
+            200066.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1887,9 +3100,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 3",
         "Desc": "After the member fights at the frontline for a certain time,\\na spinning light orb will generate upon substitution",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200067.0
+            null,
+            200067.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1897,9 +3118,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 4",
         "Desc": "During substitution, the backstage characters can also obtain 3 orbs,\\nwhile the QTE CD increases",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200068.0
+            null,
+            200068.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1907,9 +3136,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "QTE2",
         "Desc": "Substitution can reset all QTE CD",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200069.0
+            null,
+            200069.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1917,10 +3154,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 3 Physical 3",
         "Desc": "Physical DMG increases by 30%, and after the member fights at the frontline for a certain time,\\na spinning light orb will generate upon substitution",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
-            200067.0
+            200067.0,
+            null,
+            null
         ]
     },
     {
@@ -1928,10 +3172,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "QTE 2 Physical 3",
         "Desc": "Physical DMG increases by 30%\\nSubstitution can reset all QTE CD",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
-            200069.0
+            200069.0,
+            null,
+            null
         ]
     },
     {
@@ -1939,10 +3190,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 5 Physical 3",
         "Desc": "Physical DMG increases by 30%, non-Attacker 3-Pings\\ncan store signal orb, and then return to the Attacker entered",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
-            200066.0
+            200066.0,
+            null,
+            null
         ]
     },
     {
@@ -1950,10 +3208,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 3 Fire 3",
         "Desc": "Fire DMG increases by 30%, and after the member fights at the frontline for a certain time,\\na spinning light orb will generate upon substitution",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200035.0,
-            200067.0
+            200067.0,
+            null,
+            null
         ]
     },
     {
@@ -1961,10 +3226,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "QTE 2 Fire 3",
         "Desc": "Fire DMG increases by 30%\\nSubstitution can reset all QTE CD",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200035.0,
-            200069.0
+            200069.0,
+            null,
+            null
         ]
     },
     {
@@ -1972,10 +3244,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 5 Fire 3",
         "Desc": "Fire DMG increases by 30%, non-Attacker 3-Pings\\ncan store signal orb, and then return to the Attacker entered",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200035.0,
-            200066.0
+            200066.0,
+            null,
+            null
         ]
     },
     {
@@ -1983,10 +3262,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 3 Ice 3",
         "Desc": "Ice DMG increases by 30%, and after the member fights at the frontline for a certain time,\\na spinning light orb will generate upon substitution",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200036.0,
-            200067.0
+            200067.0,
+            null,
+            null
         ]
     },
     {
@@ -1994,10 +3280,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "QTE 2 Ice 3",
         "Desc": "Ice DMG increases by 30%\\nSubstitution can reset all QTE CD",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200036.0,
-            200069.0
+            200069.0,
+            null,
+            null
         ]
     },
     {
@@ -2005,10 +3298,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 5 Ice 3",
         "Desc": "Ice DMG increases by 30%, non-Attacker 3-Pings\\ncan store signal orb, and then return to the Attacker entered",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200036.0,
-            200066.0
+            200066.0,
+            null,
+            null
         ]
     },
     {
@@ -2016,10 +3316,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 3 Lightning 3",
         "Desc": "Lightning DMG increases by 30%, and after the member fights at the frontline for a certain time,\\na spinning light orb will generate upon substitution",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200037.0,
-            200067.0
+            200067.0,
+            null,
+            null
         ]
     },
     {
@@ -2027,10 +3334,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "QTE 2 Lightning 3",
         "Desc": "Lightning DMG increases by 30%\\nSubstitution can reset all QTE CD",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200037.0,
-            200069.0
+            200069.0,
+            null,
+            null
         ]
     },
     {
@@ -2038,10 +3352,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 5 Lightning 3",
         "Desc": "Lightning DMG increases by 30%, non-Attacker 3-Pings\\ncan store signal orb, and then return to the Attacker entered",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200037.0,
-            200066.0
+            200066.0,
+            null,
+            null
         ]
     },
     {
@@ -2049,10 +3370,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 3 Dark 3",
         "Desc": "Dark DMG increases by 30%, and after the member fights at the frontline for a certain time,\\na spinning light orb will generate upon substitution",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200038.0,
-            200067.0
+            200067.0,
+            null,
+            null
         ]
     },
     {
@@ -2060,10 +3388,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "QTE 2 Dark 3",
         "Desc": "Dark DMG increases by 30%\\nSubstitution can reset all QTE CD",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200038.0,
-            200069.0
+            200069.0,
+            null,
+            null
         ]
     },
     {
@@ -2071,10 +3406,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Support/Tank 5 Dark 3",
         "Desc": "Dark DMG increases by 30%, non-Attacker 3-Pings\\ncan store signal orb, and then return to the Attacker entered",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200038.0,
-            200066.0
+            200066.0,
+            null,
+            null
         ]
     },
     {
@@ -2082,10 +3424,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Ping 1 Physical 3",
         "Desc": "Physical DMG increases by 30%\\n1 signal orb of the same color will drop upon a 3-Ping",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
-            200065.0
+            200065.0,
+            null,
+            null
         ]
     },
     {
@@ -2093,10 +3442,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 4 Physical 3",
         "Desc": "Physical DMG increases by 30%, and during substitution, the backstage characters\\ncan also obtain 3 orbs, while the QTE CD increases",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200034.0,
-            200068.0
+            200068.0,
+            null,
+            null
         ]
     },
     {
@@ -2104,10 +3460,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Ping 1 Fire 3",
         "Desc": "Fire DMG increases by 30%\\n1 signal orb of the same color will drop upon a 3-Ping",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200035.0,
-            200065.0
+            200065.0,
+            null,
+            null
         ]
     },
     {
@@ -2115,10 +3478,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 4 Fire 3",
         "Desc": "Fire DMG increases by 30%, and during substitution, the backstage characters\\ncan also obtain 3 orbs, while the QTE CD increases",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200035.0,
-            200068.0
+            200068.0,
+            null,
+            null
         ]
     },
     {
@@ -2126,10 +3496,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Ping 1 Ice 3",
         "Desc": "Ice DMG increases by 30%\\n1 signal orb of the same color will drop upon a 3-Ping",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200036.0,
-            200065.0
+            200065.0,
+            null,
+            null
         ]
     },
     {
@@ -2137,10 +3514,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 4 Ice 3",
         "Desc": "Ice DMG increases by 30%, and during substitution, the backstage characters\\ncan also obtain 3 orbs, while the QTE CD increases",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200036.0,
-            200068.0
+            200068.0,
+            null,
+            null
         ]
     },
     {
@@ -2148,10 +3532,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Ping 1 Lightning 3",
         "Desc": "Lightning DMG increases by 30%\\n1 signal orb of the same color will drop upon a 3-Ping",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200037.0,
-            200065.0
+            200065.0,
+            null,
+            null
         ]
     },
     {
@@ -2159,10 +3550,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 4 Lightning 3",
         "Desc": "Lightning DMG increases by 30%, and during substitution, the backstage characters\\ncan also obtain 3 orbs, while the QTE CD increases",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200037.0,
-            200068.0
+            200068.0,
+            null,
+            null
         ]
     },
     {
@@ -2170,10 +3568,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Ping 1 Dark 3",
         "Desc": "Dark DMG increases by 30%\\n1 signal orb of the same color will drop upon a 3-Ping",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200038.0,
-            200065.0
+            200065.0,
+            null,
+            null
         ]
     },
     {
@@ -2181,10 +3586,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Switch 4 Dark 3",
         "Desc": "Dark DMG increases by 30%, and during substitution, the backstage characters\\ncan also obtain 3 orbs, while the QTE CD increases",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
+            null,
             200038.0,
-            200068.0
+            200068.0,
+            null,
+            null
         ]
     },
     {
@@ -2192,17 +3604,35 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Pure Site",
         "Desc": "Damage by Uniframes reduces more Finisher Gauge value.",
-        "Condition": [],
-        "FightEventId": []
+        "Condition": [
+            null,
+            null,
+            null
+        ],
+        "FightEventId": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 202,
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon11012.png",
         "Name": "Assault 2",
         "Desc": "Enemy's Extra DMG Bonus increases by 45%.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200114.0
+            null,
+            200114.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2210,9 +3640,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32032.png",
         "Name": "Berserk 2",
         "Desc": "The enemy's attacking desire increases by 66%. When dealing DMG, there is a 40% chance to deal 33% Extra DMG.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200115.0
+            null,
+            200115.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2221,10 +3659,16 @@
         "Name": "Emergency Device",
         "Desc": "When the enemy's HP falls to 10%, activate a first-aid system that recover 20% of their HP in 5s. 10s cooldown.",
         "Condition": [
-            94037.0
+            null,
+            94037.0,
+            null
         ],
         "FightEventId": [
-            200102.0
+            null,
+            200102.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2233,10 +3677,16 @@
         "Name": "Burn",
         "Desc": "The enemy's damage also causes allies to Burn, losing HP every second over 5s.",
         "Condition": [
-            94038.0
+            null,
+            94038.0,
+            null
         ],
         "FightEventId": [
-            200103.0
+            null,
+            200103.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2244,9 +3694,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33102.png",
         "Name": "Deterioration 2",
         "Desc": "Damage dealt also reduces target's healing received by 60% for 4s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200116.0
+            null,
+            200116.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2254,9 +3712,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32121.png",
         "Name": "Penetration 2",
         "Desc": "Each time the enemy hits the player, player loses 4% DEF for 10s, stacking up to 10 times.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200117.0
+            null,
+            200117.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2265,22 +3731,34 @@
         "Name": "Inner Force",
         "Desc": "The max HP of enemies increases by 10%.",
         "Condition": [
-            94039.0
+            null,
+            94039.0,
+            null
         ],
         "FightEventId": [
-            200104.0
+            null,
+            200104.0,
+            null,
+            null,
+            null
         ]
     },
     {
         "Id": 209,
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon32041.png",
-        "Name": "Revenge",
+        "Name": "Bomb",
         "Desc": "Upon death, the enemies will lay a mine where they stand that explodes after a short delay, dealing damage.",
         "Condition": [
-            94040.0
+            null,
+            94040.0,
+            null
         ],
         "FightEventId": [
-            200105.0
+            null,
+            200105.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2288,9 +3766,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21071.png",
         "Name": "Destructive Beam",
         "Desc": "30s after the start of battle, 1 laser device will appear to launch laser at ally units every 20s. After each shot, the laser has its interval reduced by 2s and deals 10% more damage.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200106.0
+            null,
+            200106.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2299,10 +3785,16 @@
         "Name": "Enhanced Charging Base",
         "Desc": "The warning time of laser device decreases by 33%.",
         "Condition": [
-            94041.0
+            null,
+            94041.0,
+            null
         ],
         "FightEventId": [
-            200107.0
+            null,
+            200107.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2311,10 +3803,16 @@
         "Name": "Cross Fire",
         "Desc": "One additional laser device will appear in battle.",
         "Condition": [
-            94043.0
+            null,
+            94043.0,
+            null
         ],
         "FightEventId": [
-            200108.0
+            null,
+            200108.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2323,10 +3821,16 @@
         "Name": "Signal Dark Field",
         "Desc": "After clearing this stage, the laser device in Deep Hive will appear 30s later.",
         "Condition": [
-            94042.0
+            null,
+            94042.0,
+            null
         ],
         "FightEventId": [
-            200109.0
+            null,
+            200109.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2334,9 +3838,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon21061.png",
         "Name": "Hive",
         "Desc": "30s after the start of battle, 2 Jitterbombs will appear. The interval is reduced by 2s each time and 1 more Jitterbomb will appear (up to 4).",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200110.0
+            null,
+            200110.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2345,10 +3857,16 @@
         "Name": "Pheromone",
         "Desc": "Jitterbomb now moves and explodes 100% faster.",
         "Condition": [
-            94044.0
+            null,
+            94044.0,
+            null
         ],
         "FightEventId": [
-            200111.0
+            null,
+            200111.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2357,10 +3875,16 @@
         "Name": "Singularity Mark",
         "Desc": "Jitterbomb initiates a Dark Burst when not dying from self-destruction.",
         "Condition": [
-            94046.0
+            null,
+            94046.0,
+            null
         ],
         "FightEventId": [
-            200112.0
+            null,
+            200112.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2369,10 +3893,16 @@
         "Name": "Logistic Support",
         "Desc": "Increases the limit time of Deep Hive by 30s after clearing this stage.",
         "Condition": [
-            94045.0
+            null,
+            94045.0,
+            null
         ],
         "FightEventId": [
-            200044.0
+            null,
+            200044.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2380,9 +3910,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33111.png",
         "Name": "Electromagnetization",
         "Desc": "Enemies inflict Lightning DMG equal to 20% ATK upon dealing damage",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200118.0
+            null,
+            200118.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2391,10 +3929,16 @@
         "Name": "Super Lightning Field",
         "Desc": "Generate multiple rounds of vertical and diagonal lightnings around the target every 8s",
         "Condition": [
-            94047.0
+            null,
+            94047.0,
+            null
         ],
         "FightEventId": [
-            200119.0
+            null,
+            200119.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2403,10 +3947,16 @@
         "Name": "Dominator",
         "Desc": "Enemies are immune to Matrix effects.",
         "Condition": [
-            94048.0
+            null,
+            94048.0,
+            null
         ],
         "FightEventId": [
-            200120.0
+            null,
+            200120.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2415,10 +3965,16 @@
         "Name": "Energy Loss",
         "Desc": "Upon receiving Lightning DMG, the character loses 20 Dodge and 20 Energy within 4s.",
         "Condition": [
-            94049.0
+            null,
+            94049.0,
+            null
         ],
         "FightEventId": [
-            200121.0
+            null,
+            200121.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2427,10 +3983,16 @@
         "Name": "Iron Shield",
         "Desc": "Enemies have a shield equal to 10% max HP upon deployment. The shield will not be refreshed.",
         "Condition": [
-            94050.0
+            null,
+            94050.0,
+            null
         ],
         "FightEventId": [
-            200122.0
+            null,
+            200122.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2438,9 +4000,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22090.png",
         "Name": "Ruler",
         "Desc": "There will be two more Primes on the field to assist the enemies in battle.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200123.0
+            null,
+            200123.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2449,10 +4019,16 @@
         "Name": "War Drum \u03b1",
         "Desc": "The assistant Primes provide the enemies with 2 buffs when on the field: Assult 3 and DMG Immunity 3",
         "Condition": [
-            94047.0
+            null,
+            94047.0,
+            null
         ],
         "FightEventId": [
-            200124.0
+            null,
+            200124.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2461,10 +4037,16 @@
         "Name": "Undying",
         "Desc": "The assistant Primes will revive 20s after death",
         "Condition": [
-            94048.0
+            null,
+            94048.0,
+            null
         ],
         "FightEventId": [
-            200125.0
+            null,
+            200125.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2473,10 +4055,16 @@
         "Name": "Wound Healing",
         "Desc": "The assistant Primes restore 1% of max HP per second",
         "Condition": [
-            94049.0
+            null,
+            94049.0,
+            null
         ],
         "FightEventId": [
-            200126.0
+            null,
+            200126.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2485,10 +4073,16 @@
         "Name": "Overwhelming Power",
         "Desc": "The assistant Primes gain a 10% Extra DMG Bonus",
         "Condition": [
-            94050.0
+            null,
+            94050.0,
+            null
         ],
         "FightEventId": [
-            200127.0
+            null,
+            200127.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2496,9 +4090,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon1.png",
         "Name": "Ascendant Watcher",
         "Desc": "Alpha will watch over the field. She will fire 1 swordwave 33s after the battle starts. Meanwhile, she will reduce the firing interval by 3s and increase swordwave damage by 10%. Swordwaves +1 every 3 rounds.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200128.0
+            null,
+            200128.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2507,10 +4109,16 @@
         "Name": "Blade Edge",
         "Desc": "Base swordwave damage increases by 20%",
         "Condition": [
-            94047.0
+            null,
+            94047.0,
+            null
         ],
         "FightEventId": [
-            200129.0
+            null,
+            200129.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2519,10 +4127,16 @@
         "Name": "Blade Wave",
         "Desc": "Swordwaves +1 upon first wave fired",
         "Condition": [
-            94048.0
+            null,
+            94048.0,
+            null
         ],
         "FightEventId": [
-            200130.0
+            null,
+            200130.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2531,10 +4145,16 @@
         "Name": "Blade Shadow",
         "Desc": "Upon fired, swordwave(s) will inflict 1 hit of swordwave(s) on each side, which deal 20% of the original damage",
         "Condition": [
-            94049.0
+            null,
+            94049.0,
+            null
         ],
         "FightEventId": [
-            200131.0
+            null,
+            200131.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2543,10 +4163,16 @@
         "Name": "Blade Fang",
         "Desc": "Swordwaves will deal Extra DMG equal to 100% of their damage and reduce healing by 25% within 5s after hitting the target. The effect can be stacked.",
         "Condition": [
-            94050.0
+            null,
+            94050.0,
+            null
         ],
         "FightEventId": [
-            200132.0
+            null,
+            200132.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2554,9 +4180,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Limiter Release",
         "Desc": "Every after character switch: \\nCharacter on the field has permanent 20% Extra DMG Bonus (up to 200%)\\nCharacter on the field gains Super Armor and a shield equal to 30% max HP within 15s.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200133.0
+            null,
+            200133.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2564,9 +4198,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon012.png",
         "Name": "Vision Event",
         "Desc": "A black hole will appear on the battlefield at intervals.\\nThe black hole will pull in enemies within a large area over time.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200134.0
+            null,
+            200134.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2574,9 +4216,17 @@
         "Icon": "Assets/Product/Texture/Image/IconAffixUnionKill/UiUnionKillBUFFIcon018.png",
         "Name": "Operation Uniframe",
         "Desc": "Upon taking Uniframe DMG, greatly reduces the Finisher Gauge. Speed Attack Skills' bonus effects will not be affected (not shown).",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200135.0
+            null,
+            200135.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2584,9 +4234,17 @@
         "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon13021.png",
         "Name": "Final Countdown",
         "Desc": "After the battle starts, a flame will appear on the battlefield every 9s, which will deal Fire DMG to allies it touches. After the 20th flame is summoned, the flames will start tracking your allies.",
-        "Condition": [],
+        "Condition": [
+            null,
+            null,
+            null
+        ],
         "FightEventId": [
-            200136.0
+            null,
+            200136.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2595,10 +4253,16 @@
         "Name": "Ceremony Preparation",
         "Desc": "After the stage is cleared, each flame summoned will shrink over time and start to track your 30s later.",
         "Condition": [
-            94022.0
+            null,
+            94022.0,
+            null
         ],
         "FightEventId": [
-            200137.0
+            null,
+            200137.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2607,10 +4271,16 @@
         "Name": "Nowhere to Hide",
         "Desc": "The flames' damage cannot be dodged.",
         "Condition": [
-            94023.0
+            null,
+            94023.0,
+            null
         ],
         "FightEventId": [
-            200138.0
+            null,
+            200138.0,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -2619,10 +4289,16 @@
         "Name": "Scorching Flame",
         "Desc": "Flame deals 200% more DMG.",
         "Condition": [
-            94024.0
+            null,
+            94024.0,
+            null
         ],
         "FightEventId": [
-            200139.0
+            null,
+            200139.0,
+            null,
+            null,
+            null
         ]
     }
 ]

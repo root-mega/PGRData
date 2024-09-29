@@ -15,13 +15,18 @@ require("MVCA/XAgency")
 require("MVCA/MVCAEventId")
 
 local IsWindowsEditor = XMain.IsWindowsEditor
+
 ---@class XMVCACls : XMVCAEvent
 ---@field _AgencyDict table<string, XAgency>
 ---@field _ControlDict table<string, XControl>
 ---@field _ModelDict table<string, XModel>
 ---@field XCharacter XCharacterAgency
+---@field XCommonCharacterFilt XCommonCharacterFiltAgency
+---@field XEquip XEquipAgency
 ---@field XTheatre3 XTheatre3Agency
 ---@field XFuben XFubenAgency
+---@field XPassport XPassportAgency
+---@field XUiMain XUiMainAgency
 local XMVCACls = XClass(XMVCAEvent, "XMVCACls")
 
 function XMVCACls:Ctor()
@@ -34,6 +39,7 @@ function XMVCACls:Ctor()
         setmetatable(self._ControlProfiler, { __mode = "kv"})
         self._ConfigProfiler = {}
         setmetatable(self._ConfigProfiler, { __mode = "kv"})
+        self._PreloadConfig = {}
     end
 end
 
@@ -93,8 +99,10 @@ function XMVCACls:_RegisterControl(id)
         XLog.Error("请勿重复初始化Control: " .. id)
     else
         local cls = XMVCAUtil.GetControlCls(id)
+        ---@type XControl
         local control = cls.New(id)
         self._ControlDict[id] = control
+        control:CallInit()
         if IsWindowsEditor then
             self._ControlProfiler[control] = control:GetId()
         end
@@ -125,7 +133,7 @@ end
 ---@return boolean
 function XMVCACls:_CheckControlRef(id)
     local control = self._ControlDict[id]
-    if control and control:HasViewRef() then
+    if control then
         return true
     end
     return false
@@ -235,9 +243,13 @@ function XMVCACls:_HotReloadModel(id)
 end
 
 function XMVCACls:_CloneModel(oldModel, newModel)
+    local ReloadFunc = XHotReload.ReloadFunc
     for key, value in pairs(oldModel) do
         if key ~= "_ConfigUtil" then
             newModel[key] = XTool.Clone(value)
+            if type(value) == "function" then
+                ReloadFunc(value)
+            end
         end
     end
 end
@@ -253,7 +265,14 @@ function XMVCACls:InitModule()
     self:RegisterAgency(ModuleId.XFuben)
     self:RegisterAgency(ModuleId.XFubenEx)
     self:RegisterAgency(ModuleId.XTheatre3)
+    self:RegisterAgency(ModuleId.XBlackRockChess)
     self:RegisterAgency(ModuleId.XTurntable)
+    self:RegisterAgency(ModuleId.XBlackRockStage)
+    self:RegisterAgency(ModuleId.XPassport)
+    self:RegisterAgency(ModuleId.XTaikoMaster)
+    self:RegisterAgency(ModuleId.XUiMain)
+    self:RegisterAgency(ModuleId.XNewActivityCalendar)
+    self:RegisterAgency(ModuleId.XTwoSideTower)
 end
 
 --XMVCA:Profiler()
@@ -263,12 +282,19 @@ function XMVCACls:Profiler()
         collectgarbage("collect") --得调用Lua Profiler界面的GC才能释放干净
         XLog.Debug("XMVCACls:ControlProfiler", self._ControlProfiler)
         XLog.Debug("XMVCACls:ConfigProfiler", self._ConfigProfiler)
+        XLog.Debug("XMVCACls:PreloadConfig", self._PreloadConfig)
     end
 end
 
 function XMVCACls:AddConfigProfiler(configTable, tag)
     if IsWindowsEditor then
         self._ConfigProfiler[configTable] = tag
+    end
+end
+
+function XMVCACls:AddPreloadConfig(path)
+    if IsWindowsEditor then
+        table.insert(self._PreloadConfig, path)
     end
 end
 

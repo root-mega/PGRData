@@ -14,7 +14,7 @@ function XUiGridLineCharacter:RefreshAssist(data, rootUi)
         return
     end
     self.Super.OnRefresh(self, data)
-    self.ImgAssist.gameObject:SetActive(data.ChiefAssistant)
+    --self.ImgAssist.gameObject:SetActive(data.ChiefAssistant)
 end
 
 function XUiGridLineCharacter:RefreshAddButton(isAdd)

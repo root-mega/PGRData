@@ -3227,6 +3227,13 @@
         "Description": "When HP drops by more than 20%, creates a shield equal to 10% of max HP for 5s. When it disappears, it will explode and deal damage within 8m."
     },
     {
+        "Id": 712007,
+        "Name": "Projection",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhaiqiao.png",
+        "Description": "Generates 1 projection behind that will attack along with the character."
+    },
+    {
         "Id": 713011,
         "Name": "Shadow Shield",
         "Level": 1.0,
@@ -3549,6 +3556,237 @@
         "Description": "Cast skills immediately after moving to boost the damage based on Movement Speed."
     },
     {
+        "Id": 716141,
+        "Name": "Scorching Hot",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconZhuoShao001.png",
+        "Description": "The unit will be Burnt for 5s upon receiving damage. Increasing Strength Points can tear apart the wound. Every 5 Strength Points can make the target take 10% more Burnt DMG and have the Burnt effect for 0.5s longer."
+    },
+    {
+        "Id": 716142,
+        "Name": "Burn",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuo.png",
+        "Description": "Burns the unit's wound and makes the unit take Burnt DMG once every second."
+    },
+    {
+        "Id": 716145,
+        "Name": "Recovery",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHuoyan.png",
+        "Description": "The wound is recovering. Immune to the Burn effect for 8s."
+    },
+    {
+        "Id": 716151,
+        "Name": "Arctic",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShiWen001.png",
+        "Description": "The recovery speed of the unit's Movement Speed and Dodge Gauge will decrease over time. Spend Physique Points to resist the coldness. Every 5 Physique Points can reduce the effect by 5%."
+    },
+    {
+        "Id": 716152,
+        "Name": "Hypothermia",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeibing.png",
+        "Description": "The recovery speed of the unit's Movement Speed and Dodge Gauge has been reduced."
+    },
+    {
+        "Id": 716166,
+        "Name": "Lightning Bug",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconLeiChong001.png",
+        "Description": "The unit can receive damage from Lightning Bugs. Use Energy Defense Points to resist their power. Every 5 Energy Defense Points can prolong the Lightning Bug generation interval by 0.5s and transfer 5% of the incoming explosion damage to the enemy."
+    },
+    {
+        "Id": 716167,
+        "Name": "Supercharged",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconLeiChong1001.png",
+        "Description": "The unit will take additional damage from Lightning Bugs."
+    },
+    {
+        "Id": 716176,
+        "Name": "Corrosion",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconFuShi001.png",
+        "Description": "Upon receiving damage, the unit will expose its weakness and take more damage until the end of the battle. Use the Focus Points to suppress the generation of the weaknesses. Every 5 Focus Points can reduce the Vulnerable effect by 2%. Every 10 Focus Points can further increase the target's Vulnerable effect by 2%."
+    },
+    {
+        "Id": 716177,
+        "Name": "Fragility",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconZuzhou.png",
+        "Description": "The unit takes Extra DMG based on the Weakness Exposure Level until the end of the battle."
+    },
+    {
+        "Id": 716181,
+        "Name": "Flexibility",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQiaoBian001.png",
+        "Description": "If there are more than 3 ally units within 10m around the caster, then the caster will deal more damage based on the number of extra allies. Otherwise, the caster gains DMG Reduction. Stacks up to 3 times. Use Strength Points to suppress the enemy, with each 10 Strength Points reducing the DMG Bonus and DMG Reduction Bonus of each stack by 5% and 1% respectively."
+    },
+    {
+        "Id": 716182,
+        "Name": "Advance Together",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconTongling.png",
+        "Description": "Allies: {0}, DMG Increase: {1}% ({2}% - {3}%)"
+    },
+    {
+        "Id": 716183,
+        "Name": "Retreat Together",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBilei.png",
+        "Description": "Allies: {0}, DMG Reduction Increase: {1}% ({2}% - {3}%)"
+    },
+    {
+        "Id": 716191,
+        "Name": "Wave",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBoDong001.png",
+        "Description": "The unit is in an unstable status and deals fluctuating damage. Use the Physique Points to deal with the unstable attacks. Every 5 Physique Points can reduce the enemy's maximum damage dealt by 5%. Every 10 Physique Points can reduce the enemy's minimum damage dealt by 5%."
+    },
+    {
+        "Id": 716196,
+        "Name": "Charge",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconChongNeng001.png",
+        "Description": "Charges once every 20s and gains 1 stack of [Charge] effect. Enters the [Overload] form and stops charging after 3 charges. Use the Energy Defense Points to better understand the Charge effect. Every 10 Energy Defense Points can add 5s to the charging interval and reduce the Final DMG Bonus by 5% and Signature Energy by 1."
+    },
+    {
+        "Id": 716197,
+        "Name": "Charge",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconChongNeng1001.png",
+        "Description": "Increases DMG by {0}% ({1}% - {2}%) and Movement Speed by {3}%."
+    },
+    {
+        "Id": 716198,
+        "Name": "Overload",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconChongNeng2001.png",
+        "Description": "Every time the caster deals damage, it will reduce the target's Signature Energy by {0}%  ({1}%  - {2}%)."
+    },
+    {
+        "Id": 716211,
+        "Name": "Interference",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconGanRao001.png",
+        "Description": "The unit can interfere with the enemy's enemy-tracking system, reducing the incoming damage dealt by the enemy in the distance and having a chance to dodge the attack. Use the Focus Points to be more concentrated and resist the Interference effect. Every 10 Focus Points can add 1m to the range of the Interference effect and reduce the DMG Reduction by 5% and dodge effect by 3%."
+    },
+    {
+        "Id": 716212,
+        "Name": "Stealth",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconGanRao1001.png",
+        "Description": "The unit receives {0} less damage from you and has a {1} chance to dodge your attacks."
+    },
+    {
+        "Id": 716251,
+        "Name": "Energy Gathering",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShexian.png",
+        "Description": "Elemental Resistance increases by 20%. Has a 25% chance to also deal Fire, Ice, Lightning, or Dark DMG equal to 25% of the caster's ATK when dealing DMG. Can be triggered once every second."
+    },
+    {
+        "Id": 716261,
+        "Name": "Tenacity",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBingdu.png",
+        "Description": "All Resistances increase by 20%. All Resistances decrease by 2% for 12s every time when the character is attacked. Stacks up to 20 times. Upon dealing DMG, has a 30% chance to inflict Extra Physical, Fire, Ice, Lightning, or Dark DMG equal to 30% of the caster's ATK. Can be triggered once every 0.5s."
+    },
+    {
+        "Id": 716273,
+        "Name": "DMG Increase",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Description": "All DMG increases by 15%."
+    },
+    {
+        "Id": 716713,
+        "Name": "Overwhelming Power",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconDiandun.png",
+        "Description": "The unit deals 30% more damage."
+    },
+    {
+        "Id": 716726,
+        "Name": "High Temperature",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconKanghuo.png",
+        "Description": "Upon dealing damage, the unit will also deal Fire DMG equal to 30% ATK."
+    },
+    {
+        "Id": 716729,
+        "Name": "Prayer",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconFusu.png",
+        "Description": "The unit recovers 0.3% of maximum HP per second."
+    },
+    {
+        "Id": 716741,
+        "Name": "Dark Death",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeian.png",
+        "Description": "Upon death, the unit generates a Dark Explosion, dealing AOE DMG and restoring HP to nearby allies."
+    },
+    {
+        "Id": 716746,
+        "Name": "Holy Shied",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHudun.png",
+        "Description": "The unit's Shield has gone up."
+    },
+    {
+        "Id": 716747,
+        "Name": "Vigor",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeianLogistics.png",
+        "Description": "The unit has 300% Max HP instead but will receive 300% Extra DMG."
+    },
+    {
+        "Id": 716748,
+        "Name": "Perseverance",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconZhufu.png",
+        "Description": "Upon receiving a lethal damage, the unit will be immune to it and restore a certain amount of HP. The effect can only be triggered once."
+    },
+    {
+        "Id": 716754,
+        "Name": "Corrosion",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconAnying.png",
+        "Description": "Every time when the unit deals damage, it will make all the Corrupted deal more damage and move faster for 10s."
+    },
+    {
+        "Id": 716758,
+        "Name": "Holy Light",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShexian.png",
+        "Description": "Every time when the unit deals damage, it will restore HP to all Constructs. The effect can only be triggered once every 5s."
+    },
+    {
+        "Id": 716777,
+        "Name": "Inheritance",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianghua.png",
+        "Description": "The unit deals 30% more damage and has a higher Max HP."
+    },
+    {
+        "Id": 716778,
+        "Name": "Healer",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeianLogistics.png",
+        "Description": "The unit recovers 1% HP every second over time."
+    },
+    {
+        "Id": 716798,
+        "Name": "Burn",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHuoyan.png",
+        "Description": "All damage by the unit will Burn the target for 5s."
+    },
+    {
         "Id": 760014,
         "Name": "Lightning Vulnerability",
         "Level": 1.0,
@@ -3736,6 +3974,55 @@
         "Level": 3.0,
         "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMoai.png",
         "Description": "When being killed, all enemies within a certain area will become unable to attack for 20s."
+    },
+    {
+        "Id": 778097,
+        "Name": "Wound",
+        "Level": null,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconPojia.png",
+        "Description": "Receives Extra DMG based on stacks when taking Basic Attack DMG. Provides Extra Buff Effect for the [Turing] set."
+    },
+    {
+        "Id": 778098,
+        "Name": "Poison",
+        "Level": null,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhaiqiao.png",
+        "Description": "Receives True DMG every second."
+    },
+    {
+        "Id": 778099,
+        "Name": "Perseverance",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeianLogistics.png",
+        "Description": "Restores 1% Max Execution Points every second."
+    },
+    {
+        "Id": 778100,
+        "Name": "I'm\u2606",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconYulei.png",
+        "Description": "Give up"
+    },
+    {
+        "Id": 778101,
+        "Name": "the\u2606",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconYulei.png",
+        "Description": "I am"
+    },
+    {
+        "Id": 778102,
+        "Name": "coolest\u2606",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconYulei.png",
+        "Description": "invincible"
+    },
+    {
+        "Id": 778103,
+        "Name": "of all",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconYulei.png",
+        "Description": "!"
     },
     {
         "Id": 778131,
@@ -4004,10 +4291,570 @@
         "Description": "Immune to Basic Attack DMG."
     },
     {
+        "Id": 764725,
+        "Name": "Signature Immunity",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQiaoBian001.png",
+        "Description": "Immune to Signature DMG."
+    },
+    {
         "Id": 776405,
         "Name": "Vulnerable",
         "Level": 1.0,
         "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconPojia.png",
         "Description": "DMG taken increases."
+    },
+    {
+        "Id": 776413,
+        "Name": "Silence",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHamlet.png",
+        "Description": "3-Ping Basic Skill Attacks can impact Hamlet's internal program and increase all DMG taken based on this feature by 15%."
+    },
+    {
+        "Id": 776428,
+        "Name": "Silence",
+        "Level": 2.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHamlet.png",
+        "Description": "3-Ping Basic Skill Attacks can impact Hamlet's internal program and increase all DMG taken based on this feature by 30%."
+    },
+    {
+        "Id": 776429,
+        "Name": "Silence",
+        "Level": 3.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHamlet.png",
+        "Description": "3-Ping Basic Skill Attacks can impact Hamlet's internal program and increase all DMG taken based on this feature by 45%."
+    },
+    {
+        "Id": 776430,
+        "Name": "Silence",
+        "Level": 4.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHamlet.png",
+        "Description": "3-Ping Basic Skill Attacks can impact Hamlet's internal program and increase all DMG taken based on this feature by 60%."
+    },
+    {
+        "Id": 776431,
+        "Name": "Silence",
+        "Level": 5.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHamlet.png",
+        "Description": "3-Ping Basic Skill Attacks can impact Hamlet's internal program and increase all DMG taken based on this feature by 75%."
+    },
+    {
+        "Id": 776432,
+        "Name": "Silence",
+        "Level": 6.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHamlet.png",
+        "Description": "3-Ping Basic Skill Attacks can impact Hamlet's internal program and increase all DMG taken based on this feature by 90%."
+    },
+    {
+        "Id": 776433,
+        "Name": "Silence",
+        "Level": 7.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHamlet.png",
+        "Description": "3-Ping Basic Skill Attacks can impact Hamlet's internal program and increase all DMG taken based on this feature by 105%."
+    },
+    {
+        "Id": 776434,
+        "Name": "Silence",
+        "Level": 8.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHamlet.png",
+        "Description": "3-Ping Basic Skill Attacks can impact Hamlet's internal program and increase all DMG taken based on this feature by 120%."
+    },
+    {
+        "Id": 776435,
+        "Name": "Silence",
+        "Level": 9.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHamlet.png",
+        "Description": "3-Ping Basic Skill Attacks can impact Hamlet's internal program and increase all DMG taken based on this feature by 135%."
+    },
+    {
+        "Id": 776436,
+        "Name": "Silence",
+        "Level": 10.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHamlet.png",
+        "Description": "3-Ping Basic Skill Attacks can impact Hamlet's internal program and increase all DMG taken based on this feature by 150%."
+    },
+    {
+        "Id": 761530,
+        "Name": "Scorch",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconKanghuo2.png",
+        "Description": "Attacks will also inflict Burn, dealing Fire DMG equal to 10% ATK every second to the target for 10s."
+    },
+    {
+        "Id": 761534,
+        "Name": "Frost",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconKangbing2.png",
+        "Description": "Attacks will also deal Ice DMG equal to 30% ATK and reduce the target's speed by 30% for 10s."
+    },
+    {
+        "Id": 761537,
+        "Name": "Lightning Strike",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconKanglei2.png",
+        "Description": "Attacks will also deal Lightning DMG equal to 30% ATK and reduce the target's ATK by 30% for 10s."
+    },
+    {
+        "Id": 761540,
+        "Name": "Dark Corruption",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconKangan2.png",
+        "Description": "Attacks will also deal Dark DMG equal to 50% ATK and reduce the target's healing by 30% for 10s."
+    },
+    {
+        "Id": 748536,
+        "Name": "Armorbreak",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconPojia.png",
+        "Description": "Extra DMG Reduction decreases by 50%."
+    },
+    {
+        "Id": 748517,
+        "Name": "Armorbreak",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconPojia.png",
+        "Description": "Extra DMG Reduction decreases by 100%."
+    },
+    {
+        "Id": 748570,
+        "Name": "DMG Immunity",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianshang.png",
+        "Description": "Extra DMG Reduction increases by 50%."
+    },
+    {
+        "Id": 749209,
+        "Name": "Basic Attack Vulnerability",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconDuili1.png",
+        "Description": "Receives more Basic Attack DMG."
+    },
+    {
+        "Id": 749215,
+        "Name": "Red Resistance",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhong.png",
+        "Description": "Extra DMG Reduction against Red Orb skills increases."
+    },
+    {
+        "Id": 749216,
+        "Name": "Blue Resistance",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianlan.png",
+        "Description": "Extra DMG Reduction against Blue Orb skills increases."
+    },
+    {
+        "Id": 749217,
+        "Name": "Yellow Resistance",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianhuang.png",
+        "Description": "Extra DMG Reduction against Yellow Orb skills increases."
+    },
+    {
+        "Id": 777041,
+        "Name": "Fire",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHuoyan.png",
+        "Description": "Attacks deal an additional 20% Physical DMG and have a 20% chance to inflict Burn, dealing 20% Physical DMG per second for 3s."
+    },
+    {
+        "Id": 777023,
+        "Name": "Assault",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Description": "Extra DMG Bonus increases by 20%"
+    },
+    {
+        "Id": 777021,
+        "Name": "Growth",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianghua.png",
+        "Description": "Raise the Health limit."
+    },
+    {
+        "Id": 774511,
+        "Name": "Rigidity",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHudun.png",
+        "Description": "The enemy gains Super Armor but receives 300 more damage when taking damage."
+    },
+    {
+        "Id": 774526,
+        "Name": "Melee Protection",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconhaiqiao.png",
+        "Description": "Takes less damage from melee characters but more from ranged ones."
+    },
+    {
+        "Id": 774521,
+        "Name": "Ranged Protection",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShexian.png",
+        "Description": "Takes less damage from ranged characters but more from melee ones."
+    },
+    {
+        "Id": 774561,
+        "Name": "Force Field",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconMianshang.png",
+        "Description": "The enemy deals less damage when receiving less than 7000 DMG and greatly more when receiving more than 7000 DMG."
+    },
+    {
+        "Id": 777044,
+        "Name": "Splitting",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconLiejie.png",
+        "Description": "When the enemy's HP drops below 50%, they will split into two units with 50% HP."
+    },
+    {
+        "Id": 749347,
+        "Name": "Support",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian2.png",
+        "Description": "Summons an identical unit at intervals. The interval increases over time."
+    },
+    {
+        "Id": 777045,
+        "Name": "Protection",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBilei.png",
+        "Description": "The enemy gains a shield of 30% Max HP."
+    },
+    {
+        "Id": 777052,
+        "Name": "Freeze",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconDongjie.png",
+        "Description": "Attacks deal an additional 20% Physical DMG and slow down the Target's movement speed by 25%, have 20% of chance to Freeze for 0.7s"
+    },
+    {
+        "Id": 777205,
+        "Name": "Decree",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconZhufu.png",
+        "Description": "Friendly unit that cannot attack."
+    },
+    {
+        "Id": 777207,
+        "Name": "Neutrality",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconTongling.png",
+        "Description": "Friendly unit that cannot attack."
+    },
+    {
+        "Id": 777209,
+        "Name": "Evil",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconDudou.png",
+        "Description": "Enemy Unit"
+    },
+    {
+        "Id": 777299,
+        "Name": "Chaotic Evil",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBaozou.png",
+        "Description": "Enemy unit with increased HP and DMG."
+    },
+    {
+        "Id": 777057,
+        "Name": "Growth",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianghua.png",
+        "Description": "When there is a teammate, the enemy gains a 5% DMG Bonus and loses 10% Resistances every 10s."
+    },
+    {
+        "Id": 777055,
+        "Name": "Curse",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconZuzhou.png",
+        "Description": "Curses your character after death, making the character deal 1000% more DMG but die 10s later."
+    },
+    {
+        "Id": 777054,
+        "Name": "Revenge",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Description": "Gains ATK and attack frequency but reduces Resistances to 0 after a teammate dies"
+    },
+    {
+        "Id": 761830,
+        "Name": "Self-Destruction Bug",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22100.png",
+        "Description": "Periodically summons 1 Self-Destruction Bug to attack the enemy."
+    },
+    {
+        "Id": 761831,
+        "Name": "Rigid Body",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconGangti.png",
+        "Description": "Takes 1 DMG only from incoming attacks. This effect is removed after taking DMG 3 times, and is resumed 8s later."
+    },
+    {
+        "Id": 761837,
+        "Name": "Stealth",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconYinshen.png",
+        "Description": "You can switch to invisibility 5s later if you are visible now. And when you are hit, you will be visible again for 3s"
+    },
+    {
+        "Id": 761841,
+        "Name": "Immovable",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBudong.png",
+        "Description": "Immune to hit and control effects."
+    },
+    {
+        "Id": 761844,
+        "Name": "Blessing",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconZhufu.png",
+        "Description": "Increases Extra DMG Bonus of allies nearby by 20%."
+    },
+    {
+        "Id": 761848,
+        "Name": "Flash",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Description": "When you are far away from the target, transfers you close to the target, CD for 6-8s. The farther the transfer distance, the shorter the CD"
+    },
+    {
+        "Id": 761849,
+        "Name": "Dominator",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShexian.png",
+        "Description": "Immune to the limiting effects Matrix and Signature"
+    },
+    {
+        "Id": 761850,
+        "Name": "Ice Vulnerability",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeibing.png",
+        "Description": "Ice Resistance decreases by 30%."
+    },
+    {
+        "Id": 761851,
+        "Name": "Protection",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBilei.png",
+        "Description": "Grants the enemy and its nearby allies a shield equal to 10% of its current HP every 10s. Shields granted this way cannot be stacked."
+    },
+    {
+        "Id": 761853,
+        "Name": "Commander",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconTongling.png",
+        "Description": "Increases Extra DMG Bonus by 6%. Stacks up to 10 times. The more the allies nearby, the higher the stacks"
+    },
+    {
+        "Id": 761856,
+        "Name": "Closed Loop",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBihuan.png",
+        "Description": "A damage to the remote enemy, increases Extra DMG Reduction by 30%"
+    },
+    {
+        "Id": 761860,
+        "Name": "Berserk",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBaozou.png",
+        "Description": "Increases ATK frequency by 33%. 20% chance to deal 33% extra Physical DMG when damaging a target."
+    },
+    {
+        "Id": 761863,
+        "Name": "Burning Fire",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBodong.png",
+        "Description": "When this enemy is taken down, all their allies within 5m of it will restore 20% HP."
+    },
+    {
+        "Id": 761866,
+        "Name": "Grudge",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconXuruo.png",
+        "Description": "Enemy's attacks will reduce your team's ATK by 10%. The reduced ATK will be refunded when the enemy is taken down."
+    },
+    {
+        "Id": 761870,
+        "Name": "Physical Vulnerability",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeiwuli.png",
+        "Description": "Physical Resistance decreases by 60%."
+    },
+    {
+        "Id": 761871,
+        "Name": "Commander",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconTongling.png",
+        "Description": "Increases Extra DMG Bonus by 10%. Stacks up to 10 times. The more the allies nearby, the higher the stacks"
+    },
+    {
+        "Id": 761874,
+        "Name": "Diffusion",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33021.png",
+        "Description": "Enemy attacks will remove 1 Signal Orb. When the enemy is taken down, it returns all Signal Orbs."
+    },
+    {
+        "Id": 761878,
+        "Name": "Barrier",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBilei.png",
+        "Description": "Receives a permanent shield equal to 10% of current HP. Becomes immune to attacks while the shield is active. Removes the shield after taking a certain amount of damage. It will reactivate in 15s."
+    },
+    {
+        "Id": 761883,
+        "Name": "Recovery",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconFusu.png",
+        "Description": "Recovers 1% of max HP per second."
+    },
+    {
+        "Id": 761885,
+        "Name": "Revenge",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Description": "When this enemy is taken down, all their allies within 5m of it will gain 25% damage dealt and 5% Movement Speed. Stacks up to 3 times."
+    },
+    {
+        "Id": 761889,
+        "Name": "Berserk",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBaozou.png",
+        "Description": "Increases ATK frequency by 33%. Has a 40% chance to deal 33% extra Physical DMG when damaging a target."
+    },
+    {
+        "Id": 761892,
+        "Name": "Teleport",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png",
+        "Description": "Teleport away when close to the target. Has a cooldown of 8s. Has a 30% chance to trigger the effect when taking DMG. Cooldown are calculated separately."
+    },
+    {
+        "Id": 761894,
+        "Name": "Barrier",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBilei.png",
+        "Description": "Receives a permanent shield equal to 30% of current HP. Becomes immune to attacks while the shield is active. Removes the shield after taking a certain amount of damage. It will reactivate in 15s."
+    },
+    {
+        "Id": 761899,
+        "Name": "Radiation",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconFushe.png",
+        "Description": "Continuously deals 3% Physical DMG to nearby enemies."
+    },
+    {
+        "Id": 761901,
+        "Name": "Recovery",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconFusu.png",
+        "Description": "Recovers 3% of max HP per second."
+    },
+    {
+        "Id": 761903,
+        "Name": "Revenge",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png",
+        "Description": "When this enemy is taken down, all their allies within 5m of it will gain 50% damage dealt and 10% Movement Speed. Stacks up to 3 times."
+    },
+    {
+        "Id": 761907,
+        "Name": "Burning Fire",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBodong.png",
+        "Description": "When this enemy is taken down, all their allies within 5m of it restore 30% HP."
+    },
+    {
+        "Id": 761913,
+        "Name": "Physical Vulnerability",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeiwuli.png",
+        "Description": "Physical Resistance decreases by 60%."
+    },
+    {
+        "Id": 761914,
+        "Name": "Agility",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconXunjie.png",
+        "Description": "Increases 20% - 35% movement speed. The farther away from the target, the faster the movement speed"
+    },
+    {
+        "Id": 761919,
+        "Name": "Shield",
+        "Level": 2.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHudun.png",
+        "Description": "Gains a shield with capacity equal to 10% of current HP every 10s. The shield lasts 10s."
+    },
+    {
+        "Id": 761923,
+        "Name": "Invasion",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBingdu.png",
+        "Description": "When dealing DMG, also deals 1% Physical DMG to the target every second for 3s."
+    },
+    {
+        "Id": 761910,
+        "Name": "Fire Vulnerability",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuo.png",
+        "Description": "Fire Resistance decreases by 30%."
+    },
+    {
+        "Id": 761911,
+        "Name": "Lightning Vulnerability",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilei.png",
+        "Description": "Lightning Resistance decreases by 30%."
+    },
+    {
+        "Id": 761912,
+        "Name": "Nyctophobia",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeian.png",
+        "Description": "Dark Resistance decreases by 30%."
+    },
+    {
+        "Id": 761927,
+        "Name": "Invasion",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBingdu.png",
+        "Description": "When dealing DMG, also deals 5% Physical DMG to the target every second for 3s."
+    },
+    {
+        "Id": 761931,
+        "Name": "Lightning Shield",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconDiandun.png",
+        "Description": "When attacked, has a 15-25% chance to unleash a lightning strike at the attacker's location, dealing 10% Lightning DMG. 3s cooldown. The farther from the target, the higher chance it will be triggered."
+    },
+    {
+        "Id": 761934,
+        "Name": "Deterioration",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconLuehua.png",
+        "Description": "DMG dealt also reduces target's healing received by 30% for 3s."
+    },
+    {
+        "Id": 761800,
+        "Name": "Abyss Feast",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeiyuansu.png",
+        "Description": "Elemental and Physical Resistances decrease by 15%."
+    },
+    {
+        "Id": 761806,
+        "Name": "Abyss Feast",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeiyuansu.png",
+        "Description": "Elemental and Physical Resistances decrease by 40%."
+    },
+    {
+        "Id": 761809,
+        "Name": "Revival",
+        "Level": 1.0,
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconZhufu.png",
+        "Description": "Upon death, absorb Mechanoid Moon Eater's HP to revive."
     }
 ]

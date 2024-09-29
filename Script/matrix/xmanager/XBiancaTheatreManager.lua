@@ -518,6 +518,7 @@ XBiancaTheatreManagerCreator = function()
         return XTool.IsNumberValid(CurChapterId)
     end
 
+    ---@return XBiancaTheatreAdventureManager
     function XBiancaTheatreManager.GetCurrentAdventureManager()
         if not CurrentAdventureManager then
             CurrentAdventureManager = XBiancaTheatreManager.CreateAdventureManager()

@@ -41,12 +41,13 @@ function XDynamicTableIrregular:Init(gameObject)
     return true
 end
 
+---@param proxy XUiNode
 function XDynamicTableIrregular:SetProxyDisplay(proxy, isShow)
     if CheckClassSuper(proxy, XUiNode) then
         if isShow then
             proxy:Open()
         else
-            if not XTool.UObjIsNil(proxy.GameObject) then
+            if proxy:IsValid() then
                 proxy:Close()
             end
         end

@@ -3,25 +3,35 @@
         "StageId": 30130503,
         "StageName": "The Stage",
         "StageStyle": null,
-        "OpenConditionId": []
+        "OpenConditionId": [
+            null,
+            null
+        ]
     },
     {
         "StageId": 30130911,
         "StageName": null,
         "StageStyle": "Assets/Product/Ui/ComponentPrefab/GridStage/GridStageFightChristmasEx.prefab",
-        "OpenConditionId": []
+        "OpenConditionId": [
+            null,
+            null
+        ]
     },
     {
         "StageId": 30130912,
         "StageName": null,
         "StageStyle": "Assets/Product/Ui/ComponentPrefab/GridStage/GridStageFightChristmasEx.prefab",
-        "OpenConditionId": []
+        "OpenConditionId": [
+            null,
+            null
+        ]
     },
     {
         "StageId": 30131014,
         "StageName": null,
         "StageStyle": null,
         "OpenConditionId": [
+            null,
             870004.0
         ]
     },
@@ -30,6 +40,7 @@
         "StageName": null,
         "StageStyle": null,
         "OpenConditionId": [
+            null,
             870005.0
         ]
     }

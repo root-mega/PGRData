@@ -2,23 +2,55 @@
     {
         "Lv": 0,
         "NeedFinishQuest": null,
-        "NeedItem": [],
-        "ItemCount": [],
+        "NeedItem": [
+            null,
+            null
+        ],
+        "ItemCount": [
+            null,
+            null
+        ],
         "NeedTime": null,
         "TeamCount": 3,
         "QuestCount": 6,
         "SpecialQuest": 500,
-        "NormalQuest": [],
-        "NormalQuestMin": [],
-        "NormalQuestWeight": []
+        "NormalQuest": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "NormalQuestMin": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "NormalQuestWeight": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Lv": 1,
         "NeedFinishQuest": 3.0,
         "NeedItem": [
+            null,
             30.0
         ],
         "ItemCount": [
+            null,
             3.0
         ],
         "NeedTime": 3600.0,
@@ -26,28 +58,42 @@
         "QuestCount": 6,
         "SpecialQuest": 500,
         "NormalQuest": [
+            null,
             101.0,
             102.0,
-            202.0
+            202.0,
+            null,
+            null,
+            null
         ],
         "NormalQuestMin": [
+            null,
             3.0,
             0.0,
-            0.0
+            0.0,
+            null,
+            null,
+            null
         ],
         "NormalQuestWeight": [
+            null,
             0.0,
             4500.0,
-            4500.0
+            4500.0,
+            null,
+            null,
+            null
         ]
     },
     {
         "Lv": 2,
         "NeedFinishQuest": 20.0,
         "NeedItem": [
+            null,
             30.0
         ],
         "ItemCount": [
+            null,
             9.0
         ],
         "NeedTime": 7200.0,
@@ -55,31 +101,42 @@
         "QuestCount": 7,
         "SpecialQuest": 500,
         "NormalQuest": [
+            null,
             101.0,
             201.0,
             102.0,
-            202.0
+            202.0,
+            null,
+            null
         ],
         "NormalQuestMin": [
+            null,
             3.0,
             1.0,
             0.0,
-            0.0
+            0.0,
+            null,
+            null
         ],
         "NormalQuestWeight": [
+            null,
             0.0,
             0.0,
             4500.0,
-            4500.0
+            4500.0,
+            null,
+            null
         ]
     },
     {
         "Lv": 3,
         "NeedFinishQuest": 39.0,
         "NeedItem": [
+            null,
             30.0
         ],
         "ItemCount": [
+            null,
             9.0
         ],
         "NeedTime": 10800.0,
@@ -87,34 +144,42 @@
         "QuestCount": 7,
         "SpecialQuest": 500,
         "NormalQuest": [
+            null,
             101.0,
             201.0,
             102.0,
             202.0,
-            302.0
+            302.0,
+            null
         ],
         "NormalQuestMin": [
+            null,
             2.0,
             2.0,
             0.0,
             0.0,
-            0.0
+            0.0,
+            null
         ],
         "NormalQuestWeight": [
+            null,
             0.0,
             0.0,
             3000.0,
             3000.0,
-            3000.0
+            3000.0,
+            null
         ]
     },
     {
         "Lv": 4,
         "NeedFinishQuest": 87.0,
         "NeedItem": [
+            null,
             30.0
         ],
         "ItemCount": [
+            null,
             21.0
         ],
         "NeedTime": 14400.0,
@@ -122,34 +187,42 @@
         "QuestCount": 8,
         "SpecialQuest": 500,
         "NormalQuest": [
+            null,
             103.0,
             201.0,
             301.0,
             202.0,
-            302.0
+            302.0,
+            null
         ],
         "NormalQuestMin": [
+            null,
             1.0,
             3.0,
             1.0,
             0.0,
-            0.0
+            0.0,
+            null
         ],
         "NormalQuestWeight": [
+            null,
             0.0,
             0.0,
             0.0,
             4500.0,
-            4500.0
+            4500.0,
+            null
         ]
     },
     {
         "Lv": 5,
         "NeedFinishQuest": 137.0,
         "NeedItem": [
+            null,
             30.0
         ],
         "ItemCount": [
+            null,
             21.0
         ],
         "NeedTime": 18000.0,
@@ -157,6 +230,7 @@
         "QuestCount": 8,
         "SpecialQuest": 500,
         "NormalQuest": [
+            null,
             103.0,
             201.0,
             301.0,
@@ -165,6 +239,7 @@
             402.0
         ],
         "NormalQuestMin": [
+            null,
             1.0,
             2.0,
             2.0,
@@ -173,6 +248,7 @@
             0.0
         ],
         "NormalQuestWeight": [
+            null,
             0.0,
             0.0,
             0.0,
@@ -185,9 +261,11 @@
         "Lv": 6,
         "NeedFinishQuest": 192.0,
         "NeedItem": [
+            null,
             30.0
         ],
         "ItemCount": [
+            null,
             21.0
         ],
         "NeedTime": 21600.0,
@@ -195,6 +273,7 @@
         "QuestCount": 9,
         "SpecialQuest": 500,
         "NormalQuest": [
+            null,
             103.0,
             203.0,
             301.0,
@@ -203,6 +282,7 @@
             402.0
         ],
         "NormalQuestMin": [
+            null,
             1.0,
             1.0,
             3.0,
@@ -211,6 +291,7 @@
             0.0
         ],
         "NormalQuestWeight": [
+            null,
             0.0,
             0.0,
             0.0,
@@ -222,13 +303,20 @@
     {
         "Lv": 7,
         "NeedFinishQuest": null,
-        "NeedItem": [],
-        "ItemCount": [],
+        "NeedItem": [
+            null,
+            null
+        ],
+        "ItemCount": [
+            null,
+            null
+        ],
         "NeedTime": null,
         "TeamCount": 6,
         "QuestCount": 9,
         "SpecialQuest": 500,
         "NormalQuest": [
+            null,
             103.0,
             203.0,
             301.0,
@@ -237,6 +325,7 @@
             402.0
         ],
         "NormalQuestMin": [
+            null,
             1.0,
             1.0,
             3.0,
@@ -245,6 +334,7 @@
             0.0
         ],
         "NormalQuestWeight": [
+            null,
             0.0,
             0.0,
             0.0,

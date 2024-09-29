@@ -1132,9 +1132,10 @@ PlayerCondition = {
         local chapterId = condition.Params[1]
         local needScore = condition.Params[2]
         local isReach = false
-        local chapter = XDataCenter.TwoSideTowerManager.GetChapter(chapterId)
-        if chapter then
-            local maxScore = chapter:GetMaxChapterScore()
+        ---@type XTwoSideTowerAgency
+        local twoSideTowerAgency = XMVCA:GetAgency(ModuleId.XTwoSideTower)
+        local maxScore = twoSideTowerAgency:GetMaxChapterScore(chapterId)
+        if XTool.IsNumberValid(maxScore) then
             isReach = maxScore >= needScore
         end
         return isReach, condition.Desc
@@ -1240,6 +1241,35 @@ PlayerCondition = {
         end
         return battleManager:CheckIsCanGuide()
     end,
+    [10401] = function(condition)   -- 国际战棋关卡通关判断
+        ---@type XBlackRockChessAgency
+        local agency = XMVCA:GetAgency(ModuleId.XBlackRockChess)
+        return agency:IsStagePass(condition.Params[1]), condition.Desc
+    end,
+    [10402] = function(condition)   -- 国际战棋当前关卡判断
+        ---@type XBlackRockChessAgency
+        local agency = XMVCA:GetAgency(ModuleId.XBlackRockChess)
+        return agency:IsCurStageId(condition.Params[1]), condition.Desc
+    end,
+    [10403] = function(condition)   -- 国际战棋当前能量判断
+        ---@type XBlackRockChessAgency
+        local agency = XMVCA:GetAgency(ModuleId.XBlackRockChess)
+        return agency:IsEnergyGreatOrEqual(condition.Params[1]), condition.Desc
+    end,
+    [10404] = function(condition)   -- 国际战棋当前回合是否为额外回合
+        ---@type XBlackRockChessAgency
+        local agency = XMVCA:GetAgency(ModuleId.XBlackRockChess)
+        local param1 = condition.Params[1]
+        if XTool.IsNumberValid(param1) then
+            return agency:IsExtraRound(), condition.Desc
+        end
+        return (not agency:IsExtraRound()), condition.Desc
+    end,
+    [10405] = function(condition) -- 国际战棋当前关卡是否触发引导
+        ---@type XBlackRockChessAgency
+        local agency = XMVCA:GetAgency(ModuleId.XBlackRockChess)
+        return agency:IsGuideCurrentCombat(condition.Params[1]), condition.Desc
+    end
 }
 
 local CharacterCondition = {
@@ -2155,7 +2185,7 @@ local EquipCondition = {
     [31106] = function(condition, suitId)
         -- 套装中不同的意识的数量达到目标数量
         return XDataCenter.ArchiveManager.GetAwarenessCountBySuitId(suitId) >= condition.Params[1], condition.Desc
-    end
+    end,
 }
 
 function XConditionManager.GetConditionType(id)

@@ -58,6 +58,7 @@ function XUiTheatre3RoleRoomDetail:InitComponent()
     self.PanelFilter = self.FiltAgecy:InitFilter(self.PanelCharacterFilter, self)
     self.PanelFilter:InitData(handler(self, self.OnSelectTab), nil, nil, nil, XUiTheatre3RoleRoomCharacterListGrid, checkInTeam, sortOverride)
     self.PanelFilter:ImportList(self:GetCharacterList())
+    self.PanelFilter:RefreshList()
     self.PanelFilter:ImportDiyLists(self:GetCharacterList(true))
 
     ---@type XPanelTheatre3Energy
@@ -136,6 +137,7 @@ function XUiTheatre3RoleRoomDetail:RefreshFilter()
     -- 刷新时要重新获取源数据，因为角色data可能从碎片变成xCharacter。要重新获取
     local list = self:GetCharacterList()
     self.PanelFilter:ImportList(list)
+    self.PanelFilter:RefreshList()
 end
 
 function XUiTheatre3RoleRoomDetail:GetCharacterList(isOnlyRobot)

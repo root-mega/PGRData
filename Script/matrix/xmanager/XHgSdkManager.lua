@@ -23,6 +23,8 @@ local deepLinkValue = ""
 
 local HeroRoleInfo = CS.XHeroRoleInfo
 
+local LogoutCb = nil
+
 local CleanPayCallbacks = function()
     PayCallbacks = {}
     IOSPayCallback = nil
@@ -178,20 +180,44 @@ function XHgSdkManager.BackToLogin()
     CleanPayCallbacks()
 end
 
-function XHgSdkManager.Logout()
+function XHgSdkManager.Logout(cb)
     if XHgSdkManager.IsNeedLogin() then
         XLog.Debug("SDK无需登出")
         return
     end
 
     XLog.Debug("登出成功")
-    CS.XHgSdkAgent.Logout()
+    if CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO or XDataCenter.UiPcManager.IsPc() then
+        IsSdkLogined = false
+        CS.XRecord.Record("24027", "HeroSdkLogoutSuccess")
+        CS.XRecord.Record("24029", "HeroSdkLogout")
+        CS.XRecord.Logout()
+        XUserManager.SignOut()
+        CleanPayCallbacks()
+    else
+        LogoutCb = cb
+    end
+end
+
+function XHgSdkManager.OnLogoutSuccess()
     IsSdkLogined = false
-    CS.XRecord.Record("24027", "HeroSdkLogoutSuccess")
-    CS.XRecord.Record("24029", "HeroSdkLogout")
     CS.XRecord.Logout()
-    XUserManager.SignOut()
     CleanPayCallbacks()
+    XUserManager.SignOut()
+
+    if LogoutCb then
+        LogoutCb()
+        LogoutCb = nil
+    end
+end
+
+function XHgSdkManager.OnLogoutFailed(msg)
+    IsSdkLogined = true
+    XUiManager.SystemDialogTip(CS.XTextManager.GetText("TipTitle"), msg, XUiManager.DialogType.OnlySure, nil, nil)
+
+    if LogoutCb then
+        LogoutCb = nil
+    end
 end
 
 function XHgSdkManager.OnLoginSuccess(jsondata)
@@ -220,6 +246,10 @@ function XHgSdkManager.OnLoginSuccess(jsondata)
         userId = data.suid
         userType = tonumber(data.type)
         pwdStatus = tonumber(data.pwdStatus)
+    end
+
+    if XUserManager.Channel == XUserManager.CHANNEL.KURO_SDK and Platform == RuntimePlatform.IPhonePlayer then
+        userId = data.userId
     end
 
     info.UserId = userId
@@ -346,17 +376,23 @@ local GetOrderInfo = function(productKey, cpOrderId, goodsId, roleId)
     orderInfo.GoodsId = goodsId
     orderInfo.RoleId = roleId
     orderInfo.RoleName = XPlayer.Name
+    if CS.XHgSdkAgent.LoginType == CS.XHgSdkAgent.LoginType_KURO and not XDataCenter.UiPcManager.IsPc() then
+        orderInfo.RoleCreateTime = XPlayer.CreateTime
+        orderInfo.BalanceLevelOne = XDataCenter.ItemManager.GetCount(XDataCenter.ItemManager.ItemId.PaidGem)
+        orderInfo.BalanceLevelTwo = XDataCenter.ItemManager.GetCount(XDataCenter.ItemManager.ItemId.Coin)
+        orderInfo.RoleLevel = XPlayer.Level
+        orderInfo.CustomMsg = ""
+    end
     if CallbackUrl then
         orderInfo.CallbackUrl = CallbackUrl
     end
-    if Platform == RuntimePlatform.WindowsPlayer 
-    or Platform == RuntimePlatform.WindowsEditor then 
+    if CS.XHgSdkAgent.LoginType == CS.XHgSdkAgent.LoginType_KURO then
         local template = XPayConfigs.GetPayTemplate(productKey)
         orderInfo.Price = template.DisplayAmount
         orderInfo.GoodsName = template.Name
         orderInfo.ServerId = XServerManager.Id
         orderInfo.ServerName = XServerManager.ServerName
-    end 
+    end
     return orderInfo
 end
 
@@ -430,8 +466,13 @@ function XHgSdkManager.OnPayIOSSuccess(jsondata)
 end
 
 function XHgSdkManager.OnPayIOSFailed(jsondata)
-    local data = Json.decode(jsondata)
-    local msg = data.msg or ""
+    local msg
+    if CS.XHgSdkAgent.LoginType ~= CS.XHgSdkAgent.LoginType_KURO then
+        local data = Json.decode(jsondata)
+        msg = data.msg or ""
+    else
+        msg = jsondata or ""
+    end
     if IOSPayCallback then
         IOSPayCallback(msg)
     end

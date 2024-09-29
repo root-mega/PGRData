@@ -189,6 +189,11 @@ XFubenBossSingleManagerCreator = function()
         end
 
         XFubenBossSingleManager.SetTrialStageInfo(bossSingleData.TrialStageInfoList)
+        
+        -- 周历处理 当FubenBossSingleData.LevelType == 0时刷新周历
+        if XFubenBossSingleManager.CheckNeedChooseLevelType() then
+            XEventManager.DispatchEvent(XEventId.EVENT_NEW_ACTIVITY_CALENDAR_UPDATE)
+        end
     end
 
     function XFubenBossSingleManager.GetCharacterChallengeCount(charId)
@@ -1011,6 +1016,49 @@ XFubenBossSingleManagerCreator = function()
     
             XDataCenter.FubenBossSingleManager.OpenBossSingleView()
         end
+    end
+
+    -- 获取倒计时（周历专用）
+    function XFubenBossSingleManager:ExGetCalendarRemainingTime()
+        if not XTool.IsNumberValid(FubenBossSingleData.EndTime) then
+            return ""
+        end
+        local remainTime = FubenBossSingleData.EndTime - XTime.GetServerNowTimestamp()
+        if remainTime < 0 then
+            remainTime = 0
+        end
+        local timeText = XUiHelper.GetTime(remainTime, XUiHelper.TimeFormatType.NEW_CALENDAR)
+        return XUiHelper.GetText("UiNewActivityCalendarEndCountDown", timeText)
+    end
+
+    -- 获取解锁时间（周历专用）
+    function XFubenBossSingleManager:ExGetCalendarEndTime()
+        if not XTool.IsNumberValid(FubenBossSingleData.EndTime) then
+            return 0
+        end
+        return FubenBossSingleData.EndTime
+    end
+    
+    -- 是否在周历里显示
+    function XFubenBossSingleManager:ExCheckShowInCalendar()
+        if not XTool.IsNumberValid(FubenBossSingleData.EndTime) then
+            return false
+        end
+        if FubenBossSingleData.EndTime - XTime.GetServerNowTimestamp() <= 0 then
+            return false
+        end
+        if XTool.IsNumberValid(XFubenBossSingleManager.GetActivityNo()) then
+            return true
+        end
+        return false
+    end
+
+    -- 是否显示提示信息（周历专用）
+    function XFubenBossSingleManager:ExCheckWeekIsShowTips()
+        if XFubenBossSingleManager.CheckNeedChooseLevelType() then
+            return true
+        end
+        return false
     end
     
     ------------------副本入口扩展 end-------------------------

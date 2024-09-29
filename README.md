@@ -1,15 +1,15 @@
 # PGRData
 > Client region: Global <br>
-> Game Version: 2.6.0 <br/>
-> Document Version: 2.6.12 <br/>
+> Game Version: 2.7.0 <br/>
+> Document Version: 2.7.7 <br/>
 
 - Client
 - Share
 - Scripts
 - Sha1
 
-## Number of Known Issues:
-0
+## Known Issues
+Some files couldn't be parsed, because they seem to be encrypted.
 
-## Discord Server
-[discord.gg/xiaops](https://discord.gg/xiaops)
+## Discord
+dsc.gg/xiaops

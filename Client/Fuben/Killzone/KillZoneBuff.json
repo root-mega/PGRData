@@ -1,0 +1,224 @@
+[
+    {
+        "Id": 97258,
+        "Name": "Self-Destruction Bug",
+        "Desc": "Periodically summons 1 Self-Destruction Bug to attack the enemy.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon22100.png"
+    },
+    {
+        "Id": 97259,
+        "Name": "Rigid Body",
+        "Desc": "Immune to damage. Removes the effect after receiving 3 attacks.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconGangti.png"
+    },
+    {
+        "Id": 97260,
+        "Name": "Stealth",
+        "Desc": "When visible, it will gain invisibility after 3s. If it is hit, it loses invisibility, and it must wait for 3s to reactivate it.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconYinshen.png"
+    },
+    {
+        "Id": 97261,
+        "Name": "Immovable",
+        "Desc": "The enemy becomes immune to controls and hits.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBudong.png"
+    },
+    {
+        "Id": 97262,
+        "Name": "Blessing",
+        "Desc": "Increases Extra DMG Bonus by 3%. Stacks up to 10 times. The more the allies nearby, the higher the stacks",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconZhufu.png"
+    },
+    {
+        "Id": 97263,
+        "Name": "Flash",
+        "Desc": "When you are far away from the target, transfers you close to the target, CD for 8-10s. The farther the transfer distance, the shorter the CD",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png"
+    },
+    {
+        "Id": 97264,
+        "Name": "Ice Vulnerability",
+        "Desc": "Ice Resistance decreases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeibing.png"
+    },
+    {
+        "Id": 97265,
+        "Name": "Dominator",
+        "Desc": "Immune to Matrix effects",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShexian.png"
+    },
+    {
+        "Id": 97267,
+        "Name": "Fire Vulnerability",
+        "Desc": "Fire Resistance decreases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeihuo.png"
+    },
+    {
+        "Id": 97266,
+        "Name": "Protection",
+        "Desc": "Grants the enemy and its nearby allies a shield equal to 10% of its current HP every 10s. Shields granted this way cannot be stacked.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBilei.png"
+    },
+    {
+        "Id": 97268,
+        "Name": "Nyctophobia",
+        "Desc": "Dark Resistance decreases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeian.png"
+    },
+    {
+        "Id": 97269,
+        "Name": "Commander",
+        "Desc": "Increases Extra DMG Bonus by 6%. Stacks up to 10 times. The more the allies nearby, the higher the stacks",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconTongling.png"
+    },
+    {
+        "Id": 97270,
+        "Name": "Lightning Vulnerability",
+        "Desc": "Lightning Resistance decreases by 30%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeilei.png"
+    },
+    {
+        "Id": 97271,
+        "Name": "Closed Loop",
+        "Desc": "A damage to the remote enemy, increases Extra DMG Reduction by 30%",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBihuan.png"
+    },
+    {
+        "Id": 97272,
+        "Name": "Berserk",
+        "Desc": "Increases ATK frequency by 33%. 20% chance to deal 33% extra Physical DMG when damaging a target.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBaozou.png"
+    },
+    {
+        "Id": 97273,
+        "Name": "Physical Vulnerability",
+        "Desc": "Enemy Physical Resistance drops by 60%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeiwuli.png"
+    },
+    {
+        "Id": 97274,
+        "Name": "Burning Fire",
+        "Desc": "When this enemy is taken down, all their allies within 5m of it will restore 20% HP.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBodong.png"
+    },
+    {
+        "Id": 97275,
+        "Name": "Grudge",
+        "Desc": "Enemy's attacks will reduce your team's ATK by 10%. The reduced ATK will be refunded when the enemy is taken down.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconXuruo.png"
+    },
+    {
+        "Id": 97276,
+        "Name": "Commander",
+        "Desc": "Increases Extra DMG Bonus by 10%. Stacks up to 10 times. The more the allies nearby, the higher the stacks",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconTongling.png"
+    },
+    {
+        "Id": 97277,
+        "Name": "Diffusion",
+        "Desc": "Enemy attacks will remove 1 Signal Orb. When the enemy is taken down, it returns all Signal Orbs.",
+        "Icon": "Assets/Product/Texture/Image/UiBabelTower/UiBabelTowerChallengeIcon33021.png"
+    },
+    {
+        "Id": 97278,
+        "Name": "Barrier",
+        "Desc": "The enemy gains a shield equal to 10% of max HP and has Super Armor when the shield is active. The shield will be valid again 15s later.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBilei.png"
+    },
+    {
+        "Id": 97279,
+        "Name": "Recovery",
+        "Desc": "Recovers 1% of max HP per second.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconFusu.png"
+    },
+    {
+        "Id": 97280,
+        "Name": "Revenge",
+        "Desc": "When this enemy is taken down, all their allies within 5m of it will gain 25% damage dealt and 5% Movement Speed. Stacks up to 3 times.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png"
+    },
+    {
+        "Id": 97281,
+        "Name": "Berserk",
+        "Desc": "Increases ATK frequency by 33%. Has a 40% chance to deal 33% extra Physical DMG when damaging a target.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBaozou.png"
+    },
+    {
+        "Id": 97282,
+        "Name": "Elemental Vulnerability",
+        "Desc": "All Elemental Resistance decreases by 60%.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconWeiyuansu.png"
+    },
+    {
+        "Id": 97283,
+        "Name": "Teleport",
+        "Desc": "Teleport away when close to the target. Has a cooldown of 8s. Has a 30% chance to trigger the effect when taking DMG. Cooldown are calculated separately.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconShanxian.png"
+    },
+    {
+        "Id": 97284,
+        "Name": "Barrier",
+        "Desc": "The enemy gains a shield equal to 30% of max HP and has Super Armor when the shield is active. The shield will be valid again 15s later.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBilei.png"
+    },
+    {
+        "Id": 97285,
+        "Name": "Radiation",
+        "Desc": "Continuously deals 3% Physical DMG to nearby enemies.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconFushe.png"
+    },
+    {
+        "Id": 97286,
+        "Name": "Recovery",
+        "Desc": "Recovers 3% of max HP per second.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconFusu.png"
+    },
+    {
+        "Id": 97287,
+        "Name": "Revenge",
+        "Desc": "The enemy will restore 20% of max HP to other enemies within 5m upon being taken down.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconQianggong.png"
+    },
+    {
+        "Id": 97288,
+        "Name": "Burning Fire",
+        "Desc": "When the enemy is taken down, their allies within 5m will gain 50% ATK and 10% Movement Speed for 10s. Stacks up to 3 times.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBodong.png"
+    },
+    {
+        "Id": 97289,
+        "Name": "Agility",
+        "Desc": "Increases 20% - 35% movement speed. The farther away from the target, the faster the movement speed",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconXunjie.png"
+    },
+    {
+        "Id": 97290,
+        "Name": "Shield",
+        "Desc": "Gains a shield with capacity equal to 10% of current HP every 10s. The shield lasts 10s.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconHudun.png"
+    },
+    {
+        "Id": 97291,
+        "Name": "Invasion",
+        "Desc": "When dealing DMG, also deals 1% Physical DMG to the target every second for 3s.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBingdu.png"
+    },
+    {
+        "Id": 97292,
+        "Name": "Invasion",
+        "Desc": "When dealing DMG, also deals 5% Physical DMG to the target every second for 3s.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconBingdu.png"
+    },
+    {
+        "Id": 97293,
+        "Name": "Lightning Shield",
+        "Desc": "When attacked, has a 15-25% chance to unleash a lightning strike at the attacker's location, dealing 10% Lightning DMG. 3s cooldown. The farther from the target, the higher chance it will be triggered.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconDiandun.png"
+    },
+    {
+        "Id": 97294,
+        "Name": "Deterioration",
+        "Desc": "DMG dealt also reduces target's healing received by 30% for 3s.",
+        "Icon": "Assets/Product/Texture/Image/IconAffix/AffixIconLuehua.png"
+    }
+]

@@ -93,6 +93,10 @@ XLottoManagerCreator = function()
     function XLottoManager.GetWeaponFashionCacheReward()
         return CacheReward
     end
+    
+    function XLottoManager.ClearWeaponFashionCacheReward()
+        CacheReward = nil
+    end
 
     function XLottoManager.GetLottoGroupDataList()
         local list = {}
@@ -159,6 +163,10 @@ XLottoManagerCreator = function()
         end)
     end
 
+    function XLottoManager.SetIsInterceptUiObtain(value)
+        IsInterceptUiObtain = value
+    end
+    
     function XLottoManager.DoLotto(lottoId, cb, errorCb)
         IsInterceptUiObtain = true
         XNetwork.Call(METHOD_NAME.LottoRequest, { Id = lottoId }, function(res)

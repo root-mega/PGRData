@@ -846,7 +846,12 @@ function XLoginManager.DoLoginGame(cb)
     local reqTime = SinceStartupTime()
     -- local ServerBean = CS.XHeroBdcAgent.GetServerBean()
     local serverBeanStr = CS.XHeroBdcAgent.GetServerBeanStr();
-    local deviceId = CS.XHeroBdcAgent.GetDeviceId()
+    local deviceId = nil
+    if CS.XHgSdkAgent.LoginType == CS.XHgSdkAgent.LoginType_KURO then
+        deviceId = CS.XHgSdkAgent.GetDeviceId()
+    else
+        deviceId = CS.XHeroBdcAgent.GetDeviceId()
+    end
     XNetwork.Call("LoginRequest", {
         LoginType = XUserManager.Channel,
         LoginPlatform = XUserManager.Platform,

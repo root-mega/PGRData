@@ -56,7 +56,7 @@ local TABLE_LIKE_ACTION = "Client/Trust/CharacterAction.tab"
 local TABLE_CV_SPLIT = "Client/Audio/CvSplit.tab"
 local TABLE_CHARACTER_GROUP = "Share/FestivalMail/FestivalCharacterGroup.tab"
 local TABLE_FESTIVAL = "Share/FestivalMail/Festival.tab"
-
+local TABLE_STORY_LAYOUT="Client/Trust/StoryLayout.tab"
 --local TABLE_AUDIO_CV = "Client/Audio/Cv.tab"
 local TABLE_CHARACTER_COLLABORATION = "Client/Trust/CharacterCollaboration.tab"
 
@@ -81,11 +81,12 @@ local CharacterLikeTrustItem = {}
 local CvSplit = {}
 local CharacterGroup = {}
 local FestivalData = {}
-
+local StoryLayoutData={}
 --local AudioCV = {}
 local DEFAULT_CV_TYPE = CS.XGame.Config:GetInt("DefaultCvType")
 
 function XFavorabilityConfigs.Init()
+    StoryLayoutData=XTableManager.ReadByIntKey(TABLE_STORY_LAYOUT, XTable.XTableStoryLayout, "CharacterId")
     local baseData = XTableManager.ReadByIntKey(TABLE_LIKE_BASEDATA, XTable.XTableCharacterBaseData, "Id")
     for _, v in pairs(baseData) do
         if CharacterBaseData[v.CharacterId] == nil then
@@ -97,6 +98,7 @@ function XFavorabilityConfigs.Init()
             BaseDataTitle = v.BaseDataTitle,
             BaseData = v.BaseData,
             Cast = v.Cast,
+            TeamIcon=v.TeamIcon,
         }
     end
 
@@ -337,6 +339,17 @@ function XFavorabilityConfigs.GetCharacterBaseDataById(characterId)
         return
     end
     return baseData
+end
+
+-- [角色队伍Id]
+function XFavorabilityConfigs.GetCharacterTeamIconById(characterId)
+    local baseData = CharacterBaseData[characterId]
+    if not baseData then
+        XLog.ErrorTableDataNotFound("XFavorabilityConfigs.GetCharacterBaseDataById",
+                "CharacterBaseData", TABLE_LIKE_BASEDATA, "characterId", characterId)
+        return
+    end
+    return baseData.TeamIcon
 end
 
 -- 获取cv名字
@@ -723,4 +736,9 @@ function XFavorabilityConfigs.IsDuringOfFestivalMail(id)
     local timeOfEnd = XFunctionManager.GetEndTimeByTimeId(timeId)
     
     return timeOfNow >= timeOfBgn and timeOfNow <= timeOfEnd
+end 
+
+function XFavorabilityConfigs.GetStoryLayout(characterId)
+    local config=StoryLayoutData[characterId]
+    return config
 end 

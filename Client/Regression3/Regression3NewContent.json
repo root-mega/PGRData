@@ -1,13 +1,14 @@
 [
     {
         "Id": 1,
-        "UpdateTime": "2021/11/11",
-        "Name": "\u5ba3\u53d9\u5984\u54cd",
+        "UpdateTime": "2023/3/1",
+        "Name": "Recitativo di Fantasia",
         "Priority": 8,
         "SkipId": 80040,
-        "Tips": "\u6307\u6325\u5b98\u7b49\u7ea7\u8fbe\u523040\u7ea7\u5f00\u542f",
+        "Tips": "Unlocked when Commandant reaches Lv.40",
         "ImgPath": "Assets/Product/Texture/Image/UiRegression/UiRegressionPublicity01.png",
         "ItemId": [
+            null,
             550.0,
             6910106.0,
             50005.0
@@ -15,46 +16,59 @@
     },
     {
         "Id": 2,
-        "UpdateTime": "2021/11/11",
-        "Name": "\u51ed\u636e\u5546\u5e97",
+        "UpdateTime": "2023/3/1",
+        "Name": "Voucher Shop",
         "Priority": 2,
         "SkipId": 10039,
-        "Tips": "\u672a\u5f00\u542f\u51ed\u636e\u5546\u5e97",
+        "Tips": "Voucher Shop is still locked",
         "ImgPath": "Assets/Product/Texture/Image/UiRegression/UiRegressionPublicity02.png",
-        "ItemId": []
+        "ItemId": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 3,
-        "UpdateTime": "2021/12/13",
-        "Name": "\u8dc3\u5347/\u72ec\u57df\u7cfb\u7edf",
+        "UpdateTime": "2023/4/7",
+        "Name": "Leap/Uniframe System",
         "Priority": 3,
         "SkipId": 89003,
-        "Tips": "\u6307\u6325\u5b98\u7b49\u7ea7\u8fbe\u523052\u7ea7\u5f00\u542f",
+        "Tips": "Unlocked when Commandant reaches Lv.52",
         "ImgPath": "Assets/Product/Texture/Image/UiRegression/UiRegressionPublicity03.png",
-        "ItemId": []
+        "ItemId": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 4,
-        "UpdateTime": "2022/3/10",
-        "Name": "\u5e7b\u75db\u56da\u7b3c\u5347\u7ea7",
+        "UpdateTime": "2023/6/15",
+        "Name": "Phantom Pain Cage Level Up",
         "Priority": 4,
         "SkipId": 30001,
-        "Tips": "\u901a\u8fc7\u4e3b\u7ebf5-7\u5f00\u542f",
+        "Tips": "Clear Main Story 5-7 to unlock",
         "ImgPath": "Assets/Product/Texture/Image/UiRegression/UiRegressionPublicity04.png",
         "ItemId": [
+            null,
             200.0,
-            2.0
+            2.0,
+            null
         ]
     },
     {
         "Id": 5,
-        "UpdateTime": "2022/6/2",
-        "Name": "\u8bfa\u66fc\u590d\u5174\u6218\u8c03\u6574",
+        "UpdateTime": "2023/8/22",
+        "Name": "Norman Revival Plan Adjustment",
         "Priority": 5,
         "SkipId": 70001,
-        "Tips": "\u6307\u6325\u5b98\u7b49\u7ea7\u8fbe\u523060\u7ea7\u5f00\u542f",
+        "Tips": "Unlocked when Commandant reaches Lv.60",
         "ImgPath": "Assets/Product/Texture/Image/UiRegression/UiRegressionPublicity05.png",
         "ItemId": [
+            null,
             2.0,
             50009.0,
             96002.0
@@ -62,26 +76,29 @@
     },
     {
         "Id": 6,
-        "UpdateTime": "2022/7/8",
-        "Name": "\u5384\u613f\u6f6e\u58f0",
+        "UpdateTime": "2023/9/26",
+        "Name": "Cursed Waves",
         "Priority": 1,
         "SkipId": 85015,
-        "Tips": "\u6307\u6325\u5b98\u7b49\u7ea7\u8fbe\u523070\u7ea7\u5f00\u542f",
+        "Tips": "Unlocked when Commandant reaches Lv.70",
         "ImgPath": "Assets/Product/Texture/Image/UiRegression/UiRegressionPublicity06.png",
         "ItemId": [
+            null,
             50005.0,
-            102.0
+            102.0,
+            null
         ]
     },
     {
         "Id": 7,
-        "UpdateTime": "2022/7/8",
-        "Name": "\u65b0\u624b\u5165\u95e8",
+        "UpdateTime": "2023/9/26",
+        "Name": "For Beginning Player",
         "Priority": 6,
         "SkipId": 89004,
-        "Tips": "\u901a\u8fc7\u4e3b\u7ebf1-6\u5f00\u542f",
+        "Tips": "Clear Main Story 1-6 to unlock",
         "ImgPath": "Assets/Product/Texture/Image/UiRegression/UiRegressionPublicity07.png",
         "ItemId": [
+            null,
             94040.0,
             94043.0,
             50000.0
@@ -89,13 +106,14 @@
     },
     {
         "Id": 8,
-        "UpdateTime": "2022/7/8",
-        "Name": "\u6cd5\u5965\u65af\u8bc4\u7ea7\u59d4\u5458\u4f1a",
+        "UpdateTime": "2023/9/26",
+        "Name": "F.O.S. Rating Committee",
         "Priority": 7,
         "SkipId": 7808,
-        "Tips": "\u901a\u8fc7\u4e3b\u7ebf2-4\u5f00\u542f",
+        "Tips": "Clear Main Story 2-4 to unlock",
         "ImgPath": "Assets/Product/Texture/Image/UiRegression/UiRegressionPublicity08.png",
         "ItemId": [
+            null,
             94041.0,
             94042.0,
             50000.0

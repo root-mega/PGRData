@@ -59,7 +59,7 @@ function XUiBtnKeyItem:Refresh(data, cb, resetTextOnly, curOperationType)
                 self.Icon2.gameObject:SetActiveEx(false)
             end
         else
-            local icons = XInputManager.GetKeyCodeIcon(operationTypeToEnum, operationKey, CS.PressKeyIndex.End)
+            local icons = XInputManager.GetKeyCodeIcon(self._KeySetType, operationTypeToEnum, operationKey, CS.PressKeyIndex.End)
             if icons and icons.Count ~= 0 then
                 self.Icon1:SetSprite(icons[0])
                 self.Icon1.gameObject:SetActiveEx(true)

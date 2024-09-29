@@ -1,15 +1,11 @@
-local XUiPanelBossEnter = XClass(nil, "XUiPanelBossEnter")
+local XUiPanelBossEnter = XClass(XUiNode, "XUiPanelBossEnter")
 local XUiPanelScoreInfo = require("XUi/XUiFubenBossSingle/XUiPanelScoreInfo")
 local XUiPanelGroupInfo = require("XUi/XUiFubenBossSingle/XUiPanelGroupInfo")
 
-function XUiPanelBossEnter:Ctor(rootUi, ui, bossSingleData)
-    self.GameObject = ui.gameObject
-    self.Transform = ui.transform
+function XUiPanelBossEnter:OnStart(bossSingleData)
     self.BossSingleData = bossSingleData
     self.CurScoreRewardId = -1
-    self.RootUi = rootUi
     self.GridRewardList = {}
-    XTool.InitUiObject(self)
     self:AutoAddListener()
     self:RegisterRedPointEvent()
     self:Init()
@@ -22,7 +18,7 @@ function XUiPanelBossEnter:CheckRedPoint()
 end
 
 function XUiPanelBossEnter:RegisterRedPointEvent()
-    self.EventId = XRedPointManager.AddRedPointEvent(self.ImgRedHint, self.OnCheckRewardNews, self, { XRedPointConditions.Types.CONDITION_BOSS_SINGLE_REWARD })
+    self.EventId = self:AddRedPointEvent(self.ImgRedHint, self.OnCheckRewardNews, self, { XRedPointConditions.Types.CONDITION_BOSS_SINGLE_REWARD })
     XEventManager.AddEventListener(XEventId.EVENT_FUBEN_SINGLE_BOSS_RANK_SYNC, self.OnSyncBossRank, self)
 end
 
@@ -58,14 +54,14 @@ end
 function XUiPanelBossEnter:Init()
     local rankLevelCfg = XDataCenter.FubenBossSingleManager.GetRankLevelCfgByType(self.BossSingleData.LevelType)
 
-    self.RootUi:SetUiSprite(self.ImgLevelIcon, rankLevelCfg.Icon)
+    self.Parent:SetUiSprite(self.ImgLevelIcon, rankLevelCfg.Icon)
     self.TxtLevelName.text = rankLevelCfg.LevelName
     local text = CS.XTextManager.GetText("BossSingleRankDesc", rankLevelCfg.MinPlayerLevel, rankLevelCfg.MaxPlayerLevel)
     self.TxtLevel.text = "（" .. text .. "）"
     self.GridReward.gameObject:SetActiveEx(false)
-    self.ScoreInfo = XUiPanelScoreInfo.New(self.RootUi, self.PanelScoreInfo, self.BossSingleData)
-    self.GroupInfo = XUiPanelGroupInfo.New(self.RootUi, self.PanelGroupInfo)
-    self.RootUi:PlayAnimation("AnimScoreInfoDisable")
+    self.ScoreInfo = XUiPanelScoreInfo.New(self.Parent, self.PanelScoreInfo, self.BossSingleData)
+    self.GroupInfo = XUiPanelGroupInfo.New(self.Parent, self.PanelGroupInfo)
+    self.Parent:PlayAnimation("AnimScoreInfoDisable")
     self.ScoreInfo:HidePanel()
     self.GroupInfo:HidePanel()
     self:ShowPanel(true, self.BossSingleData)
@@ -119,7 +115,7 @@ function XUiPanelBossEnter:ShowPanel(refresh, bossSingleData, isAutoFight, isSyn
 
     if not isAutoFight then
         if not isSync then
-            self.RootUi:PlayAnimation("AnimEnable1")
+            self.Parent:PlayAnimation("AnimEnable1")
         end
         self.GameObject:SetActiveEx(true)
     end
@@ -152,7 +148,7 @@ function XUiPanelBossEnter:SetRewardInfo()
         local grid = self.GridRewardList[i]
         if not grid then
             local ui = CS.UnityEngine.Object.Instantiate(self.GridReward)
-            grid = XUiGridCommon.New(self.RootUi, ui)
+            grid = XUiGridCommon.New(self.Parent, ui)
             grid.Transform:SetParent(self.PanelRewardContent, false)
             self.GridRewardList[i] = grid
         end
@@ -177,14 +173,14 @@ end
 
 function XUiPanelBossEnter:OnBtnRankClick()
     local func = function()
-        self.RootUi:ShowBossRank(self.BossSingleData.LevelType, self.BossSingleData.RankPlatform)
+        self.Parent:ShowBossRank(self.BossSingleData.LevelType, self.BossSingleData.RankPlatform)
     end
     XDataCenter.FubenBossSingleManager.GetRankData(func, self.BossSingleData.LevelType)
 end
 
 function XUiPanelBossEnter:OnBtnRewardClick()
     self.ScoreInfo:ShowPanel(self.BossSingleData)
-    self.RootUi:PlayAnimation("AnimScoreInfoEnable")
+    self.Parent:PlayAnimation("AnimScoreInfoEnable")
 end
 
 function XUiPanelBossEnter:OnBtnShopClick()

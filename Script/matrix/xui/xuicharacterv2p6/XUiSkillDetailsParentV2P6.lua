@@ -6,6 +6,16 @@ function XUiSkillDetailsParentV2P6:OnAwake()
     self.CharacterAgency = ag
 
     self.SkillGridIndex = 1
+
+    self:InitEffect()
+end
+
+function XUiSkillDetailsParentV2P6:InitEffect()
+    local root = self.UiModelGo
+    self.EffectHuanren1 = root:FindTransform("ImgEffectHuanren1")
+    self.EffectHuanren = root:FindTransform("ImgEffectHuanren")
+    self.EffectHuanren.gameObject:SetActiveEx(false)
+    self.EffectHuanren1.gameObject:SetActiveEx(false)
 end
 
 function XUiSkillDetailsParentV2P6:SetSkillPos(pos)

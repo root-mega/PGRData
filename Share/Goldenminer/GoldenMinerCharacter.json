@@ -1,0 +1,162 @@
+[
+    {
+        "Id": 1,
+        "Name": "Lucia",
+        "EnName": "BPL-01//",
+        "Condition": null,
+        "ModelId": "QR4LuxiyaMd010011GM",
+        "Info": "<color=#575e8e><size=28>Gimme Some Fries: </size></color>+40% points earned from Forgotten Supplies",
+        "HeadPath": "Assets/Product/Texture/Image/Role/RoleHeadR4Luxiya3Q.png",
+        "SkillName": "Gimme Some Fries",
+        "SkillDesc": "+40% points earned from Forgotten Supplies",
+        "DefaultFace": "Assets/Product/Role/Room/QBq/QBqR2YongyechaoEnjoy01.png",
+        "BuffIds": [
+            null,
+            104,
+            601,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 2,
+        "Name": "Liv",
+        "EnName": "BPN-08//",
+        "Condition": null,
+        "ModelId": "QR4LifuMd010011GM",
+        "Info": "<color=#575e8e><size=28>Thank You, Owner: </size></color>-35% Consumable Add-on purchase cost",
+        "HeadPath": "Assets/Product/Texture/Image/Role/RoleHeadR4Lifu3Q.png",
+        "SkillName": "Thank You, Owner",
+        "SkillDesc": "-35% Consumable Add-on purchase cost",
+        "DefaultFace": "Assets/Product/Role/Room/QBq/QBqR2YongyechaoEnjoy01.png",
+        "BuffIds": [
+            null,
+            105,
+            601,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 3,
+        "Name": "Lee",
+        "EnName": "BPN-06//",
+        "Condition": null,
+        "ModelId": "QR4LiangMd010011GM",
+        "Info": "<color=#575e8e><size=28>The World!: </size></color>The duration of each round extends by 2s",
+        "HeadPath": "Assets/Product/Texture/Image/Role/RoleHeadR4Li2Q.png",
+        "SkillName": "The World!",
+        "SkillDesc": "The duration of each round extends by 2s",
+        "DefaultFace": "Assets/Product/Role/Room/QBq/QBqR2YongyechaoEnjoy01.png",
+        "BuffIds": [
+            null,
+            114,
+            601,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4,
+        "Name": "Alisa",
+        "EnName": "UPC-15//",
+        "Condition": null,
+        "ModelId": "QR3YalishaMd010011GM",
+        "Info": "<color=#575e8e><size=28>Decoy: </size></color>Changes the default hook into a special [Decoy] hook",
+        "HeadPath": "Assets/Product/Texture/Image/Role/RoleHeadR3Yalisha2Q.png",
+        "SkillName": "Decoy",
+        "SkillDesc": "Changes the default hook into a special [Decoy] hook",
+        "DefaultFace": "Assets/Product/Role/Room/QBq/QBqR2YongyechaoEnjoy01.png",
+        "BuffIds": [
+            null,
+            116,
+            602,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5,
+        "Name": "Noctis",
+        "EnName": "BPO-03//",
+        "Condition": null,
+        "ModelId": "QR2NuoketiMd010011GM",
+        "Info": "<color=#575e8e><size=28>Explosive Genius: </size></color>Get bonus Resource Points when catching or using Explosives",
+        "HeadPath": "Assets/Product/Texture/Image/Role/RoleHeadR2Nuoketi2Q.png",
+        "SkillName": "Explosive Genius",
+        "SkillDesc": "Get bonus Resource Points when catching or using Explosives",
+        "DefaultFace": "Assets/Product/Role/Room/QBq/QBqR2YongyechaoEnjoy01.png",
+        "BuffIds": [
+            null,
+            117,
+            601,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6,
+        "Name": "No. 21",
+        "EnName": "BPH-22//",
+        "Condition": null,
+        "ModelId": "QR3TwentyoneMd010011GM",
+        "Info": "<color=#575e8e><size=28>Woof!: </size></color>Chance to get random bonus items when catching a cat",
+        "HeadPath": "Assets/Product/Texture/Image/Role/RoleHeadR3Twentyone2Q.png",
+        "SkillName": "Woof",
+        "SkillDesc": "Chance to get random bonus items when catching a cat",
+        "DefaultFace": "Assets/Product/Role/Room/QBq/QBqR2YongyechaoEnjoy01.png",
+        "BuffIds": [
+            null,
+            118,
+            601,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 7,
+        "Name": "\u03b1",
+        "EnName": "\u03b1",
+        "Condition": null,
+        "ModelId": "QR5LuxiyaMd010011GM",
+        "Info": "<color=#575e8e><size=28>Lightning Flash: </size></color>Get a random percentage of bonus Resource Points when catching Cat Crystals",
+        "HeadPath": "Assets/Product/Texture/Image/Role/RoleHeadR5Luxiya2Q.png",
+        "SkillName": "Lightning Flash",
+        "SkillDesc": "Get a random percentage of bonus Resource Points when catching Cat Crystals",
+        "DefaultFace": "Assets/Product/Role/Room/QBq/QBqR2YongyechaoEnjoy01.png",
+        "BuffIds": [
+            null,
+            119,
+            601,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 8,
+        "Name": "Bianca",
+        "EnName": "BPO-87//",
+        "Condition": null,
+        "ModelId": "QR4BiankaMd010011GM",
+        "Info": "<color=#575e8e><size=28>Let's Discuss the Price: </size></color>Points earned fluctuate between -6% and +12%",
+        "HeadPath": "Assets/Product/Texture/Image/Role/RoleHeadR4Bianka3Q.png",
+        "SkillName": "Let's Discuss the Price",
+        "SkillDesc": "Points earned fluctuate between -6% and +12%",
+        "DefaultFace": "Assets/Product/Role/Room/QBq/QBqR2YongyechaoEnjoy01.png",
+        "BuffIds": [
+            null,
+            113,
+            601,
+            null,
+            null,
+            null
+        ]
+    }
+]

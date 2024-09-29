@@ -203,7 +203,7 @@ function XUiPanelModelV2P6:RefreshBubbleInfo(index)
         local skillName = XCharacterConfigs.GetCharSkillQualityApartName(curApartId)
         local skillLevel = XCharacterConfigs.GetCharSkillQualityApartLevel(curApartId)
         btnSkill.gameObject:SetActiveEx(true)
-        btnSkill:SetNameByGroup(0, skillName.."Lv"..skillLevel)
+        btnSkill:SetNameByGroup(0, skillName.." Lv"..skillLevel)
 
         -- 注册技能跳转按钮
         local isRig = self.TagBtnSkillEventDic[btnSkill]

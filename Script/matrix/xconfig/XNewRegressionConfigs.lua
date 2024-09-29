@@ -196,7 +196,7 @@ end
 function XNewRegressionConfigs.GetShareConfig(platformType)
     local channelId = 0 -- 默认值
     if XUserManager.IsUseSdk() then
-        channelId = CS.XHeroSdkAgent.GetChannelId()
+        channelId = CS.XHgSdkAgent.GetChannelId()
     end
     local configs = XNewRegressionConfigs.GetRegression2ShareConfig()
     for _, config in pairs(configs) do

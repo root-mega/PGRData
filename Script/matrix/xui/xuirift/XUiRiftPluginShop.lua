@@ -41,7 +41,7 @@ function XUiRiftPluginShop:InitDynamicTable()
 end
 
 function XUiRiftPluginShop:InitAssets()
-    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelActivityAsset)
+    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelActivityAsset, self)
     XDataCenter.ItemManager.AddCountUpdateListener(
         {XDataCenter.ItemManager.ItemId.RiftGold},
         handler(self, self.UpdateAssets),

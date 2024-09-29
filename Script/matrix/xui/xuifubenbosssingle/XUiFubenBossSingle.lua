@@ -62,7 +62,7 @@ function XUiFubenBossSingle:Init(bossSingleData, bossList)
     self.BossSingleData = bossSingleData
     self.BossList = XUiPanelBossStgae.New(self, self.PanelBossStgae, bossList)
     self.BossList:PanelBossContentActive(true)
-    self.BossEnter = XUiPanelBossEnter.New(self, self.PanelBossEnter, bossSingleData)
+    self.BossEnter = XUiPanelBossEnter.New( self.PanelBossEnter, self,bossSingleData)
     self.BossRankInfo = XUiPanelBossRankInfo.New(self, self.PanelBossRankInfo)
     self.BossRankInfo:HidePanel()
     self.BossDetail = XUiPanelBossDetail.New(self, self.PanelBossDetail)

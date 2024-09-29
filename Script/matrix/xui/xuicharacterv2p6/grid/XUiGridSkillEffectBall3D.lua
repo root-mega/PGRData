@@ -74,7 +74,7 @@ function XUiGridSkillEffectBall3D:Refresh(characterId, curQuality, isEvo)
     self.EffectBallSmallBtnBg.gameObject:SetActiveEx(EffectBallSmallBtnBg)  -- text背景底板
     -- self.EffectBallSmallTxt.gameObject:SetActiveEx(EffectBallSmallTxt)  -- text
     -- self.EffectBallSmallTxt.text = textStr
-    -- self.EffectBallSmallBtnRed.gameObject:SetActiveEx(EffectBallSmallBtnRed)  -- text
+    self.EffectBallSmallBtnRed.gameObject:SetActiveEx(EffectBallSmallBtnRed)
 
     self.EffectBallSmallLockExplode.gameObject:SetActiveEx(isEvo)  --球的进化演出
 end

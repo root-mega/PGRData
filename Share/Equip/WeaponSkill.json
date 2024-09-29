@@ -3925,5 +3925,47 @@
         "Description": "ATK increases by 10%. The amount of Abyssal Points earned increases by 100%. Pinging a Tidal Orb will trigger Matrix if it is not in cooldown.",
         "DesLinkCharacterSkillId": null,
         "Account": "ATK Boost"
+    },
+    {
+        "Id": 2395001,
+        "BornMagic": [
+            null,
+            122245.0,
+            null,
+            null
+        ],
+        "SubSkillId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Ability": 0,
+        "Icon": null,
+        "Name": "Leaping Stars",
+        "Description": "Fire DMG increases by 10%.",
+        "DesLinkCharacterSkillId": null,
+        "Account": "Beginner Transition"
+    },
+    {
+        "Id": 2396001,
+        "BornMagic": [
+            null,
+            122242.0,
+            null,
+            null
+        ],
+        "SubSkillId": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "Ability": 0,
+        "Icon": null,
+        "Name": "Leaping Stars\u2605",
+        "Description": "ATK increases by 10%. Base DMG of Flare Strike, Starry Bayonet, Basic Attack - Skycrushing Blade, and Core Passive - Limit Released increases by 100%.",
+        "DesLinkCharacterSkillId": null,
+        "Account": "ATK Boost"
     }
 ]

@@ -1,4 +1,4 @@
-local XUiPanelPrepare = XClass(nil, "XUiPanelPrepare")
+local XUiPanelPrepare = XClass(XUiNode, "XUiPanelPrepare")
 
 function XUiPanelPrepare:Ctor(ui, rootUi)
     self.GameObject = ui.gameObject
@@ -10,7 +10,7 @@ function XUiPanelPrepare:Ctor(ui, rootUi)
     self.IsShow = false
     self.GameObject:SetActiveEx(false)
 
-    self.RedPointApplyId = XRedPointManager.AddRedPointEvent(self.ImgRed, nil, self, { XRedPointConditions.Types.CONDITION_ARENA_APPLY })
+    self.RedPointApplyId = self:AddRedPointEvent(self.ImgRed, nil, self, { XRedPointConditions.Types.CONDITION_ARENA_APPLY })
 end
 
 function XUiPanelPrepare:RegisterClickEvent(uiNode, func)

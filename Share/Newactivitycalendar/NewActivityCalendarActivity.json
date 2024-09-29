@@ -1,1 +1,331 @@
-[]
+[
+    {
+        "ActivityId": 2701,
+        "MainTimeId": 21403,
+        "MainTemplateId": [
+            null,
+            50005,
+            102,
+            13019618.0
+        ],
+        "MainTemplateCount": [
+            null,
+            100,
+            200,
+            4.0
+        ],
+        "TaskSourceGroupId": null,
+        "ShopId": [
+            null,
+            null,
+            null
+        ],
+        "EventCause": [
+            null,
+            16014.0
+        ],
+        "ExtraItem": [
+            null,
+            null
+        ],
+        "PeriodId": [
+            null,
+            270101,
+            null,
+            null,
+            null
+        ],
+        "Name": "Outlander's Flame",
+        "Kind": [
+            null,
+            1,
+            null
+        ],
+        "IsMajorActivity": null,
+        "SkipId": 20071,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiTodolist/UiWeekCalendarActivity122.png",
+        "Description": "Official"
+    },
+    {
+        "ActivityId": 2702,
+        "MainTimeId": 21402,
+        "MainTemplateId": [
+            null,
+            90031,
+            31104,
+            null
+        ],
+        "MainTemplateCount": [
+            null,
+            1,
+            3,
+            null
+        ],
+        "TaskSourceGroupId": 2702.0,
+        "ShopId": [
+            null,
+            null,
+            null
+        ],
+        "EventCause": [
+            null,
+            null
+        ],
+        "ExtraItem": [
+            null,
+            null
+        ],
+        "PeriodId": [
+            null,
+            270201,
+            null,
+            null,
+            null
+        ],
+        "Name": "Nightbreaker",
+        "Kind": [
+            null,
+            1,
+            null
+        ],
+        "IsMajorActivity": null,
+        "SkipId": 10035,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiTodolist/UiWeekCalendarActivity121.png",
+        "Description": "Official"
+    },
+    {
+        "ActivityId": 2703,
+        "MainTimeId": 21001,
+        "MainTemplateId": [
+            null,
+            566,
+            50005,
+            102.0
+        ],
+        "MainTemplateCount": [
+            null,
+            30,
+            1000,
+            2000.0
+        ],
+        "TaskSourceGroupId": null,
+        "ShopId": [
+            null,
+            1279.0,
+            1280.0
+        ],
+        "EventCause": [
+            null,
+            null
+        ],
+        "ExtraItem": [
+            null,
+            null
+        ],
+        "PeriodId": [
+            null,
+            270301,
+            270302.0,
+            null,
+            null
+        ],
+        "Name": "Chessboard Realms",
+        "Kind": [
+            null,
+            7,
+            null
+        ],
+        "IsMajorActivity": 1.0,
+        "SkipId": 89028,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiTodolist/UiWeekCalendarActivity123.png",
+        "Description": "Official"
+    },
+    {
+        "ActivityId": 2704,
+        "MainTimeId": 21411,
+        "MainTemplateId": [
+            null,
+            50005,
+            102,
+            null
+        ],
+        "MainTemplateCount": [
+            null,
+            250,
+            200,
+            null
+        ],
+        "TaskSourceGroupId": null,
+        "ShopId": [
+            null,
+            null,
+            null
+        ],
+        "EventCause": [
+            null,
+            16013.0
+        ],
+        "ExtraItem": [
+            null,
+            null
+        ],
+        "PeriodId": [
+            null,
+            270401,
+            null,
+            null,
+            null
+        ],
+        "Name": "Glimpse of the End",
+        "Kind": [
+            null,
+            6,
+            null
+        ],
+        "IsMajorActivity": null,
+        "SkipId": 11724,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiTodolist/UiWeekCalendarActivity124.png",
+        "Description": "Official"
+    },
+    {
+        "ActivityId": 2705,
+        "MainTimeId": 21501,
+        "MainTemplateId": [
+            null,
+            50005,
+            102,
+            29.0
+        ],
+        "MainTemplateCount": [
+            null,
+            500,
+            1000,
+            300.0
+        ],
+        "TaskSourceGroupId": 2705.0,
+        "ShopId": [
+            null,
+            null,
+            null
+        ],
+        "EventCause": [
+            null,
+            null
+        ],
+        "ExtraItem": [
+            null,
+            null
+        ],
+        "PeriodId": [
+            null,
+            270501,
+            270502.0,
+            null,
+            null
+        ],
+        "Name": "Forever Racer",
+        "Kind": [
+            null,
+            2,
+            null
+        ],
+        "IsMajorActivity": null,
+        "SkipId": 85013,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiTodolist/UiWeekCalendarActivity125.png",
+        "Description": "Official"
+    },
+    {
+        "ActivityId": 2706,
+        "MainTimeId": 21010,
+        "MainTemplateId": [
+            null,
+            50005,
+            102,
+            13019620.0
+        ],
+        "MainTemplateCount": [
+            null,
+            250,
+            500,
+            1.0
+        ],
+        "TaskSourceGroupId": 2706.0,
+        "ShopId": [
+            null,
+            null,
+            null
+        ],
+        "EventCause": [
+            null,
+            null
+        ],
+        "ExtraItem": [
+            null,
+            null
+        ],
+        "PeriodId": [
+            null,
+            270601,
+            null,
+            null,
+            null
+        ],
+        "Name": "Brandishing Tunes",
+        "Kind": [
+            null,
+            3,
+            null
+        ],
+        "IsMajorActivity": null,
+        "SkipId": 84010,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiTodolist/UiWeekCalendarActivity126.png",
+        "Description": "Temporary"
+    },
+    {
+        "ActivityId": 2707,
+        "MainTimeId": 21101,
+        "MainTemplateId": [
+            null,
+            3,
+            102,
+            null
+        ],
+        "MainTemplateCount": [
+            null,
+            100,
+            100,
+            null
+        ],
+        "TaskSourceGroupId": null,
+        "ShopId": [
+            null,
+            null,
+            null
+        ],
+        "EventCause": [
+            null,
+            71002.0
+        ],
+        "ExtraItem": [
+            null,
+            null
+        ],
+        "PeriodId": [
+            null,
+            270701,
+            null,
+            null,
+            null
+        ],
+        "Name": "Lightbearer's Voyage",
+        "Kind": [
+            null,
+            8,
+            null
+        ],
+        "IsMajorActivity": null,
+        "SkipId": 20076,
+        "ActivityIcon": "Assets/Product/Texture/Image/UiTodolist/UiWeekCalendarActivity127.png",
+        "Description": "Official"
+    }
+]

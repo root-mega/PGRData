@@ -1,15 +1,15 @@
 local XUiTextScrolling = require("XUi/XUiTaikoMaster/XUiTaikoMasterFlowText")
-
-XUiPanelFavorabilityMain = XClass(nil, "XUiPanelFavorabilityMain")
+local XUiPanelFavorabilityArchives=require("XUi/XUiFavorability/PanelFavorabilityArchives/XUiPanelFavorabilityArchives")
+local XUiPanelFavorabilityShow=require("XUi/XUiFavorability/PanelFavorabilityShow/XUiPanelFavorabilityShow")
+local XUiPanelFavorabilityFile=require("XUi/XUiFavorability/XUiPanelFavorabilityFile")
+local XUiPanelLikeGiveGift=require("XUi/XUiFavorability/XUiPanelLikeGiveGift")
+local XUiPanelFavorabilityMain = XClass(XUiNode, "XUiPanelFavorabilityMain")
 
 local FuncType = {
     File = 1,
     Info = 2,
-    Secret = 3,
-    Audio = 4,
-    Story = 5,
-    Gift = 6,
-    Action = 7,
+    Gift = 3,
+    Action=4
 }
 
 local CvType = {
@@ -29,74 +29,81 @@ local Delay_Second = CS.XGame.ClientConfig:GetInt("FavorabilityDelaySecond") / 1
 local blue = "#87C8FF"
 local white = "#ffffff"
 
-function XUiPanelFavorabilityMain:Ctor(ui, uiRoot)
-    self.GameObject = ui.gameObject
-    self.Transform = ui.transform
-    self.UiRoot = uiRoot
-    XTool.InitUiObject(self)
+--region 生命周期
+function XUiPanelFavorabilityMain:OnStart()
+    self:InitObjectActiveState()
+    self:InitEvent()
+    self:InitData()
+    self:InitUiAfterAuto()
+end
+--endregion
+
+--region 初始化
+
+--在实例化XUiNode派生类前对各个GameObject的初始激活状态进行设置
+function XUiPanelFavorabilityMain:InitObjectActiveState()
+    self.CVObject.gameObject:SetActiveEx(false)
+    self.DrdSort.gameObject:SetActiveEx(true)
+    self.PanelFavorabilityFile.gameObject:SetActiveEx(true)
+    self.PanelFavorabilityArchives.gameObject:SetActiveEx(false)
+    self.PanelFavorabilityShow.gameObject:SetActiveEx(false)
+    self.PanelFavorabilityGift.gameObject:SetActiveEx(false)
+end
+
+--注册各类事件
+function XUiPanelFavorabilityMain:InitEvent()
+    local characterId = self.Parent:GetCurrFavorabilityCharacter()
+
+    self.RedPointFileId = self:AddRedPointEvent(self.FileRed, nil, self, { XRedPointConditions.Types.CONDITION_FAVORABILITY_PLOT }, { CharacterId = characterId })
+    self.RedPointArchivesId = self:AddRedPointEvent(self.InfoRed, nil, self, { XRedPointConditions.Types.CONDITION_FAVORABILITY_DOCUMENT_INFO,XRedPointConditions.Types.CONDITION_FAVORABILITY_DOCUMENT_RUMOR }, { CharacterId = characterId })
+    self.RedPointShowId = self:AddRedPointEvent(self.ActionRed, nil, self, { XRedPointConditions.Types.CONDITION_FAVORABILITY_DOCUMENT_AUDIO,XRedPointConditions.Types.CONDITION_FAVORABILITY_DOCUMENT_ACTION }, { CharacterId = characterId })
+
+    self.BtnBack.CallBack = function() self:OnBtnReturnClick() end
+    self.BtnMainUi.CallBack = function() self:OnBtnMainUiClick() end
+end
+
+--初始化局部变量
+function XUiPanelFavorabilityMain:InitData()
     self.IsExpTweening = false
     self.TxtNormalPos = self.TxtFavorabilityLv.rectTransform.anchoredPosition
-    self.TxtMaxPos = CS.UnityEngine.Vector2(self.TxtNormalPos.x, self.TxtNormalPos.y - 18)
+    self.TxtMaxPos = CS.UnityEngine.Vector2(self.TxtNormalPos.x, self.TxtNormalPos.y)
     --跟设置同步
     self.CvType = CS.XAudioManager.CvType
     self.DropMaskList = {}
     --- 设置文本后Unity会在下一帧进行宽度的自动调整，防止立即滚动遮罩宽度计算错误
     self.DropMaskTimer = nil
+end
+
+function XUiPanelFavorabilityMain:InitUiAfterAuto()
     ---@type XUiTaikoMasterFlowText
     self.CvNameTextScrolling = XUiTextScrolling.New(self.CVNameLabel, self.CVNameMask)
     ---@type XUiTaikoMasterFlowText
     self.CvLabelTextScrolling = XUiTextScrolling.New(self.TxtCV ,self.TxtCvMask)
-    self:InitUiAfterAuto()
-end
+    ---@type XUiTaikoMasterFlowText
+    self.CvRoleNameTextScrolling = XUiTextScrolling.New(self.TxtRoleName ,self.TxtRoleNameMask)
 
-function XUiPanelFavorabilityMain:InitUiAfterAuto()
-
-    local characterId = self.UiRoot:GetCurrFavorabilityCharacter()
-
-    self.RedPointPlotId = XRedPointManager.AddRedPointEvent(self.PlotRed, nil, self, { XRedPointConditions.Types.CONDITION_FAVORABILITY_PLOT }, { CharacterId = characterId })
-    self.RedPointInfoId = XRedPointManager.AddRedPointEvent(self.InfoRed, nil, self, { XRedPointConditions.Types.CONDITION_FAVORABILITY_DOCUMENT_INFO }, { CharacterId = characterId })
-    self.RedPointRumorId = XRedPointManager.AddRedPointEvent(self.SecretRed, nil, self, { XRedPointConditions.Types.CONDITION_FAVORABILITY_DOCUMENT_RUMOR }, { CharacterId = characterId })
-    self.RedPointAudioId = XRedPointManager.AddRedPointEvent(self.SoundRed, nil, self, { XRedPointConditions.Types.CONDITION_FAVORABILITY_DOCUMENT_AUDIO }, { CharacterId = characterId })
-    self.RedPointActionId = XRedPointManager.AddRedPointEvent(self.ActionRed, nil, self, { XRedPointConditions.Types.CONDITION_FAVORABILITY_DOCUMENT_ACTION }, { CharacterId = characterId })
-
-
-    self.BtnBack.CallBack = function() self:OnBtnReturnClick() end
-    self.BtnMainUi.CallBack = function() self:OnBtnMainUiClick() end
-
-
-    self.FavorabilityFile = XUiPanelFavorabilityFile.New(self.PanelFavorabilityFile, self.UiRoot, self)
-    self.FavorabilityInfo = XUiPanelFavorabilityInfo.New(self.PanelFavorabilityInfo, self.UiRoot, self)
-    self.FavorabilityRumors = XUiPanelFavorabilityRumors.New(self.PanelFavorabilityRumors, self.UiRoot, self)
-    self.FavorabilityAudio = XUiPanelFavorabilityAudio.New(self.PanelFavorabilityAudio, self.UiRoot, self)
-    self.FavorabilityPlot = XUiPanelFavorabilityPlot.New(self.PanelFavorabilityPlot, self.UiRoot, self)
-    self.FavorabilityGift = XUiPanelLikeGiveGift.New(self.PanelFavorabilityGift, self.UiRoot, self)
-    self.FavorabilityAction = XUiPanelFavorabilityAction.New(self.PanelFavorabilityAction, self.UiRoot, self)
+    self.FavorabilityFile = XUiPanelFavorabilityFile.New(self.PanelFavorabilityFile, self, self.Parent)
+    self.FavorabilityArchives=XUiPanelFavorabilityArchives.New(self.PanelFavorabilityArchives,self,self.Parent)
+    self.FavorabilityShow=XUiPanelFavorabilityShow.New(self.PanelFavorabilityShow,self,self.Parent)
+    self.FavorabilityGift = XUiPanelLikeGiveGift.New(self.PanelFavorabilityGift, self, self.Parent)
 
     self.FavorabilityFile:OnSelected(false)
-    self.FavorabilityInfo:OnSelected(false)
-    self.FavorabilityRumors:OnSelected(false)
-    self.FavorabilityAudio:OnSelected(false)
+    self.FavorabilityArchives:OnSelected(false)
+    self.FavorabilityShow:OnSelected(false)
     self.FavorabilityGift:OnSelected(false)
-    self.FavorabilityPlot:OnSelected(false)
-    self.FavorabilityAction:OnSelected(false)
 
     -- 初始化按钮
     self.BtnTabList = {}
     self.BtnTabList[FuncType.File] = self.BtnFile
     self.BtnTabList[FuncType.Info] = self.BtnInfo
 
-    self.BtnTabList[FuncType.Secret] = self.BtnSecret
-    self.BtnTabList[FuncType.Audio] = self.BtnSound
-    self.BtnTabList[FuncType.Story] = self.BtnPlot
     self.BtnTabList[FuncType.Gift] = self.BtnGift
     self.BtnTabList[FuncType.Action] = self.BtnAction
     self.MenuBtnGroup:Init(self.BtnTabList, function(index) self:OnBtnTabListClick(index) end)
 
     self.CvNameTextScrolling:Stop()
     self.CvLabelTextScrolling:Play()
-    self.CVObject.gameObject:SetActiveEx(true)
-    self.DrdSort.gameObject:SetActiveEx(false)
-    self.PanelCvType.gameObject:SetActiveEx(false)
+    self.CvRoleNameTextScrolling:Stop()
     self.DrdSort.onValueChanged:AddListener(function(index) self:OnBtnCvListClick(index) end)
     self.DrdSort:SetPointerClickCallback(function() self:UpdateCvName() end)
     self.DrdSort:SetDestroyDropListCallback(function() self:OnDestroyDropList() end)
@@ -108,17 +115,18 @@ function XUiPanelFavorabilityMain:InitUiAfterAuto()
     self.MenuBtnGroup:SelectIndex(self.CurrentSelectTab)
 end
 
+--endregion
+
+
 function XUiPanelFavorabilityMain:UpdateResume(data)
-    self.FavorabilityPlot:UpdateAnchoredPosition(data.AnchoredPosition)
+    self._forceUpdate=true
     self.MenuBtnGroup:SelectIndex(data.SelectTab)
 end
 
 function XUiPanelFavorabilityMain:GetReleaseData()
-    local anchoredPosition = self.FavorabilityPlot:GetAnchoredPosition()
-    local currentCharacterId = self.UiRoot:GetCurrFavorabilityCharacter()
+    local currentCharacterId = self.Parent:GetCurrFavorabilityCharacter()
     return {
         SelectTab = self.CurrentSelectTab,
-        AnchoredPosition = anchoredPosition,
         CurrentCharacterId = currentCharacterId
     }
 end
@@ -127,7 +135,7 @@ function XUiPanelFavorabilityMain:OnBtnCvListClick(index)
     self.CvNameTextScrolling:Stop()
     
     local option = self.DrdSort.options[index]
-    local currentCharacterId = self.UiRoot:GetCurrFavorabilityCharacter()
+    local currentCharacterId = self.Parent:GetCurrFavorabilityCharacter()
     
     if option.text == JPNText then
         self.CvType = CvType.JPN
@@ -161,7 +169,7 @@ function XUiPanelFavorabilityMain:ClearDropListMask()
 end
 
 function XUiPanelFavorabilityMain:UpdateCvName()
-    local currentCharacterId = self.UiRoot:GetCurrFavorabilityCharacter()
+    local currentCharacterId = self.Parent:GetCurrFavorabilityCharacter()
     local isCollaborationCharacter = XFavorabilityConfigs.IsCollaborationCharacter(currentCharacterId)
     local dropList = self.DrdSort.transform:FindTransform("Dropdown List")
     local content = dropList:FindTransform("Content")
@@ -226,13 +234,18 @@ end
 
 function XUiPanelFavorabilityMain:UpdateCvLabel()
     self.CvLabelTextScrolling:Stop()
+    self.CvNameTextScrolling:Stop()
+    self.CvRoleNameTextScrolling:Stop()
     
-    local currentCharacterId = self.UiRoot:GetCurrFavorabilityCharacter()
+    local currentCharacterId = self.Parent:GetCurrFavorabilityCharacter()
     local castName = XFavorabilityConfigs.GetCharacterCvByIdAndType(currentCharacterId, self.CvType)
+    self.CVNameLabel.text = XFavorabilityConfigs.GetCharacterCvByIdAndType(currentCharacterId, self.CvType)
     local cast = CS.XTextManager.GetText("FavorabilityCast")
     self.TxtCVDescript.text = cast
     self.TxtCV.text = castName
     self.CvLabelTextScrolling:Play()
+    self.CvNameTextScrolling:Play()
+    self.CvRoleNameTextScrolling:Play()
 end
 
 function XUiPanelFavorabilityMain:UpdateDatas()
@@ -251,7 +264,7 @@ function XUiPanelFavorabilityMain:UpdateAllInfos(doAnim)
 end
 
 function XUiPanelFavorabilityMain:UpdateMainInfo(doAnim)
-    local characterId = self.UiRoot:GetCurrFavorabilityCharacter()
+    local characterId = self.Parent:GetCurrFavorabilityCharacter()
     local curExp = tonumber(XDataCenter.FavorabilityManager.GetCurrCharacterExp(characterId))
     local trustLv = XDataCenter.FavorabilityManager.GetCurrCharacterFavorabilityLevel(characterId)
     local name = XCharacterConfigs.GetCharacterName(characterId)
@@ -267,7 +280,7 @@ function XUiPanelFavorabilityMain:UpdateMainInfo(doAnim)
         self.ImgExp.fillAmount = curExp / (tonumber(curFavorabilityTableData.Exp) * 1)
         self.TxtLevel.text = trustLv
     end
-    self.UiRoot:SetUiSprite(self.ImgHeart, XFavorabilityConfigs.GetTrustLevelIconByLevel(trustLv))
+    self.Parent:SetUiSprite(self.ImgHeart, XFavorabilityConfigs.GetTrustLevelIconByLevel(trustLv))
     self.TxtFavorabilityLv.text = XDataCenter.FavorabilityManager.GetFavorabilityColorWorld(trustLv, curFavorabilityTableData.Name)--curFavorabilityTableData.Name
 
     --是不是联动角色
@@ -298,14 +311,6 @@ function XUiPanelFavorabilityMain:UpdateMainInfo(doAnim)
             self.RImgCollaboration.gameObject:SetActiveEx(true)
         else
             self.RImgCollaboration.gameObject:SetActiveEx(false)
-        end
-
-        --是否配置语言提示
-        if tip then
-            self.TxtTips.text = tip
-            self.TxtTips.gameObject:SetActiveEx(true)
-        else
-            self.TxtTips.gameObject:SetActiveEx(false)
         end
         
         local optionsTextList = {}
@@ -350,12 +355,17 @@ function XUiPanelFavorabilityMain:UpdateMainInfo(doAnim)
         self.DrdSort:AddOptionsText(optionsTextList)
         self:UpdateDropListSelect(self.CvType)
         self.RImgCollaboration.gameObject:SetActiveEx(false)
-        self.TxtTips.gameObject:SetActiveEx(false)
     end
 
     self:ResetPreviewExp()
     self:CheckExp(characterId)
     self:UpdateCvLabel()
+
+    --队伍图标
+    local teamIcon=XFavorabilityConfigs.GetCharacterTeamIconById(self:GetCurrFavorabilityCharacter())
+    if teamIcon then
+        self.ImgTeamIcon:SetRawImage(teamIcon)
+    end
 end
 
 function XUiPanelFavorabilityMain:UpdateDropListSelect(cvType)
@@ -399,7 +409,7 @@ function XUiPanelFavorabilityMain:UpdatePreviewExp(args)
         return
     end
 
-    local characterId = self.UiRoot:GetCurrFavorabilityCharacter()
+    local characterId = self.Parent:GetCurrFavorabilityCharacter()
     local isMax = XDataCenter.FavorabilityManager.IsMaxFavorabilityLevel(characterId)
     if isMax then
         return
@@ -435,7 +445,7 @@ function XUiPanelFavorabilityMain:UpdatePreviewExp(args)
 
     self.ImgExpUp.fillAmount = leftExp / levelExp
     self.TxtLevel.text = trustLv
-    self.UiRoot:SetUiSprite(self.ImgHeart, XFavorabilityConfigs.GetTrustLevelIconByLevel(trustLv))
+    self.Parent:SetUiSprite(self.ImgHeart, XFavorabilityConfigs.GetTrustLevelIconByLevel(trustLv))
     self.TxtFavorabilityLv.text = XDataCenter.FavorabilityManager.GetFavorabilityColorWorld(trustLv, favorData[trustLv].Name)--curFavorabilityTableData.Name
     self.TxtFavorabilityExpNum.text = string.format("<color=%s>%d</color> / %s", blue, leftExp, levelExp)
 
@@ -453,7 +463,7 @@ end
 
 
 function XUiPanelFavorabilityMain:UpdateExpNum(color, showExp)
-    local characterId = self.UiRoot:GetCurrFavorabilityCharacter()
+    local characterId = self.Parent:GetCurrFavorabilityCharacter()
     local curFavorabilityTableData = XDataCenter.FavorabilityManager.GetFavorabilityTableData(characterId)
     local curExp = tonumber(XDataCenter.FavorabilityManager.GetCurrCharacterExp(characterId))
     curExp = (showExp == nil) and curExp or showExp
@@ -477,26 +487,19 @@ end
 
 -- [发送检查红点事件]
 function XUiPanelFavorabilityMain:CheckLockAndReddots()
-    local characterId = self.UiRoot:GetCurrFavorabilityCharacter()
-    XRedPointManager.Check(self.RedPointPlotId, { CharacterId = characterId })
-    XRedPointManager.Check(self.RedPointRumorId, { CharacterId = characterId })
-    XRedPointManager.Check(self.RedPointAudioId, { CharacterId = characterId })
-    XRedPointManager.Check(self.RedPointInfoId, { CharacterId = characterId })
-    XRedPointManager.Check(self.RedPointActionId, { CharacterId = characterId })
+    local characterId = self.Parent:GetCurrFavorabilityCharacter()
+    XRedPointManager.Check(self.RedPointFileId, { CharacterId = characterId })
+    XRedPointManager.Check(self.RedPointShowId, { CharacterId = characterId })
+    XRedPointManager.Check(self.RedPointArchivesId, { CharacterId = characterId })
 end
 
 -- [关闭功能按钮界面]
 function XUiPanelFavorabilityMain:CloseFuncBtns()
     self.PanelMenu.gameObject:SetActiveEx(false)
     self.RImgCollaboration.gameObject:SetActiveEx(false)
-    --self.PanelCvType.gameObject:SetActiveEx(false)
     self.CvNameTextScrolling:Stop()
     self.CvLabelTextScrolling:Play()
-    self.DrdSort.gameObject:SetActiveEx(false)
-    self.CVObject.gameObject:SetActiveEx(true)
-    self.ImageCVBG.gameObject:SetActiveEx(true)
-    self.FavorabilityAudio:UnScheduleAudio()
-
+    self.FavorabilityShow:UnScheduleAudioPlay()
     if self.CurSelectedPanel then
         self.CurSelectedPanel:SetViewActive(false)
     end
@@ -523,28 +526,32 @@ end
 
 -- [打开档案]
 function XUiPanelFavorabilityMain:OnBtnFileClick()
-    self.UiRoot:OpenInformationView()
+    self.Parent:OpenInformationView()
 end
 
 -- [打开剧情]
 function XUiPanelFavorabilityMain:OnBtnPlotClick()
     if not self:CheckClickIsLock(XFunctionManager.FunctionName.FavorabilityStory) then return end
-    self.UiRoot:OpenPlotView()
+    self.Parent:OpenPlotView()
 end
 
 -- [打开礼物]
 function XUiPanelFavorabilityMain:OnBtnGiftClick()
     if not self:CheckClickIsLock(XFunctionManager.FunctionName.FavorabilityGift) then return end
-    self.UiRoot:OpenGiftView()
+    self.Parent:OpenGiftView()
 end
 
 function XUiPanelFavorabilityMain:OnBtnTabListClick(index)
     if self.LastSelectTab then
-        self.UiRoot:PlayBaseTabAnim()
+        self.Parent:PlayBaseTabAnim()
     end
 
     if index == self.CurrentSelectTab then
+        if self._forceUpdate then
+            self._forceUpdate=false
+        else
         return
+    end
     end
 
 
@@ -559,23 +566,17 @@ function XUiPanelFavorabilityMain:OnBtnTabListClick(index)
         self.CurSelectedPanel:OnSelected(false)
     end
 
-    self.UiRoot:ChangeViewType(index)
+    self.Parent:ChangeViewType(index)
 
 
     if index == FuncType.File then
         self.CurSelectedPanel = self.FavorabilityFile
     elseif index == FuncType.Info then
-        self.CurSelectedPanel = self.FavorabilityInfo
-    elseif index == FuncType.Secret then
-        self.CurSelectedPanel = self.FavorabilityRumors
-    elseif index == FuncType.Audio then
-        self.CurSelectedPanel = self.FavorabilityAudio
-    elseif index == FuncType.Story then
-        self.CurSelectedPanel = self.FavorabilityPlot
+        self.CurSelectedPanel = self.FavorabilityArchives
+    elseif index == FuncType.Action then
+        self.CurSelectedPanel = self.FavorabilityShow
     elseif index == FuncType.Gift then
         self.CurSelectedPanel = self.FavorabilityGift
-    elseif index == FuncType.Action then
-        self.CurSelectedPanel = self.FavorabilityAction
     end
 
     self:PanelCvTypeShow()
@@ -584,30 +585,23 @@ end
 
 function XUiPanelFavorabilityMain:PanelCvTypeShow()
     if self.CurrentSelectTab == FuncType.Audio or self.CurrentSelectTab == FuncType.Action then
-        local currentCharacterId = self.UiRoot:GetCurrFavorabilityCharacter()
+        local currentCharacterId = self.Parent:GetCurrFavorabilityCharacter()
         
         self.CvNameTextScrolling:Stop()
         self.CvLabelTextScrolling:Stop()
-        self.DrdSort.gameObject:SetActiveEx(true)
         self.CVNameLabel.text = XFavorabilityConfigs.GetCharacterCvByIdAndType(currentCharacterId, self.CvType)
-        self.CVObject.gameObject:SetActiveEx(false)
-        self.ImageCVBG.gameObject:SetActiveEx(false)
         self.CvNameTextScrolling:Play()
-        self.BtnCantonese.gameObject:SetActiveEx(false)
     else
         self.CvNameTextScrolling:Stop()
         self.CvLabelTextScrolling:Play()
-        self.DrdSort.gameObject:SetActiveEx(false)
-        self.CVObject.gameObject:SetActiveEx(true)
-        self.ImageCVBG.gameObject:SetActiveEx(true)
     end
 end
 
 -- [返回]
 function XUiPanelFavorabilityMain:OnBtnReturnClick()
     self.CurrentSelectTab = nil
-    self.UiRoot:SetCurrFavorabilityCharacter(nil)
-    self.UiRoot:Close()
+    self.Parent:SetCurrFavorabilityCharacter(nil)
+    self.Parent:Close()
 end
 
 function XUiPanelFavorabilityMain:OnBtnMainUiClick()
@@ -615,15 +609,15 @@ function XUiPanelFavorabilityMain:OnBtnMainUiClick()
 end
 
 function XUiPanelFavorabilityMain:StopCvContent()
-    return self.UiRoot:StopCvContent()
+    return self.Parent:StopCvContent()
 end
 
 function XUiPanelFavorabilityMain:GetCurrFavorabilityCharacter()
-    return self.UiRoot:GetCurrFavorabilityCharacter()
+    return self.Parent:GetCurrFavorabilityCharacter()
 end
 
 function XUiPanelFavorabilityMain:DoFillAmountTween(lastLevel, lastExp, totalExp, isReset)
-    local characterId = self.UiRoot:GetCurrFavorabilityCharacter()
+    local characterId = self.Parent:GetCurrFavorabilityCharacter()
     local levelUpDatas = XFavorabilityConfigs.GetTrustExpById(characterId)
     if not levelUpDatas or not levelUpDatas[lastLevel] then
         self:UpdateAnimInfo(characterId)
@@ -691,18 +685,20 @@ function XUiPanelFavorabilityMain:UnScheduleExp()
 end
 
 function XUiPanelFavorabilityMain:OnClose()
+    self.FavorabilityShow:UnSchedulePlay()
     self:UnScheduleExp()
-    self.FavorabilityAudio:OnClose()
-    self.FavorabilityAction:OnClose()
 end
 
 function XUiPanelFavorabilityMain:SetTopControlActive(isActive)
     self.TopControl.gameObject:SetActiveEx(isActive)
 end
 
+function XUiPanelFavorabilityMain:SetPanelBgActive(isActive)
+    self.PanelBg.gameObject:SetActiveEx(isActive)
+end
 
 function XUiPanelFavorabilityMain:SetUiSprite(image, spriteName, callBack)
-    self.UiRoot:SetUiSprite(image, spriteName, callBack)
+    self.Parent:SetUiSprite(image, spriteName, callBack)
 end
 
 return XUiPanelFavorabilityMain

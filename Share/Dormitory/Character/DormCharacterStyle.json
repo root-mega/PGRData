@@ -18,11 +18,24 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1021001.0,
-            1031001.0
+            1031001.0,
+            null,
+            null
         ],
         "HateCharIds": [
-            1061002.0
+            null,
+            1061002.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            5.0,
+            null
         ]
     },
     {
@@ -44,12 +57,24 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1031001.0,
             1011003.0,
-            1061003.0
+            1061003.0,
+            null
         ],
         "HateCharIds": [
-            1071002.0
+            null,
+            1071002.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            null,
+            null
         ]
     },
     {
@@ -71,11 +96,25 @@
         "LoveType": 1,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1011002.0,
             1021001.0,
-            1081002.0
+            1081002.0,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            3.0,
+            null,
+            null
+        ]
     },
     {
         "Id": 1041002,
@@ -96,10 +135,25 @@
         "LoveType": 3,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1021001.0,
-            1031002.0
+            1031002.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            5.0,
+            7.0,
+            null
+        ]
     },
     {
         "Id": 1051001,
@@ -120,12 +174,24 @@
         "LoveType": 2,
         "LikeType": 1,
         "LikeCharIds": [
+            null,
             1021001.0,
             1031001.0,
-            1041002.0
+            1041002.0,
+            null
         ],
         "HateCharIds": [
-            1081002.0
+            null,
+            1081002.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            6.0,
+            null
         ]
     },
     {
@@ -147,11 +213,25 @@
         "LoveType": 1,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1031001.0,
             1021001.0,
-            1081002.0
+            1081002.0,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            5.0,
+            null
+        ]
     },
     {
         "Id": 1071002,
@@ -172,11 +252,24 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1071003.0,
-            1041002.0
+            1041002.0,
+            null,
+            null
         ],
         "HateCharIds": [
-            1081002.0
+            null,
+            1081002.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            4.0,
+            5.0,
+            null
         ]
     },
     {
@@ -198,11 +291,25 @@
         "LoveType": 3,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1061002.0,
             1031001.0,
-            1011003.0
+            1011003.0,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            4.0,
+            7.0,
+            null
+        ]
     },
     {
         "Id": 1021002,
@@ -223,11 +330,25 @@
         "LoveType": 1,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1031002.0,
             1011003.0,
-            1061003.0
+            1061003.0,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            2.0,
+            null
+        ]
     },
     {
         "Id": 1031002,
@@ -248,10 +369,25 @@
         "LoveType": 3,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1021002.0,
-            1061002.0
+            1061002.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            3.0,
+            7.0,
+            null
+        ]
     },
     {
         "Id": 1061003,
@@ -272,12 +408,24 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1031002.0,
             1021001.0,
-            1011003.0
+            1011003.0,
+            null
         ],
         "HateCharIds": [
-            1011002.0
+            null,
+            1011002.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            5.0,
+            6.0
         ]
     },
     {
@@ -299,10 +447,25 @@
         "LoveType": 3,
         "LikeType": 1,
         "LikeCharIds": [
+            null,
             1021002.0,
-            1011003.0
+            1011003.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            3.0,
+            7.0
+        ]
     },
     {
         "Id": 1011003,
@@ -323,11 +486,25 @@
         "LoveType": 3,
         "LikeType": 1,
         "LikeCharIds": [
+            null,
             1021002.0,
             1031001.0,
-            1061003.0
+            1061003.0,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            3.0,
+            5.0
+        ]
     },
     {
         "Id": 1071003,
@@ -348,10 +525,25 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1031003.0,
-            1041002.0
+            1041002.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            4.0,
+            5.0
+        ]
     },
     {
         "Id": 1051003,
@@ -372,10 +564,25 @@
         "LoveType": 2,
         "LikeType": 1,
         "LikeCharIds": [
+            null,
             1031003.0,
-            1041002.0
+            1041002.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            3.0,
+            5.0
+        ]
     },
     {
         "Id": 1021003,
@@ -395,10 +602,25 @@
         "TouchWidgetHight": 0.6,
         "LoveType": 2,
         "LikeType": 3,
-        "LikeCharIds": [],
+        "LikeCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "HateCharIds": [
+            null,
             1021001.0,
-            1021002.0
+            1021002.0,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            2.0,
+            4.0
         ]
     },
     {
@@ -419,9 +641,25 @@
         "TouchWidgetHight": 0.6,
         "LoveType": 3,
         "LikeType": 2,
-        "LikeCharIds": [],
+        "LikeCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "HateCharIds": [
-            1041002.0
+            null,
+            1041002.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            4.0,
+            6.0,
+            null
         ]
     },
     {
@@ -443,11 +681,25 @@
         "LoveType": 2,
         "LikeType": 1,
         "LikeCharIds": [
+            null,
             1011002.0,
             1021001.0,
-            1031001.0
+            1031001.0,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            5.0,
+            6.0,
+            null
+        ]
     },
     {
         "Id": 90370,
@@ -468,9 +720,25 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
-            90220.0
+            null,
+            90220.0,
+            null,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 90220,
@@ -491,9 +759,25 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
-            90370.0
+            null,
+            90370.0,
+            null,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1041003,
@@ -514,12 +798,24 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1071002.0,
-            1071003.0
+            1071003.0,
+            null,
+            null
         ],
         "HateCharIds": [
+            null,
             1081003.0,
-            1081002.0
+            1081002.0,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            5.0,
+            7.0
         ]
     },
     {
@@ -541,10 +837,25 @@
         "LoveType": 3,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1011002.0,
-            1031001.0
+            1031001.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            3.0,
+            5.0,
+            null
+        ]
     },
     {
         "Id": 81600,
@@ -565,10 +876,25 @@
         "LoveType": 1,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1021003.0,
-            1061002.0
+            1061002.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 81500,
@@ -589,10 +915,24 @@
         "LoveType": 1,
         "LikeType": 3,
         "LikeCharIds": [
-            1091002.0
+            null,
+            1091002.0,
+            null,
+            null,
+            null
         ],
         "HateCharIds": [
-            1011002.0
+            null,
+            1011002.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -614,9 +954,25 @@
         "LoveType": 3,
         "LikeType": 1,
         "LikeCharIds": [
-            1111002.0
+            null,
+            1111002.0,
+            null,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1121002,
@@ -637,10 +993,25 @@
         "LoveType": 3,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1061003.0,
-            1061002.0
+            1061002.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            6.0,
+            7.0,
+            null
+        ]
     },
     {
         "Id": 92670,
@@ -661,11 +1032,25 @@
         "LoveType": 1,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1091002.0,
             1041003.0,
-            1041002.0
+            1041002.0,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 813000,
@@ -686,11 +1071,25 @@
         "LoveType": 2,
         "LikeType": 1,
         "LikeCharIds": [
+            null,
             1021001.0,
             1031001.0,
-            1011002.0
+            1011002.0,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1000000,
@@ -711,12 +1110,24 @@
         "LoveType": 1,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1041002.0,
-            1011002.0
+            1011002.0,
+            null,
+            null
         ],
         "HateCharIds": [
+            null,
             1051003.0,
-            1071002.0
+            1071002.0,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -738,10 +1149,25 @@
         "LoveType": 3,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1031001.0,
-            1011003.0
+            1011003.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            4.0,
+            6.0
+        ]
     },
     {
         "Id": 1131002,
@@ -761,9 +1187,25 @@
         "TouchWidgetHight": 0.6,
         "LoveType": 1,
         "LikeType": 2,
-        "LikeCharIds": [],
+        "LikeCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "HateCharIds": [
-            81600.0
+            null,
+            81600.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            3.0,
+            null
         ]
     },
     {
@@ -785,11 +1227,24 @@
         "LoveType": 3,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1061002.0,
-            1061003.0
+            1061003.0,
+            null,
+            null
         ],
         "HateCharIds": [
-            81600.0
+            null,
+            81600.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            2.0,
+            6.0
         ]
     },
     {
@@ -811,12 +1266,24 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1021004.0,
             1011003.0,
-            1031001.0
+            1031001.0,
+            null
         ],
         "HateCharIds": [
-            1021003.0
+            null,
+            1021003.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            2.0,
+            5.0
         ]
     },
     {
@@ -838,10 +1305,24 @@
         "LoveType": 3,
         "LikeType": 1,
         "LikeCharIds": [
-            1021004.0
+            null,
+            1021004.0,
+            null,
+            null,
+            null
         ],
         "HateCharIds": [
-            1021003.0
+            null,
+            1021003.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            2.0,
+            7.0
         ]
     },
     {
@@ -863,10 +1344,25 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1031002.0,
-            1111002.0
+            1111002.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            7.0,
+            null
+        ]
     },
     {
         "Id": 837000,
@@ -887,9 +1383,25 @@
         "LoveType": 1,
         "LikeType": 2,
         "LikeCharIds": [
-            1091002.0
+            null,
+            1091002.0,
+            null,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1171003,
@@ -910,10 +1422,25 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1021001.0,
-            1021003.0
+            1021003.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            2.0,
+            4.0
+        ]
     },
     {
         "Id": 1181003,
@@ -934,9 +1461,25 @@
         "LoveType": 3,
         "LikeType": 2,
         "LikeCharIds": [
-            1191003.0
+            null,
+            1191003.0,
+            null,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            null,
+            null,
+            null
+        ]
     },
     {
         "Id": 1191003,
@@ -957,10 +1500,24 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
-            1181003.0
+            null,
+            1181003.0,
+            null,
+            null,
+            null
         ],
         "HateCharIds": [
-            1201003.0
+            null,
+            null,
+            1201003.0,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -981,9 +1538,25 @@
         "TouchWidgetHight": 0.6,
         "LoveType": 3,
         "LikeType": 1,
-        "LikeCharIds": [],
+        "LikeCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "HateCharIds": [
-            1191003.0
+            null,
+            null,
+            1191003.0,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -1005,13 +1578,24 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1061002.0,
             1061003.0,
             1121002.0,
             1511003.0
         ],
         "HateCharIds": [
-            81600.0
+            null,
+            81600.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            3.0,
+            null
         ]
     },
     {
@@ -1033,10 +1617,24 @@
         "LoveType": 1,
         "LikeType": 2,
         "LikeCharIds": [
-            1091002.0
+            null,
+            1091002.0,
+            null,
+            null,
+            null
         ],
         "HateCharIds": [
-            81600.0
+            null,
+            81600.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            3.0,
+            6.0,
+            7.0
         ]
     },
     {
@@ -1058,11 +1656,25 @@
         "LoveType": 3,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1061003.0,
             1061002.0,
-            1211002.0
+            1211002.0,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            6.0,
+            7.0
+        ]
     },
     {
         "Id": 1221002,
@@ -1083,9 +1695,25 @@
         "LoveType": 3,
         "LikeType": 1,
         "LikeCharIds": [
-            1131002.0
+            null,
+            1131002.0,
+            null,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            6.0,
+            null
+        ]
     },
     {
         "Id": 1131003,
@@ -1106,10 +1734,24 @@
         "LoveType": 1,
         "LikeType": 2,
         "LikeCharIds": [
-            1221002.0
+            null,
+            1221002.0,
+            null,
+            null,
+            null
         ],
         "HateCharIds": [
-            81600.0
+            null,
+            81600.0,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            3.0,
+            6.0
         ]
     },
     {
@@ -1131,10 +1773,25 @@
         "LoveType": 1,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1171003.0,
-            1021003.0
+            1021003.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            4.0,
+            5.0,
+            6.0
+        ]
     },
     {
         "Id": 1031004,
@@ -1155,10 +1812,25 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1021004.0,
-            1011003.0
+            1011003.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            3.0,
+            7.0
+        ]
     },
     {
         "Id": 1531004,
@@ -1179,10 +1851,25 @@
         "LoveType": 1,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1091002.0,
-            1531003.0
+            1531003.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            6.0,
+            7.0
+        ]
     },
     {
         "Id": 1551003,
@@ -1203,10 +1890,25 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1161002.0,
-            1111002.0
+            1111002.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            4.0,
+            7.0
+        ]
     },
     {
         "Id": 1051004,
@@ -1227,11 +1929,25 @@
         "LoveType": 2,
         "LikeType": 1,
         "LikeCharIds": [
+            null,
             1021004.0,
             1031004.0,
-            1041003.0
+            1041003.0,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            3.0,
+            4.0
+        ]
     },
     {
         "Id": 1561003,
@@ -1252,11 +1968,25 @@
         "LoveType": 3,
         "LikeType": 1,
         "LikeCharIds": [
+            null,
             1051004.0,
             1051003.0,
-            1051001.0
+            1051001.0,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            4.0,
+            6.0
+        ]
     },
     {
         "Id": 1071004,
@@ -1277,10 +2007,25 @@
         "LoveType": 1,
         "LikeType": 3,
         "LikeCharIds": [
+            null,
             1041002.0,
-            837000.0
+            837000.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            4.0,
+            5.0
+        ]
     },
     {
         "Id": 1571003,
@@ -1301,10 +2046,25 @@
         "LoveType": 3,
         "LikeType": 2,
         "LikeCharIds": [
+            null,
             1081002.0,
-            1161002.0
+            1161002.0,
+            null,
+            null
         ],
-        "HateCharIds": []
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            4.0,
+            6.0,
+            7.0
+        ]
     },
     {
         "Id": 1041004,
@@ -1325,13 +2085,414 @@
         "LoveType": 2,
         "LikeType": 3,
         "LikeCharIds": [
-            1071004.0,
+            null,
+            1071002.0,
             1071003.0,
-            1071002.0
+            1071004.0,
+            null
         ],
         "HateCharIds": [
+            null,
             1081003.0,
-            1081002.0
+            1081002.0,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            5.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 1231002,
+        "Type": 2,
+        "Model": "Assets/Product/Role/Room/Prefab/QR2BangbinataMd010011.prefab",
+        "Name": "Bambinata: Vitrum",
+        "NameFrist": "Bambinata",
+        "NameLast": "Vitrum",
+        "HeadRoundIcon": "Assets/Product/Texture/Image/Role/RoleHeadR2Bangbinata2Q.png",
+        "HeadIcon": "Assets/Product/Texture/Image/Role/RoleHeadR2Bangbinata1Q.png",
+        "ExpFondleWidgetHeight": 0.85,
+        "ExpDetailWidgetHeight": 0.7,
+        "PutOnWidgetHight": 1.2,
+        "DailogWidgetHight": 1.4,
+        "DailogTouchHight": 0.51,
+        "EffectWidgetHight": 1,
+        "TouchWidgetHight": 0.6,
+        "LoveType": 2,
+        "LikeType": 1,
+        "LikeCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            6.0,
+            null
+        ]
+    },
+    {
+        "Id": 1011004,
+        "Type": 1,
+        "Model": "Assets/Product/Role/Room/Prefab/QR4LiangMd010011.prefab",
+        "Name": "Lee: Hyperreal",
+        "NameFrist": "Lee ",
+        "NameLast": "Hyperreal",
+        "HeadRoundIcon": "Assets/Product/Texture/Image/Role/RoleHeadR4Li2Q.png",
+        "HeadIcon": "Assets/Product/Texture/Image/Role/RoleHeadR4Li1Q.png",
+        "ExpFondleWidgetHeight": 0.85,
+        "ExpDetailWidgetHeight": 0.7,
+        "PutOnWidgetHight": 1.2,
+        "DailogWidgetHight": 1.4,
+        "DailogTouchHight": 0.51,
+        "EffectWidgetHight": 1,
+        "TouchWidgetHight": 0.6,
+        "LoveType": 3,
+        "LikeType": 1,
+        "LikeCharIds": [
+            null,
+            1021004.0,
+            1031001.0,
+            null,
+            null
+        ],
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            3.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 1091003,
+        "Type": 2,
+        "Model": "Assets/Product/Role/Room/Prefab/QR3AilaMd010011.prefab",
+        "Name": "Ayla: Kaleido",
+        "NameFrist": "Ayla",
+        "NameLast": "Kaleido",
+        "HeadRoundIcon": "Assets/Product/Texture/Image/Role/RoleHeadR3Aila2Q.png",
+        "HeadIcon": "Assets/Product/Texture/Image/Role/RoleHeadR3Aila1Q.png",
+        "ExpFondleWidgetHeight": 0.85,
+        "ExpDetailWidgetHeight": 0.7,
+        "PutOnWidgetHight": 1.2,
+        "DailogWidgetHight": 1.4,
+        "DailogTouchHight": 0.51,
+        "EffectWidgetHight": 1,
+        "TouchWidgetHight": 0.6,
+        "LoveType": 1,
+        "LikeType": 2,
+        "LikeCharIds": [
+            null,
+            1531003.0,
+            1531004.0,
+            1051004.0,
+            null
+        ],
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            5.0,
+            6.0,
+            7.0
+        ]
+    },
+    {
+        "Id": 1021005,
+        "Type": 2,
+        "Model": "Assets/Product/Role/Room/Prefab/QR5LuxiyaMd010011.prefab",
+        "Name": "Lucia: Crimson Weave",
+        "NameFrist": "Lucia",
+        "NameLast": "Crimson Weave",
+        "HeadRoundIcon": "Assets/Product/Texture/Image/Role/RoleHeadR5Luxiya2Q.png",
+        "HeadIcon": "Assets/Product/Texture/Image/Role/RoleHeadR5Luxiya1Q.png",
+        "ExpFondleWidgetHeight": 0.85,
+        "ExpDetailWidgetHeight": 0.7,
+        "PutOnWidgetHight": 1.2,
+        "DailogWidgetHight": 1.4,
+        "DailogTouchHight": 0.51,
+        "EffectWidgetHight": 1,
+        "TouchWidgetHight": 0.6,
+        "LoveType": 1,
+        "LikeType": 3,
+        "LikeCharIds": [
+            null,
+            1171003.0,
+            null,
+            null,
+            null
+        ],
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            2.0,
+            4.0
+        ]
+    },
+    {
+        "Id": 1241002,
+        "Type": 2,
+        "Model": "Assets/Product/Role/Room/Prefab/QR2HanyingMd010011.prefab",
+        "Name": "Hanying: Zitherwoe",
+        "NameFrist": "Hanying",
+        "NameLast": "Zitherwoe",
+        "HeadRoundIcon": "Assets/Product/Texture/Image/Role/RoleHeadR2Hanying2Q.png",
+        "HeadIcon": "Assets/Product/Texture/Image/Role/RoleHeadR2Hanying1Q.png",
+        "ExpFondleWidgetHeight": 0.85,
+        "ExpDetailWidgetHeight": 0.7,
+        "PutOnWidgetHight": 1.2,
+        "DailogWidgetHight": 1.4,
+        "DailogTouchHight": 0.51,
+        "EffectWidgetHight": 1,
+        "TouchWidgetHight": 0.6,
+        "LoveType": 1,
+        "LikeType": 3,
+        "LikeCharIds": [
+            null,
+            1551003.0,
+            null,
+            null,
+            null
+        ],
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            7.0,
+            null
+        ]
+    },
+    {
+        "Id": 1221003,
+        "Type": 2,
+        "Model": "Assets/Product/Role/Room/Prefab/QR3TwentyoneMd010011.prefab",
+        "Name": "No. 21: Feral",
+        "NameFrist": "No. 21",
+        "NameLast": "Feral",
+        "HeadRoundIcon": "Assets/Product/Texture/Image/Role/RoleHeadR3Twentyone2Q.png",
+        "HeadIcon": "Assets/Product/Texture/Image/Role/RoleHeadR3Twentyone1Q.png",
+        "ExpFondleWidgetHeight": 0.85,
+        "ExpDetailWidgetHeight": 0.7,
+        "PutOnWidgetHight": 1.2,
+        "DailogWidgetHight": 1.4,
+        "DailogTouchHight": 0.51,
+        "EffectWidgetHight": 1,
+        "TouchWidgetHight": 0.6,
+        "LoveType": 2,
+        "LikeType": 3,
+        "LikeCharIds": [
+            null,
+            1131002.0,
+            1131003.0,
+            null,
+            null
+        ],
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            3.0,
+            4.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 1251002,
+        "Type": 1,
+        "Model": "Assets/Product/Role/Room/Prefab/QR2NuoketiMd010011.prefab",
+        "Name": "Noctis: Indomitus",
+        "NameFrist": "Noctis",
+        "NameLast": "Indomitus",
+        "HeadRoundIcon": "Assets/Product/Texture/Image/Role/RoleHeadR2Nuoketi2Q.png",
+        "HeadIcon": "Assets/Product/Texture/Image/Role/RoleHeadR2Nuoketi1Q.png",
+        "ExpFondleWidgetHeight": 0.85,
+        "ExpDetailWidgetHeight": 0.7,
+        "PutOnWidgetHight": 1.2,
+        "DailogWidgetHight": 1.4,
+        "DailogTouchHight": 0.51,
+        "EffectWidgetHight": 1,
+        "TouchWidgetHight": 0.6,
+        "LoveType": 3,
+        "LikeType": 2,
+        "LikeCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "HateCharIds": [
+            null,
+            1041002.0,
+            1041003.0,
+            1041004.0,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            4.0,
+            null
+        ]
+    },
+    {
+        "Id": 1261003,
+        "Type": 2,
+        "Model": "Assets/Product/Role/Room/Prefab/QR3YalishaMd010011.prefab",
+        "Name": "Alisa: Echo",
+        "NameFrist": "Alisa",
+        "NameLast": "Echo",
+        "HeadRoundIcon": "Assets/Product/Texture/Image/Role/RoleHeadR3Yalisha2Q.png",
+        "HeadIcon": "Assets/Product/Texture/Image/Role/RoleHeadR3Yalisha1Q.png",
+        "ExpFondleWidgetHeight": 0.85,
+        "ExpDetailWidgetHeight": 0.7,
+        "PutOnWidgetHight": 1.2,
+        "DailogWidgetHight": 1.4,
+        "DailogTouchHight": 0.51,
+        "EffectWidgetHight": 1,
+        "TouchWidgetHight": 0.6,
+        "LoveType": 3,
+        "LikeType": 2,
+        "LikeCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            3.0,
+            5.0,
+            6.0
+        ]
+    },
+    {
+        "Id": 1271003,
+        "Type": 2,
+        "Model": "Assets/Product/Role/Room/Prefab/QR3LamiyaMd010011.prefab",
+        "Name": "Lamia: Lost Lullaby",
+        "NameFrist": "Lamia",
+        "NameLast": "Lost Lullaby",
+        "HeadRoundIcon": "Assets/Product/Texture/Image/Role/RoleHeadR3Lamiya2Q.png",
+        "HeadIcon": "Assets/Product/Texture/Image/Role/RoleHeadR3Lamiya1Q.png",
+        "ExpFondleWidgetHeight": 0.85,
+        "ExpDetailWidgetHeight": 0.7,
+        "PutOnWidgetHight": 1.2,
+        "DailogWidgetHight": 1.4,
+        "DailogTouchHight": 0.51,
+        "EffectWidgetHight": 1,
+        "TouchWidgetHight": 0.6,
+        "LoveType": 2,
+        "LikeType": 3,
+        "LikeCharIds": [
+            null,
+            1171003.0,
+            null,
+            null,
+            null
+        ],
+        "HateCharIds": [
+            null,
+            1131002.0,
+            1131003.0,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            2.0,
+            6.0,
+            7.0
+        ]
+    },
+    {
+        "Id": 1281002,
+        "Type": 8,
+        "Model": "Assets/Product/Role/Room/Prefab/QR2BlackrockMd010011.prefab",
+        "Name": "BLACK\u2605ROCK SHOOTER",
+        "NameFrist": "BLACK\u2605ROCK SHOOTER",
+        "NameLast": null,
+        "HeadRoundIcon": "Assets/Product/Texture/Image/Role/RoleHeadR2Blackrock2Q.png",
+        "HeadIcon": "Assets/Product/Texture/Image/Role/RoleHeadR2Blackrock1Q.png",
+        "ExpFondleWidgetHeight": 0.85,
+        "ExpDetailWidgetHeight": 0.7,
+        "PutOnWidgetHight": 1.2,
+        "DailogWidgetHight": 1.4,
+        "DailogTouchHight": 0.51,
+        "EffectWidgetHight": 1,
+        "TouchWidgetHight": 0.6,
+        "LoveType": 2,
+        "LikeType": 3,
+        "LikeCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "HateCharIds": [
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "QuestAttrib": [
+            null,
+            1.0,
+            2.0,
+            null
         ]
     }
 ]

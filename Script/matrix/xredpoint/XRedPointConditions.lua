@@ -123,7 +123,9 @@ XRedPointConditions.Conditions = {
     --活动简介红点
     CONDITION_ACTIVITY_BRIRF_TASK_FINISHED = "XRedPointConditionActivityBriefTaskFinished", --活动简介任务完成
     --复刷关奖励红点
+    CONDITION_REPEAT_CHALLENGE_ENTRANCE="XRedPointConditionRepeatChallengeEntrance", --复刷关入口综合蓝点检测
     CONDITION_REPEAT_CHALLENGE_REWARD = "XRedPointConditionRepeatChallengeReward", --是否有复刷关奖励
+    CONDITION_REPEAT_CHALLENGE_COIN="XRedPointConditionRepeatChallengeCoin", --是否有待使用的活动货币
     --图鉴红点相关
     CONDITION_ARCHIVE_WEAPON = "XRedPointConditionArchiveWeapon",
     CONDITION_ARCHIVE_AWARENESS = "XRedPointConditionArchiveAwareness",
@@ -501,6 +503,9 @@ XRedPointConditions.Conditions = {
     CONDITION_TURNTABLE_TASK = "XRedPointConditionTurntableTask",       --有任务奖励
     CONDITION_TURNTABLE_REWARD = "XRedPointConditionTurntableReward",   --有累计奖励
     CONDITION_TURNTABLE_TIMES = "XRedPointConditionTurntableTimes",     --还剩72h结束时有抽奖次数
+    --黑岩战棋
+    CONDITION_BLACK_ROCK_CHESS_ENTRANCE = "XRedPointConditionBlackRockChessEntrance", --活动入口
+    CONDITION_BLACK_ROCK_STAGE = "XRedPointConditionBlackRockStage", -- 黑岩剧情关
 }
 --注册所有条件
 function XRedPointConditions.RegisterAllConditions()

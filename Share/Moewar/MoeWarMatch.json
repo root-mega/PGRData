@@ -1,0 +1,290 @@
+[
+    {
+        "Id": 1,
+        "MatchName": "Round of 27",
+        "SessionId": 0,
+        "Type": 1,
+        "TypeName": "Voting period",
+        "TimeId": null,
+        "RefreshVoteHour": [
+            null,
+            12.0,
+            20.0,
+            null
+        ],
+        "CoverImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon06.png",
+        "MatchSubName": "Decreed Undercard",
+        "Des": [
+            null,
+            "Audition",
+            "In progress",
+            "Remaining voting time"
+        ],
+        "FinalImg": null,
+        "DailyLimitCount": 100000
+    },
+    {
+        "Id": 2,
+        "MatchName": "Round of 27",
+        "SessionId": 0,
+        "Type": 2,
+        "TypeName": "Notice period",
+        "TimeId": null,
+        "RefreshVoteHour": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "CoverImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon06.png",
+        "MatchSubName": "Decreed Undercard",
+        "Des": [
+            null,
+            "Audition",
+            "Notifying",
+            "Next Ceremony Timer"
+        ],
+        "FinalImg": null,
+        "DailyLimitCount": 100000
+    },
+    {
+        "Id": 3,
+        "MatchName": "Round of 24",
+        "SessionId": 1,
+        "Type": 1,
+        "TypeName": "Voting period",
+        "TimeId": null,
+        "RefreshVoteHour": [
+            null,
+            12.0,
+            20.0,
+            null
+        ],
+        "CoverImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon07.png",
+        "MatchSubName": "World Tour",
+        "Des": [
+            null,
+            "Round of 12",
+            "Round of 12",
+            "Remaining voting time"
+        ],
+        "FinalImg": null,
+        "DailyLimitCount": 100000
+    },
+    {
+        "Id": 4,
+        "MatchName": "Round of 24",
+        "SessionId": 1,
+        "Type": 2,
+        "TypeName": "Notice period",
+        "TimeId": null,
+        "RefreshVoteHour": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "CoverImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon07.png",
+        "MatchSubName": "World Tour",
+        "Des": [
+            null,
+            "Round of 12",
+            "Round of 12",
+            "Next Ceremony Timer"
+        ],
+        "FinalImg": null,
+        "DailyLimitCount": 100000
+    },
+    {
+        "Id": 5,
+        "MatchName": "Round of 18",
+        "SessionId": 2,
+        "Type": 1,
+        "TypeName": "Voting period",
+        "TimeId": null,
+        "RefreshVoteHour": [
+            null,
+            12.0,
+            20.0,
+            null
+        ],
+        "CoverImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon08.png",
+        "MatchSubName": "The Big Comeback",
+        "Des": [
+            null,
+            "Round of 6",
+            "Round of 12",
+            "Remaining voting time"
+        ],
+        "FinalImg": null,
+        "DailyLimitCount": 100000
+    },
+    {
+        "Id": 6,
+        "MatchName": "Round of 18",
+        "SessionId": 2,
+        "Type": 2,
+        "TypeName": "Notice period",
+        "TimeId": null,
+        "RefreshVoteHour": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "CoverImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon08.png",
+        "MatchSubName": "The Big Comeback",
+        "Des": [
+            null,
+            "Round of 6",
+            "Round of 12",
+            "Next Ceremony Timer"
+        ],
+        "FinalImg": null,
+        "DailyLimitCount": 100000
+    },
+    {
+        "Id": 7,
+        "MatchName": "Round of 18",
+        "SessionId": 3,
+        "Type": 1,
+        "TypeName": "Voting period",
+        "TimeId": null,
+        "RefreshVoteHour": [
+            null,
+            12.0,
+            20.0,
+            null
+        ],
+        "CoverImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon09.png",
+        "MatchSubName": "The Big Comeback",
+        "Des": [
+            null,
+            null,
+            "Round of 9",
+            "Remaining voting time"
+        ],
+        "FinalImg": null,
+        "DailyLimitCount": 100000
+    },
+    {
+        "Id": 8,
+        "MatchName": "Round of 18",
+        "SessionId": 3,
+        "Type": 2,
+        "TypeName": "Notice period",
+        "TimeId": null,
+        "RefreshVoteHour": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "CoverImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon09.png",
+        "MatchSubName": "The Big Comeback",
+        "Des": [
+            null,
+            null,
+            "Round of 9",
+            "Next Ceremony Timer"
+        ],
+        "FinalImg": null,
+        "DailyLimitCount": 100000
+    },
+    {
+        "Id": 9,
+        "MatchName": "Round of 6",
+        "SessionId": 4,
+        "Type": 1,
+        "TypeName": "Voting Period",
+        "TimeId": null,
+        "RefreshVoteHour": [
+            null,
+            12.0,
+            20.0,
+            null
+        ],
+        "CoverImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon10.png",
+        "MatchSubName": "Celebration Climax",
+        "Des": [
+            null,
+            "Round of 6",
+            "In progress",
+            "Remaining voting time"
+        ],
+        "FinalImg": null,
+        "DailyLimitCount": 100000
+    },
+    {
+        "Id": 10,
+        "MatchName": "Round of 6",
+        "SessionId": 4,
+        "Type": 2,
+        "TypeName": "Notice Period",
+        "TimeId": null,
+        "RefreshVoteHour": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "CoverImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon10.png",
+        "MatchSubName": "Celebration Climax",
+        "Des": [
+            null,
+            "Round of 6",
+            "Notifying",
+            "Next Ceremony Timer"
+        ],
+        "FinalImg": null,
+        "DailyLimitCount": 100000
+    },
+    {
+        "Id": 11,
+        "MatchName": "Round of 3",
+        "SessionId": 5,
+        "Type": 1,
+        "TypeName": "Voting Period",
+        "TimeId": null,
+        "RefreshVoteHour": [
+            null,
+            12.0,
+            20.0,
+            null
+        ],
+        "CoverImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon11.png",
+        "MatchSubName": "Curtain Call Nevermore",
+        "Des": [
+            null,
+            "Grand Final",
+            "In progress",
+            "Remaining voting time"
+        ],
+        "FinalImg": null,
+        "DailyLimitCount": 100000
+    },
+    {
+        "Id": 12,
+        "MatchName": "Round of 3",
+        "SessionId": 5,
+        "Type": 2,
+        "TypeName": "Notice Period",
+        "TimeId": null,
+        "RefreshVoteHour": [
+            null,
+            null,
+            null,
+            null
+        ],
+        "CoverImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon11.png",
+        "MatchSubName": "Curtain Call Nevermore",
+        "Des": [
+            null,
+            "Grand Final",
+            "Notifying",
+            "Curtain Call Nevermore Ended"
+        ],
+        "FinalImg": "Assets/Product/Texture/Image/UiMoeWar/UiMoeWarLogoIcon11.png",
+        "DailyLimitCount": 100000
+    }
+]

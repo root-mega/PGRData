@@ -38,8 +38,7 @@ function XUiPlayerEx:Close()
         end
         self:CloseChildUi("UiPanelSetting")
         self.IsOpenSetting = false
-        self.PanelPlayerInfoEx:OnEnable()
-        self.PanelPlayerInfoEx.GameObject:SetActiveEx(true)
+        self.PanelPlayerInfoEx:Open()
     else
         self.Super.Close(self)
     end
@@ -59,14 +58,13 @@ function XUiPlayerEx:InitPanelPlayerInfo()
 end
 
 function XUiPlayerEx:OnEnable()
-    self.PanelPlayerInfoEx:OnEnable()
     self.GirdBtnDownload:RefreshView()
     self.BtnAchievement:ShowReddot(XDataCenter.MedalManager.CheckHaveNewMedal() or XDataCenter.AchievementManager.CheckHasReward())
     self.BtnExhibition:ShowReddot(XDataCenter.ExhibitionManager.CheckNewCharacterReward())
 end
 
 function XUiPlayerEx:OnDisable()
-    self.PanelPlayerInfoEx:OnDisable()
+    
 end
 
 function XUiPlayerEx:OnDestroy()
@@ -99,8 +97,7 @@ function XUiPlayerEx:OnClickBtnExhibition()
 end
 
 function XUiPlayerEx:ShowSetting()
-    self.PanelPlayerInfoEx:OnDisable()
-    self.PanelPlayerInfoEx.GameObject:SetActiveEx(false)
+    self.PanelPlayerInfoEx:Close()
     self:OpenOneChildUi("UiPanelSetting", self)
     self.UiPanelSetting:InitCollectionWallShow()
     self.UiPanelSetting:UpdateCharacterHead()

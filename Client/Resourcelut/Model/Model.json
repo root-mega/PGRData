@@ -234,10 +234,62 @@
         ]
     },
     {
+        "Id": "Mb1DeadmasterMd010001",
+        "ModelPath": "Assets/Product/Role/CharaterPrefab/Mb1DeadmasterMd010001.prefab",
+        "LowModelPath": null,
+        "ControllerPath": "Assets/Product/Role/Animation/Mb1DeadmasterMd010001/Mb1DeadmasterMd010001/Mb1DeadmasterMd010001.controller",
+        "DisplayControllerPath": null,
+        "UiDefaultAnimationPath": null,
+        "LevelControllerPath": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": "Mb1DeadmasterskullMd010001",
+        "ModelPath": "Assets/Product/Role/CharaterPrefab/Mb1DeadmasterskullMd010001.prefab",
+        "LowModelPath": null,
+        "ControllerPath": "Assets/Product/Role/Animation/Mb1DeadmasterskullMd010001/Mb1DeadmasterskullMd010001/Mb1DeadmasterskullMd010001.controller",
+        "DisplayControllerPath": null,
+        "UiDefaultAnimationPath": null,
+        "LevelControllerPath": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
         "Id": "Mb1FangjianbeiMd000001",
         "ModelPath": "Assets/Product/Role/CharaterPrefab/Mb1FangjianbeiMd000001.prefab",
         "LowModelPath": null,
         "ControllerPath": "Assets/Product/Role/Animation/Mb1FangjianbeiMd000001/Mb1FangjianbeiMd000001/Mb1FangjianbeiMd000001.controller",
+        "DisplayControllerPath": null,
+        "UiDefaultAnimationPath": null,
+        "LevelControllerPath": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": "Mb1GeneralMd010001",
+        "ModelPath": "Assets/Product/Role/CharaterPrefab/Mb1GeneralMd010001.prefab",
+        "LowModelPath": null,
+        "ControllerPath": "Assets/Product/Role/Animation/Mb1GeneralMd010001/Mb1GeneralMd010001/Mb1GeneralMd010001.controller",
+        "DisplayControllerPath": null,
+        "UiDefaultAnimationPath": null,
+        "LevelControllerPath": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": "Mb1GeneralMd010002",
+        "ModelPath": "Assets/Product/Role/CharaterPrefab/Mb1GeneralMd010002.prefab",
+        "LowModelPath": null,
+        "ControllerPath": "Assets/Product/Role/Animation/Mb1GeneralMd010002/Mb1GeneralMd010002/Mb1GeneralMd010002.controller",
         "DisplayControllerPath": null,
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
@@ -1768,6 +1820,19 @@
         ]
     },
     {
+        "Id": "Me1TwinsblackMd000001",
+        "ModelPath": "Assets/Product/Role/CharaterPrefab/Me1TwinsblackMd000001.prefab",
+        "LowModelPath": null,
+        "ControllerPath": "Assets/Product/Role/Animation/Me1TwinsblackMd000001/Me1TwinsblackMd000001/Me1TwinsblackMd000001.controller",
+        "DisplayControllerPath": null,
+        "UiDefaultAnimationPath": null,
+        "LevelControllerPath": [
+            null,
+            "Assets/Product/Role/Animation/Me1TwinsblackMd000001/Me1TwinsblackMd000001/Me1TwinsblackMd000001Level1.controller",
+            null
+        ]
+    },
+    {
         "Id": "Me1TwofacerMd010001",
         "ModelPath": "Assets/Product/Role/CharaterPrefab/Me1TwofacerMd010001.prefab",
         "LowModelPath": null,
@@ -3089,7 +3154,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Mo1SinmaidMd010001/Mo1SinmaidMd010001/Mo1SinmaidMd010001Level1.controller",
             null
         ]
     },
@@ -4675,7 +4740,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2AilaMd010011/Q2AilaMd010011/Q2AilaMd010011Level1.controller",
             null
         ]
     },
@@ -4688,7 +4753,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2BangbinataMd010011/Q2BangbinataMd010011/Q2BangbinataMd010011Level1.controller",
             null
         ]
     },
@@ -4701,7 +4766,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2BiankaMd010011/Q2BiankaMd010011/Q2BiankaMd010011Level1.controller",
             null
         ]
     },
@@ -4714,7 +4779,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2DubianMd010011/Q2DubianMd010011/Q2DubianMd010011Level1.controller",
             null
         ]
     },
@@ -4727,7 +4792,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2HakamaMd010011/Q2HakamaMd010011/Q2HakamaMd010011Level1.controller",
             null
         ]
     },
@@ -4753,7 +4818,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2KalieninaMd010011/Q2KalieninaMd010011/Q2KalieninaMd010011Level1.controller",
             null
         ]
     },
@@ -4766,7 +4831,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2KamuMd010011/Q2KamuMd010011/Q2KamuMd010011Level1.controller",
             null
         ]
     },
@@ -4779,7 +4844,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2KuluomuMd010011/Q2KuluomuMd010011/Q2KuluomuMd010011Level1.controller",
             null
         ]
     },
@@ -4792,7 +4857,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2LiangMd010011/Q2LiangMd010011/Q2LiangMd010011Level1.controller",
             null
         ]
     },
@@ -4805,7 +4870,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2LifuMd010011/Q2LifuMd010011/Q2LifuMd010011Level1.controller",
             null
         ]
     },
@@ -4818,7 +4883,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2LuolanMd010011/Q2LuolanMd010011/Q2LuolanMd010011Level1.controller",
             null
         ]
     },
@@ -4831,7 +4896,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2LuxiyaMd010011/Q2LuxiyaMd010011/Q2LuxiyaMd010011Level1.controller",
             null
         ]
     },
@@ -4844,7 +4909,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2NuoanMd010011/Q2NuoanMd010011/Q2NuoanMd010011Level1.controller",
             null
         ]
     },
@@ -4870,7 +4935,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2PulaoMd010011/Q2PulaoMd010011/Q2PulaoMd010011Level1.controller",
             null
         ]
     },
@@ -4883,7 +4948,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2QuMd010011/Q2QuMd010011/Q2QuMd010011Level1.controller",
             null
         ]
     },
@@ -4896,7 +4961,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2ShenweiMd010011/Q2ShenweiMd010011/Q2ShenweiMd010011Level1.controller",
             null
         ]
     },
@@ -4909,7 +4974,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2SufeiyaMd010011/Q2SufeiyaMd010011/Q2SufeiyaMd010011Level1.controller",
             null
         ]
     },
@@ -4922,7 +4987,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2TwentyoneMd010011/Q2TwentyoneMd010011/Q2TwentyoneMd010011Level1.controller",
             null
         ]
     },
@@ -4935,7 +5000,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2WanshiMd010011/Q2WanshiMd010011/Q2WanshiMd010011Level1.controller",
             null
         ]
     },
@@ -4948,7 +5013,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2WeilaMd010011/Q2WeilaMd010011/Q2WeilaMd010011Level1.controller",
             null
         ]
     },
@@ -4961,7 +5026,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q2YongyechaoMd010011/Q2YongyechaoMd010011/Q2YongyechaoMd010011Level1.controller",
             null
         ]
     },
@@ -4974,7 +5039,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q3AilaMd010011/Q3AilaMd010011/Q3AilaMd010011Level1.controller",
             null
         ]
     },
@@ -4987,7 +5052,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q3BiankaMd010011/Q3BiankaMd010011/Q3BiankaMd010011Level1.controller",
             null
         ]
     },
@@ -5000,7 +5065,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q3DubianMd010011/Q3DubianMd010011/Q3DubianMd010011Level1.controller",
             null
         ]
     },
@@ -5013,7 +5078,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q3KalieninaMd010011/Q3KalieninaMd010011/Q3KalieninaMd010011Level1.controller",
             null
         ]
     },
@@ -5026,7 +5091,20 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
+            "Assets/Product/Role/Animation/Q3KuluomuMd010011/Q3KuluomuMd010011/Q3KuluomuMd010011Level1.controller",
+            null
+        ]
+    },
+    {
+        "Id": "Q3LamiyaMd010011",
+        "ModelPath": "Assets/Product/Role/CharaterPrefab/Q3LamiyaMd010011.prefab",
+        "LowModelPath": null,
+        "ControllerPath": "Assets/Product/Role/Animation/Q3LamiyaMd010011/Q3LamiyaMd010011/Q3LamiyaMd010011.controller",
+        "DisplayControllerPath": null,
+        "UiDefaultAnimationPath": null,
+        "LevelControllerPath": [
             null,
+            "Assets/Product/Role/Animation/Q3LamiyaMd010011/Q3LamiyaMd010011/Q3LamiyaMd010011Level1.controller",
             null
         ]
     },
@@ -5039,7 +5117,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q3LiangMd010011/Q3LiangMd010011/Q3LiangMd010011Level1.controller",
             null
         ]
     },
@@ -5052,7 +5130,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q3LifuMd010011/Q3LifuMd010011/Q3LifuMd010011Level1.controller",
             null
         ]
     },
@@ -5078,7 +5156,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q3LuosaitaMd010011/Q3LuosaitaMd010011/Q3LuosaitaMd010011Level1.controller",
             null
         ]
     },
@@ -5091,7 +5169,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q3LuxiyaMd010011/Q3LuxiyaMd010011/Q3LuxiyaMd010011Level1.controller",
             null
         ]
     },
@@ -5104,7 +5182,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q3SailinnaMd010011/Q3SailinnaMd010011/Q3SailinnaMd010011Level1.controller",
             null
         ]
     },
@@ -5117,7 +5195,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q3ShenweiMd010011/Q3ShenweiMd010011/Q3ShenweiMd010011Level1.controller",
             null
         ]
     },
@@ -5148,6 +5226,19 @@
         ]
     },
     {
+        "Id": "Q3YalishaMd010011",
+        "ModelPath": "Assets/Product/Role/CharaterPrefab/Q3YalishaMd010011.prefab",
+        "LowModelPath": null,
+        "ControllerPath": "Assets/Product/Role/Animation/Q3YalishaMd010011/Q3YalishaMd010011/Q3YalishaMd010011.controller",
+        "DisplayControllerPath": null,
+        "UiDefaultAnimationPath": null,
+        "LevelControllerPath": [
+            null,
+            "Assets/Product/Role/Animation/Q3YalishaMd010011/Q3YalishaMd010011/Q3YalishaMd010011Level1.controller",
+            null
+        ]
+    },
+    {
         "Id": "Q3YongyechaoMd010011",
         "ModelPath": "Assets/Product/Role/CharaterPrefab/Q3YongyechaoMd010011.prefab",
         "LowModelPath": null,
@@ -5156,7 +5247,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q3YongyechaoMd010011/Q3YongyechaoMd010011/Q3YongyechaoMd010011Level1.controller",
             null
         ]
     },
@@ -5169,7 +5260,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q4BiankaMd010011/Q4BiankaMd010011/Q4BiankaMd010011Level1.controller",
             null
         ]
     },
@@ -5234,7 +5325,7 @@
         "UiDefaultAnimationPath": null,
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/Q4SailinnaMd010011/Q4SailinnaMd010011/Q4SailinnaMd010011Level1.controller",
             null
         ]
     },
@@ -5674,6 +5765,32 @@
         "ControllerPath": "Assets/Product/Role/Animation/R2BiankaMd019071/R2BiankaMd019071/R2BiankaMd019071.controller",
         "DisplayControllerPath": "Assets/Product/Role/Animation/R2BiankaMd019071/R2BiankaMd019071Display/R2BiankaMd019071Display.controller",
         "UiDefaultAnimationPath": "Assets/Product/Role/Animation/R2BiankaMdCommon/R2BiankaMdCommonDisplay/UiStand1.anim",
+        "LevelControllerPath": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": "R2BlackrockMd010011",
+        "ModelPath": "Assets/Product/Role/CharaterPrefab/R2BlackrockMd010011.prefab",
+        "LowModelPath": null,
+        "ControllerPath": "Assets/Product/Role/Animation/R2BlackrockMd010011/R2BlackrockMd010011/R2BlackrockMd010011.controller",
+        "DisplayControllerPath": "Assets/Product/Role/Animation/R2BlackrockMd010011/R2BlackrockMd010011Display/R2BlackrockMd010011Display.controller",
+        "UiDefaultAnimationPath": "Assets/Product/Role/Animation/R2BlackrockMdCommon/R2BlackrockMdCommonDisplay/UiStand1.anim",
+        "LevelControllerPath": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": "R2BlackrockMd019031",
+        "ModelPath": "Assets/Product/Role/CharaterPrefab/R2BlackrockMd019031.prefab",
+        "LowModelPath": null,
+        "ControllerPath": "Assets/Product/Role/Animation/R2BlackrockMd019031/R2BlackrockMd019031/R2BlackrockMd019031.controller",
+        "DisplayControllerPath": "Assets/Product/Role/Animation/R2BlackrockMd019031/R2BlackrockMd019031Display/R2BlackrockMd019031Display.controller",
+        "UiDefaultAnimationPath": "Assets/Product/Role/Animation/R2BlackrockMd019031/R2BlackrockMd019031Display/UiStand1.anim",
         "LevelControllerPath": [
             null,
             null,
@@ -8991,7 +9108,7 @@
         "UiDefaultAnimationPath": "Assets/Product/Role/Animation/R4LuxiyaMdCommon/R4LuxiyaMdCommonDisplay/UiStand1.anim",
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/R4LuxiyaMd010011/R4LuxiyaMd010011/R4LuxiyaMd010011Level1.controller",
             null
         ]
     },
@@ -9004,7 +9121,7 @@
         "UiDefaultAnimationPath": "Assets/Product/Role/Animation/R4LuxiyaMdCommon/R4LuxiyaMdCommonDisplay/UiStand1.anim",
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/R4LuxiyaMd010021/R4LuxiyaMd010021/R4LuxiyaMd010021Level1.controller",
             null
         ]
     },
@@ -9017,7 +9134,7 @@
         "UiDefaultAnimationPath": "Assets/Product/Role/Animation/R4LuxiyaMdCommon/R4LuxiyaMdCommonDisplay/UiStand1.anim",
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/R4LuxiyaMd010031/R4LuxiyaMd010031/R4LuxiyaMd010031Level1.controller",
             null
         ]
     },
@@ -9030,7 +9147,7 @@
         "UiDefaultAnimationPath": "Assets/Product/Role/Animation/R4LuxiyaMd019141/R4LuxiyaMd019141Display/UiStand1.anim",
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/R4LuxiyaMd019141/R4LuxiyaMd019141/R4LuxiyaMd019141Level1.controller",
             null
         ]
     },
@@ -9043,7 +9160,7 @@
         "UiDefaultAnimationPath": "Assets/Product/Role/Animation/R4LuxiyaMd019271/R4LuxiyaMd019271Display/UiStand1.anim",
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/R4LuxiyaMd019271/R4LuxiyaMd019271/R4LuxiyaMd019271Level1.controller",
             null
         ]
     },
@@ -9056,7 +9173,7 @@
         "UiDefaultAnimationPath": "Assets/Product/Role/Animation/R4LuxiyaMd019281/R4LuxiyaMd019281Display/UiStand1.anim",
         "LevelControllerPath": [
             null,
-            null,
+            "Assets/Product/Role/Animation/R4LuxiyaMd019281/R4LuxiyaMd019281/R4LuxiyaMd019281Level1.controller",
             null
         ]
     },
@@ -9288,6 +9405,19 @@
         "ControllerPath": "Assets/Product/Role/Animation/R5LuxiyaMd019011/R5LuxiyaMd019011/R5LuxiyaMd019011.controller",
         "DisplayControllerPath": "Assets/Product/Role/Animation/R5LuxiyaMd019011/R5LuxiyaMd019011Display/R5LuxiyaMd019011Display.controller",
         "UiDefaultAnimationPath": "Assets/Product/Role/Animation/R5LuxiyaMd019011/R5LuxiyaMd019011Display/UiStand1.anim",
+        "LevelControllerPath": [
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": "R5LuxiyaMd019391",
+        "ModelPath": "Assets/Product/Role/CharaterPrefab/R5LuxiyaMd019391.prefab",
+        "LowModelPath": null,
+        "ControllerPath": "Assets/Product/Role/Animation/R5LuxiyaMd019391/R5LuxiyaMd019391/R5LuxiyaMd019391.controller",
+        "DisplayControllerPath": "Assets/Product/Role/Animation/R5LuxiyaMd019391/R5LuxiyaMd019391Display/R5LuxiyaMd019391Display.controller",
+        "UiDefaultAnimationPath": "Assets/Product/Role/Animation/R5LuxiyaMd019391/R5LuxiyaMd019391Display/UiStand1.anim",
         "LevelControllerPath": [
             null,
             null,

@@ -1,6 +1,7 @@
 --[[    管理界面的活动按钮相关，
     功能相关和各版本临时代码写在XUiActivityBriefBase.lua（尽量）
 ]]
+---@class XUiActivityBriefRefreshButton
 local XUiActivityBriefRefreshButton = XClass(nil, "XUiActivityBriefRefreshButton")
 local CSXTextManagerGetText = CS.XTextManager.GetText
 local XActivityBrieButton = require("XUi/XUiActivityBrief/XActivityBrieButton")
@@ -17,6 +18,15 @@ function XUiActivityBriefRefreshButton:Ctor(rootUi, panelType)
     XTool.InitUiObject(self)
 end
 
+function XUiActivityBriefRefreshButton:OnDisable()
+    if XTool.IsTableEmpty(self.TlActivityBrieButton) then
+        return
+    end
+    for _, btn in pairs(self.TlActivityBrieButton) do
+        btn:OnDisable()
+    end
+end
+
 ---刷新总接口
 function XUiActivityBriefRefreshButton:Refresh()
     -- Logo节点刷新独立于各Btn刷新函数
@@ -25,17 +35,18 @@ function XUiActivityBriefRefreshButton:Refresh()
     for index, groupId in ipairs(XActivityBriefConfigs.GetGroupIdList(self.PanelType)) do
         local funcName = XActivityBriefConfigs.GetActivityGroupBtnInitMethodName(groupId)
         local func = XUiActivityBriefRefreshButton[funcName]
-        -- 设置对应Btn
+        
         self:InitActivityBriefButton(index, groupId)
+        -- 通用跳转函数临时ActivityGroupId(BtnId)
+        self.ActivityGroupId = groupId
         if func then
-            -- 通用跳转函数临时ActivityGroupId(BtnId)
-            self.ActivityGroupId = groupId
             func(self)
-            -- 重置临时ActivityGroupId
-            self.ActivityGroupId = 0
+        else
+            self:RefreshNormal()
         end
+        -- 重置临时ActivityGroupId
+        self.ActivityGroupId = 0
     end
-    -- self:CheckBtnUnlockAnim()
 end
 
 --region 按钮的刷新逻辑
@@ -179,6 +190,9 @@ function XUiActivityBriefRefreshButton:RefreshActivityShop()
     end
 
     activityBrieButton:Refresh()
+    --红点
+    activityBrieButton:AddRedPointEvent({XRedPointConditions.Types.CONDITION_REPEAT_CHALLENGE_COIN})
+    
     activityBrieButton:SetOnClick(function()
         local closeCb = function()
             self.RootUi:PlayAnimationWithMask("AnimEnable1")
@@ -1077,13 +1091,13 @@ function XUiActivityBriefRefreshButton:RefreshSecondActivityPanel()
     end)
 end
 
---v1.27 音游
+--v2.7 音游
 function XUiActivityBriefRefreshButton:RefreshTaiKoMaster()
     self:RefreshNormal()
     local btn = self.TlActivityBrieButton[self.ActivityGroupId]
     if btn then
         btn:AddRedPointEvent({XRedPointConditions.Types.CONDITION_ACTIVITY_TAIKO_MASTER_TASK})
-        btn:AddNewTagEvent({XRedPointConditions.Types.CONDITION_ACTIVITY_TAIKO_MASTER_CD_UNLOCK})
+        --btn:AddNewTagEvent({XRedPointConditions.Types.CONDITION_ACTIVITY_TAIKO_MASTER_CD_UNLOCK})
     end
 end
 
@@ -1218,6 +1232,15 @@ function XUiActivityBriefRefreshButton:RefreshTheatre3()
         ---@type XTheatre3Agency
         local agency = XMVCA:GetAgency(ModuleId.XTheatre3)
         btn:ShowReddot(agency:ExCheckIsShowRedPoint())
+    end
+end
+
+--v2.7 黑岩战棋
+function XUiActivityBriefRefreshButton:RefreshBlackChess()
+    self:RefreshNormal()
+    local btn = self.TlActivityBrieButton[self.ActivityGroupId]
+    if btn then
+        btn:AddRedPointEvent({ XRedPointConditions.Types.CONDITION_BLACK_ROCK_CHESS_ENTRANCE })
     end
 end
 --endregion

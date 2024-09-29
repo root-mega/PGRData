@@ -194,7 +194,7 @@ function XUiGuildDormMain:InitButtons()
     end)
     self.GuildWarEntry:OnShow()
 
-    XRedPointManager.AddRedPointEvent(self.BtnGuildWarEntry, self.OnCheckGuildWarEntryRedPoint, self,
+    self:AddRedPointEvent(self.BtnGuildWarEntry, self.OnCheckGuildWarEntryRedPoint, self,
             {
                 XRedPointConditions.Types.CONDITION_GUILDWAR_TASK,
                 XRedPointConditions.Types.CONDITION_GUILDWAR_SUPPLY,

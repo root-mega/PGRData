@@ -253,10 +253,8 @@ XFubenManagerCreator = function()
         XFubenManager.RegisterFubenManager(XFubenManager.StageType.DoubleTowers, XDataCenter.DoubleTowersManager)
         XFubenManager.RegisterFubenManager(XFubenManager.StageType.MultiDimSingle, XDataCenter.MultiDimManager)
         XFubenManager.RegisterFubenManager(XFubenManager.StageType.MultiDimOnline, XDataCenter.MultiDimManager)
-        XFubenManager.RegisterFubenManager(XFubenManager.StageType.TaikoMaster, XDataCenter.TaikoMasterManager)
         XFubenManager.RegisterFubenManager(XFubenManager.StageType.MoeWarParkour, XDataCenter.MoeWarManager)
         XFubenManager.RegisterFubenManager(XFubenManager.StageType.SpecialTrainBreakthrough, XDataCenter.FubenSpecialTrainManager)
-        XFubenManager.RegisterFubenManager(XFubenManager.StageType.TwoSideTower, XDataCenter.TwoSideTowerManager)
         XFubenManager.RegisterFubenManager(XFubenManager.StageType.Course, XDataCenter.CourseManager)
         XFubenManager.RegisterFubenManager(XFubenManager.StageType.BiancaTheatre, XDataCenter.BiancaTheatreManager)
         XFubenManager.RegisterFubenManager(XFubenManager.StageType.Rift, XDataCenter.RiftManager)
@@ -592,10 +590,10 @@ XFubenManagerCreator = function()
             local unUseCount = 0
             for id, stageInfo in pairs(StageInfos) do
                 if not XTool.IsNumberValid(stageInfo.Type) then
-                    unUseStageIds[#unUseStageIds + 1] = id
+                    unUseStageIds[#unUseStageIds + 1] = tostring(id)
                     unUseCount = unUseCount + 1
                 else
-                    stageId2Type[id] = stageInfo.Type
+                    stageId2Type[tostring(id)] = stageInfo.Type
                     stageCount = stageCount + 1
                 end
             end
@@ -603,7 +601,8 @@ XFubenManagerCreator = function()
             stageInfoCollect.stageId2Type = stageId2Type
             stageInfoCollect.stageCount = stageCount
             stageInfoCollect.unUseCount = unUseCount
-            CS.System.IO.File.WriteAllText(CS.System.IO.Path.Combine(CS.UnityEngine.Application.dataPath, "StageInfo.txt"), XLog.Dump(stageInfoCollect))
+            local Json = require("XCommon/Json")
+            CS.System.IO.File.WriteAllText(CS.System.IO.Path.Combine(CS.UnityEngine.Application.dataPath, "StageInfo.txt"), Json.encode(stageInfoCollect))
         end
     end
 
@@ -793,9 +792,8 @@ XFubenManagerCreator = function()
             , XDataCenter.GoldenMinerManager.GetActivityChapters()--黄金矿工
             , XDataCenter.RpgMakerGameManager.GetActivityChapters()--推箱子小游戏
             , XDataCenter.MultiDimManager.GetActivityChapters()--多维挑战
-            , XDataCenter.TaikoMasterManager.GetActivityChapters()--音游
+            , XMVCA:GetAgency(ModuleId.XTaikoMaster):GetActivityChapters()--音游
             , XDataCenter.DoomsdayManager.GetActivityChapters()--模拟经营
-            , XDataCenter.TwoSideTowerManager.GetActivityChapter()--正逆塔
         )
         table.sort(chapters, function(a, b)
             local priority1 = XFubenConfigs.GetActivityPriorityByActivityIdAndType(a.Id, a.Type)
@@ -1194,22 +1192,6 @@ XFubenManagerCreator = function()
                 end
             end
             preFight.CardIds = nil
-        end
-
-        if stageInfo.Type == XDataCenter.FubenManager.StageType.TwoSideTower then
-            preFight.RobotIds = {}
-            local robotIds = XDataCenter.TwoSideTowerManager.GetActivityRobotIds()
-            for i, v in ipairs(preFight.CardIds) do
-                for _, robotId in pairs(robotIds) do
-                    if robotId == v then
-                        preFight.RobotIds[i] = v
-                        preFight.CardIds[i] = 0
-                        break
-                    else
-                        preFight.RobotIds[i] = 0
-                    end
-                end
-            end
         end
 
         return preFight
@@ -3161,8 +3143,6 @@ XFubenManagerCreator = function()
             return XDataCenter.TRPGManager.IsStagePass(stageId)
         elseif stageInfo.Type == XFubenManager.StageType.Pokemon then
             return XDataCenter.PokemonManager.CheckStageIsPassed(stageId)
-        elseif stageInfo.Type == XFubenManager.StageType.TwoSideTower then
-            return XDataCenter.TwoSideTowerManager.CheckStageIsPassed(stageId)
         elseif stageInfo.Type == XFubenManager.StageType.Maverick2 then 
             return XDataCenter.Maverick2Manager.IsStagePassed(stageId)
         elseif CheckStageIsPassHandler[stageInfo.Type] then

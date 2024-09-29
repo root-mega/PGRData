@@ -83,7 +83,7 @@ function XUiAwarenessRoomCharacter:InitFilter()
     self.PanelFilter:InitData(onSeleCb, tagClickedCb, nil, 
     refreshGridsFun, XUiGridCharacter, checkIsInTeam)
     local list = self.CharacterAgency:GetOwnCharacterList()
-    self.PanelFilter:ImportList(list)
+    self.PanelFilter:ImportList(list, self.OrgSeleCharacterId)
 end
 
 -- function XUiAwarenessRoomCharacter:InitDynamicTable()
@@ -126,6 +126,7 @@ function XUiAwarenessRoomCharacter:OnEnable()
     -- 部分ui文本
     self.TxtTeamInfoName.text = CS.XTextManager.GetText("AssignTeamTitle", self.ClickTeamPos) -- 作战梯队{0}
     self.TxtRequireAbility.text = self.AblityRequire and self.AblityRequire or ""
+    self.PanelFilter:RefreshList()
 end
 
 -- function XUiAwarenessRoomCharacter:OnSelectCharacterType(index)
@@ -209,10 +210,9 @@ end
 
 -- 角色被选中
 function XUiAwarenessRoomCharacter:OnRoleCharacter(character)
-    if self.CurCharacter and character.Id == self.CurCharacter.Id then
+    if not character then
         return
     end
-    
     self.CurCharacter = character
     if XCharacterConfigs.GetCharacterType(character.Id) == TabBtnIndex.Normal then
         self.LastSelectNormalCharacter = self.CurCharacter

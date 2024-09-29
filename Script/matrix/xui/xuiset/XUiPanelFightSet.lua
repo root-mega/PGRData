@@ -43,6 +43,7 @@ function XUiPanelFightSet:Ctor(ui, uiRoot)
     self.TogEnableKeyboard.CallBack = function() self:OnTogEnableKeyboardClick() end
     self.BtnCloseInput:SetBarrierType(XUiRespondBarrierType.Mouse2)
     self.BtnCloseInput.CallBack = function() self:OnBtnCloseInputClick() end
+    self.BtnCloseInput:SetBarrierType(XUiRespondBarrierType.Mouse2)
 
     self:InitControllerPanel()
     self:InitKeyboardPanel()
@@ -165,6 +166,9 @@ function XUiPanelFightSet:ShowPanel()
     self:UpdatePanel()
     self:GetCache()
     self.GameObject:SetActive(true)
+    if self.RedPoint then
+        XRedPointManager.RemoveRedPointEvent(self.RedPoint)
+    end
     self.RedPoint = XRedPointManager.AddRedPointEvent(self.BtnCustomUi, self.OnCheckCustomUiSetNews, self, { XRedPointConditions.Types.CONDITION_MAIN_SET }, nil, true)
     self.IsShow = true
 end
@@ -184,9 +188,10 @@ function XUiPanelFightSet:OnTogDynamicJoystickClick()
 end
 
 function XUiPanelFightSet:CheckDataIsChange()
-    local changed = self.DynamicJoystick ~= XDataCenter.SetManager.DynamicJoystick
-        or XInputManager.IsKeyMappingChange() or XInputManager.IsCameraMoveSensitivitiesChange()
-    return changed
+    if self._CurKeySetTypeInt and self._CurKeySetTypeInt ~= XInputManager.GetJoystickType() then
+        return true
+    end
+    return  self.DynamicJoystick ~= XDataCenter.SetManager.DynamicJoystick or XInputManager.IsKeyMappingChange() or XInputManager.IsCameraMoveSensitivitiesChange()
 end
 
 function XUiPanelFightSet:SaveTouchChange()
@@ -215,11 +220,16 @@ end
 
 function XUiPanelFightSet:SaveChange()
     self:SaveTouchChange()
+    if self._CurKeySetTypeInt then
+        XInputManager.SetJoystickType(self._CurKeySetTypeInt)
+    end
     XInputManager.SaveChange()
 end
 
 function XUiPanelFightSet:CancelChange()
     self.JoystickGroup:SelectIndex(self.DynamicJoystick + 1)
+    self.PatternGroup:SelectIndex(XInputManager.GetJoystickType())
+    self._CurKeySetTypeInt = XInputManager.GetJoystickType()
     XInputManager.RevertKeyMappings()
 end
 
@@ -334,6 +344,10 @@ function XUiPanelFightSet:RemoveCustomUiEvent()
 end
 
 function XUiPanelFightSet:OnDestroy()
+    if self.RedPoint then
+        XRedPointManager.RemoveRedPointEvent(self.RedPoint)
+        self.RedPoint = nil
+    end
     self:RemoveCustomUiEvent()
     XEventManager.RemoveEventListener(XEventId.EVENT_JOYSTICK_TYPE_CHANGED, self.OnJoystickTypeChanged, self)
     XEventManager.RemoveEventListener(XEventId.EVENT_JOYSTICK_ACTIVE_CHANGED, self.OnJoystickActiveChanged, self)
@@ -349,18 +363,18 @@ function XUiPanelFightSet:UpdateKeySetType()
     end
     if self.BtnTabGroup.CurSelectId == self.PageType.Keyboard then
         self._CurKeySetType = CS.KeySetType.Keyboard
-        XInputManager.SetJoystickType(3)
+        self._CurKeySetTypeInt = nil
         return
     end
     if self.BtnTabGroup.CurSelectId == self.PageType.GameController then
         if self.PatternGroup.CurSelectId == 1 then
             self._CurKeySetType = CS.KeySetType.Xbox
-            XInputManager.SetJoystickType(1)
+            self._CurKeySetTypeInt = 1
             return
         end
         if self.PatternGroup.CurSelectId == 2 then
             self._CurKeySetType = CS.KeySetType.Ps
-            XInputManager.SetJoystickType(2)
+            self._CurKeySetTypeInt = 2
             return
         end
     end

@@ -1,3 +1,4 @@
+---@class XDynamicGridTask
 XDynamicGridTask = XClass(nil, "XDynamicGridTask")
 
 function XDynamicGridTask:Ctor(ui,rootUi,beforeFinishCheckEvent, clickFunc)

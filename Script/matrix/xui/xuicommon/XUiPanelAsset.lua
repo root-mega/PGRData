@@ -234,10 +234,12 @@ function XUiPanelAsset:InitAssert()
 end
 
 function XUiPanelAsset:RemoveCountUpdateListener()
-    for _, node in ipairs(self._BindNodes) do
-        XDataCenter.ItemManager.RemoveCountUpdateListener(node)
+    if self._BindNodes then
+        for _, node in ipairs(self._BindNodes) do
+            XDataCenter.ItemManager.RemoveCountUpdateListener(node)
+        end
+        self._BindNodes = {}
     end
-    self._BindNodes = {}
 end
 
 function XUiPanelAsset:OnRelease()

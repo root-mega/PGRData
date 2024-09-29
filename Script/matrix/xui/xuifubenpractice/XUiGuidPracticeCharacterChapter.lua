@@ -1,4 +1,5 @@
 local XUiGuidPracticeCharacterChapter = XClass(nil,"XUiGuidPracticeCharacterChapter")
+local XUiTextScrolling = require("XUi/XUiTaikoMaster/XUiTaikoMasterFlowText")
 
 function XUiGuidPracticeCharacterChapter:Ctor(rootUi, ui, parent)
     self.RootUi = rootUi
@@ -8,10 +9,22 @@ function XUiGuidPracticeCharacterChapter:Ctor(rootUi, ui, parent)
 
     XTool.InitUiObject(self)
     self:AddBtnsListeners()
+
+    ---@type XUiTaikoMasterFlowText
+    self.NameTextScrolling = XUiTextScrolling.New(self.TxtFightNameNor ,self.Mask)
+    self.NameTextScrolling:Stop()
+    ---@type XUiTaikoMasterFlowText
+    self.NameLockTextScrolling = XUiTextScrolling.New(self.TxtFightNameLock ,self.MaskLock)
+    self.NameLockTextScrolling:Stop()
 end
 
 function XUiGuidPracticeCharacterChapter:AddBtnsListeners()
     XUiHelper.RegisterClickEvent(self, self.BtnStage, self.OnBtnStageClick)
+end
+
+function XUiGuidPracticeCharacterChapter:UpdateNodeScroll()
+    self.NameTextScrolling:Stop()
+    self.NameLockTextScrolling:Stop()
 end
 
 function XUiGuidPracticeCharacterChapter:SetNormalStage(isLock, groupId)
@@ -24,6 +37,8 @@ function XUiGuidPracticeCharacterChapter:SetNormalStage(isLock, groupId)
         local inActivity = XDataCenter.PracticeManager.CheckChapterInActivity(groupId)
         self.PanelActivityTag.gameObject:SetActiveEx(inActivity)
     end
+    self.NameTextScrolling:Stop()
+    self.NameTextScrolling:Play()
 end
 
 function XUiGuidPracticeCharacterChapter:SetLockStage(isLock, groupId)
@@ -32,6 +47,8 @@ function XUiGuidPracticeCharacterChapter:SetLockStage(isLock, groupId)
         self.TxtFightNameLock.text = XPracticeConfigs.GetPracticeGroupName(groupId)
         self.RImgFightActiveLock:SetRawImage(XPracticeConfigs.GetPracticeGroupIcon(groupId))
     end
+    self.NameLockTextScrolling:Stop()
+    self.NameLockTextScrolling:Play()
 end
 
 function XUiGuidPracticeCharacterChapter:SetPassStage(groupId)

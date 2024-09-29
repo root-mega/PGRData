@@ -6,5 +6,12 @@ ModuleId = {
   XTheatre3 = "XTheatre3",
   XFuben = "XFuben",
   XFubenEx = "XFubenEx",
+  XBlackRockChess = "XBlackRockChess",
   XTurntable = "XTurntable",
+  XBlackRockStage = "XBlackRockStage",
+  XPassport = "XPassport",
+  XTaikoMaster = "XTaikoMaster",
+  XUiMain = "XUiMain",
+  XNewActivityCalendar = "XNewActivityCalendar",
+  XTwoSideTower = "XTwoSideTower",
 }

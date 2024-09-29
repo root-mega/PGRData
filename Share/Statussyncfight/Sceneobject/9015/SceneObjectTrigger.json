@@ -1,0 +1,124 @@
+[
+    {
+        "Id": 1,
+        "NameList": [
+            null,
+            "HitTrigger",
+            null,
+            null
+        ],
+        "TypeList": [
+            null,
+            "Sphere",
+            null,
+            null
+        ],
+        "TouchType": [
+            null,
+            1,
+            null,
+            null
+        ],
+        "CenterXList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "CenterYList": [
+            null,
+            0.7,
+            null,
+            null
+        ],
+        "CenterZList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "SizeXList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "SizeYList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "SizeZList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "RadiusList": [
+            null,
+            0.7
+        ]
+    },
+    {
+        "Id": 9999,
+        "NameList": [
+            null,
+            "DeathTrigger",
+            null,
+            null
+        ],
+        "TypeList": [
+            null,
+            "Box",
+            null,
+            null
+        ],
+        "TouchType": [
+            null,
+            2,
+            null,
+            null
+        ],
+        "CenterXList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "CenterYList": [
+            null,
+            0.0,
+            null,
+            null
+        ],
+        "CenterZList": [
+            null,
+            0,
+            null,
+            null
+        ],
+        "SizeXList": [
+            null,
+            1000,
+            null,
+            null
+        ],
+        "SizeYList": [
+            null,
+            10,
+            null,
+            null
+        ],
+        "SizeZList": [
+            null,
+            1000,
+            null,
+            null
+        ],
+        "RadiusList": [
+            null,
+            0.0
+        ]
+    }
+]

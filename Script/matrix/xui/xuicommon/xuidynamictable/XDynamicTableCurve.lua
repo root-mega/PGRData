@@ -58,12 +58,13 @@ function XDynamicTableCurve:SetDelegate(delegate)
     self.Delegate = delegate
 end
 
+---@param proxy XUiNode
 function XDynamicTableCurve:SetProxyDisplay(proxy, isShow)
     if CheckClassSuper(proxy, XUiNode) then
         if isShow then
             proxy:Open()
         else
-            if not XTool.UObjIsNil(proxy.GameObject) then
+            if proxy:IsValid() then
                 proxy:Close()
             end
         end

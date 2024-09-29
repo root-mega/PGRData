@@ -49,7 +49,7 @@ function XUiTurntableMain:InitCompnent()
     local itemCfg = XDataCenter.ItemManager.GetItem(itemId)
     if itemCfg then -- 道具过期
         if not self.AssetPanel then
-            self.AssetPanel = XUiHelper.NewPanelActivityAsset({ itemId }, self.PanelSpecialTool)
+            self.AssetPanel = XUiHelper.NewPanelActivityAssetSafe({ itemId }, self.PanelSpecialTool, self)
         else
             self.AssetPanel:Refresh({ itemId })
         end

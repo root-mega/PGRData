@@ -19,6 +19,11 @@ function XPanelCharacterUnOwnedInfoV2P6:RefreshUiShow()
     local charConfig = XCharacterConfigs.GetCharacterTemplate(characterId)
     self.TxtName.text = charConfig.Name
     self.TxtNameOther.text = charConfig.TradeName
+    --是否显示为黑岩适配的换行文本，原先的Text放不下
+    local detailConfig = XCharacterConfigs.GetCharDetailTemplate(characterId)
+    local isShowSpcialText = detailConfig.LiberationShowType
+    self.PanelName.gameObject:SetActiveEx(not isShowSpcialText)
+    self.BlackRockShooter.gameObject:SetActiveEx(isShowSpcialText)
 
     -- 职业
     local career = self.CharacterAgency:GetCharacterCareer(characterId)
@@ -92,13 +97,15 @@ end
 function XPanelCharacterUnOwnedInfoV2P6:OnBtnSkillFoldClick()
     self.BtnSkillFold.gameObject:SetActiveEx(false)
     self.PanelUnownedInfo.gameObject:SetActiveEx(false)
-    self.PanelRoleSkill.gameObject:SetActiveEx(true)
+    self.RoleSkillPanel:Open()
+    local characterId = self.Parent.CurCharacter.Id
+    self.RoleSkillPanel:Refresh(characterId)
 end
 
 function XPanelCharacterUnOwnedInfoV2P6:OnBtnSkillUnFoldClick()
     self.BtnSkillFold.gameObject:SetActiveEx(true)
     self.PanelUnownedInfo.gameObject:SetActiveEx(true)
-    self.PanelRoleSkill.gameObject:SetActiveEx(false)
+    self.RoleSkillPanel:Close()
 end
 
 function XPanelCharacterUnOwnedInfoV2P6:OnBtnUnlockClick()

@@ -29,7 +29,7 @@ function XUiMainRightBottom:OnStart(rootUi)
     self.BtnTerminal.CallBack = function() self:OnBtnTerminalClick() end
     
     --RedPoint
-    self.TerminalRedPoint = XRedPointManager.AddRedPointEvent(self.BtnTerminal, self.OnCheckBtnTerminalRedPoint, self, RedPointConditionGroup.Terminal)
+    self.TerminalRedPoint = self:AddRedPointEvent(self.BtnTerminal, self.OnCheckBtnTerminalRedPoint, self, RedPointConditionGroup.Terminal)
     
     self.TxtTips.gameObject:SetActiveEx(false)
     self.TxtMusic.gameObject:SetActiveEx(false)
@@ -43,6 +43,7 @@ function XUiMainRightBottom:OnEnable()
     self:StartTimer()
     --界面状态事件，也会触发红点检查
     XEventManager.AddEventListener(XEventId.EVENT_MAINUI_TERMINAL_STATUS_CHANGE, self.RefreshTips, self)
+    XEventManager.AddEventListener(XEventId.EVENT_MAINUI_EXPENSIVE_ITEM_CHANGE, self.RefreshTips, self)
 end
 
 function XUiMainRightBottom:OnDisable()
@@ -52,14 +53,13 @@ function XUiMainRightBottom:OnDisable()
     end
     self:StopTimer()
     XEventManager.RemoveEventListener(XEventId.EVENT_MAINUI_TERMINAL_STATUS_CHANGE, self.RefreshTips, self)
+    XEventManager.RemoveEventListener(XEventId.EVENT_MAINUI_EXPENSIVE_ITEM_CHANGE, self.RefreshTips, self)
 
     self:ClearGrids()
 end
 
 function XUiMainRightBottom:OnDestroy()
-    if self.TerminalRedPoint then
-        XRedPointManager.RemoveRedPointEvent(self.TerminalRedPoint)
-    end
+
 end
 
 function XUiMainRightBottom:CheckFilterFunctions()
@@ -75,46 +75,67 @@ function XUiMainRightBottom:StopTimer()
 end
 
 function XUiMainRightBottom:GetScrollTips()
-    -- 月卡优先级 大于 礼包优先级
+    -- 优先级根据配表排序
     local tipList = {}
-
     if XDataCenter.PurchaseManager.CheckYKContinueBuy() then
         table.insert(tipList, {
             Tips = XUiHelper.GetText("PurchaseYKExpireDes"),
-            Type = TipsType.Normal
+            Type = TipsType.Normal,
+            TipType = XEnumConst.Ui_MAIN.TerminalTipType.MonthlyCard,
         })
     end
 
     local giftCount = XDataCenter.PurchaseManager.ExpireCount or 0
     if giftCount == 1 then
         table.insert(tipList,
-                {
-                    Tips = XUiHelper.GetText("PurchaseGiftValitimeTips1"),
-                    Type = TipsType.Normal
-                })
+            {
+                Tips = XUiHelper.GetText("PurchaseGiftValitimeTips1"),
+                Type = TipsType.Normal,
+                TipType = XEnumConst.Ui_MAIN.TerminalTipType.Gift,
+            })
     elseif giftCount > 1 then
         table.insert(tipList,
-                {
-                    Tips = XUiHelper.GetText("PurchaseGiftValitimeTips2"),
-                    Type = TipsType.Normal
-                })
+            {
+                Tips = XUiHelper.GetText("PurchaseGiftValitimeTips2"),
+                Type = TipsType.Normal,
+                TipType = XEnumConst.Ui_MAIN.TerminalTipType.Gift,
+            })
     end
     
     -- 宿舍终端提示 可领取 > 可派遣
     local dispatchedCount, unDispatchCount = XDataCenter.DormQuestManager.GetEntranceShowData()
     if dispatchedCount > 0 then
         table.insert(tipList,
-                {
-                    Tips = XUiHelper.GetText("DormQuestTerminalMainTeamRegress", dispatchedCount),
-                    Type = TipsType.Normal
-                })
+            {
+                Tips = XUiHelper.GetText("DormQuestTerminalMainTeamRegress", dispatchedCount),
+                Type = TipsType.Normal,
+                TipType = XEnumConst.Ui_MAIN.TerminalTipType.Dorm,
+            })
     elseif unDispatchCount > 0 then
         table.insert(tipList,
-                {
-                    Tips = XUiHelper.GetText("DormQuestTerminalMainTeamFree", unDispatchCount),
-                    Type = TipsType.Normal
-                })
+            {
+                Tips = XUiHelper.GetText("DormQuestTerminalMainTeamFree", unDispatchCount),
+                Type = TipsType.Normal,
+                TipType = XEnumConst.Ui_MAIN.TerminalTipType.Dorm,
+            })
     end
+
+    local allExpensiveItem = XMVCA.XUiMain:GetAllActiveTipExpensiveiItems()
+    if not XTool.IsTableEmpty(allExpensiveItem) and not XMVCA.XUiMain:CheckPanelTipClicked(XEnumConst.Ui_MAIN.TerminalTipType.ExpensiveItem) then
+        table.insert(tipList,
+            {
+                Tips = XUiHelper.GetText("ExpensiveItemExpiration"),
+                Type = TipsType.Normal,
+                TipType = XEnumConst.Ui_MAIN.TerminalTipType.ExpensiveItem,
+            })
+    end
+
+    table.sort(tipList, function (a, b)
+        local configA = XMVCA.XUiMain:GetModelUiPanelTipById(a.TipType)
+        local configB = XMVCA.XUiMain:GetModelUiPanelTipById(b.TipType)
+
+        return configA.Priority < configB.Priority
+    end)
     
     if XTool.IsTableEmpty(tipList) then
         local albumId = XDataCenter.MusicPlayerManager.GetUiMainNeedPlayedAlbumId()
@@ -134,6 +155,10 @@ function XUiMainRightBottom:GetScrollTips()
 end
 
 function XUiMainRightBottom:RefreshTips()
+    if not self.ThemeData then
+        return
+    end
+    
     if self.ScrollSequence then
         self.ScrollSequence:Kill()
         self.ScrollSequence = nil

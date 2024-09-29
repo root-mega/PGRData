@@ -1,0 +1,92 @@
+[
+    {
+        "Id": 1,
+        "Name": "Cooldown Reset",
+        "Desc": "Each swap has a 5% chance to reset the cooldown of all Secondary Skills (except Finishing Moves).",
+        "Type": 1.0,
+        "TriggerRate": 5.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 2,
+        "Name": "Critical Score",
+        "Desc": "Each swap has a 5% chance to make the pinging score critical (x200%).",
+        "Type": 2.0,
+        "TriggerRate": 5.0,
+        "Params": [
+            null,
+            2.0,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 3,
+        "Name": "Double Energy",
+        "Desc": "Get twice the Finishing Move Energy after every ping.",
+        "Type": null,
+        "TriggerRate": null,
+        "Params": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 4,
+        "Name": "DMG Boost",
+        "Desc": "Each swap has a 20% chance to enhance the DMG of the color orb pinged.",
+        "Type": 3.0,
+        "TriggerRate": 20.0,
+        "Params": [
+            null,
+            40001.0,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 5,
+        "Name": "Random Ping",
+        "Desc": "Each swap has a 50% chance to ping 1 random orb.",
+        "Type": 4.0,
+        "TriggerRate": 50.0,
+        "Params": [
+            null,
+            40002.0,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6,
+        "Name": "Ailment Removal",
+        "Desc": "Each swap has a 50% chance to remove the current orb's debuff.",
+        "Type": 5.0,
+        "TriggerRate": 50.0,
+        "Params": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    }
+]

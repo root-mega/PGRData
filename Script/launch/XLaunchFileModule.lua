@@ -48,6 +48,7 @@ local module_creator = function()
     local TIMEOUT = 5 * 1000
     local READ_TIMEOUT = 10 * 1000
     local RETRY = 10
+    local START_TIME -- 开始下载的时间点，用于统计实际消耗的时间
 
     local INDEX = "index"
 
@@ -245,6 +246,8 @@ local module_creator = function()
                         local dict = {}
                         dict.file_name = name
                         dict.file_size = 1
+                        dict.version = NewVersion
+                        dict.type = ResFileType
                         DoRecord(dict, "80007", "XFileManagerDownloadError")
                         ShowStartErrorDialog("FileManagerInitFileTableDownloadError", CsApplication.Exit, function()
                             Loop()
@@ -838,7 +841,15 @@ local module_creator = function()
             CsGameEventManager:RegisterEvent(CS.XEventId.EVENT_LAUNCH_DONE_DOWNLOAD_SELECT, OnNotifyEvent)
             CsGameEventManager:Notify(CS.XEventId.EVENT_LAUNCH_SHOW_DOWNLOAD_SELECT,UpdateSize,AllUpdateSize)
         else
-            DoPrepareDownload()
+            if XLaunchDlcManager.IsSelectDownload() then
+                OnNotifyEvent = function(evt, data)
+                    OnDoneSelect(XLaunchDlcManager.GetDownLoadSelect() == 2)
+                end
+                CsGameEventManager:RegisterEvent(CS.XEventId.EVENT_LAUNCH_DONE_DOWNLOAD_SELECT, OnNotifyEvent)
+                CsGameEventManager:Notify(CS.XEventId.EVENT_LAUNCH_SHOW_DOWNLOAD_SELECT,UpdateSize,AllUpdateSize)
+            else
+                DoPrepareDownload()
+            end
         end
     end
 
@@ -852,6 +863,7 @@ local module_creator = function()
         local downloadMode = XLaunchDlcManager.IsFullDownload(CsInfo.Version) and 2 or 1
         local dict = {["type"] = ResFileType, ["version"] = NewVersion, ["size"] = UpdateSize, ["mode"] = downloadMode }
         DoRecord(dict, "80011", "StartDownloadNewFiles")
+        START_TIME = os.time()
 
         local unit,num = GetSizeAndUnit(UpdateSize) -- todo updateSize算上launch+matrix，只需launch弹出一次
 
@@ -1075,6 +1087,8 @@ local module_creator = function()
                         local dict = {}
                         dict.file_name = name
                         dict.file_size = info[3]
+                        dict.version = NewVersion
+                        dict.type = ResFileType
                         DoRecord(dict, "80007", "XFileManagerDownloadError")
                         local exitCb =  OnExitCallback or CsApplication.Exit
                         local errorCode = IsInGame and "FileManagerInitFileTableInGameDownloadError" or "FileManagerInitFileTableDownloadError"
@@ -1126,10 +1140,10 @@ local module_creator = function()
             elseif downloadManager.State == DownloadState.CompleteError then
                 CsTool.RemoveUpdateEvent(updateFunc)
                 ShowStartErrorDialog("FileManagerInitFileTableDownloadError", exitCb, function()
-                    downloadManager.RePrepareFailedTask()
-                    CsGameEventManager:Notify(CS.XEventId.EVENT_LAUNCH_START_DOWNLOAD, progress.TotalDownloadSize)
-                    downloadManager.Start()
-                    CsTool.AddUpdateEvent(updateFunc)
+                    --downloadManager.RePrepareFailedTask()
+                    --downloadManager.Start()
+                    --CsTool.AddUpdateEvent(updateFunc)
+                    CheckIndexFile()
                 end, CsApplication.GetText("Retry")) -- 重试
             elseif downloadManager.State == DownloadState.Complete then
                 CsTool.RemoveUpdateEvent(updateFunc)
@@ -1195,7 +1209,7 @@ local module_creator = function()
         CheckPlayCG()
         CS.XAppEventManager.LogAppEvent(CS.XAppEventConfig.Resource_Download_Start)
         -- -- 如果空间不足的话，直接弹出空间不足提示
-        -- if UpdateSize > 0 and not CS.XAppPlatBridge.DiskSizeEnough(math.ceil(UpdateSize/1024)) then 
+        -- if UpdateSize > 0 and not CS.XAppPlatBridge.DiskSizeEnough(math.ceil(UpdateSize/1024)) then
         --     ShowStartErrorDialog("FileManagerDownloadDiskFull")
         --     return
         -- end
@@ -1321,9 +1335,11 @@ local module_creator = function()
     CompleteDownload = function()
         print("CompleteDownload!")
         CsApplication.SetProgress(1)
+        local cost_time = os.time() - START_TIME
+        local speed = UpdateSize / cost_time
         -- 1:基础资源 2:完整资源
         local downloadMode = XLaunchDlcManager.IsFullDownload(CsInfo.Version) and 2 or 1
-        local dict = {["type"] = ResFileType, ["version"] = NewVersion, ["size"] = UpdateSize, ["mode"] = downloadMode}
+        local dict = {["type"] = ResFileType, ["version"] = NewVersion, ["size"] = UpdateSize, ["mode"] = downloadMode, ["cost"] = cost_time, ["speed"] = speed}
         DoRecord(dict, "80012", "DownloadNewFilesEnd")
         CS.XAppEventManager.LogAppEvent(CS.XAppEventConfig.Resource_Download_End)
         OnCompleteResFilesInit()

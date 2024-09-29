@@ -1,0 +1,50 @@
+[
+    {
+        "Id": 1,
+        "ActivityId": 2,
+        "Name": "Villain Noctis",
+        "Type": 1,
+        "CanBeHit": 1,
+        "ScoreAffix": 1,
+        "ShowTimeAffix": 1.0,
+        "ReduceTime": 0,
+        "Prefab": "Assets/Product/Ui/Spine/UiHitMouseSpine/Nuoketi/Nuoketi.prefab",
+        "Effect": null
+    },
+    {
+        "Id": 2,
+        "ActivityId": 2,
+        "Name": "Treasure Buddy",
+        "Type": 1,
+        "CanBeHit": 1,
+        "ScoreAffix": 5,
+        "ShowTimeAffix": 0.6,
+        "ReduceTime": 0,
+        "Prefab": "Assets/Product/Ui/Spine/UiHitMouseSpine/Hulu/Hulu.prefab",
+        "Effect": "FxBaiguang"
+    },
+    {
+        "Id": 3,
+        "ActivityId": 2,
+        "Name": "Warrior Vera",
+        "Type": 1,
+        "CanBeHit": 3,
+        "ScoreAffix": 10,
+        "ShowTimeAffix": 1.0,
+        "ReduceTime": 0,
+        "Prefab": "Assets/Product/Ui/Spine/UiHitMouseSpine/Weila/Weila.prefab",
+        "Effect": "FxHuangguang"
+    },
+    {
+        "Id": 4,
+        "ActivityId": 2,
+        "Name": "Hero No. 21",
+        "Type": 2,
+        "CanBeHit": 1,
+        "ScoreAffix": 0,
+        "ShowTimeAffix": 1.0,
+        "ReduceTime": 3,
+        "Prefab": "Assets/Product/Ui/Spine/UiHitMouseSpine/21/21.prefab",
+        "Effect": null
+    }
+]

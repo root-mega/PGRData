@@ -218,7 +218,7 @@ function XUiPanelFightSetPc:InitControllerPanel(resetTextOnly)
 
         self.SliderCameraMoveSensitivity.value = self:GetCameraMoveSensitivity()
         self.CursorMoveSensitivity.value = self:GetCursorMoveSensitivity()
-        
+
         self:SetGridActive(grid, true)
         self.CtrlKeyItemList[id] = grid
         :: CONTINUE ::

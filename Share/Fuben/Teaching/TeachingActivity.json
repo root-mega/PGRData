@@ -982,7 +982,7 @@
     {
         "Id": 21,
         "Name": "Seeker's Voyage",
-        "TimeId": 20411.0,
+        "TimeId": null,
         "ChallengeStage": [
             null,
             30160555.0,
@@ -1027,5 +1027,54 @@
         "SkinDrawSkipId": null,
         "SkipGet": null,
         "ChallengeCondition": 96014.0
+    },
+    {
+        "Id": 22,
+        "Name": "Outlander's Flame",
+        "TimeId": 21403.0,
+        "ChallengeStage": [
+            null,
+            30160558.0,
+            30160559.0,
+            30160560.0,
+            null
+        ],
+        "StageId": [
+            null,
+            30100010.0,
+            30100011.0,
+            30100012.0,
+            null,
+            null
+        ],
+        "TreasureId": [
+            null,
+            84,
+            85,
+            86,
+            87.0
+        ],
+        "TotalStars": 9,
+        "FubenPrefab": "Assets/Product/Ui/ComponentPrefab/FubenBRSActivity/FuBenBRSActivity01.prefab",
+        "GridFubenPrefab": "Assets/Product/Ui/ComponentPrefab/FubenBRSActivity/GridBRSActivityStage01.prefab",
+        "FubenChallengePrefab": "Assets/Product/Ui/ComponentPrefab/FubenBRSActivity/FuBenBRSActivity02.prefab",
+        "GridFubenChallengePrefab": "Assets/Product/Ui/ComponentPrefab/FubenBRSActivity/GridBRSActivityStage02.prefab",
+        "ConditionId": null,
+        "MainBgImg": null,
+        "StageBgImg": null,
+        "TitleImg": null,
+        "BannerBg": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner128.png",
+        "CharacterId": 1281002,
+        "SkipIdDraw": 10047,
+        "SkipIdAct": null,
+        "SkipIdJZ": null,
+        "SkipIdChar": null,
+        "SkipIdSkin": 20111.0,
+        "NewCharType": 22,
+        "MovieId": null,
+        "SkinTrialStageId": null,
+        "SkinDrawSkipId": null,
+        "SkipGet": null,
+        "ChallengeCondition": 96015.0
     }
 ]

@@ -6,11 +6,44 @@
         "ActivityName": "Mycenaean Protocol: Wargame",
         "EntryTexture": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner21.png",
         "CharacterIds": [
-            1021003
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "DailyRewards": [],
+        "DailyRewards": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "InitTalentTypes": [
-            1
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -20,11 +53,44 @@
         "ActivityName": "Mycenaean Protocol: Wargame",
         "EntryTexture": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner21.png",
         "CharacterIds": [
-            1021003
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
-        "DailyRewards": [],
+        "DailyRewards": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
         "InitTalentTypes": [
-            1
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -34,9 +100,16 @@
         "ActivityName": "Blind Simulation",
         "EntryTexture": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner21.png",
         "CharacterIds": [
-            1021003
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "DailyRewards": [
+            null,
             420041.0,
             420042.0,
             420043.0,
@@ -51,10 +124,20 @@
             420052.0,
             420053.0,
             420054.0,
-            420054.0
+            420054.0,
+            null,
+            null,
+            null,
+            null
         ],
         "InitTalentTypes": [
-            1
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -64,9 +147,16 @@
         "ActivityName": "Scarlet Woods",
         "EntryTexture": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner21.png",
         "CharacterIds": [
-            1021003
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "DailyRewards": [
+            null,
             421041.0,
             421042.0,
             421043.0,
@@ -81,10 +171,20 @@
             421052.0,
             421053.0,
             421054.0,
-            421054.0
+            421054.0,
+            null,
+            null,
+            null,
+            null
         ],
         "InitTalentTypes": [
-            1
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ]
     },
     {
@@ -94,14 +194,16 @@
         "ActivityName": "Prophetic Surveillance",
         "EntryTexture": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner21.png",
         "CharacterIds": [
-            1021003,
-            1081003.0,
-            1051001.0,
-            1061003.0,
-            1031001.0,
-            1211002.0
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
         ],
         "DailyRewards": [
+            null,
             422050.0,
             422051.0,
             422052.0,
@@ -123,12 +225,107 @@
             422067.0
         ],
         "InitTalentTypes": [
-            1,
-            2.0,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 6,
+        "TimeId": null,
+        "TalentItemId": 1,
+        "ActivityName": "A Dance in the Park",
+        "EntryTexture": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner21.png",
+        "CharacterIds": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ],
+        "DailyRewards": [
+            null,
+            15236.0,
+            15237.0,
+            15238.0,
+            15239.0,
+            15240.0,
+            15241.0,
+            15242.0,
+            15243.0,
+            15244.0,
+            15245.0,
+            15246.0,
+            15247.0,
+            15248.0,
+            15249.0,
+            15250.0,
+            15251.0,
+            15252.0,
+            15253.0,
+            null
+        ],
+        "InitTalentTypes": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null
+        ]
+    },
+    {
+        "Id": 7,
+        "TimeId": null,
+        "TalentItemId": 1,
+        "ActivityName": "RPG Phase 6 Name",
+        "EntryTexture": "Assets/Product/Texture/Image/UiFubenActivityBanner/FubenActivityBanner21.png",
+        "CharacterIds": [
+            null,
+            1041003.0,
+            1531004.0,
+            1231002.0,
+            1221002.0,
+            1031002.0,
+            null
+        ],
+        "DailyRewards": [
+            null,
+            423001.0,
+            423002.0,
+            423003.0,
+            423004.0,
+            423005.0,
+            423006.0,
+            423007.0,
+            423008.0,
+            423009.0,
+            423010.0,
+            423011.0,
+            423012.0,
+            423013.0,
+            423014.0,
+            423015.0,
+            423016.0,
+            423017.0,
+            423018.0,
+            null
+        ],
+        "InitTalentTypes": [
+            null,
             1.0,
             2.0,
             1.0,
-            2.0
+            1.0,
+            2.0,
+            null
         ]
     }
 ]

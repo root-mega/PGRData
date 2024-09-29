@@ -65,7 +65,7 @@ end
 --region PanelAsset
 function XUiTheatre3Master:InitPanelAsset()
     self.ItemId = XEnumConst.THEATRE3.Theatre3TalentPoint
-    self.AssetPanel = XUiHelper.NewPanelActivityAsset({ self.ItemId }, self.PanelSpecialTool, nil, handler(self, self.OnBtnClick))
+    self.AssetPanel = XUiHelper.NewPanelActivityAssetSafe({ self.ItemId }, self.PanelSpecialTool, self, nil, handler(self, self.OnBtnClick))
 end
 --endregion
 

@@ -1558,8 +1558,10 @@ function XUiGridActivityBanner:RefreshTaikoMasterBanner(chapter, uiRoot)
         self.PanelLock.gameObject:SetActiveEx(false)
     end
 
-    local startTimeSecond = XDataCenter.TaikoMasterManager.GetActivityStartTime()
-    local endTimeSecond = XDataCenter.TaikoMasterManager.GetActivityEndTime()
+    ---@type XTaikoMasterAgency
+    local agency = XMVCA:GetAgency(ModuleId.XTaikoMaster)
+    local startTimeSecond = agency:GetActivityStartTime()
+    local endTimeSecond = agency:GetActivityEndTime()
     local now = XTime.GetServerNowTimestamp()
     if startTimeSecond and endTimeSecond and now >= startTimeSecond and now <= endTimeSecond then
         self:CreateCommonTimer(startTimeSecond, endTimeSecond, function()
@@ -1611,9 +1613,11 @@ function XUiGridActivityBanner:RefreshTwoSideTower(chapter, uiRoot)
         XRedPointManager.CheckOnce(self.OnCheckRedPoint, self, { XRedPointConditions.Types.CONDITION_TWO_SIDE_TOWER_TASK,XRedPointConditions.Types.CONDITION_TWO_SIDE_TOWER_NEW_CHAPTER })
         self.PanelLock.gameObject:SetActiveEx(false)
     end
-
-    local startTimeSecond = XDataCenter.TwoSideTowerManager.GetStartTime()
-    local endTimeSecond = XDataCenter.TwoSideTowerManager.GetEndTime()
+    
+    ---@type XTwoSideTowerAgency
+    local twoSideTowerAgency = XMVCA:GetAgency(ModuleId.XTwoSideTower)
+    local startTimeSecond = twoSideTowerAgency:GetStartTime()
+    local endTimeSecond = twoSideTowerAgency:GetEndTime()
     local now = XTime.GetServerNowTimestamp()
     if startTimeSecond and endTimeSecond and now >= startTimeSecond and now <= endTimeSecond then
         self:CreateCommonTimer(startTimeSecond, endTimeSecond, function()
@@ -1622,7 +1626,7 @@ function XUiGridActivityBanner:RefreshTwoSideTower(chapter, uiRoot)
     else
         self.PanelLeftTime.gameObject:SetActiveEx(false)
     end
-    local taskList = XDataCenter.TaskManager.GetTimeLimitTaskListByGroupId(XDataCenter.TwoSideTowerManager.GetLimitTaskId())
+    local taskList = XDataCenter.TaskManager.GetTimeLimitTaskListByGroupId(twoSideTowerAgency:GetOutSideLimitTaskId())
     local passCount, allCount = XDataCenter.TaskManager.GetTaskProgressByTaskList(taskList)
     self.TxtConsumeCount.text = XUiHelper.GetText("TwoSideTowerProcess", passCount, allCount)
 end

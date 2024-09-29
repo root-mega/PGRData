@@ -456,7 +456,7 @@ end
 ---------------------------------------- 资源栏 begin ----------------------------------------
 
 function XUiMaverick2Character:InitAssetPanel()
-    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelSpecialTool)
+    self.AssetActivityPanel = XUiPanelActivityAsset.New(self.PanelSpecialTool, self)
     XDataCenter.ItemManager.AddCountUpdateListener(
         {
             XDataCenter.ItemManager.ItemId.Maverick2Coin,

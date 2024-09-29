@@ -1,0 +1,46 @@
+[
+    {
+        "Id": 1001,
+        "Name": "Metal Wall",
+        "Type": 1,
+        "Rank": 10,
+        "UnlockType": 1,
+        "Condition": 0,
+        "Path": "Assets/Product/Texture/Image/UiCollectionWall/UiCollectionWallBg.png",
+        "Icon": "Assets/Product/Texture/Image/UiCollectionWall/UiCollectionWallStencilOne.png",
+        "LockDesc": "Locked"
+    },
+    {
+        "Id": 1002,
+        "Name": "Chinese Wall",
+        "Type": 1,
+        "Rank": 20,
+        "UnlockType": 2,
+        "Condition": 94027,
+        "Path": "Assets/Product/Texture/Image/UiCollectionWall/UiCollectionWallBgTwo.png",
+        "Icon": "Assets/Product/Texture/Image/UiCollectionWall/UiCollectionWallStencilTwo.png",
+        "LockDesc": "From event shop \"Hetero-Creature Institute\""
+    },
+    {
+        "Id": 2001,
+        "Name": "Metal Underframe",
+        "Type": 2,
+        "Rank": 10,
+        "UnlockType": 1,
+        "Condition": 0,
+        "Path": "Assets/Product/Ui/ComponentPrefab/UiCollectionWall/GridCollectionOne.prefab",
+        "Icon": "Assets/Product/Texture/Image/UiCollectionWall/UiCollectionWallRahmen.png",
+        "LockDesc": "Locked"
+    },
+    {
+        "Id": 2002,
+        "Name": "Chinese Underframe",
+        "Type": 2,
+        "Rank": 20,
+        "UnlockType": 2,
+        "Condition": 94028,
+        "Path": "Assets/Product/Ui/ComponentPrefab/UiCollectionWall/GridCollectionTwo.prefab",
+        "Icon": "Assets/Product/Texture/Image/UiCollectionWall/UiCollectionWallRahmenTwo.png",
+        "LockDesc": "From event shop \"Hetero-Creature Institute\""
+    }
+]
